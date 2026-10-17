@@ -9,7 +9,7 @@ unpaid coordinates per family.
 [kport-group-scalar-endpoint-audit](../kport-group-scalar-endpoint-audit/README.md)
 fixed its scalar mask: `K_ii = 1`, and `K_ij = 0` unless `i` and `j` lie in
 **distinct, mutually orthogonal** groups. The published k = 3 cover (PR2041)
-leaves only 102 free ordered pairs, so its fitting rank is near 112. For k = 2,
+leaves only 102 free ordered pairs (its exact fitting rank is not computed here). For k = 2,
 PR2484 found exact rank 49 on PR1825's matching and PR3335 found 34 on a rematched
 one. This package covers k = 3 and k = 4.
 
@@ -18,7 +18,7 @@ one. This package covers k = 3 and k = 4.
 | k (unpaid) | cover | exact fitting rank, every field | colouring floor | reference |
 |---:|---|---:|---:|---|
 | 2 | 56 rematched planes | 34 | 28 | PR3335 |
-| 3 | 37 orthonormal triads + 1 singleton port | **57** | 57 | PR2041's cover: ~112 |
+| 3 | 37 orthonormal triads + 1 singleton port | **57** | 57 | PR2041 cover: 102 free pairs only |
 | 4 | 28 orthonormal tetrads | **68** | 56 | — |
 
 For each cover the verifier checks the following:
