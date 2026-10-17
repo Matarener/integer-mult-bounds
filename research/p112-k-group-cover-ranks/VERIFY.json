@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-minrank-bracket-audit/verify.py",
+    "research/paired-plane-scalar-mask-obstruction/PR1825-CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "exhaustive max orthonormal label set 8 (4032 frames); k=3 and k=4 covers: orthonormal groups, orthogonal colour classes, fitting supports with dense rank = support count, forced identity block of equal size; two rejection controls; equality with RESULT.json"
+    }
+  ]
+}
