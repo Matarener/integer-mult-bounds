@@ -26,6 +26,10 @@ jobs:
             python -u v4_anneal.py $seed 18000 $st > anneal_${seed}.log 2>&1 &
             pids="$pids $!"
           done
+          # every 5 minutes print the last progress line of each of the 4 searches
+          while kill -0 $pids 2>/dev/null || [ -n "$(jobs -r)" ]; do
+            sleep 300; echo "=== $(date -u +%H:%M) progress"; for f in anneal_*.log; do echo "$f: $(tail -n 1 $f)"; done
+          done
           fail=0; for p in $pids; do wait $p || fail=1; done
           tail -n 3 anneal_*.log
           exit $fail
