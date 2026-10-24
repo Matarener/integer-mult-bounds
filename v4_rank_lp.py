@@ -137,15 +137,19 @@ else:
     hist = []
     st0 = pickle.load(open('v4_cg2_state.pkl', 'rb')); rowsT = sorted(set(map(tuple, st0['rows'])))
     log('rows from v4_cg2 state:', len(rowsT))
-    res = [None] * len(cores); t0 = time.time()
-    with mp.Pool(4) as pool:
-        for k, (idx, rv) in enumerate(pool.imap_unordered(_mr_idx, list(enumerate(c for _, _, c in cores)))):
-            res[idx] = rv
-            if k % 10 == 0 or k == len(cores) - 1:
-                log('core min-rank SAT %d / %d done, last: %s %s r>=%d 2omega=%d exact=%s (%.0fs)' % (k + 1, len(cores), cores[idx][0] + str(cores[idx][1]), list(cores[idx][2]), rv[0], rv[1], rv[2], time.time() - t0))
-    core_info = []
-    for (kind, L, c), (r, lo, exact) in zip(cores, res):
-        core_info.append({'kind': kind, 'L': L, 'S': list(c), 'r': r, 'two_omega': lo, 'exact': exact})
+    if os.path.exists('v4_rank_cores.json'):
+        core_info = json.load(open('v4_rank_cores.json')); log('core min-ranks loaded from v4_rank_cores.json (computed by SAT in an earlier run)')
+        assert len(core_info) == len(cores) and all(sorted(x['S']) == sorted(c) for x, (_, _, c) in zip(core_info, cores))
+    else:
+        res = [None] * len(cores); t0 = time.time()
+        with mp.Pool(4) as pool:
+            for k, (idx, rv) in enumerate(pool.imap_unordered(_mr_idx, list(enumerate(c for _, _, c in cores)))):
+                res[idx] = rv
+                if k % 10 == 0 or k == len(cores) - 1:
+                    log('core min-rank SAT %d / %d done, last: %s %s r>=%d 2omega=%d exact=%s (%.0fs)' % (k + 1, len(cores), cores[idx][0] + str(cores[idx][1]), list(cores[idx][2]), rv[0], rv[1], rv[2], time.time() - t0))
+        core_info = []
+        for (kind, L, c), (r, lo, exact) in zip(cores, res):
+            core_info.append({'kind': kind, 'L': L, 'S': list(c), 'r': r, 'two_omega': lo, 'exact': exact})
     json.dump(core_info, open('v4_rank_cores.json', 'w'), indent=0)
     from collections import Counter
     log('core min-ranks (kind, L, r, 2omega): count', dict(Counter((x['kind'], x['L'], x['r'], x['two_omega'], x['exact']) for x in core_info)))
@@ -229,8 +233,12 @@ for it in range(len(hist), 300):
     rA = [frozenset(inside[rowsT[t][0]]) for t in sup]; rR = [frozenset(inside[rowsT[t][1]]) for t in sup]; yy = y[sup]
     # cheap rounds price cliques only; cores are priced when rows and cliques have settled (or every 5th round)
     core_round = (it % 5 == 4) or (hist and hist[-1]['added_rows'] == 0 and hist[-1]['new_cols'] == 0) or (hist and hist[-1]['added_rows'] < 50)
-    jobs = [((), 0, rA, rR, yy, 600)] + ([(tuple(x['S']), x['r'], rA, rR, yy, 60) for x in gain_cores] if core_round else [])
-    with mp.Pool(4) as pool: pr = pool.map(price, jobs)
+    jobs = [((), 0, rA, rR, yy, 300)] + ([(tuple(x['S']), x['r'], rA, rR, yy, 20) for x in gain_cores] if core_round else [])
+    log('  LP solved (%.0fs), LB_LP %.4f; pricing %d MILPs in-process' % (tlp, val, len(jobs)))
+    pr = []
+    for jj, jb in enumerate(jobs):
+        pr.append(price(jb))
+        if jj == 0 or (jj + 1) % 5 == 0: log('  pricing %d / %d done' % (jj + 1, len(jobs)))
     newc = 0; nonopt = 0; best_profit = 0.0
     for p in pr:
         if p is None: nonopt += 1; continue
@@ -255,6 +263,7 @@ for it in range(len(hist), 300):
                 if ia[k] != last: last, cnt = ia[k], 0
                 if cnt < 2: cand.append((float(e[k]), a0 + int(ia[k]), int(ir[k]))); cnt += 1
     cand.sort(reverse=True); add_ = [(a, r) for _, a, r in cand[:1500]]
+    log('  separation done: %d violations' % nviol)
     pruned = 0
     if A.nnz > 14_000_000:
         keep = [t for t, s in zip(rowsT, slack) if s <= 1e-7]; pruned = len(rowsT) - len(keep); rowsT = keep
