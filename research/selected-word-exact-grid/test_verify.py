@@ -56,8 +56,47 @@ def tampered_result():
     V.require(stored['eight_relation_body/backward']['guard']['1'] == 11, 'stored RESULT.json equals the rebuild')
 
 
+import caller as CL  # noqa: E402
+
+
+def _caller_body(mutate):
+    spec = CL.importlib.util.spec_from_file_location('cl_ce', CL.CLIFFORD)
+    ce = CL.importlib.util.module_from_spec(spec); spec.loader.exec_module(ce)
+    body = json.loads(CL.BODY.read_text(encoding='utf-8'))
+    prov = json.loads((CL.PROV / 'PROVIDER.json').read_text(encoding='utf-8'))
+    word = json.loads(gzip.decompress((CL.PROV / 'WORD.json.gz').read_bytes()))
+    canonical = json.loads(gzip.decompress(CL.EIGHT.read_bytes()))['canonical']
+    mutate(body, prov)
+    B = CL.Body(body, prov, word, canonical, ce)
+    B.run()
+    CL.require(B.odd == 0, 'every coefficient of the complete body is dyadic')
+
+
+def caller_odd_division():
+    def m(body, prov):
+        next(o for o in body['operations'] if o['op'] == 'ADD')['coefficient'] = '1/3'
+    _caller_body(m)
+
+
+def caller_missing_owned_clear():
+    def m(body, prov):
+        ops = body['operations']
+        i = max(k for k, o in enumerate(ops) if o['op'] == 'CLEAR')
+        ops.pop(i)
+    _caller_body(m)
+
+
+def caller_tampered_result():
+    stored = json.loads((HERE / 'RESULT-CALLER.json').read_text(encoding='utf-8'))
+    stored['controller']['rigorous_bracket'] = [70, 77]
+    CL.require(stored['controller']['rigorous_bracket'] == [73, 77], 'stored RESULT-CALLER.json equals the rebuild')
+
+
 for name, fn in [('drifted input hash', drift), ('an odd division in a scalar ADD', odd_division),
                  ('a corrupted climb rank', wrong_climb_rank), ('a smaller guard claim', smaller_guard_claim),
-                 ('tampered RESULT.json', tampered_result)]:
+                 ('tampered RESULT.json', tampered_result),
+                 ('caller: an odd division in a body ADD', caller_odd_division),
+                 ('caller: a missing owned CLEAR', caller_missing_owned_clear),
+                 ('caller: tampered RESULT-CALLER.json', caller_tampered_result)]:
     rejects(name, fn)
 print('PASS_SELECTED_WORD_EXACT_GRID_CONTROLS')

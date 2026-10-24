@@ -1,6 +1,6 @@
 # Exact internal grid of the selected complex word
 
-**Positive scoped result; no new κ.** The selected chain runs the eight-relation body of
+**Positive scoped result; no new κ.** Part 2 extends it to the complete #5413 body and the controller level. The selected chain runs the eight-relation body of
 [PR #5383](https://github.com/CrocSwap/integer-mult-bounds/pull/5383) (Ali Romman), on Cao Yifan's #4610 word,
 through #5392, #5398 and #5413. Public physical inputs, including dirty helpers and owned entries, are arbitrary
 arrays on `2^-f Z[i]`. At payload tensor depth `lambda`, every atomic cut of this body is exact with
@@ -49,29 +49,68 @@ input basis vector produces a component with denominator exactly `2^(6+5)`. The 
 with coefficient `-1/32` and rank 9. The largest coefficient sum `sum_s |c_s|` is 457. Since each row of a
 `2^(9 lambda)`-dimensional unitary has l1 norm at most `2^(9 lambda/2)`, this gives the magnitude bound.
 
+## Part 2: the complete #5413 body and the controller
+
+The selected caller runs only backward bodies: 18 calls, with no forward macro calls.
+[caller.py](caller.py) executes the literal `NEUTRAL-BACKWARD-v16c` body. Inside it, `PROVIDER_5402` is expanded
+according to the provider's own schedule:
+
+- main input and output wrappers;
+- mode `input_K` and scalar 2;
+- the 834-instruction input and output basis programs;
+- the 21,473-event provider word;
+- cache scalar, `output_N`, SWAP and CLEAR.
+
+The body's 456 ADDs, 1,072 monomial maps and 8 rank-8 Gaussian jobs are executed as well. Every monomial, Gaussian
+and native warp stays a symbol in its term's word. Terms reached through different operator paths therefore never
+merge, which can only overstate the 2-adic exponents.
+
+| Check | Result |
+|---|---|
+| Odd denominators in the whole body | none, including the `ZW = 14 I` provider |
+| Owned fields at exit | all 17 zero |
+| Maximum `v2` | 6, attained: provider event 19465, input 470 once, coefficient `-1/64`, one alias monomial, Fourier rank 9 |
+| Body guard | `ceil(9 lambda/2) + 6`, as in part 1 |
+| Main-data terms | `v2 <= 4`; Pareto front `{(3, 9), (4, 0)}` in `(v2, local rank)`, single-occurrence witnesses |
+| Helper terms | `v2 <= 6`, local rank `<= 9`, fresh helper fields in each of the 18 calls |
+
+The controller's own bank-level coefficients are all integers: ADD `+-1`, SCALE `-1`, SWAPs and 0/1 boundaries.
+The global data live on 145 axes, and 224 productive targets have rank 145.
+
+- **Lower bound 73.** A rank-145 target with unit coefficient needs `ceil(145/2) = 73` bits.
+- **Upper bound 77.** A main-data term has `v2 <= 4` and rank at most 145, giving `4 + 73 = 77`. A helper term needs
+  at most `6 + ceil(9/2) = 11`.
+
+**One controller level therefore needs between 73 and 77 extra bits.** For comparison, #5413's
+`FRESH-PRECISION.json` records only crude heights: about 19,452 bits per local body and 377,688 for the global word.
+Pinning the exact value needs the global 145-axis charts; it is the first open question below.
+
 ## Reproduce
 
 ```sh
 python3.12 -B scripts/research_package.py --package research/selected-word-exact-grid
 python3.12 -I -B research/selected-word-exact-grid/verify.py
+python3.12 -I -B research/selected-word-exact-grid/caller.py
 python3.12 -I -B research/selected-word-exact-grid/test_verify.py
 ```
 
 The verifier uses only the standard library and the pinned repository Clifford compiler. It takes about a minute
-and prints `PASS_SELECTED_WORD_EXACT_GRID_CEIL_9L_2_PLUS_6`. The controls reject a drifted input, an odd division,
-a corrupted climb rank, a smaller guard claim and a tampered RESULT.json.
+and prints `PASS_SELECTED_WORD_EXACT_GRID_CEIL_9L_2_PLUS_6`. Part 2 prints
+`PASS_SELECTED_CALLER_BODY_GRID_6_CONTROLLER_73_TO_77` in about fifteen seconds. The controls reject a drifted input, an odd division,
+a corrupted climb rank, a smaller guard claim and a tampered RESULT.json. Three more reject an odd division in a
+body ADD, a missing owned CLEAR and a tampered RESULT-CALLER.json.
 
 ## Scope
 
-This covers the eight-relation body and its #4610 source, in both programs. It does not cover the #5413 caller
-packet (normalizers, the #5402 coupled provider with `ZW = 14 I`, owned fields). Native operator correctness, the
+Part 1 covers the eight-relation body and its #4610 source, in both programs. Part 2 covers the complete #5413
+runtime body and brackets the controller level. Native operator correctness, the
 canonical-chart convention and the tensor-lift convention stay inherited premises. It is an exact-grid statement,
 not a rounded execution, a paid recursive implementation or a supplier admission. The selected record is unchanged.
 
 ## Open next questions
 
-- **Caller packet.** What exact grid does the complete #5413 caller packet need? First replay its literal packets
-  with the same census. An odd division there would rule out a fixed dyadic grid for the selected result.
+- **Controller exact value.** What is the exact controller-level guard inside 73..77? First build the global
+  145-axis charts from the #5413 plan files and compute the Fourier rank of every main-data term with `v2 >= 1`.
 - **Recursive price.** What does the attained guard cost in the recursive invoice? #5419 shows that a uniform
   paid-precision factor above about 1.0046 removes the 0.0033 margin. First compare the guard with the retained
   precision_tape packing.
