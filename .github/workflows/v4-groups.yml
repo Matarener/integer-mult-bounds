@@ -1,0 +1,29 @@
+name: v4-groups
+on:
+  push:
+    branches: [v4-plane-lb]
+    paths: [v4_groups.py, .github/workflows/v4-groups.yml]
+  workflow_dispatch:
+jobs:
+  groups:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy==2.2.6 ortools
+      - name: Exact min cost of local decoders on plane groups (CP-SAT, 4 workers)
+        run: set -o pipefail; python -u v4_groups.py ${{ matrix.chunk }} 12 4 2>&1 | tee groups_${{ matrix.chunk }}.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v4-groups-${{ matrix.chunk }}
+          path: |
+            groups_*.jsonl
+            groups_*.log
