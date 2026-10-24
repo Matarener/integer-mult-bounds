@@ -1,0 +1,29 @@
+name: gn-arrivals-lb
+on:
+  push:
+    branches: [gn-arrivals-lb]
+  workflow_dispatch:
+jobs:
+  lb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run ports chunk, chunk+28, chunk+56, chunk+84
+        run: |
+          c=${{ matrix.chunk }}
+          python -u arrivals_lb2.py $c $((c+28)) $((c+56)) $((c+84)) | tee lb_${c}.log
+          mv results.jsonl results_${c}.jsonl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lb-${{ matrix.chunk }}
+          path: |
+            results_${{ matrix.chunk }}.jsonl
+            lb_${{ matrix.chunk }}.log
