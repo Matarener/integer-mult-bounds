@@ -100,7 +100,7 @@ if __name__ == '__main__':
     allg = groups(); mine = allg[chunk::nch]
     print('groups total', len(allg), 'this chunk', len(mine), flush=True)
     out = open(f'groups_{chunk}.jsonl', 'w'); n = 0; cheap = 0; unk = 0
-    with mp.Pool(W) as pool:
+    with mp.get_context('spawn').Pool(W) as pool:   # spawn: no fork after the solver started threads
         for r in pool.imap_unordered(solve_group, mine, chunksize=4):
             n += 1; g = len(r['G'])
             if r['best'] is not None and r['best'] < 4 * g: cheap += 1; print('CHEAPER GROUP FOUND', r, flush=True)
