@@ -11,15 +11,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: pip install numpy==2.2.6 ortools
-      - name: Exact min cost of local decoders on plane groups (CP-SAT, 4 workers)
-        run: set -o pipefail; python -u v4_groups.py ${{ matrix.chunk }} 12 4 2>&1 | tee groups_${{ matrix.chunk }}.log
+      - name: Exact min cost of local decoders on degenerate plane triples (CP-SAT, 4 workers per triple, 60 s)
+        run: set -o pipefail; python -u v4_groups.py ${{ matrix.chunk }} 19 4 tri 60 2>&1 | tee groups_${{ matrix.chunk }}.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
