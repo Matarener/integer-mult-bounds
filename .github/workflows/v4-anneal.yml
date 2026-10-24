@@ -17,15 +17,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: pip install numpy==2.2.6
       - name: Anneal exact decoders (4 processes per runner)
         run: |
           s=${{ matrix.seed }}
           for j in 0 1 2 3; do
             seed=$((s*10+j)); case $((seed % 3)) in 0) st=id;; 1) st=color;; *) st=mix;; esac
             python -u v4_anneal.py $seed 18000 $st > anneal_${seed}.log 2>&1 &
+            pids="$pids $!"
           done
-          wait
+          fail=0; for p in $pids; do wait $p || fail=1; done
           tail -n 3 anneal_*.log
+          exit $fail
       - uses: actions/upload-artifact@v4
         if: always()
         with:
