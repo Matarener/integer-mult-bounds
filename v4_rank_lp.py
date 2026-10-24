@@ -97,6 +97,8 @@ def minrank_core(S, budget=200000):
         if r is None: return k, lo, False      # r(S) >= k proven (all smaller k were UNSAT)
     return m, lo, True
 
+def _mr_idx(a): return a[0], minrank_core(a[1])
+
 # ---------------- spans, tariff matrix, rows -----------------
 d = pickle.load(open('v4_spans.pkl', 'rb')); spans, inside = d['spans'], d['inside']; n = len(spans)
 imask = np.array([sum(1 << v for v in ins) for ins in inside], dtype=np.uint64)

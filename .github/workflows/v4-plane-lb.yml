@@ -15,7 +15,7 @@ jobs:
       - name: Cutting-plane LP + exhaustive separation + strict certificate (resumes from v4_cg2_state.pkl)
         env:
           V4_TIME_LIMIT_SEC: '19800'
-        run: python -u v4_cg2.py 2>&1 | tee v4_cg2.log
+        run: set -o pipefail; python -u v4_cg2.py 2>&1 | tee v4_cg2.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:

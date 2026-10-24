@@ -18,7 +18,7 @@ jobs:
       - name: Clique + odd-hole rank-cut LP, exact pricing (4 workers), exhaustive separation, strict certificate
         env:
           V4_TIME_LIMIT_SEC: '19800'
-        run: python -u v4_rank_lp.py 2>&1 | tee v4_rank.log
+        run: set -o pipefail; python -u v4_rank_lp.py 2>&1 | tee v4_rank.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
