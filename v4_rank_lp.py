@@ -236,13 +236,6 @@ for it in range(len(hist), 1000):
     rA = [frozenset(inside[rowsT[t][0]]) for t in sup]; rR = [frozenset(inside[rowsT[t][1]]) for t in sup]; yy = y[sup]
     # cheap rounds price cliques only; cores are priced when rows and cliques have settled (or every 5th round)
     core_round = (it % 5 == 4) or (hist and hist[-1]['added_rows'] == 0 and hist[-1]['new_cols'] == 0) or (hist and hist[-1]['added_rows'] < 50)
-    jobs = [((), 0, rA, rR, yy, 300)] + ([(tuple(x['S']), x['r'], rA, rR, yy, 20) for x in gain_cores] if core_round else [])
-    log('  LP solved (%.0fs), LB_LP %.4f; pricing %d MILPs in-process' % (tlp, val, len(jobs)))
-    pr = []
-    for jj, jb in enumerate(jobs):
-        pr.append(price(jb))
-        if jj == 0 or (jj + 1) % 5 == 0: log('  pricing %d / %d done' % (jj + 1, len(jobs)))
-    newc = 0; nonopt = 0; best_profit = 0.0
     # heuristic extra columns: randomized greedy cliques with positive reduced profit (exact profit, cheap bitmask eval)
     Am = imask[[rowsT[t][0] for t in sup]]; Rm = imask[[rowsT[t][1] for t in sup]]
     def prof(Xm): return 2 * bin(Xm).count('1') - float(yy[((Am & np.uint64(Xm)) != 0) & ((Rm & np.uint64(Xm)) != 0)].sum())
@@ -254,10 +247,19 @@ for it in range(len(hist), 1000):
                 nv = prof(Xm | (1 << vtx))
                 if nv >= cur - 1e-9 or rng_h.random() < 0.15: Xm |= 1 << vtx; Q.append(vtx); cur = nv
         if cur > 1e-6: found[Xm] = (cur, tuple(Q))
+    hnew = 0; hbest = 0.0
     for Xm, (pv, Q) in sorted(found.items(), key=lambda kv: -kv[1][0])[:60]:
-        if add_col(Q, 2 * len(Q), 'clique'): newc += 1
-        best_profit = max(best_profit, pv)
+        if add_col(Q, 2 * len(Q), 'clique'): hnew += 1
+        hbest = max(hbest, pv)
     log('  heuristic cliques with positive profit: %d (added up to 60)' % len(found))
+    exact = (it % 4 == 0) or hnew < 10      # exact MILP pricing only every 4th round or when the heuristic dries up
+    jobs = ([((), 0, rA, rR, yy, 300)] + ([(tuple(x['S']), x['r'], rA, rR, yy, 20) for x in gain_cores] if core_round else [])) if exact else []
+    log('  LP solved (%.0fs), LB_LP %.4f; pricing %d MILPs in-process' % (tlp, val, len(jobs)))
+    pr = []
+    for jj, jb in enumerate(jobs):
+        pr.append(price(jb))
+        if jj == 0 or (jj + 1) % 5 == 0: log('  pricing %d / %d done' % (jj + 1, len(jobs)))
+    newc = hnew; nonopt = 0; best_profit = hbest
     for p in pr:
         if p is None: nonopt += 1; continue
         if not p['optimal']: nonopt += 1
@@ -288,7 +290,7 @@ for it in range(len(hist), 1000):
     rowsT = sorted(set(rowsT) | set(add_))
     kinds = {}
     for q in act: kinds[colsL[q][1][1]] = round(kinds.get(colsL[q][1][1], 0) + lam[q] * obj[q], 3)
-    hist.append({'iter': it, 'core_round': bool(core_round), 'LB_LP': round(val, 6), 'ceiling_9xprofit': round(val + 9 * best_profit, 3), 'value_by_kind': kinds, 'new_cols': newc, 'pricing_nonoptimal': nonopt,
+    hist.append({'iter': it, 'core_round': bool(core_round), 'LB_LP': round(val, 6), 'exact_pricing': bool(exact), 'ceiling_9xprofit': round(val + 9 * best_profit, 3) if exact and nonopt == 0 else None, 'value_by_kind': kinds, 'new_cols': newc, 'pricing_nonoptimal': nonopt,
                  'best_profit': round(best_profit, 6), 'violations': nviol, 'worst_excess': round(worst, 6),
                  'added_rows': len(add_), 'pruned': pruned, 'rows': len(rowsT), 'cols': len(cols), 'nnz': int(A.nnz),
                  'lp_sec': round(tlp, 1), 'pricing_sec': round(tpr, 1), 'sec': round(time.time() - t0, 1), 'ram': ram()})
@@ -296,7 +298,7 @@ for it in range(len(hist), 1000):
     pickle.dump({'rows': rowsT, 'hist': hist, 'cols': dict(cols), 'core_info': core_info}, open(ST + '.tmp', 'wb')); os.replace(ST + '.tmp', ST)
     json.dump(hist, open('v4_rank.progress.json', 'w'), indent=0)
     last_cols, last_lam = colsL, lam
-    if not add_ and newc == 0 and core_round: break
+    if not add_ and newc == 0 and core_round and exact: break
 
 # ---------------- strict certificate -----------------
 colsL, lam = last_cols, np.where(last_lam > 1e-12, last_lam, 0.0)
