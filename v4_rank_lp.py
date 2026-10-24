@@ -64,9 +64,11 @@ def omega_of(S):
             if all(NON[a][b] for a, b in itertools.combinations(c, 2)): return r
     return 0
 
-def minrank_core(S):
-    """exact min-rank over F2 of the partial matrix on the 2|S| ports of plane set S (SAT, increasing k)."""
-    from pysat.solvers import Cadical153
+def minrank_core(S, budget=200000):
+    """lower bound on the min-rank over F2 of the partial matrix on the 2|S| ports of plane set S.
+    k runs up from 2*omega(S); 'rank <= k' is tested by SAT (M = U V).  UNSAT proves r > k.  If the solver runs out of
+    its conflict budget at some k, we return k as a (still valid) lower bound and flag it as not exact."""
+    from pysat.solvers import Glucose4
     S = list(S); m = 2 * len(S)
     plane_of = [S[p // 2] for p in range(m)]
     fixed = {}
@@ -89,11 +91,11 @@ def minrank_core(S):
             for g in gs[1:]:
                 y = new(); cls += [[-y, x, g], [-y, -x, -g], [y, -x, g], [y, x, -g]]; x = y
             cls.append([x] if t else [-x])
-        with Cadical153(bootstrap_with=cls) as s:
-            if s.solve(): return k, lo
-    return m, lo
-
-def _mr_idx(a): return a[0], minrank_core(a[1])
+        with Glucose4(bootstrap_with=cls) as s:
+            s.conf_budget(budget); r = s.solve_limited()
+        if r is True: return k, lo, True
+        if r is None: return k, lo, False      # r(S) >= k proven (all smaller k were UNSAT)
+    return m, lo, True
 
 # ---------------- spans, tariff matrix, rows -----------------
 d = pickle.load(open('v4_spans.pkl', 'rb')); spans, inside = d['spans'], d['inside']; n = len(spans)
@@ -138,13 +140,13 @@ else:
         for k, (idx, rv) in enumerate(pool.imap_unordered(_mr_idx, list(enumerate(c for _, _, c in cores)))):
             res[idx] = rv
             if k % 10 == 0 or k == len(cores) - 1:
-                log('core min-rank SAT %d / %d done, last: %s r=%d 2omega=%d (%.0fs)' % (k + 1, len(cores), cores[idx][0] + str(cores[idx][1]), rv[0], rv[1], time.time() - t0))
+                log('core min-rank SAT %d / %d done, last: %s %s r>=%d 2omega=%d exact=%s (%.0fs)' % (k + 1, len(cores), cores[idx][0] + str(cores[idx][1]), list(cores[idx][2]), rv[0], rv[1], rv[2], time.time() - t0))
     core_info = []
-    for (kind, L, c), (r, lo) in zip(cores, res):
-        core_info.append({'kind': kind, 'L': L, 'S': list(c), 'r': r, 'two_omega': lo})
+    for (kind, L, c), (r, lo, exact) in zip(cores, res):
+        core_info.append({'kind': kind, 'L': L, 'S': list(c), 'r': r, 'two_omega': lo, 'exact': exact})
     json.dump(core_info, open('v4_rank_cores.json', 'w'), indent=0)
     from collections import Counter
-    log('core min-ranks (kind, L, r, 2omega): count', dict(Counter((x['kind'], x['L'], x['r'], x['two_omega']) for x in core_info)))
+    log('core min-ranks (kind, L, r, 2omega): count', dict(Counter((x['kind'], x['L'], x['r'], x['two_omega'], x['exact']) for x in core_info)))
 gain_cores = [x for x in core_info if x['r'] > x['two_omega']]
 log('cores with rank gain over cliques:', len(gain_cores))
 for x in gain_cores: add_col(x['S'], x['r'], 'core')

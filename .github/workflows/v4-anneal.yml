@@ -1,0 +1,35 @@
+name: v4-anneal
+on:
+  push:
+    branches: [v4-plane-lb]
+    paths: [v4_anneal.py, .github/workflows/v4-anneal.yml]
+  workflow_dispatch:
+jobs:
+  anneal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Anneal exact decoders (4 processes per runner)
+        run: |
+          s=${{ matrix.seed }}
+          for j in 0 1 2 3; do
+            seed=$((s*10+j)); case $((seed % 3)) in 0) st=id;; 1) st=color;; *) st=mix;; esac
+            python -u v4_anneal.py $seed 18000 $st > anneal_${seed}.log 2>&1 &
+          done
+          wait
+          tail -n 3 anneal_*.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v4-anneal-${{ matrix.seed }}
+          path: |
+            anneal_*.json
+            anneal_*.log
