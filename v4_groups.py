@@ -110,7 +110,10 @@ if __name__ == '__main__':
     T0 = time.time()
     t = solve_group((0,), 60, W)
     print('self-test single plane:', t['status'], t['best'], flush=True); assert t['best'] == 4 and t['status'] == 'OPTIMAL'
-    if mode == 'cls':   # one representative per equivalence class (same tariff table + orthogonality pattern up to plane order)
+    if mode == 'file':  # classes_all.json from v4_merge_classes.py
+        CL = json.load(open('classes_all.json')); allg = [tuple(c['rep']) for c in CL]
+        print('classes', len(CL), 'groups covered', sum(c['count'] for c in CL), flush=True)
+    elif mode == 'cls':   # one representative per equivalence class (same tariff table + orthogonality pattern up to plane order)
         CL = json.load(open('tri_classes.json')); allg = [tuple(c[0]) for c in CL]
         print('classes', len(CL), 'triples covered', sum(len(c) for c in CL), flush=True)
     else:
