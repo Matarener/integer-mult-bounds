@@ -216,7 +216,9 @@ for it in range(len(hist), 300):
     # ---- column pricing (parallel)
     sup = np.nonzero(y > 1e-9)[0]
     rA = [frozenset(inside[rowsT[t][0]]) for t in sup]; rR = [frozenset(inside[rowsT[t][1]]) for t in sup]; yy = y[sup]
-    jobs = [((), 0, rA, rR, yy, 600)] + [(tuple(x['S']), x['r'], rA, rR, yy, 300) for x in gain_cores]
+    # cheap rounds price cliques only; cores are priced when rows and cliques have settled (or every 5th round)
+    core_round = (it % 5 == 4) or (hist and hist[-1]['added_rows'] == 0 and hist[-1]['new_cols'] == 0) or (hist and hist[-1]['added_rows'] < 50)
+    jobs = [((), 0, rA, rR, yy, 600)] + ([(tuple(x['S']), x['r'], rA, rR, yy, 60) for x in gain_cores] if core_round else [])
     with mp.Pool(4) as pool: pr = pool.map(price, jobs)
     newc = 0; nonopt = 0; best_profit = 0.0
     for p in pr:
@@ -248,7 +250,7 @@ for it in range(len(hist), 300):
     rowsT = sorted(set(rowsT) | set(add_))
     kinds = {}
     for q in act: kinds[colsL[q][1][1]] = round(kinds.get(colsL[q][1][1], 0) + lam[q] * obj[q], 3)
-    hist.append({'iter': it, 'LB_LP': round(val, 6), 'value_by_kind': kinds, 'new_cols': newc, 'pricing_nonoptimal': nonopt,
+    hist.append({'iter': it, 'core_round': bool(core_round), 'LB_LP': round(val, 6), 'value_by_kind': kinds, 'new_cols': newc, 'pricing_nonoptimal': nonopt,
                  'best_profit': round(best_profit, 6), 'violations': nviol, 'worst_excess': round(worst, 6),
                  'added_rows': len(add_), 'pruned': pruned, 'rows': len(rowsT), 'cols': len(cols), 'nnz': int(A.nnz),
                  'lp_sec': round(tlp, 1), 'pricing_sec': round(tpr, 1), 'sec': round(time.time() - t0, 1), 'ram': ram()})
@@ -256,7 +258,7 @@ for it in range(len(hist), 300):
     pickle.dump({'rows': rowsT, 'hist': hist, 'cols': dict(cols), 'core_info': core_info}, open(ST + '.tmp', 'wb')); os.replace(ST + '.tmp', ST)
     json.dump(hist, open('v4_rank.progress.json', 'w'), indent=0)
     last_cols, last_lam = colsL, lam
-    if not add_ and newc == 0: break
+    if not add_ and newc == 0 and core_round: break
 
 # ---------------- strict certificate -----------------
 colsL, lam = last_cols, np.where(last_lam > 1e-12, last_lam, 0.0)
