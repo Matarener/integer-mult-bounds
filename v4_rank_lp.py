@@ -14,7 +14,7 @@
 # Column generation: exact MILP pricing over all cliques, and over all K for each core (parallel, 4 workers).
 # Row generation: exhaustive separation over all 39,087^2 ordered pairs.  Final float64 certificate over all pairs.
 import json, os, pickle, sys, time, itertools, multiprocessing as mp
-import numpy as np, scipy.optimize as so, scipy.sparse as sp
+import numpy as np, scipy.optimize as so, scipy.sparse as sp, random
 from v4lib import *
 
 T_START = time.time(); TIME_LIMIT = float(os.environ.get('V4_TIME_LIMIT_SEC', '1e12'))
@@ -153,6 +153,9 @@ else:
     json.dump(core_info, open('v4_rank_cores.json', 'w'), indent=0)
     from collections import Counter
     log('core min-ranks (kind, L, r, 2omega): count', dict(Counter((x['kind'], x['L'], x['r'], x['two_omega'], x['exact']) for x in core_info)))
+# the full-span row (all planes -> all planes, tariff 9) makes sum(lam) <= 9, which gives the ceiling LB_LP + 9*best_profit
+full = [i for i in range(n) if len(inside[i]) == NP]
+rowsT = sorted(set(map(tuple, rowsT)) | {(full[0], full[0])}); log('full-span row', full[0], 'tariff', int(tarm[full[0], full[0]]))
 gain_cores = [x for x in core_info if x['r'] > x['two_omega']]
 log('cores with rank gain over cliques:', len(gain_cores))
 for x in gain_cores: add_col(x['S'], x['r'], 'core')
@@ -216,7 +219,7 @@ def build(colsL):
     for a0 in range(0, n, 2000): out[a0:a0+2000] = (imask[a0:a0+2000, None] & xm[None, :]) != 0
     return out
 lam = None
-for it in range(len(hist), 300):
+for it in range(len(hist), 1000):
     if time.time() - T_START > TIME_LIMIT: log('time limit reached'); break
     t0 = time.time()
     colsL = sorted(cols.items(), key=lambda kv: (len(kv[0]), sorted(kv[0])))
@@ -240,6 +243,21 @@ for it in range(len(hist), 300):
         pr.append(price(jb))
         if jj == 0 or (jj + 1) % 5 == 0: log('  pricing %d / %d done' % (jj + 1, len(jobs)))
     newc = 0; nonopt = 0; best_profit = 0.0
+    # heuristic extra columns: randomized greedy cliques with positive reduced profit (exact profit, cheap bitmask eval)
+    Am = imask[[rowsT[t][0] for t in sup]]; Rm = imask[[rowsT[t][1] for t in sup]]
+    def prof(Xm): return 2 * bin(Xm).count('1') - float(yy[((Am & np.uint64(Xm)) != 0) & ((Rm & np.uint64(Xm)) != 0)].sum())
+    rng_h = random.Random(it); found = {}
+    for _ in range(400):
+        order = list(range(NP)); rng_h.shuffle(order); Xm = 0; Q = []; cur = 0.0
+        for vtx in order:
+            if all(NON[vtx][w] for w in Q):
+                nv = prof(Xm | (1 << vtx))
+                if nv >= cur - 1e-9 or rng_h.random() < 0.15: Xm |= 1 << vtx; Q.append(vtx); cur = nv
+        if cur > 1e-6: found[Xm] = (cur, tuple(Q))
+    for Xm, (pv, Q) in sorted(found.items(), key=lambda kv: -kv[1][0])[:60]:
+        if add_col(Q, 2 * len(Q), 'clique'): newc += 1
+        best_profit = max(best_profit, pv)
+    log('  heuristic cliques with positive profit: %d (added up to 60)' % len(found))
     for p in pr:
         if p is None: nonopt += 1; continue
         if not p['optimal']: nonopt += 1
@@ -270,7 +288,7 @@ for it in range(len(hist), 300):
     rowsT = sorted(set(rowsT) | set(add_))
     kinds = {}
     for q in act: kinds[colsL[q][1][1]] = round(kinds.get(colsL[q][1][1], 0) + lam[q] * obj[q], 3)
-    hist.append({'iter': it, 'core_round': bool(core_round), 'LB_LP': round(val, 6), 'value_by_kind': kinds, 'new_cols': newc, 'pricing_nonoptimal': nonopt,
+    hist.append({'iter': it, 'core_round': bool(core_round), 'LB_LP': round(val, 6), 'ceiling_9xprofit': round(val + 9 * best_profit, 3), 'value_by_kind': kinds, 'new_cols': newc, 'pricing_nonoptimal': nonopt,
                  'best_profit': round(best_profit, 6), 'violations': nviol, 'worst_excess': round(worst, 6),
                  'added_rows': len(add_), 'pruned': pruned, 'rows': len(rowsT), 'cols': len(cols), 'nnz': int(A.nnz),
                  'lp_sec': round(tlp, 1), 'pricing_sec': round(tpr, 1), 'sec': round(time.time() - t0, 1), 'ram': ram()})
