@@ -110,7 +110,12 @@ if __name__ == '__main__':
     T0 = time.time()
     t = solve_group((0,), 60, W)
     print('self-test single plane:', t['status'], t['best'], flush=True); assert t['best'] == 4 and t['status'] == 'OPTIMAL'
-    allg = degenerate_triples() if mode == 'tri' else groups(); mine = allg[chunk::nch]
+    if mode == 'cls':   # one representative per equivalence class (same tariff table + orthogonality pattern up to plane order)
+        CL = json.load(open('tri_classes.json')); allg = [tuple(c[0]) for c in CL]
+        print('classes', len(CL), 'triples covered', sum(len(c) for c in CL), flush=True)
+    else:
+        allg = degenerate_triples() if mode == 'tri' else groups()
+    mine = allg[chunk::nch]
     print('mode', mode, 'groups total', len(allg), 'this chunk', len(mine), 'time limit per group', TL, 's on', W, 'workers', flush=True)
     out = open(f'groups_{chunk}.jsonl', 'w'); n = 0; cheap = 0; unk = 0; proven = 0
     for G in mine:
