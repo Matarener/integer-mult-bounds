@@ -93,6 +93,8 @@ def minrank_core(S):
             if s.solve(): return k, lo
     return m, lo
 
+def _mr_idx(a): return a[0], minrank_core(a[1])
+
 # ---------------- spans, tariff matrix, rows -----------------
 d = pickle.load(open('v4_spans.pkl', 'rb')); spans, inside = d['spans'], d['inside']; n = len(spans)
 imask = np.array([sum(1 << v for v in ins) for ins in inside], dtype=np.uint64)
@@ -131,7 +133,12 @@ else:
     hist = []
     st0 = pickle.load(open('v4_cg2_state.pkl', 'rb')); rowsT = sorted(set(map(tuple, st0['rows'])))
     log('rows from v4_cg2 state:', len(rowsT))
-    with mp.Pool(4) as pool: res = pool.map(minrank_core, [c for _, _, c in cores])
+    res = [None] * len(cores); t0 = time.time()
+    with mp.Pool(4) as pool:
+        for k, (idx, rv) in enumerate(pool.imap_unordered(_mr_idx, list(enumerate(c for _, _, c in cores)))):
+            res[idx] = rv
+            if k % 10 == 0 or k == len(cores) - 1:
+                log('core min-rank SAT %d / %d done, last: %s r=%d 2omega=%d (%.0fs)' % (k + 1, len(cores), cores[idx][0] + str(cores[idx][1]), rv[0], rv[1], time.time() - t0))
     core_info = []
     for (kind, L, c), (r, lo) in zip(cores, res):
         core_info.append({'kind': kind, 'L': L, 'S': list(c), 'r': r, 'two_omega': lo})
