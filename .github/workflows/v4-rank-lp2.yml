@@ -1,0 +1,31 @@
+name: v4-rank-lp2
+on:
+  push:
+    branches: [v4-plane-lb]
+    paths: [v4_rank_lp2.py, .github/workflows/v4-rank-lp2.yml]
+  workflow_dispatch:
+jobs:
+  rank-lp2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numpy / scipy / python-sat
+        run: pip install numpy==2.2.6 scipy==1.18.1 python-sat
+      - name: Clique + odd-hole rank-cut LP, exact pricing (4 workers), exhaustive separation, strict certificate
+        env:
+          V4_TIME_LIMIT_SEC: '19800'
+        run: set -o pipefail; python -u v4_rank_lp2.py 2>&1 | tee v4_rank2.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v4-rank-lp2-result
+          path: |
+            v4_rank2.log
+            v4_rank2.progress.json
+            v4_rank2_result.json
+            v4_rank_cores.json
+            v4_rank2_state.pkl
