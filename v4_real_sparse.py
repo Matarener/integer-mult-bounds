@@ -60,6 +60,10 @@ def search(D, starts, seed):
                     best = (true, [(types[k][0], types[k][1]) for k in active])
                 break
     return best
+def _run(a):
+    D, st, sd = a
+    return D, search(D, st, sd)
+
 if __name__ == '__main__':
     import multiprocessing as mp
     starts = int(sys.argv[1]) if len(sys.argv) > 1 else 30
@@ -67,7 +71,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 2: reps = reps[:int(sys.argv[2])]
     t0 = time.time()
     with mp.get_context('spawn').Pool(4) as pool:
-        for D, best in zip(reps, pool.starmap(search, [(D, starts, i) for i, D in enumerate(reps)])):
+        for D, best in pool.imap_unordered(_run, [(D, starts, i) for i, D in enumerate(reps)]):
             tag = 'ESCAPE' if best and best[0] < 12 else 'no escape'
             print('triple', D, 'best exact real decoder cost', best[0] if best else None, '->', tag, '%.0fs' % (time.time() - t0), flush=True)
             if best and best[0] < 12: print('   terms:', best[1], flush=True)
