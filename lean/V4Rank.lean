@@ -43,8 +43,13 @@ theorem rank_add_le' {m n : Type*} [Fintype m] [Fintype n] (A B : Matrix m n F) 
     (A + B).rank ≤ A.rank + B.rank := by
   unfold Matrix.rank
   rw [Matrix.mulVecLin_add]
-  exact (Submodule.finrank_mono (LinearMap.range_add_le _ _)).trans
-    (Submodule.finrank_add_le_finrank_add_finrank _ _)
+  have h : LinearMap.range (A.mulVecLin + B.mulVecLin)
+      ≤ LinearMap.range A.mulVecLin ⊔ LinearMap.range B.mulVecLin := by
+    intro y hy
+    obtain ⟨x, rfl⟩ := LinearMap.mem_range.mp hy
+    rw [LinearMap.add_apply]
+    exact Submodule.add_mem_sup (LinearMap.mem_range_self _ x) (LinearMap.mem_range_self _ x)
+  exact (Submodule.finrank_mono h).trans (Submodule.finrank_add_le_finrank_add_finrank _ _)
 
 /-- rank is subadditive over finite sums -/
 theorem rank_sum_le {m n : Type*} [Fintype m] [Fintype n] (s : Finset K) (f : K → Matrix m n F) :
