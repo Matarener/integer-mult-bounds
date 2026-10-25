@@ -81,6 +81,6 @@ if __name__ == '__main__':
     t0 = time.time()
     with mp.get_context('spawn').Pool(4) as pool:
         for D, best in pool.imap_unordered(_run, [(D, starts, i) for i, D in enumerate(reps)]):
-            tag = 'ESCAPE' if best and best[0] < 12 else 'no escape'
+            tag = 'ESCAPE' if best and best[0] < 4 * len(D) else 'no escape'
             print('triple', D, 'best exact real decoder cost', best[0] if best else None, '->', tag, '%.0fs' % (time.time() - t0), flush=True)
-            if best and best[0] < 12: print('   terms:', best[1], flush=True)
+            if best and best[0] < 4 * len(D): print('   terms:', best[1], flush=True)
