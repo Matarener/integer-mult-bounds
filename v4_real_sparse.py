@@ -11,12 +11,17 @@ def sp(D): return span([v for i in D for v in planes[i]])
 def tar(A, R): return pair_rank(sp(A), sp(R)) if A and R else 0
 COPIES = 2
 def search(D, starts, seed):
+    global COPIES
+    COPIES = 2 if len(D) <= 5 else 1
     t0 = time.time()
     def L(*a): print('[%s %5.0fs]' % (','.join(map(str, D)), time.time() - t0), *a, flush=True)
     rng = np.random.default_rng(seed); g = len(D); m = 2 * g
     fixed = [(p, q, float(p == q)) for p in range(m) for q in range(m) if p == q or p // 2 == q // 2 or not ORTH[D[p // 2]][D[q // 2]]]
     P = np.array([f[0] for f in fixed]); Q = np.array([f[1] for f in fixed]); T = np.array([f[2] for f in fixed])
     subsets = [tuple(i for i in range(g) if x >> i & 1) for x in range(1, 1 << g)]
+    if g >= 5:   # keep the type list tractable: small sides, the whole group, and complements of single planes
+        full = tuple(range(g)); co = [tuple(j for j in range(g) if j != i) for i in range(g)]
+        subsets = [S for S in subsets if len(S) <= 2] + [full] + co
     types = [(A, R, tar([D[i] for i in A], [D[i] for i in R])) for A in subsets for R in subsets]
     types = [t for t in types if t[2] > 0] * COPIES
     K = len(types)
