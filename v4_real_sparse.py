@@ -11,6 +11,8 @@ def sp(D): return span([v for i in D for v in planes[i]])
 def tar(A, R): return pair_rank(sp(A), sp(R)) if A and R else 0
 COPIES = 2
 def search(D, starts, seed):
+    t0 = time.time()
+    def L(*a): print('[%s %5.0fs]' % (','.join(map(str, D)), time.time() - t0), *a, flush=True)
     rng = np.random.default_rng(seed); g = len(D); m = 2 * g
     fixed = [(p, q, float(p == q)) for p in range(m) for q in range(m) if p == q or p // 2 == q // 2 or not ORTH[D[p // 2]][D[q // 2]]]
     P = np.array([f[0] for f in fixed]); Q = np.array([f[1] for f in fixed]); T = np.array([f[2] for f in fixed])
@@ -18,6 +20,7 @@ def search(D, starts, seed):
     types = [(A, R, tar([D[i] for i in A], [D[i] for i in R])) for A in subsets for R in subsets]
     types = [t for t in types if t[2] > 0] * COPIES
     K = len(types)
+    L('start: %d term slots (%d types x %d copies), %d fixed mask cells, %d starts' % (K, K // COPIES, COPIES, len(fixed), starts))
     MU = np.array([[1.0 if p // 2 in A else 0.0 for p in range(m)] for A, R, c in types])
     MV = np.array([[1.0 if p // 2 in R else 0.0 for p in range(m)] for A, R, c in types])
     cost = np.array([c for A, R, c in types], dtype=float)
@@ -42,6 +45,7 @@ def search(D, starts, seed):
         for lam in (0.0, 0.001, 0.003, 0.01, 0.02, 0.05):
             x = so.minimize(f, x, args=(lam,), jac=True, method='L-BFGS-B', options={'maxiter': 3000}).x
         U, V = unpack(x); wts = np.sqrt((U * U).sum(1) * (V * V).sum(1))
+        resid = float(np.abs((U.T @ V)[P, Q] - T).max())
         order = [k for k in np.argsort(-wts) if wts[k] > 1e-6]
         # smallest prefix (by weight) whose exact refit works; try a few prefix sizes
         for n_keep in range(4, len(order) + 1):
@@ -56,9 +60,14 @@ def search(D, starts, seed):
                 for k in range(Ka):
                     A = tuple(sorted({p // 2 for p in range(m) if abs(Ua[k, p]) > 1e-9})); R = tuple(sorted({p // 2 for p in range(m) if abs(Va[k, p]) > 1e-9}))
                     true += tar([D[i] for i in A], [D[i] for i in R])
-                if best is None or true < best[0]:
+                improved = best is None or true < best[0]
+                if improved:
                     best = (true, [(types[k][0], types[k][1]) for k in active])
+                L('start %d: exact decoder with %d terms, nominal %d, true cost %d%s' % (s + 1, Ka, int(sum(cost[k] for k in active)), true, '  NEW BEST' if improved else ''))
                 break
+        else:
+            L('start %d: no exact refit (max residual after relaxation %.2e, nonzero terms %d)' % (s + 1, resid, len(order)))
+    L('done: best exact real decoder cost', best[0] if best else None)
     return best
 def _run(a):
     D, st, sd = a
