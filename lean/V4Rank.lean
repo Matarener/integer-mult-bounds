@@ -18,6 +18,8 @@ so it has rank `2|ι|`; rank is subadditive; and each summand has rank at most i
 
 open Matrix Finset
 
+set_option linter.unusedSectionVars false
+
 namespace V4
 
 variable {F : Type*} [Field F] {ι d K : Type*} [Fintype ι] [DecidableEq ι] [Fintype d] [DecidableEq d] [Fintype K]
@@ -27,13 +29,22 @@ def lift (L : ι → Fin 2 → d → F) (u : ι → F) : Matrix d (Fin 2 × ι) 
 
 /-- the rank of one term is at most its tariff -/
 theorem rank_term_le {m : Type*} [Fintype m] (X Y : Matrix d (Fin 2 × ι) F) (A B : Matrix d m F)
-    (hX : ∃ C, X = A * C) (hY : ∃ C, Y = B * C) : (Xᵀ * Y).rank ≤ (Aᵀ * B).rank := by
+    (hX : ∃ C : Matrix m (Fin 2 × ι) F, X = A * C) (hY : ∃ C : Matrix m (Fin 2 × ι) F, Y = B * C) :
+    (Xᵀ * Y).rank ≤ (Aᵀ * B).rank := by
   obtain ⟨C, rfl⟩ := hX
   obtain ⟨C', rfl⟩ := hY
   have h : (A * C)ᵀ * (B * C') = Cᵀ * ((Aᵀ * B) * C') := by
     simp only [transpose_mul, Matrix.mul_assoc]
   rw [h]
   exact (rank_mul_le_right _ _).trans (rank_mul_le_left _ _)
+
+/-- rank of a sum of two matrices -/
+theorem rank_add_le' {m n : Type*} [Fintype m] [Fintype n] (A B : Matrix m n F) :
+    (A + B).rank ≤ A.rank + B.rank := by
+  unfold Matrix.rank
+  rw [Matrix.mulVecLin_add]
+  exact (Submodule.finrank_mono (LinearMap.range_add_le _ _)).trans
+    (Submodule.finrank_add_le_finrank_add_finrank _ _)
 
 /-- rank is subadditive over finite sums -/
 theorem rank_sum_le {m n : Type*} [Fintype m] [Fintype n] (s : Finset K) (f : K → Matrix m n F) :
@@ -43,7 +54,7 @@ theorem rank_sum_le {m n : Type*} [Fintype m] [Fintype n] (s : Finset K) (f : K 
   · simp
   · intro a s ha ih
     rw [Finset.sum_insert ha, Finset.sum_insert ha]
-    exact (rank_add_le _ _).trans (Nat.add_le_add_left ih _)
+    exact (rank_add_le' _ _).trans (Nat.add_le_add_left ih _)
 
 /-- the sum of the lifted terms, entrywise -/
 theorem sum_lift (L : ι → Fin 2 → d → F) (u v : K → ι → F) (a b : Fin 2) (p q : ι) :
@@ -61,7 +72,8 @@ theorem sum_lift (L : ι → Fin 2 → d → F) (u v : K → ι → F) (a b : Fi
 at least `2 * |ι|`. -/
 theorem decoder_cost_ge (L : ι → Fin 2 → d → F) (u v : K → ι → F) {m : Type*} [Fintype m]
     (A B : K → Matrix d m F)
-    (hA : ∀ k, ∃ C, lift L (u k) = A k * C) (hB : ∀ k, ∃ C, lift L (v k) = B k * C)
+    (hA : ∀ k, ∃ C : Matrix m (Fin 2 × ι) F, lift L (u k) = A k * C)
+    (hB : ∀ k, ∃ C : Matrix m (Fin 2 × ι) F, lift L (v k) = B k * C)
     (hdiag : ∀ p, ∑ k, u k p * v k p = 1)
     (hoff : ∀ p q, p ≠ q → ∀ a b, (∑ k, u k p * v k q) * (∑ i, L p a i * L q b i) = 0)
     (hgram : ∀ p, IsUnit (Matrix.of fun a b : Fin 2 => ∑ i, L p a i * L p b i)) :
@@ -89,6 +101,7 @@ theorem decoder_cost_ge (L : ι → Fin 2 → d → F) (u v : K → ι → F) {m
 
 end V4
 
+#print axioms V4.rank_add_le'
 #print axioms V4.rank_term_le
 #print axioms V4.rank_sum_le
 #print axioms V4.sum_lift
