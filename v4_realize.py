@@ -42,6 +42,19 @@ from ortools.sat.python import cp_model
 copies = []
 for p in plan:
     for _ in range(min(COPY_CAP, max(1, math.ceil(p['x'] - 1e-6)))): copies.append(p)
+EXTRA = int(os.environ.get('V4_EXTRA', '0'))
+if EXTRA:
+    # widen the term pool: symmetric terms (A = R = planes of W) on the spans with the lowest tariff per plane
+    have = {(c['a'], c['r']) for c in plan}
+    cand = []
+    for i in range(n):
+        if len(inside[i]) >= 2 and (i, i) not in have:
+            cand.append((pair_rank(spans[i], spans[i]) / len(inside[i]), i))
+    cand.sort()
+    for _, i in cand[:EXTRA]:
+        t = pair_rank(spans[i], spans[i]); pe = {'a': i, 'r': i, 'x': 0.0, 'tariff': int(t), 'A': inside[i], 'R': inside[i]}
+        copies += [pe, pe]
+    log('extra symmetric types added:', min(EXTRA, len(cand)), 'best tariff/plane', round(cand[0][0], 3) if cand else None)
 log('copies', len(copies), 'max possible cost', sum(p['tariff'] for p in copies), 'budget', BUDGET)
 PA = [[q for q in range(NPORT) if E[q] in set(c['A'])] for c in copies]
 PR = [[q for q in range(NPORT) if E[q] in set(c['R'])] for c in copies]
