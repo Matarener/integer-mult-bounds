@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/one-sided-six-multisets/data/data.txt",
+    "research/p112-b6-t4-original-covers/RESULT.json",
+    "research/p112-common-cut23-caller/PROOF.md",
+    "research/p112-common-cut23-caller/RESULT.json",
+    "research/p112-common-six-span/PROOF.md",
+    "research/p112-six-piece-concentration/PREDECESSORS.json",
+    "research/p112-six-piece-concentration/PROOF.md",
+    "research/p112-six-piece-concentration/RESULT.json",
+    "research/p112-three-endpoint-sparsity/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "No predecessor executable imports: original caller table, exact coordinates and Gram/reflection/chamber facts, Fourier character-sum caps, full fourfold histogram and source-bound conditional69/69 contract partition."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_audit.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All43435 dual spaces against four literal primal supports; invalid Fourier/root/fourfold/JSON controls; three actual optimized rejecting CLI corruptions on private copies."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate all frozen source bytes, independently classify all 9139 triples, replay all positive witnesses, enumerate all 749398 five-multisets and compare with the pinned PR3031 receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate sources and independently solve target-first GF(2) row systems; backtrack forbidden triples to recover the complete retained classification without primary or predecessor imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "{package}",
+        "-p",
+        "test_*.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Thirteen independent rational-valuation, sharp-example, 1980 missing-arc witness, failed-hypothesis, full-triple agreement, shared-coordinate, direction, corruption and source-authentication controls."
+    }
+  ]
+}

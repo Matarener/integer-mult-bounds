@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-tetrad-local-decoder/README.md",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-local-word-ceiling/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the tetrad copy floor and screen the rank-2 and rank-4 ideal profiles."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the rank-2 frame design and the 27-term miss."
+    }
+  ]
+}

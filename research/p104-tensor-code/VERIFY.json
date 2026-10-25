@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/copied-centers-complex.tex",
+    "research/p104-native-channel/PROOF.md",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-bound payload code, literal complete word/invoices, modulo13 and full side rank"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate all-basis Fraction evaluator, tensor formulas and noncommuting physical charts"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Optimized typed receipt, source corruption, mutation and readonly Git-free replay controls"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Pinned archive and matching; tariffs of all 27,720 plane triples recomputed; per class: exact atom inequalities of block-rank weights (integer, value 12 on 26,977 triples), zeroed-block functional certificates with combinatorial rank bounds (value 12 on 418 more), exact dual coverings for the 325 open triples, recorded F2 ILP minima equal to 12."
+    }
+  ]
+}

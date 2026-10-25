@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Repair the PR2947 entry-budget test fixture on aliased temporary roots and replay every retained inventory/source/proof control without changing the frozen archive.",
+  "scope_change_reason": "The production-adoption handoff exposed a native macOS replay error: its entry-budget fixture uses an unresolved TemporaryDirectory root while the helper compares resolved paths. Close this reproducible portability blocker before adoption.",
+  "bottleneck_link": "A trustworthy native replay of the source-closure repair removes a concrete blocker to reviewing its adoption; this changes test transport only, not supplier mathematics.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop if the error does not reproduce on an explicitly aliased temporary root, or if a one-statement fixture adapter cannot pass all 59 original groups with no lost tests. No production adoption or full selected cold replay.",
+  "outcome": "completed",
+  "evidence": "EVIDENCE.json: on native macOS with CPython 3.12.14 and 3.14.7, the unmodified full 59-group replay passes under canonical TMPDIR and errors only in the budget fixture under an explicit alias. The one-statement in-memory fixture correction passes all 59 groups with zero skips normally and under -O. Five adapter-control groups pass in both modes and versions.",
+  "author": "Arham Tahir",
+  "ai_assistance": "Substantial OpenAI Codex assistance in source inspection, implementation, execution and writing.",
+  "open_questions": [
+    {
+      "question": "Can the repaired source-inventory traversal be adopted at current selected preflight entry points while retaining historical consumer contracts?",
+      "why_it_matters": "The production traversal still treats unreadable unlisted directories as absent. Native replay is a prerequisite to evaluating its archived repair.",
+      "first_step": "Replay this package, then re-inventory actual live input pins: the current main includes newer consumers and baseline pins beyond the older handoff's two audits. Choose a separate successor entry point or explicit historical overlay; stop on any unhandled drift.",
+      "blocked_by": "Production adoption and compatibility review are outside this fixture-only contribution."
+    }
+  ],
+  "selection_seed": "b8a52534009e1d3c1ff5bc06442214ed",
+  "investigation_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2946",
+  "predecessor_pr": 2947,
+  "initial_scope": "Source-pinned selected-inventory entry-point adoption, narrowed when its first mandatory native replay failed.",
+  "verification_scope": "Native source-binding and fixture replay only; no production adoption, full selected cold replay, supplier theorem or new kappa.",
+  "predecessor_head": "41890b869ebbbab87262fc15d67fcad3202404a0",
+  "upstream_checkpoint": {
+    "commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "checked_at_utc": "2026-10-18T19:23:14Z",
+    "decision": "Narrow production-adoption handoff to its reproduced native replay blocker; preserve frozen inputs and in-progress evidence."
+  },
+  "submission_checkpoint": {
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "canonical_checked_at_utc": "2026-10-18T19:34:29Z",
+    "overlap_searched_at_utc": "2026-10-18T19:35:42.222486+00:00",
+    "coverage": {
+      "open_prs": {
+        "fetched_at": "2026-10-18T19:34:34.130595+00:00",
+        "complete_pagination": true,
+        "records": 455
+      },
+      "discussions": {
+        "fetched_at": "2026-10-18T19:35:17.219968+00:00",
+        "complete_pagination": true,
+        "records": 2505
+      },
+      "closed_prs": {
+        "fetched_at": "2026-10-18T19:35:41.979808+00:00",
+        "complete_pagination": true,
+        "records": 2964
+      }
+    },
+    "warnings": [],
+    "decision": "Continue fixture-only correction; no equivalent native replay repair found among returned leads. The archive and this investigation/claim are the relevant overlap. No novelty guarantee."
+  }
+}

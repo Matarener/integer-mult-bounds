@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "scope_change_reason": "The catalogue card asks whether a larger or nonabelian register model escapes the three-register abelian obstruction. This package answers a different handoff: the diagonal minimum over F2[(C2)^k] for rank k>=2. That address ring is commutative of exponent two and is not a chain ring, so it is outside both the three-register rational model and the cyclic 2-power theorem.",
+  "actual_scope": "Exact paid-call minimum for diagonal targets in F2[(C2)^k], k>=2, under the legal non-identity rank-one alphabet, with arbitrarily many restored dirty roles.",
+  "bottleneck_link": "A shorter legal diagonal word in a non-chain address algebra would be a new bit primitive. The graded bound shows this alphabet does not supply one; kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Prove the graded image bound and the matching coordinate construction, check the linear-part lemma against a second multiplication engine, exhaust the small diagonal censuses, reject the chain-ring and socle misreadings, then stop.",
+  "outcome": "completed",
+  "evidence": "PROOF.md is the uniform argument. verify.py compares two ring multiplications, exhausts one- and two-factor diagonals at (k,n)=(2,4) and (3,3), checks direct words through k=4, and rejects socle, chain-ring, duplicate-JSON and receipt-overwrite misreadings. RESULT.json is compared, not regenerated, by the default command.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for the graded image argument, independent finite checks, and package metadata.",
+  "open_questions": [
+    {
+      "question": "Does a nonabelian group algebra of order at most 16 admit a legal diagonal word shorter than its non-identity count in this same rank-one model?",
+      "why_it_matters": "The graded bound uses commutativity, square-zero generators, and a nonzero image in m/m^2. C4 already shows an involution inside 1+m^2, where this count does not apply and the chain-ring socle argument remains necessary.",
+      "first_step": "Choose one nonabelian alphabet, list which non-identity elements lie in 1+m^2, and only then look for a diagonal whose graded image rank is strictly below the non-identity count.",
+      "blocked_by": "No native frame, hosting, or precision bill is priced here; do not rerun the cyclic 2-power socle census."
+    }
+  ],
+  "selection_seed": "pin-search-bb4bccbf-elementary-abelian-diagonal",
+  "overlap": {
+    "pin": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+    "predecessor": "research/bit-cyclic-root-barrier",
+    "not_a_corollary_because": "The chain-ring column lemma assumes R=F2[z]/(z^q). For k>=2 the ideal m/m^2 has dimension k and (z1) is incomparable with (z2). Labels outside a single C2 subgroup are legal, so a monochrome target is not settled by the q=2 case."
+  }
+}

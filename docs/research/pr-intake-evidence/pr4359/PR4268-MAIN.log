@@ -1,0 +1,80 @@
+1. pins
+  ok  input data/WORD-base.json.gz sha256 abaf67bfcb25...
+  ok  input data/WORD-extra.json.gz sha256 e0eaf64c4d5d...
+  ok  input allocation/FILL.json.gz sha256 c2136be9434c...
+  ok  input allocation/ORDER.json sha256 519d1d5dbb99...
+  ok  input allocation/DISPATCH.json sha256 65e435bd68e9...
+  ok  input allocation/PROFILE.json sha256 94a819747f3c...
+  ok  input allocation/PROVIDERS.json sha256 f2edb7922f30...
+  ok  input allocation/vendor/PLAN.json.gz sha256 d566cfb87b71...
+  ok  input allocation/vendor/TEMPLATE.json.gz sha256 21297b20f1f2...
+  ok  input CLAIM.json sha256 436e0d297cbd...
+  ok  package file network/Gates.lean sha256 077bcf0362a0...
+  ok  package file network/XHost/HCert.lean sha256 68c0bee5f71a...
+  ok  package file network/XHost/HStage.lean sha256 fb59e998e31b...
+  ok  package file network/XHost/HostK.lean sha256 595a84d2ca7c...
+  ok  package file controls/t74/FILL.json.gz sha256 3bdcbb685677...
+  ok  package file controls/t74/PROFILE.json sha256 a77801295540...
+  ok  package file controls/t74/extra.gcert1b.json.gz sha256 6aa87f1513da...
+  ok  package file controls/t74/gauge44.gcert1b.json.gz sha256 3dd245e81eda...
+  ok  package file controls/t74/inputs/DISPATCH.json sha256 ff91d189be8a...
+  ok  package file controls/t74/inputs/ORDER.json sha256 b98452454a86...
+  ok  package file controls/t74/inputs/PLAN.json.gz sha256 bb18714735a2...
+  ok  package file fills/3945H/FILL.json.gz sha256 9c06677d66b0...
+  ok  package file fills/2979Fc/FILL.json.gz sha256 7fc766c6c3e1...
+  ok  package file fills/2979Fc/PROFILE.json sha256 5df794112015...
+  ok  stated complex_lower: CLAIM.json complex_lower = "1729033982646513517717/1000000000000000000000000"
+  ok  stated local_profile: CLAIM.json local_profile = {"1": 2445, "2": 706, "3": 232, "4": 108, "5": 18, "8": 8}
+  ok  stated local_profile: allocation/PROVIDERS.json gauge44.actual_paid_profile = {"1": 2445, "2": 706, "3": 232, "4": 108, "5": 18, "8": 8}
+  ok  stated local_profile: allocation/PROVIDERS.json extra.actual_paid_profile = {"1": 2445, "2": 706, "3": 232, "4": 108, "5": 18, "8": 8}
+  ok  stated width_inventory: CLAIM.json width_inventory = {"4": 26, "5": 2, "6": 16, "7": 52, "8": 99, "9": 213}
+  ok  stated zero_buffers: CLAIM.json zero_buffers = 91
+2. my conversion of the two words
+      (transport.py 0.8 s)
+  ok  base: transport replay exact in both orientations
+  ok  base: R 408, 91 zero buffers (= stated), 72 warps, 36 twisted additions
+  ok  base: local profile = stated {"1": 2445, "2": 706, "3": 232, "4": 108, "5": 18, "8": 8}
+  ok  base: width histogram = stated {"4": 26, "5": 2, "6": 16, "7": 52, "8": 99, "9": 213}
+  ok  base: canonical content sha256 as recorded
+      (lower_w.py 1.8 s)
+  ok  base: block histogram = the local profile, invoice 5303 = 5303, blocks of rank <= 8
+  ok  base: full program replayed to the endpoint on all 632 columns
+  ok  base: residual widths = the word's widths, helper by helper
+  ok  base: 7 of 7 wrong versions rejected
+  ok  base: gcert/1w content sha256 as recorded
+      (lower_w.py 0.1 s)
+  ok  base: gcert/1b content sha256 as recorded
+      (transport.py 0.8 s)
+  ok  extra: transport replay exact in both orientations
+  ok  extra: R 408, 91 zero buffers (= stated), 72 warps, 36 twisted additions
+  ok  extra: local profile = stated {"1": 2445, "2": 706, "3": 232, "4": 108, "5": 18, "8": 8}
+  ok  extra: width histogram = stated {"4": 26, "5": 2, "6": 16, "7": 52, "8": 99, "9": 213}
+  ok  extra: canonical content sha256 as recorded
+      (lower_w.py 1.8 s)
+  ok  extra: block histogram = the local profile, invoice 5303 = 5303, blocks of rank <= 8
+  ok  extra: full program replayed to the endpoint on all 632 columns
+  ok  extra: residual widths = the word's widths, helper by helper
+  ok  extra: 7 of 7 wrong versions rejected
+  ok  extra: gcert/1w content sha256 as recorded
+      (lower_w.py 0.1 s)
+  ok  extra: gcert/1b content sha256 as recorded
+3. the head test in my network
+      (g0_staged.py 5.7 s)
+  ok  FILL: 271728 roles, 408 per call, 666 calls, 74 replicas
+  ok  every role inside a window of my network, no bin over its rank, one use per call and role
+  ok  global paid profile = the community's PROFILE.json, digit for digit
+  ok  every block inside a call has rank <= 8
+  ok  literal rank-48 heads: 16086 (child 8: 8064, child 10: 8022)
+  ok  other rank-48 blocks (neither heads nor tails): 12104
+  ok  control: gate A4 moved before its climb -> 0 heads (all 28190 rank-48 blocks "neither")
+  ok  control: gate C2 deleted -> the 12104 other rank-48 blocks become tails
+4. the price
+      (price_ours.py 63.0 s)
+  ok  uniform root of my profile = the stated complex root to 24 digits (0.001729033982646513517717)
+  ok  half cut (job 49 on the head arrays): b = 1.7556473153e-03, separated
+  ok  full cut, what-if only: b = 1.7744822149e-03
+5. the rate certificate
+  ok  derived half-cut profile = the histogram of the Lean rate module (Work/Mixed/Rate2979.lean)
+      (rate_cert.py 0.1 s)
+  ok  rate inequality proved at 17556473/10^10 (relative margin 2.109e-11) and refuted at 17556474/10^10
+PASS_LEVER_MIXED_TARGETS_2979_MAIN figure 1.7556473e-03 heads 16086 seconds 74

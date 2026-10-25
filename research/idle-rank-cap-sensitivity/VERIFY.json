@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/community-frontier1094-audit/INDEPENDENT1094.json",
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Selected profile, coverage identity, endpoint and kappa from the pinned sources; independently certified endpoint brackets for 21 idle rank caps in four packing variants; nine controls including the published ceiling bracket, the published per-call integer ceiling, rank dominance, cap monotonicity, the pooling gap and three refused inputs; committed RESULT.json equality."
+    }
+  ]
+}

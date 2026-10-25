@@ -1,0 +1,300 @@
+{
+ "clifford_exact_sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+ "compiler_sha256": "9d2fc2d81962ddb0b4dd7d6482d9918a87a6b05759690317dea79939ca5656a3",
+ "recipes": [
+  {
+   "new": [
+    256,
+    128,
+    64,
+    32,
+    16,
+    8,
+    4,
+    2,
+    1
+   ],
+   "old": [
+    257,
+    128,
+    65,
+    32,
+    17,
+    9,
+    5,
+    3
+   ],
+   "rank": 1,
+   "recipe": {
+    "left": {
+     "linear_Z4": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "matrix_rows": [
+      3,
+      5,
+      9,
+      17,
+      33,
+      64,
+      129,
+      256,
+      1
+     ],
+     "offset": 0,
+     "phase": 0,
+     "quadratic_rows": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "rank": 1,
+    "right": {
+     "linear_Z4": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+     ],
+     "matrix_rows": [
+      257,
+      256,
+      258,
+      260,
+      264,
+      272,
+      32,
+      320,
+      128
+     ],
+     "offset": 3,
+     "phase": 0,
+     "quadratic_rows": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "new": [
+    256,
+    128,
+    64,
+    32,
+    16,
+    8,
+    4,
+    2,
+    1
+   ],
+   "old": [
+    263,
+    133,
+    30
+   ],
+   "rank": 6,
+   "recipe": {
+    "left": {
+     "linear_Z4": [
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      0,
+      0,
+      0
+     ],
+     "matrix_rows": [
+      65,
+      130,
+      260,
+      8,
+      14,
+      16,
+      32,
+      5,
+      7
+     ],
+     "offset": 0,
+     "phase": 0,
+     "quadratic_rows": [
+      2,
+      9,
+      12,
+      14,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "rank": 6,
+    "right": {
+     "linear_Z4": [
+      0,
+      0,
+      2,
+      0,
+      0,
+      2,
+      2,
+      1,
+      0
+     ],
+     "matrix_rows": [
+      145,
+      146,
+      4,
+      24,
+      32,
+      64,
+      272,
+      384,
+      400
+     ],
+     "offset": 434,
+     "phase": 1,
+     "quadratic_rows": [
+      384,
+      272,
+      400,
+      16,
+      142,
+      0,
+      0,
+      149,
+      7
+     ]
+    }
+   }
+  },
+  {
+   "new": [
+    256,
+    128,
+    64,
+    32,
+    16,
+    8,
+    4,
+    2,
+    1
+   ],
+   "old": [
+    281,
+    133
+   ],
+   "rank": 7,
+   "recipe": {
+    "left": {
+     "linear_Z4": [
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      0,
+      0
+     ],
+     "matrix_rows": [
+      129,
+      2,
+      260,
+      8,
+      16,
+      32,
+      64,
+      5,
+      25
+     ],
+     "offset": 0,
+     "phase": 0,
+     "quadratic_rows": [
+      28,
+      0,
+      5,
+      25,
+      25,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "rank": 7,
+    "right": {
+     "linear_Z4": [
+      0,
+      2,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      0
+     ],
+     "matrix_rows": [
+      129,
+      2,
+      260,
+      264,
+      272,
+      32,
+      64,
+      256,
+      384
+     ],
+     "offset": 358,
+     "phase": 3,
+     "quadratic_rows": [
+      384,
+      0,
+      128,
+      256,
+      256,
+      0,
+      0,
+      389,
+      153
+     ]
+    }
+   }
+  }
+ ],
+ "schema_version": 1,
+ "scope": "Native recipes for the transport edges used by the flag-1 corrections (T, S, P, Trow on #3532's R0; E, Erow on R1; Tend on the published word) that are absent from the published p104-native-channel recipe set and from #3532's REPAIR-RECIPES.json. Lowered with the pinned compile.py / vendor/clifford_exact.py; checked by the published check_native.validate() during replay."
+}

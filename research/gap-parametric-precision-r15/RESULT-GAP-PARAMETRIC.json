@@ -1,0 +1,137 @@
+{
+ "authenticated_capsule_files": 63,
+ "carrier": {
+  "H": "5046720000000000000000",
+  "gap": "1/70000000000000000",
+  "j": 72096
+ },
+ "conjunction": {
+  "gain_over_prior_comparison": "189783/10000000000000000",
+  "premise_count": 25,
+  "status": "PASS_CONDITIONAL_MATHEMATICAL_KAPPA_CONJUNCTION"
+ },
+ "controls": {
+  "engine_non_unit_gap_rejected": true,
+  "parametric_checker_rejects_non_unit_gap": true,
+  "parametric_checker_rejects_old_carrier_with_new_gap": true,
+  "pinned_gap_5413_precision_checker_rejects_new_funding": true,
+  "tested_.0030272882489785_rejected_alpha_reserve": true,
+  "tested_.00302728825_rejected_alpha_reserve": true,
+  "unsubstituted_5413_conjunction_rejects_new_funding": true
+ },
+ "fixed_profile_ceiling_U": ".00302728825 (#5409); kappa stays below it",
+ "funding_changed_fields": [
+  "H",
+  "alpha_upper",
+  "delta_upper",
+  "eta_lower",
+  "gain_over_comparison",
+  "gamma_upper",
+  "gap",
+  "j",
+  "kappa",
+  "outer",
+  "raw_tested_margin",
+  "reserve_slack",
+  "tested"
+ ],
+ "gain_over_5413": "139783/10000000000000000",
+ "gain_over_5462": "100783/10000000000000000",
+ "gap_sweep": [
+  {
+   "H": "409549000000000000",
+   "gap": "1/7000000000000",
+   "j": 58507,
+   "kappa": ".003027288247",
+   "min_strict_outer": "1/70000000000000",
+   "tested": ".003027288248"
+  },
+  {
+   "H": "4333770000000000000",
+   "gap": "1/70000000000000",
+   "j": 61911,
+   "kappa": ".0030272882488",
+   "min_strict_outer": "1/700000000000000",
+   "tested": ".0030272882489"
+  },
+  {
+   "H": "45717000000000000000",
+   "gap": "1/700000000000000",
+   "j": 65310,
+   "kappa": ".00302728824896",
+   "min_strict_outer": "1/7000000000000000",
+   "tested": ".00302728824897"
+  },
+  {
+   "H": "480935000000000000000",
+   "gap": "1/7000000000000000",
+   "j": 68705,
+   "kappa": ".003027288248977",
+   "min_strict_outer": "1/70000000000000000",
+   "tested": ".003027288248978"
+  },
+  {
+   "H": "5046720000000000000000",
+   "gap": "1/70000000000000000",
+   "j": 72096,
+   "kappa": ".0030272882489783",
+   "min_strict_outer": "1/700000000000000000",
+   "tested": ".0030272882489784"
+  },
+  {
+   "H": "52839500000000000000000",
+   "gap": "1/700000000000000000",
+   "j": 75485,
+   "kappa": ".00302728824897843",
+   "min_strict_outer": "1/7000000000000000000",
+   "tested": ".00302728824897844"
+  },
+  {
+   "H": "552090000000000000000000",
+   "gap": "1/7000000000000000000",
+   "j": 78870,
+   "kappa": ".003027288248978443",
+   "min_strict_outer": "1/70000000000000000000",
+   "tested": ".003027288248978444"
+  }
+ ],
+ "kappa": ".0030272882489783",
+ "old_carrier": {
+  "H": "38569300000000000",
+  "gap": "1/700000000000",
+  "j": 55099
+ },
+ "precision_checker_change": {
+  "parametric": "need(gap==(Q(fund['tested'])-Q(fund['kappa']))/7 and gap>0 and gap.numerator==1,'actual strict compiler gap (positive unit gap; gap-parametric)')",
+  "pinned": "need(gap==(Q(fund['tested'])-Q(fund['kappa']))/7==Q(1,700000000000),'actual strict compiler gap')"
+ },
+ "precision_receipt_differs_only_in": [
+  "carrier_H",
+  "carrier_gap",
+  "carrier_j",
+  "expanded",
+  "mathematical_application"
+ ],
+ "previous": {
+  "pr5413": {
+   "kappa": ".003027288235",
+   "tested": ".003027288245"
+  },
+  "pr5462": {
+   "kappa": ".0030272882389",
+   "tested": ".0030272882489"
+  }
+ },
+ "proof_literal_sites": 4,
+ "raw_root_bracket": [
+  ".0030272882499",
+  ".00302728825"
+ ],
+ "reserve_limited_tested_bracket": [
+  ".003027288248978444",
+  ".003027288248978445"
+ ],
+ "scope": "numerical compiler headroom only: same complete #5413 caller, invoice and profiles; zero economic gain",
+ "supremum_note": "every positive unit gap is admissible; kappa < tested < .003027288248978445 is the only bound",
+ "tested": ".0030272882489784"
+}

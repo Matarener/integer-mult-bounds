@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged544-producer-return/PRICE.json",
+    "research/staged544-producer-return/PROOF.md",
+    "research/staged544-producer-return/inputs/DISPATCH.json",
+    "research/staged544-producer-return/inputs/NATIVE-base.json.gz",
+    "research/staged544-producer-return/inputs/NATIVE-extra.json.gz",
+    "research/staged544-producer-return/inputs/ORDER.json",
+    "research/staged544-producer-return/inputs/PLAN.json.gz",
+    "research/staged544-producer-return/inputs/TEMPLATE.json.gz",
+    "research/staged544-producer-return/owner_audit.py",
+    "research/staged544-producer-return/rational_price.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Regenerate the changed clock from PR3734 ORDER.json with the stated integer rule; run PR3734 unmodified owner_audit.py on the literal changed ORDER/FILL/PROFILE (1,321,920 roles) with its three mutants; check the blocknorm helper/data alias premise on every role; enclose the exact paid-profile root with PR3734 rational_price.py; check the exact dual certificate that every owner fill of this inventory (any clock, any replica count) has root below root_upper; bind the recorded complete admission to these inputs; reject six semantic controls (predecessor clock with the new fill, a same-replica stage swap, a shifted bracket, a moved idle child, the certificate at root_lower, a dual perturbed by 1e-30). The complete admission is recorded, not rerun."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "character_weight_checks": 1024,
+  "checker_sha256": "2f02cee8b75f630851f3a6c4ab3014c43e119bf54ee7f0036300bc9c02d7c88a",
+  "complete_receipts_byte_identical": true,
+  "controls": 36,
+  "literal_basis_address_checks": 8192,
+  "monomial_recipes": 64,
+  "ports": 8,
+  "proof_sha256": "146473d471b584095641a688c98b80cd335ff17320fb0d669e793b2fadf2fec3",
+  "python_version": "Python 3.12.14",
+  "runs": [
+    {
+      "command": [
+        "/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-I",
+        "-B",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/check_stars.py",
+        "--geometry",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/portable inputs with spaces/geometry.json",
+        "--compiler",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/portable inputs with spaces/compiler.py",
+        "--output",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/star validation outputs/normal.json"
+      ],
+      "mode": "normal",
+      "output_sha256": "d7a382016abfcf3a62ab13773cd1b09188c624c2b0e3bc93f53aeaac6e11008b",
+      "returncode": 0,
+      "seconds": 1.991633165976964,
+      "stderr": "",
+      "stdout": "PASS_EIGHT_AB_STAR_NORMALIZERS_WITH_EXACT_PHASE\n"
+    },
+    {
+      "command": [
+        "/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-I",
+        "-B",
+        "-O",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/check_stars.py",
+        "--geometry",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/portable inputs with spaces/geometry.json",
+        "--compiler",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/portable inputs with spaces/compiler.py",
+        "--output",
+        "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/carrier-normalizer/star validation outputs/optimized.json"
+      ],
+      "mode": "optimized",
+      "output_sha256": "d7a382016abfcf3a62ab13773cd1b09188c624c2b0e3bc93f53aeaac6e11008b",
+      "returncode": 0,
+      "seconds": 2.262384834000841,
+      "stderr": "",
+      "stdout": "PASS_EIGHT_AB_STAR_NORMALIZERS_WITH_EXACT_PHASE\n"
+    }
+  ],
+  "status": "PASS"
+}

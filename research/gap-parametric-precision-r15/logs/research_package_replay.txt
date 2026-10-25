@@ -1,0 +1,15 @@
+CHECK Numerical only. Authenticate #5413's 63 capsule files against its pinned SOURCE-BINDINGS.json; regenerate its invoice byte-identically; fund (kappa, tested) = (.0030272882489783, .0030272882489784) at the finer unit gap 1/7e16 with independently recomputed least height grid j=72096, H=5046720000000000000000 (all other funding fields read downstream unchanged); generalise #5413's precision checker by replacing its one pinned-gap literal with 'positive unit gap' (conservative: reproduces #5413's expected receipt at the old carrier; at the new carrier the receipt differs only in carrier_H/j/gap, expanded N/M and proof hash); instantiate the written precision proof by a four-literal carrier/endpoint substitution (stored file must equal it); rerun the 25-premise conjunction with only endpoint/carrier literals moved; controls: #5413's pinned-gap checker and unsubstituted conjunction reject the new funding, the generalised checker rejects the old H with the new gap and a non-unit gap, tested .00302728825 and .0030272882489785 fail funded_alpha_reserve, a non-unit gap fails the engine grid; raw-root and reserve brackets; gap sweep 1/(7*10^m), m=12..18; stored RESULT-GAP-PARAMETRIC.json equals the rebuild.
+PASS_5413_CALLER_GAP_PARAMETRIC_PRECISION_AT_KAPPA_0.0030272882489783
+CHECK Unchanged full #5413 registered replay (local 649 columns, whole caller, binding, invoice, precision, conjunction) on which this package depends; Linux CI.
+{"status": "FAIL", "receipt": "$TMPDIR/neutral-completion-replay-ti17hzk4/REPLAY.json", "scratch": "$TMPDIR/neutral-completion-replay-ti17hzk4"}
+Traceback (most recent call last):
+  File "/Users/joelpulikkan/imb-r15/research/coupled-helper-neutral-completion/verify.py", line 69, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/joelpulikkan/imb-r15/research/coupled-helper-neutral-completion/verify.py", line 56, in main
+    need(run.returncode==0,'Replay failed '+command['name']+'; '+str(root/f'run-{index}.stderr'))
+  File "/Users/joelpulikkan/imb-r15/research/coupled-helper-neutral-completion/verify.py", line 15, in need
+    if not ok:raise ValueError(message)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Replay failed precision; $TMPDIR/neutral-completion-replay-ti17hzk4/run-6.stderr
+verification command exited 1

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/NATIVE-RECIPES.json.gz",
+    "research/p104-native-channel/check_native.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-flag43-head-step-repair/CERTIFICATE.json",
+    "research/p104-flag43-head-step-repair/REPAIR-RECIPES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Builds #3508's R0 from its pinned splices, applies corrections T, S, P and T48, runs the published check_native.validate() unchanged on each coefficient-0 word (native edges incl. two committed new-edge recipes, 208 endpoint adapters, all 280 framed rows and dirty-helper restorations), replays the real words with exact rational rows, confirms the unchanged checker rejects each real word only at Y59's endpoint, recomputes bills, profiles, the 625/884 forcing chain and the least-lower-bound sweep over all 28 insertion classes, and requires equality with CERTIFICATE.json"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Separately written replay with XOR-closure frames and exact rational rows: common-chart ADD/copy, nested transports paying their gap, owned private lifetimes, endpoint frames; R0 target rows equal G/2; each correction changes only Y59 by exactly the stated entry (T48: row becomes y+x); even non-private added mass; direct native check of both new recipes; forward-sweep obstruction for 28 direct and 11 early private placements"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Temp-tree clean pass with byte-identical tree; 14 rejections by both scanners under -O: certificate bill/obstruction corruptions, duplicate JSON key, witness and #3508 certificate byte flips, new-recipe phase corruption, wrong coefficient, undercharged lift, wrong common chart, unrestored source and unclosed private lifetime"
+    }
+  ]
+}

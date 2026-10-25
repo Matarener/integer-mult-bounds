@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Can arbitrary finite mixed axis/nonaxis query lists in one literal PR3370 indicator pair lower the complete-plane actual-reader tariff below m_A+m_B?",
+  "scope_change_reason": "Follow the explicit mixed-list handoff of PR3447, beyond PR3429 at-most-three directions. This is a scoped decoder-copy obstruction/witness, not a supplier construction.",
+  "bottleneck_link": "Rank-reducing recoding is useful only if actual rectangular copied-information charges fall; query self-rank alone does not price it.",
+  "budget_minutes": 120,
+  "stop_rule": "Stop synthesis if the exact optimistic copy-only model cannot beat the literal pair bill. Research stops 2026-10-18T03:41:23Z; finish verification/publication by 04:11:23Z. One evidence-driven scope refinement permitted.",
+  "outcome": "negative-result",
+  "evidence": "Exact four-direction reduction; complete 435456-state census, 496 indicator pairs, sharp 224 total for disjoint pair replacements. RESULT.json and PROOF.md; no new kappa.",
+  "author": "@CubeJerry with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance for mathematics, code, documentation and verification; no independent human or proof-assistant review.",
+  "open_questions": [
+    {
+      "question": "Can a recoding spanning at least three literal indicators reduce actual rectangular tariff?",
+      "why_it_matters": "It leaves the pair-span hypothesis of this obstruction.",
+      "first_step": "Specify one exact factorization and compute every closed-source/reader binary rank.",
+      "blocked_by": "No candidate, native source access or complete invoice supplied."
+    },
+    {
+      "question": "Can an equal-mass pair recoding improve the complete recursive moment?",
+      "why_it_matters": "A rank-sum floor does not order rank distributions.",
+      "first_step": "Price one explicit profile at a certified reference exponent including native coefficient/frame/restoration costs.",
+      "blocked_by": "Those physical costs and supplier admission remain unknown."
+    }
+  ],
+  "assignment_seed": 25,
+  "assignment_rng": "Python secrets.randbelow(100), operating-system randomness",
+  "assignment_nonce": "c5a3530a41916a28",
+  "started_utc": "2026-10-18T02:11:23.724243+00:00",
+  "claim": {
+    "status": "done-local-only",
+    "created_utc": "2026-10-18T02:18:09.528446+00:00",
+    "reason": "No pinned sprint issue found (only open issue 913); connected GitHub tools expose no Discussion write. Public newest Discussion1166 handoffs and live PRs read. No claim was posted.",
+    "method": "Exact support/rank reduction to a finite mixed-query covering model; seek an exact lower-bound certificate or a rational factorization witness. Seed25 mod3=1 selects mixed lists among three candidates.",
+    "expected_deliverable": "Scoped exact proof or counterexample, executable certificate and failure controls. No new kappa without complete admission.",
+    "finish_utc": "2026-10-18T04:11:23Z",
+    "result": "Sharp all-field mixed pair actual-reader floor; all 496 indicator pairs, 435456 finite states, 224 total for disjoint pair replacements; no new kappa.",
+    "publication_target": "https://github.com/CubeJerry/integer-mult-bounds/tree/research/cubejerry-s25-mixed-readers-20261018-c5a3530a/research/p112-mixed-query-reader-floor",
+    "result_updated_utc": "2026-10-18T02:29:30.530681+00:00"
+  },
+  "candidate_tasks": [
+    {
+      "index": 0,
+      "scope": "Dense-only distinct-group pair: determine attainment of PR3447 floor 2max(m_A,m_B)",
+      "decision": "Not chosen: adjacent dense-only theorem is already submitted; smaller causal scope."
+    },
+    {
+      "index": 1,
+      "scope": "Mixed axis/nonaxis arbitrary finite pair queries with actual-reader costs",
+      "decision": "Chosen: explicit unresolved PR3447 handoff, changed direction hypothesis beyond PR3429."
+    },
+    {
+      "index": 2,
+      "scope": "Three-indicator block recoding with actual-reader tariff",
+      "decision": "Deferred: larger support/state domain before the pair boundary is settled."
+    }
+  ],
+  "overlap": {
+    "local_helper": "3738 local records; no gh executable, so helper remote coverage absent.",
+    "remote": "Connected GitHub latest50 open PRs and three targeted all-state searches; public Discussions1163/1166 latest visible and active listing. Hidden/paginated discussion comments not fully covered.",
+    "nearest": [
+      3370,
+      3383,
+      3398,
+      3414,
+      3429,
+      3447
+    ],
+    "ledger": "Current main central ledger and decoder scope map read. PR3447/3429 are pending, not accepted frontier.",
+    "submission_refresh": "Canonical main fetched unchanged and live targeted mixed-reader PR search repeated; PR3447 remains the nearest submitted predecessor. Latest visible Discussion1166 handoffs rechecked."
+  },
+  "family_decision": {
+    "decision": "narrow",
+    "known": "Literal paired-plane algebraic tariff and orthonormal partition; exact optimistic copy-only bill.",
+    "unknown": [
+      "native acquisition",
+      "frame conversions",
+      "coefficient implementation",
+      "dirty restoration",
+      "physical hosting",
+      "precision and stock",
+      "recursive and outer assembly"
+    ],
+    "screen": "First compare copy-only bill to removed m_A+m_B. If no saving is possible, no native implementation expansion. A lower bill would still require every unknown cost and the selected-word ceiling gate.",
+    "result": "The optimistic copied-rank mass has the sharp literal floor; stop the mass-reduction implementation route, without excluding changed rank distributions or broader recodings."
+  }
+}

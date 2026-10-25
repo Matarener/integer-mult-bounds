@@ -1,0 +1,674 @@
+{
+  "actual_fixed_port_acceptance_gates_replayed": true,
+  "control_source_sha256": "433d5e08a1bd3a5ab84ec4ec7f0a99a7d8934118cf6983bef3c068eb9b4ca9ee",
+  "executed_check_deletions_per_mode": 3,
+  "full_scientific_stages_replayed": false,
+  "intended_rejections_per_mode": 53,
+  "no_new_kappa": true,
+  "normal_and_optimized_receipts_equal_except_mode": true,
+  "runs": [
+    {
+      "actual_normalizer_gates": {
+        "actual_port": [
+          117,
+          7
+        ],
+        "authenticated_production_predicates": [
+          "brank",
+          "same",
+          "zero_native"
+        ],
+        "captured_compiler_bytes_execute_without_path_reopen": true,
+        "deletion_scope": "The exact operator equality predicate, not the entire package.",
+        "full_normalizer_search_or_basis_audit_replayed": false,
+        "nested_compiler_assertions_enabled": true,
+        "omitted_chirp_native_rank": 4,
+        "phase_guard_deletion_accepts_actual_global_i_defect": true,
+        "rejections": [
+          {
+            "intended_gate": "actual_output_global_phase: global phase",
+            "name": "actual_output_global_phase"
+          },
+          {
+            "intended_gate": "actual_omitted_common_chirp: zero native rank",
+            "name": "actual_omitted_common_chirp"
+          },
+          {
+            "intended_gate": "COMPILER_ASSERT",
+            "name": "nested_compiler_assertion"
+          },
+          {
+            "intended_gate": "duplicate JSON key",
+            "name": "normalizer_duplicate_json"
+          },
+          {
+            "intended_gate": "duplicate JSON key",
+            "name": "normalizer_duplicate_json"
+          }
+        ],
+        "valid_normalization_and_common_F_cut_accepted": true
+      },
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "coverage": {
+        "named_coverage_gate_deletion_detected": true,
+        "real_dispatch_with_tiny_fixtures_passes": true,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: native",
+            "name": "native_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: native",
+            "name": "native_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: native",
+            "name": "native_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "normalization_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "normalization_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "normalization_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: stars",
+            "name": "stars_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: stars",
+            "name": "stars_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: stars",
+            "name": "stars_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "deleted_actual_compare_call"
+          }
+        ],
+        "stage_counts": {
+          "native": 1,
+          "normalization": 1,
+          "stars": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "native_source_gates": {
+        "distinct_operator_payloads_rejected_despite_forced_equal_index": true,
+        "native_mathematical_stage_replayed": false,
+        "nested_assertion_fixture_pin_rebound_only_in_disposable_module": true,
+        "rejections": [
+          {
+            "intended_gate": "operator_digest_collision",
+            "name": "operator_index_collision_with_distinct_exact_payloads"
+          },
+          {
+            "intended_gate": "output_already_exists",
+            "name": "native_early_existing_output"
+          },
+          {
+            "intended_gate": "compiler_pin",
+            "name": "native_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "NATIVE_NESTED_COMPILER_ASSERT",
+            "name": "native_nested_compiler_assertion"
+          }
+        ],
+        "same_exact_operator_payload_reuses_index": true
+      },
+      "parent_optimization": 0,
+      "real_records": [
+        {
+          "nested_path": [
+            "programs",
+            "bus",
+            "orientations",
+            "dual",
+            "operator_endpoint",
+            0,
+            0,
+            "input_field"
+          ],
+          "record": "artifacts/NATIVE.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NATIVE.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NATIVE.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "d5b009dcbf798c181e480f4a06a65b862a1ce05a47bd169b261e844a5971ca88"
+        },
+        {
+          "nested_path": [
+            "rows",
+            0,
+            "monomial_recipes",
+            "AB",
+            "literal_events",
+            0,
+            1,
+            0
+          ],
+          "record": "artifacts/NORMALIZATION.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NORMALIZATION.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NORMALIZATION.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "a7c20a58e228490fd7b7f309bf44e7ab49c19b61dc9a964285ed1937d21725cc"
+        },
+        {
+          "nested_path": [
+            "rows",
+            0,
+            "literal_recipes",
+            "AB",
+            "literal_events",
+            0,
+            1,
+            0
+          ],
+          "record": "artifacts/STARS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/STARS.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/STARS.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "1814096b8537b5a506c7ad73708afd350ae332fdf6f2ad22c0df209540acd9d0"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "star_source_gates": {
+        "nested_assertion_fixture_pin_rebound_only_in_disposable_module": true,
+        "rejections": [
+          {
+            "intended_gate": "compiler SHA256",
+            "name": "star_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "STAR_NESTED_COMPILER_ASSERT",
+            "name": "star_nested_compiler_assertion"
+          }
+        ],
+        "star_mathematical_stage_replayed": false
+      }
+    },
+    {
+      "actual_normalizer_gates": {
+        "actual_port": [
+          117,
+          7
+        ],
+        "authenticated_production_predicates": [
+          "brank",
+          "same",
+          "zero_native"
+        ],
+        "captured_compiler_bytes_execute_without_path_reopen": true,
+        "deletion_scope": "The exact operator equality predicate, not the entire package.",
+        "full_normalizer_search_or_basis_audit_replayed": false,
+        "nested_compiler_assertions_enabled": true,
+        "omitted_chirp_native_rank": 4,
+        "phase_guard_deletion_accepts_actual_global_i_defect": true,
+        "rejections": [
+          {
+            "intended_gate": "actual_output_global_phase: global phase",
+            "name": "actual_output_global_phase"
+          },
+          {
+            "intended_gate": "actual_omitted_common_chirp: zero native rank",
+            "name": "actual_omitted_common_chirp"
+          },
+          {
+            "intended_gate": "COMPILER_ASSERT",
+            "name": "nested_compiler_assertion"
+          },
+          {
+            "intended_gate": "duplicate JSON key",
+            "name": "normalizer_duplicate_json"
+          },
+          {
+            "intended_gate": "duplicate JSON key",
+            "name": "normalizer_duplicate_json"
+          }
+        ],
+        "valid_normalization_and_common_F_cut_accepted": true
+      },
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "coverage": {
+        "named_coverage_gate_deletion_detected": true,
+        "real_dispatch_with_tiny_fixtures_passes": true,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: native",
+            "name": "native_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: native",
+            "name": "native_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: native",
+            "name": "native_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "normalization_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "normalization_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "normalization_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: stars",
+            "name": "stars_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: stars",
+            "name": "stars_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: stars",
+            "name": "stars_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: normalization",
+            "name": "deleted_actual_compare_call"
+          }
+        ],
+        "stage_counts": {
+          "native": 1,
+          "normalization": 1,
+          "stars": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "native_source_gates": {
+        "distinct_operator_payloads_rejected_despite_forced_equal_index": true,
+        "native_mathematical_stage_replayed": false,
+        "nested_assertion_fixture_pin_rebound_only_in_disposable_module": true,
+        "rejections": [
+          {
+            "intended_gate": "operator_digest_collision",
+            "name": "operator_index_collision_with_distinct_exact_payloads"
+          },
+          {
+            "intended_gate": "output_already_exists",
+            "name": "native_early_existing_output"
+          },
+          {
+            "intended_gate": "compiler_pin",
+            "name": "native_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "NATIVE_NESTED_COMPILER_ASSERT",
+            "name": "native_nested_compiler_assertion"
+          }
+        ],
+        "same_exact_operator_payload_reuses_index": true
+      },
+      "parent_optimization": 1,
+      "real_records": [
+        {
+          "nested_path": [
+            "programs",
+            "bus",
+            "orientations",
+            "dual",
+            "operator_endpoint",
+            0,
+            0,
+            "input_field"
+          ],
+          "record": "artifacts/NATIVE.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NATIVE.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NATIVE.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "d5b009dcbf798c181e480f4a06a65b862a1ce05a47bd169b261e844a5971ca88"
+        },
+        {
+          "nested_path": [
+            "rows",
+            0,
+            "monomial_recipes",
+            "AB",
+            "literal_events",
+            0,
+            1,
+            0
+          ],
+          "record": "artifacts/NORMALIZATION.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NORMALIZATION.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/NORMALIZATION.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "a7c20a58e228490fd7b7f309bf44e7ab49c19b61dc9a964285ed1937d21725cc"
+        },
+        {
+          "nested_path": [
+            "rows",
+            0,
+            "literal_recipes",
+            "AB",
+            "literal_events",
+            0,
+            1,
+            0
+          ],
+          "record": "artifacts/STARS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/STARS.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/STARS.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "1814096b8537b5a506c7ad73708afd350ae332fdf6f2ad22c0df209540acd9d0"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "star_source_gates": {
+        "nested_assertion_fixture_pin_rebound_only_in_disposable_module": true,
+        "rejections": [
+          {
+            "intended_gate": "compiler SHA256",
+            "name": "star_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "STAR_NESTED_COMPILER_ASSERT",
+            "name": "star_nested_compiler_assertion"
+          }
+        ],
+        "star_mathematical_stage_replayed": false
+      }
+    }
+  ],
+  "source_hashes": {
+    "FROZEN-SHA256.json": "7f89794761ef2cb31afef7d3f39c4eb5937771b8e13fa79810343ef9658417e5",
+    "ORIGINS.json": "aa52e041c1cb483e4d86082c69dd034cee489ead0edb3df3618996655c131731",
+    "check_native.py": "6fbf626bc5712816045249fd4cbafc386949e65580514aa6b1b1b9517b1d03d0",
+    "check_normalization.py": "5793faa7808220de3a84b5c9b6baaf1a9cbc224ee9de65de319c2d904316cf70",
+    "check_stars.py": "2f02cee8b75f630851f3a6c4ab3014c43e119bf54ee7f0036300bc9c02d7c88a",
+    "verify.py": "ff5e3a887ddfbb67ec2214a57b0b7d94c8fc78c7b01160f86d1fd509714989dd"
+  },
+  "status": "PASS_CARRIER_COMPACT_SOURCE_RECORD_AND_MATHEMATICAL_GATES"
+}

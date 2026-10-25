@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "NOTICE",
+    "upstream/LICENSE",
+    "research/p104-rounded-collector/inputs/WORD.json",
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz",
+    "research/p104-rounded-collector/PREDECESSORS.json",
+    "research/p104-rounded-collector/README.md",
+    "research/p104-reversible-lifting/lifting.py",
+    "research/p104-reversible-lifting/README.md",
+    "research/p104-invariant-lifting-lattice/README.md",
+    "research/p104-invariant-lifting-lattice/PROOF.md",
+    "research/p104-retimed-internal-grid/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticate complete source closure; exact module intertwiners, literal signed-floor parity, actual15-event collector, frame/lifetime binding, cold codec schedule, failure controls, and complete independent512/1024column replay; compare entire retained receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same complete source and mathematical checks under optimized Python, with explicit contract failures retained."
+    }
+  ]
+}

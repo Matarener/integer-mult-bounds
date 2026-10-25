@@ -1,0 +1,1011 @@
+{
+  "control_source_sha256": "3f799fd02550cc39469867b713b403d90965613f53d9125102d44c83718cdd1d",
+  "executed_check_deletions_per_mode": 14,
+  "full_scientific_receipts_compared": 2,
+  "full_scientific_stages_replayed": false,
+  "intended_rejections_per_mode": 64,
+  "no_new_kappa": true,
+  "normal_and_optimized_receipts_equal_except_mode": true,
+  "runs": [
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "contract_gates": {
+        "canonical_contract_digest": "2765fa3074ba08133d8dbf1810c76e6d744127b4024d7933e1fe73d84e86389f",
+        "full_ordered_contracts": 112,
+        "mutation_performed_after_original_receipt_authentication": true,
+        "named_array_guard_deletion_accepts_real_contract_defect": true,
+        "rejections": [
+          {
+            "intended_gate": "paired contract arrays differ",
+            "name": "geometry_array_changed_original_digest_retained"
+          },
+          {
+            "intended_gate": "paired contract arrays differ",
+            "name": "geometry_array_scalar_type_changed"
+          },
+          {
+            "intended_gate": "complete paired contract count",
+            "name": "geometry_contract_omitted"
+          },
+          {
+            "intended_gate": "paired contract digest mismatch",
+            "name": "geometry_declared_digest_changed"
+          }
+        ]
+      },
+      "coverage": {
+        "authenticated_historical_geometry_decoded_to_external_scratch": true,
+        "named_coverage_gate_deletion_detected": true,
+        "real_dispatch_with_tiny_fixtures_passes": true,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: endpoints",
+            "name": "endpoints_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: endpoints",
+            "name": "endpoints_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: endpoints",
+            "name": "endpoints_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "geometry_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "geometry_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "geometry_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "deleted_actual_compare_call"
+          }
+        ],
+        "stage_counts": {
+          "endpoints": 1,
+          "geometry": 1
+        }
+      },
+      "endpoint_gates": {
+        "authenticated_production_predicates": [
+          "same",
+          "chosen",
+          "accept_laurent"
+        ],
+        "full_endpoint_stage_replayed": false,
+        "laurent_defects": {
+          "backward_inverse": {
+            "difference_integer_coefficient": 1,
+            "input_bank": 0,
+            "output_bank": 0,
+            "power_of_z": 0
+          },
+          "backward_sign": {
+            "difference_integer_coefficient": 2,
+            "input_bank": 0,
+            "output_bank": 0,
+            "power_of_z": 0
+          },
+          "bridge_sign": {
+            "difference_integer_coefficient": 2,
+            "input_bank": 2,
+            "output_bank": 1,
+            "power_of_z": 1
+          }
+        },
+        "phase_guard_deletion_accepts_actual_global_i_defect": true,
+        "port": 11,
+        "rejections": [
+          {
+            "intended_gate": "adapter_tableau",
+            "name": "actual_native_adapter_omission"
+          },
+          {
+            "intended_gate": "phase_phase",
+            "name": "actual_gauge_global_i"
+          },
+          {
+            "intended_gate": "laurent_endpoint",
+            "name": "actual_laurent_backward_inverse"
+          },
+          {
+            "intended_gate": "laurent_endpoint",
+            "name": "actual_laurent_backward_sign"
+          },
+          {
+            "intended_gate": "laurent_endpoint",
+            "name": "actual_laurent_bridge_sign"
+          }
+        ],
+        "valid_adapter_and_complete_signed_B4_laurent_word_accepted": true
+      },
+      "geometry_gates": {
+        "actual_word_controls": [
+          {
+            "defect": {
+              "character": 1,
+              "difference_Gaussian": [
+                -1,
+                -1
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_helper_return",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                1,
+                0
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_precompensation",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -2,
+                0
+              ],
+              "input_field": 0
+            },
+            "mutation": "wrong_delivery_sign",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -1,
+                1
+              ],
+              "input_field": 0
+            },
+            "mutation": "global_phase",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "exact_operator_preserved": true,
+            "mutation": "extra_canceling_adds",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 1,
+              "difference_Gaussian": [
+                -1,
+                1
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_helper_return",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                1,
+                0
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_precompensation",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -2,
+                0
+              ],
+              "input_field": 0
+            },
+            "mutation": "wrong_delivery_sign",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -1,
+                1
+              ],
+              "input_field": 0
+            },
+            "mutation": "global_phase",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "exact_operator_preserved": true,
+            "mutation": "extra_canceling_adds",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          }
+        ],
+        "executed_mathematical_guard_deletions": 10,
+        "full_geometry_stage_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "phase digest collision",
+            "name": "distinct_phase_maps_forced_same_index"
+          },
+          {
+            "intended_gate": "physical boundary field 2",
+            "name": "rank2_omit_helper_return"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank2_omit_precompensation"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank2_wrong_delivery_sign"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank2_global_phase"
+          },
+          {
+            "intended_gate": "complete native and scalar invoice",
+            "name": "rank2_positive_canceling_pair_cost"
+          },
+          {
+            "intended_gate": "physical boundary field 2",
+            "name": "rank3_omit_helper_return"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank3_omit_precompensation"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank3_wrong_delivery_sign"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank3_global_phase"
+          },
+          {
+            "intended_gate": "complete native and scalar invoice",
+            "name": "rank3_positive_canceling_pair_cost"
+          }
+        ]
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "output_gates": {
+        "guards_precede_scientific_replay": true,
+        "rejections": [
+          {
+            "intended_gate": "output already exists",
+            "name": "wrapper_existing_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "wrapper_internal_output"
+          }
+        ]
+      },
+      "parent_optimization": 0,
+      "real_records": [
+        {
+          "nested_path": [
+            "native_B4_models",
+            0,
+            "endpoint_kernel_rows",
+            0,
+            0,
+            "coefficients",
+            0,
+            0
+          ],
+          "record": "artifacts/ENDPOINTS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/ENDPOINTS.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/ENDPOINTS.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "a84ed7c4afc0733f204389bee579850272fdbac9178984c602b5b26619e4d1e8"
+        },
+        {
+          "nested_path": [
+            "compiler_lowering_samples",
+            0,
+            "recipe",
+            "left",
+            "linear_Z4",
+            0
+          ],
+          "record": "artifacts/GEOMETRY.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/GEOMETRY.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/GEOMETRY.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "353220f1edf3a3afda11cd5073c5e55446c23c242969b16a361fa53b8e45dd7e"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "source_gates": {
+        "captured_compiler_assertions_enabled": true,
+        "endpoint_fixture_pin_rebound_only_in_disposable_module": true,
+        "full_scientific_stages_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "output_already_exists",
+            "name": "endpoint_early_existing_output"
+          },
+          {
+            "intended_gate": "input_byte_pins",
+            "name": "endpoint_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "NESTED_COMPILER_ASSERT",
+            "name": "endpoint_nested_compiler_assertion"
+          },
+          {
+            "intended_gate": "input SHA256",
+            "name": "geometry_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "NESTED_COMPILER_ASSERT",
+            "name": "geometry_nested_compiler_assertion"
+          }
+        ]
+      }
+    },
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "contract_gates": {
+        "canonical_contract_digest": "2765fa3074ba08133d8dbf1810c76e6d744127b4024d7933e1fe73d84e86389f",
+        "full_ordered_contracts": 112,
+        "mutation_performed_after_original_receipt_authentication": true,
+        "named_array_guard_deletion_accepts_real_contract_defect": true,
+        "rejections": [
+          {
+            "intended_gate": "paired contract arrays differ",
+            "name": "geometry_array_changed_original_digest_retained"
+          },
+          {
+            "intended_gate": "paired contract arrays differ",
+            "name": "geometry_array_scalar_type_changed"
+          },
+          {
+            "intended_gate": "complete paired contract count",
+            "name": "geometry_contract_omitted"
+          },
+          {
+            "intended_gate": "paired contract digest mismatch",
+            "name": "geometry_declared_digest_changed"
+          }
+        ]
+      },
+      "coverage": {
+        "authenticated_historical_geometry_decoded_to_external_scratch": true,
+        "named_coverage_gate_deletion_detected": true,
+        "real_dispatch_with_tiny_fixtures_passes": true,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: endpoints",
+            "name": "endpoints_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: endpoints",
+            "name": "endpoints_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: endpoints",
+            "name": "endpoints_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "geometry_omission"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "geometry_duplicate"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "geometry_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: geometry",
+            "name": "deleted_actual_compare_call"
+          }
+        ],
+        "stage_counts": {
+          "endpoints": 1,
+          "geometry": 1
+        }
+      },
+      "endpoint_gates": {
+        "authenticated_production_predicates": [
+          "same",
+          "chosen",
+          "accept_laurent"
+        ],
+        "full_endpoint_stage_replayed": false,
+        "laurent_defects": {
+          "backward_inverse": {
+            "difference_integer_coefficient": 1,
+            "input_bank": 0,
+            "output_bank": 0,
+            "power_of_z": 0
+          },
+          "backward_sign": {
+            "difference_integer_coefficient": 2,
+            "input_bank": 0,
+            "output_bank": 0,
+            "power_of_z": 0
+          },
+          "bridge_sign": {
+            "difference_integer_coefficient": 2,
+            "input_bank": 2,
+            "output_bank": 1,
+            "power_of_z": 1
+          }
+        },
+        "phase_guard_deletion_accepts_actual_global_i_defect": true,
+        "port": 11,
+        "rejections": [
+          {
+            "intended_gate": "adapter_tableau",
+            "name": "actual_native_adapter_omission"
+          },
+          {
+            "intended_gate": "phase_phase",
+            "name": "actual_gauge_global_i"
+          },
+          {
+            "intended_gate": "laurent_endpoint",
+            "name": "actual_laurent_backward_inverse"
+          },
+          {
+            "intended_gate": "laurent_endpoint",
+            "name": "actual_laurent_backward_sign"
+          },
+          {
+            "intended_gate": "laurent_endpoint",
+            "name": "actual_laurent_bridge_sign"
+          }
+        ],
+        "valid_adapter_and_complete_signed_B4_laurent_word_accepted": true
+      },
+      "geometry_gates": {
+        "actual_word_controls": [
+          {
+            "defect": {
+              "character": 1,
+              "difference_Gaussian": [
+                -1,
+                -1
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_helper_return",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                1,
+                0
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_precompensation",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -2,
+                0
+              ],
+              "input_field": 0
+            },
+            "mutation": "wrong_delivery_sign",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -1,
+                1
+              ],
+              "input_field": 0
+            },
+            "mutation": "global_phase",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "exact_operator_preserved": true,
+            "mutation": "extra_canceling_adds",
+            "rank": 2,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 1,
+              "difference_Gaussian": [
+                -1,
+                1
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_helper_return",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                1,
+                0
+              ],
+              "input_field": 2
+            },
+            "mutation": "omit_precompensation",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -2,
+                0
+              ],
+              "input_field": 0
+            },
+            "mutation": "wrong_delivery_sign",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "defect": {
+              "character": 0,
+              "difference_Gaussian": [
+                -1,
+                1
+              ],
+              "input_field": 0
+            },
+            "mutation": "global_phase",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          },
+          {
+            "exact_operator_preserved": true,
+            "mutation": "extra_canceling_adds",
+            "rank": 3,
+            "same_guard_deleted_and_accepted": true
+          }
+        ],
+        "executed_mathematical_guard_deletions": 10,
+        "full_geometry_stage_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "phase digest collision",
+            "name": "distinct_phase_maps_forced_same_index"
+          },
+          {
+            "intended_gate": "physical boundary field 2",
+            "name": "rank2_omit_helper_return"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank2_omit_precompensation"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank2_wrong_delivery_sign"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank2_global_phase"
+          },
+          {
+            "intended_gate": "complete native and scalar invoice",
+            "name": "rank2_positive_canceling_pair_cost"
+          },
+          {
+            "intended_gate": "physical boundary field 2",
+            "name": "rank3_omit_helper_return"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank3_omit_precompensation"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank3_wrong_delivery_sign"
+          },
+          {
+            "intended_gate": "physical boundary field 1",
+            "name": "rank3_global_phase"
+          },
+          {
+            "intended_gate": "complete native and scalar invoice",
+            "name": "rank3_positive_canceling_pair_cost"
+          }
+        ]
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "output_gates": {
+        "guards_precede_scientific_replay": true,
+        "rejections": [
+          {
+            "intended_gate": "output already exists",
+            "name": "wrapper_existing_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "wrapper_internal_output"
+          }
+        ]
+      },
+      "parent_optimization": 1,
+      "real_records": [
+        {
+          "nested_path": [
+            "native_B4_models",
+            0,
+            "endpoint_kernel_rows",
+            0,
+            0,
+            "coefficients",
+            0,
+            0
+          ],
+          "record": "artifacts/ENDPOINTS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/ENDPOINTS.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/ENDPOINTS.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "a84ed7c4afc0733f204389bee579850272fdbac9178984c602b5b26619e4d1e8"
+        },
+        {
+          "nested_path": [
+            "compiler_lowering_samples",
+            0,
+            "recipe",
+            "left",
+            "linear_Z4",
+            0
+          ],
+          "record": "artifacts/GEOMETRY.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/GEOMETRY.json.gz",
+              "name": "nested_mutation"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: artifacts/GEOMETRY.json.gz",
+              "name": "nested_omission"
+            }
+          ],
+          "sha256": "353220f1edf3a3afda11cd5073c5e55446c23c242969b16a361fa53b8e45dd7e"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "source_gates": {
+        "captured_compiler_assertions_enabled": true,
+        "endpoint_fixture_pin_rebound_only_in_disposable_module": true,
+        "full_scientific_stages_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "output_already_exists",
+            "name": "endpoint_early_existing_output"
+          },
+          {
+            "intended_gate": "input_byte_pins",
+            "name": "endpoint_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "NESTED_COMPILER_ASSERT",
+            "name": "endpoint_nested_compiler_assertion"
+          },
+          {
+            "intended_gate": "input SHA256",
+            "name": "geometry_changed_compiler_bytes"
+          },
+          {
+            "intended_gate": "NESTED_COMPILER_ASSERT",
+            "name": "geometry_nested_compiler_assertion"
+          }
+        ]
+      }
+    }
+  ],
+  "source_hashes": {
+    "FROZEN-SHA256.json": "24f9df132899de85c16fb4ad152d7da14208e6b7817e1f62af2284ca0581fce7",
+    "ORIGINS.json": "170e33941dde59e2a9bf4271f8059916b79ff9314bdc7696a0ac01673ebf21c5",
+    "check_endpoints.py": "e0c5d6e5b7ce81dc78afcb82904b1729adf4458a0ce48f33147520ca604aef04",
+    "check_geometry.py": "c4a1ba764dbe4af2ae823d46d183199bc2cb15bbbf56d6d8ece4962b4e09c790",
+    "verify.py": "f65d52a050d949ceb6b159af18821294f9a9997ac92fb9aa51ae55646da2201f"
+  },
+  "status": "PASS_PAIRED_ENDPOINT_COMPACT_SOURCE_RECORD_AND_MATHEMATICAL_GATES"
+}

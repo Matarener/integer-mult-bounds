@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "concepts": [
+    {
+      "id": "schur-elimination",
+      "source": "Mathproof/LinearAlgebra/SchurBlockElimination.lean",
+      "sha256": "b865c41950e67c86d3e2961e5a5682d0cbf1a49ad9e11612730e0c198c16ddb3",
+      "declarations": [
+        "schur_block_system_iff"
+      ],
+      "role": "Deletion and reattachment of one coordinate; requires the actual two-sided inverse hypotheses.",
+      "catalog_status": "ARTIFACT_PRESENT",
+      "catalog_hash_matches_current": true,
+      "evidence": "Current source read; no new kernel audit of this combined informal application."
+    },
+    {
+      "id": "robust-frames",
+      "source": "Mathproof/Meta/RobustRealTIFrames20261006.lean",
+      "sha256": "47a7f3586e6b1be6497e237df7cd37c73fae5107b69f7242e5e128a2eb7e918b",
+      "declarations": [
+        "Frame.norm_apply",
+        "relative_frame_error"
+      ],
+      "role": "Permutation-frame transport. Positive diagonal weights are separately justified by a pullback norm, not treated as orthogonal.",
+      "catalog_status": "ARTIFACT_PRESENT",
+      "catalog_hash_matches_current": true,
+      "evidence": "Current source read; no new kernel audit of this combined informal application."
+    },
+    {
+      "id": "tensor-packing",
+      "source": "Mathproof/Meta/RobustRealTIRecovery20261006.lean",
+      "sha256": "bffdfcd0b61f4f116c2f7e24566cbbef608fe127f2215fb3d225ad1218ce73d6",
+      "declarations": [
+        "pack_norm",
+        "pack_sub"
+      ],
+      "role": "Finite tensor layouts preserve squared energy; real/imaginary and correlated payload columns share one exact map.",
+      "catalog_status": "ARTIFACT_PRESENT",
+      "catalog_hash_matches_current": true,
+      "evidence": "Current source read; no new kernel audit of this combined informal application."
+    },
+    {
+      "id": "block-energy",
+      "source": "Mathproof/Computability/IntegerTensorBlockNorm20261015.lean",
+      "sha256": "52a61d4d8ed0897f097001b9aac1d1ea46b57a0deec5598734b6badae134c420",
+      "declarations": [
+        "block_energy_prefix",
+        "total_energy_bound"
+      ],
+      "role": "Maximum local depth controls a direct sum without an independence premise; inverse gaps yield explicit local factors.",
+      "catalog_status": "NOT_FOUND",
+      "catalog_hash_matches_current": false,
+      "evidence": "Current source read; no new kernel audit of this combined informal application."
+    },
+    {
+      "id": "word-embedding",
+      "source": "Mathproof/LiGuanCNOTFallout20260905.lean",
+      "sha256": "1b6b13e220370fee7a233ba1ee6b66b7eb9d981e8daa9042da2342eb982972da",
+      "declarations": [
+        "word_map",
+        "within_embedding_iff"
+      ],
+      "role": "The generic monoid portion transports an unchanged finite word through fixed injective ports; no characteristic-two recorder theorem is used over rationals.",
+      "catalog_status": "ARTIFACT_PRESENT",
+      "catalog_hash_matches_current": true,
+      "evidence": "Current source read; no new kernel audit of this combined informal application."
+    },
+    {
+      "id": "footprint-frame",
+      "source": "Mathproof/Computability/MultitapeFrameRule20261014.lean",
+      "sha256": "e5aa9ec056340c67bc6e382eee0a859e6903d9944d3a0e021f2a24a12459cb66",
+      "declarations": [
+        "FootprintedRuns.frame"
+      ],
+      "role": "Arbitrary exterior preservation is a design precedent; the finite-memory API is proved directly, not claimed as a Lean multitape instance.",
+      "catalog_status": "ARTIFACT_PRESENT",
+      "catalog_hash_matches_current": true,
+      "evidence": "Current source read; no new kernel audit of this combined informal application."
+    },
+    {
+      "id": "locality",
+      "source": "Mathproof/Computability/MultitapeLocality20261014.lean",
+      "sha256": "4e5df1bdd9764d335424acb2a3aad8364f647892e632d8b09aec85e45cfb5b31",
+      "declarations": [],
+      "role": "Local scanned-region dependence motivates the exact immutable-source/port contract; not a new tape execution theorem.",
+      "catalog_status": "ARTIFACT_PRESENT",
+      "catalog_hash_matches_current": true,
+      "evidence": "Current source read; no new kernel audit of this combined informal application."
+    },
+    {
+      "id": "woodbury",
+      "source": "research/woodbury-reactor-20260920/Woodbury.lean",
+      "sha256": "8f269e268a026bc659e33f85e8873713b325f618ef0dae9f7d469e911730b27d",
+      "declarations": [
+        "woodbury_two_sided"
+      ],
+      "role": "Two-sided inverse of the 2x2 core gives the exact full rank-two replacement.",
+      "evidence": "Historical typed DAG operation exists; current source read. Not a fresh audit of this new result.",
+      "dag_snapshot": "5cafc7e755c67429021b07c755ddd70e5fef81e1f478c9e6d14f298cca131835",
+      "dag_type_node": "837a84e5d279c06003451565aefc1517bec1e6667bba5fc0a71ce315fc9002ed",
+      "historical_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "scope": "Discovery provenance, exact hypotheses checked against written application. Source presence or historical artifacts are not a fresh kernel proof."
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/complex-t16-rare-pattern-exchanges/data/SPEC.json",
+    "research/selected-t16-pattern-dual/README.md",
+    "research/selected-t16-pattern-dual/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source inventories, uniform 43031-edge residue certificate, exact integer attainment, all local paid work and adjacent root signs."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Six behavioral groups, exact-power oracle, separate pattern enumeration and meaningful failure controls under optimization."
+    }
+  ]
+}

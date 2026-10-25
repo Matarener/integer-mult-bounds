@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "native-source-parameters",
+      "source": "research/native-lattice-retiming/RESULT.json",
+      "profile_key": null,
+      "witness": {
+        "saving": ".00300122",
+        "kappa": ".00300120",
+        "v": 675,
+        "cutoff": 18,
+        "floor": 22,
+        "u": "3/25",
+        "p": 160,
+        "log_shift": 1,
+        "uniform_method": "shifted",
+        "theta": "15/16"
+      }
+    },
+    {
+      "name": "native-net-shift",
+      "source": "research/native-lattice-retiming/RESULT.json",
+      "profile_key": null,
+      "witness": {
+        "saving": ".00300122",
+        "kappa": ".00300120",
+        "v": 476,
+        "cutoff": 18,
+        "floor": 22,
+        "u": "3/25",
+        "p": 108,
+        "log_shift": 19040,
+        "uniform_method": "shifted",
+        "theta": "173/185"
+      }
+    },
+    {
+      "name": "native-weighted-same-C",
+      "source": "research/native-lattice-retiming/RESULT.json",
+      "profile_key": null,
+      "witness": {
+        "saving": ".00300122",
+        "kappa": ".00300120",
+        "v": 227,
+        "cutoff": 20,
+        "floor": 21,
+        "u": "861/5000",
+        "p": 28,
+        "log_shift": 454,
+        "uniform_method": "weighted",
+        "weighted": {
+          "mean_upper": "431/500",
+          "A_lower": "231/500",
+          "A_upper": "463/1000",
+          "ambient_log_lower": "1679/1000",
+          "floor_log_lower": "127/125"
+        }
+      }
+    },
+    {
+      "name": "native-concentrated-same-C",
+      "source": "research/native-lattice-retiming/RESULT.json",
+      "profile_key": null,
+      "witness": {
+        "saving": ".00300122",
+        "kappa": ".00300120",
+        "v": 227,
+        "cutoff": 20,
+        "floor": 21,
+        "u": "861/5000",
+        "p": 21,
+        "log_shift": 3405,
+        "uniform_method": "log-moments",
+        "weighted": {
+          "raw_mean_upper": "431/500",
+          "A_lower": "347/100",
+          "A_upper": "139/40",
+          "ambient_log_lower": "1679/1000",
+          "floor_log_lower": "127/125",
+          "raw_log_bound": "3/2",
+          "paid_excess_upper": "1/100000"
+        }
+      }
+    },
+    {
+      "name": "native-concentrated-balanced",
+      "source": "research/native-lattice-retiming/RESULT.json",
+      "profile_key": null,
+      "witness": {
+        "saving": "90037/30000000",
+        "kappa": ".00300120",
+        "v": 260,
+        "cutoff": 20,
+        "floor": 21,
+        "u": "171/1000",
+        "p": 24,
+        "log_shift": 3900,
+        "uniform_method": "log-moments",
+        "weighted": {
+          "raw_mean_upper": "431/500",
+          "A_lower": "347/100",
+          "A_upper": "139/40",
+          "ambient_log_lower": "1679/1000",
+          "floor_log_lower": "127/125",
+          "raw_log_bound": "3/2",
+          "paid_excess_upper": "1/100000"
+        }
+      }
+    },
+    {
+      "name": "p7-net-shift-same-C",
+      "source": "research/higher-moment-strictification/RESULT.json",
+      "profile_key": "invoice_oracle",
+      "witness": {
+        "saving": ".00268648",
+        "kappa": ".00268647",
+        "v": 113,
+        "cutoff": 9,
+        "floor": 15,
+        "u": "33/125",
+        "p": 7,
+        "log_shift": 1356,
+        "theta": "56/69"
+      }
+    },
+    {
+      "name": "p7-net-shift-balanced",
+      "source": "research/higher-moment-strictification/RESULT.json",
+      "profile_key": "invoice_oracle",
+      "witness": {
+        "saving": "11551891/4300000000",
+        "kappa": ".00268647",
+        "v": 100,
+        "cutoff": 10,
+        "floor": 15,
+        "u": "31/100",
+        "p": 8,
+        "log_shift": 1700,
+        "theta": "57/67"
+      }
+    }
+  ]
+}

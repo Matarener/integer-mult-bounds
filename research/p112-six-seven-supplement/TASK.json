@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Uniform sharp P112 six/seven-flat bounds and optimal-cover classification; complete actual d=1 and d=2 marked/unmarked invoices and the stated singleton-pivot consumer for t=2,3; intrinsic 7755,7764 and 76651 exclusions; nine direct and 85 credited historical pencil-profile implications. Also removes all positive-d threshold-dimension defects under the raw budgets and I<=64, without assuming adaptation or N8. At d3, excludes all actual defects r>=2 and every nonadapted eta=r branch; adapted and r1 extra-surplus cases remain.",
+  "scope_change_reason": "The user selected a live C1 mathematical handoff after a full overlap/source scouting hour. This is a scoped geometric theorem, not the original card's full changed-rank supplier.",
+  "bottleneck_link": "Closes the actual d=1 and d=2 C1 invoices, including nonadapted bases, corrected weight-nine members and the t3 raw slack-nine boundary. The intrinsic coefficient and radical-fiber obstructions remove the last d2 minimum profiles. Actual d>=3 and global rank/pivot normalization remain open.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop if a valid four-site cover is found, a source-complete predecessor subsumes the theorem, or the completion/quarter proof fails. Finish one theorem, its named callers, bounded independent verification and local audit; no upstream action.",
+  "outcome": "completed",
+  "evidence": "Written d=2 proofs and two skeptical read-only AI reviews cover all actual t=2/t=3 cases. Two exact geometry engines agree on the retained inventories, 12,000 complementary 28-root sections, 2,604 six-quadric affine-four sections, 70 four-axis inventories and 589 minimum profiles. Two marked actual d=2 controls certify complete low spaces and exact Gram factorizations, including three corrected weight-nine members each. Seventeen unchanged Mathlib declarations retain their prior checks; two new Init-only algebraic declarations pass under 256 MiB. Full replay and exact publication-artifact checks are recorded in the local draft. A separate full-matrix F5 implementation independently replays both d2 low-space certificates. A further twice-reviewed actual boundary-profile argument removes all positive-d threshold-dimension defects under the raw budgets and I<=64; raw budget alone suffices through d=6 for both t2/t3. It does not force adaptation or settle higher-d invoices. A further two-reviewer transfer closes d3 actual defects r>=2 and nonadapted eta=r, without identifying L with global T.",
+  "author": "conorholds",
+  "ai_assistance": "Substantial OpenAI Codex assistance, including GPT-6.1 SOL agents at xHigh reasoning. Internal AI reviews are not independent human certification.",
+  "open_questions": [
+    {
+      "question": "Formalize the E8/label-to-quadratic normal-form and root32-completion bridge.",
+      "why_it_matters": "This would connect the concrete core16 and abstract sparse-cover Lean theorems to the full P112 theorem.",
+      "first_step": "Define the affine quadratic isomorphism and its action on leading-one root labels.",
+      "blocked_by": "The current complete bridge and root classification are handwritten, not Lean declarations."
+    },
+    {
+      "question": "Resolve actual C1 invoices for d>=3 and validate the global rank/pivot reduction.",
+      "why_it_matters": "The complete d1 and d2 invoice theorems still do not cover higher code intersections or every physical factorization class.",
+      "first_step": "Start with d3 full threshold dimension. Its actual r>=2 and nonadapted eta=r branches are now excluded. Resolve adapted r0 and r1 eta>1 while preserving actual coefficients and corrections.",
+      "blocked_by": "The full-threshold-dimension theorem does not force actual adaptation or prove the d>=3 invoices. T-level deletion does not preserve actual corrections automatically. Global rank/pivot normalization remains separate."
+    }
+  ],
+  "coordination": {
+    "status": "LOCAL-ONLY; no Discussion post or claim because the donor prohibits upstream writes before final approval",
+    "canonical_thread": "https://github.com/CrocSwap/integer-mult-bounds/discussions/3156",
+    "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "entry_snapshot": {
+      "open_prs": 326,
+      "discussions": 2444,
+      "closed_prs": 2959,
+      "through_utc": "2026-10-18 09:09:54 UTC",
+      "complete_pagination": true
+    },
+    "overlap_limits": "Titles/bodies, Discussion records and relevant exact source inspections; arbitrary diffs and unpublished work are not exhaustively covered.",
+    "extension_overlap": {
+      "through_utc": "2026-10-18 13:30:00 UTC",
+      "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+      "coverage": "Latest 100 updated all-state PRs: 50 updates since 10:20 UTC. Latest 100 Discussion records; complete 3156 and 1163 comments/replies; latest 100 of 573 handoff comments with replies. PR3154 head is unchanged.",
+      "adjacent_work": "PR3632 concerns physical P112 scatter/restoration; PR3625 a lost-free plane-port size bound; PR3604 tetrad coefficient fusion; PR3639/3643 named-class C5 charging. PR3658 five-cell block-basis floor is a different problem. Discussion3622 screens other labels/line systems. None supplies this actual d2 invoice in the inspected material.",
+      "conclusion": "No matching completion or active C1 claim in the inspected delta; bounded, non-atomic metadata and exact-target review, not a novelty guarantee."
+    }
+  },
+  "budget_extension_reason": "The donor explicitly requested another full hour beyond the frozen d1/profile candidate. This extension closes both actual d2 invoices and their last intrinsic profile obligations, with bounded finite checks and skeptical reviews. The user interruption/pause is excluded from active research time. No upstream write is authorized."
+}

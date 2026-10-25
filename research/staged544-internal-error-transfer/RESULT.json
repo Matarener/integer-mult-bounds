@@ -1,0 +1,791 @@
+{
+  "arithmetic": "exact Fraction; free group reduction; maximum block Hilbert norm",
+  "providers": {
+    "WORD-base.json.gz": [
+      {
+        "all_cut_guard_bits": 9,
+        "all_cut_l1_bound": "302",
+        "cut_stream_sha256": "1314f4ad788e02eed470e1f935c45b20b7875c72217b809408e9b142c202dc19",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "1",
+          "targets": "2"
+        },
+        "endpoint_rows_sha256": "2b92555ebf438c5a563252ded44e6950831a1576102e646f5b3dbd58978a2c26",
+        "exact_operand_l1_bound": "454",
+        "fault_stream_sha256": "fc0a1f2e27b6723208c50396f4d9089a5550f6a03723246ea150bd8803705997",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "30600646941/8",
+          "final_gain": "202653291/8",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 38
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1164,
+          "warp": 168
+        },
+        "instructions": 17598,
+        "inverse_prefix_all_cut_fault_gain": "22518781/4",
+        "inverse_prefix_column_sum_bound": "3059/4",
+        "inverse_prefix_fault_column_sum": "149131/8",
+        "inverse_prefix_full_state_cut_sum": "202653291/16",
+        "inverse_prefix_stream_sha256": "958ae61830824e5429f26c6f5cdba432b52f5c819dad31608ca50faca212d4fd",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "4",
+        "orientation": "primal",
+        "peak_witness": [
+          8444,
+          "A",
+          272
+        ],
+        "phase_output_error_bounds": {
+          "A": "1105",
+          "B": "64",
+          "B-native": "6",
+          "cleanup": "10235/16",
+          "compensation": "228",
+          "correction": "4",
+          "cut": "4",
+          "precondition": "7",
+          "restore": "357/8"
+        },
+        "phase_touched_register_max": {
+          "A": "302",
+          "B": "157/2",
+          "B-native": "6",
+          "cleanup": "302",
+          "compensation": "151/4",
+          "correction": "5",
+          "cut": "201/4",
+          "precondition": "5",
+          "restore": "157"
+        },
+        "positive_path_all_cut_fault_gain": "191697806102182229428552139051/256",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          16878,
+          "cleanup",
+          303
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 11,
+          "helpers": 11,
+          "live": 11,
+          "private_buffers": 9,
+          "sources": 7,
+          "targets": 11
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "1335",
+          "helpers": "1269",
+          "live": "1335",
+          "private_buffers": "2621/8",
+          "sources": "163/2",
+          "targets": "1335"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      },
+      {
+        "all_cut_guard_bits": 8,
+        "all_cut_l1_bound": "169",
+        "cut_stream_sha256": "cd30f554b9854b9358e838843ceac74fb1dc278231f2a206c6f48282ebde3a8a",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "2",
+          "targets": "1"
+        },
+        "endpoint_rows_sha256": "4cfd33e94d6339f31b6ee00850ad8574f26d0d29a18d59dac84f01f1e6fd4f6c",
+        "exact_operand_l1_bound": "635/2",
+        "fault_stream_sha256": "4984989996e810029b0c8342148ca06bb1191186624ef1a655d046cf6203164d",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "18533836061/8",
+          "final_gain": "109667669/4",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 37
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1164,
+          "warp": 168
+        },
+        "instructions": 17598,
+        "inverse_prefix_all_cut_fault_gain": "31719103/8",
+        "inverse_prefix_column_sum_bound": "1957/2",
+        "inverse_prefix_fault_column_sum": "187687/8",
+        "inverse_prefix_full_state_cut_sum": "109667669/8",
+        "inverse_prefix_stream_sha256": "35787312f9ac6eefa47439b35ba29d419f432e342e3a6d588a28d03593c12a6b",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "32",
+        "orientation": "dual",
+        "peak_witness": [
+          6085,
+          "A",
+          225
+        ],
+        "phase_output_error_bounds": {
+          "A": "1960",
+          "B": "375",
+          "B-native": "5/2",
+          "cleanup": "2074",
+          "compensation": "78",
+          "correction": "6",
+          "cut": "352",
+          "precondition": "21/2",
+          "restore": "52"
+        },
+        "phase_touched_register_max": {
+          "A": "169",
+          "B": "63",
+          "B-native": "23",
+          "cleanup": "271/4",
+          "compensation": "153",
+          "correction": "7",
+          "cut": "73/4",
+          "precondition": "4",
+          "restore": "271/4"
+        },
+        "positive_path_all_cut_fault_gain": "6530777029632132084525344428609/128",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          15200,
+          "cleanup",
+          272
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 13,
+          "helpers": 13,
+          "live": 13,
+          "private_buffers": 10,
+          "sources": 10,
+          "targets": 3
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "4841",
+          "helpers": "4841",
+          "live": "4841",
+          "private_buffers": "987",
+          "sources": "1031/2",
+          "targets": "6"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      }
+    ],
+    "WORD-extra.json.gz": [
+      {
+        "all_cut_guard_bits": 9,
+        "all_cut_l1_bound": "302",
+        "cut_stream_sha256": "1314f4ad788e02eed470e1f935c45b20b7875c72217b809408e9b142c202dc19",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "1",
+          "targets": "2"
+        },
+        "endpoint_rows_sha256": "2b92555ebf438c5a563252ded44e6950831a1576102e646f5b3dbd58978a2c26",
+        "exact_operand_l1_bound": "454",
+        "fault_stream_sha256": "fc0a1f2e27b6723208c50396f4d9089a5550f6a03723246ea150bd8803705997",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "30600646941/8",
+          "final_gain": "202653291/8",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 38
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1164,
+          "warp": 168
+        },
+        "instructions": 17598,
+        "inverse_prefix_all_cut_fault_gain": "22518781/4",
+        "inverse_prefix_column_sum_bound": "3059/4",
+        "inverse_prefix_fault_column_sum": "149131/8",
+        "inverse_prefix_full_state_cut_sum": "202653291/16",
+        "inverse_prefix_stream_sha256": "958ae61830824e5429f26c6f5cdba432b52f5c819dad31608ca50faca212d4fd",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "4",
+        "orientation": "primal",
+        "peak_witness": [
+          8444,
+          "A",
+          272
+        ],
+        "phase_output_error_bounds": {
+          "A": "1105",
+          "B": "64",
+          "B-native": "6",
+          "cleanup": "10235/16",
+          "compensation": "228",
+          "correction": "4",
+          "cut": "4",
+          "precondition": "7",
+          "restore": "357/8"
+        },
+        "phase_touched_register_max": {
+          "A": "302",
+          "B": "157/2",
+          "B-native": "6",
+          "cleanup": "302",
+          "compensation": "151/4",
+          "correction": "5",
+          "cut": "201/4",
+          "precondition": "5",
+          "restore": "157"
+        },
+        "positive_path_all_cut_fault_gain": "191697806102182229428552139051/256",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          16878,
+          "cleanup",
+          303
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 11,
+          "helpers": 11,
+          "live": 11,
+          "private_buffers": 9,
+          "sources": 7,
+          "targets": 11
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "1335",
+          "helpers": "1269",
+          "live": "1335",
+          "private_buffers": "2621/8",
+          "sources": "163/2",
+          "targets": "1335"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      },
+      {
+        "all_cut_guard_bits": 8,
+        "all_cut_l1_bound": "169",
+        "cut_stream_sha256": "cd30f554b9854b9358e838843ceac74fb1dc278231f2a206c6f48282ebde3a8a",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "2",
+          "targets": "1"
+        },
+        "endpoint_rows_sha256": "4cfd33e94d6339f31b6ee00850ad8574f26d0d29a18d59dac84f01f1e6fd4f6c",
+        "exact_operand_l1_bound": "635/2",
+        "fault_stream_sha256": "4984989996e810029b0c8342148ca06bb1191186624ef1a655d046cf6203164d",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "18533836061/8",
+          "final_gain": "109667669/4",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 37
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1164,
+          "warp": 168
+        },
+        "instructions": 17598,
+        "inverse_prefix_all_cut_fault_gain": "31719103/8",
+        "inverse_prefix_column_sum_bound": "1957/2",
+        "inverse_prefix_fault_column_sum": "187687/8",
+        "inverse_prefix_full_state_cut_sum": "109667669/8",
+        "inverse_prefix_stream_sha256": "35787312f9ac6eefa47439b35ba29d419f432e342e3a6d588a28d03593c12a6b",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "32",
+        "orientation": "dual",
+        "peak_witness": [
+          6085,
+          "A",
+          225
+        ],
+        "phase_output_error_bounds": {
+          "A": "1960",
+          "B": "375",
+          "B-native": "5/2",
+          "cleanup": "2074",
+          "compensation": "78",
+          "correction": "6",
+          "cut": "352",
+          "precondition": "21/2",
+          "restore": "52"
+        },
+        "phase_touched_register_max": {
+          "A": "169",
+          "B": "63",
+          "B-native": "23",
+          "cleanup": "271/4",
+          "compensation": "153",
+          "correction": "7",
+          "cut": "73/4",
+          "precondition": "4",
+          "restore": "271/4"
+        },
+        "positive_path_all_cut_fault_gain": "6530777029632132084525344428609/128",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          15200,
+          "cleanup",
+          272
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 13,
+          "helpers": 13,
+          "live": 13,
+          "private_buffers": 10,
+          "sources": 10,
+          "targets": 3
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "4841",
+          "helpers": "4841",
+          "live": "4841",
+          "private_buffers": "987",
+          "sources": "1031/2",
+          "targets": "6"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      }
+    ],
+    "old-WORD-base.json.gz": [
+      {
+        "all_cut_guard_bits": 9,
+        "all_cut_l1_bound": "302",
+        "cut_stream_sha256": "a531578fba6849c64699259a38e8322e3c6a8477f6dea63a0cc50b1e3f12b987",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "1",
+          "targets": "2"
+        },
+        "endpoint_rows_sha256": "2b92555ebf438c5a563252ded44e6950831a1576102e646f5b3dbd58978a2c26",
+        "exact_operand_l1_bound": "454",
+        "fault_stream_sha256": "97a55731f0ae20e04c43579da29bce83bc4dd24ebdc199c182cea742d69f9f2b",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "30597227093/8",
+          "final_gain": "202630643/8",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 38
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1162,
+          "warp": 168
+        },
+        "instructions": 17596,
+        "inverse_prefix_all_cut_fault_gain": "22513949/4",
+        "inverse_prefix_column_sum_bound": "3059/4",
+        "inverse_prefix_fault_column_sum": "149099/8",
+        "inverse_prefix_full_state_cut_sum": "202630643/16",
+        "inverse_prefix_stream_sha256": "f4f83a51acb5fe32cc52c1c84ff32a444285b4f5ff4ad50a39bd0c5fd0552d93",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "4",
+        "orientation": "primal",
+        "peak_witness": [
+          8444,
+          "A",
+          272
+        ],
+        "phase_output_error_bounds": {
+          "A": "1105",
+          "B": "64",
+          "B-native": "6",
+          "cleanup": "10235/16",
+          "compensation": "228",
+          "correction": "4",
+          "cut": "4",
+          "precondition": "7",
+          "restore": "357/8"
+        },
+        "phase_touched_register_max": {
+          "A": "302",
+          "B": "157/2",
+          "B-native": "6",
+          "cleanup": "302",
+          "compensation": "151/4",
+          "correction": "5",
+          "cut": "201/4",
+          "precondition": "5",
+          "restore": "157"
+        },
+        "positive_path_all_cut_fault_gain": "191697806102182229213596114283/256",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          16876,
+          "cleanup",
+          303
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 11,
+          "helpers": 11,
+          "live": 11,
+          "private_buffers": 9,
+          "sources": 7,
+          "targets": 11
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "1335",
+          "helpers": "1269",
+          "live": "1335",
+          "private_buffers": "2621/8",
+          "sources": "159/2",
+          "targets": "1335"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      },
+      {
+        "all_cut_guard_bits": 8,
+        "all_cut_l1_bound": "169",
+        "cut_stream_sha256": "fb94de09c384df8ffd56f966289681dba333facdae035d79385f94372e30d8b1",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "2",
+          "targets": "1"
+        },
+        "endpoint_rows_sha256": "4cfd33e94d6339f31b6ee00850ad8574f26d0d29a18d59dac84f01f1e6fd4f6c",
+        "exact_operand_l1_bound": "635/2",
+        "fault_stream_sha256": "1204d93f4cbb6a4ef89d4151dffc1687558946a1788bc5f7d5e409d27b165e24",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "18531429163/8",
+          "final_gain": "109653427/4",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 37
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1162,
+          "warp": 168
+        },
+        "instructions": 17596,
+        "inverse_prefix_all_cut_fault_gain": "31717751/8",
+        "inverse_prefix_column_sum_bound": "1957/2",
+        "inverse_prefix_fault_column_sum": "187679/8",
+        "inverse_prefix_full_state_cut_sum": "109653427/8",
+        "inverse_prefix_stream_sha256": "eb4bb915d16fe755f843acf233073c4d67ebfda79879eec2a376113c15bba90b",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "32",
+        "orientation": "dual",
+        "peak_witness": [
+          6085,
+          "A",
+          225
+        ],
+        "phase_output_error_bounds": {
+          "A": "1960",
+          "B": "375",
+          "B-native": "5/2",
+          "cleanup": "2074",
+          "compensation": "78",
+          "correction": "6",
+          "cut": "352",
+          "precondition": "21/2",
+          "restore": "52"
+        },
+        "phase_touched_register_max": {
+          "A": "169",
+          "B": "63",
+          "B-native": "23",
+          "cleanup": "271/4",
+          "compensation": "153",
+          "correction": "7",
+          "cut": "73/4",
+          "precondition": "4",
+          "restore": "271/4"
+        },
+        "positive_path_all_cut_fault_gain": "6530777029632132084525154375489/128",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          15198,
+          "cleanup",
+          272
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 13,
+          "helpers": 13,
+          "live": 13,
+          "private_buffers": 10,
+          "sources": 10,
+          "targets": 3
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "4841",
+          "helpers": "4841",
+          "live": "4841",
+          "private_buffers": "987",
+          "sources": "1031/2",
+          "targets": "6"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      }
+    ],
+    "old-WORD-extra.json.gz": [
+      {
+        "all_cut_guard_bits": 9,
+        "all_cut_l1_bound": "302",
+        "cut_stream_sha256": "a531578fba6849c64699259a38e8322e3c6a8477f6dea63a0cc50b1e3f12b987",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "1",
+          "targets": "2"
+        },
+        "endpoint_rows_sha256": "2b92555ebf438c5a563252ded44e6950831a1576102e646f5b3dbd58978a2c26",
+        "exact_operand_l1_bound": "454",
+        "fault_stream_sha256": "97a55731f0ae20e04c43579da29bce83bc4dd24ebdc199c182cea742d69f9f2b",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "30597227093/8",
+          "final_gain": "202630643/8",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 38
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1162,
+          "warp": 168
+        },
+        "instructions": 17596,
+        "inverse_prefix_all_cut_fault_gain": "22513949/4",
+        "inverse_prefix_column_sum_bound": "3059/4",
+        "inverse_prefix_fault_column_sum": "149099/8",
+        "inverse_prefix_full_state_cut_sum": "202630643/16",
+        "inverse_prefix_stream_sha256": "f4f83a51acb5fe32cc52c1c84ff32a444285b4f5ff4ad50a39bd0c5fd0552d93",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "4",
+        "orientation": "primal",
+        "peak_witness": [
+          8444,
+          "A",
+          272
+        ],
+        "phase_output_error_bounds": {
+          "A": "1105",
+          "B": "64",
+          "B-native": "6",
+          "cleanup": "10235/16",
+          "compensation": "228",
+          "correction": "4",
+          "cut": "4",
+          "precondition": "7",
+          "restore": "357/8"
+        },
+        "phase_touched_register_max": {
+          "A": "302",
+          "B": "157/2",
+          "B-native": "6",
+          "cleanup": "302",
+          "compensation": "151/4",
+          "correction": "5",
+          "cut": "201/4",
+          "precondition": "5",
+          "restore": "157"
+        },
+        "positive_path_all_cut_fault_gain": "191697806102182229213596114283/256",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          16876,
+          "cleanup",
+          303
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 11,
+          "helpers": 11,
+          "live": 11,
+          "private_buffers": 9,
+          "sources": 7,
+          "targets": 11
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "1335",
+          "helpers": "1269",
+          "live": "1335",
+          "private_buffers": "2621/8",
+          "sources": "159/2",
+          "targets": "1335"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      },
+      {
+        "all_cut_guard_bits": 8,
+        "all_cut_l1_bound": "169",
+        "cut_stream_sha256": "fb94de09c384df8ffd56f966289681dba333facdae035d79385f94372e30d8b1",
+        "dirty_buffer_max_row": 0,
+        "dirty_buffer_max_row_terms": [],
+        "dirty_buffer_to_live_l1_bound": "0",
+        "endpoint_l1_bounds": {
+          "all": "2",
+          "helpers": "1",
+          "live": "2",
+          "private_buffers": "1",
+          "sources": "2",
+          "targets": "1"
+        },
+        "endpoint_rows_sha256": "4cfd33e94d6339f31b6ee00850ad8574f26d0d29a18d59dac84f01f1e6fd4f6c",
+        "exact_operand_l1_bound": "635/2",
+        "fault_stream_sha256": "1204d93f4cbb6a4ef89d4151dffc1687558946a1788bc5f7d5e409d27b165e24",
+        "forward_reverse_all_rows_checked": 723,
+        "full_state_cut_error": {
+          "absolute_guard_bits": 25,
+          "all_cut_gain": "18531429163/8",
+          "final_gain": "109653427/4",
+          "includes_initial_cut": true,
+          "relative_guard_bits": 37
+        },
+        "instruction_counts": {
+          "add": 16266,
+          "scale": 1162,
+          "warp": 168
+        },
+        "instructions": 17596,
+        "inverse_prefix_all_cut_fault_gain": "31717751/8",
+        "inverse_prefix_column_sum_bound": "1957/2",
+        "inverse_prefix_fault_column_sum": "187679/8",
+        "inverse_prefix_full_state_cut_sum": "109653427/8",
+        "inverse_prefix_stream_sha256": "eb4bb915d16fe755f843acf233073c4d67ebfda79879eec2a376113c15bba90b",
+        "live": 632,
+        "max_local_lipschitz": "9",
+        "max_scalar_coefficient_bits": 4,
+        "max_single_fault_gain": "32",
+        "orientation": "dual",
+        "peak_witness": [
+          6085,
+          "A",
+          225
+        ],
+        "phase_output_error_bounds": {
+          "A": "1960",
+          "B": "375",
+          "B-native": "5/2",
+          "cleanup": "2074",
+          "compensation": "78",
+          "correction": "6",
+          "cut": "352",
+          "precondition": "21/2",
+          "restore": "52"
+        },
+        "phase_touched_register_max": {
+          "A": "169",
+          "B": "63",
+          "B-native": "23",
+          "cleanup": "271/4",
+          "compensation": "153",
+          "correction": "7",
+          "cut": "73/4",
+          "precondition": "4",
+          "restore": "271/4"
+        },
+        "positive_path_all_cut_fault_gain": "6530777029632132084525154375489/128",
+        "private_buffer_identity_checked": true,
+        "private_buffers": 91,
+        "registers": 723,
+        "single_fault_witness": [
+          15198,
+          "cleanup",
+          272
+        ],
+        "sufficient_extra_fraction_bits": {
+          "all": 13,
+          "helpers": 13,
+          "live": 13,
+          "private_buffers": 10,
+          "sources": 10,
+          "targets": 3
+        },
+        "uniform_instruction_fault_gains": {
+          "all": "4841",
+          "helpers": "4841",
+          "live": "4841",
+          "private_buffers": "987",
+          "sources": "1031/2",
+          "targets": "6"
+        },
+        "uniform_relative_error_guard_bits": 27,
+        "zero_buffer_live_shear_checked": true
+      }
+    ]
+  },
+  "rounding_model": "one arbitrary additive block error after every literal instruction; scalar and native realization obligations external",
+  "schema": 1
+}

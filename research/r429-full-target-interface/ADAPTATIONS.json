@@ -1,0 +1,86 @@
+{
+  "frozen/major/bit-endpoint/bit_full_targets.py": [
+    {
+      "old": "OLD=Path('/Users/ross/git/math/.research-automation/runs/kappa-3605-successor-20261018T0940Z/major-frontier')",
+      "new": "OLD=PORTABLE.root/'frozen/old'"
+    },
+    {
+      "old": "RAW=Path('/Users/ross/git/math/integer-mult-bounds/research/bit-r438-transport-rehost/words/r438-t154.json.gz')",
+      "new": "RAW=PORTABLE.root/'frozen/upstream/research/bit-r438-transport-rehost/words/r438-t154.json.gz'"
+    }
+  ],
+  "frozen/major/bit-endpoint/bit_full_compensation.py": [
+    {
+      "old": "path.write_bytes(gzip.compress(body,mtime=0))",
+      "new": "PORTABLE.word_equal(path,gzip.compress(body,mtime=0))"
+    },
+    {
+      "old": "(HERE/'BIT-FULL-COMPENSATION.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\\n')",
+      "new": "PORTABLE.equal(PORTABLE.root/'frozen/current/EXPECTED-COMPENSATION.json',out)"
+    },
+    {
+      "old": "'Every scalar ADD is at actual commonZERO or commonFULL; nine pure source-pivot totals are prepared and unprepared atFULL without retained snapshots. Actual native MOVE frames and containment are replayed on651 ordinaryroles. AllSIZE rounded/tape implementation remains a separate obligation.'",
+      "new": "'Every scalar ADD is at its actual common frame. The NEW nine-total compensation ADDs are at FULL, with source-pivot totals prepared and unprepared without retained snapshots. Inherited internal ADD/MOVE realizations remain a separate native compiler contract. Actual frame labels and containment are replayed on651 ordinary roles. All-size rounded/tape implementation remains a separate obligation.'"
+    }
+  ],
+  "frozen/major/shared-helper-algebra/bit_seeded_star.py": [
+    {
+      "old": "need(json.loads(target_path.read_bytes())==out,'stored seeded star differs')",
+      "new": "PORTABLE.equal(target_path,out)"
+    },
+    {
+      "old": "def inverse_event(e):return e # Every declared GF2 primitive here is involutive.",
+      "new": "def inverse_event(e):return e # Unused historical placeholder; new_F needs new_F_inverse as in main."
+    }
+  ],
+  "frozen/changed/budgets/seeded_star_pressure.py": [
+    {
+      "old": "ROOT = Path('/Users/ross/git/math')",
+      "new": "ROOT = PORTABLE.root / 'frozen'"
+    },
+    {
+      "old": "SOURCE = ROOT / 'integer-mult-bounds/research/bit-r438-transport-rehost/verify_rehost.py'",
+      "new": "SOURCE = ROOT / 'upstream/research/bit-r438-transport-rehost/verify_rehost.py'"
+    },
+    {
+      "old": "need(json.loads(target.read_text()) == out, 'stored exact receipt mismatch')",
+      "new": "PORTABLE.equal(target,out)"
+    }
+  ],
+  "frozen/reviews/native/independent_check.py": [
+    {
+      "old": "RUN=ROOT/'.research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint'",
+      "new": "RUN=PORTABLE.root/'frozen/major/bit-endpoint'"
+    },
+    {
+      "old": "OLD=ROOT/'.research-automation/runs/kappa-3605-successor-20261018T0940Z/major-frontier'",
+      "new": "OLD=PORTABLE.root/'frozen/old'"
+    },
+    {
+      "old": "ROOT/'integer-mult-bounds/research/bit-r438-transport-rehost/words/r438-t154.json.gz'",
+      "new": "PORTABLE.root/'frozen/upstream/research/bit-r438-transport-rehost/words/r438-t154.json.gz'"
+    },
+    {
+      "old": "need(json.loads(path.read_text())==out,'independent complete receipt differs')",
+      "new": "PORTABLE.equal(path,out)"
+    }
+  ],
+  "frozen/reviews/caller/independent_check.py": [
+    {
+      "old": "RUN = BASE / '.research-automation/runs/kappa-major-20261018T1330Z'",
+      "new": "RUN = PORTABLE.root / 'frozen/major'"
+    },
+    {
+      "old": "PRESSURE = BASE / '.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/budgets/SEEDED-STAR-PRESSURE.json'",
+      "new": "PRESSURE = PORTABLE.root / 'frozen/changed/budgets/SEEDED-STAR-PRESSURE.json'"
+    },
+    {
+      "old": "SOURCE = BASE / 'integer-mult-bounds/research/bit-r438-transport-rehost/verify_rehost.py'",
+      "new": "SOURCE = PORTABLE.root / 'frozen/upstream/research/bit-r438-transport-rehost/verify_rehost.py'"
+    },
+    {
+      "old": "(HERE / 'INDEPENDENT-RESULT.json').write_text(json.dumps(result, sort_keys=True, indent=2) + '\\n')",
+      "new": "PORTABLE.equal(HERE / 'INDEPENDENT-RESULT.json',result)"
+    }
+  ]
+}

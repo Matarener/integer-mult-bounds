@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coded-native-caller/NORMALIZERS.json",
+    "research/native-center-free-code/SOURCE-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate the literal E8 input; regenerate all exact geometry, decoder, core and budget data; compare RESULT.json; reject four data or coefficient corruptions. No native supplier or outer calculation."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate the literal E8 input; regenerate all exact geometry, decoder, core and budget data; compare RESULT.json; reject four data or coefficient corruptions. No native supplier or outer calculation."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/native_lift.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate the base code and native helper paths; check the spectral and operator-pencil identities, two rejection controls and exact cost gates; compare NATIVE-LIFT.json. Infinite ranges use the written rank and monotonicity proofs. No native producer replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/native_lift.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate the base code and native helper paths; check the spectral and operator-pencil identities, two rejection controls and exact cost gates; compare NATIVE-LIFT.json. Infinite ranges use the written rank and monotonicity proofs. No native producer replay."
+    }
+  ]
+}

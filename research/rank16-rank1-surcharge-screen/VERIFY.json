@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-local-word-ceiling/levers.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Recomputes the selected ceiling and the rank-16 profile plus all 1646 legal rank-1 children at grid 1e-15, checks the five-percent gate, and rejects one further child."
+    }
+  ]
+}

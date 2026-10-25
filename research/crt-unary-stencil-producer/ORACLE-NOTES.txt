@@ -1,0 +1,37 @@
+Independent one-target CRT guard geometry oracle
+
+This module was written before viewing the new encoded producer. No primary
+producer or consumer code is imported. The old PR4201 machine/verify code and
+the canonical check_batched_crt.py predicates were read as interface/source
+specification only. The consumer remains unchanged in the parent's integration.
+
+API: expected_stencil(G,H,K,Y,J,B) returns the exact finite-alphabet token list.
+source_good(address,G,H,K,Y,J,B) independently decodes u/t/y/B and applies the
+source's numeric predicate. Geometry requires exact integers, G>=1, H>=G,
+K>=G+4, J>=0, B>=0, Y>=J+K. Intervals are MSB-indexed half-open ranges.
+
+The two G-bit active digits occupy [H-G,H) and [2H-G,2H). The guard occupies
+[2H+Y-J-K,2H+Y-J-1), so parity bit J is excluded. Its lower bound is inclusive
+2^(G+1) and upper bound is strict 2^(K-1)-2^(G+1). All other bits are SKIP.
+
+Finite coverage: every address for all 83 geometries in the recorded cap,
+433280 addresses total. A separate interval-integer interpreter (not the
+consumer's comparison-flag algorithm) matches the direct source formula.
+Boundary coverage includes G=1,2,3,8,31; J=0,1,3; lower-1/lower/lower+1 and
+upper-1/upper/upper+1; parity and all ignored-field classes independently
+toggled in two patterns. Nine malformed numeric geometries are rejected.
+Five semantic boundary witnesses expose relaxed comparisons, parity inclusion,
+and accidentally testing complete H fields rather than active G-bit digits.
+These are specification witnesses, not executed mutants of the new producer.
+
+This is an unpriced direct numeric oracle. It does not establish that a fixed
+tape machine constructs/admit/erases the stencil with the claimed invoice.
+That needs the new producer, exact machine accounting, and written proof.
+Neither finite enumeration nor a green replay certifies the full CRT supplier,
+multi-target production reservoir, evaluator, physical repair/callee/precision,
+outer multiplication theorem or any new kappa.
+
+Credit: the PR4201 guard-consumer package, Cinna Davis PR4100's original scan
+proposal, Hiroki KUMAZAKI's PR4169/PR4174 repair/placement context, and the
+canonical CRT source/NOTICE lineage remain predecessor work. Substantial
+OpenAI Codex assistance; Apache-2.0 repository contribution.

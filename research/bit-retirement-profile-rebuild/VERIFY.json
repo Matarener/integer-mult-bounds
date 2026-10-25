@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-retirement-profile-rebuild/source/README.md",
+    "research/bit-retirement-profile-rebuild/source/PROOF.md",
+    "research/bit-retirement-profile-rebuild/source/RECORD.json",
+    "research/bit-retirement-profile-rebuild/source/TASK.json",
+    "research/bit-retirement-profile-rebuild/source/independent_price.py",
+    "research/bit-retirement-profile-rebuild/source/provider/MANIFEST.json",
+    "research/bit-retirement-profile-rebuild/source/provider/INPUT-SOURCES.json",
+    "research/bit-retirement-profile-rebuild/source/provider/NEW-INVOICE.json",
+    "research/bit-retirement-profile-rebuild/source/provider/verify_rehost.py",
+    "research/bit-retirement-profile-rebuild/source/provider/inputs/WORD.json.gz",
+    "research/bit-retirement-profile-rebuild/source/provider/inputs/GEOMETRY.json.gz",
+    "research/bit-retirement-profile-rebuild/source/provider/inputs/CALLER-GEOMETRY.json.gz",
+    "research/bit-retirement-profile-rebuild/source/provider/new-owners/SLOTS.json.gz",
+    "research/bit-retirement-profile-rebuild/source/provider/new-owners/ORDER.json.gz",
+    "research/bit-retirement-profile-rebuild/source/provider/new-owners/DISPATCH.json.gz",
+    "research/bit-retirement-profile-rebuild/source/provider/new-owners/REMAINDERS.json.gz",
+    "research/bit-retirement-profile-rebuild/source/provider/new-owners/CHARTS.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh literal local Q-frame ranks, all actual parent owners/idle complements, complete typed regenerated payloads and semantic corruption controls; scoped finite invoice only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh literal local Q-frame ranks, all actual parent owners/idle complements, complete typed regenerated payloads and semantic corruption controls; scoped finite invoice only."
+    }
+  ]
+}

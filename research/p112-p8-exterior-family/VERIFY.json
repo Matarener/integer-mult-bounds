@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Derive all affine source zero strata and all minimal rational reader supports; rebuild4096 full-group tariffs; exact B&B on160 tariff tables covering324 source patterns; exact attaining endpoints, rank-collapse/outside-source/missing-root controls; read-only compact receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent source/support/physical-tariff reconstruction and unpruned10,497,600-cell optimization; all324 minima digest, exact fixed112x112 endpoints, rank3-extra-reader and corruption controls; independent P8 representation audit and immutable compact receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/rank3_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Regenerate all 84 affine maximal minors, 25 hyperplanes, 443 complete flats and 226,816 augmented subset ranks; derive actual rank-three reader/source supports; rebuild 4096 tariffs; complete threshold B&B closes all 2,785,849,439 cells below 18; full 112x112 h=0 equality witness and compact read-only receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_rank3.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent determinant and at-most-three-plane intersection reconstruction of all 443 strata, checked exact rational representatives and 226,816 subset ranks; independent partial-profile meet-in-the-middle prices every remaining cell and checks all 123,990 packed lanes literally; complete 2,785,849,439-cell coverage, full 112x112 equality witness, immutable compact receipt."
+    }
+  ]
+}

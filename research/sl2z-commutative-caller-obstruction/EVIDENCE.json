@@ -1,0 +1,197 @@
+{
+  "status": "Recorded author checks and separate AI review; not a formal proof certificate",
+  "checked_files_sha256": {
+    "README.md": "45d409fc050818145e6ba24bc95e8abb1f11df89835f38cd3e76fa7a05b69c4e",
+    "verify.py": "93d043da20c03a40a87e05a59d2b5bc4c12a3997af7931ec0a60ecacffdaceb3"
+  },
+  "python": "3.12.14",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "registered_replay": "PASS_REGISTERED_RESEARCH_PACKAGE; both commands exited 0",
+  "optimized_direct_replay": "Both verifier and unchanged predecessor exited 0",
+  "separate_ai_review": {
+    "independent_algebra": {
+      "method": "Independent nested-matrix arithmetic; projective A4/Klein-four character, not package BFS",
+      "group_sizes": [
+        24,
+        6
+      ],
+      "f4_products": 576,
+      "dual_products": 36,
+      "f4_X_Y_B": [
+        2,
+        3,
+        1
+      ],
+      "dual_X_Y_B": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "P1_F3_X_Y_B": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ]
+      ],
+      "B_nonzero_F3_vectors": [
+        6,
+        4,
+        7,
+        2,
+        0,
+        3,
+        1,
+        5
+      ],
+      "short_words": 85,
+      "distinct_radius3": 47,
+      "B_in_radius3": false,
+      "full_formal_endpoint": "For N=E11, each factor is diag([g],1); ordered product is diag([B],1), so the dirty second role is unchanged."
+    },
+    "mutation_results": [
+      {
+        "case": "positive",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 0,
+        "last_line": "PASS_SL2Z_COMMUTATIVE_CALLER sources=4 relations=2 target_killed=1 rational_generators_killed=1 quotient_sizes=24,6 f4_control=1 dual_number_control=1 noncommutative_moved=8 no_new_kappa"
+      },
+      {
+        "case": "positive",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 0,
+        "last_line": "PASS_SL2Z_COMMUTATIVE_CALLER sources=4 relations=2 target_killed=1 rational_generators_killed=1 quotient_sizes=24,6 f4_control=1 dual_number_control=1 noncommutative_moved=8 no_new_kappa"
+      },
+      {
+        "case": "source_bytes",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: source Git blob mismatch: source/sl2z-README.md"
+      },
+      {
+        "case": "source_bytes",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: source Git blob mismatch: source/sl2z-README.md"
+      },
+      {
+        "case": "source_commit",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: source provenance changed: source/sl2z-README.md"
+      },
+      {
+        "case": "source_commit",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: source provenance changed: source/sl2z-README.md"
+      },
+      {
+        "case": "target_identity",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: predecessor constants disagree with the audited model"
+      },
+      {
+        "case": "target_identity",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: predecessor constants disagree with the audited model"
+      },
+      {
+        "case": "same_sign_character",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: inconsistent quotient character"
+      },
+      {
+        "case": "same_sign_character",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: inconsistent quotient character"
+      },
+      {
+        "case": "wrong_f4_polynomial",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: control unit collapsed"
+      },
+      {
+        "case": "wrong_f4_polynomial",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: control unit collapsed"
+      },
+      {
+        "case": "trivial_dual_image",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: control unit collapsed"
+      },
+      {
+        "case": "trivial_dual_image",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: control unit collapsed"
+      },
+      {
+        "case": "lost_noncomm_target",
+        "optimized": false,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: escape target identity failed"
+      },
+      {
+        "case": "lost_noncomm_target",
+        "optimized": true,
+        "as_expected": true,
+        "exit": 1,
+        "last_line": "RuntimeError: escape target identity failed"
+      }
+    ],
+    "limits": "Separate AI review, no independent human or formal-kernel review. These are recorded results; the registered hook reruns package checks and predecessor, not this separate review session."
+  },
+  "orientation_baseline": {
+    "status": "UNVERIFIED_MISSING_SPARSE_INPUTS",
+    "required_files": 1625,
+    "missing_from_two_local_exports": 1596,
+    "files_copied": 0,
+    "scope": "Initial first-command attempt failed before bindings completed; no selected cold replay attempted."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "literal_boundary_inputs": 1024,
+  "literal_boundary_sha256": "0244f67545592a8f4b20e04c19cf95a9e7fd8f2884efe78c3a487375af95b48f",
+  "signed_pair_columns": 4,
+  "source_orbits": 128,
+  "tensor_checks": [
+    {
+      "f": 1,
+      "basis_inputs": 8,
+      "volume": 4,
+      "rational_coordinate_adds": 20,
+      "unit_phase_coordinate_maps": 12
+    },
+    {
+      "f": 2,
+      "basis_inputs": 32,
+      "volume": 16,
+      "rational_coordinate_adds": 144,
+      "unit_phase_coordinate_maps": 96
+    },
+    {
+      "f": 3,
+      "basis_inputs": 128,
+      "volume": 64,
+      "rational_coordinate_adds": 832,
+      "unit_phase_coordinate_maps": 576
+    }
+  ],
+  "precision_checks": [
+    {
+      "f": 1,
+      "input_grid_bits": 3,
+      "max_denominator": 8,
+      "bound_grid_bits": 5
+    },
+    {
+      "f": 2,
+      "input_grid_bits": 3,
+      "max_denominator": 32,
+      "bound_grid_bits": 6
+    },
+    {
+      "f": 3,
+      "input_grid_bits": 3,
+      "max_denominator": 32,
+      "bound_grid_bits": 7
+    }
+  ],
+  "rational_coordinate_add_volume": "(4f+1)V",
+  "unit_phase_coordinate_volume": "3fV",
+  "additional_vector_helpers": 0,
+  "live_payload": "2V",
+  "scalar_scratch": "O(1) coordinate temporaries; no vector register",
+  "native_children": [
+    {
+      "rank": "2f",
+      "operand_volume": "V"
+    }
+  ],
+  "outer_prefix_condition_bound": "729/4",
+  "pair_prefix_norm_controls": 64,
+  "negative_controls": 4,
+  "uniform_sub_fV": false,
+  "new_kappa": false
+}

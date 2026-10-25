@@ -1,0 +1,108 @@
+{
+  "case": {
+    "controls": [
+      "nonzero cropped normalized output",
+      "four actual interior calls",
+      "boundary perturbation changes final output",
+      "paired seven-stage rounding bound",
+      "actual disk rejection",
+      "insufficient width rejection",
+      "insufficient disk margin rejection"
+    ],
+    "numerical_ledger": {
+      "disk_ok": true,
+      "headroom": "32768",
+      "magnitudes": [
+        "2664653/4194304",
+        "2664653/4194304",
+        "87659089741/137438953472",
+        "6127808668344605/9007199254740992",
+        "6127808668344605/9007199254740992",
+        "428364464960629612525/590295810358705651712",
+        "14091905803809832363234925/19342813113834066795298816",
+        "14091905803809832363234925/19342813113834066795298816"
+      ],
+      "mu": [
+        "1",
+        "32897/32768",
+        "69905/65536",
+        "1",
+        "69905/65536",
+        "32897/32768",
+        "1"
+      ],
+      "output_difference": "309490080688659397988435233/2475880078570760549798248448",
+      "paired_errors": [
+        "129/4194304",
+        "257/4194304",
+        "12648833/137438953472",
+        "1159094577809/9007199254740992",
+        "1433972484753/9007199254740992",
+        "118256245056140449/590295810358705651712",
+        "4480571503970558002465/19342813113834066795298816",
+        "5070867314329263654177/19342813113834066795298816"
+      ],
+      "peak": "1091789/65536",
+      "width_ok": true
+    },
+    "original_page_source_backing": 1356,
+    "preparation_owner_retained_cells_after_controls": 4752,
+    "preparation_reads_writes_moves": [
+      441947,
+      95549,
+      408620
+    ],
+    "schedules": [
+      {
+        "complete_retained_cells": 28923,
+        "interior_calls": 4,
+        "output": [
+          "0",
+          "-1/16",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "output_sha256": "c54116b45ee485fede9e9afc2076fddea89b4460915065433010a197e08dee75",
+        "owner_tapes": 3667,
+        "reads_writes_moves": [
+          12901884,
+          4645168,
+          12448074
+        ],
+        "retain": true,
+        "retained_owner_cells": 22910,
+        "total": 29995126
+      },
+      {
+        "complete_retained_cells": 28491,
+        "interior_calls": 4,
+        "output": [
+          "0",
+          "-1/16",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "output_sha256": "c54116b45ee485fede9e9afc2076fddea89b4460915065433010a197e08dee75",
+        "owner_tapes": 3667,
+        "reads_writes_moves": [
+          13003813,
+          4671755,
+          12544552
+        ],
+        "retain": false,
+        "retained_owner_cells": 22478,
+        "total": 30220120
+      }
+    ],
+    "supplied_factor_page_backing": 1034
+  },
+  "status": "PASS_PHYSICAL_BLOCK_CORE_RETURN"
+}

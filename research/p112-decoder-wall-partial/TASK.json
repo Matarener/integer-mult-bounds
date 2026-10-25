@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 7,
+  "base_commit": "13be6ac685845c1ff671f5d26e7166165abd998e",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact lower bounds on masked P112 decoder cost (floor 64) for: every decoder with at most 8 rank-1 terms (any supports, any characteristic-0 field); decoders mixing rectangles and Ferrers atoms with at most 8 pieces; 9-term decoders with rank M = 8; the KFAM T-block cost C(T) = 8 for rank-1 rectangles (all six orbits) and for the interleaved menu (orbit 0 fully, orbits 1, 3, 4 in part). Not covered: 9-term decoders with rank M = 9, any m >= 10, mixed decoders with >= 9 pieces, multi-wire terms.",
+  "scope_change_reason": "The card asks for a decoder with larger-rank children; the work instead proves where masked rank-1 and Ferrers-atom decoders cannot go below 64, which bounds the effective child rank obtainable from the P112 mask. No supplier, coefficients or kappa.",
+  "bottleneck_link": "Any masked P112 decoder below COPY64 would change the eight centre-copy calls; these results close that route for every decoder with at most 8 terms and for all rank-M-8 nine-term decoders.",
+  "budget_minutes": 600,
+  "stop_rule": "Stop each lemma at the first proof or the first explicit cost <= 63 decoder; none was found.",
+  "outcome": "negative-result",
+  "evidence": "verify.py reruns the exact enumerations, the SAT/DRAT shards and the LP-dual certificates; saved log and receipt in data/.",
+  "author": "DreamingOfClouds with Claude Opus 5.5 (Anthropic), via Claude Code",
+  "ai_assistance": "Research direction by DreamingOfClouds; research, implementation and writing by Claude Opus 5.5 (Anthropic), via Claude Code; independent AI auditors re-derived and re-ran selected parts (see README). No human or formal proof review.",
+  "open_questions": [
+    {
+      "question": "Does every decoder with 9 terms and rank P = rank Q = 9 cost at least 64?",
+      "why_it_matters": "It is the smallest case of the wall not covered: rank M = 8 is closed, so a 63-cost nine-term decoder, if it exists, has two P-classes and two Q-classes of frames.",
+      "first_step": "Prove the row-rigidity gating lemma: some P- or Q-class of every rank-9 decoder has a row-rigid complement of at least 40 lines (random line sets of that size always are, 28 or fewer never).",
+      "blocked_by": "An INT-M8-Step-A-type no-extra-zero fact for sub-patterns L minus Lambda; only Lambda = one line and one A2 triple were checked (DRAT)."
+    },
+    {
+      "question": "Does the wall (cost >= 64) hold for every m >= 10?",
+      "why_it_matters": "Cost 63 forces a term of cost at most 6 when m = 10, and cheap terms meet every frame; the monotone rows (frames, lines, global rank) only reach 18.9, so the proof must use coefficients.",
+      "first_step": "Extend the frame-defect analysis (per-frame defect of rank m - 8) to m = 10 via the P- and Q-class lemma.",
+      "blocked_by": "No classification of rank-9 completions; the previously conjectured rank-9 form 'G8 plus one rank-1 correction' is false (explicit counterexample on an A2 triple)."
+    },
+    {
+      "question": "Do the piece-count and floor results extend to mixed decoders with 9 or more pieces?",
+      "why_it_matters": "Any decoder with a genuine Ferrers atom has at least 9 pieces; the smallest open mixed case is seven rectangles plus one two-level atom.",
+      "first_step": "Repeat the rank-M-8 core analysis with the atom's two pieces as ordinary pieces, using MIX-8 (no genuine atom at 8 pieces).",
+      "blocked_by": "Rectangle results bound piece sums, not atom floors."
+    },
+    {
+      "question": "Audit the COVERSAT cut-model encoding, and solve KFAM orbit 2.",
+      "why_it_matters": "Orbits 1, 3, 4 are closed by DRAT only through the cut model (exact Lemma-B rank cuts and the ratio lemma), whose encoder is unaudited; orbit 2 completes the family.",
+      "first_step": "Independent re-derivation of cutenc.py (finite-field witnesses and the ratio lemma) against exact ranks; re-run the five open orbit-2 shards with certified no-goods.",
+      "blocked_by": "Orbit 2 has almost no free cells, so the polynomial systems are large (about 50 equations)."
+    }
+  ]
+}

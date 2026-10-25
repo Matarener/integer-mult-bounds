@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-three-register-lower-bound/README.md",
+    "research/bit-dirty-auxiliary-registers/README.md",
+    "docs/research/community-efficient1000-review.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Multiply the nine coordinate factors on three data registers and test every eight-call coordinate distribution."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that nine calls can give three to each data register and that two coordinate frames have rank two."
+    }
+  ]
+}

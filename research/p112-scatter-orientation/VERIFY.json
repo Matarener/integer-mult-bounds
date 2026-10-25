@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/p112-tetrad-local-decoder/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Original source hashes; independent 176-event direction audit and reversed-operand control; all 704 normalized ordinary columns, scalar frames, private restoration and full recursive histogram for 3/14 tetrads; missing entrance and hybrid scatter controls."
+    }
+  ]
+}

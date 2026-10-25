@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/t74-native-fast/vendor/native/new/code/borrow/bw_transport.py",
+    "research/t74-native-fast/vendor/native/new/code/borrow/bw_emit.py",
+    "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+    "research/frontier1094-recipes-exact-seed76/clifford.py",
+    "research/rank7-coupled-586-588-carrier-fold/edits/FINAL-WORD-base.json.gz",
+    "research/rank7-coupled-586-588-carrier-fold/edits/FINAL-WORD-extra.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Source-bound emitted 644/660 entering wrappers, climbs, FULL exit adapters and direct scalar clocks in both orientations and providers; separate-kernel all-512-column phase-exact width-7 residual and every climb; parent PR3133 single-change control; seven residual controls per provider; the RETIMED644-660 (#3642/#3653) and DELAYED (#3682) consumer words against the STAGED control: recorded native receipts, identical residual adapters and entrance/terminal pairs, 644/660 bindings with the separate-kernel width-7 check, and donor-only merged climbs checked by the same kernel."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py",
+        "-v"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Emitted-stream, recipe, source-pin and consumer-comparison corruptions must be rejected through the main binding and kernel paths, each consumer corruption at its own check."
+    }
+  ]
+}

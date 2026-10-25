@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43base.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43extra.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/STEPS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/CANONICAL-WORD.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/CLIFFORD-RECIPES.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/CLIFFORD-REVIEW.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/FULL-WORD.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/INDEPENDENT-LOCAL-REPLAY.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/LOCAL-CHECKS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/LOCAL-PROGRAMS.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/RESIDUAL-ADAPTERS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/SCALAR-FRAME-AUDIT.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/WARP-RECIPE-CHECKS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-base/native/local/WRAPPER-CHECKS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/STEPS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/CANONICAL-WORD.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/CLIFFORD-RECIPES.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/CLIFFORD-REVIEW.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/FULL-WORD.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/INDEPENDENT-LOCAL-REPLAY.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/LOCAL-CHECKS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/LOCAL-PROGRAMS.json.gz",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/RESIDUAL-ADAPTERS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/SCALAR-FRAME-AUDIT.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/WARP-RECIPE-CHECKS.json",
+    "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/WRAPPER-CHECKS.json",
+    "research/mixed-provider-admission/COVERAGE.md",
+    "research/mixed-provider-admission/NATIVE-OUTPUTS.json",
+    "research/mixed-provider-admission/README.md",
+    "research/mixed-provider-admission/binding.py",
+    "research/mixed-provider-admission/challenge.py",
+    "research/mixed-provider-admission/native_outputs.py",
+    "research/mixed-provider-admission/replay.py",
+    "research/mixed-provider-admission/test_binding.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate all live sources; independently reconstruct 22 normalized product commitments; challenge every scientific root field, reference edge, timing and stage/file predicate against the unchanged gate with assertions disabled; compare exact receipt."
+    }
+  ]
+}

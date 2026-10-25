@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/pr4416-invoice-rebuild/vendor/SUPPLIER-RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact three-input source and receipt binding; both native orientations; F2 frame containment/rank census; adjacent center coalescence; 408 nested helper increments; full receipt distributions; 16 rejecting controls; 512 F2^3 rank checks; accounting-only sign-flip probe; deterministic RESULT.json."
+    }
+  ]
+}

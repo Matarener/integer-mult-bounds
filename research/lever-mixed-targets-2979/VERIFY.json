@@ -1,0 +1,68 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [],
+ "inputs": [
+  "research/rank7-joint-endframes/data/WORD-base.json.gz",
+  "research/rank7-joint-endframes/data/WORD-extra.json.gz",
+  "research/rank7-joint-endframes/allocation/FILL.json.gz",
+  "research/rank7-joint-endframes/allocation/ORDER.json",
+  "research/rank7-joint-endframes/allocation/DISPATCH.json",
+  "research/rank7-joint-endframes/allocation/PROFILE.json",
+  "research/rank7-joint-endframes/allocation/PROVIDERS.json",
+  "research/rank7-joint-endframes/allocation/vendor/PLAN.json.gz",
+  "research/rank7-joint-endframes/allocation/vendor/TEMPLATE.json.gz",
+  "research/rank7-joint-endframes/CLAIM.json"
+ ],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/verify.py",
+    "--part",
+    "main"
+   ],
+   "timeout_seconds": 360,
+   "checks": "Pins of the ten #2979 inputs and of this package's data; my conversion of both #2979 words (transport to the native canonical form with exact replay on all 632 columns in both orientations, lowering to gcert/1w and 1b with frames, warps, residual widths helper by helper, local profile, full replay to the endpoint, 7 rejected mutants per word, recorded content hashes; stated local profile, widths and zero buffers from CLAIM.json and PROVIDERS.json); the head test in my nine-stage network on #2979's ORDER, DISPATCH, PLAN, TEMPLATE and 271,728 FILL rows (windows, bin ranks, one use per role, global profile = PROFILE.json, 16,086 literal rank-48 heads = 8,064 + 8,022, 12,104 other rank-48 blocks, and its two network controls); the price (uniform root = CLAIM.json complex_lower to 24 digits; half cut 1.7556473153e-3; full cut as a what-if); the exact rational rate certificate of the mixed-target recursion on the half-cut profile derived from the measured heads, at 17556473/10^10 and refuted at 17556474/10^10, with the derived profile equal to the Lean rate module's."
+  },
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/verify.py",
+    "--part",
+    "controls"
+   ],
+   "timeout_seconds": 120,
+   "checks": "Regression of the head test on the earlier T74 circuit (11,010 heads = 6,150 + 4,860, remainders {48: 22,748}, global profile); price controls: the figure is refused with a single head and with one head fewer (16,085), a profile that is not separated is refused, and one grid step above the figure is refused."
+  },
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/verify.py",
+    "--instance",
+    "2979Fc",
+    "--part",
+    "main"
+   ],
+   "timeout_seconds": 480,
+   "checks": "The headline A-fc: the same checks as --part main on #2979's ten inputs, with this package's table of hosts fills/2979Fc/FILL.json.gz and its paid profile (pinned): 16,576 literal rank-48 heads = 8,288 + 8,288, no other rank-48 block, global profile = fills/2979Fc/PROFILE.json, uniform root = the community's root for this table (1.6897030111e-3) to 24 digits, the full-cut price 1.7887045643e-3 (heads removed, job 25, every paid block of rank <= 23), the full-cut profile derived from the measured heads, and the exact rational rate certificate at 17887045/10^10, refuted at 17887046/10^10."
+  },
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/verify.py",
+    "--instance",
+    "2979Fc",
+    "--part",
+    "controls"
+   ],
+   "timeout_seconds": 180,
+   "checks": "The headline A-fc, controls: the T74 regression; the figure is refused with a single head, with one head fewer (16,575), with the heads kept as blocks of 48 while their arrays take the job of 25 (not separated), and one grid step above."
+  }
+ ]
+}

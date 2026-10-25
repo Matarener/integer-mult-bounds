@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Decide whether the fixed L/2 firing set is monotone in length by proving the n=4 silence at lengths 14 and 16 and classifying the canonical firing sets through (5,16).",
+  "scope_change_reason": "The eligible chronological handoff, after dropping the budget-blocked (7,18)/(7,20) census in comment 19021170 and the delivered child-rank bound, is comment 19022438 handoff 1. That handoff asks whether the firing set grows with L and names (4,14) and (5,16) as the next classification. Handoff 2 of the same comment is already #4148. The card forbids launching the seven-label census as this session's orientation, so that census stays open.",
+  "bottleneck_link": "Side result on the prune's dependency boundary. A monotone extrapolation would mis-state which functionals still falsely prune on longer words. The n=4 collapse shows that growth through length 12 does not continue, without repairing a retained exclusion or changing the selected frontier.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the flat-excess proof for every 14-point and 16-point subset of F_2^4, the canonical censuses through (5,16), and the monotone comparison with the #3699/#3733 lengths. Do not run survey(7,18) or the n=5 length-18 census.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md proves every 14-point subset of F_2^4 has excess at most 29 < base 35, and the full space has excess 42 < base 49. verify.py recomputes the flat maxima, matches the published per-mask tables at (4,8), (4,10), (4,12), (5,12) and (5,14), and classifies (4,14), (4,16) and (5,16). Firing-set sizes are 9,10,13,0,0 for n=4 and 24,25,25 for n=5. Witness 010201031213 fires for mask 1 at length 12 and the length-14 set is empty. Both excess routes agree. No seven-label census and no new kappa.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Prepared by unpaidmoon with substantial Cursor Grok assistance for selection, the flat-excess argument, the census and the checks. No independent human or formal-kernel review claimed.",
+  "open_questions": [
+    {
+      "question": "For n=5, which even length first makes every functional sound for the fixed L/2 substitution?",
+      "why_it_matters": "Through length 16 the firing set is still exactly the 25 masks of weight at most 3. The n=4 collapse happened when the quadratic base overtook the 8-point flat cap. The 16-point level sets have not done that yet.",
+      "first_step": "Classify canonical words at (5,18) with this package's enumerator and compare the firing set with the weight-at-most-3 set.",
+      "blocked_by": "Length 16 already has 267890 canonical closed words. Length 18 was outside this session, and no general cap is proved."
+    },
+    {
+      "question": "Which nonzero functionals falsely prune simple restored universal words at (7,18) and (7,20)?",
+      "why_it_matters": "Comment 19021170 identifies that census as the domain that can change a maintained exclusion. This package deliberately does not run it.",
+      "first_step": "Budget a separate replay of survey(7,18) and survey(7,20) and compare firing functionals with the corrected weight-parity budgets.",
+      "blocked_by": "The seven-label state count. The card treats that replay as its own resource decision."
+    },
+    {
+      "question": "Does any n>5 repeat the n=4 collapse one step after every low-weight mask has started firing?",
+      "why_it_matters": "The mechanism is the substituted budget overtaking a dimension-capped class excess. If it is special to n=4, the n=5 stability through length 16 should not be read as a law.",
+      "first_step": "Test one even length at n=6 past the first length whose firing set contains every mask of weight at most n-2.",
+      "blocked_by": "(6,16) already has 2262380 canonical closed words before the universality filter, and no threshold theorem is proved here."
+    }
+  ]
+}

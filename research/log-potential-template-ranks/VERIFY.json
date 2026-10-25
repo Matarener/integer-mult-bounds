@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/log-potential-template-ranks/vendor/FINITE-PRECOMPILATION.md",
+    "research/log-potential-template-ranks/vendor/MIXED-PRODUCTIVE-BIT.json",
+    "research/log-potential-template-ranks/vendor/EXPLICIT-TEMPLATE-BOUNDS.json",
+    "research/log-potential-template-ranks/vendor/EXPLICIT-TEMPLATE-BOUNDS.md",
+    "research/log-potential-template-ranks/vendor/P3-NATIVE-COVER.json.gz",
+    "research/log-potential-template-ranks/vendor/OUTER-PARAMETERS.json",
+    "research/log-potential-template-ranks/vendor/OUTER-TRANSFER-AUDIT.md",
+    "research/log-potential-template-ranks/vendor/BIT-ALLSIZE-PARAMETERS.json",
+    "research/log-potential-template-ranks/vendor/DELAYED-COVER-BRIDGE.md",
+    "research/log-potential-template-ranks/vendor/check_ledger.py",
+    "research/log-potential-template-ranks/VENDOR.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Four logarithmic-majorant rank certificates, 12 rejecting scientific mutations, four failing previous grid points, complete BIT cover/atom chain, nine outer cost rows, 63 inherited predicates, 22 added interface inequalities and four rejecting outer controls."
+    }
+  ]
+}

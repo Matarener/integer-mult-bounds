@@ -1,0 +1,107 @@
+{
+  "cli_history": [
+    {
+      "description": "Used explicit --source and --output before final provenance freeze; these historical outputs were replaced after exact source-union/witness labels and optional --expected binding were completed. They are not the final frozen receipt.",
+      "state": "initial diagnostic runs"
+    },
+    {
+      "description": "No writes by default. --source optional with packaged frozen-input default; --output optional; --expected optional compares complete freshly recomputed structured result. Strict optimized final run exercises expected-receipt binding.",
+      "state": "final CLI"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "stdlib_only": true
+  },
+  "file_sha256": {
+    "PROOF.md": "3bbdbfd4d5a7d14a41d17efce2edeaf9b3db5a1c910216501174a5dbf16b3bfa",
+    "RESULT-OPT.json": "1da2b3ef97bcaf47d9657c5c0d9ec132d8df0823341497f794e556e437b42473",
+    "RESULT.json": "1da2b3ef97bcaf47d9657c5c0d9ec132d8df0823341497f794e556e437b42473",
+    "primary_verify.py": "cf145bb25c77be08f92a94273bd15937a8833bd55bba297a015a834a791c696e"
+  },
+  "frozen_observed_utc": "2026-10-20 17:10:20 UTC",
+  "independence": {
+    "James_checker_read_or_imported": false,
+    "native_compiler_read_or_imported": false,
+    "other_oracle_implementation_read_or_imported_before_freeze": false,
+    "predecessor_check_endpoints_read_or_imported": false,
+    "predecessor_check_geometry_read_or_imported": false,
+    "predecessor_controls_or_verify_read_or_imported": false,
+    "scientific_data_read": [
+      "GEOMETRY.json.gz"
+    ],
+    "source_model_files_read": [
+      "PROOF-CONTACTS.md",
+      "README.md",
+      "NOTICE.md"
+    ]
+  },
+  "normal": {
+    "completion_observed_utc": "2026-10-20 17:10:10 UTC",
+    "exit": 0,
+    "portable_recorded_argv": [
+      "python3",
+      "-I",
+      "-B",
+      "-W",
+      "error",
+      "primary_verify.py",
+      "--source",
+      "source/PR4204-GEOMETRY.json.gz",
+      "--output",
+      "RESULT.json"
+    ],
+    "tool_wall_seconds": 4.315932875
+  },
+  "optimized": {
+    "completion_observed_utc": "2026-10-20 17:10:20 UTC",
+    "exit": 0,
+    "portable_recorded_argv": [
+      "python3",
+      "-I",
+      "-O",
+      "-B",
+      "-W",
+      "error",
+      "primary_verify.py",
+      "--source",
+      "source/PR4204-GEOMETRY.json.gz",
+      "--expected",
+      "RESULT.json",
+      "--output",
+      "RESULT-OPT.json"
+    ],
+    "tool_wall_seconds": 3.333029041
+  },
+  "portable_registered_replay": [
+    [
+      "python3",
+      "-I",
+      "-B",
+      "-W",
+      "error",
+      "primary_verify.py",
+      "--expected",
+      "RESULT.json"
+    ],
+    [
+      "python3",
+      "-I",
+      "-O",
+      "-B",
+      "-W",
+      "error",
+      "primary_verify.py",
+      "--expected",
+      "RESULT.json"
+    ]
+  ],
+  "receipt_byte_equality": true,
+  "scientific_source": {
+    "logical_path": "source/PR4204-GEOMETRY.json.gz",
+    "sha256": "353220f1edf3a3afda11cd5073c5e55446c23c242969b16a361fa53b8e45dd7e"
+  },
+  "scope": "All recorded contact/projector phase data, typed plus-one recipes and specified isolated plus/minus dirty-input words. No original-port reconstruction/native compiler/B4/DP/shared caller/physical tape/global kappa claim.",
+  "status": "FINAL_PRIMARY_FREEZE_AFTER_PORTABLE_EXPECTED_RECEIPT_CLI",
+  "timestamps_scope": "UTC clock observations after tool completions; elapsed values are actual tool-reported wall seconds. No reconstructed start timestamp is claimed."
+}

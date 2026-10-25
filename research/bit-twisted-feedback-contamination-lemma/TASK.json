@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-helper-contract",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "bit-helper-contract",
+    "question": "Can one precisely specified helper-mixing word satisfy a replacement for the inherited H2/K interface?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/r439-bsection-stars-seed01/README.md",
+      "research/r439-copy-path-sharing-barrier/README.md"
+    ],
+    "methods": [
+      "Derive a replacement interface lemma and price its implementation.",
+      "Seek an exact dirty-input or chronological-cut counterexample to the proposed replacement."
+    ],
+    "acceptance_gate": "A full boundary contract and paid profile; unchanged scalar counts alone are insufficient. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/r439-bsection-stars-seed01/verify.py"
+      ],
+      "expected": "PASS_R439_BSECTION_STARS",
+      "inspect": "Compare the two false H2/K flags with the unchanged paid profile in its README.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write one replacement H2/K implication for a single helper-star operation, then try to falsify it on dirty inputs.",
+    "bottleneck_link": "A legitimate replacement could admit a cheaper bit circuit; scalar savings alone do not alter the selected moment.",
+    "allowed_variations": [
+      "Choose one helper-star or quartet instance; narrow to one boundary implication."
+    ],
+    "scope_change_triggers": [
+      "Changing only source count or scalar addition count without an interface argument."
+    ],
+    "overlap_terms": [
+      "H2_D_frame0_targets_from_helpers",
+      "K_equals_D",
+      "helper-star"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Boundary (h,y)->(T h, y+K h) with dirty inputs, T in GL_H(F2), unit-cost directed XORs, fixed labels. (1) Written every-word lemma: any word of length L whose product lies in P_{H,Y} yields an explicit restricted word of length L - f_v + c(w) computing the same map, with an explicit contamination charge c and no hypothesis that the target block is invertible. (2) Exact 3+3 decision over the 85,504 exits with T != I: no strict feedback advantage, common minimum histogram 1:6 2:96 3:744 4:3594 5:11463 6:23948 7:29259 8:15438 9:956. (3) Five-register shapes 2+3, 3+2, 4+1: no strict advantage for the 333,552 twisted (T != I) exits (320 + 10,688 + 322,544); the run also covers 144 settled T=I shears in those shapes and the 16 settled 1+4 exits, 333,712 in total. Positive control: in the same five-register model exactly 120 non-exit elements of P (60 in P_{2,3}, 60 in P_{3,2}, all with target block D != I) have d_full = d_P - 1, and Corollary 2 holds on a minimum word of each; so the exit condition D = I is load-bearing.",
+  "scope_change_reason": "The card asks whether one specified helper-mixing word satisfies a replacement for the inherited H2/K interface. This package answers the replacement contract's feedback question (PR1868 question 3) for twisted exits: an every-word contamination-charge lemma plus exact 3+3 and five-register decisions. It admits no H2/K word and changes no paid profile.",
+  "bottleneck_link": "Side result for the bit-helper-contract line (PR1868 question 3, fixed exits only): in PR1306's model, target-to-helper feedback gives no gain at any twisted exit of the 3+3 shape (the case PR2494 left open) or of the five-register shapes 2+3, 3+2, 4+1 (with PR2494's H+Y <= 4 census, every twisted shape with at most five registers). Not closed: twisted 2+4, 4+2, 5+1 and larger shapes; the actual seed02 D boundary (at least 3 helpers and 99 targets), where only Corollary 2's necessary condition (a non-clean, i.e. contaminated or singular, read with c >= f_v + 1) applies; C-absorption pricing; twisted-versus-restored exits. No kappa effect either way: the bit side does not bind (r439-twisted-star-absorption-seed02).",
+  "budget_minutes": 90,
+  "stop_rule": "Submit only if some exit has a cross-checked strict feedback advantage, or the lemma is written for every word with no target-block invertibility hypothesis, mechanically corroborated, with the finite 3+3 decision as corroboration (met by the latter).",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md (written lemma and corollaries); verify.py (stdlib: construction on 6,628 words, two per element of every P_{H,Y} with n<=4, 8,400 random P-words n<=8, 2,800 free words with the per-gate invariant only; stdlib column-major 3+3 MITM via independent33.py with restricted balls asserted inside P_{3,3}; five controls); numpy_crosscheck.py (numpy==2.5.4: dense P_{3,3} BFS + row-major B4xB4 MITM; dense five-register census; construction on one greedy minimum word per five-register exit, 333,712 words, 35 of which (all 4+1) have a non-clean read with c = f_v + 1, so those exits are decided by the census, not the lemma).",
+  "author": "Sagar Thakrar (thakrarsagar)",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) in research, code, checking and writing; reviewed only by AI passes in the same loop, no independent human review.",
+  "open_questions": [
+    {
+      "question": "Is there a local rewriting rule that turns a minimum word with a non-clean read into a restricted word of the same length, at least for one-target (Y = 1) twisted exits at every H? Such a rule must use D = I, because 120 non-exit five-register elements of P have a strict feedback gain.",
+      "why_it_matters": "c <= f_v already fails for some minimum words (the 35 greedy 4+1 words have c = f_v + 1, yet their exits have equal-length restricted words), so the lemma alone cannot extend the decision; such a rule would extend it beyond five registers.",
+      "first_step": "For each of the 35 greedy 4+1 words, align it with a restricted minimum word of the same length and extract the local rewrite.",
+      "blocked_by": "No candidate rule yet; the census certifies lengths, not rewrites."
+    },
+    {
+      "question": "Does a strict feedback advantage first appear at seven registers (3+4 or 4+3 twisted exits)?",
+      "why_it_matters": "Only a concrete word beating a certified restricted minimum would reopen the feedback question for a replacement helper contract.",
+      "first_step": "Use Corollary 2 to restrict the search to words with a non-clean (contaminated or singular) read and charge at least f_v + 1, rather than a blind census.",
+      "blocked_by": "No favourable candidate; a larger negative census alone is not justified by this result."
+    }
+  ]
+}

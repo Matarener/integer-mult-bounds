@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/split-centres-global/proofs/PR386-BIT-GEOMETRY.txt",
+    "research/complex-local-word-ceiling/levers.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check D_V D_U on a full height-8 copy and a partial copy, then compare charge 32 with mass 64."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check a contained rank and reject a pair that leaves V."
+    }
+  ]
+}

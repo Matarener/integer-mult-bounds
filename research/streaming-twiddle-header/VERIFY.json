@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/synthetic-twiddle-circuit/PROOF.md",
+    "research/synthetic-twiddle-circuit/circuit.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Every physical address in admitted small fixtures, exact source circuit/formula, read-once/EOF, register/gate bills, every early-prefix residual function, wide shapes and malformed boundary inputs."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Ten actual optimized CLI scientific/source/receipt fault groups, private-register cleanup mutation and one valid retry from exclusive owned regular byte copies."
+    }
+  ]
+}

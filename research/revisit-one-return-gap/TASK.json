@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Can one restored length-22 word of split (11,10) carry both prefix return lengths 4 and 6?",
+  "scope_change_reason": "The even-length existence cover is already in open PR #3730. The remaining one-word question at revisit 1 is this incompatibility, and it does not rerun that cover or the census.",
+  "bottleneck_link": "Revisit 1 limits which return lengths can be priced on the same length-22 word before a universal census.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the revisit-1 patterns and the two attained shapes. Do not enumerate revisit 2 and do not claim f(7).",
+  "outcome": "completed",
+  "evidence": "All 231 closed coincidence patterns with exactly two extra visits miss the pair 4 and 6. Explicit restored words attain {2,20,22} and {4,18,22} at split (11,10).",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the pattern check, witnesses and writeup.",
+  "open_questions": [
+    {
+      "question": "Which pairs of even distances from 4 through 18 can share a restored word at revisit 2?",
+      "why_it_matters": "Split (11,9) has one more repeated visit than (11,10), so the revisit-1 gap does not decide whether 4 and 6 can be priced together there.",
+      "first_step": "Enumerate the three-extra-visit coincidence patterns and test the pair 4 and 6.",
+      "blocked_by": "Nothing structural; this package stops at revisit 1."
+    }
+  ]
+}

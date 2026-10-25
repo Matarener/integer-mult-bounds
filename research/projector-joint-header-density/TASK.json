@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact joint first-pivot law, full success-count distribution and algebraic minimum header cover for pairwise orthogonal rank-one projectors over every finite field.",
+  "scope_change_reason": "The current card asks for a proof audit. This contribution instead proves a new joint counting law for a changed shared-header interface, building on exact single-request laws without rechecking them.",
+  "bottleneck_link": "Side result for possible header reuse: exact dependence determines when one algebraic header can serve an orthogonal family. No physical cost saving or actual supplier binding is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the joint counting theorem and bounded finite corroboration; no higher-rank census, physical supplier or recurrence repricing.",
+  "outcome": "completed",
+  "evidence": "Written equal-fiber proof, exact success distribution, scalar-pair census, independent complete GL census including F4, constructive header covers and six controls; generated RESULT.json binds exact bytes.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the exact joint guard law for two nonorthogonal rank-one projectors?",
+      "why_it_matters": "Shared requests need not form an orthogonal family.",
+      "first_step": "Classify simultaneous conjugacy using tr(PQ) and image/kernel intersections, then count the smallest pair types.",
+      "blocked_by": "No higher-rank or nonorthogonal classification is supplied here."
+    },
+    {
+      "question": "Can an actual orthogonal request family use a fully charged shared-header caller?",
+      "why_it_matters": "The one-or-two-header existence theorem alone does not save paid work.",
+      "first_step": "Pin one producer family and charge header selection, emission, dispatch, dirty return and stock.",
+      "blocked_by": "No actual request family or physical caller has been bound."
+    }
+  ],
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19080582",
+    "upstream_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "overlap_checked_at": "2026-10-20T19:55:28Z",
+    "open_prs": 340,
+    "discussion_records": 2980,
+    "coverage": "Full open/draft pagination and Discussion cache; closed history and code-diff coverage partial. Targeted joint-law phrases returned no matches."
+  }
+}

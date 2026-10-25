@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Decide whether the factor 1/W in the normalized child recurrence keeps F(e) below a constant times sqrt(e) when the child list only satisfies 1 <= t < m.",
+  "scope_change_reason": "The audit names normalization by W as the critical assertion. The transfer review proves the bound only when Psi(tau) < 1.",
+  "bottleneck_link": "A child list whose Psi exceeds 1 makes the normalized recurrence outgrow every square-root allowance, so dividing by W is not the whole transfer hypothesis.",
+  "budget_minutes": 60,
+  "stop_rule": "Use the displayed recurrence. Do not replay a network or open the parking-schedule manuscript.",
+  "outcome": "partial",
+    "evidence": "Four width-2 children, two roles and modulus 4 give Psi(1/2)^2 = 2 and normalized value 3 at width 8, and 9 > 8. One width-1 child, four roles and modulus 4 gives Psi = 1/8 and stays within allowance 8/7 through width 64.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "Does one retained parking node have a child list with Psi(tau) < 1?",
+      "why_it_matters": "The counterexample uses a legal width list under 1 <= t < m. The selected schedule may already meet the strict hypothesis.",
+      "first_step": "Pin one parking node, list its child widths, role count and modulus, and evaluate Psi at tau = 1/2.",
+      "blocked_by": "This package does not open the parking-schedule manuscript."
+    }
+  ]
+}

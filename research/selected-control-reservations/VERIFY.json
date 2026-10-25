@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/compact-control-layout.tex",
+    "notes/compact-control-movement.tex",
+    "research/coupled-helper-neutral-completion/capsule/workspace/swarm-coupled-caller-sol-high-20261024/agents/challenge/WHOLECALLER-PLAN-v1.json",
+    "research/coupled-helper-neutral-completion/reports/proofs/V16-APPLICATION-PROOF-v3.md",
+    "research/physical-complex-controller/PROOF.md",
+    "tests/test_compact_control_layer.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticated actual route census, parametric interval obligations, column lift and semantic controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Same evidence with assertions disabled"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Portable empty-PATH normal/optimized replay and altered source/receipt rejection"
+    }
+  ]
+}

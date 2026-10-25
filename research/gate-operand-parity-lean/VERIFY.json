@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-bit-p111-tuned/code/xcheck_p.py",
+    "research/e8-bit-carrier-skeleton/code/bit/export_records.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Lean source byte pin, axiom-command binding and proof-escape scan; the two frozen operator line groups (checker accumulate-then-write, exporter per-source ADD); and the bounded finite census cross-checking the contract predicate against direct simulation on all 1364 (d, srcs) pairs with 4 registers, lists of length <= 4, and every valuation. The all-size kernel build is a separate declared mode (--lean) certified by this package's own dispatched workflow, not by this registered command."
+    }
+  ]
+}

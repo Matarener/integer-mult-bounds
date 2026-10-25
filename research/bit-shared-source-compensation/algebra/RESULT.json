@@ -1,0 +1,243 @@
+{
+  "actual_packet_algebra": {
+    "delta": {
+      "new_helpers": 0,
+      "rank2_queries": 4,
+      "scalar_adds": 0
+    },
+    "endpoint": [
+      [
+        {
+          "input": 0,
+          "operator": "1"
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "operator": "q"
+        },
+        {
+          "input": 1,
+          "operator": "q"
+        },
+        {
+          "input": 2,
+          "operator": "q"
+        },
+        {
+          "input": 3,
+          "operator": "q"
+        },
+        {
+          "input": 4,
+          "operator": "q"
+        },
+        {
+          "input": 5,
+          "operator": "q"
+        },
+        {
+          "input": 6,
+          "operator": "q"
+        },
+        {
+          "input": 7,
+          "operator": "q"
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "operator": "rp"
+        },
+        {
+          "input": 2,
+          "operator": "rp"
+        },
+        {
+          "input": 3,
+          "operator": "rp"
+        },
+        {
+          "input": 4,
+          "operator": "rp"
+        },
+        {
+          "input": 5,
+          "operator": "rp"
+        },
+        {
+          "input": 7,
+          "operator": "rp"
+        },
+        {
+          "input": 8,
+          "operator": "rp"
+        },
+        {
+          "input": 9,
+          "operator": "r"
+        }
+      ],
+      [
+        {
+          "input": 3,
+          "operator": "1"
+        }
+      ],
+      [
+        {
+          "input": 4,
+          "operator": "1"
+        }
+      ],
+      [
+        {
+          "input": 5,
+          "operator": "1"
+        }
+      ],
+      [
+        {
+          "input": 6,
+          "operator": "1"
+        }
+      ],
+      [
+        {
+          "input": 7,
+          "operator": "1"
+        }
+      ],
+      [
+        {
+          "input": 8,
+          "operator": "1"
+        }
+      ],
+      [
+        {
+          "input": 9,
+          "operator": "1"
+        }
+      ]
+    ],
+    "original": {
+      "clean_helpers": 0,
+      "clear_or_erase": 0,
+      "query_rank_histogram": {
+        "1": 1,
+        "2": 2
+      },
+      "scalar_adds": 14
+    },
+    "repair": {
+      "clean_helpers": 0,
+      "clear_or_erase": 0,
+      "query_rank_histogram": {
+        "1": 1,
+        "2": 6
+      },
+      "scalar_adds": 14
+    },
+    "required_cut_h413": [
+      [
+        {
+          "input": 0,
+          "operator": "p"
+        },
+        {
+          "input": 2,
+          "operator": "p"
+        },
+        {
+          "input": 3,
+          "operator": "p"
+        },
+        {
+          "input": 4,
+          "operator": "p"
+        },
+        {
+          "input": 5,
+          "operator": "p"
+        },
+        {
+          "input": 7,
+          "operator": "p"
+        },
+        {
+          "input": 8,
+          "operator": "p"
+        }
+      ]
+    ]
+  },
+  "claim": "exact shared-source repair; positive surcharge on audited cut contract",
+  "coefficient_domain": "F2[C2*C2*C2], complete reduced-word normal forms",
+  "coverage": "algebraic template only; literal embedding requires source audit windows",
+  "negative_controls": [
+    "wrong_noncommuting_reverse_inverse",
+    "missing_dirty_echo_inverse",
+    "omitted_independent_dirt_queries",
+    "late_stale_pullback",
+    "scalar_fanout_integer_compensation_sign"
+  ],
+  "no_new_kappa": true,
+  "prefix_control": {
+    "dirty_echo": {
+      "clean_helpers": 0,
+      "clear_or_erase": 0,
+      "query_rank_histogram": {
+        "2": 8
+      },
+      "scalar_adds": 6
+    },
+    "qualifies_as_actual_demand": false,
+    "separate": {
+      "clean_helpers": 0,
+      "clear_or_erase": 0,
+      "query_rank_histogram": {
+        "2": 6
+      },
+      "scalar_adds": 2
+    },
+    "shared": {
+      "clean_helpers": 0,
+      "clear_or_erase": 0,
+      "query_rank_histogram": {
+        "2": 4
+      },
+      "scalar_adds": 2
+    }
+  },
+  "scalar_sharing_control": {
+    "additional_delta_only_if_separate_full_literal_inverse_is_executed": {
+      "queries": 0,
+      "scalar_adds": -4
+    },
+    "combined_subword_invoice": {
+      "clean_helpers": 0,
+      "clear_or_erase": 0,
+      "query_rank_histogram": {
+        "1": 1,
+        "2": 2
+      },
+      "scalar_adds": 10
+    },
+    "forward_delta": {
+      "queries": 0,
+      "scalar_adds": -4
+    },
+    "frozen_existing_cleanup_delta": {
+      "queries": 0,
+      "scalar_adds": 0
+    },
+    "integer_group_algebra_equality": true,
+    "new_prelude_adds": 9,
+    "old_prelude_adds": 13,
+    "qualification": "requires source-audited earlier arrival of v371; no query saving"
+  },
+  "status": "PASS"
+}

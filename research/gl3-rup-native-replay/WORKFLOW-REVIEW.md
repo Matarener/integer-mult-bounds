@@ -1,0 +1,9 @@
+# Native replay workflow review
+
+Status: **PASS_SCOPED_NATIVE_WORKFLOW_REVIEW**. The authoritative tracked workflow is `.github/workflows/gl3-rup-native-replay.yml`, SHA256 `c0a65c14526a3e478b9dd9afaef36a53f2de647eb5beeb3f503d73dda3551e24`, Git blob `fa6e4aec0a992d16acfcd930d399b5ba2edf57e8`.
+
+The job has read-only contents permission, no persisted checkout credentials, pinned checkout/setup-python actions, Ubuntu24.04 and Python3.12. It triggers on ordinary pull_request and relevant main pushes, without pull_request_target, secret injection, package installation, merge or frontier mutation. Native outputs/builds live under RUNNER_TEMP and the20-minute job timeout bounds overall hosted execution. Individual native CPU/wall limits remain separate and must be reported accurately.
+
+After native execution, the separate verifier compares proof-relevant receipt fields; its final code review is separately recorded in VERIFIER-REVIEW. Raw logs are printed in an `if: always()` step. The final addition also serializes the complete typed RESULT receipt and exact base64 log bytes as NATIVE_EVIDENCE, allowing the publication audit to recover and compare the complete hosted evidence. Nonexistent output yields no files to print; absent RESULT is not synthesized. This read-only retention step remains after verification and does not alter its acceptance gates. It closes the original success-only logging issue. The final successful job requires both tracked Git bytes unchanged and no untracked package files.
+
+The workflow itself is part of the reproducibility environment and must be pinned/sealed through the actual reviewed public ancestor and final PR tree. Hosted run success and full logs remain publication obligations. This is native re-execution of the pinned same C checker, with the same implementation/compiler/runtime trust limits; it does not confer formal-kernel or independent-human acceptance.

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/cut58-separable-query-floor/source/CUT58.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent-source group closure, complete native tariff,64-ray Gaussian Grammod101, f1rank54/f2rank64 and two defect controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py",
+        "--check-report",
+        "{package}/INDEPENDENT.json"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate complete action-table group and mod5 tensor-entry certificate; fixed f1zero-relation W-twist counterexample."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/endpoint.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Complete36-block all-f target, literal and simplified words, exact Gaussian residue phases, both inverse orders and source/sign omission controls."
+    }
+  ]
+}

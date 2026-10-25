@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/ordinary-one-factor-stock/PROOF.md",
+    "research/ordinary-one-factor-stock/selector.py",
+    "research/physical-ordinary-interchange/encoded.py",
+    "research/physical-ordinary-interchange/ordinary.py",
+    "research/selected-bit-recursive-caller/PROOF.md",
+    "research/selected-bit-recursive-caller/node.py",
+    "research/selected-runtime-guard-stock/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source authentication, least-borrowing census and typed selected receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same complete source/science receipt with assertions disabled"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent inverse-depth slabs with no primary or receipt imports"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exhaustive borrowing/padded guards, capacity failures and real optimized CLI controls"
+    }
+  ]
+}

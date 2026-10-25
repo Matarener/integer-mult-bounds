@@ -1,0 +1,57 @@
+--- provenance/verify_admission.original.py.txt
++++ verify.py
+@@ -14,9 +14,8 @@
+ import json
+ 
+ HERE = Path(__file__).resolve().parent
+-RUN = HERE.parent
+-INPUT = RUN.parent / 'kappa-four-coordinate-20261019T0717Z'
+-REPO = Path('/Users/ross/git/math/integer-mult-bounds')
++INPUT = HERE / 'inputs'
++REPO = HERE / 'source-context'
+ 
+ 
+ def need(p, msg):
+@@ -241,9 +240,8 @@
+     p = argparse.ArgumentParser()
+     p.add_argument('--write', action='store_true')
+     args = p.parse_args()
+-    own = json.loads((RUN/'OWNERSHIP.json').read_text())
+-    for k in ('input_manifest', 'frozen_manifest'):
+-        need(sha(own[k+'_path']) == own[k+'_sha256'], 'ownership manifest authentication')
++    bundle = json.loads((HERE/'INPUT-MANIFEST.json').read_text())
++    own = {'decompressed_word_sha256': bundle['decompressed_word_sha256']}
+     seen = {}
+     def authenticate(x):
+         if isinstance(x, list):
+@@ -251,22 +249,23 @@
+                 authenticate(y)
+         elif isinstance(x, dict):
+             if 'path' in x and 'sha256' in x:
+-                need(sha(x['path']) == x['sha256'], 'pinned file changed: '+x['path'])
++                path = Path(x['path'])
++                need(not path.is_absolute() and '..' not in path.parts, 'bundle-relative input')
++                need(sha(HERE/path) == x['sha256'], 'pinned file changed: '+x['path'])
+                 seen[x['path']] = x['sha256']
+             for y in x.values():
+                 if isinstance(y, (dict, list)):
+                     authenticate(y)
+-    authenticate(json.loads(Path(own['input_manifest_path']).read_text()))
+-    authenticate(json.loads(Path(own['frozen_manifest_path']).read_text()))
+-    wordfile = INPUT/'bit-boundaries/FIVE-TERMINALS-WORD.json.gz'
++    authenticate(bundle['files'])
++    wordfile = INPUT/'FIVE-TERMINALS-WORD.json.gz'
+     blob = gzip.decompress(wordfile.read_bytes())
+     need(sha256(blob).hexdigest() == own['decompressed_word_sha256'], 'literal word hash')
+     word = json.loads(blob)
+-    rawpath = REPO/'research/bit-r438-transport-rehost/words/r438-t154.json.gz'
+-    fullpath = REPO/'research/e8-bit-carrier-skeleton/data/bit/bitE8-r865.json.gz'
++    rawpath = INPUT/'r438-t154.json.gz'
++    fullpath = INPUT/'bitE8-r865.json.gz'
+     raw = json.loads(gzip.decompress(rawpath.read_bytes()))
+     full = json.loads(gzip.decompress(fullpath.read_bytes()))
+-    charts = json.loads((INPUT/'bit-boundaries/TERMINAL-CHARTS.json').read_text())['charts']
++    charts = json.loads((INPUT/'TERMINAL-CHARTS.json').read_text())['charts']
+     need([x['terminal_frame'] for x in charts] == [506, 508, 509], 'three exact frames')
+     checked = [verify_chart(c, raw, full) for c in charts]
+     controls = []

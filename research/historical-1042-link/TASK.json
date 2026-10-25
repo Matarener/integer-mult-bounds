@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "scope-navigation",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "scope-navigation",
+    "question": "Can one misleading historical-current claim or missing research cross-reference be corrected?",
+    "starting_points": [
+      "docs/research/current-status.md",
+      "docs/research/pr-ledger.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Trace one confusing path from onboarding to its authoritative source.",
+      "Index one tightly related family of obstructions with explicit excluded and open hypotheses."
+    ],
+    "acceptance_gate": "Produce evidence-backed navigation, preserve historical records and avoid a duplicate global survey.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Follow one link from the selected record to its review and compare a potentially stale historical claim.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Repair one confusing path or produce a scoped map of one related obstruction family.",
+    "bottleneck_link": "Clear navigation lowers entry cost for central research; a global survey without a concrete fix is not required.",
+    "allowed_variations": [
+      "One historical-current ambiguity or one bounded family index."
+    ],
+    "scope_change_triggers": [
+      "Rewriting frozen scientific packages just to change their historical wording."
+    ],
+    "overlap_terms": [
+      "current status",
+      "historical checkpoint",
+      "scope navigation"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Trace the Selected record link in the #1042 historical section to the live record, and name the checkpoint that carries the printed kappa.",
+  "scope_change_reason": "The status page already labels later sections as historical. This package follows one link inside the #1042 section. It does not edit that page.",
+  "bottleneck_link": "The link target's kappa is the live #1094 value. The printed #1042 decimal is the frontier1042 checkpoint. The selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Trace this one link. Do not survey the other historical sections and do not rewrite the status page.",
+  "outcome": "partial",
+  "evidence": "The #1042 section links to certificates/selected-result.json and prints 0.001672188119205421. That decimal is the frontier1042 checkpoint. The live kappa differs.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The #1042 section's Selected record link is this one path. The matching checkpoint is frontier1042.json. Surveying later historical sections would leave this link."
+}

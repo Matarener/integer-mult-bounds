@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Source pins and 11 PROOF.md/CRT.md phrases; exact address isomorphism vs source direct(); exact synthetic convolution and H0/2 butterflies; exact chirp exponents with odd-t controls; 60-digit Poisson identity and D N^-1 C factorization with three controls; exact dilation commutation; end-to-end toy products with a wrong-scale control; exact recovery inequalities and carry bound."
+    }
+  ]
+}

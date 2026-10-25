@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "research/crt-encoded-benes-rom-producer/PROOF.md",
+    "research/crt-encoded-benes-rom-producer/microcode.py",
+    "research/crt-encoded-benes-rom-producer/vendor/pr4192-NOTICE.md",
+    "research/crt-mixed-row-entry/PROOF.md",
+    "research/crt-mixed-row-entry/bridge.py",
+    "research/crt-mixed-width-caller/verify.py",
+    "research/encoded-crt-entry-lifecycle/PROOF.md",
+    "research/encoded-crt-entry-lifecycle/entry.py",
+    "research/encoded-current-crt/PROOF.md",
+    "research/encoded-current-crt/producer.py",
+    "research/r437-preparation-composition/predecessor4025/source/NOTICE.md",
+    "research/r437-preparation-composition/predecessor4025/source/records.py",
+    "research/r437-preparation-composition/predecessor4025/source/words.py",
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/NOTICE.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Independent multi-target current-row theorem corroboration: all actual producer tables, stream alignment, same-bank history, ownership, oracle calibration and twelve controls, exact rolewise extents and the sharp fixed-P bank footprint."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same complete scientific checks with Python assertions disabled; typed receipt comparison and explicit failures remain active."
+    }
+  ]
+}

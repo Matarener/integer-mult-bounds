@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-bit0-functional-classification/RESULT.json",
+    "research/f7-functional-independent-check/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Python census of (6,12), (6,14), (7,14) against #3699 on main; recorded census.c runs bound by SHA256 and matching #3699, #3733 and #4322; (7,16), (7,18), (7,20) with no universal word; seeded random-walk positive control at (7,26) and corroboration at (7,20)."
+    }
+  ]
+}

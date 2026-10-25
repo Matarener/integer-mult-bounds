@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "NOTICE",
+    "upstream/LICENSE",
+    "research/p104-rounded-collector/inputs/WORD.json",
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz",
+    "research/p104-rounded-collector/PREDECESSORS.json",
+    "research/p104-rounded-collector/README.md",
+    "research/p104-consumer-budget-audit/README.md",
+    "research/p104-consumer-budget-audit/PREDECESSORS.json",
+    "research/p104-reversible-lifting/README.md",
+    "research/p104-invariant-lifting-lattice/README.md",
+    "research/p104-invariant-lifting-lattice/PROOF.md",
+    "research/p104-retimed-internal-grid/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticate all external and retained inputs before loading source bytes; prove the actual producer and bounded consumer interfaces, phase-sensitive frame paths, conjugated maps, dirty restoration, all outgoing ports, constructive widths and complete direct bill; compare independent implementations and the typed deterministic receipt; exercise source, phase, quarter, and receipt failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Repeat the complete registered source and mathematical checks under optimised Python, retaining explicit validation and the same scientific receipt."
+    }
+  ]
+}

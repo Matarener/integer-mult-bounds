@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Does CRT.md's uniform evaluator satisfy E(p, ell) <= 2^{4 ell} (p+2)^{16} for every integer p >= 2 and ell >= 1, when the CRT group has bit length at most p and the batch has at most 8(p+2) axes?",
+  "scope_change_reason": "The card asks for one quantified implication of #4100 at its caller. CRT total repair, the free-algebra lift, and the main conditioning arguments already have open audits. This package takes only the still-unaudited uniform E(p, ell) evaluator that starts from CRT data, including the displayed 2^{-G} comparison that uses that bound. It does not audit placement, repair, or the outer theorem.",
+  "bottleneck_link": "PR #4100 proposes a conditional exponent above the selected kappa. Its CRT route pays E(p, ell) inside the bad-address amortization. An explicit constant for that evaluator is one caller-bound obligation of the proposed transfer; it does not by itself select a new exponent.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the evaluator inequality and the displayed 2^{-G} corollary. Do not price reservoir placement, the ordinary callee, or claim a new kappa.",
+  "outcome": "completed",
+  "evidence": "PROOF.md derives C=1. verify.py checks the comparisons, the Bene\u0161 recurrence, 90 retained-compiler agreements, 44 CRT fixtures, and the rejection controls. It prints PASS_CRT_UNIFORM_EVALUATOR.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Cursor Grok, substantial assistance with the proof writeup and the verifier.",
+  "open_questions": [
+    {
+      "question": "Does one root-axis query still fit 2^{4 ell}(p+2)^{16} when every logical access scans a single shared arena, as in PR #4192, after the CRT offset is included?",
+      "why_it_matters": "The per-table scans priced here are a different schedule from that arena. A shared arena can add a logarithmic factor. The proposed exponent uses E only through an amortization that has slack, but the schedules should not be silently identified.",
+      "first_step": "Encode this package's offset as the permutation input of the PR #4192 arena and compare its touch count with 2^{4 ell}(p+2)^{16} for one root axis.",
+      "blocked_by": "PR #4192 starts from an encoded permutation and is not replayed here. This package does not execute that arena."
+    },
+    {
+      "question": "With C=1, do the reservoir placement and ordinary interchange callee of CRT.md \u00a73\u2013\u00a74 still fit their stated O(V) and O(V p^{1-a} ell^2 polylog p) bills, including the finite elementary fallback?",
+      "why_it_matters": "The evaluator constant is only one factor in the CRT route. Placement and the callee can reintroduce an E-sized term if H < G on the actual parameters.",
+      "first_step": "Check H >= G at G = 64(ell + ceil(log2(p+2))) on the size family in #4100's PROOF.md, and price one ordinary H-bit interchange.",
+      "blocked_by": "Placement geometry is PR #4174's obligation and is not an input to this evaluator."
+    }
+  ]
+}

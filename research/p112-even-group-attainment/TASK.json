@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Sharp sixteen-group optimum for even orthonormal P112 partitions retaining at least eleven PR3356 full frames; exact obstruction to all two-frame-plus-tail repairs",
+  "scope_change_reason": "Take the live PR3373 fifteen-group handoff. Bounded construction attempts found no witness, so preserve exact independent exclusion of PR3370 unproved two-frame SAT domain. This is a finite query-interface result, not a priced native supplier.",
+  "bottleneck_link": "P112 masked query interfaces may change recursive delivery. This theorem excludes a local rank30 two-support construction without confusing query count with full-plane copy price.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish one exact local result within sixty minutes; reserve final quarter for source binding, independent replay, publication and cleanup. Stop before unpriced supplier expansion.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md; RESULT.json with all 78 complete repair cases; verify.py and independent.py; controls.py; exact retained source certificates and VALIDATION.md",
+  "author": "Nick Petalas",
+  "ai_assistance": "Substantial automated assistance with exploration, implementation and prose; claim coverage is determined by the scoped exact replay.",
+  "open_questions": [
+    {
+      "question": "Does a fifteen-even-group partition exist after changing at least three original frames?",
+      "why_it_matters": "It would lower the exhibited two-support query bound from 32 to 30 and meet the reported construction-class floor.",
+      "first_step": "Use the literal selected labels and a three-frame-plus-tail32-port domain; certify any positive partition independently.",
+      "blocked_by": "No positive witness;133 bounded three-frame cases unknown,61 unrun and92 unproved SAT-solver UNSAT reports."
+    },
+    {
+      "question": "Can a changed fitting matrix and physical contract reduce a complete native bill?",
+      "why_it_matters": "Group count alone leaves the full-plane copying charge unchanged.",
+      "first_step": "Write explicit scalar factors and source/reader planes, then price a paid consumer with dirty restoration.",
+      "blocked_by": "Source access, frames, restoration, hosting and all-size supplier admission remain unproved."
+    }
+  ]
+}

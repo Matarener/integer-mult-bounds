@@ -8,6 +8,7 @@ from contextlib import closing
 import hashlib
 import io
 import json
+import ntpath
 import os
 from pathlib import Path
 import re
@@ -22,7 +23,14 @@ RECEIPT = '.research-export.json'
 FORMAT = 'research-package-export-v1'
 
 
-def inventory(root, package, ref):
+def bundle_relative_path(name):
+    canonical_relative_path(name)
+    # A POSIX-relative name such as C:/file or C:file can discard the extraction
+    # directory on Windows. Apply the bundle policy on every producer/check host.
+    require(not ntpath.splitdrive(name)[0], 'drive-qualified export path: ' + name)
+
+
+def inventory(root, package, ref, input_ref=None):
     require(re.fullmatch(r'research/[a-z0-9][a-z0-9-]*', package),
             'package must be research/<slug>')
     commit = git(root, 'rev-parse', '--verify', '--end-of-options',
@@ -34,17 +42,27 @@ def inventory(root, package, ref):
     inputs = manifest.get('inputs')
     require(isinstance(inputs, list), 'VERIFY.json inputs must be a list')
     for name in inputs:
-        canonical_relative_path(name)
+        bundle_relative_path(name)
         require(name != RECEIPT, 'reserved export path: ' + name)
     require(len(inputs) == len(set(inputs)), 'duplicate declared input')
-    records = git(root, '--literal-pathspecs', 'ls-tree', '-r', '-z', '--full-tree',
-                  commit, '--', package, *inputs).split(b'\0')
+    contexts = [(commit, [package, *inputs])]
+    if input_ref is not None:
+        require(all(name != package and not name.startswith(package + '/') for name in inputs),
+                'separate input commit requires external declared inputs')
+        input_commit = git(root, 'rev-parse', '--verify', '--end-of-options',
+                           input_ref + '^{commit}').decode('ascii').strip()
+        contexts = [(commit, [package]), (input_commit, inputs)]
+    records = []
+    for tree, paths in contexts:
+        if paths:
+            records.extend(git(root, '--literal-pathspecs', 'ls-tree', '-r', '-z', '--full-tree',
+                               tree, '--', *paths).split(b'\0'))
     entries = {}
     for record in filter(None, records):
         header, raw_name = record.split(b'\t', 1)
         mode, kind, obj = header.split()
         name = raw_name.decode('utf-8')
-        canonical_relative_path(name)
+        bundle_relative_path(name)
         require(mode in (b'100644', b'100755') and kind == b'blob',
                 'non-regular committed file: ' + name)
         require(name.startswith(package + '/') or name in inputs,
@@ -53,7 +71,17 @@ def inventory(root, package, ref):
     require(set(inputs) <= entries.keys(), 'missing declared input: ' +
             ', '.join(sorted(set(inputs) - entries.keys())))
     require(package + '/VERIFY.json' in entries, 'missing committed manifest')
+    require_file_tree([*entries, RECEIPT])
     return commit, entries
+
+
+def require_file_tree(names):
+    """Regular-file members cannot also be implicit directories for other files."""
+    files = set(names)
+    for name in sorted(files):
+        for parent in canonical_relative_path(name).parents:
+            require(parent.as_posix() not in files,
+                    'file/directory collision: ' + parent.as_posix() + ' and ' + name)
 
 
 def member(name, data, mode=0o644):
@@ -64,9 +92,15 @@ def member(name, data, mode=0o644):
     return info, io.BytesIO(data)
 
 
-def export(root, package, ref, output):
-    commit, entries = inventory(root, package, ref)
+def export(root, package, ref, output, input_ref=None):
+    # Resolve a moving input ref once, before collecting either snapshot.
+    input_commit = (git(root, 'rev-parse', '--verify', '--end-of-options',
+                        input_ref + '^{commit}').decode('ascii').strip()
+                    if input_ref is not None else None)
+    commit, entries = inventory(root, package, ref, input_commit)
     receipt = {'format': FORMAT, 'commit': commit, 'package': package, 'files': []}
+    if input_commit is not None:
+        receipt['input_commit'] = input_commit
     output = Path(output)
     require(not output.exists() and not output.is_symlink(), 'output already exists')
     # Publish only after Git's final status and the archive close both succeed.
@@ -95,7 +129,7 @@ def check_bundle(path):
     seen, receipt = {}, None
     with tarfile.open(path, mode='r:') as archive:
         for item in archive:
-            canonical_relative_path(item.name)
+            bundle_relative_path(item.name)
             require(item.isfile(), 'non-regular archive member: ' + item.name)
             require(item.name not in seen, 'duplicate archive member: ' + item.name)
             require(item.mode in (0o644, 0o755), 'unsupported mode: ' + item.name)
@@ -109,9 +143,13 @@ def check_bundle(path):
                         digest.update(block)
             seen[item.name] = {'path': item.name, 'mode': item.mode, 'size': item.size,
                                'sha256': digest.hexdigest()}
+    require_file_tree(seen)
     require(isinstance(receipt, dict) and receipt.get('format') == FORMAT, 'missing or invalid export receipt')
     require(isinstance(receipt.get('commit'), str) and
             re.fullmatch(r'[0-9a-f]{40,64}', receipt['commit']), 'invalid commit label')
+    if 'input_commit' in receipt:
+        require(isinstance(receipt['input_commit'], str) and
+                re.fullmatch(r'(?:[0-9a-f]{40}|[0-9a-f]{64})', receipt['input_commit']), 'invalid input commit label')
     require(isinstance(receipt.get('package'), str) and
             re.fullmatch(r'research/[a-z0-9][a-z0-9-]*', receipt['package']), 'invalid package label')
     files = receipt.get('files')
@@ -120,7 +158,7 @@ def check_bundle(path):
     for row in files:
         require(isinstance(row, dict), 'invalid receipt row')
         name = row.get('path')
-        canonical_relative_path(name)
+        bundle_relative_path(name)
         require(name != RECEIPT and name not in expected, 'duplicate or reserved receipt path')
         expected[name] = row
     del seen[RECEIPT]
@@ -135,17 +173,19 @@ def main():
     make = commands.add_parser('export')
     make.add_argument('--package', required=True)
     make.add_argument('--ref', default='HEAD')
+    make.add_argument('--input-ref', help='explicit commit for all external declared inputs; default: --ref')
     make.add_argument('--output', type=Path, required=True)
     check = commands.add_parser('check')
     check.add_argument('archive', type=Path)
     args = parser.parse_args()
     try:
-        result = (export(ROOT, args.package, args.ref, args.output) if args.command == 'export'
+        result = (export(ROOT, args.package, args.ref, args.output, args.input_ref) if args.command == 'export'
                   else check_bundle(args.archive))
     except (OSError, ValueError, TypeError, KeyError, tarfile.TarError, subprocess.SubprocessError) as exc:
         parser.exit(1, str(exc) + '\n')
     print('PASS_RESEARCH_EXPORT ' + json.dumps({k: result[k] for k in ('commit', 'package')} |
-                                             {'files': len(result['files'])}))
+                                             {'files': len(result['files'])} |
+                                             ({'input_commit': result['input_commit']} if 'input_commit' in result else {})))
 
 
 if __name__ == '__main__':

@@ -1,0 +1,97 @@
+{
+ "schema_version": 1,
+ "task_id": "census-pruning-audit",
+ "priority_revision": 6,
+ "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+ "original_card": {
+  "id": "census-pruning-audit",
+  "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+  "starting_points": [
+   "research/f7-weight-parity-census-correction/README.md",
+   "docs/research/research-family-status.md"
+  ],
+  "methods": [
+   "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+   "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+  ],
+  "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+  "first_step": {
+   "command": [
+    "python3",
+    "-B",
+    "scripts/research_baseline.py"
+   ],
+   "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+   "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+   "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+  },
+  "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+  "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+  "allowed_variations": [
+   "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+  ],
+  "scope_change_triggers": [
+   "Launching a larger census before validating the prune and explaining which active decision it changes.",
+   "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+  ],
+  "overlap_terms": [
+   "2973",
+   "2542",
+   "2634",
+   "2691",
+   "weight parity",
+   "bit-0",
+   "01021323",
+   "census pruning"
+  ]
+ },
+ "scope_status": "refined",
+ "actual_scope": "Is the fixed L/2 budget substitution a coordinate-bit-0 artifact, or is it unsound for every linear functional other than the parity one? Exhaustive classification of all nonzero functionals on nine small singleton prefix-walk domains with n<=7 and L<=14, plus a machine-checked alternation lemma.",
+ "scope_change_reason": "The card's own first experiment (reconstruct 01021323, compare bit-0 against weight parity on one small domain) is already delivered by #2973 and #3096, which agree with this package's recomputation. The question those leave open is whether bit 0 is special, so the card is narrowed to one complete functional classification on a stated domain. The seven-label decision regime is deliberately not entered, per the card's own scope-change trigger.",
+ "bottleneck_link": "A word-census exclusion is usable only if its prune matches the partition that justifies the budget. Naming every functional for which the substitution is unsound, and showing which single functional justifies it, localises the defect without replaying the seven-label census.",
+ "budget_minutes": 60,
+ "stop_rule": "Stop once the fixture is independently reconstructed, all 2^n-1 functionals are classified on the small domains, and the alternation lemma is machine-checked. Do not run a (7,18) or (7,20) census, do not search for a new kappa, and do not change any selected result.",
+ "outcome": "partial",
+ "evidence": "Fixture recomputed from scratch: prefix states 0,1,3,2,6,4,12,8,0; eight distinct nonclosing states; every label twice; S+S = F2^4; weight split (4,4) with excess 0; bit-0 split (6,2) with excess 8; substituted budget 5; correct budget 9. Census over nine domains: at (4,8), (4,10) and (5,12) the substitution falsely prunes universal words for 9, 10 and 24 of the nonzero functionals respectively, with firing weights exactly 1-2, 1-2 and 1-3; at (3,6), (3,8), (5,10), (6,12), (6,14) and (7,14) there are no false prunes, and the last four of those contain no universal word at all. The count of 22 universal simple words and 6 bit-0 false prunes at (4,8) matches the independent #3096 audit. Lemma l(q_{i+1}) XOR l(q_i) = v_{w_i} holds on 3480 checked instances, giving the all-ones functional as the unique functional whose class value alternates with time.",
+ "author": "Nick Petalas",
+ "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+ "overlap": {
+  "checked_at": "2026-10-18",
+  "coverage": "python3 -B scripts/find_overlap.py --task census-pruning-audit reported 402 open PR bodies and 2471 discussions with complete pagination, fetched 2026-10-18T17:02Z. The tool states this is not a novelty certificate.",
+  "predecessors_checked": [
+   "PR2973 / research/f7-weight-parity-census-correction",
+   "PR3096 / research/f7-bit0-false-prune",
+   "research/f7-set-word-pruning-boundary",
+   "research/f7-independent-full-replay",
+   "research/scatter-export-parity-audit (inspected and rejected as a different boundary)",
+   "open PR3678 research/scatter-basis-identity (inspected, different question)"
+  ],
+  "sibling_batch_prs_avoided": [
+   "3593 encoded twiddle shape control",
+   "3591 rooted-minor closure of marked support-transfer obstructions",
+   "3596 residual floor attainment for different block bases",
+   "3589 uniform 11t/5 mixed-negative Q8 lower bound",
+   "3590 amortizing synthetic twiddle headers across physical address streams"
+  ]
+ },
+ "open_questions": [
+  {
+   "question": "At seven labels and L = 18 or L = 20, does the fixed L/2 substitution falsely prune a universal word, and which functionals?",
+   "why_it_matters": "PR2542's decisive call cyclic_census(7, 18, budget=9, simple=True) and the PR2634/PR2691 length-20 shards use the unsound substitution. This is the only domain that changes a maintained decision about which old exclusions need replacement evidence.",
+   "first_step": "Reuse survey(7, 18) and survey(7, 20) from verify.py with the functional loop already in place; the only cost is the state count at seven labels.",
+   "blocked_by": "A seven-label census needs its own resource budget and a named research decision, which the card's scope-change trigger puts outside this session."
+  },
+  {
+   "question": "Why do functionals of Hamming weight >= n-1 never fire in the measured domains, while weight <= n-2 do?",
+   "why_it_matters": "If the threshold is a theorem, the defect has a clean characterisation; if it is a coincidence of these domains, the weight pattern must not be generalised and the two exceptions become informative.",
+   "first_step": "Prove a bound relating the class imbalance d of a weight-(n-1) functional to the attainable excess a+b, or find a counterexample at (5, 14).",
+   "blocked_by": "No proof attempted; the classification at (5,14) and above was out of budget."
+  },
+  {
+   "question": "Can the bit-0 grouping be repaired by substituting the actual class sizes into the budget, instead of rewriting the traversal to weight parity?",
+   "why_it_matters": "The budget algebra is valid for any functional with its own class sizes, so a one-substitution repair would let the retained PR2542/PR2634/PR2691 traversal code run again with sound pruning and a directly comparable receipt.",
+   "first_step": "Replace the substituted s,t with the enumerated class cardinalities in the pinned engine and replay (4,8) to confirm no universal word is lost.",
+   "blocked_by": "That is a change to frozen predecessor sources and needs maintainer authorization."
+  }
+ ]
+}

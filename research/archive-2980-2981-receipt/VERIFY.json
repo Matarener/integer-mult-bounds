@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/pr-intake-evidence/archives-pr2980-2981.json",
+    "docs/research/pr-intake-decisions.json",
+    "docs/research/pr-ledger.md",
+    "CONTRIBUTORS.md",
+    "research/selected-odd-prime-unit-root/README.md",
+    "research/selected-odd-prime-unit-root/RESULT.json",
+    "research/selected-odd-prime-unit-root/SOURCES.json",
+    "research/selected-odd-prime-unit-root/TASK.json",
+    "research/selected-odd-prime-unit-root/VERIFY.json",
+    "research/selected-odd-prime-unit-root/test_verify.py",
+    "research/selected-odd-prime-unit-root/verify.py",
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-joint-unit-flags/README.md",
+    "research/p104-joint-unit-flags/SOURCES.json",
+    "research/p104-joint-unit-flags/TASK.json",
+    "research/p104-joint-unit-flags/VERIFY.json",
+    "research/p104-joint-unit-flags/decisions.tsv",
+    "research/p104-joint-unit-flags/independent.py",
+    "research/p104-joint-unit-flags/test_verify.py",
+    "research/p104-joint-unit-flags/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Compare the 2980/2981 archive receipt with installed blobs, decisions and contributor lines."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the git blob formula and the predecessor-sentence gap."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 7,
+  "base_commit": "13be6ac685845c1ff671f5d26e7166165abd998e",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Global all-field lower bound 18233853/131072 (hence 140) on the additive full-plane COPY mass of every finite scalar decoder of the strict 112-port PR1825/PR1889 mask, via a rank-dual certificate on 443 cliques; Lean for the two abstract lemmas; conjecture 224 with escape-structure notes and a real-coefficient search on open local cases.",
+  "scope_change_reason": "The card asks about block decoders and larger-rank children; this package answers the coefficient question for the plane-port decoder instead: can even denominators lower its COPY mass below the 2-integral floor 224? It proves a global all-field floor and leaves the dyadic gap [140, 224] open.",
+  "bottleneck_link": "Side result for the plane-port coverage lever (plane-port-copy-budgets): a per-call charge of at most about 160-164 is needed to break even and about 128 to double kappa; 140 excludes the doubling target for every coefficient field in #4365's contract.",
+  "budget_minutes": 600,
+  "stop_rule": "Stop at the exact certified clique bound plus local search evidence; do not attempt a native construction.",
+  "outcome": "completed",
+  "evidence": "verify.py: closure census of 39,087 generated subspaces, tariffs cross-checked by Gaussian elimination, 443 clique columns, exhaustive feasibility on all 39,087^2 ordered pairs (FULL-CHECK.json), three rejecting controls. Lean v4.21.0/Mathlib: V4.identity_block_needs_terms, V4.weak_duality, V4.decoder_cost_ge, axioms propext/Classical.choice/Quot.sound only. Search: search/results.",
+  "author": "Mark (Matarener)",
+  "ai_assistance": "Claude Code (Anthropic) for derivation, certificate generation, verifier, Lean proofs, searches and writing; computations on Kaggle. No independent human review claimed.",
+  "open_questions": [
+    {
+      "question": "Does every decoder of the strict mask cost at least 224 over Q?",
+      "why_it_matters": "It would close the plane-port lever for every coefficient field.",
+      "first_step": "Induct on the top 2-adic valuation (THEORY.md E2), bounding what a zero-mask binary layer can save.",
+      "blocked_by": "No known lower bound for zero-mask layers."
+    },
+    {
+      "question": "Can a functional stronger than the clique programme certify more than 164?",
+      "why_it_matters": "It would close the break-even window in this contract without settling the conjecture.",
+      "first_step": "Add sharp C5 covers and four-plane certificates as columns with the same exhaustive span-pair separation.",
+      "blocked_by": "Nothing."
+    },
+    {
+      "question": "Is there an exact rational cost-15 decoder on an open four-plane class?",
+      "why_it_matters": "It would be the first mixing gain under #4365's contract.",
+      "first_step": "Exact search with forced half coefficients on the lowest LP class of four-plane-rank-dual.",
+      "blocked_by": "Nothing."
+    }
+  ],
+  "fork_branch": "https://github.com/Matarener/integer-mult-bounds/tree/v4-plane-lb (certificate generation and column-generation code)"
+}

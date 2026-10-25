@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "A kernel-checked, all-size Lean 4 proof of the exact gate-operand agreement contract between the pinned PR589 checker operator (accumulate-then-write) and the pinned record exporter operator (sequential per-source ADD): sym and exp agree on every initial valuation exactly for the lists satisfying Contract (destination absent, or the list splits at the destination with an all-even prefix and no destination in the suffix).",
+  "scope_change_reason": "The card's method is used directly (state one missing boundary lemma, then formalize it), but the lemma is taken from the live supplier-boundary cascade rather than the historical selected review: PR2977/PR3004/PR3696 and the contract package settled the checker/exporter schema informally and by bounded census, with the all-size statement recorded as an informal coefficient argument. The stated open obligation there -- an all-size proof rather than a finite census -- is exactly a formal-interface lemma, so this package machine-checks it instead of duplicating the bounded census.",
+  "bottleneck_link": "The checker/exporter gate-operand contract is a source-bound acceptance condition of the selected bit supplier's export boundary. A kernel-checked version replaces the informal case argument with a machine-checked all-size theorem at the same hypothesis set; it does not change the selected kappa or any supplier cost.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the all-size Lean theorem, its kernel axiom reports, the bounded finite census cross-check, the source pins of the two frozen operators, and the rejection controls. Do not formalize the scatter schema, do not run the native backend, do not rebuild the selected chain and do not claim a new kappa.",
+  "outcome": "completed",
+  "evidence": "In Lean 4.21.0 core (no Mathlib), GateParity.sym_eq_exp_iff_contract proves for all d : Nat, all srcs : List Nat and all valuations v : Nat -> Bool that sym d srcs v = exp d srcs v exactly iff Contract d srcs, where Contract is 'd not in srcs, or srcs = p ++ (d :: t) with d not in t and every register occurring an even number of times in p'. Supporting all-size lemmas: destination-free agreement (exp_dest_free), the exporter state over a split list (exp_split_d), the pairing lemma that an all-even list XORs to false (allEvenCount_xfold), and the indicator lemma that the XOR fold of the indicator of r is the parity of r's multiplicity (xfold_indicator). Kernel reports: sym_eq_exp_iff_contract depends on propext, Classical.choice, Quot.sound; the four supporting lemmas on propext, Quot.sound; no sorryAx. The package also pins the two frozen operator line groups (checker gate run at code/xcheck_p.py lines 252-255; exporter per-source ADD at code/bit/export_records.py run()) and cross-checks the contract predicate against a direct simulation on all 1364 (d, srcs) pairs with 4 registers and lists of length <= 4 and every valuation (708 agreeing, 656 diverging, 100% match). This is a finite cross-check of the statement, not the proof; the all-size claim is carried by the Lean theorem.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the exact contract transfer to an exporter that reorders a gate's sources before emitting the ADDs?",
+      "why_it_matters": "The condition depends on the position of the destination's last occurrence, so a sorted or reversed lowering has a different (recomputable) contract; the current pinned exporter preserves order.",
+      "first_step": "State the reordered-operator agreement condition and adapt the Lean proof's split point to the chosen order.",
+      "blocked_by": "No current exporter reorders sources; this is a successor-schema design question."
+    },
+    {
+      "question": "Can the destination-free lemma be reused to machine-check the scatter schema's own multiplicity contract?",
+      "why_it_matters": "The scatter contract (all positive multiplicities odd) is a different object settled by scatter-parity-contract-audit and its successors; a shared formal layer would let both boundaries share one kernel argument.",
+      "first_step": "Formalize the scatter read/write pair and relate it to the same XOR-fold lemma.",
+      "blocked_by": "The scatter schema's record-level read/write shape is not the gate shape; it needs its own operator definitions."
+    }
+  ]
+}

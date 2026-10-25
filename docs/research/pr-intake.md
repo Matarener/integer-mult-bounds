@@ -33,7 +33,8 @@ unchanged scientific inputs whose exact coverage remains valid.
 ## What wakes an old entry
 
 - A different PR head.
-- A changed or removed watched main file/directory or review evidence blob.
+- A changed or removed watched main file/directory or review evidence blob,
+  including executable-bit and regular-file/symlink changes with identical bytes.
 - A watched PR head change or its departure from the open queue (not proof it merged).
 - A scheduling policy-version change.
 - `--wake PR_NUMBER` after new relevant external evidence or explicit direction.
@@ -44,6 +45,21 @@ shared production paths when they can resolve a hold. The whole main commit,
 queue length, passage of time, unrelated CI activity and compaction are **not**
 reasons to repeat a review. Increment `POLICY_VERSION` only when existing cached
 scheduling decisions genuinely require reconsideration.
+
+New records retain both object IDs (`watch_paths`) and Git modes (`watch_modes`).
+For older records, the planner recovers missing file modes from their recorded
+`baseline` in memory, grouping only the required paths into one read per baseline.
+It does not rewrite the cache or wake entries just because the record format is
+older. Closed/draft PRs, pending reviews, and entries already woken by another
+known change or `--wake` need no historical mode lookup. Otherwise, if required
+history is unavailable, planning reports an error instead of preserving an
+unchanged hold or ready-to-integrate decision;
+make that recorded history available or review the dependency and refresh its
+record with `record`.
+If the baseline is available but its file object differs from the cached object
+(or is absent), the planner reactivates only that entry with an explicit
+baseline-mismatch reason. It cannot safely recover the reviewed file's mode from
+that baseline, and leaves the persistent record for the reviewer to refresh.
 
 ## Persist each changed decision once
 
@@ -82,6 +98,12 @@ incorporation; reconcile actual GitHub state and retained sources separately.
 - Bulk archive eligible isolated research after source/integrity intake, preserving
   authors and explicit unverified scientific obligations. Shared tooling and known
   correctness failures cannot enter through the archive lane.
+  For each newly added or changed top-level `research/*/VERIFY.json`, check
+  that every declared input is an exact repository-relative Git path at the
+  reviewed source head. Even a standalone receipt using this filename enters
+  the shared planner. An invalid path can break unrelated PR planning (#5555);
+  syntax and historical source-pin checks alone do not catch it. This is a
+  metadata check, not permission to launch every registered scientific replay.
 - Group related construction chains; review the strongest relevant descendant and
   each unique delta, retaining predecessor credit. This is not automatic approval
   or closure of ancestors.
@@ -188,3 +210,11 @@ failures and missing data remain explicit; they do not reject a new mechanism.
 Pricing is bounded to widths 2–128 and finite rational metadata. Larger models
 need a separately scoped calculation. A ceiling is an optimistic upper bound,
 not an attainable packing or an admitted κ.
+
+Each local count uses at most 60 characters, with a decimal exponent between
+-60 and 60 when scientific notation is used. The exponent is checked before
+expanding the rational. Its reduced numerator and denominator must each have
+magnitude at most `10^60`, and its value must lie between 0 and `10^9`.
+Ordinary integer, fraction, decimal and bounded scientific spellings remain
+supported. An over-budget profile is reported as `unknown_or_outside_model`;
+other profiles in the same queue remain eligible for calculation.

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Literal source-guarded reconstruction from PR3945's words, hygiene, Lagrangian frame bill, arbitrary-dirty forward/dual/boundary semantics, native receipt closure, owner/moment bridge."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/checks/independent_frames.py",
+        "--controls"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent GF(2) frame ledger, declared deletions/releases/entrances, profile delta and inventories; ten mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/checks/exact_root.py",
+        "--controls"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Rational root bracket for the new complete profile, PR3945's bracket, strict padded improvement; four controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/owner/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Every literal owner role of PR3945's fill and of the new fill: windows, family distinctness, compact offsets, capacity, idle and complete histogram; seven controls incl. restored narrowed widths."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/owner/build_fill.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Regenerate the literal fill from PR3945's fill and the declared 70,876 role moves; byte-equal payload."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Seven guarded recipe mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same controls with assertions disabled."
+    }
+  ]
+}

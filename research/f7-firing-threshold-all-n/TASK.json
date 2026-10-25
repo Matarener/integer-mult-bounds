@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Decide, for every n >= 5, the first even length at which the fixed L/2 substitution fires on no universal canonical word, answering #4322's open question 3 and its 'eventually empty for every n' remark.",
+  "scope_change_reason": "#4322 and #4348 settle n = 4 and n = 5 by census; a min-sumset cap and an explicit construction settle every n.",
+  "bottleneck_link": "Where the fixed substitution is sound decides which census exclusions it can shortcut at each dimension.",
+  "budget_minutes": 40,
+  "stop_rule": "Stop once the threshold is proved for every n and checked against the census values.",
+  "outcome": "completed",
+  "evidence": "verify.py: |A+A| >= 2^ceil(log2|A|) exhaustive in F_2^k, k <= 4, with the cap attained; full split scan gives 6, 14 and exactly L*(n) for 5 <= n <= 22; explicit universal words of length L*(n) - 2 fire mask e_1 for 5 <= n <= 11, also after canonical relabeling; length-L* controls fire nothing; #3733's (4,12) fires on main.",
+  "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
+  "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, verifier implementation and writing; no independent human or proof-kernel review.",
+  "open_questions": [],
+  "no_open_questions_reason": "The first all-sound length is decided for every n >= 4."
+}

@@ -1,0 +1,63 @@
+{
+  "attempts": [
+    {
+      "attempt": "clock-original-runtime",
+      "status": "INCOMPLETE_RUNTIME_ATTEMPT_NOT_A_RELEASE",
+      "reason": "The original clock-only bulk auditor exited by signal9; the recorded environment has an OOM kill at the8GiB cgroup limit. No mathematical rejection receipt was returned.",
+      "retained": {
+        "full/admission/STAGES.json": {
+          "bytes": 3340,
+          "sha256": "0210ba393385a064c5a611aa8c9f4b3edfd069d6d9864537e5317d6bfa0f745d"
+        },
+        "full/admission/discovery/audit.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "full/admission/discovery.log": {
+          "bytes": 913,
+          "sha256": "231ff41873b25076e8b30d5eb0ac2aaf6964a8e0f0b41ccd3d3febaf010e4918"
+        }
+      }
+    },
+    {
+      "attempt": "receiver-original-runtime",
+      "status": "INCOMPLETE_RUNTIME_ATTEMPT_NOT_A_RELEASE",
+      "reason": "The owner and source stages passed. The active bulk auditor was deliberately terminated by the root task after the preceding confirmed memory failure, before adapting the runtime. This is not a mathematical rejection and not a completed release.",
+      "retained": {
+        "STAGES.json": {
+          "bytes": 2578,
+          "sha256": "c4ef4c1c2628a1e759bcdf60161e0d42358c8a005a1639e8f98031c1ece34866"
+        },
+        "SOURCE-ADAPTATION.json": {
+          "bytes": 4460,
+          "sha256": "abceb1df6f498123d2fd138a02505d57f773a0693f50c6a4e19235658e12b528"
+        },
+        "ADMISSION-ADAPTER.json": {
+          "bytes": 1086,
+          "sha256": "8a41927ca69abc091b4973b9105e42bef4ee1b9c013f59c0ff3e0a942278e740"
+        },
+        "complete-admission.log": {
+          "bytes": 863,
+          "sha256": "eed057eb4d5651ddd3a4073e1e65f949ebb6dfab58a0a4fa7f3a416d4c63a784"
+        },
+        "admission/STAGES.json": {
+          "bytes": 3311,
+          "sha256": "8f7ada00499e160d543a1b5afa56aabdbbf9191f0f62fb77f174c8dc901d526b"
+        },
+        "admission/discovery/audit.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "inputs/source/new/borrow/receiver_share.py": {
+          "bytes": 1168,
+          "sha256": "9931457a2e20f570057faa2d9d6bc398974211880bb96c53781c901013f31501"
+        },
+        "inputs/source/new/borrow/review_receiver_share.py": {
+          "bytes": 3281,
+          "sha256": "bbf28e17a657b8d1eaf63f33d811682720afb393ee2ab9a4bb46661fef1ed996"
+        }
+      }
+    }
+  ],
+  "environment_record": "../../runtime-repair/ENVIRONMENT.json"
+}

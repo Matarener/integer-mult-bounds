@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+    "scripts/compare_recursive_invoices.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source hashes, all retained rows, eight slices, two prefix variants, complete invoices, nine hinges, and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source hashes, all retained rows, eight slices, two prefix variants, complete invoices, nine hinges, and semantic controls."
+    }
+  ]
+}

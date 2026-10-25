@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Recognize prime-field Frobenius-truncated polynomial algebras from a supplied multiplication table and return an exact monomial change of basis.",
+  "scope_change_reason": "Take the explicit recognition handoff in PR5459, restricted to checked commutative unital algebra tables over prime fields; a written theorem and exact implementation rather than a proof-assistant or arbitrary-tensor recognition project.",
+  "bottleneck_link": "Algebraic interface side result: removes the algebra-class promise in the supplied-table case of the tensor-character pipeline. It supplies no paid-profile or kappa improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "One iff criterion, constructive transporter, exact positive/negative fixtures and bounded independent small-table census. Stop before arbitrary tensor isotopy, extension-field reconstruction or physical supplier work.",
+  "outcome": "completed",
+  "evidence": "PROOF.md; recognize.py; verify.py: 46 positive presentations, 3217 independent product checks, 9 nonmembers, 6 malformed inputs, 2 normalization controls, 7 witness mutations; check_exhaustive.py: 525 tiny tables and 392 positive four-dimensional orbit presentations.",
+  "author": "apoursh",
+  "ai_assistance": "Substantial OpenAI Codex assistance from coordinator, proof worker, implementation worker and separate finite-domain audit worker; not independent human or proof-kernel verification.",
+  "open_questions": [
+    {
+      "question": "Can this recognition be lifted from supplied algebra tables to arbitrary three-factor tensors?",
+      "why_it_matters": "It would remove the remaining input-coordinate and isotopy promise.",
+      "first_step": "Recover a faithful regular nucleus action and prove compatible input/output transport before invoking this table recognizer.",
+      "blocked_by": "No arbitrary-tensor nucleus/regularity/transport reconstruction is supplied here."
+    },
+    {
+      "question": "Can this recognition extend to supplied non-prime finite fields?",
+      "why_it_matters": "It would match the broader predecessor family.",
+      "first_step": "Implement explicit field coordinates and semilinear characteristic-power Frobenius kernels.",
+      "blocked_by": "Current input and linear algebra assume prime fields."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 5459,
+      "head": "bef3575ddb19c44434a7e2460a353eac7c4d9387",
+      "usage": "Ali Romman unequal-height family and recognition handoff; context only, no imported pending executable"
+    },
+    {
+      "pr": 5316,
+      "head": "c777c9a4b5f50a0e1561b2e24304486f40e8d001",
+      "usage": "Ali Romman univariate nilpotent family"
+    },
+    {
+      "pr": 5252,
+      "head": "07e6f55d18d2d3fd6dcea19bd642d71657c5fe14",
+      "usage": "Nick Petalas etale normalization, arbitrary tensor extraction and nilpotent question"
+    }
+  ],
+  "overlap": {
+    "checked_utc": "2026-10-25T04:30:00Z",
+    "live_handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19169304",
+    "queries": [
+      "Frobenius recognition",
+      "truncated recognize",
+      "5459",
+      "local algebra transporter"
+    ],
+    "coverage": "Live handoff and relevant all-state GitHub PR keyword search; local overlap helper searched 5 of 7402 tracked notes. No complete Discussion/diff/unpublished-work coverage claimed. Live Discussion search for Frobenius also checked.",
+    "separation": "Finite-etale tensor recognition is separately claimed by aliromman. Ten current native/caller/CRT followups are separately claimed by JoyboyBrian. This task is supplied-table nilpotent recognition."
+  },
+  "coordination_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5493",
+  "completion_refresh": {
+    "checked_utc": "2026-10-25T04:34:33Z",
+    "canonical_main": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+    "priority_revision": 7,
+    "result": "Canonical upstream unchanged; fresh all-state Frobenius recognition PR query adds no competing supplied-table claim. Keyword-search coverage limits remain."
+  }
+}

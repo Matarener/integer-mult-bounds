@@ -1,0 +1,171 @@
+{
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "before_primary_read": true,
+  "files": {
+    "INITIAL-REVIEW.md": "1e3537438f133b734b04113a68f74e68760c938ad370a4e55db783b21943f5f5",
+    "independent_benes_oracle.py": "7a58689072b730201a6b4007f7b2524db2abff460a3116cfa42821fb2e1b63a5",
+    "independent_mixed_oracle.py": "8cdaedebd991fc0f73e74dd7b53e1c42f1e50d7b61e5b2e52d74134e2dafbdc4"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "runs": [
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_mixed_oracle.py"
+      ],
+      "cwd_template": "{repository}",
+      "exit_code": 0,
+      "receipt": {
+        "compiler_sha256": "7a58689072b730201a6b4007f7b2524db2abff460a3116cfa42821fb2e1b63a5",
+        "negative_controls": {
+          "current_target_validity_gate": {
+            "expected": 2,
+            "input": 1,
+            "literal_trace": [
+              1,
+              1,
+              3,
+              2
+            ],
+            "modulus": 3,
+            "offset": 1,
+            "size": 4,
+            "wrong": 3
+          },
+          "low_minimal_width_substitution": {
+            "declared_size": 8,
+            "expected": 5,
+            "input": 5,
+            "modulus": 3,
+            "offset": 1,
+            "wrong": 6
+          }
+        },
+        "rectangles": [
+          {
+            "active_target_omission_checks": 1638400,
+            "declared_widths": [
+              3,
+              3,
+              4,
+              4
+            ],
+            "dirty_columns": 16384,
+            "endpoint_sha256": "e4c5785f980c0918c32f70bcf40f2e24fe22c48be62e48a3ca1e40b6454a7f20",
+            "forward_inverse_global_rows": 458752,
+            "moduli": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "valid_columns": 5005
+          },
+          {
+            "active_target_omission_checks": 640,
+            "declared_widths": [
+              3,
+              3
+            ],
+            "dirty_columns": 64,
+            "endpoint_sha256": "bb2d516611ac14374aa271977df68a398c6e70c91ef1e4d2a9aa6e01b9740083",
+            "forward_inverse_global_rows": 640,
+            "moduli": [
+              5,
+              3
+            ],
+            "valid_columns": 15
+          }
+        ],
+        "scope": "independent mixed-row caller and brute scaled-CRT oracle; predecessor omission argument reused; no tape/E theorem",
+        "status": "PASS_PREIMPLEMENTATION_MIXED_CALLER_ORACLE"
+      },
+      "stderr": ""
+    },
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_mixed_oracle.py"
+      ],
+      "cwd_template": "{repository}",
+      "exit_code": 0,
+      "receipt": {
+        "compiler_sha256": "7a58689072b730201a6b4007f7b2524db2abff460a3116cfa42821fb2e1b63a5",
+        "negative_controls": {
+          "current_target_validity_gate": {
+            "expected": 2,
+            "input": 1,
+            "literal_trace": [
+              1,
+              1,
+              3,
+              2
+            ],
+            "modulus": 3,
+            "offset": 1,
+            "size": 4,
+            "wrong": 3
+          },
+          "low_minimal_width_substitution": {
+            "declared_size": 8,
+            "expected": 5,
+            "input": 5,
+            "modulus": 3,
+            "offset": 1,
+            "wrong": 6
+          }
+        },
+        "rectangles": [
+          {
+            "active_target_omission_checks": 1638400,
+            "declared_widths": [
+              3,
+              3,
+              4,
+              4
+            ],
+            "dirty_columns": 16384,
+            "endpoint_sha256": "e4c5785f980c0918c32f70bcf40f2e24fe22c48be62e48a3ca1e40b6454a7f20",
+            "forward_inverse_global_rows": 458752,
+            "moduli": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "valid_columns": 5005
+          },
+          {
+            "active_target_omission_checks": 640,
+            "declared_widths": [
+              3,
+              3
+            ],
+            "dirty_columns": 64,
+            "endpoint_sha256": "bb2d516611ac14374aa271977df68a398c6e70c91ef1e4d2a9aa6e01b9740083",
+            "forward_inverse_global_rows": 640,
+            "moduli": [
+              5,
+              3
+            ],
+            "valid_columns": 15
+          }
+        ],
+        "scope": "independent mixed-row caller and brute scaled-CRT oracle; predecessor omission argument reused; no tape/E theorem",
+        "status": "PASS_PREIMPLEMENTATION_MIXED_CALLER_ORACLE"
+      },
+      "stderr": ""
+    }
+  ],
+  "schema_version": 1,
+  "scope": "literal mixed-height caller semantics; predecessor omission argument reused; no full E/tape theorem",
+  "status": "PASS_PREIMPLEMENTATION_MIXED_CALLER_REVIEW",
+  "time_utc": "2026-10-20T12:59:43.996931+00:00"
+}

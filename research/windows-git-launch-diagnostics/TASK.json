@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Preserve requested-executable OSError diagnostics in the opt-in PR5463 Windows Git stream owner, without contaminating binary responses or confusing launched exit 129 with setup failure.",
+  "scope_change_reason": "Take the explicit PR5463/Discussion4681 launch-diagnostic handoff before drawing another card. This is a native process-interface repair, not a compressed-payload comparison.",
+  "bottleneck_link": "Reliable source-pin validation is a prerequisite for reviewing research. Losing launch failures behind an empty-response error hides deployment faults; this tooling result claims no mathematical improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after direct/native/frozen-reader diagnostic comparisons, literal protocol and startup/descendant cleanup controls, normal/optimized replay and a portable source export. Production adoption and full predecessor audit remain separate.",
+  "outcome": "completed",
+  "evidence": "Native Windows normal and optimized checks pass the 25 named case groups, including seven malformed-report controls, three regression mutations, and four retained-handle descendant cases. See evidence/ and README for registered/export coverage and limitations.",
+  "author": "Mihir Srivastava",
+  "ai_assistance": "Substantial OpenAI Codex assistance, one agent. Author-checked; no independent human or separate-agent review.",
+  "open_questions": [
+    {
+      "question": "Can the reviewed owner and launch-status wrapper be adopted in the shared Git blob runner?",
+      "why_it_matters": "The shared production runner still lacks native Windows descendant ownership.",
+      "first_step": "Integrate behind a single process factory, retain the existing closed-stdin and mock fixture seams, and run the current Git-source consumer suites on Windows and POSIX.",
+      "blocked_by": "Separate production integration and review of the full adapter; this package deliberately leaves shared scripts unchanged."
+    },
+    {
+      "question": "Does the launch/cleanup boundary work under other Windows job policies and interpreter builds?",
+      "why_it_matters": "One native host plus nested registered-launcher jobs do not cover restrictive jobs or every CreateProcess failure.",
+      "first_step": "Run the same --require-windows command on a second Windows host; retain native error fingerprints and before-teardown handle observations.",
+      "blocked_by": "Access to another host/policy. Hard owner death and general Popen compatibility are outside this wrapper."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 5463,
+      "head": "991da9010925914ec64a5293286edb10a7910218",
+      "role": "Frozen opt-in ownership adapter and handoff; retained unchanged."
+    },
+    {
+      "pr": 5461,
+      "head": "dd30c37b09bc090afa94944cb055b677de2db696",
+      "role": "Independent baseline lifetime fixture/acceptance handoff, credited; not rerun here."
+    },
+    {
+      "pr": 2469,
+      "role": "ywz65 gated Job Object protocol."
+    },
+    {
+      "pr": 4738,
+      "role": "Brian/JoyboyBrian response deadlines."
+    },
+    {
+      "pr": 5185,
+      "role": "Brian/JoyboyBrian POSIX reader ownership."
+    },
+    {
+      "pr": 2752,
+      "role": "Nick Petalas blob/compatibility reader."
+    }
+  ],
+  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4681#discussioncomment-19174004"
+}

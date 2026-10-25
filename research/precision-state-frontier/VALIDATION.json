@@ -1,0 +1,95 @@
+{
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "commands": [
+    {
+      "command": "python3 -B research/precision-state-frontier/verify.py --source-root .",
+      "receipt": "RESULT.json",
+      "result": "PASS_PRECISION_STATE_FRONTIER",
+      "source_checks": "Six canonical source SHA256 pins plus literal matrix equality."
+    },
+    {
+      "command": "python3 -B research/precision-state-frontier/test_package.py",
+      "receipt": "PORTABLE.json",
+      "result": "PASS_PORTABLE_PRECISION_STATE_PACKAGE",
+      "scope": "Both normal and optimized self-contained replays match RESULT.json byte-for-byte, empty PATH, read-only package, fresh unused pycache path; two JSON codec roundtrips, history CLI, three CLI rejections."
+    },
+    {
+      "command": "python3 -B research/precision-state-frontier/mutation_check.py",
+      "receipt": "MUTATIONS.json",
+      "result": "PASS_SEMANTIC_MUTATION_CONTROLS",
+      "scope": "Five semantic mutations rejected with explicit ValueError in both normal and optimized modes on private copies."
+    }
+  ],
+  "coverage": {
+    "attaining_fiber_roundtrips": 97,
+    "binary_code_size": 16,
+    "binary_coset_counts": 1280,
+    "cli_rejections": 3,
+    "dyadic_congruence_cases": 2016,
+    "gram_entries": 64,
+    "history_budget_cases": 72,
+    "integer_two_unit_row_witnesses": 8,
+    "literal_source_kernel_calls": 24,
+    "noncommuting_two_dimensional_inputs": 345859,
+    "other_input_roundtrips": 36,
+    "packet_rejections": 10,
+    "scalar_intervals": 321,
+    "semantic_mutants_in_each_mode": 5,
+    "source_sized_changing_frame_round_counts": [
+      2,
+      4,
+      6
+    ],
+    "stationary_history_round_counts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "environment": {
+    "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "libraries": "Python standard library only",
+    "machine": "arm64",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]"
+  },
+  "not_run": [
+    "Independent mathematical review",
+    "Lean or other proof assistant",
+    "Full physical caller, native/compiler, or selected-result replay",
+    "Shared registered research-package CI (this standalone package is not registered)"
+  ],
+  "publication_checks": {
+    "result_receipt": "External submission receipt, checked after creating the publication commit.",
+    "scientific_replay": "Existing executable and fixture hashes are unchanged; no historical suites rerun for metadata-only submission edits.",
+    "scope": "Exact raw Git blob comparison for every published package file, source-pin blob/SHA256 checks, and base ancestry. Standalone package has no VERIFY.json; the shared registered-package preflight does not apply."
+  },
+  "recorded_utc": "2026-10-24T16:00:44.329224+00:00",
+  "scientific_limits": [
+    "Finite source identities and the written proof establish the asserted all-input result; probes are calibration rather than independent review.",
+    "Large fibers and 13^(8Nt) states are counted by the proof, not exhaustively enumerated.",
+    "Positive-refinement/side-information volume bounds are necessary and not asserted sharp.",
+    "Repeated sharp history requires the unbounded lattice or a sufficiently large finite range.",
+    "Source kernel is destructive; the new mathematical codec has no reversible or paid arithmetic/tape implementation."
+  ],
+  "sha256": {
+    "FIXTURE.json": "2ca4d7550fcae5b757ec500f87aee1d2ef9f64b59e4abe2bda93319521304af8",
+    "MUTATIONS.json": "d472944656eb5a58369ad5336db81b43877be8bf1b6b078de9dce2415f2b7cc3",
+    "OVERLAP.json": "ba0ba62f5631a169bb3a29eb124cfc96dc2dccff91de2355d847f3443cd0d1b2",
+    "PORTABLE.json": "5be105899480ce29998f5b26092c8389442cbfa7c979e2266845eae17f0de5db",
+    "PROOF.md": "f7e4d410cc108bc8b148ed8641c09be20c4c864fbc3908c533fa889b59dae341",
+    "README.md": "0a62a71cea7e8ec40cf1a175b84b2d42cd81a3d94c7ab106ea7d6c765d75d8d2",
+    "RESULT.json": "77e707e013c8656146436ade8f561ebff0f553d5b66dc9c43f692f1fca18ae38",
+    "SOURCES.json": "6128e8f85672e7156658bf97805a91d7f9f00607c5690390fc57b4923f6c59e0",
+    "frontier.py": "3f623f3e64890905a50c64514bd13e353ed31a26d498f91bb1201a629e6fb8f7",
+    "history.py": "9537b305fe48918e1e1404a3fda6615de8e7456dfb118d37da0a0d14ea749892",
+    "mutation_check.py": "36cce52c7404d5ca6f7cced01fca5d2142e4156e0eca548017713744e7589afe",
+    "source/kernel.py": "bc0e9f705665d6981c0f9176dad0f2d71471735e866c44643cb6835423435303",
+    "test_package.py": "a3e9f04e428e318b7178b1fc6f56884d311a0675eff87a5e50d0d9cb8a0e4c46",
+    "verify.py": "1245fd3f3fa6391a202fae35abe56375d0977c286d537ac9e1b7ccaaa4b9e537"
+  },
+  "status": "AUTHOR_CHECKED_SCOPED_PROOF_AND_CALIBRATION"
+}

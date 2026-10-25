@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/joint-query/certificate.json.gz",
+    "research/joint-query/evidence/JOINT-QUERY-TRANSFER.md",
+    "research/joint-query/verify_native.py",
+    "research/joint-query/verify_scalar.py",
+    "research/qq16-line-normalized-decoder/PREDECESSORS.json",
+    "research/qq16-line-normalized-decoder/PROOF.md",
+    "research/qq16-line-normalized-decoder/README.md",
+    "research/qq16-line-normalized-decoder/RESULT.json",
+    "research/qq16-line-normalized-decoder/SOURCES.json",
+    "research/qq16-line-normalized-decoder/TASK.json",
+    "research/qq16-line-normalized-decoder/VERIFY.json",
+    "research/qq16-line-normalized-decoder/WORD.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/PROOF.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/README.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/RESULT.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/SOURCES.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/WORD.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/references/PR2540-PROOF.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/references/PR2540-README.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/verify.py",
+    "research/qq16-line-normalized-decoder/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Regenerate complete paired WORD, typed receipts, original/checkpoint/arbitrary-current routed values and full phase frames; exact residual attainability/visibility; signed native basis; independent paid invoice/acquisition and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py",
+        "Boundary.test_normal_and_optimized_readonly_export"
+      ],
+      "timeout_seconds": 550,
+      "checks": "Normal and optimized full Git-free read-only replay; complete content snapshot unchanged."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py",
+        "Boundary.test_source_first_and_copied_executable",
+        "Boundary.test_manifests_vendor_word_and_exclusive_write",
+        "Boundary.test_typed_receipt_and_duplicate_keys"
+      ],
+      "timeout_seconds": 350,
+      "checks": "Source/copy authentication before execution; manifest and vendor corruption; whole WORD and typed/duplicate receipts; exclusive creation refuses overwrite."
+    }
+  ]
+}

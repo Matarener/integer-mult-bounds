@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently re-derive the four necessary conditions of PR #2973's corrected word census from their definitions, check them against the published small-domain counts and the 01021323 calibration, then derive the complete parity-split domain for n=7 at lengths 18, 20 and 22. No seven-label enumeration and no length-22 exclusion.",
+  "scope_change_reason": "The card's first_experiment asks to trace the false prune to one pinned predecessor and test a small exhaustive domain. Tracing the predecessor engines was already recorded in the #1317 discussion thread, so repeating it would not add coverage. The card's own acceptance gate asks which downstream exclusions need revalidation, and PR #2973's first open question asks for the complete length-22 split domain before any bounded probe. That domain derivation is the missing bounded deliverable, and it is what this package supplies.",
+  "bottleneck_link": "A word-census exclusion can only be correct if its prune is a necessary condition. This package independently re-derives those conditions, confirms the 01021323 unsoundness of the old word-level budget, and computes the exact finite domain any length-22 census must cover. It changes no supplier, tariff, kappa or selected result.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the independent derivation, the small-domain controls, the three length domains and the reproducible package. No length-22 census, no new census engine, no seven-label enumeration, no frontier change.",
+  "outcome": "completed",
+  "evidence": "python3 -I -B research/f7-l22-split-domain/verify.py prints PASS_F7_L22_SPLIT_DOMAIN length22_self_contained=11 after_17pt_import=9 f7_untouched in about 28 s on macOS arm64 / CPython 3.15.0. It reconstructs the 01021323 fixture (bit-0 excess 8 against the substituted budget 5, within the correct budget 9), enumerates every restored word at eight small (n,L) domains reproducing the independently published 90/60/10, 1260/1092/182 and 2520/624/26 counts and their exact split histograms, cross-checks the coverage oracle against an independent per-mask reference over all 256 subsets of the fixture set (7 cover), confirms the four conditions reject all 168 non-universal words at (3,8), recomputes the published length-18 (single split (9,9)) and length-20 (five representatives, budgets 27/18/10/9/3 and odd excesses 36/26/16/17/6) domains and budgets, measures that the even budget is redundant while the time bound, odd budget and identity are load-bearing, checks the padding lemma and the input guards, and derives the length-22 domain: 11 representatives, dropping (13,5) and (12,6) by the time bound and (9,8) by the pair identity, then 9 after importing the standing 17-point set-level exclusions of PR #2773 and PR #2870. It also derives a covering-cardinality floor of 17 points at n=7, shows self-avoidance is valid at length 22 only at (11,11), and records minimum identity slack 2. A 37-mutant battery was run; the two survivors are documented equivalent mutants, and one vacuous control it exposed was replaced. The registered launcher was not run locally because it gates on Python 3.12, which this host lacks; only --check-only was executed here.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does a restored universal length-22 seven-label word exist?",
+      "why_it_matters": "Excluding length 22 after the corrected length-20 exclusion would settle f(7) = 24, so this is the deciding bounded question in the PR #943 word model. The domain is now exactly 9 splits rather than unknown, which converts an open-ended search into a finite one.",
+      "first_step": "Run the corrected revisit-aware engine at (11,11) alone, where |P| = L = 22 makes self-avoidance valid and no revisit handling is required.",
+      "blocked_by": "No node-count estimate or resource budget here. PR #2973's session stop rule was explicitly no L22 census, so this needs its own budget and a named research decision before any search starts."
+    },
+    {
+      "question": "Which contiguous zero-XOR subword lengths can realize the forced revisit counts at each length-22 split?",
+      "why_it_matters": "At the ten splits other than (11,11), L - |P| revisits are forced, between 1 and 5. A revisit is a contiguous subword in which every label appears an even number of times. Pricing those instead of enumerating them could shrink the census, and it is pure combinatorics with no search.",
+      "first_step": "Enumerate the possible subword shapes for one label even count of 2 and 4 at n=7 and check which admit a self-avoiding insertion into an existing prefix walk.",
+      "blocked_by": "Nothing structural; the interaction with the collision budgets is untested here."
+    },
+    {
+      "question": "Do PR #2911's undecided 18-point set-level splits intersect the reachable length-22 splits?",
+      "why_it_matters": "PR #2911 leaves all four 18-point splits undecided and calls the 18-point question the deciding set-level object for the L = 22 route. If one is excluded, one third of the length-22 domain disappears without any census.",
+      "first_step": "Intersect PR #2911's exact remainder rows for (11,7), (10,8) and (9,9) with the per-split budgets and revisit counts computed here.",
+      "blocked_by": "(12,6) is outside the length-22 domain entirely, so only three of PR #2911's four splits are reachable at length 22; the fourth remains a set-level question with no word-level consequence."
+    }
+  ]
+}

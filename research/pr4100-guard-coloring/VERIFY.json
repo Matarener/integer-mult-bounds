@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Source pins, CRT.md phrases, good()'s guard-1 window and the vendored #4174 allocator hash; exhaustive window lemma; #4100's two-target gadget with (K-1)-bit versus K-bit guards on all 2^20 addresses; census of all 104,864 #4174 production plans; eight further admitted width patterns and two adversarial ones with direct (K-1)-window checks."
+    }
+  ]
+}

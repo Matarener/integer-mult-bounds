@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-weight-parity-census-correction/SOURCES.json",
+    "research/f7-weight-parity-census-correction/TASK.json",
+    "research/f7-weight-parity-census-correction/MATH.md",
+    "research/f7-weight-parity-census-correction/engine/corrected_census.c",
+    "research/f7-weight-parity-census-correction/engine/README.md",
+    "research/f7-weight-parity-census-correction/engine/SUMMARIES.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_10.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_9.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_8.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_9_9.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_7.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l18_9_9.json",
+    "research/f7-weight-parity-census-correction/math/check_math.py",
+    "research/f7-weight-parity-census-correction/validation/check_corrected_c.py",
+    "research/f7-weight-parity-census-correction/validation/brute_validation.py",
+    "research/f7-union-support-audit/README.md",
+    "research/f7-union-support-audit/census.cpp"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--skip-probe"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Engine integrity (pinned corrected_census.c hash unchanged and the union engine differs from it by exactly the committed DELTA.diff), the predecessor package's math check, the predecessor's raw-product brute-force cross-check of the union engine over all small splits and all four budget modes with cap and fail-closed controls, a union-only small-domain check, and complete zero-hit replay of the six recorded L20/L18 receipts (result only; node counts intentionally not compared)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--probe-split",
+        "11,7"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Fresh sharded length-22 census of the recorded control exclusion (11,7): all fifteen shards must exit complete with zero hits and the sharded node sum must equal the committed RESULT.json value exactly (8,620,087)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--probe-split",
+        "10,8"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fresh sharded length-22 census of the recorded control exclusion (10,8): all fifteen shards must exit complete with zero hits and the sharded node sum must equal the committed RESULT.json value exactly (239,946,485)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--probe-split",
+        "11,8"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Fresh sharded length-22 census of the recorded control exclusion (11,8): all fifteen shards must exit complete with zero hits and the sharded node sum must equal the committed RESULT.json value exactly (1,017,687,483)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--probe-split",
+        "9,9"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fresh sharded length-22 census of the new exclusion split (9,9): all fifteen shards must exit complete with zero hits and the sharded node sum must equal the committed RESULT.json value exactly (388,563,344)."
+    }
+  ],
+  "notes": "C11 compiler with unsigned __int128 required (clang or GCC). No Python dependencies. The five splits with capped shards ((10,9), (10,10), (11,9), (11,10), (11,11)) are lower-bound receipts in RESULT.json and are NOT re-run by CI. `--probe-all` replays every completed split locally. RESULT.json is the committed receipt and is never rewritten; each run writes LAST-RUN.json. Timing fields are excluded from all equality checks. Local registered-run timings on CPython 3.12.15: validation 37 s, (11,7) 0.4 s, (10,8) 6.6 s, (11,8) 35 s, (9,9) 10 s."
+}

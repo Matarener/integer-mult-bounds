@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "package": "research/selected-compiler-source-bridge",
+  "predecessor": {
+    "pr": 3391,
+    "package": "research/selected-compiler-visitation-audit",
+    "publication_commit": "eb89e7a7884ccacb82b5d5120d7f83be269748c0",
+    "author": "Kewin Talaga (PellaML)",
+    "archive_status": "partially_reviewed",
+    "modified": false
+  },
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "semantics": "Idealized unbounded denotational trace (D); guards are assumed to succeed and Cursor loops / plan compilations to terminate. A complete selected Code is impossible on conventional 32/64-bit CPython (q=3: N has 6492 bits; 2T has 6512 bits > 2^6500). No first-failure claim; no prefix theorem.",
+  "theorem": {
+    "name": "CompilerAudit.SourceBridge.selected_source_transport",
+    "imports": "CompilerAudit.Result (PR3391 model, unchanged)",
+    "hypotheses": [
+      "hlows",
+      "hinv",
+      "hsched",
+      "hbud",
+      "hfresh"
+    ],
+    "conclusions": [
+      "ordered renamed trace = Selected.word N",
+      "distinct source keys = 28278 * N",
+      "retained wrapper identities = 904896 * N",
+      "direct wrapper references = 1809792 * N + Result.blockTotal N blocks"
+    ],
+    "assumes_target_equality": false,
+    "assumes_totals": false,
+    "previous_verification": {
+      "date": "2026-10-18",
+      "source_sha256": "6027af1a083bbca309f406762dc7526e11aac6f4c4cdb90d9aa7427ad04182f9",
+      "lean": "v4.34.1",
+      "declarations": 27,
+      "exact_type_checked": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "leanchecker_replay": true,
+      "imported_libraries": "cached, trusted, not cold rebuilt"
+    },
+    "candidate": "Header comments corrected after the previous check; formal text identical. Candidate hash and rerun status: VALIDATION.md."
+  },
+  "premises": [
+    {
+      "id": "L1",
+      "lean": "sourceTrace/eventTrace definitions",
+      "fact": "Sweep: schedule -> replica -> low_classes() -> position; idle: schedule -> replica -> identifier -> LOW; bridge/exchange silent; three call sites (macro_code.py l.66/71/87).",
+      "evidence": "PR3391 AST check of call sites and loop tuples",
+      "boundary": "Syntactic pin; semantic transcription informal.",
+      "status": "informal_source_reading",
+      "needed_for": [
+        "trace",
+        "all counts"
+      ]
+    },
+    {
+      "id": "L2",
+      "lean": "LocalEvent.emits",
+      "fact": "accept returns event[:2]; residual called iff op in {0,2} with (requests[p], True, low); idle uses (id, False, low).",
+      "evidence": "control.py accept; macro_code.py l.63-75, 87",
+      "boundary": "Well-formed, guard-successful events only; malformed-event handling is a Lean totalization.",
+      "status": "informal_source_reading",
+      "needed_for": [
+        "trace",
+        "all counts"
+      ]
+    },
+    {
+      "id": "L3",
+      "lean": "Matches: all r < 32",
+      "fact": "call(stage, r) reads events/identifiers from cached recipe(stage), independent of r.",
+      "evidence": "topology.py recipe/call; census over all 32 replicas at q=3",
+      "boundary": "Structural by source reading; census is metadata-only.",
+      "status": "source_reading_and_python_check",
+      "needed_for": [
+        "trace",
+        "all counts"
+      ]
+    },
+    {
+      "id": "L4",
+      "lean": "hsched",
+      "fact": "Non-silent schedule events correspond in order to the 19 certified interval groups and flags.",
+      "evidence": "Python census (28278 IDs, 19 groups, 904896 projected visits per LOW) and certificate pins",
+      "boundary": "Not a formal Python proof; cross-group disjointness is a property of the pinned template; q-independence argued from source.",
+      "status": "python_certificate",
+      "needed_for": [
+        "trace",
+        "all counts"
+      ]
+    },
+    {
+      "id": "L5",
+      "lean": "hlows",
+      "fact": "low_classes() yields unrank(o) for o in range(size); size = prod(q^64 - q^k) = N.",
+      "evidence": "catalogue.py low_classes; low_codes.py",
+      "boundary": "Source reading.",
+      "status": "informal_source_reading",
+      "needed_for": [
+        "trace",
+        "all counts"
+      ]
+    },
+    {
+      "id": "L6",
+      "lean": "hinv",
+      "fact": "rank(unrank(o)) = o for o < N on GL64(F_q), prime q >= 3.",
+      "evidence": "PR2569 retained written prefix-count/bijection argument for byte-identical low_codes.py; tiny fixtures here. The written proof was located/read, not formalized or independently replayed.",
+      "boundary": "The actual GL64 codec inverse remains a hypothesis of this Lean theorem, not a property newly proved here; no absence or novelty claim.",
+      "status": "open_hypothesis",
+      "needed_for": [
+        "distinct source keys",
+        "trace equality via rename"
+      ],
+      "predecessor_proof": "https://github.com/CrocSwap/integer-mult-bounds/blob/20ecf2891d80b5acf18d980b2164fb44ea7faa90/research/selected-source-packets/PROOF.md#L44-L65"
+    },
+    {
+      "id": "B1",
+      "lean": "Seg/emitSrc shape; hbud alignment",
+      "fact": "Each call appends residual_begin, b >= 0 blocks, residual_end contiguously (macro_code.py l.38-47).",
+      "evidence": "Source reading",
+      "boundary": "Cursor termination assumed (D).",
+      "status": "informal_source_reading",
+      "needed_for": [
+        "retained wrappers",
+        "direct references"
+      ]
+    },
+    {
+      "id": "B2",
+      "lean": "hbud budget equation",
+      "fact": "Mode-0 block count is determined by Specifications.plan(encode(i, c, low)), a function of (i, c, rank low); plans cached deterministically.",
+      "evidence": "residual_blocks.py, catalogue.py, macro_binding.py",
+      "boundary": "Assumes deterministic plan compilation and no external cache mutation.",
+      "status": "informal_source_reading",
+      "needed_for": [
+        "direct references (B term)"
+      ]
+    },
+    {
+      "id": "B3",
+      "lean": "hfresh",
+      "fact": "SelectedBinding.residual constructs a new Residual per call; all retained in Code.operations.",
+      "evidence": "macro_binding.py; tiny seeded lifetime fixture (16 wrappers, 32 blocks, 64 references, normal and -O)",
+      "boundary": "Python identity semantics, not formalized; fixture is not cold 64-dimensional initialization or endpoint validation.",
+      "status": "source_reading_and_fixture_check",
+      "needed_for": [
+        "retained wrappers"
+      ]
+    },
+    {
+      "id": "B4",
+      "lean": "SrcOp.other carries no wrapper",
+      "fact": "No non-residual operation tuple directly holds a Residual; compile_owner returns tuple matrices and Route values.",
+      "evidence": "Source dataflow inspection in the local PR3391 review",
+      "boundary": "Direct slots only; transitive object graphs outside the counting unit; not a formal Python proof.",
+      "status": "discharged_by_source_inspection",
+      "needed_for": [
+        "retained wrappers",
+        "direct references"
+      ]
+    },
+    {
+      "id": "B5",
+      "lean": "srcRefs definition",
+      "fact": "Direct reference = slot 2 of begin/end, slot 1 of block.",
+      "evidence": "PR3391 PROOF.md section 3",
+      "boundary": "Not sys.getrefcount, transitive size or native storage.",
+      "status": "definition",
+      "needed_for": [
+        "direct references"
+      ]
+    },
+    {
+      "id": "D",
+      "lean": "implicit (unbounded semantics)",
+      "fact": "Every need-check is assumed to succeed and every Cursor loop / plan compilation to terminate for all keys.",
+      "evidence": "none; not realizable on conventional CPython",
+      "boundary": "Statements concern the idealized trace only.",
+      "status": "semantic_assumption",
+      "needed_for": [
+        "all conclusions"
+      ]
+    }
+  ],
+  "check_boundaries": [
+    "Census: q=3 metadata for all 32 replicas; no GL64 LOW enumeration; selected compiler not executed. Archived PR3391 census used q=7 metadata.",
+    "Lifetime: tiny seeded fixtures with original factory/compiler functions; not cold 64-dimensional initialization or numerical endpoints.",
+    "Windows only: in-memory adapter changes one inventory-path expression in the original verifier to POSIX spelling; authentication predicates unchanged.",
+    "Lifetime importer bypasses loader.authenticate: hashes original module bytes, imports them and marks the loader active; not a test of loader authentication or original initialization.",
+    "Portable copy via shared scripts/export_research_package.py (export, then check; both need it and scripts/research_package.py); 152 declared external inputs; extracted direct verify is Git-free and checks .research-export.json inventory/bytes; transport integrity only, not authenticated Git provenance. Provenance checked before publication and by the registered metadata command in a Git checkout.",
+    "Lean: seven predecessor modules and the bridge compiled freshly; eight dependency library roots used, nine source revisions checked; cached compiled library objects trusted; no dependency download or install."
+  ],
+  "non_claims": [
+    "Python parser, operational semantics or compiler verification",
+    "that the premises hold formally for the pinned source",
+    "GL64 LOW codec inverse (not proved by this package)",
+    "realizable complete CPython execution or a first-failure point",
+    "safety of wrapper sharing",
+    "native space, stock, storage lifetime, precision",
+    "zero runtime or source-validation work; contradiction of the q-dependent fixed overhead",
+    "full multiplication theorem; kappa or selected-frontier change (kappa 0.001672660197076918, priority revision 6)",
+    "independent human review or maintainer acceptance"
+  ],
+  "open_questions": [
+    {
+      "question": "Can the retained written LOW inverse argument be bound to the actual codec implementation in Lean?",
+      "first_step": "Audit PR2569 prefix-count induction against the byte-identical frozen low_codes.py; recheck live overlap before formalizing rank/unrank invariants.",
+      "coverage_so_far": "Prior written bijection argument and finite tests located; not formalized or independently replayed in this package."
+    },
+    {
+      "question": "Can a prefix transport describe feasible CPython runs?",
+      "first_step": "State the transport for a source trace truncated at a visit index against a prefix of Selected.word N; test it against the tiny lifetime fixture.",
+      "coverage_so_far": "None."
+    },
+    {
+      "question": "Can equal-key wrappers share identity under a stated observer contract?",
+      "first_step": "Audit identity-sensitive consumers such as Machine.geometry.",
+      "coverage_so_far": "Inherited from PR3391; no sharing refinement proved."
+    }
+  ],
+  "task": "TASK.json"
+}

@@ -1,0 +1,14 @@
+6. regression: the T74 circuit
+  ok  the T37 template of the instance (sha256 21297b20...) is the one T74 uses
+      (g0_staged.py 5.3 s)
+  ok  T74: 11,010 heads (6,150 + 4,860), as the first head test found
+  ok  T74: remainders {48: 22,748}, global profile = that circuit's, no violations
+7. price controls
+      (rate_cert.py 0.1 s)
+  ok  with a single head the figure is refused
+      (rate_cert.py 0.1 s)
+  ok  with one head fewer (16085) the figure is refused
+  ok  a profile that is not separated (job 25 while blocks of 48 stay) is refused
+      (rate_cert.py 0.1 s)
+  ok  one grid step above the figure (17556474/10^10) is refused
+PASS_LEVER_MIXED_TARGETS_2979_CONTROLS figure 1.7556473e-03 heads 16086 seconds 6

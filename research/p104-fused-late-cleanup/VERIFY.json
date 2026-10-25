@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/PROOF.md",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Both actual280-column fused/reference words; actualsourcecleanupfactor,72dirtyreturns,fullnative-subsequences,completeinvoices,and8semanticfaults."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "SamecompletechecksunderPythonoptimization."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "SevenactualoptimizedCLIprivatefixtures: validbaselinefirst,typed/duplicate/falsecost/source/exportfaultrejections."
+    }
+  ]
+}

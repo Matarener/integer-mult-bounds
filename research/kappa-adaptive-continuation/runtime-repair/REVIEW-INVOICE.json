@@ -1,0 +1,28 @@
+{
+  "adapter_sha256": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+  "ancestral_owner_trim": "The pinned auditor compares only old owners[:2*V], asserts V=112, and excludes owners from its other call metadata comparison. Only the unused in-memory tail is removed; immutable source hashes still cover the original file.",
+  "auditor_sha256": "fa3488b62efdf8a0c37de0ca0caba587b4b036c5f068e002eb04c71c12b9e9b4",
+  "dead_accumulator": "Exactly one touches initialization and one append are removed. No read exists. Removing these and diagnostics makes the complete audit function AST identical.",
+  "emitter_sha256": "549603ca6d28b163a43b2dfaaaa788161c73d7952ab9190289407caca5418c71",
+  "fresh_fixture_count": 19,
+  "fresh_fixture_receipt_sha256": "4f6185125ddb38b7ab02a349829aae434e7707e804ca8c6c4ab8c086cd63635e",
+  "fresh_fixture_script_sha256": "3a631583486ad6abfcf24ddf4d530e882896de15b556134a45e6b9ee3a27b787",
+  "full_physical_replay_replaced": false,
+  "isolation_review": "ct is parsed separately from parent and provider registries. audit(t) reads t and expected globals, never global ct. Original mutation bodies are retained. Copy-on-write isolates mutations while preserving internal aliases. Only the original expected exceptions thrown by audit count; mutator errors, unexpected exceptions, acceptance, missing receipts, signals and nonzero child exits fail.",
+  "normalized_entire_audit_ast_equal": true,
+  "scientific_assertion_order_equal_after_one_equivalent_digest": true,
+  "scientific_report_and_export_tail_byte_equal": true,
+  "scope": "Independent finite source/control review. The parent release must still complete the original whole-owner positive audit and every enabled rejection control on the full actual input, followed by its original release gates.",
+  "script_sha256": "3bb6a403fb8edeb1ebec98409474522b04ef1de121f2a4b5a4391d18b1c5cd51",
+  "source_archive_sha256": "e74d545c18f77b7a9b8f0cc3d4901a87bb686888edaf3e41b30e5b2748751041",
+  "status": "PASS_INDEPENDENT_RUNTIME_SOURCE_AND_CONTROL_REVIEW",
+  "transform_receipt": {
+    "control_mode": "fork",
+    "equivalent_streamed_digest_assertions": 1,
+    "preserved_mutator_call_sites": 27,
+    "preserved_scientific_assertions": 76,
+    "source_sha256": "fa3488b62efdf8a0c37de0ca0caba587b4b036c5f068e002eb04c71c12b9e9b4",
+    "substitutions": 7,
+    "transformed_sha256": "8a0f19f533e5ceb93efe7262a69fc20fc68fb2427bfa4aff6092d558132b07ee"
+  }
+}

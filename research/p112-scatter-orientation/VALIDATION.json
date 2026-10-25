@@ -1,0 +1,38 @@
+{
+  "status": "PASS_LOCAL_PACKAGE_REPLAY",
+  "base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "runtime": "Python 3.12.12",
+  "command": "python3.12 -I -O -B research/p112-scatter-orientation/verify.py --out FRESH_OUTPUT",
+  "result": {
+    "status": "PASS_P112_SCATTER_ORIENTATION_NO_NEW_KAPPA",
+    "seconds": 4.376639709000301,
+    "parent_optimization": 1,
+    "child_optimization": 0,
+    "native_compiler_reexecuted": false,
+    "direction_events": 176,
+    "tetrads": 14,
+    "sandwich_cases": [
+      3,
+      14
+    ],
+    "ordinary_columns_each": 704,
+    "controls": {
+      "reversed_opcode_event": 1,
+      "scatter_coefficient": 1,
+      "missing_dirty_entrance_full_word": 2,
+      "hybrid_scatter_full_word": 2
+    },
+    "results": {
+      "CUT-REVIEW.json": "3fe3e7799a542cd435f3c5ce4ac3435dc431ab700da5e36a135e45259b4a8a6d",
+      "SCATTER-RESULT.json": "28eb602e487c913c0325cd525626121768ffb78697e4f6d16f26c0b698cc0ed7"
+    }
+  },
+  "registered_metadata": "PASS_PACKAGE_METADATA_AND_PINS",
+  "source_identity": "All nine original input/vendor files matched original Git objects with GIT_NO_REPLACE_OBJECTS=1. Consumer verifier matches both recorded pending heads. Runtime rechecks both SHA256 and Git blob formulas without Git.",
+  "independent_review": "Separate AI agent wrote the independent opcode parser and manually reviewed the boundary/dirty restoration proof. No independent human or formal-kernel review claimed.",
+  "unexecuted": [
+    "Committed-byte/source-history and Git-free committed export: pending scientific commit approval.",
+    "Automatic hosted CI: not yet published.",
+    "Unchanged full native compiler and rounded/precision admission: not within this package."
+  ]
+}

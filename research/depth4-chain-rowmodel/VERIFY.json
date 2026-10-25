@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/universal-connector-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Every row-model witness for 33 <= m <= 64 and 1 <= c < m: the Lemma 2 sums, then the built word (exactly m copies of each call, interval subword counts, UT5(Z/m) product, one literal dirty noncommuting replay); Lemma 2 and Lemma 3 on random records; five rejection controls; source hashes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "The same checks with Python assertions disabled; all contracts use explicit exceptions."
+    }
+  ]
+}

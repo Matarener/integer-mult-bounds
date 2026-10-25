@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate immutable sources and regenerate complete single-move premise, all fixed-frame displacement-two first words, both interior cuts and all block ADD second prices; exact signs, dirty blocks, sampled complete words and full receipt equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Independently regenerate the complete extra-provider census and dirty-state/ledger receipt with separately authenticated source."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent all-first event itineraries, full trace/geometry and unoptimized two-cut reach comparisons, baseline counterpart prices, omitted-gap production mutation, source/scalar/frame/cleanup/barrier rejections, credited positive control and source-bound summaries."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [],
+ "inputs": [
+  "research/community-frontier1094-audit/ASSEMBLY.json",
+  "research/complex-local-word-ceiling/ceiling.py",
+  "research/idle-packing-stability/README.md",
+  "research/idle-packing-stability/verify.py"
+ ],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-I",
+    "-B",
+    "{package}/verify.py"
+   ],
+   "timeout_seconds": 600,
+   "checks": "Pooled per-replica integer idle ceiling for the selected complex local word, reproducing PR #1685's published optimum; two-sided bracket witnesses; the unpaid=2 premise split between the per-call and pooled accounting units at one call, one replica and sixteen replicas; 328 exhaustive DP integer-optimum cases; 240 randomised pooled-vs-per-call ordering cases across widths 9..73; five semantic rejection controls; two published realised packings excluded; committed RESULT.json equality."
+  }
+ ]
+}

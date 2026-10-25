@@ -1,0 +1,61 @@
+{
+  "utc": "2026-10-18T00:48:35.404841+00:00",
+  "registered_environment": "CPython 3.12.15 at /Users/nick/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12",
+  "registered_command": [
+    "python3.12",
+    "-W",
+    "error",
+    "-B",
+    "scripts/research_package.py",
+    "--package",
+    "research/p112-three-endpoint-sparsity"
+  ],
+  "registered_result": "PASS_REGISTERED_RESEARCH_PACKAGE; all three registered commands passed",
+  "optimized_environment": "3.15.0 (main, Oct  9 2026, 11:16:41) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "optimized_commands": [
+    {
+      "argv": [
+        "/opt/homebrew/opt/python@3.15/bin/python3.15",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-three-endpoint-sparsity/verify.py"
+      ],
+      "exit_code": 0,
+      "log": "optimized-verify.py.log"
+    },
+    {
+      "argv": [
+        "/opt/homebrew/opt/python@3.15/bin/python3.15",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-three-endpoint-sparsity/independent.py"
+      ],
+      "exit_code": 0,
+      "log": "optimized-independent.py.log"
+    },
+    {
+      "argv": [
+        "/opt/homebrew/opt/python@3.15/bin/python3.15",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-three-endpoint-sparsity/test_controls.py"
+      ],
+      "exit_code": 0,
+      "log": "optimized-test_controls.py.log"
+    }
+  ],
+  "diagnostics": "Ruff0.17.1 repository settings and formatting pass; Python warnings treated as errors",
+  "controls": "8 behavioral groups including 4 actual rejecting CLI mutants under -O",
+  "initial_control_correction": "The determinant control caught swapped triple names in its test expectation. Both formulas were already required by the production test and proof; corrected the test dictionary and reran.",
+  "limits": [
+    "PR3397 four-piece theorem and capacities are inherited, not independently replayed.",
+    "Standard Weyl-chamber theorem remains a mathematical premise.",
+    "Internal separate reconstruction is not independent human or proof-kernel review.",
+    "No full C5, public residue count, supplier, kappa, physical consumer/restoration bill or selected change.",
+    "Selected full cold replay, Lean, Docker and historical heavy suites unrun."
+  ],
+  "publication_export": "Pending committed-source replay; see external final report for final receipt."
+}

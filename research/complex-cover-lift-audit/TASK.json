@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "One #4100 obligation group: COMPLEX.md's common cover (Gamma=|O(73,2)|, the X_delta defect correction, H0 factorization, depth and row-stock arithmetic), plus a supplementary phase-representation check of the arbitrary-f lift already audited by #4184.",
+  "scope_change_reason": "The #4311 coverage map lists COMPLEX.md's complete-cover execution with no audit; its free-word lift is covered by #4184, so this package audits the cover algebra and only cross-checks the lift.",
+  "bottleneck_link": "Side result for the #4100 admission audit: confirms one all-size premise group of the proposed unconditional exponent; it does not move the selected frontier.",
+  "budget_minutes": 90,
+  "stop_rule": "Stop after the cover algebra and the lift of the literal PR4088 words are proved or refuted; do not re-derive the complex moment (#4171) or the rank-r child reading (#4375).",
+  "outcome": "completed",
+  "evidence": "Written proofs in README.md; verify.py binds sources and runs the finite cover checks and the supplementary lift; native_warps.py shows every native warp edge class of the four PR4088 words is a Z4-monomial matrix; test_verify.py has rejecting controls.",
+  "author": "Mark (Matarener)",
+  "ai_assistance": "Prepared with substantial Claude Code (Claude) assistance.",
+  "open_questions": [
+    {
+      "question": "Does the expanded global emitted program of each PR4088 word compose its local frame, centre and warp recipes into exactly the free-word shadow (the scalar-interface integration that PR4088's PHASES receipts list as a separate obligation)?",
+      "why_it_matters": "The lift proof needs each executed event to be the representation of its free symbol in context; local recipes are now checked, their global composition is not.",
+      "first_step": "Regenerate LOCAL-PROGRAMS for one word with PR4088's emitter and check that the frame labels between consecutive events cancel exactly (global phase included).",
+      "blocked_by": "none"
+    }
+  ]
+}

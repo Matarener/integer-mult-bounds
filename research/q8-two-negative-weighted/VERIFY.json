@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Complete Pareto antichains and exact rational prices; faithful dirty action, short-word label equations; unchanged retained unit-minimum native/reduction replay; exact source and result binding."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Actual producer omission/expensive-class/dirty-leakage faults; independent multiplication/action faults; price, target, parity, source-drift and overwrite guards."
+    }
+  ]
+}

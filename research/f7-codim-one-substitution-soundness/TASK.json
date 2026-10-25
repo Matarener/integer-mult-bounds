@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Prove that, on simple restored universal words with n in {3,4} and L=2n, every label-basis functional of Hamming weight at least n-1 is sound for the fixed L/2 substitution, and record that this weight pattern is not a general law.",
+  "scope_change_reason": "Session item 14 fell on a 12-item handoff list by (14-1) mod 12 = 1, which is Discussion #1166 comment 19021170 question 1, the (7,18)/(7,20) functional census. That census is left open. This package answers question 2 of the same comment: why weight at least n-1 does not falsely prune on the double-transversal domains, which #3699 measured and explicitly did not prove. It does not rerun survey(7,18) or survey(7,20).",
+  "bottleneck_link": "Side result on the prune's dependency boundary. Soundness of the L/2 substitution for weight at least n-1 on double transversals does not by itself invalidate or repair a retained exclusion. It separates those functionals from the bit-0 defect on 01021323, which still falsely prunes.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the n in {3,4}, L=2n proof, the independent (4,12) counterexample to a weight-threshold law, and finite ledgers of the two weight-(n-2) exceptions. Do not launch the seven-label census.",
+  "outcome": "completed",
+  "evidence": "PROOF.md is the argument. verify.py recomputes it: 245 two-stay pairs, 560 triples, 56 five-subsets, 4 universal words at (3,6) and 22 at (4,8) with no weight >= n-1 false prune, witness 01021323 still false-pruned by bit 0 at split (6,2) excess 8 against base 5, 314 words at (4,12) with weight-3 fires {0111:0, 1011:4, 1101:4, 1110:4}, and exception maxima 3 and 14. Author-checked executable proof plus finite certificates. No human or formal-kernel review. No new kappa.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial Cursor Grok assistance for selection, proof writing, implementation and execution. No independent human or formal-kernel review claimed.",
+  "open_questions": [
+    {
+      "question": "Which nonzero functionals falsely prune simple restored universal words at (7,18) and (7,20)?",
+      "why_it_matters": "Comment 19021170 identifies that census as the domain that can change a maintained exclusion. This package deliberately does not run it.",
+      "first_step": "Budget a separate replay of the survey(7,18) and survey(7,20) entry points already named by #3699, and compare firing functionals with the corrected weight-parity budgets.",
+      "blocked_by": "The seven-label state count. No resource budget is claimed here, and survey(7,18) is not executed."
+    },
+    {
+      "question": "Is there a structural reason that mask 1010 is sound at (4,8) and mask 11010 is sound at (5,12), while every other mask of weight n-2 fires?",
+      "why_it_matters": "These are the two exceptions #3699 left open. The (5,12) ledger is tight by one unit, so a weight-(n-2) threshold would be false, and a one-line slack argument would also be false.",
+      "first_step": "List the (5,12) words whose mask-11010 excess equals 14 and compare their class sizes with a firing neighbor such as mask 10101.",
+      "blocked_by": "No structural classification yet. The ledgers in this package are finite enumerations only."
+    },
+    {
+      "question": "For which lengths above 2n does weight at least n-1 remain sound?",
+      "why_it_matters": "The two-stay proof uses that every label occurs twice. At (4,12) three weight-3 masks already fire, so the pattern is not a law. (4,10) and the weight >=4 masks at (5,12) were measured sound by #3699 and #3733 and are still unproved.",
+      "first_step": "Case-split a weight-(n-1) functional by the omitted label's multiplicity at (4,10), where four stays are possible but the measured excess never exceeds the base.",
+      "blocked_by": "Four stays can change the class sizes by 4, and a class of size n+1 need not cover every nonzero kernel sum once n>4, since n+1 > 2^{n-2} holds only for n<=4."
+    }
+  ]
+}

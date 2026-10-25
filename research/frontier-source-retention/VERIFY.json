@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/frontier5413-source.json",
+    "certificates/selected-result.json",
+    "docs/research/community-neutral5413-contributors.md",
+    "docs/research/pr-intake-evidence/pr5413-promotion/PROMOTION.md",
+    "docs/research/pr-ledger.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Eight source PRs: merged ancestry, research-tree identity with each head, ledger disposition, 1245 manifest hashes, promotion and contributor sentences, and two rejection controls."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/p112-five-term-reader-floor/PROOF.md",
+    "research/p112-five-term-reader-floor/TEMPLATES.json",
+    "research/p112-matroid-reader-transfer/PROOF.md",
+    "research/p112-nonfano-affine-reader/PROOF.md",
+    "research/p112-nonfano-affine-reader/RESULT.json",
+    "research/p112-nonfano-affine-reader/RETAINED-PREDECESSOR-PROOF.md",
+    "research/p112-nonfano-affine-reader/RETAINED-RANK32.json",
+    "research/p112-nonfano-affine-reader/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-nonfano-affine-reader/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Inherited fixed VVV branch:185031864 exact assignments on800 plane classes and4960 literal triples; source-authenticated predecessor replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All four independent marked non-Fano orbits;96 transfer requests;2816 inherited template ranks;800 dense MMM plane classes and1689280 assignments."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 360,
+      "checks": "No primary imports. Integer-minor/GF2 transfer checks; raw rectangular-Gram enumeration of all4960 dense MMM triples,10129664 assignments;12544 gauged operator entries."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Real source/result mutations reject, bad binary transfer fails, arbitrary-field affine/gauge controls pass with optimized Python."
+    }
+  ]
+}

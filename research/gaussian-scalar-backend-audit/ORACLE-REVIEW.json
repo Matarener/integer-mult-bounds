@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "PASS_FROZEN_INDEPENDENT_SCALAR_ORACLE_REVIEW",
+  "audited_at_utc": "2026-10-20T18:25:03.141222+00:00",
+  "scope": "First-frozen scalar oracle core/proof and selftest/smoke provenance only, before source query checker/adapter/final package review.",
+  "method": "Read all frozen code and proof; independently derive pi-series, alternating exp, shortcut, rounding and squaring bounds; authenticate first-freeze bytes and static receipts. No scientific program rerun.",
+  "files": [
+    {
+      "path": "ISOLATED.stdout.json",
+      "bytes": 138,
+      "sha256": "554b4fce93da97ba762bc86314b973a5bec198ebfff094c7d9cde9df2c7119d1",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "LOCAL-SMOKE.isolated.json",
+      "bytes": 2225,
+      "sha256": "76257421fa642ea9644f54ef7abbbf7b91f57d06b337f6227593d689273cc786",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "LOCAL-SMOKE.json",
+      "bytes": 2225,
+      "sha256": "76257421fa642ea9644f54ef7abbbf7b91f57d06b337f6227593d689273cc786",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "NORMAL.stdout.json",
+      "bytes": 138,
+      "sha256": "554b4fce93da97ba762bc86314b973a5bec198ebfff094c7d9cde9df2c7119d1",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "PROOF.md",
+      "bytes": 9779,
+      "sha256": "55d9ac7e59a48208876cf23384278bcb16678aff571c6e2f0012d707abf5b113",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 1012,
+      "sha256": "ca63fb145516406f4b94933eb7db80968947f6137f93dde46920d5dffe67afa1",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "SELFTEST.isolated.json",
+      "bytes": 8079,
+      "sha256": "9233858c1d5ebcb3e6d5da8b99ac86026c21a0dd6f58f0c352ac29e6e623c2fe",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "SELFTEST.json",
+      "bytes": 8079,
+      "sha256": "9233858c1d5ebcb3e6d5da8b99ac86026c21a0dd6f58f0c352ac29e6e623c2fe",
+      "matches_first_freeze": true
+    },
+    {
+      "path": "oracle.py",
+      "bytes": 14160,
+      "sha256": "2f8affd40c49f97f1e15851a80deb4619053684cb2b2d9b07f3bb3eb48cb6b18",
+      "matches_first_freeze": true
+    }
+  ],
+  "all_first_freeze_seals_match": true,
+  "freeze_sha256": "445cac111604253d95a6ba7f2ee528180814ec17793f761ffa7ba6d2897d05a3",
+  "code_sha256": "2f8affd40c49f97f1e15851a80deb4619053684cb2b2d9b07f3bb3eb48cb6b18",
+  "proof_sha256": "55d9ac7e59a48208876cf23384278bcb16678aff571c6e2f0012d707abf5b113",
+  "written_review_sha256": "0e5117bc983ff92d72c44185e674fb0cffb782cd88a4d37fc68e8a2ab5440f3b",
+  "universal_conclusion": "For rational f>=0 and integer bits>=16, accepted API returns pi and exp(-pi*f) enclosures of requested absolute width; zero/tiny/huge and ordinary branches terminate under exact integer/Fraction contract.",
+  "finite_comparison_logic": {
+    "certifying_direction": "Independent oracle interval O subset actual source interval S, because true y in O then y in S.",
+    "insufficient_relations": [
+      "nonempty overlap O intersection S alone",
+      "reverse inclusion S subset O alone"
+    ],
+    "limits": "Finite containment certifies only bound queried scalar evaluations; universal source correctness/width needs separate written audit."
+  },
+  "independence": "First freeze precedes source-generated input queries and numeric outputs; source mathematical method was described in words and explicitly disclosed. Code-disjoint implementation, not human/formal acceptance.",
+  "blocking_findings": [],
+  "remaining_obligations": [
+    "Review later input-only query checker/coverage/provenance and source adapter after their freeze.",
+    "Bind exact source input/output values and correct subset direction; do not upgrade overlap to enclosure.",
+    "Leading-section/circuit/raw-gauge/physical/caller/outer claims are excluded."
+  ]
+}

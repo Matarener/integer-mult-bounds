@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.3.5"
+  ],
+  "inputs": [
+    "research/frontier1094-recipes-exact-seed76/clifford.py",
+    "research/rank7-joint-endframes/data/WORD-base.json.gz",
+    "research/rank7-joint-endframes/data/WORD-extra.json.gz",
+    "research/rank7-joint-endframes/evidence/FULL-NATIVE-RECEIPT.json",
+    "research/rank7-peer-private-free-audit/lifetimes.py",
+    "research/rank7-v45-native-cone-seed78/cone.py",
+    "research/rank7-v45-native-cone-seed78/source.py",
+    "research/rank7-v45-native-cone-seed78/support.py",
+    "research/rank7-v45-native-endpoint/endpoints.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_adapters.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_emit.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_gauss.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_phases.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_transport.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Seven boundary behavior groups"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same checks with assertions disabled"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Fresh source generation, complete all-data output/source equality and restoration-invisible fault"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Fresh source generation, complete all-data output/source equality and restoration-invisible fault"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Compose PR3100 integer-labels-v1 with PR3273 XOR occurrence normalization and full symbolic checking before export, retaining exact selected artifacts and rejecting mixed fractional-label/duplicate-scatter inputs.",
+  "scope_change_reason": "PR2977 duplicate semantics and PR3100 fractional-label coercion are already known, and PR3273 plus PR3326 already supply normalization and native replay. The missing composition allows the XOR boundary to accept the known fractional-label fixture; this separately versioned wrapper combines both existing contracts instead of rediscovering either defect.",
+  "bottleneck_link": "A checker/exporter boundary must agree on geometry as well as scalar action. Composing the existing guards closes a concrete reliability gap without a supplier or kappa claim.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after a source-bound compositional wrapper, public-entry regression controls, exact export comparisons, and a focused contribution. No native ownership or construction search expansion.",
+  "outcome": "completed",
+  "evidence": "README.md, RESULT.json and the bounded verifier and behavioral controls registered in VERIFY.json. Validation claims are limited to the retained receipt and executed commands.",
+  "author": "Pierre, with OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in source inspection, implementation, automated adversarial review, verification and writing. No independent human or proof-assistant review claimed.",
+  "selection": {
+    "method": "User-assigned exporter repair, refined after checking existing work; no random reroll.",
+    "nearest_predecessors": [
+      2977,
+      2992,
+      3100,
+      3273,
+      3326
+    ],
+    "overlap": "find_overlap.py --task supplier-boundary-audit --refresh --include-closed had no usable remote snapshot because gh was unavailable. Public GitHub API searches then covered all results for is:pr \"xor-scatter\" (11), scatter/nonempty (6), scatter/donor (23), and 3100 (4), with local README/source inspection and visible Discussion2976 and Discussion1166 content. No matching integer-label/XOR composition repair was identified. Further searches hit the unauthenticated API rate limit. Search metadata and visible discussion portions do not cover all diffs, hidden comments or unpublished work; this is not a novelty certificate.",
+    "public_claim": "None; bounded contribution, no advisory reservation."
+  },
+  "open_questions": [
+    {
+      "question": "Should a named successor supplier adopt the composed integer-label/XOR boundary?",
+      "why_it_matters": "This opt-in entry point fixes the combined representation gap, but production callers and their manifests are not changed.",
+      "first_step": "Bind a named producer and consumer to this contract, review the source pins, and replay the complete symbolic/export/native path.",
+      "blocked_by": "Maintainer adoption and complete supplier/native obligations; no adoption follows from this finite audit."
+    },
+    {
+      "question": "Does the composed boundary preserve one named nonempty kernel, owner and donor construction?",
+      "why_it_matters": "PR3326 native composition uses empty ownership inputs and does not supply physical admission for this successor.",
+      "first_step": "Pin the concrete consumer fixture, enumerate ownership and live-source requirements, and run native controls with its complete invoice.",
+      "blocked_by": "A concrete nonempty fixture, separate bank and physical accounting, and fresh native replay."
+    }
+  ],
+  "validation": {
+    "registered_replay": "PASS under CPython 3.12.1 on macOS",
+    "direct_optimized": "PASS under CPython 3.12.1; matching receipt produced with CPython 3.11.6",
+    "behavioral_test_groups": 5,
+    "hosted_ci": "Not yet run; reported checks local only"
+  },
+  "freshness": {
+    "upstream_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "checked_at_utc": "2026-10-17T22:40:09.618856+00:00",
+    "priority_revision": 6,
+    "relevant_changes": "Canonical main unchanged on pre-submission fetch; live overlap coverage limitations recorded above."
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "abstract_scratch_candidate": {
+    "additional_logical_fields": 0,
+    "binding": [
+      "Re C0[0:N/2]",
+      "Im C0[0:N/2]",
+      "Re C1[0:N/2]",
+      "Im C1[0:N/2]"
+    ],
+    "each_length_bits": "N*W/2",
+    "entry": "C0 and C1 are zero after their last CLEARs",
+    "exit": "kernel restores four used half-slices to zero; unused halves untouched",
+    "scope": "an abstract allocation compatible with the source private-field contract, not a supplied six-tape physical embedding"
+  },
+  "caller": {
+    "event": [
+      "climb",
+      "A",
+      546,
+      0,
+      4,
+      1
+    ],
+    "event_index_zero_based": 9894,
+    "exit_frame_axes": [
+      459
+    ],
+    "identity_helper_adapter_index": 7948,
+    "initial_frame_axes": [],
+    "next_event": [
+      "scalar",
+      [
+        "add",
+        [
+          "L",
+          546
+        ],
+        [
+          "L",
+          561
+        ],
+        -1,
+        1
+      ],
+      4
+    ],
+    "prefix_sha256": "15115954461f2cb93e2266822d82bfac1ab8de7d460ff78fcf594d21c61d2b53",
+    "prefix_target_scalar_reads": [
+      262,
+      335,
+      408,
+      482,
+      555,
+      628,
+      701,
+      774
+    ],
+    "prefix_target_writes": [],
+    "private_fields_zero_at_cut": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "private_last_write_clear_indices": [
+      8185,
+      8259,
+      8337,
+      8412,
+      8484,
+      8557,
+      8628,
+      8702
+    ],
+    "private_scalar_accesses_in_remaining_retained_core": 0,
+    "recipe_sha256": "2f3fd69e1096a44b35b9298c2af9096ace5c4f52b9401e7e3e5187063636b0b3"
+  },
+  "conditional_arithmetic_repair": {
+    "fixture_preparation_and_monomials_metered": false,
+    "input_grid_exponent": "q",
+    "minimum_extra_fractional_bits_for_arbitrary_integer_mantissas": 1,
+    "output_grid_exponent": "q+1",
+    "stored_input_mantissas": "twice the original input mantissas",
+    "sufficient_width_for_component_bound_M_ge_1": "bit_length(M)+4",
+    "witness_axis_cell_actions": {
+      "move": 51200,
+      "read": 15360,
+      "write": 15360
+    },
+    "witness_axis_total": 81920,
+    "witness_width": 5
+  },
+  "decision": "unchanged-grid substitution obstructed; existing PR3303 finer format passes local arithmetic conditionally; physical connection uncosted",
+  "existing_PR3303_format": {
+    "entry_premise": "original components in h Z with magnitude strictly below 2^P h",
+    "first_child_numerator_strict_bound_in_stored_units": "2^(P+73)",
+    "grid_fractional_reserve_at_lambda1": 71,
+    "parity_and_range_compatible_conditionally": true,
+    "physical_entry_protocol_admitted": false,
+    "signed_range_positive_threshold": "2^(P+214)",
+    "slice_is_full_payload_execution": false,
+    "unit_witness_P": 1,
+    "unit_witness_axis_cell_actions": {
+      "move": 2211840,
+      "read": 663552,
+      "write": 663552
+    },
+    "unit_witness_axis_total": 3538944,
+    "unit_witness_width": 216,
+    "width_at_lambda1": "P+215"
+  },
+  "finite_checks": {
+    "admitted_pair_parity_classes": 8,
+    "correct_real_output": 4,
+    "dense_complete_child_tape_cases": 20,
+    "dense_widths": [
+      5,
+      6,
+      7,
+      12,
+      68
+    ],
+    "independent_pair_constraints_at_N512": 256,
+    "narrow_width": 4,
+    "narrow_width_even_numerator": 8,
+    "native_gaussian_basis_columns": 1024,
+    "pair_parity_classes": 16,
+    "same_grid_admission_lattice_index": "115792089237316195423570985008687907853269984665640564039457584007913129639936",
+    "wrong_real_output": -4
+  },
+  "new_kappa_claimed": false,
+  "physical_obligations": {
+    "F17_consumer_and_recursive_bill": "unknown; not priced by the axis tariff",
+    "adjacent_scalar_event": "named, but alignment/addressing/arithmetic cost unknown",
+    "four_scratch_windows": "C0/C1 component half-slices give a legal abstract scratch candidate; six separate physical tapes/origins and paid access remain unbound",
+    "grid_refinement": "necessary for this direct same-grid proposal; implementation cost unknown",
+    "helper_restoration": "whole-caller obligation; not discharged by a single child",
+    "right_and_left_monomials": "source-pinned arithmetic only; physical routing cost unknown",
+    "two_data_windows": "logical mutable helper is named; physical intervals and encoding unknown"
+  },
+  "schema_version": 1,
+  "scope": "first F0 rank-one child, lambda=1 nine-axis slice with identity spectators; unchanged-grid obstruction",
+  "source_base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "source_implementations_sha256": {
+    "event_semantics": "16a6cf984f37adb2d98f5180312dc8637c3f653dd41db9252961c3ca1f3ffdba",
+    "existing_format_receipt": "b954ab5c5a720b21a9ab49bda2e1a0824ab184a482243d6263dab3c4bddb91bb",
+    "native": "999eb1230798b25821de7771ecfa86381e137124059b30ccef167169d176ee8e",
+    "tapes": "a3ad668b94d44ff1b9d7093e95c5af3ea0d80cdb798365ea7631c0e2a3dcae10"
+  },
+  "supplier_admitted": false,
+  "witness": {
+    "axis_output": [
+      [
+        0,
+        "1/2",
+        "1/2"
+      ],
+      [
+        1,
+        "1/2",
+        "-1/2"
+      ]
+    ],
+    "child_output": [
+      [
+        0,
+        "1/2",
+        "1/2"
+      ],
+      [
+        459,
+        "-1/2",
+        "-1/2"
+      ]
+    ],
+    "input": "L546 real delta at address 0; all other input fields zero",
+    "literal_prefix_events_replayed": 9894,
+    "prefix_target_value": [
+      [
+        0,
+        "1",
+        "0"
+      ]
+    ],
+    "rejection_is_not_a_nondestructive_admission_scan": true,
+    "tape_rejection": "nonexact half",
+    "unchanged_grid_preconditions": {
+      "even": false,
+      "signed_range": true
+    }
+  }
+}

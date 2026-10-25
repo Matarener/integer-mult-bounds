@@ -1,0 +1,234 @@
+{
+  "base_modal_scale": {
+    "E": "-1/14",
+    "E_inverse": "-14"
+  },
+  "base_owner_recoder": {
+    "from": "inputs/KERNEL-PROGRAM.json.gz:from_modal_kernel_word",
+    "to": "inputs/KERNEL-PROGRAM.json.gz:to_modal_kernel_word"
+  },
+  "code_recipe": [
+    "Apply each actual physical L_i to its field.",
+    "Apply to-modal word in place on each selector axis.",
+    "SCALE active sectors by A_inverse_scale for E or A_scale for E_inverse.",
+    "Restore from-modal words in reverse axis order.",
+    "Apply actual scalar K (base8cube/odd3 512cube) into owned zero output scratch, read all inputs, SWAP outputs into mains, CLEAR old mains from scratch; reuse8/512 fields.",
+    "Apply L_i inverse."
+  ],
+  "global_owner_recoder": {
+    "ambient": 25,
+    "loop": "For axis a=0,1,2 and lexicographic other selector coordinates in0..119 apply the emitted120-field word on that axis. Restore in reverse axis order using the inverse word.",
+    "orthonormal_basis_raw27": [
+      262657,
+      262658,
+      262660,
+      262664,
+      262672,
+      262688,
+      262720,
+      262784,
+      262912,
+      263679,
+      264703,
+      266751,
+      270847,
+      279039,
+      295423,
+      328191,
+      393727,
+      786431,
+      1310719,
+      2359295,
+      4456447,
+      8650751,
+      17039359,
+      33816575,
+      67371007
+    ],
+    "physical_normalizers": "Actual K-TEMPLATE U25 chart and q tuple; ordinary exact signed Clifford L_i from actual K native constructor. These address monomials commute with R25 with phase; no claim they commute Q or D separately.",
+    "scalar_coefficients": "Each owner coefficient acts once; only address monomials tensor lift with field width.",
+    "selector_shape": [
+      120,
+      120,
+      120
+    ]
+  },
+  "global_scalar_C": "(C1 C2+C1 C3+C2 C3-C1 C2 C3)/2; factors act on distinct owner selector axes.",
+  "global_scalar_K": "(K1+K2+K3-K1 K2 K3)/2; actual76-entry rows, row-l1=7.",
+  "invoices": {
+    "base120": {
+      "axis_word_batches_per_direction": 1,
+      "ordinary_code_E_or_inverse": {
+        "ADD": 14564,
+        "CLEAR": 120,
+        "OWN_ZERO": 120,
+        "SCALE": 176,
+        "SWAP": 302,
+        "peak_scratch": 8,
+        "physical_L_field_map": 240
+      },
+      "original_ground_query_plus_scatter": {
+        "ADD": 28176,
+        "CLEAR": 8,
+        "COPY": 8,
+        "SCALE": 336,
+        "SWAP": 364,
+        "paid": {
+          "9": 8
+        },
+        "physical_L_field_map": 480
+      },
+      "owned_inverse_peak_upper": 136,
+      "query_or_transpose_upper": {
+        "ADD": 28184,
+        "CLEAR": 16,
+        "COPY": 8,
+        "OWN_ZERO": 8,
+        "SCALE": 336,
+        "SWAP": 364,
+        "paid": {
+          "9": 8
+        },
+        "physical_L_field_map": 480
+      }
+    },
+    "odd3": {
+      "axis_word_batches_per_direction": 43200,
+      "ordinary_code_E_or_inverse": {
+        "ADD": 739756800,
+        "CLEAR": 1728000,
+        "OWN_ZERO": 1728000,
+        "SCALE": 7279616,
+        "SWAP": 9590400,
+        "peak_scratch": 512,
+        "physical_L_field_map": 3456000
+      },
+      "original_ground_query_plus_scatter": {
+        "ADD": 1216879616,
+        "CLEAR": 22016,
+        "COPY": 22016,
+        "SCALE": 14515200,
+        "SWAP": 15724800,
+        "paid": {
+          "25": 22016
+        },
+        "physical_L_field_map": 6912000
+      },
+      "owned_inverse_peak_upper": 1750528,
+      "query_or_transpose_upper": {
+        "ADD": 1216901632,
+        "CLEAR": 44032,
+        "COPY": 22016,
+        "OWN_ZERO": 22016,
+        "SCALE": 14515200,
+        "SWAP": 15724800,
+        "paid": {
+          "25": 22016
+        },
+        "physical_L_field_map": 6912000
+      }
+    }
+  },
+  "kernel_science_sha256": "0b526f1a38a73a82ae66e1b0182ed2fa8c14e16d703cd38fff4dc491d3b7c15b",
+  "native120_science_sha256": "87d7cad7133ed0a2950b1d4fa2397e20e3c7bcedb90db95a15130aa03da543ae",
+  "native512_science_sha256": "1aeba5ae2276ff58e24ed9ca84f08830c0bb7321432bc74e42472f0029bfb1c2",
+  "odd3_sectors": [
+    {
+      "A_inverse_scale": "1",
+      "A_scale": "1",
+      "C_eigenvalue": "0",
+      "dimension": 1404928,
+      "modal_axis_flags": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "A_inverse_scale": "1",
+      "A_scale": "1",
+      "C_eigenvalue": "0",
+      "dimension": 100352,
+      "modal_axis_flags": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "A_inverse_scale": "1",
+      "A_scale": "1",
+      "C_eigenvalue": "0",
+      "dimension": 100352,
+      "modal_axis_flags": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "A_inverse_scale": "-2/223",
+      "A_scale": "-223/2",
+      "C_eigenvalue": "225/2",
+      "dimension": 7168,
+      "modal_axis_flags": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "A_inverse_scale": "1",
+      "A_scale": "1",
+      "C_eigenvalue": "0",
+      "dimension": 100352,
+      "modal_axis_flags": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "A_inverse_scale": "-2/223",
+      "A_scale": "-223/2",
+      "C_eigenvalue": "225/2",
+      "dimension": 7168,
+      "modal_axis_flags": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "A_inverse_scale": "-2/223",
+      "A_scale": "-223/2",
+      "C_eigenvalue": "225/2",
+      "dimension": 7168,
+      "modal_axis_flags": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "A_inverse_scale": "1/1351",
+      "A_scale": "1351",
+      "C_eigenvalue": "-1350",
+      "dimension": 512,
+      "modal_axis_flags": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "physical_operator_claim": "C_phys=L^-1 Cscalar L commutes R. E=K(I-C)^-1, E_inverse=K+C. The emitted ordinary code uses no Q-conjugation assumption. Backward output is H(E_inverse)B0, forward obtained from owned inverse transpose is H(E)F0. H(T)=diag(T,Q^-1 T Q).",
+  "query_recipe": [
+    "On unchanged original ground Y apply L_i then to-modal selector words.",
+    "COPY every active coordinate into its owned mode; restore original Y exactly via inverse recoder and L_i inverse.",
+    "Apply one full positive R9 or R25 to each owned mode.",
+    "After native B but before postX(E_inverse), apply L_i and to-modal words to X, ADD -lambda times each retained mode at its active coordinate, then restore and L_i inverse.",
+    "CLEAR modes only after their final scatter. In inverse schedule original Y is first acquired using the actual source-contact inverse, before query."
+  ],
+  "schema": "full120-positive-E-structured-constructor/v1"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-two-hub-tariff-minimum/predecessor/PROOF.md",
+    "research/p112-two-hub-tariff-minimum/predecessor/CONFIG.json",
+    "research/p112-two-hub-tariff-minimum/predecessor/WITNESS.json",
+    "research/p112-two-hub-tariff-minimum/ORIGINS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Retained predecessor SHA256 pins; replay of the seven source exclusions and fourteen reader containments over Q; exhaustive per-row minimum search by exact rational linear feasibility under a conservative relaxation of the reader-row evaluator; row-by-row check of the retained witness; all 1764 entries of aa^T + bb^T = sum_i u_i q_i^T over the 42 ports; the nine measured plane charges; the full RESULT.json receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate integer-only implementation sharing no code: the universal one-unit row bound, the seven default readers, exact integer span table over all admissible supports of the fourteen reader rows, and an independent recomputation of the nine witness charges. No fractions.Fraction is imported."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Ten actual mutation groups rejected by both scientific programs in isolated owned byte copies, three positive runs, and receipt bytes unchanged across them. Production checks remain enabled under -O."
+    }
+  ],
+  "expected_outputs": [
+    "PASS_TWO_HUB_TARIFF_MINIMUM",
+    "PASS_TWO_HUB_TARIFF_MINIMUM_INDEPENDENT",
+    "PASS_TWO_HUB_TARIFF_MINIMUM_CONTROLS"
+  ]
+}

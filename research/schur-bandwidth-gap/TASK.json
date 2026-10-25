@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "After one scalar elimination, does the filled Schur complement of the narrow banded witness remain bandwidth b, or only its inverse?",
+  "scope_change_reason": "The circular-section bound is already packaged. The note's next unresolved sentence is the Schur step: inverse bounds are claimed for the complement, while bandwidth b is proved only for principal sections.",
+  "bottleneck_link": "Iterated elimination in the narrow conditioning argument reuses the inverse bound. Reusing the bandwidth count on a filled complement would be a different implication, and this witness separates the two.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at one explicit scalar elimination. Do not audit the Gaussian tail or a boundary-order block factorization.",
+  "outcome": "partial",
+  "evidence": "research/schur-bandwidth-gap exhibits a bandwidth-2 matrix whose Schur complement has bandwidth 3, while the inverse of that complement remains inside the original Neumann bounds.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the witness, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "In boundary order, does one Gaussian interior elimination leave bandwidth O(W), as GAUSSIAN.md states?",
+      "why_it_matters": "The scalar witness uses the original index order. The caller claims a bandwidth after a different ordering of the survivors.",
+      "first_step": "Pin one interior block and the stated boundary order, and measure the Schur bandwidth against W.",
+      "blocked_by": "No boundary-order elimination is computed in this package."
+    },
+    {
+      "question": "Does a pivot larger than one index also separate bandwidth from the inverse bound?",
+      "why_it_matters": "Iterated elimination removes blocks, not only single indices. A block pivot can fill a different pattern.",
+      "first_step": "Eliminate two adjacent indices in this same 7 by 7 witness and compare bandwidth with the inverse block.",
+      "blocked_by": "Only the scalar pivot at index 3 is checked here."
+    }
+  ]
+}

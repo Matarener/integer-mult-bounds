@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/plane-port-copy-budgets/RESULT.json",
+    "research/p112-lost-free-fractional-cover/COVER.json",
+    "research/p112-lost-free-fractional-cover/ORIGINS.json",
+    "research/p112-lost-free-fractional-cover/README.md",
+    "research/p112-lost-free-fractional-cover/RESULT.json",
+    "research/p112-lost-free-fractional-cover/independent.py",
+    "research/p112-lost-free-fractional-cover/inputs/pr3625-README.md",
+    "research/p112-lost-free-fractional-cover/inputs/pr3625-RESULT.json",
+    "research/p112-lost-free-fractional-cover/inputs/pr3625-best-32.json",
+    "research/p112-lost-free-fractional-cover/test_cli.py",
+    "research/p112-lost-free-fractional-cover/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "research/p112-lost-free-fractional-cover/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent raw source parity,112 rational frame cover,32plane positive,16 meaningful controls and exactreceipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-lost-free-fractional-cover/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separately authored nine-component dense-vector/rank and exactcover checker;19 rejectioncontrols; no predecessor/discovery imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-lost-free-fractional-cover/test_cli.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Five actual optimized CLI faults on owned copies, initial/finalpositive, frozeninputpreservation."
+    }
+  ]
+}

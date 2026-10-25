@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-b6-t4-reconciliation/vendor/bk2b.py",
+    "research/p112-b6-t4-reconciliation/vendor/PR3154-TWOSIDE.md",
+    "research/p112-a2-rank6-sharp-shortening/PROOF.md",
+    "research/p112-rank5-sharp47/PROOF.md",
+    "research/p112-support30-shortening/PROOF.md",
+    "research/p112-b6-t4-original-covers/PROOF.md",
+    "research/p112-b6-t4-original-covers/vendor/PR3154-FINITE.md",
+    "research/p112-b6-t4-original-covers/vendor/PR3154-PROOF-MAP.md",
+    "research/p112-b6-t4-original-covers/vendor/PR3154-full_b.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Source authentication, original and own filters on every multiset, six exact contract assignments and quotient-cap interface."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent excess-count filter and small-subset-first application enumeration, every assignment count/minimum/witness checked."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Strict excess and deletion boundaries, common versus separate cuts, invalid ranks and optimized CLI source/receipt/metadata corruptions."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==1.26.4"
+  ],
+  "inputs": [
+    "research/unconditional-batched-crt/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned PROOF.md phrases; fixed-point (P=40, truncation toward zero) normalized synthetic convolution for T=2^4..2^14: error <= 4 M ell 2^-P, error/(M^2 2^-P) -> 0, exact-map input perturbation not amplified."
+    }
+  ]
+}

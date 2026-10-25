@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/batched-bit-rows.tex",
+    "upstream/build/sections/04-swap.tex",
+    "upstream/build/sections/03-motifs.tex"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Certify s_b/W_b < m^{1-2^{-50}} for the bit-motif width-1 child list from the displayed deficit and a harmonic bound on ln(10)."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the motif deficit clears the logarithm bound and a one-unit deficit does not."
+    }
+  ]
+}

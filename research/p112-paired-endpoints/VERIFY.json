@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "endpoints"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete112 endpoint/gauge contracts and exact signed B4 identity; finite native model coverage and actual phase/sign defects."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "geometry"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All5824 fixed contacts, actual signed phases, literal isolated helper return, full local invoice and exact fixed source-batched maximum."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Authenticated source execution, assertions under optimization, complete typed receipts and stage coverage, and actual check-deletion probes."
+    }
+  ]
+}

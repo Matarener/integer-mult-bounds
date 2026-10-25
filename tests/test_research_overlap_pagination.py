@@ -52,6 +52,7 @@ class OverlapPaginationTests(unittest.TestCase):
             output = io.StringIO()
             argv = ["find_overlap.py", "dirty decoder", "--json", "--cache", str(cache)]
             with (patch.object(overlap, "ROOT", root), patch.object(sys, "argv", argv),
+                  patch.object(overlap, "local_coverage", return_value=({}, [])),
                   patch.object(overlap.subprocess, "run", side_effect=legacy_cli(pages)),
                   patch.object(overlap, "fetch_discussions", return_value=[]),
                   contextlib.redirect_stdout(output)):

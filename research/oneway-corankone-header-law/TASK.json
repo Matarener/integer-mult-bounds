@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact full-leading-minor shared-header density for P=I-U,Q=I-V with rank-one idempotents UV nonzero and VU=0 over finite fields. All-field partial-Gram transfer and binary all-dimension closed form.",
+  "scope_change_reason": "Original counting continuation of PR4240 open question 1, changing the orthogonal-kernel premise of PR4261. This is a side result rather than an audit of PR4100; no predecessor result is reverified as a deliverable.",
+  "bottleneck_link": "Shared-header rates require a joint full-guard law, rather than products of marginal rates. One-way coupling increases this exact algebraic rate, but no physical producer or paid caller is supplied, so no kappa improvement follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the first proved formula agrees with complete small GL headers and normalized-pair counts; package without extending the family.",
+  "outcome": "completed",
+  "evidence": "PROOF.md proves the all-field transfer, binary formula, strict count gain and negative correlation. verify.py checks 32094 headers, 1946574 normalized pairs, 84 transfer cases and five controls, generating a SHA256-bound stdout receipt.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the full-guard law when both UV and VU are nonzero?",
+      "why_it_matters": "The one-way case changes an orthogonality premise but leaves the other noncommuting types open.",
+      "first_step": "Fix a 2 by 2 Gram endpoint [[1,a],[b,1]] and distinguish invertible endpoints from the singular ab=1 case.",
+      "blocked_by": "A singular endpoint does not force X and Y to have rank two; an unfiltered transfer need not count one simultaneous-conjugacy orbit."
+    },
+    {
+      "question": "Can one actual odd-field request producer use a fully charged one-way shared-header caller?",
+      "why_it_matters": "The increased algebraic passing fraction is not a physical primitive saving.",
+      "first_step": "Pin a producer and its two kernel lines; charge selection, emission, dispatch, dirty restoration and stock.",
+      "blocked_by": "No producer or complete cost invoice is supplied."
+    }
+  ],
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19085445",
+    "base_checked": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "priority_revision": 7,
+    "coverage": "381 open PR bodies and 3159 Discussion records in the first paginated overlap snapshot; targeted merged-title and main-README searches; no complete historical code-diff search."
+  }
+}

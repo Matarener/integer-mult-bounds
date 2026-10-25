@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/INVERSE-CONDITIONING.md",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Pinned notes, (1-p^{-40})^J < exp(-p^2), and this section's tail strictly below p^{10} exp(-p^2)."
+    }
+  ]
+}

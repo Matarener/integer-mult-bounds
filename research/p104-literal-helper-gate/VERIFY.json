@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Chart mismatch on every nonzero address of (F_2)^4, identity helper extension, and nonnegative gate excess 44096+s"
+    },
+    {
+      "argv": ["{python}", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Same certificate with assertions removed, so the explicit require() failures still fire"
+    }
+  ]
+}

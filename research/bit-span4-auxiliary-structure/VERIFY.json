@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-dirty-auxiliary-registers/README.md",
+    "research/bit-three-register-lower-bound/README.md",
+    "research/three-register-no-target-flag/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Polynomial identities for the span-four normal form, the rank factorization, all F2 idempotent pairs at n=3 and n=4, the 64-pattern block partition, the cited-lemma call budget, the nine-call restored-auxiliary word with deletion and mutation controls, the cancelling-pair degree-1 control, and the cited heading pins."
+    }
+  ]
+}

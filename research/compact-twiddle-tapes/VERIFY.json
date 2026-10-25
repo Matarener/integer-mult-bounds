@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/synthetic-twiddle-circuit/PROOF.md",
+    "research/synthetic-twiddle-circuit/circuit.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact binary-program outputs, independent primitive/cell formulas, all 1024 direct ten-bit accesses, normalized borrow/marker cases, canonical exponents and input rejections."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Eight intended fault groups through actual optimized CLI and valid optimized retry on owned byte copies."
+    }
+  ]
+}

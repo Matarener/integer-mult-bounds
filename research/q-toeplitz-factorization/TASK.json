@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Check the finite q-Toeplitz factorization G = L D_f L^T and its inverse formula for rational q at most 1/4.",
+  "scope_change_reason": "The Neumann tail, the production-domain gap, and the compression-error sum are different questions. This package checks the q-Toeplitz factorization. It does not run the Gaussian core.",
+  "bottleneck_link": "Every checked factorization reproduces the Gaussian matrix and its inverse, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record this factorization. Do not run the Gaussian core or the chirp consumer.",
+  "outcome": "partial",
+  "evidence": "All 30 matrices with q in {1/4,1/5,1/6,1/8,1/10} and order 1 through 6 satisfy T(g)T(h)=I and the five-factor inverse. At q=1/4 the product bound is 14/15 and the row-sum bound is 10/7.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The finite factorization and the two rational bounds are settled on this range. The Gaussian core would leave this package."
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "frame"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Complete source-bound endpoint, stabilizer and full-native path receipts; all twelve actual ports, signed native lowerings and complete retained Gaussian phase columns; actual defect and named-guard deletion controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "counterexamples"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Both physical cut pullbacks on all n4 address columns, dressed-swap and chirped-address counterexamples; exact paired decoders f1..3 and inverse-square normalization control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "independent"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent Gaussian heterogeneous support witness: every f1..3 matrix entry, complete per-path coefficients, support partitions and unshared rank invoice, with six semantic defects and guard deletions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Authenticated captured-source execution, complete typed records and stage coverage, optimization and output-path defects, with check-deletion sensitivity."
+    }
+  ]
+}

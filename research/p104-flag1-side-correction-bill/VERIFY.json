@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/NATIVE-RECIPES.json.gz",
+    "research/p104-native-channel/check_native.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-joint-unit-flags/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Builds #3532's R0 and R1 from the vendored pinned splices, applies corrections T, S, P, Trow (R0), E, Erow (R1) and the end-cut control Tend (published), runs the published check_native.validate() unchanged on each coefficient-0 word (native edges incl. three committed new-edge recipes, 208 endpoint adapters, all 280 framed rows and dirty-helper restorations), replays the real words with exact rational rows, confirms the unchanged checker rejects each real word only at Y7's endpoint, recomputes bills, profiles, the X7->G11->X20->G18->X0 forcing chain, the least-frame sweep over 18 insertion classes with the delivering ADD dropped (plus 19 published-order classes and 5 early private deliveries), and the single-register order-preserving joint census, and requires equality with CERTIFICATE.json"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Separately written replay with XOR-closure frames and exact rational rows: common-chart ADD/copy, nested transports paying their gap, owned private lifetimes, endpoint frames; base target rows equal G/2; each correction changes only Y7 by exactly +1/2 X0 (row variants: y7+x7); even non-private added mass; E/Erow share the full chart with X0 at zero added rank; direct native check of the three new recipes; closure-set sweeps for 18+19 strict classes, 5 early private deliveries, the 387 forcing fact and the co-host rescue census"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Temp-tree clean pass with byte-identical tree; 18 rejections by both scanners under -O: certificate bill/obstruction/census/discount corruptions, duplicate JSON key, witness and vendored #3532 certificate byte flips, new-recipe phase corruption, wrong coefficient/sign, undercharged lift, wrong common chart (S and E), unrestored source and unclosed private lifetime"
+    }
+  ]
+}

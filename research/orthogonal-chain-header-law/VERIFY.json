@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Stage-product joint law against a complete GL census (full passing-set law, Schur orthogonality lemma, conditional uniformity, cover number) and a row/column-pair census over F2, F3, F4, F5; zero-locus grid, predecessor specializations and four controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Stage-product joint law against a complete GL census (full passing-set law, Schur orthogonality lemma, conditional uniformity, cover number) and a row/column-pair census over F2, F3, F4, F5; zero-locus grid, predecessor specializations and four controls."
+    }
+  ]
+}

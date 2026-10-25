@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "formal/lean/lake-manifest.json",
+    "formal/lean/lean-toolchain",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/e8-lemma-g-lean/LemmaG/Stream.lean",
+    "research/k8-hpe450-binding/RESULT.json",
+    "research/k8-lean-label-instance/KERNEL.json",
+    "research/k8-lean-label-instance/RESULT.json",
+    "research/k8-lean-label-instance/TreeCheckpoint.lean",
+    "research/k8-lean-label-instance/generate.py",
+    "research/k8-lean-label-instance/translate.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate inputs, independently extract ordered raw recipes, regenerate unchanged word and dispatch modules, bind archived kernel receipt and all theorem/control roots; no fresh Lean invocation."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_dispatch.py"],
+      "timeout_seconds": 120,
+      "checks": "Independent raw-archive oracle and eight control groups for recipe completeness, tag stride, operator orientation, helper450 residual identity, child tokens and source corruption."
+    }
+  ]
+}

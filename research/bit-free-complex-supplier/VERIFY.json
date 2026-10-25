@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/involutive-walsh-lift/evidence/WALSH-RETARGET-NATIVE.json.gz",
+    "research/involutive-walsh-lift/native.py",
+    "research/involutive-walsh-lift/sources.py",
+    "research/kappa01-outer-repair/adapter_fusion.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Control reproduction of the kappa01-outer-repair relative compiler, Clifford tableau identity for lazy directions, exact layout-change lower bound, skew-kernel residual bases, pass-model lemmas, savings from the moment equation; fails if any variant becomes non-negative or the control drifts."
+    }
+  ]
+}

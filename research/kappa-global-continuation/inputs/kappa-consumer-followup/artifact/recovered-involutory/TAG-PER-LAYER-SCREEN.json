@@ -1,0 +1,52 @@
+{
+  "scope": "Cost and tensor-volume screen, not an exclusion of every partial-observation implementation",
+  "moment_parameter": "0.001730578437266246818740",
+  "H_definition": "H_r(b)=r*(73/r)^b",
+  "H_values": {
+    "1": "1.007452610083864625097367910288058639959888015413694964731293128731825",
+    "7": "7.028459682640968937220649692008569997232404521546990981433969005594003",
+    "8": "8.030669357484134730319978211260809030344811968419881381048198873281440"
+  },
+  "ordinary_split_excess": "0.005242935240698831998039391035819606847480568540804565117063261044388",
+  "two_full_volume_H7_over_H8": "1.750404448189823075163375714169675822248621928358272824841586728365081",
+  "tag_layers": [
+    {
+      "lambda": 1,
+      "tag_sectors": 2,
+      "dense_volume_vs_two_original_banks": "1",
+      "two_dense_H7_calls_over_two_original_H8_calls": "1.750404448189823075163375714169675822248621928358272824841586728365081"
+    },
+    {
+      "lambda": 2,
+      "tag_sectors": 4,
+      "dense_volume_vs_two_original_banks": "2",
+      "two_dense_H7_calls_over_two_original_H8_calls": "3.500808896379646150326751428339351644497243856716545649683173456730161"
+    },
+    {
+      "lambda": 8,
+      "tag_sectors": 256,
+      "dense_volume_vs_two_original_banks": "128",
+      "two_dense_H7_calls_over_two_original_H8_calls": "224.0517693682973536209120914137185052478236068298589215797231012307303"
+    },
+    {
+      "lambda": 16,
+      "tag_sectors": 65536,
+      "dense_volume_vs_two_original_banks": "32768",
+      "two_dense_H7_calls_over_two_original_H8_calls": "57357.25295828412252695349540191193734344284334844388392440911391506696"
+    },
+    {
+      "lambda": 32,
+      "tag_sectors": 4294967296,
+      "dense_volume_vs_two_original_banks": "2147483648",
+      "two_dense_H7_calls_over_two_original_H8_calls": "3758964929.874108253926424274659700725739870181683618376870075689537828"
+    }
+  ],
+  "source_inventory": {
+    "source": "authenticated PR3734 PROOF.md; canonical word zero_buffers",
+    "physical_families": 323069,
+    "literal_roles": 1321920,
+    "local_owned_cleanup_buffers": 91,
+    "all_size_fact": "Every count is fixed independently of lambda; even granting every physical family as blank space, 2^lambda expanded fields eventually exceed it."
+  },
+  "direct_sum_lift": "(I direct_sum C7)^tensor_lambda = direct_sum over tag strings s of C_(7*|s|), with binomial strata; it is not one C_(7*lambda) on a global half."
+}

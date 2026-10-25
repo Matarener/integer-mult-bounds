@@ -1,0 +1,145 @@
+{
+  "status": "PASS_REPAIRED_SOURCE_EXTENSION_ADAPTER_AND_BOTH_MODERN_OUTER_ENGINES",
+  "script_sha256": "43bf7cefa92b37b3119bb3c7bdd4f9b9a8aacd88b1cf8569d3c8557de33aebba",
+  "invoice_sha256": "b80932118ec8d252715028a2fc5d22e71e28072928ffda89b5587821d4fc42bd",
+  "source_adaptation_sha256": "0091dbe42704a17d0872626192276e0a9f523f7e8d354914f8091cf18673fa71",
+  "admission_adapter_sha256": "32ab16f03a9650bd22d78a031eba1cbcee05b1b8f79fa790f03e73e251630e46",
+  "source_manifest_sha256": "18acd9411cbca007d37c5058ecb12b45cc3b82c15ddd0833444fede8fc14473e",
+  "runtime_adapter_sha256": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+  "runtime_independent_review_sha256": "47a97bc2068665a5f28baed2f6a09c39ebc2d84b897ee09afdc4be6d8c60d3b6",
+  "runtime_adaptation": {
+    "after_sha256": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+    "before_sha256": "26950da76589b13cd9c452fdee1b0c354806977f881299bd94073f00e4646fcd",
+    "control_mode": "fork",
+    "equivalent_streamed_digest_assertions": 1,
+    "failure_mode_fixtures_sha256": "4f6185125ddb38b7ab02a349829aae434e7707e804ca8c6c4ab8c086cd63635e",
+    "original_scientific_auditor_sha256": "fa3488b62efdf8a0c37de0ca0caba587b4b036c5f068e002eb04c71c12b9e9b4",
+    "path": "audit_fast.py",
+    "preserved_mutator_call_sites": 27,
+    "preserved_scientific_assertions": 76,
+    "scope": "Pinned runtime-only source transformation: release unused ancestral owner tails, stream the identical payload hash, remove dead bookkeeping and isolate unchanged mutators. Actual current owners and all scientific assertions remain checked; abnormal children fail.",
+    "unchanged_emitter_sha256": "549603ca6d28b163a43b2dfaaaa788161c73d7952ab9190289407caca5418c71"
+  },
+  "source_changed_files": {
+    "audit_fast.py": {
+      "before": "26950da76589b13cd9c452fdee1b0c354806977f881299bd94073f00e4646fcd",
+      "after": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381"
+    },
+    "verify.py": {
+      "before": "196cf2d1cda601b7d88929cb17cbebbe3d4d06bc66d9e0d4b5edca750861d3ee",
+      "after": "aa64dadeafd0c8d41ae1a2112f107d38e2b6a37cd4cfa27aa13a10730c2f87f8"
+    },
+    "new/BORROW-PROVIDERS.json": {
+      "before": "d0ea0e4920f3d9c75701e037c961e9598b60e57e99940cb35e4b1b7309187f73",
+      "after": "e249ce874cffa12ba9016565464ae8994d6e784b4c87410633bbcb186870dc31"
+    },
+    "new/rebuild_borrow.py": {
+      "before": "56a5b32eedbf82606126ca70e3da22d8c72d905732be48c54b62e586f5a35260",
+      "after": "21c1276b33799cb723250bd725765365a36f8757d6cfa87adda904239aeca6a5"
+    },
+    "new/borrow/review_receiver_share.py": {
+      "before": null,
+      "after": "bbf28e17a657b8d1eaf63f33d811682720afb393ee2ab9a4bb46661fef1ed996"
+    },
+    "new/borrow/review_staged544.py": {
+      "before": "d3eebdb2f87b4eb3c891b4666fab3c2e2e8a58f928f3191e89bbfbd8c9bb329f",
+      "after": "29729d0e90f2589f76af71a4f8add9d3449acf9e872222ae7499f2c30b2b5c60"
+    },
+    "new/borrow/receiver_share.py": {
+      "before": null,
+      "after": "6ef3255e91f42cb78eb194c761c02568e0230a9cfab40387f257d7a4bd38ccc4"
+    },
+    "new/borrow/words/BORROW-WORD-43extra.json.gz": {
+      "before": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e",
+      "after": "82d4c962e0b2c6790d361364b02b5b7c53790a80747e814800c85bec112db791"
+    },
+    "new/borrow/words/BORROW-WORD-43base.json.gz": {
+      "before": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "after": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e"
+    },
+    "new/borrow/receiver-share-parent/BORROW-WORD-43extra.json.gz": {
+      "before": null,
+      "after": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e"
+    },
+    "new/borrow/receiver-share-parent/BORROW-WORD-43base.json.gz": {
+      "before": null,
+      "after": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699"
+    }
+  },
+  "reviewed_source_patches": [
+    "new/rebuild_borrow.py",
+    "new/borrow/review_staged544.py",
+    "verify.py"
+  ],
+  "admission_adapter_replacements": [
+    [
+      "    'staged544': dict(commit='staged544-literal-v1',manifest='4c4f7067b1b5404b59213f480e9d91c96ffc79b5458e2736b159f5a522ed2dc3',helpers=408,source_file_count=660,upstream_head='431e6c6023ef352c41696469de7fb614cd4ded8c'),",
+      "    'receiver-share-672-676-v1': dict(commit='receiver-share-672-676-v1',manifest='18acd9411cbca007d37c5058ecb12b45cc3b82c15ddd0833444fede8fc14473e',helpers=408,source_file_count=664,upstream_head='fa041037a3374eaa08feeca0b26a5d6893194147'),"
+    ],
+    [
+      "ap.add_argument('--source-profile', choices=['staged544'], default='staged544')",
+      "ap.add_argument('--source-profile', choices=['receiver-share-672-676-v1'], default='receiver-share-672-676-v1')"
+    ]
+  ],
+  "source_archive_sha256": "e74d545c18f77b7a9b8f0cc3d4901a87bb686888edaf3e41b30e5b2748751041",
+  "modern_outer_scripts": {
+    "check_ledger.py": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+    "independent_check.py": "a5a0361539ec7cae9eb6c0371f857919335a1720040f22af291aa3e34fc864c7"
+  },
+  "modern_outer_runs": [
+    {
+      "script": "check_ledger.py",
+      "sha256": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+      "exit_code": 0
+    },
+    {
+      "script": "independent_check.py",
+      "sha256": "a5a0361539ec7cae9eb6c0371f857919335a1720040f22af291aa3e34fc864c7",
+      "exit_code": 0
+    }
+  ],
+  "outer_spec_source_sha256": "98a74a86f4e0215fdcb36f5b8448529450d6480a9712f496c4c0d86dbd488a3d",
+  "outer_spec_explicit_replacements": {
+    "expected.complex_lower": "1730739780298357321619/1000000000000000000000000",
+    "expected.global_profile": {
+      "1": 7986600,
+      "2": 2345760,
+      "3": 752328,
+      "4": 330480,
+      "5": 69120,
+      "8": 25920,
+      "48": 137952
+    },
+    "expected.live": 322560,
+    "expected.kappa": "17305784372662468187399999999999999999999998999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "outer_strict_checks": 63,
+  "outer_rejecting_controls": [
+    "beta_above_membership_window",
+    "beta_below_gaussian_window",
+    "core_too_small",
+    "endpoint_equality",
+    "epsilon_equals_one",
+    "epsilon_not_above_r0_slack",
+    "full_cell_gauge",
+    "full_key_sort",
+    "group_equals_dimension",
+    "halo_too_short",
+    "matrix_below_strassen",
+    "old_g_factor_union_row",
+    "old_linear_guard",
+    "old_per_axis_scan",
+    "old_theta_chirp_guard",
+    "old_union_tag_2beta",
+    "zero_layout_slack"
+  ],
+  "complex_root": [
+    "1730739780298357321619/1000000000000000000000000",
+    "86536989014917866081/50000000000000000000000"
+  ],
+  "conditional_kappa": "17307397802983573216189999999999999999999998999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000",
+  "strict_gain_over_adopted_ceiling": "161343032110502879/1000000000000000000000000",
+  "below_retained_bit_cap": true,
+  "full_supplier_release_replaced": false,
+  "scope": "Byte-exact review of the explicit source extension, independently reviewed memory repair, and identity-only admission adapter; fresh executions of both unchanged modern outer engines, using the separately verified complete physical invoice. This does not substitute for the ongoing full supplier discovery and release pipeline. All inherited all-size, realization, precision/recovery, analytic and BIT premises remain."
+}

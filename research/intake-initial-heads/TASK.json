@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "overlap-receipt",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "overlap-receipt",
+    "question": "What exact content and credit of a small named PR set has already been retained?",
+    "starting_points": [
+      "docs/research/pr-ledger.md",
+      "CONTRIBUTORS.md"
+    ],
+    "methods": [
+      "Compare exact heads and retained artifacts to write a source-bound disposition receipt.",
+      "Audit an existing receipt for missing content or predecessor attribution."
+    ],
+    "acceptance_gate": "Separate complete integration, partial retention and changed heads; make no autonomous closures.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read one small PR set in the ledger and identify exact reviewed heads and unresolved content.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Compare that set to retained artifacts; produce a complete or explicitly partial disposition receipt.",
+    "bottleneck_link": "Reliable overlap evidence preserves credit and prevents repeated review of already-retained material.",
+    "allowed_variations": [
+      "One small related PR family or one existing integration receipt."
+    ],
+    "scope_change_triggers": [
+      "Treating matching titles or one shared blob as proof of full incorporation."
+    ],
+    "overlap_terms": [
+      "overlap receipt",
+      "partial integration",
+      "attribution"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For intake rows 3107, 3184 and 3251, the ledger starting head equals the authenticated original receipt field and differs from the later metadata head.",
+  "scope_change_reason": "The evidence-cell drift is a different comparison. This package checks these three heads. It does not rewrite the ledger.",
+  "bottleneck_link": "A later metadata head does not replace the retained starting head, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record these three heads. Do not rewrite the ledger.",
+  "outcome": "partial",
+  "evidence": "Each starting head matches its named receipt field. Each current head matches the later receipt, and the two heads differ.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "These three heads are the split. Another revision would need its own receipt."
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Regenerate exact base single/paired censuses, source semantics, and full receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Regenerate exact extra single/paired censuses, source semantics, and full receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_checks.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent frame/bridge oracles and production-path semantic/sensitivity controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_checks.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent frame/bridge oracles and production-path semantic/sensitivity controls."
+    }
+  ]
+}

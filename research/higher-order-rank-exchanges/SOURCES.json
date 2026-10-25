@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "files": [
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "67f085acd86acd7d4e03922d9cf4b26bca66fed5",
+      "sha256": "47b42433f5a85809a3aadd29c2c339da2c6ed728e4f7762df6b88bccb7874cf0"
+    },
+    {
+      "path": "certificates/selected-result.json",
+      "usage": "provenance",
+      "git_blob": "b1fea0c94436b236cc2b7d41a7be032811b94c81",
+      "sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+    },
+    {
+      "path": "research/ranked-pair-verification/concave_dominance.py",
+      "usage": "provenance",
+      "git_blob": "97cd3ea3a0fcb1adbb8886578179d26c859fda78",
+      "sha256": "ab3b45820b2e59a173444739887c438620a1c7cedf9909122fbd049b7078a709"
+    },
+    {
+      "path": "research/outer-bernstein-certificate/README.md",
+      "usage": "provenance",
+      "git_blob": "beee81cbae65975bd02408a921c8461db5c30a0b",
+      "sha256": "964f4cb1314485853581bbd5e12815c73e2f336676c3f64d88fde68cd11f1880"
+    },
+    {
+      "path": "research/coded-helper-early-end8/binomial.py",
+      "usage": "provenance",
+      "git_blob": "70ab18c465e136d39b7f7e73f8b5781b78d53c48",
+      "sha256": "8fa965f901947a1b3c9d63bda466093c1fb3257a22c443e73a4d21f06620ef3c"
+    }
+  ],
+  "external_public_inputs": [
+    {
+      "local_path": "inputs/current-profile.json",
+      "source_pr": 3857,
+      "source_head": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+      "source_path": "research/staged544-certified-endpoint/vendor/staged544-clock-ceiling/inputs/PROFILE.json",
+      "sha256": "9686df0d8e710c2e94aef3887f4bf130a05b64215faeae702cccb59e95a469d5",
+      "coverage": "Byte-identical histogram retained from public PR3857; source hash checked by standalone verifier; no foreign Git dependency."
+    }
+  ],
+  "reused_oracle": {
+    "source_pr": 3863,
+    "head": "635fe84596c19016f3d0316a5cf7abbe48285490",
+    "path": "research/charged-rank-dominance/test_certificate.py",
+    "source_sha256": "1dbd32cb4c6fec989d65411b06b152250bfc6647e6445395079992c748e46fe4",
+    "local_path": "oracle.py",
+    "extraction": "log_interval, raw_power_interval and gap_interval functions, with necessary imports; no primary credit arithmetic reused."
+  },
+  "mathproof_precedent": {
+    "module": "Mathproof.Computability.IntegerKappaMomentTransfer20261015",
+    "sha256": "68e89786008dd3f222632920a00eafd6fc64661e08548c5325a3daa4ba964522",
+    "theorems": [
+      "admission_with_reserve",
+      "normalized_admission"
+    ],
+    "scope": "Discovery framework only; no imported Lean or new formal result."
+  }
+}

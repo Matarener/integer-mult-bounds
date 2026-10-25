@@ -1,0 +1,98 @@
+{
+  "complete_release_claimed": false,
+  "control_scope": "Nine corruption-control implementations and their source-bound PASS receipt reviewed. The control suite is not rerun by this review; both authentication modes above were freshly executed read-only.",
+  "dependency_installation_reviewed": false,
+  "fixtures_receipt_sha256": "f1320257ac1db0ac5295b9532cf76a590a635ab7afe895c96ac885f4a9e94321",
+  "fixtures_script_sha256": "f54fe1d6b3f19671928459c70feaa6e2364d9741df52d7462e60b1a820872a34",
+  "fresh_read_only_prepared_authentication": {
+    "native_receipt_sha256": "c7e9538c9c857afa600557cd4817c353b299efe0c8b3c8121fd67c9e0c052146",
+    "pins_sha256": "244f97a4590856fe19db10dfdcff80a35e07595235a1863d7abc767a1f4c7568",
+    "providers": {
+      "base": {
+        "native_output_files": 12,
+        "native_output_tree_sha256": "c2d98cc89207b237ea5ea2b1378a41ca294c1e2a2ba203adeaa64488b2db51a5",
+        "scientific_source_files": 18,
+        "scientific_source_tree_sha256": "c3ccf82957197562f6e691ad0872d9498366ced6005a6a8503b606db75911f7a",
+        "word_sha256": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e"
+      },
+      "extra": {
+        "native_output_files": 12,
+        "native_output_tree_sha256": "652ca49edfe385a3affbc43109c1c320ab98dd7008e7e5ec80fca4b418a9267f",
+        "scientific_source_files": 18,
+        "scientific_source_tree_sha256": "c3ccf82957197562f6e691ad0872d9498366ced6005a6a8503b606db75911f7a",
+        "word_sha256": "82d4c962e0b2c6790d361364b02b5b7c53790a80747e814800c85bec112db791"
+      }
+    },
+    "retained_ancestry_not_reaudited": true,
+    "scope": "Read-only identity check of both new-provider prepared caches and their actual compiler sources. Existing ancestor caches and complete admission are separate bound gates.",
+    "source_manifest_sha256": "18acd9411cbca007d37c5058ecb12b45cc3b82c15ddd0833444fede8fc14473e",
+    "status": "PASS_PREPARED_ADMISSION_CURRENT_NATIVE_INPUTS"
+  },
+  "fresh_read_only_shipped_authentication": {
+    "pins_sha256": "244f97a4590856fe19db10dfdcff80a35e07595235a1863d7abc767a1f4c7568",
+    "providers": {
+      "base": {
+        "exact_shipped_files": 39,
+        "exact_shipped_tree_sha256": "3f41ed7d5bebab8a5dfc310fdece9e3fa48edda72b4df632335b1e8da60de46f",
+        "native_output_files": 12,
+        "native_output_tree_sha256": "c2d98cc89207b237ea5ea2b1378a41ca294c1e2a2ba203adeaa64488b2db51a5",
+        "provider": "base",
+        "result_sha256": "85988a7bcc652ca9de8009303f1acd54c08a0c1959d01e639f4cdb48b819d031",
+        "scientific_source_files": 18,
+        "scientific_source_tree_sha256": "c3ccf82957197562f6e691ad0872d9498366ced6005a6a8503b606db75911f7a",
+        "source_declarations_match_actual_bytes": true,
+        "word_sha256": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e"
+      },
+      "extra": {
+        "exact_shipped_files": 39,
+        "exact_shipped_tree_sha256": "cca88527f532e73916f9f031025695653d209059cd3ffecea86e3e2debbe3a72",
+        "native_output_files": 12,
+        "native_output_tree_sha256": "652ca49edfe385a3affbc43109c1c320ab98dd7008e7e5ec80fca4b418a9267f",
+        "provider": "extra",
+        "result_sha256": "26812c0eace38606876943df535b535c8430c6dc4b9831bfc234dec3dfbfc7b4",
+        "scientific_source_files": 18,
+        "scientific_source_tree_sha256": "c3ccf82957197562f6e691ad0872d9498366ced6005a6a8503b606db75911f7a",
+        "source_declarations_match_actual_bytes": true,
+        "word_sha256": "82d4c962e0b2c6790d361364b02b5b7c53790a80747e814800c85bec112db791"
+      }
+    },
+    "scope": "All 78 shipped run files and both actual eighteen-file scientific source trees authenticated. This command binds completed evidence; it does not rerun native semantics.",
+    "status": "PASS_EXACT_SHIPPED_NATIVE_REUSE"
+  },
+  "native_auth_sha256": "d1beca6a4d65c71b3e507a2b2490639b998daee3f3b021a1280e8c2c7171db80",
+  "native_semantic_replay_performed_by_this_review": false,
+  "pins_sha256": "244f97a4590856fe19db10dfdcff80a35e07595235a1863d7abc767a1f4c7568",
+  "prepared_work_directory_name": "adaptive-receiver-complete-release",
+  "review_findings": [
+    "The reuse mode requires exact tree equality for all 78 shipped files, disallows symlinks, and independently validates actual scientific source trees, target inputs, both five-stage reports and complete output inventories.",
+    "Fresh mode verifies actual source bytes rather than trusting RESULT declarations. It permits regenerated output hashes to differ while requiring the complete output inventory and successful native stages. This is provenance authentication, not a substitute for native semantic replay.",
+    "Prepared admission mode checks both exact candidate containers, all 24 current native outputs, actual vendor compiler bytes, each CACHE declaration and both levels of NATIVE-RECEIPT bindings. Retained ancestor caches remain the separate complete-admission responsibility.",
+    "Fixture mutations run before their expected-rejection handler, restore original bytes in finally blocks, and reauthenticate the original shipped runs at the end. The nine cases exercise changed output/source bytes, stale source declarations, unexpected/missing files, wrong executed input and failed native stages."
+  ],
+  "reviewed_control_names": [
+    "native output bytes changed",
+    "reused compiler source changed",
+    "fresh actual compiler source changed",
+    "RESULT source declaration changed",
+    "unexpected run file",
+    "unexpected compiler source file",
+    "wrong executed input bytes",
+    "failed native stage",
+    "missing native output"
+  ],
+  "scientific_or_global_budget_files_modified": false,
+  "scope": "Independent source/provenance review and fresh read-only authentication of retained completed native evidence and the next prepared admission. The earlier low-memory attempt failed on missing outer dependencies and is not an admitted release. The new complete release and all inherited theorem premises are separate gates.",
+  "source_provenance": {
+    "base": {
+      "all_18_source_entries_equal_predecessor": true,
+      "predecessor_receipt": "sources/PR3815/research/staged544-producer-return/evidence/NATIVE-base.json",
+      "predecessor_receipt_sha256": "d12ca528547af356176837b83e0de08a33fe5e59cc851238f321388dfbd81383"
+    },
+    "extra": {
+      "all_18_source_entries_equal_predecessor": true,
+      "predecessor_receipt": "sources/PR3815/research/staged544-producer-return/evidence/NATIVE-extra.json",
+      "predecessor_receipt_sha256": "dd3c7d52685a056415c7a5d0582cf83b4b1248b7e06913c288efd5b05725eeb6"
+    }
+  },
+  "status": "PASS_INDEPENDENT_NATIVE_AUTH_SOURCE_PINS_AND_CONTROL_REVIEW"
+}

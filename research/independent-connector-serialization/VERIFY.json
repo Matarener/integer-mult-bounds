@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bidirectional-five-source-connector/EVIDENCE.json",
+    "research/bidirectional-five-source-connector/README.md",
+    "research/connector-all-tariff-optimum/README.md",
+    "research/connector-all-tariff-optimum/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Call-preserving serialization, all 87381 bounded words,32 five-source fixtures,5 generic fixtures,16 exposed tariff regions, live sources and committed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint full-matrix enumeration, all dirty dense basis columns and inverses for widths1,2,3, credited coupled-word and unequal-port-price controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual optimized CLI boundary rejection, alias-without-grouping producer mutant, receipt/source corruption and read-only Git-free replay."
+    }
+  ]
+}

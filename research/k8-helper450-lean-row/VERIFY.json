@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "formal/lean/lake-manifest.json",
+    "formal/lean/lean-toolchain",
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/e8-lemma-g-lean/LemmaG/Stream.lean",
+    "research/k8-hpe450-binding/RESULT.json",
+    "research/k8-lean-label-instance/KERNEL.json",
+    "research/k8-lean-label-instance/RESULT.json",
+    "research/k8-lean-label-instance/TreeCheckpoint.lean",
+    "research/k8-lean-label-instance/generate.py",
+    "research/k8-lean-label-instance/translate.py",
+    "research/stream-shadow-row-update/StreamShadowRowUpdate.lean"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the complete selected forward stream, regenerate the unchanged PR2944 Lean sources, check the exact two-ADD schedule and archived kernel receipt bindings. This command does not invoke Lean."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_source.py"],
+      "timeout_seconds": 120,
+      "checks": "Seven independent Fraction row, source corruption, parser, COPY/CLEAR, active gate and intervening-target controls, including byte-identical retained generator output."
+    }
+  ]
+}

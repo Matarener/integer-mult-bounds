@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Full-row least-frame/class-Z forcing census over 144 present-head side-correction entries on the published word"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/independent.py"],
+      "timeout_seconds": 300,
+      "checks": "Independent set-accumulation replay of the same obstruction tables and feeder chains"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_package.py"],
+      "timeout_seconds": 600,
+      "checks": "Duplicate JSON keys, temp-copy certificate corruption, optimized admission, pin rejection, scanner agreement"
+    }
+  ]
+}

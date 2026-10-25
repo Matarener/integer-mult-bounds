@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Under p >= max(64, 4K+2C) and 16 g L <= p, g (9 p^2)^g exp(Kp - p^2) < 2^{-C p} because 9 < 16 leaves the exponent L + 4 g + 2 g L + 2 K p - p^2 at most -C p - 1; three bits fail because 9 > 8."
+    }
+  ]
+}

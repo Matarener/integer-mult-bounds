@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticated source labels, phase-uniform gauge, unique characters, tensor completion, all-role tags, constructive translation and conditional complete gate"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate RREF, full nine-bit orthogonality, product lines, non-involutive conjugation convention, exact-dyadic small operator matrices and three-bit short-word corroboration"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "11 API and 19 CLI negative cases under normal and optimized Python, eight independent source controls and read-only Git-free positive replay"
+    }
+  ]
+}

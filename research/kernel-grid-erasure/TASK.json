@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Show that the stated unweighted tensor-kernel coefficient rounds to zero on the P-grid while the weighted entry stays above one p unit.",
+  "scope_change_reason": "The online storage budget is a different question. This package checks the kernel-grid erasure. It does not build the tensor or run the Gaussian core.",
+  "bottleneck_link": "The unweighted coefficient is below one P unit and the weighted entry is above one p unit, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record this erasure. Do not build the tensor or run the Gaussian core.",
+  "outcome": "partial",
+  "evidence": "For every integer a from 26 through 64, the family p=2^(10a), m=2^(4a), X=2^(3a) meets the scalar conditions, the zero exponent exceeds P, and the weighted exponent is below p/8.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The rational comparison settles this family. Building the tensor would leave this package."
+}

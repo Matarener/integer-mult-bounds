@@ -25,7 +25,11 @@ class FamilyDecision(unittest.TestCase):
         for path in checker.decision_paths():
             if path.exists():
                 cls.families[path.parent.name.removeprefix('community-').removesuffix('-audit')] = json.loads(path.read_text())['pull_requests']
-        cls.latest = {row['number']: row for decisions in cls.families.values() for row in decisions}
+        cls.latest = {}
+        for decisions in cls.families.values():
+            for row in decisions:
+                cls.latest[row['number']] = checker.project_family_decision(
+                    cls.latest.get(row['number'], {}), row)
 
     def setUp(self):
         self.decision = deepcopy(self.latest[626])
@@ -35,7 +39,9 @@ class FamilyDecision(unittest.TestCase):
         final = {}
         for family, decisions in self.families.items():
             for decision in decisions:
-                final[decision['number']] = (family, decision)
+                number = decision['number']
+                previous = final.get(number, (None, {}))[1]
+                final[number] = (family, checker.project_family_decision(previous, decision))
         for number, (family, decision) in final.items():
             with self.subTest(family=family, number=number):
                 checker.check_family_decision(self.items[number], decision)
@@ -70,12 +76,95 @@ class FamilyDecision(unittest.TestCase):
                     checker.check_family_decision(item, self.decision)
 
     def test_missing_closure_is_distinct_from_recorded_null(self):
-        decision = self.latest[620]
-        item = deepcopy(self.items[620])
+        # PR620 later gained a closure receipt; retain its explicit-null
+        # historical decision as this missing-key rejection fixture.
+        decision = next(row for row in self.families['k492'] if row['number'] == 620)
+        item = deepcopy(decision)
         self.assertIsNone(decision['closure'])
         item.pop('closure')
         with self.assertRaisesRegex(ValueError, '#620:.*closure'):
             checker.check_family_decision(item, decision)
+
+    def test_incremental_decision_preserves_recorded_optional_metadata(self):
+        later = deepcopy(self.decision)
+        for field in ('closure', 'review_completion', 'verification_evidence'):
+            later.pop(field)
+        projected = checker.project_family_decision(self.decision, later)
+        self.assertEqual(projected, self.decision)
+        self.assertNotIn('closure', later)
+        checker.check_family_decision(self.item, projected)
+        for field in ('closure', 'review_completion', 'verification_evidence'):
+            for operation in ('drop', 'replace'):
+                item = deepcopy(self.item)
+                if operation == 'drop':
+                    item.pop(field)
+                else:
+                    item[field] = None
+                with self.subTest(field=field, operation=operation), self.assertRaisesRegex(
+                        ValueError, '#626:.*' + field):
+                    checker.check_family_decision(item, projected)
+        item = deepcopy(self.item)
+        item['review_completion']['published'] = 1
+        with self.assertRaisesRegex(ValueError, '#626:.*review_completion'):
+            checker.check_family_decision(item, projected)
+
+    def test_incremental_explicit_closure_overrides_previous_receipt(self):
+        later = deepcopy(self.decision)
+        for closure in (None, {'url': 'https://example.invalid/new-receipt'}):
+            later['closure'] = closure
+            projected = checker.project_family_decision(self.decision, later)
+            item = deepcopy(self.item)
+            item['closure'] = closure
+            checker.check_family_decision(item, projected)
+            with self.subTest(closure=closure), self.assertRaisesRegex(ValueError, '#626:.*closure'):
+                checker.check_family_decision(self.item, projected)
+        later.pop('closure')
+        previous = deepcopy(self.decision)
+        previous['closure'] = None
+        projected = checker.project_family_decision(previous, later)
+        item = deepcopy(self.item)
+        item['closure'] = None
+        checker.check_family_decision(item, projected)
+        item.pop('closure')
+        with self.assertRaisesRegex(ValueError, '#626:.*closure'):
+            checker.check_family_decision(item, projected)
+
+    def test_unrecorded_closure_accepts_only_absent_or_explicit_null(self):
+        decision = deepcopy(self.decision)
+        decision.pop('closure')
+        for operation in ('drop', 'null'):
+            item = deepcopy(decision)
+            if operation == 'null':
+                item['closure'] = None
+            checker.check_family_decision(item, decision)
+        for closure in (False, 0, {}, [], {'url': 'https://example.invalid/forged'}):
+            item = deepcopy(decision)
+            item['closure'] = closure
+            with self.subTest(closure=closure), self.assertRaisesRegex(ValueError, '#626:.*closure'):
+                checker.check_family_decision(item, decision)
+
+    def test_incremental_decision_cannot_inherit_missing_mandatory_fields(self):
+        for field in ('reviewed_head', 'current_head', 'disposition', 'github_state',
+                      'integration_location', 'unresolved_question'):
+            later = deepcopy(self.decision)
+            later.pop(field)
+            projected = checker.project_family_decision(self.decision, later)
+            self.assertNotIn(field, projected)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, '#626:.*' + field):
+                checker.check_family_decision(self.item, projected)
+
+    def test_companion_review_retains_inherited_whole_head_completion(self):
+        later = deepcopy(self.decision)
+        for field in ('closure', 'review_completion', 'verification_evidence'):
+            later.pop(field)
+        projected = checker.project_family_decision(self.decision, later)
+        companion = {'head': self.item['current_head'], 'remaining': 'Earlier scoped hold.'}
+        item = deepcopy(self.item)
+        item['companion_reviews'] = [companion]
+        checker.check_companion_review(item, companion, projected)
+        item['closure'] = None
+        with self.assertRaisesRegex(ValueError, '#626:.*closure'):
+            checker.check_companion_review(item, companion, projected)
 
     def test_boolean_completion_flags_cannot_be_replaced_by_integers(self):
         for number in (626, 620):
@@ -224,6 +313,24 @@ class AssertionSafetyRefresh(unittest.TestCase):
                     return mutated if path == ROOT / item['integrated_path'] else original_read(path)
                 with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
                     checker.check_batch932_file(item)
+
+    def test_current_successor_cache_and_timeout_edits_fail(self):
+        item = next(item for item in self.items if item['integrated_path'].startswith('scripts/'))
+        current = (ROOT / item['integrated_path']).read_bytes()
+        mutations = [
+            current.replace(b'cwd=cwd, env=module_env, start_new_session=True',
+                            b'cwd=cwd, env=env, start_new_session=True'),
+            current.replace(b'if deadline is not None and time.monotonic() >= deadline:',
+                            b'if False:'),
+        ]
+        original_read = Path.read_bytes
+        for mutated in mutations:
+            self.assertNotEqual(current, mutated)
+            def read(path):
+                return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+            with patch.object(Path, 'read_bytes', read), self.assertRaisesRegex(
+                    ValueError, 'Changed integrated file: scripts/run_isolated_tests.py'):
+                checker.check_batch932_file(item)
 
     def test_forged_predecessor_and_cross_file_successor_fail(self):
         for item in self.items:

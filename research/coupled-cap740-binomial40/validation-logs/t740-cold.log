@@ -1,0 +1,30 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/jake/ai/auto_multiplication/.venv, got /home/jake/ai/auto_multiplication/research/../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/jake/ai/auto_multiplication/.venv, got /home/jake/ai/auto_multiplication/research/../.venv
+PASS_PINNED_PR2908_PR2917_PR2942_PR2957_PR2966_PR2969_EXPORT_RECIPE_ONLY
+PASS export-pr2894
+PASS export-pr2833
+PASS fresh-retained-bootstrap
+PASS four-kernel-stage
+PASS preload-stage
+PASS parent-paired-stage
+PASS paired-extension-stage
+PASS rank7-overlay-stage
+PASS declared-edit-stage
+PASS derive-closed-adapters
+PASS fresh-current-native
+Traceback (most recent call last):
+  File "/home/jake/ai/auto_multiplication/research/research/coupled-carrier-cap740/reproduce.py", line 74, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/jake/ai/auto_multiplication/research/research/coupled-carrier-cap740/reproduce.py", line 72, in main
+    engine.execute(run,source,allocation,work/'evidence')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jake/ai/auto_multiplication/research/research/coupled-carrier-cap740/run_release.py", line 111, in execute
+    try:code=proc.wait(timeout=3600)
+             ~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1279, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2076, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/home/jake/ai/auto_multiplication/.venv/bin/python', '-B', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/adapters/admit_extension.py', '--source', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/source-edits', '--fill', '/home/jake/ai/auto_multiplication/replay-t740-cold/allocation/COMPOSED-FILL.json.gz', '--order', '/home/jake/ai/auto_multiplication/replay-t740-cold/allocation/ORDER.json', '--dispatch', '/home/jake/ai/auto_multiplication/replay-t740-cold/allocation/DISPATCH.json', '--native-cache', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/native/native-cache', '--native-receipt', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/native/NATIVE-RECEIPT.json', '--work', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/candidate', '--replica-helper-dir', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/parent-export/pr2894/vendor/pr2857/vendor/pr2839', '--reconstructor', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/parent-export/pr2894/vendor/pr2857/vendor/pr2839/reconstruct_replica.py', '--blocknorm-checker', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/adapters/extension_blocknorm.py', '--comparison-claim', '/home/jake/ai/auto_multiplication/replay-t740-cold/run/pr2969/CLAIM.json', '--source-profile', 'rank7-joint-endframes', '--comparison-profile', 'pr2969', '--jobs', '2']' timed out after 3600 seconds

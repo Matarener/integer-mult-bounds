@@ -1,0 +1,81 @@
+{
+  "all_n_proof": "Pull scalar bridges to a constant C. Target W(z)=C^-1 diag(z^2 I_n,I_h). Compact W-I=U G(z)V. At roots with squares+i and-i, W(z)-W(w) has rankn, so rankU,rankV>=n. At opposite roots z,-z target equal. The resolvent difference G(z)-G(-z)=G(z)[D(-z)^-1-D(z)^-1]G(-z) is invertible because its middle diagonal entries are +/-2z/(z^2-1), all nonzero. Hence U DeltaG V=0 gives rankV<=k-rankU, proving k>=2n. Arbitrary scalar rational/Gaussian final bridges and restored independent dirty helpers are retained.",
+  "compact_cases": [
+    {
+      "G_opposite_difference_invertible": true,
+      "all_four_coefficients": true,
+      "banks": 1,
+      "calls": 2,
+      "literal_inverse": true
+    },
+    {
+      "G_opposite_difference_invertible": true,
+      "all_four_coefficients": true,
+      "banks": 2,
+      "calls": 3,
+      "literal_inverse": true
+    },
+    {
+      "G_opposite_difference_invertible": true,
+      "all_four_coefficients": true,
+      "banks": 3,
+      "calls": 4,
+      "literal_inverse": true
+    },
+    {
+      "G_opposite_difference_invertible": true,
+      "all_four_coefficients": true,
+      "banks": 4,
+      "calls": 6,
+      "literal_inverse": true
+    }
+  ],
+  "independent_review": "Root and stabilizer independently passed the opposite-character argument, including the arbitrary final bridge and dirty-helper rank step. Actual odd-f spectrum/phase is externally pinned.",
+  "native_binding": "For odd f, the new common1/fresh1 carrier A_f=(U_f tensor I)SWAP has U_f^2=(-i)^f, A_f^4=-I, all four roots of z^4+1 present, native A^+/- arity1 and A^2 arity2. At fixed support m=2,W=n,H1=k, D=2n-k<=0. Evenf uses the separately preserved order4 proof.",
+  "no_new_kappa": true,
+  "ring": "Q[z]/(z^4+1), with all four primitive eighth-root characters and no +/-1 character.",
+  "scientific_pin": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "scope_limit": "Scalar constant bank GL only. Operator-valued ADDRESS/Pauli internal-coordinate bridges are outside the factorization premise. No primitive-cost or general arbitrary-support lower bound is asserted.",
+  "sharp_cases": [
+    {
+      "D": 0,
+      "H": {
+        "1": 2
+      },
+      "all_public_A_squared": true,
+      "calls": 2,
+      "literal_inverse": true,
+      "m": 2,
+      "missing_call_rejected": true,
+      "public_banks": 1,
+      "restored_arbitrary_helpers": 0
+    },
+    {
+      "D": 0,
+      "H": {
+        "1": 4
+      },
+      "all_public_A_squared": true,
+      "calls": 4,
+      "literal_inverse": true,
+      "m": 2,
+      "missing_call_rejected": true,
+      "public_banks": 2,
+      "restored_arbitrary_helpers": 0
+    },
+    {
+      "D": 0,
+      "H": {
+        "1": 6
+      },
+      "all_public_A_squared": true,
+      "calls": 6,
+      "literal_inverse": true,
+      "m": 2,
+      "missing_call_rejected": true,
+      "public_banks": 3,
+      "restored_arbitrary_helpers": 2
+    }
+  ],
+  "status": "PASS_NEW_QUARTIC_OPPOSITE_CHARACTER_SHARP_2N_GATE"
+}

@@ -1,0 +1,48 @@
+{
+  "added_files": [
+    "new/borrow/delay_applier.py",
+    "new/borrow/delayed/PR3605-base.json.gz",
+    "new/borrow/delayed/PR3605-extra.json.gz",
+    "new/borrow/review_delayed.py"
+  ],
+  "modified_files": [
+    "new/borrow/review_staged3605.py",
+    "new/rebuild_borrow.py",
+    "verify.py"
+  ],
+  "new_driver_sha256": "1d24b4b3308b351fa307f29719a40fa48ad97caac6bcb563f8a06749133616ba",
+  "new_manifest": "a588609ca5e5959364db86cbfd9fd0084a066fcd8d1ab8808cf24293da5e9ea2",
+  "old_driver_sha256": "7b6f7f84804851f7aa1cc84c74b85c53aa5a3a9832f84f913b8b47740b72ed29",
+  "old_manifest": "105d03bbe5e1f9ca0a476043b37c5456bbfc70fac1201dfc3a4084de0b0e7c67",
+  "patches": [
+    {
+      "after": "234741809288c0dd83143386e6c426603316e638549edd3df95dc113d6a1f1a9",
+      "before": "e7598f8a88c8675b17aa11d92bc9bd626aa0d2fdfbdd278427bc6c43f2551b7d",
+      "path": "new/rebuild_borrow.py",
+      "replacement": [
+        "steps.append('staged3605')",
+        "steps.append('staged3605')\n    import delay_applier\n    chain.append(delay_applier.apply(chain[-1]));steps.append('delayed-release-v1')"
+      ]
+    },
+    {
+      "after": "8c17f31bf1a7a898e4795339877e22ca92fe598eeef6701332e226299923ba3e",
+      "before": "65fdb7f8e1aef0a642f7bb88c6a703c87b08aceb45a0b232c0de500f11a73b89",
+      "path": "new/borrow/review_staged3605.py",
+      "replacement": [
+        "D/f'words/BORROW-WORD-43{tag}.json.gz'",
+        "D/f'delayed/PR3605-{tag}.json.gz'"
+      ]
+    },
+    {
+      "after": "cdff10a8b6f6e8e4c365c6c71a5313940fba0071c64921dd0022b598d432819a",
+      "before": "8e1c5b5c4291637aa0ed4366792106df3cd7110bdfcc117a3d5da30a8f209862",
+      "path": "verify.py",
+      "replacement": [
+        "run('staged3605-review',P/'new/borrow/review_staged3605.py')",
+        "run('staged3605-review',P/'new/borrow/review_staged3605.py')\nrun('delayed-release-independent-review',P/'new/borrow/review_delayed.py')"
+      ]
+    }
+  ],
+  "scope": "Preserve PR3605 reconstruction against frozen intermediate words, append explicit literal retiming and independent reconstruction. Native scientific engines and actual current words unchanged; same-session native evidence explicitly rebound.",
+  "source_count": 652
+}

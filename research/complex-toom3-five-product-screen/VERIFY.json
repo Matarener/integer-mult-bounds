@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "scripts/research_baseline.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact selected-source pins and rank profile; exact Toom-3 evaluation/interpolation identity on all nine basis products; rational linear-map counts and malformed-point/omitted-product controls; dependency-window reordering with frame semantics and 254 disjoint groups of nine; exact selected-profile ceiling brackets and first block counts for the 5% and complex-side kappa=0.002 thresholds; selected bit-side cap; no supplier or new-kappa claim."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete exact identity, source schedule, ceiling and global bit-cap receipt under optimized Python."
+    }
+  ]
+}

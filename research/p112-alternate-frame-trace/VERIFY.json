@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Reconstruct anchor and saturated flags, all-projector exact polynomial contradiction, coefficient and sign mutation controls, immutable receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separate exact arithmetic and polynomial representation; all degenerate rank-one cases and literal cap28 trace obstruction, immutable receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/family.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate local helper source bytes; exact full centralizer and invariant; complete two-parameter family obstruction including st=-2, saturated physical flags, formal determinant and rank-drop identities, immutable receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_generic.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separate formal arithmetic over Q(s,t); complete centralizer and invariant, literal generic frames and determinant identities including c=-2, complete rank-one factors, immutable receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_exceptional.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent all-projector exceptional factorization and orbit reduction; forced determinant -1 versus physical tariff5; complete 3969-rectangle control with exactly12 failures, immutable receipt."
+    }
+  ]
+}

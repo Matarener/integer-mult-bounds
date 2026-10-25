@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-shared-source-compensation/inputs/WORD.json.gz",
+    "research/bit-shared-source-compensation/inputs/GEOMETRY.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Complete source, free-product algebra, invoice and independent 660-column/delivery/inverse/defect checks; all file hashes and full semantic receipts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Repeat the complete package checks with Python assertions disabled; full semantic receipts must still match."
+    }
+  ]
+}

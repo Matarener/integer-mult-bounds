@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Can the first evaluation of the selected local-word ceiling be sped up by an opt-in fixed-point exponential that returns the same 256-bit bounds as the pinned Taylor series?",
+  "scope_change_reason": "research_baseline.py cannot bind the selected frontier in this checkout because verify_selected_result requires the frontier1094 package roots, which are not materialized. The profiled stage is one ceiling() evaluation of the selected complex local word. cProfile showed math.gcd inside that exponential as the dominant cost. The pinned ceiling.py file is not edited, because other packages authenticate its SHA-256.",
+  "bottleneck_link": "A faster first ceiling screen rejects a candidate local word before a longer replay, without moving the published selected bracket.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after this one selected-word fixture. Do not replace the pinned engine, do not retune precision, and do not claim a new kappa.",
+  "outcome": "partial",
+  "evidence": "PASS_CEILING_EXP_FIXED_POINT. The published bracket 52814190909/31250000000000 < a < 1690054109089/1000000000000000 is reproduced by both engines. Every exponential argument visited by that search and by the one-extra-rank-1 search matches. A one-term truncation does not. The warm median first evaluation is more than 5x faster. Universal equality on every rational in [0, 1/2] is not claimed.",
+  "author": "Riquelme Soares (@hevlyo)",
+  "ai_assistance": "Substantial AI assistance was used to profile the series, draft the integer kernel, and check it against the pinned engine. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Do the fixed-point bounds equal the pinned Taylor series for every rational argument in [0, 1/2]?",
+      "why_it_matters": "A divergent argument could make an opt-in caller certify a different ceiling bracket.",
+      "first_step": "Compare both engines on a denominator sweep outside the selected ranks and the arguments already visited here.",
+      "blocked_by": "No exhaustive identity proof yet. Until one exists, the pinned ceiling.py file remains authoritative."
+    }
+  ]
+}

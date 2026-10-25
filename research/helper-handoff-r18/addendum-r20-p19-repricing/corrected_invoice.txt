@@ -1,0 +1,16 @@
+V0 package invoice: root 0.007578535190  mass surplus 2016 of 265533
+   tolerance (extra rank-1 jobs) above BIT 0.0034: 1103  [M = 1103.276122268]
+   tolerance (extra rank-1 jobs) above selected  : 1202  [M = 1202.668299880]
+   tolerance (extra rank-1 jobs) above ours      : 1202  [M = 1202.668296149]
+listing gate kinds {'GAUGE_LOAD': 19, 'FORWARD': 20, 'REVERSE': 19, 'LETTER': 19, 'IDLE': 36, 'BRIDGE': 108, 'GAUGE_UNLOAD': 19, 'SWAP': 19}
+charge 1: 19 LETTER gates x 2 roles x 112 owners = 4256 Q jobs (rank 1)
+charge 2: retained idles with odd thick count: {8: 448, 24: 448, 40: 448, 56: 448, 72: 448} -> 2240 rank increments (merged into the idle job)
+   listing idle powers (non-middle): [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18] (all even)
+   middle idles in the listing: 18 executing R^1 on 2x112 fields; invoice prices them at rank 0
+V1 +4256 Q (separate rank-1 jobs)                       root 0.000000000000  mass  -2240  M(U_sel) -3053.332  dead-for-all-t True (min hinge 2240)
+V2 = V1 + odd-idle Q merged (8k->8k+1)                  root 0.000000000000  mass  -4480  M(U_sel) -5263.210  dead-for-all-t True (min hinge 4480)
+V3 = V2 + literal middle R idles (rank 9)               root 0.000000000000  mass -40768  M(U_sel) -41310.637  dead-for-all-t True (min hinge 40768)
+VB letter D + terminal Q decoder (2128), credit 8k      root 0.000000000000  mass  -2240  M(U_sel) -3023.897  dead-for-all-t True (min hinge 2240)
+VB0 terminal decoder only, credit kept (2128 rank-1)    root 0.000000000000  mass   -112  M(U_sel) -925.332  dead-for-all-t True (min hinge 112)
+merge-robust: each Q costs >= 0.981905 at U_sel; 4256 Q cost >= 4179.0 vs budget M0(U_sel) = 1202.668
+   max Q ranks affordable at U_sel even with free merging: 1224 (need 4256; with letter Q only)

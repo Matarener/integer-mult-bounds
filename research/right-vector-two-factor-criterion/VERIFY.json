@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.5.4"
+  ],
+  "inputs": [
+    "research/f2-right-vector-diagonal-minimum/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py",
+        "--stage",
+        "main"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact minimum by breadth-first search versus the Theorem B criterion on every target over F2[x,y]/(x,y)^2, F2 x F2, F2[C3], UT2(F2) and M2(F2) at n = 2 (77,824 targets); asserts agreement, Theorem A, the local statement, failure counts 12/0/0/12/72, the M_m(K) rank form over M2(F2), and an explicit F2[S3] target of cost 3."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py",
+        "--stage",
+        "s3"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Criterion on all 2^24 targets over F2[S3] at n = 2: exactly 120,060 fail (cost >= 3, delta <= 2), including all 18,432 lifts of the 72 M2(F2) failures."
+    }
+  ]
+}

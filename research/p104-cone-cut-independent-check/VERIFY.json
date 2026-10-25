@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-cone-cut/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Independent recomputation of the merged cone-cut receipt from the pinned witness and certificate: 2,309 compatible edges, marker counts 25/52/365/1725, the forward cone at 1,725 edges, the 12 dimension-8 writers of Y71 with arrivals 142:2 and 143:10, the backward growth 12/22/37, the 37-edge departure-slot histogram, an empty intersection, the 37-edge sha256, and the saturation comparison of both cones."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Same receipt with assertions disabled; no check may depend on assert."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Behavioural controls: the stored receipt; a weakened relation that must change the adjacency; a changed target label; a changed source label."
+    }
+  ]
+}

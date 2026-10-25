@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-tail-side-correction-seed749717/README.md",
+    "research/community-efficient900-audit/packets/1940.json",
+    "research/p104-target-order-delivery/README.md",
+    "research/p104-target-order-delivery/RESULT.json",
+    "research/p104-target-order-delivery/SCHEDULE.json",
+    "research/p104-target-order-delivery/SELECTION.json",
+    "research/p104-target-order-delivery/SOURCES.json",
+    "research/p104-target-order-delivery/TASK.json",
+    "research/p104-target-order-delivery/VERIFY.json",
+    "research/p104-target-order-delivery/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Bind pull request 1940 to its package and check that the package does not cite event 5759."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Detect the tail event number and ignore an unrelated sentence."
+    }
+  ]
+}

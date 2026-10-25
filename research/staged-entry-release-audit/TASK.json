@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independently factor and audit PR4076 three-entry pre-cleanup defect and projected dirty cleanup, including all algebraic subsets.",
+  "scope_change_reason": "The selected supplier scatter case already has coverage; fresh PR4076 adds delayed releases into other helpers. Its GF(2) ledger and retained interpreter do not expose the exact low-rank pre-cleanup difference or subset cross terms.",
+  "bottleneck_link": "Provides a reusable precise staging boundary and new-source independent evidence for a pending supplier candidate; no selected supplier admission.",
+  "budget_minutes": 60,
+  "stop_rule": "Check the two pinned words, all eight algebraic subsets and six releases each; stop after exact defect/cross-term/cleanup checks. No frame search or supplier extension.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json; PROOF.md; verify.py; independent.py; test_algebra.py",
+  "author": "Tekalign (tekuuu), with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in implementation, mathematical derivation and packaging; no human/formal-kernel review.",
+  "open_questions": [
+    {
+      "question": "Can a future staged-entry compiler use low-rank boundary factors to screen coupled releases before solving frames?",
+      "why_it_matters": "Separates algebraic equivalence from expensive frame/owner work and prevents assuming full pre-cleanup identity.",
+      "first_step": "Require exact target/restored-row projection and regenerated dirty-buffer cleanup on one new literal rewrite; derive its full allowance first.",
+      "blocked_by": "Frame feasibility, source access, numerical precision, native and complete owner/tariff costs remain independent obligations."
+    }
+  ],
+  "assignment_seed": 69,
+  "track": "adversarial mathematical audit",
+  "candidate_tasks": [
+    "Mixed-width tensor semantic audit: rejected as already covered by tests/test_nonadjacent.py.",
+    "Fixed-PAIR CSE correctness: current PR4059 already explicitly bounds its guard and recursion subclass.",
+    "PR4076 delayed-entry cross terms and pre-cleanup boundary: selected; existing frames/endpoints do not state this defect factorization."
+  ]
+}

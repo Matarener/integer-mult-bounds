@@ -1,0 +1,68 @@
+{
+  "schema": "bounded-caller-closeout/v1",
+  "status": "UNVALIDATED_RESOURCE_CAP_STOP",
+  "scientific_pass": false,
+  "normal_optimized_pair_completed": false,
+  "kappa_claim": null,
+  "new_ceiling_claim": null,
+  "construction_rejected": false,
+  "further_execution_authorized_by_this_file": false,
+  "attempts": [
+    {
+      "receipt": "outputs/p104-caller-route-audit-20261025/guarded/runs/caller-pair-01/RECEIPT.json",
+      "receipt_sha256": "5f82a986e33adcca55516a2520bf871bab492d817800a408c1fe5fcfceeef4f2",
+      "execution": {
+        "schema": "serial-research-run/v1",
+        "command": [
+          "python3",
+          "-B",
+          "outputs/p104-caller-route-audit-20261025/run_pair.py"
+        ],
+        "cwd": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/p104-caller-route-audit-20261025/guarded",
+        "exit_code": 2,
+        "termination": null,
+        "elapsed_seconds": 0.10121908799919765,
+        "sampled_peak_descendant_rss_bytes": 1228800,
+        "rss_samples": 1,
+        "memory_limit_mib": 512,
+        "timeout_seconds": 150.0,
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "log_sha256": "72d9aac056ef6dc6f9d52d4a188a69bb386ee2ce9d22ee59b04d87f152b11d9b",
+        "scope": "Fresh command execution only; scientific claim determined by reviewed output."
+      }
+    },
+    {
+      "receipt": "outputs/p104-caller-route-audit-20261025/guarded/runs/caller-pair-02/RECEIPT.json",
+      "receipt_sha256": "f19590fa311f32bb1989e8dc1f559c5e556ca51913d3ef0c2030ac34857d8fec",
+      "execution": {
+        "schema": "serial-research-run/v1",
+        "command": [
+          "python3",
+          "-B",
+          "outputs/p104-caller-route-audit-20261025/run_pair.py"
+        ],
+        "cwd": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453",
+        "exit_code": -15,
+        "termination": "memory_limit",
+        "elapsed_seconds": 28.877003412002523,
+        "sampled_peak_descendant_rss_bytes": 538230784,
+        "rss_samples": 288,
+        "memory_limit_mib": 512,
+        "timeout_seconds": 150.0,
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "scope": "Fresh command execution only; scientific claim determined by reviewed output."
+      }
+    }
+  ],
+  "frozen_files": {
+    "check.py": "140fde975d37b8518a1332dc8cecedf571188d7db438629b1acc67c3b2571655",
+    "CONTRACT.md": "700d480c20f7bee7fb29abd16aac0632fc1445a56d51063d06ffffe5fe797c23",
+    "INPUTS.json": "c1468a095b8d099f220da746fbabad9ac675159c7c299c10f5eddb0b3e2f02ec",
+    "REQUEST.json": "4a798817245334b55145a397a8673eec90143def1aff6aaf88d6a7ac4f5161d0",
+    "run_pair.py": "a06e9a0252f5dbaa72e69f0f9164af7318eb8d3ffa6cc7189ec0db2f37f66d2a",
+    "PROOF-AND-ACCOUNTING.md": "d73ff9587a85db8063391919ffc4a17521ccd5759cdaf6338ba036703239d839"
+  },
+  "failure_interpretation": "Attempt01 was a launcher cwd error; it did not execute the checker. Attempt02 was killed by shared guard after memory crossed512MiB, before any scientific result. No stage-local progress trace was emitted, so the failing internal stage is unknown.",
+  "next_design_only": "Use bounded/streamed spectral caches and exact sparse Laurent representation with retained per-stage counters, then static review and a newly frozen bounded request. Do not rerun or increase the cap implicitly."
+}

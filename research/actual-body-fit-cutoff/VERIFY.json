@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit2234-stock-threshold/README.md",
+    "research/encoded-strict-borrowing/PR3503-PROOF.md",
+    "research/encoded-strict-borrowing/PROOF.md",
+    "research/ordinary-one-factor-stock/PROOF.md",
+    "research/physical-ordinary-interchange/encoded.py",
+    "research/selected-bit-recursive-caller/PROOF.md",
+    "research/selected-bit-recursive-caller/node.py",
+    "research/selected-body-depth-borrowing/PROOF.md",
+    "research/selected-runtime-guard-stock/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate 9 proof inputs; exact four slabs, all-width tail and certified-prime sharp boundary; full typed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate 9 proof inputs; exact four slabs, all-width tail and certified-prime sharp boundary; full typed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separate forward census of 1048575 widths at certified prime, with separately bounded covering/strict digits."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separate forward census of 1048575 widths at certified prime, with separately bounded covering/strict digits."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Actual optimized valid exports and 6 corrupted CLI rejection controls, independent of Python assertions."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Recording-only prefix theorem
+
+## Source and algebra
+
+Use exactly the source definitions and finite-phase Clifford group G, monomial subgroup H and central-character algebras A_f,B_f in `source/endpoint-proof.md`. That attributed proof is retained verbatim from block3-shared-port-composition/completion. Put d=dim_E B_f. Grade-three projection pi3 is a B_f-bimodule map: multiplying a pure Clifford by a monomial on either side preserves its support size eight. Absolute phases are retained; quotient scalar phases specialize at width f. Each pure matrix is tensor-powered, while every integer ADD coefficient remains outside that power.
+
+Our certificate is a finite symbolic identity in the group algebra, not extrapolation from numeric width-one ranks. `verify.py` groups identical absolute-phase rational 8x8 matrices and checks uniform support. Starting from I_5, it replays every actual fused source gate and saves all five owner rows after each gate, plus the entrance. Stack these rows to form O. The exact certificate proves (a) pi3(O)'s entire x0 column is zero; (b) the final rows 1..4 and columns 1..4 are lower triangular with pure grade-three unit AD on the diagonal. Thus rank_E pi3(O)=4d in every central-character quotient: the zero column bounds above; elimination using (AD)^-1 bounds below. No assumption that B_f is a domain is used.
+
+## All allowed observers
+
+Recording does not change a producer owner. Each recorded value may be copied, added, discarded or linearly monomial-transformed; recording may reuse arbitrary dirty buffers or retain original inputs. Every resulting target map has form L(O direct_sum I_s)R+E, for rectangular matrices L,R over B_f and a free B_f bypass E. The same precontroller R enters all prefixes because there is only one producer invocation. Interleaved observer-side transformations can be collected into L by linearity; no feedback from recordings to live producer owners is allowed. Any extra independent dirty inputs simply add identity bypass columns. Projecting gives L(pi3(O) direct_sum 0)R, of image dimension at most4d, including after restricting to the five independent target input columns. Five independent pure grade-three targets have dimension5d since each is invertible in A_f. Hence no such algebraic completion exists.
+
+For operator rather than formal-group identities, the retained homogeneous separating-polynomial argument proves tensor evaluation injective for every f>=|G/Z|-1. It follows that no all-positive-width implementation in this fixed finite columnwise alphabet exists. Small widths with accidental dependencies are not individually ruled out. Width-dependent scalars and arbitrarily many finite free buffers remain allowed. This is stronger than final-output-only observation, not stronger than unrestricted nonlinear or feedback controllers.
+
+## Exact changed-interface control
+
+Raw `five_ports` and fused `fused_five_ports` have identical group-algebra endpoints. At raw gate index11 (zero-based), owner1 has grade-three x0 coefficient 2g for one pure unit g, and zero grade-three coefficient on every other input. Adding that single recorded row to final rows1..4 gives a triangular5x5 unit minor, hence image dimension5d. This is a positive control for information only. It exposes a cut strictly internal to an atomic fused child and is outside the theorem's ABI. Lower-grade contamination, owner restoration and any complete decoder remain unresolved.
+
+## Complete invoice and family gate
+
+The unchanged producer pays two H1 plus four H3, 24 monomial gates and10 field ADDs (verify the source gate counts). Recording all cuts with five fresh field owners costs 5*(gates+1) fields and copies that many field values; retaining only changed rows reduces storage but cannot improve the upper bound. At N=512^f this literal reference recording costs O(gates*N) scalar traffic/storage; arbitrary free processing is generously uncharged in the obstruction. Dirty recording must pay its own restoration if a concrete caller demands it; our relaxed theorem does not require restoration and thus remains an upper bound.
+
+At most four independent rank-three jobs can be credited. Even generously crediting a fifth rank-two target gives reward <=4*3^t+2^t versus paid4*3^t+2, so reward minus paid <=2^t-2<=0 for 0<=t<=1. No positive scalar-recursion saving follows in the unchanged interface. This is a moment bound for that five-job target list, not a global circuit lower bound.
+
+Exposing the raw internal cut changes the paid interface. Replacing a fused H3 by its three H1 constituents changes cost by3-3^t; it is not automatically unaffordable. Full rank alone does not supply the missing decoder, bound lower-grade contamination, cost physical copying, meet rounding precision or return dirty scratch. A new construction round requires a complete cost/error/storage/cleanup invoice for those obligations. The present result therefore closes the unchanged recording route and identifies precisely the changed interface that escapes it.

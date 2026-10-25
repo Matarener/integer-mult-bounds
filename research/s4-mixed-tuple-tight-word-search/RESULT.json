@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "package": "research/s4-mixed-tuple-tight-word-search",
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "model": "Formal F2[S4] register model of PR2583/PR2998: paid gates I+([s]+1)uv^T (u,v nonzero in F2^r, v.u=1), labels s1=2134,s2=1324,s3=1243 priced (2,1,2), free GL_r(F2), all roles dirty, spectators restored, literal endpoint diag([2143],[3142],[4231],[2143],1,...).",
+  "outcome": "scoped finite exclusion",
+  "claims": {
+    "four_roles": "No circuit of paid cost <= 20 on exactly 4 roles; four-role optimum = 21 (an explicit cost-21 direct word, checked exactly by verify.py).",
+    "five_roles": "No circuit of paid cost <= 20 on 5 roles (one restored dirty spectator); five-role optimum = 21 (direct word, spectator untouched).",
+    "three_target_subtuples": "Coordinate-cut LP gaps: (4231,2143,2143) LP 15 vs direct 16; (2143,3142,4231) LP 16 vs direct 17. Both cost their direct values on three roles: by transfer from the four-role exclusion and by direct r=3 searches (0 words each); with one spectator by transfer from the five-role exclusion.",
+    "not_claimed": "Nothing for r >= 6 (two or more spectators); not a 21 theorem with arbitrary workspace; no native realization, supplier or kappa."
+  },
+  "count_lemma": {
+    "cut_values": {
+      "inv": 12,
+      "c1": 4,
+      "c3": 4
+    },
+    "cost_le_20_label_counts": [
+      [
+        4,
+        4,
+        4
+      ]
+    ]
+  },
+  "runs": {
+    "r4_primary": {
+      "engine": "search.cpp",
+      "argv": [
+        "4",
+        "0",
+        "12",
+        "4",
+        "4",
+        "4",
+        "2143",
+        "3142",
+        "4231",
+        "2143",
+        "10"
+      ],
+      "gates": 360,
+      "first_letters": "all 360",
+      "nodes_per_depth": [
+        56,
+        1904,
+        28562,
+        207168,
+        571536,
+        648720,
+        381816,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "words": 0,
+      "total_window_feasible_nodes": 1839762
+    },
+    "r5_primary": {
+      "engine": "search.cpp",
+      "argv": [
+        "5",
+        "0",
+        "12",
+        "4",
+        "4",
+        "4",
+        "2143",
+        "3142",
+        "4231",
+        "2143",
+        "1234",
+        "10"
+      ],
+      "env": {
+        "SYM": "1",
+        "SYM_A": "0",
+        "SYM_B": "3",
+        "SYM_D": "1"
+      },
+      "gates": 1488,
+      "depth1_survivors_before_symmetry": 56,
+      "orbit_representatives_searched": [
+        0,
+        3,
+        48,
+        51,
+        96,
+        99,
+        111
+      ],
+      "nodes_per_depth": [
+        7,
+        238,
+        3571,
+        25940,
+        72256,
+        85622,
+        52422,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "words": 0,
+      "total_window_feasible_nodes": 240056
+    },
+    "r4_independent_engine": {
+      "engine": "indep.cpp",
+      "argv": [
+        "4",
+        "4",
+        "4",
+        "4",
+        "2143",
+        "3142",
+        "4231",
+        "2143",
+        "all"
+      ],
+      "nodes_per_depth": [
+        56,
+        1904,
+        28562,
+        207168,
+        571536,
+        648720,
+        381816,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "full_depth_survivors": 0,
+      "note": "explicit F2 matrices in the natural and ordered-pair representations, all 360 first letters, no symmetry; identical node counts to search.cpp"
+    },
+    "r5_independent_engine": {
+      "engine": "indep.cpp",
+      "argv": [
+        "5",
+        "4",
+        "4",
+        "4",
+        "2143",
+        "3142",
+        "4231",
+        "2143",
+        "1234",
+        "0,3,48,51,96,99,111"
+      ],
+      "first_letters": "the 7 orbit representatives of r5_primary (same gate indexing as search.cpp)",
+      "nodes_per_depth": [
+        7,
+        238,
+        3571,
+        25940,
+        72256,
+        85622,
+        52422,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "full_depth_survivors": 0,
+      "note": "explicit F2 matrices in the natural and ordered-pair representations; identical node counts to search.cpp r5_primary"
+    },
+    "r3_subtuple": {
+      "engines": [
+        "independent.py"
+      ],
+      "targets": [
+        "4231",
+        "2143",
+        "2143"
+      ],
+      "counts": [
+        3,
+        3,
+        3
+      ],
+      "gates": 84,
+      "nodes_per_depth": [
+        12,
+        84,
+        216,
+        216,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "words": 0
+    }
+  },
+  "controls": {
+    "r2_pruned_primary_words": 146,
+    "r2_instance": "diag([4231],[2143]), r=2, counts (3,2,2): brute.py (unpruned, exact frozenset group algebra) and search.cpp (pruned) both count 146 words. independent.py (pruned) leaves 150 full-depth window survivors, of which exactly 146 equal T in exact F2[S4] arithmetic; 104 of these 146 words contain a mixing gate (u=3 or v=3).",
+    "r4_positive": "search.cpp with STOP_FIRST=1 on (2143,3142,4312,2143), r=4, counts (4,4,4) finds, for example (the word printed depends on thread order): s3:u8:v8 s1:u8:v8 s2:u4:v4 s3:u4:v4 s2:u4:v4 s1:u4:v4 s2:u4:v4 s2:u2:v2 s3:u2:v2 s1:u2:v2 s3:u1:v1 s1:u1:v1. This word is block-diagonal (u=v=e_i in every gate), i.e. a direct word: it shows only that the windows keep direct words at r=4. The control exercising mixing gates is r2_instance.",
+    "scalar_negative": "4231 at counts (1,3,1): passes the count test, zero words (pruned and brute force), as PR2998 section 3 requires",
+    "r2_independent_window_survivors": 150,
+    "r2_mixing_words": 104
+  },
+  "lp_subtuples": {
+    "method": "cutlp.cpp enumerates all 2^24 coordinate cuts of the regular S4-set (10713 distinct profiles); lp.py runs an exact rational simplex on the cut-weight LP max sum a_H Phi_H(T) s.t. sum a_H c(H) <= (2,1,2). optimal_label_counts_n is its dual solution y: fractional label counts feasible for every one of the 2^24 cuts (y.c(H) >= Phi_H(T)), so price.y certifies the LP value from above. The matching integer lower bound for words comes from inv+c1+c3 (PR2583's L bound).",
+    "full": {
+      "lp": "20",
+      "direct": 21,
+      "optimal_label_counts_n": [
+        4,
+        4,
+        4
+      ]
+    },
+    "(4231,2143,2143)": {
+      "lp": "15",
+      "direct": 16,
+      "optimal_label_counts_n": [
+        3,
+        3,
+        3
+      ]
+    },
+    "(2143,3142,4231)": {
+      "lp": "16",
+      "direct": 17,
+      "optimal_label_counts_n": [
+        3,
+        4,
+        3
+      ]
+    },
+    "(4231,2143)": {
+      "lp": "23/2",
+      "direct": 12
+    },
+    "(4231,3142)": {
+      "lp": "25/2",
+      "direct": 13
+    },
+    "(2143,3142)": {
+      "lp": "9",
+      "direct": 9
+    },
+    "(2143,2143,3142)": {
+      "lp": "13",
+      "direct": 13
+    }
+  },
+  "replay_expectations": {
+    "cut_values": {
+      "c1": 4,
+      "c3": 4,
+      "inv": 12
+    },
+    "cost_le_20_counts": [
+      [
+        4,
+        4,
+        4
+      ]
+    ],
+    "r3_subtuple_nodes": [
+      12,
+      84,
+      216,
+      216,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "r3_subtuple_survivors": 0,
+    "r4_gates": 360,
+    "r5_gates": 1488,
+    "r5_depth1": 56,
+    "brute_r2_words": 146,
+    "neg_4231_131_pruned": 0,
+    "neg_4231_131_brute": 0,
+    "pos_4312_131_pruned": 1,
+    "pos_4312_131_brute": 1,
+    "r3b_subtuple_nodes": [
+      12,
+      84,
+      218,
+      248,
+      200,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "r3b_subtuple_survivors": 0,
+    "direct_costs": {
+      "2143": 4,
+      "3142": 5,
+      "4231": 8
+    },
+    "direct_total": 21,
+    "direct_word_equals_T": true,
+    "r2_independent_survivors": 150,
+    "r2_independent_exact_words": 146,
+    "r2_mixing_words": 104
+  },
+  "full_replay_expectations": {
+    "r4_primary": "RESULT R=4 n=(4,4,4) split=0+12 hits=0 verified_words=0 Anodes= Cnodes=56,1904,28562,207168,571536,648720,381816,0,0,0,0,0, Ainserted=1",
+    "r5_primary": "RESULT R=5 n=(4,4,4) split=0+12 hits=0 verified_words=0 Anodes= Cnodes=7,238,3571,25940,72256,85622,52422,0,0,0,0,0, Ainserted=1",
+    "r4_indep": "gates=360 first_letters=360 nodes_per_depth=56,1904,28562,207168,571536,648720,381816,0,0,0,0,0, full_depth_survivors=0",
+    "r5_indep": "gates=1488 first_letters=7 nodes_per_depth=7,238,3571,25940,72256,85622,52422,0,0,0,0,0, full_depth_survivors=0"
+  }
+}

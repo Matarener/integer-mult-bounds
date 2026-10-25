@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact paid-factor counts in the right-vector alphabet I + u y^T (u in R^n, y in K^n) with free GL_n(K) maps: cost <= 1 for every n and every K-algebra R, an exact two-factor criterion at n = 2 for every R, and its consequences over M_m(K), local algebras and F2[S3]. Answers open questions 2 and 3 of #4265 at n = 2, and open question 1 at n = 2 for local algebras.",
+  "scope_change_reason": "The card asks whether a larger or nonabelian register model escapes the scoped three-register obstruction. This package answers narrower open questions left by #4243 and #4265 about the exact cost in the right-vector alphabet over nonabelian and non-field coefficient algebras.",
+  "bottleneck_link": "Side result in a formal alphabet. It decides which targets cost two right-vector factors at n = 2; it prices no native frame or supplier, and kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Prove the two-factor criterion, check it against exhaustive search on every target of small algebras, settle the F2[S3] lift, then stop.",
+  "outcome": "completed",
+  "evidence": "PROOF.md proves Theorems A-D. verify.py --stage main checks the criterion against breadth-first search on all 77,824 targets over five algebras (agreement everywhere; 12 + 72 cost-3 targets over UT2(F2) and M2(F2); 12 unreachable targets over F2[x,y]/(x,y)^2), the local statement, the M_m(K) rank form over M2(F2), and an explicit cost-3 target over F2[S3]. --stage s3 counts 120,060 criterion failures among all 2^24 targets over F2[S3].",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is every reachable target at n = 2 reachable with three factors, for every K-algebra?",
+      "why_it_matters": "Together with Theorem B it would give the exact cost at n = 2. Search finds maximum reachable cost 3 on all five algebras here.",
+      "first_step": "Characterise the three-factor set (G x I)[[A, 0], [B, 1]][[1, C], [0, D]][[E, 0], [F, 1]](H x I) as Theorem B does for two factors.",
+      "blocked_by": "Only the two-factor set is characterised here."
+    },
+    {
+      "question": "What is the cost <= k criterion for n >= 3?",
+      "why_it_matters": "The right-ideal condition of Theorem B should generalise to a flag condition on block-triangular factorizations.",
+      "first_step": "With y_1..y_k a basis, products of k factors are block column operations; write the n = 3, k = 2 condition and test it by search over F2[C2] or UT2(F2).",
+      "blocked_by": "Only n = 2 is proved."
+    },
+    {
+      "question": "Is delta exact for invertible targets over every commutative K-algebra at n = 2?",
+      "why_it_matters": "Theorem D proves it for local algebras; products such as F2 x F2 need one (G, H) that works in every factor at once.",
+      "first_step": "Prove the criterion for invertible M over a product of local algebras with residue field K, or find a counterexample by criterion counting over F3 x F3 x F3.",
+      "blocked_by": "Non-local commutative algebras are only checked on F2 x F2 and F2[C3] (here and in #4265)."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Repeat exact complete-pass evidence under isolation, optimization and warnings-as-errors; no full transform or supplier claim."
+    }
+  ]
+}

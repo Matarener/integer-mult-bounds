@@ -1,0 +1,105 @@
+{
+  "absence_guards": 4,
+  "acceptance_defects_found": false,
+  "exact_source_edits": 4,
+  "findings": [
+    "The driver authenticates every expected output before cloning and explicitly requires all six to appear in the manifest.",
+    "The actual clone copy loop never writes the three candidate files, the invoice result, operator receipt, or claim. Neither canonical output directory is initially created by any other current manifest member.",
+    "All four former deletion points now require absence. Unexpected outputs reject instead of being deleted and later restored by synchronization.",
+    "Comparison targets remain the authenticated original extracted tree. The candidate restore after complete canonical payload and constructor equality is unchanged and performs no deletion.",
+    "Byte-exact reversal of these four edits recovers the previously reviewed driver hash. Scientific scripts, receipt comparators, native/full guards, all12 default stages, all17 default comparisons, and claim selection are unchanged."
+  ],
+  "immutable_expected_outputs": {
+    "research/kappa-operator-repair/late-staged-composition/CLAIM.json": "a65bcb4624a96204b1d30ec8c82080fbcdda2c1a30349643b60db579f339c75c",
+    "research/kappa-operator-repair/late-staged-composition/T360-OPERATOR-ADMISSION.json": "98d2936c758703c25637cf335e06691f8a55b3717105595e350917782b449b47",
+    "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43base.json.gz": "df31495cff95a1e512da398f52841c6b5ade29067869b3d68b89d756a5641112",
+    "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43extra.json.gz": "9a28f7ef91938c0866e408eb06e03eb5f8e727a00b44eb936ddd5ed48704bd4c",
+    "research/kappa-operator-repair/late-staged-composition/candidate/CONSTRUCTION.json": "e0a3f13504304147f4049757016a494c15beda82ed751439f05039f88a0dd891",
+    "research/kappa-operator-repair/late-staged-composition/invoice/RESULT.json": "c9de9aeaa3cf4e11d27d4fc95ef94913301a6bf99fa8f919fb4f643793a7dc47"
+  },
+  "limitations": [
+    "This is a source-delta and in-memory copier review. It does not claim that a background synchronization service was reproduced or that the corrected heavy replay completed.",
+    "Root must refreeze the manifest and run the corrected extracted replay before final package acceptance. Earlier transport/native portability limits remain unchanged."
+  ],
+  "prior_reviews_modified": false,
+  "rejecting_controls": [
+    {
+      "accepted": false,
+      "kind": "missing_authenticated_expected_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/CLAIM.json"
+    },
+    {
+      "accepted": false,
+      "kind": "missing_authenticated_expected_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/T360-OPERATOR-ADMISSION.json"
+    },
+    {
+      "accepted": false,
+      "kind": "missing_authenticated_expected_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43base.json.gz"
+    },
+    {
+      "accepted": false,
+      "kind": "missing_authenticated_expected_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43extra.json.gz"
+    },
+    {
+      "accepted": false,
+      "kind": "missing_authenticated_expected_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/candidate/CONSTRUCTION.json"
+    },
+    {
+      "accepted": false,
+      "kind": "missing_authenticated_expected_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/invoice/RESULT.json"
+    },
+    {
+      "accepted": false,
+      "kind": "unexpected_existing_clone_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/CLAIM.json"
+    },
+    {
+      "accepted": false,
+      "kind": "unexpected_existing_clone_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/T360-OPERATOR-ADMISSION.json"
+    },
+    {
+      "accepted": false,
+      "kind": "unexpected_existing_clone_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43base.json.gz"
+    },
+    {
+      "accepted": false,
+      "kind": "unexpected_existing_clone_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43extra.json.gz"
+    },
+    {
+      "accepted": false,
+      "kind": "unexpected_existing_clone_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/candidate/CONSTRUCTION.json"
+    },
+    {
+      "accepted": false,
+      "kind": "unexpected_existing_clone_output",
+      "path": "research/kappa-operator-repair/late-staged-composition/invoice/RESULT.json"
+    }
+  ],
+  "reviewed_files": {
+    "research/kappa-operator-repair/late-staged-composition/RELEASE-STATIC-REVIEW.json": "f3341ebcc72b23e1b6526a4da21cdf0045d2582750514d123504eeddcc230728",
+    "research/kappa-operator-repair/packaging-review/LATEST-REVIEW.json": "f1d5a234c81dce6cb5f25e47628abf3f10e014f8bee4158870c16a9645849a6a",
+    "research/kappa-operator-repair/packaging-review/PRIMARY-REVIEW.json": "9b6bc60e090eb775e5c70d54992ebe5f03884b219ba8fc85b7bf8e57390beb96",
+    "research/kappa-operator-repair/packaging-review/review_directory_fix.py": "4772777c4c478014317115f4192a482f3ab44856ab63ae9502ebb63c20dd82b7",
+    "research/kappa-operator-repair/replay_latest.py": "4b0208d6359227b109fe035b4a893ffda6c5c4994d174dac6e1296d94c298250"
+  },
+  "scientific_sources_modified": false,
+  "skipped_authenticated_outputs": 6,
+  "status": "PASS_SCOPED_REPLAY_DIRECTORY_CREATION_REVIEW",
+  "supersedes_only": {
+    "corrected_sha256": "4b0208d6359227b109fe035b4a893ffda6c5c4994d174dac6e1296d94c298250",
+    "field": "reviewed_files.research/kappa-operator-repair/replay_latest.py",
+    "previous_sha256": "64786bee1c5c56328ca09c98bd9828af92732a373d49bb95ef56e2d514c60a6c",
+    "review": "packaging-review/LATEST-REVIEW.json"
+  },
+  "virtual_copies": 3170,
+  "virtual_copy_inputs": 3176
+}

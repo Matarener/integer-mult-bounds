@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/p112-five-term-reader-floor/PREDECESSOR-PROOF.md",
+    "research/p112-five-term-reader-floor/PREDECESSOR-TEMPLATES.json",
+    "research/p112-five-term-reader-floor/PROOF.md",
+    "research/p112-five-term-reader-floor/RESULT.json",
+    "research/p112-five-term-reader-floor/SOURCE-CLOSURE.json",
+    "research/p112-five-term-reader-floor/TEMPLATES.json",
+    "research/p112-five-term-reader-floor/independent.py",
+    "research/p112-five-term-reader-floor/verify.py",
+    "research/p112-matroid-reader-transfer/PROOF.md",
+    "research/p112-nonfano-affine-reader/PROOF.md",
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/p112-rational-decoder-gate/RANK-TIGHT-PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/foundation.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Seven sequential source-isolated inherited classification, triad census, gauge and corruption replays."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/matroids.py"
+      ],
+      "timeout_seconds": 350,
+      "checks": "Regenerate all 325 rank-three and 940 rank-four matroids; exact fields and Ingleton certificates; all 9,377 marked support classes, universal merges, selective transfers and the exact 135-class frontier."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/costs.py"
+      ],
+      "timeout_seconds": 350,
+      "checks": "Rebuild all 45 geometric envelopes and actual tables; verify 6,075 envelope minima and 27,304 actual minima by guarded byte-lane arithmetic."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_costs.py"
+      ],
+      "timeout_seconds": 350,
+      "checks": "Independent annihilator geometry, oriented coverage, and seven-bit-lane replay of every envelope and actual minimum."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_cost_controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Scalar reference checks reject false minima and packed arithmetic errors; reject missing or altered geometry coverage, residual and orientation mutations."
+    }
+  ]
+}

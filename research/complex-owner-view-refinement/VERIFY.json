@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Authenticate exact sources, independently reconstruct the complete original owner/translation inventory, check noncommuting-cover source expressions and retained literal ordinal examples, then run semantic/source controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Repeat the source-relative owner/view audit under isolation, optimization and warnings-as-errors; no physical O73 payload or complete cover enumeration is claimed."
+    }
+  ]
+}

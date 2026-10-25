@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-compact-productive-controller/PROOF.md",
+    "research/bit-compact-productive-controller/README.md",
+    "research/bit-compact-productive-controller/RESULT.json",
+    "scripts/compare_recursive_invoices.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate retained source files; reconstruct local and complete invoice joins; evaluate exact four-coefficient attaining words, omitted-call controls and helper debit; check arbitrary-helper integer relaxations and exact all-power constants."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat every exact check under optimized Python; explicit errors preserve the checks."
+    }
+  ]
+}

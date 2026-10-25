@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Frozen-reader negative controls; opt-in Windows streaming owner and setup rejection; explicit portable-only status elsewhere"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Frozen-reader negative controls; opt-in Windows streaming owner and setup rejection; explicit portable-only status elsewhere"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exact byte-preserved normalized/contact/invoice and full-column native audit; scoped price ceiling; source hashes, controls and complete expected JSON equality; no full parent admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Same complete audit and native/ceiling evidence in optimized mode; no excluded scientific fields."
+    }
+  ]
+}

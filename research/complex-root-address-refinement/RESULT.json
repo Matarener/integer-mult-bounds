@@ -1,0 +1,233 @@
+{
+  "controls": [
+    "source corruption",
+    "wrong residue",
+    "wrong core width",
+    "wrong prefix count",
+    "omitted right leaf",
+    "nonzero padded output"
+  ],
+  "fixtures": [
+    {
+      "address_records": 8192,
+      "input_sha256": "fca29a4e0220e0c8e57732d385710411c02b7f651206e5f63889606a8b844510",
+      "leaf_calls": [
+        {
+          "axes": [
+            1,
+            6,
+            5
+          ],
+          "scalar": [
+            3,
+            2,
+            1,
+            4,
+            2,
+            2
+          ],
+          "xor_mask": 1344
+        },
+        {
+          "axes": [
+            9,
+            2,
+            1
+          ],
+          "scalar": [
+            1,
+            2,
+            1,
+            4,
+            2,
+            2
+          ],
+          "xor_mask": 4
+        }
+      ],
+      "machine": {
+        "after": 0,
+        "back": 2,
+        "before": 0,
+        "coefficients": 2,
+        "compact_bits": 1,
+        "component_bits": 4,
+        "front": 0,
+        "guard": 1,
+        "prefixes": 4,
+        "residue": 1,
+        "root_width": 5,
+        "rows": 18,
+        "spacing": 2,
+        "width": 1
+      },
+      "output_sha256": "96112767bf62cd8aaeca15b444186e94ff251b98f6036ae44a5ad8f4b0982201",
+      "plan": {
+        "G": 1,
+        "H": 1,
+        "K": 2,
+        "coefficients": 2,
+        "core_back": 2,
+        "core_front": 0,
+        "core_width": 1,
+        "d": 5,
+        "left": 1,
+        "original_rows": 16,
+        "outer_rows": 2,
+        "padded_rows": 18,
+        "prefixes": 4,
+        "q0": 2,
+        "qB": 1,
+        "qF": 1,
+        "residue": 1,
+        "right": 1,
+        "row_bits": 2048,
+        "selected": 5,
+        "work_bits": 4,
+        "zero": 0
+      },
+      "record_bits": 16,
+      "selected": 5,
+      "selected_xor_mask": 1364
+    },
+    {
+      "address_records": 32768,
+      "input_sha256": "c569d816212d17c81c22cf38a5ad26f915614e32126c352e1336788374a50000",
+      "leaf_calls": [
+        {
+          "axes": [
+            1,
+            6,
+            7
+          ],
+          "scalar": [
+            3,
+            2,
+            1,
+            4,
+            2,
+            2
+          ],
+          "xor_mask": 5376
+        },
+        {
+          "axes": [
+            11,
+            2,
+            1
+          ],
+          "scalar": [
+            1,
+            2,
+            1,
+            4,
+            2,
+            2
+          ],
+          "xor_mask": 4
+        }
+      ],
+      "machine": {
+        "after": 0,
+        "back": 2,
+        "before": 0,
+        "coefficients": 2,
+        "compact_bits": 1,
+        "component_bits": 4,
+        "front": 0,
+        "guard": 1,
+        "prefixes": 4,
+        "residue": 1,
+        "root_width": 6,
+        "rows": 18,
+        "spacing": 2,
+        "width": 2
+      },
+      "output_sha256": "813472096ccb3e597b3dc8af27616980a24d72df346ee544c1ad2e694aa7e280",
+      "plan": {
+        "G": 1,
+        "H": 1,
+        "K": 2,
+        "coefficients": 2,
+        "core_back": 2,
+        "core_front": 0,
+        "core_width": 2,
+        "d": 6,
+        "left": 1,
+        "original_rows": 16,
+        "outer_rows": 2,
+        "padded_rows": 18,
+        "prefixes": 4,
+        "q0": 2,
+        "qB": 1,
+        "qF": 1,
+        "residue": 1,
+        "right": 1,
+        "row_bits": 8192,
+        "selected": 6,
+        "work_bits": 4,
+        "zero": 0
+      },
+      "record_bits": 16,
+      "selected": 6,
+      "selected_xor_mask": 5460
+    }
+  ],
+  "input_hashes": {
+    "certificates/selected-result.json": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+    "notes/compact-control-layout.tex": "2bc28e50f3eb092195294cafa81213e520f6d42e7935e9905ad8a6199e2a7c87",
+    "notes/compact-control-movement.tex": "b963c3d2f4e1b7059aa289bb4b4ac89b688920bcf42f5b20d7698cdef0132cc6",
+    "research/bit2234-stock-threshold/README.md": "1e050c9f963421d751d9208092f9a15321ed77810e03912df8eb5eb56bbb06e7",
+    "research/community-frontier1094-audit/selected-replay.tar.gz": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/hosted/GLOBAL-TEMPLATE.json.gz": "0357b7cfbd7c29b4983982baf153c8a9f1e1e412690cd7fa9fc3d23d7963b20f",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/nine/GEOMETRY.json": "0058c491d839142aa99ef86a5ec697ce99857632228531512ea3fa74fb24d734",
+    "research/complex-grid-prefix-audit/PROOF.md": "9c2473e080a64de5139abf66680534043143ec9f4488ceabf62403702047a3ad",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json": "b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4",
+    "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r740-replica32/code/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r740-replica32/code/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "research/gaussian-normalization-stream/PROOF.md": "733862ab7afe5074c4aac2d3db25c1bfb01a7935cc584013024f287bda085c64",
+    "research/gaussian-normalization-stream/SOURCES.json": "c434302f4489366c1763f918ba59e2f57efc0a41d72310fd3c6bbe1553370275",
+    "research/gaussian-normalization-stream/normalizer.py": "2b0acaa831219faf3e7776969bdcffc3f0f9c608b15d6b4c343ff20cf6a50107",
+    "research/gaussian-parity-synthesis/REVIEW.md": "7d7b9ac63ccd2927f592e9edac1b4c11d58a6c74c5813d488e112f729090f60c",
+    "research/gaussian-parity/gaussian-parity-certificates.tex": "e21e1063141cbc798e73052e22d01eec57f1c173a580041e55aa196b1b0479f8",
+    "research/p104-whole-word-internal-grid/README.md": "d98c0b0a4835d766852e960299dd87112375990ed645d2c9e84edb08b79500e4",
+    "research/physical-complex-compact/PROOF.md": "ec6395822ae500242f3fe5e2cf40caf9a7f9fa259d475d2c14970d951ff4df48",
+    "research/physical-complex-controller/bank_packets.py": "83e2f80fb72c906ccc7857f2b5139758ca8a997b17f51a5db29e2bb3c1143477",
+    "research/physical-complex-controller/cohort.py": "8fb650c0cc3dfaad94811149b0c0e725777a8cff195c5f21e21a7576494e84f1",
+    "research/physical-complex-controller/grid_boundary.py": "55f32b8cfaa3482d5d62127ac90c2370fc0dc8122263815e1564ee95093ffccc",
+    "research/physical-complex-controller/machine.py": "b648792a361fdf98597a2f56c634767508be8e818b82e482fbfc60b5c63cc855",
+    "research/physical-complex-controller/monomial_packets.py": "6856e80c13ebf3b6e9e0e142ed65420579b5a1b4892f23859d3c6e5f17a334b4",
+    "research/physical-complex-controller/parking.py": "33e6d2a6fcdc648de31b374132bf885259eec9748bafa6facca3822a78427e94",
+    "research/physical-complex-controller/root_layer.py": "247b82feefecedc12142379fd7c9c6cdd5ac7e5309e443c4b4fa703d6b995c21",
+    "research/physical-complex-controller/root_plan.py": "494cad3edc376928684f380cd16568076b286a53bd763d910d49efa5b03f07c9",
+    "research/physical-complex-controller/root_streams.py": "b67daf3de591b6788220a016b0394cfe2cc8e94ffd41426bb2544ad578b715c8",
+    "research/physical-complex-controller/scalar_packets.py": "cc48f726325c000ab2304eb691feb950ff4abeab5c537d6165d5b3322dc45c35",
+    "research/physical-complex-controller/scalar_program.py": "4c005167b4c2fe0d98d2dd93b7f931b251259417ff4392b67ee0fbe290f6d48a",
+    "research/physical-gaussian-leaf/PROOF.md": "29ebd43146f921077f980a408915ecc3a5199a07fcdadc624a8282c06b0b8104",
+    "research/physical-gaussian-leaf/SOURCES.json": "c693fc79212652d7427560189ad8eb5e841fe71325e6d7a0d61e05f97438a5e1",
+    "research/physical-gaussian-leaf/axis_stream.py": "40dea1c6fa41effd8e7a61f39a3a599e897370ca118e332ee5301a905dbb2998",
+    "research/physical-gaussian-leaf/coefficient_engine.py": "fff28cbc27b95ed546ac65f70279fa41a933421f1cd32b988ae8910632f0efcf",
+    "research/physical-gaussian-leaf/inputs/pr3087.tar": "d7e9c04a5e6d3f76158555d84080786c7cd8028ca31a61c9399de2b2c67bfd53",
+    "research/physical-gaussian-leaf/leaf_sources.py": "e0f958a0169257ba08eac5e025a3fc7ce99009efc18974cdd231f16758004014",
+    "research/physical-gaussian-leaf/signed_linear.py": "5b86afc33042e1c43eaa6957f94e0ebf403d1b07bb26d30ba89aa14d71f76078",
+    "research/physical-scalar-stream/scalar_engine.py": "be74c74862ff2b152d3752cb887c6682ddf2d889bc9f16f6328e418618e4c8b6",
+    "research/physical-scalar-stream/scalar_words.py": "f4293c5ea5a7b65be920997f2ff33ce046ae3d9707ecbcecb3bd163d821dfd00",
+    "research/pr589-five-helper-hosting/PROOF.md": "59cae781bfbe1a01ed9e66a8efeeb5a2b995e5ecdf908586b23ecc39f2b8d647",
+    "research/pr589-five-helper-hosting/verify.py": "cf90e19ae9991b0698be03d395a8cc29061ecb307eb7fea19adfb2d23c25a367",
+    "research/recursive-parking-boundary/README.md": "491aa208391ee4c2936510b1a5c5c018dd5509d9a0e88687c72ab8406cd77b18",
+    "research/selected-bit-local-ring-sweeps/PROOF.md": "846c59440cc99e28bae93ad2af99525bc769de29368080071b8427141215b4f7",
+    "research/selected-bit-recursive-closure/PROOF.md": "74cc8de20f21acb5123fe2d20996fe0925ea6e51b3dec633bd5221fb719b3344",
+    "research/selected-complex-layer-closure/PROOF.md": "43feda0342c07a9429699c3a44e8936a3f3fb57ce9b32f38ff3dc06ac887b265",
+    "research/selected-complex-layer-closure/arithmetic.py": "31e4b21bb64924d723d1248a7eccf4e9c80d323ba8784804af79a75da18c346a",
+    "upstream/build/sections/02-streams.tex": "606c80db61cad13aa0c3b6060dc4b88dbbe7ac60cdd831aa93f28d908fd09dab"
+  },
+  "limitations": [
+    "manual plans, not RootPlan.compute",
+    "leaf and recursive endpoints are mocks",
+    "no phases, expansion, normalization, truncation or full RootLayer.run",
+    "finite tags establish tested address behavior, not universal C arithmetic"
+  ],
+  "schema_version": 1,
+  "scope": "root address partition with declared permutation endpoints; no C arithmetic"
+}

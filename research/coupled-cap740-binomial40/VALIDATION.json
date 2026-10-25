@@ -1,0 +1,377 @@
+{
+  "timestamp": "2026-10-18T04:53:50.102882+00:00",
+  "status": "CANDIDATE_AND_FRESH_SUPPLIER_PASS_REQUIRED_CHECK_RESULTS_DISCLOSED",
+  "completed": [
+    {
+      "command": "python3 -B research/coupled-cap740-grid35/verify.py",
+      "exit_code": 0,
+      "scope": "Pinned PR3361 baseline, at its exact head before switching to contribution branch"
+    },
+    {
+      "command": "python3 -B research/coupled-carrier-cap740/verify.py",
+      "exit_code": 0,
+      "scope": "Both exact words, all owner rows, exact cap and stored-release checks"
+    },
+    {
+      "command": "python3 -B research/coupled-cap740-binomial40/verify.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3.12 -B research/coupled-cap740-binomial40/test_controls.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3.12 -B scripts/research_package.py --package research/coupled-cap740-binomial40",
+      "exit_code": 0,
+      "log": "logs/candidate-final-registered.log"
+    },
+    {
+      "command": "python3.12 -B candidate-clean/research/coupled-cap740-binomial40/verify.py; python3.12 -B candidate-clean/research/coupled-cap740-binomial40/test_controls.py",
+      "exit_code": 0,
+      "scope": "Fresh committed export 3e77c10d9976fbfb4029173c0b9d68105d35b2d3 with all 87 declared files, no Git checkout",
+      "log": "logs/candidate-clean-export.log"
+    },
+    {
+      "command": "make frontier1094-verify",
+      "exit_code": 0,
+      "base": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+      "scope": "Complete selected PR1094 composition including baseline1042-cold and rare-pattern-exchanges",
+      "seconds": 6694.441188573837,
+      "log": "logs/make-frontier1094-verify.log"
+    },
+    {
+      "command": "nice -n 15 ionice -c 3 .venv/bin/python -B continue_t740_release.py",
+      "exit_code": 0,
+      "scope": "Fresh bootstrap/native/discovery plus unchanged full release in a fresh external directory. Original controller remains timed out; no synthetic controller PASS receipt."
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "command": "make verify",
+      "base": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+      "exit_code": 2,
+      "reason": "scripts/partial_swap/shared.py verify unpacks target into t0,t1,t2; graph(25) deliberately includes singleton target keys for retained totals; copied-fixed-reversed-producer fails before candidate code is involved.",
+      "checker_modified": false
+    },
+    {
+      "command": "nice -n 15 ionice -c 3 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 ../.venv/bin/python -B research/coupled-carrier-cap740/reproduce.py --repo . --work ../replay-t740-cold --jobs 2",
+      "cwd": "research",
+      "exit_code": 1,
+      "reason": "Unchanged complete-admission subprocess exceeded 3600 seconds. Fresh bootstrap, native providers, owner rows, parent lift and discovery audit completed; release verification did not finish. No final evidence/RESULT.json exists.",
+      "checker_modified": false,
+      "log": "logs/t740-cold.log"
+    }
+  ],
+  "claims": {
+    "new_circuit": false,
+    "selected_frontier_changed": false,
+    "maintainer_acceptance": false,
+    "complete_theorem_formalization": false,
+    "finite_supplier_reproduced": true,
+    "strict_arithmetic_improvement_certified": true
+  },
+  "log_hashes": {
+    "logs/candidate-final-registered.log": "2cf3fe909e95a9e28b46ad99b24a58b3524b433010fe1a25825dad8f2121a9f7",
+    "logs/t740-finite.log": "ed03e7ad9c2affa678b1891fd0e2181a1d6aeacde435fc8a7c04c8045b04e815",
+    "logs/baseline-grid35.log": "4fbae9bed0a300afe6f794cdcd0bf6d7d94c76633ffeb9994b88b9d53aa7d9e6",
+    "logs/candidate-clean-export.log": "16b1347c9cbafd2f5a9c9b78c726899b9404db07dbce0d6262b1e8e49e981331",
+    "logs/remainder-obstruction.log": "5394792db216596b1eb36777976fd68351de944941f6b7aa05913b3d6a78de83",
+    "logs/make-verify.log": "8d64f7877edb8aad04b4062dcf465ce679c7036bcc9eaa53a15d0bd7c4ef2bec",
+    "logs/t740-cold.log": "cbf085bba88fba1a2d0756892e0411b0d7ab87021ea5c4025e14662e96db7cdc",
+    "logs/make-frontier1094-verify.log": "70e18e535cf3ffe1db08dfc69770a8b929cfc5b46cc0f727bf8f40a23d885141"
+  },
+  "exact_comparison": {
+    "kappa": "172977749467859701188690365681780360899999999999999999999998999999999999999999999999/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "previous": "1729777494678597011886903656817799999999999999999999998999999999999999999999999/1000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "gain": "360900000000000000000099999000000000000000000099999/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "complex_lower": "1729777494678597011886903656817803609/1000000000000000000000000000000000000000",
+    "endpoint_digits": 40,
+    "kappa_decimal": "0.00172977749467859701188690365681780360899999999999999999999998999999999999999999999999",
+    "previous_decimal": "0.001729777494678597011886903656817799999999999999999999998999999999999999999999999",
+    "gain_decimal": "3.60900000000000000000099999000000000000000000099999E-36"
+  },
+  "frontier_refresh": {
+    "timestamp": "2026-10-18T04:10:32.609698+00:00",
+    "main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "open_prs": 410,
+    "assessment": "No stronger viable construction identified among changed proposals. T8 improvements remain below T740; physical root bridge makes no new integer kappa claim. PR3361 and disputed PR3251 unchanged.",
+    "all_open_heads_reviewed": true,
+    "identity": "SovereignSteak",
+    "open_snapshot_sha256": "cae3e56f0b3de27b6ed6bc47ed9ce5f2ecf1bd44cd5699cafdda4f56f06132e5"
+  },
+  "required_checks": [
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        "ionice",
+        "-c",
+        "3",
+        "make",
+        "verify"
+      ],
+      "exit_code": 2,
+      "seconds": 7.7489612102508545
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        "ionice",
+        "-c",
+        "3",
+        "make",
+        "frontier1094-verify"
+      ],
+      "exit_code": 0,
+      "seconds": 6694.441188573837
+    }
+  ],
+  "cold_replay": {
+    "status": "PASS_INDEPENDENT_COMPLETE_RELEASE_CONTINUATION",
+    "original_controller_exit": 1,
+    "original_controller_timeout_seconds": 3600,
+    "fresh_retained_bootstrap": true,
+    "completed_prerequisite_stages": [
+      {
+        "exit_code": 0,
+        "log_sha256": "6bd8df30779863897e48441608240db6a7e3fcbd0754511e44f854f3a5c462a6",
+        "seconds": 0.46515895519405603,
+        "stage": "export-pr2894"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "38171e3306eb37fa70add18e75ba4593a4309187482885789cc6188635f682ed",
+        "seconds": 1.166655276203528,
+        "stage": "export-pr2833"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "4a1625fdd9a947187583e67492c492f309e28669082f2e6f2aa97b5da345ea29",
+        "seconds": 1697.7844628528692,
+        "stage": "fresh-retained-bootstrap"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "f2bbb6462b3f5bb8a6415bb33c0c35355353b13343ddb90961660f7473caa5a2",
+        "seconds": 2.3932256118860096,
+        "stage": "four-kernel-stage"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "2eb7601c48840a39c58eb838886aed00a531349b259f0bbc3ea6421376b8ea3c",
+        "seconds": 2.4194774799980223,
+        "stage": "preload-stage"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "d80d8494c48816e3acf662db00cc0077a888b82392d736826f73beb1c4248299",
+        "seconds": 1.5174676661845297,
+        "stage": "parent-paired-stage"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "61cc77beeae833d7473b5c5338b176b150f95f6652a888c0307f080674cfde35",
+        "seconds": 1.671033674152568,
+        "stage": "paired-extension-stage"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "06150c3f42489b14e981b90ac0e594e7e32bfc6ec4a98f3551cf53b6d18acd36",
+        "seconds": 2.9199896031059325,
+        "stage": "rank7-overlay-stage"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "0c33d4323f555c64c0c9cc6cd4d821ed70c7163434a5b265cad51ad68d751b03",
+        "seconds": 1.8183008648920804,
+        "stage": "declared-edit-stage"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "5d84874bf71eb2cb5165fbb1ba0f12ee28f231d2dfe0a2cb04df512f09750f0c",
+        "seconds": 0.6663284690584987,
+        "stage": "derive-closed-adapters"
+      },
+      {
+        "exit_code": 0,
+        "log_sha256": "57a95a5df95aa0574b48d59d71a6e5e84d017172e51b8627d8713c52a7134206",
+        "seconds": 172.71843893197365,
+        "stage": "fresh-current-native"
+      }
+    ],
+    "continuation": {
+      "status": "PASS_INDEPENDENT_COMPLETE_RELEASE_CONTINUATION",
+      "command": [
+        "/home/jake/ai/auto_multiplication/.venv/bin/python",
+        "-B",
+        "/home/jake/ai/auto_multiplication/replay-t740-cold/run/candidate/package/verify_release.py",
+        "--main",
+        "/home/jake/ai/auto_multiplication/replay-t740-cold/run",
+        "--work",
+        "/home/jake/ai/auto_multiplication/replay-t740-release-continuation",
+        "--native-cache",
+        "/home/jake/ai/auto_multiplication/replay-t740-cold/run/native/native-cache",
+        "--jobs",
+        "2"
+      ],
+      "package_manifest_sha256": "552533ae7c42f9a1defbe3fcd126e069e57f6b252ed5824a5b09b8202ba863e3",
+      "original_controller_exit": 1,
+      "original_controller_timeout_seconds": 3600,
+      "exit_code": 0,
+      "seconds": 3510.5093705654144,
+      "release_receipt_sha256": "9809a55281b42dd99c5cc4f8396e11358607fa1edfac2f86da26078e1c5ca1ae",
+      "scope": "Unchanged full release plus pre/post source/cache/external bindings; original timed-out controller remains failed."
+    },
+    "release": {
+      "status": "PASS_RELEASE",
+      "kappa_decimal": "0.0017297774946785970118859999999999999999999998999999999999999999999999",
+      "manifest_sha256": "552533ae7c42f9a1defbe3fcd126e069e57f6b252ed5824a5b09b8202ba863e3",
+      "proof": "Supplier: the package's own unchanged `verify.py` (retained PR1297 provider and parent admission, owner reconstruction, parent lift, strict T74 admission, geometry controls): `PASS_T74_EXACT_FILL_COMPLETE_FINITE_ADMISSION`, native reuse {'base': 'e8e6e78ff7422275c38324499e1f33fb2ecd30de9503aef2b8f1ee80d8c4df8e', 'extra': '7b0e9fbda32749aabc7e156d9fe09bceb0624a178628fe69e5dfea783462f905'}; its complex endpoint 864888747339298505943/50000000... brackets the ledger's b = 172977749467859701188599999999999999999999999999999999999999999999999999999999999999999999999999999999/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000. Outer (PR1673 capped phase-cell fusion): regenerated exact ledger (63 strict inequalities: the 62 retained rows plus the explicit main-binding row gaussian_above_main, the fixed-grid maximum kappa = C - 1/F - B asserted, 17 rejecting controls incl. the old g-factor union row, the old linear and old-theta chirp guards, the old 2*beta tag test, epsilon at 1 or at the r0 slack and beta outside its window, larger endpoint rejected by the native moment), independent balance derivation, the exact union-schedule simulation, the (retained, not used for kappa) structured-boundary displacement-rank check, the gauge-free identity/symbol/circuit checks, PR1786's finite prime/underflow controls and 19 exact evidence replays all pass. Conditional kappa 0.0017297774946785970118859999999999999999999998999999999999999999999999 (union schedule outer/UNION-SCHEDULE.md; explicit Strassen boundary tau=45/16 (the structured boundary of outer/STRUCTURED-BOUNDARY.md is not used); gauge-free interiors outer/GAUGEFREE-INTERIORS.md; fine source-prime padding PR1786 at the free point epsilon=1-(1025/1024)e-104, outer/FINE-PADDING-COMPOSITION.md; fixed-grid maximum of PR2180/PR2161 (dataisfire), outer/PROOF-GRID-MAX.md; exact-integer coarse exponential PR2168/PR2184 (dataisfire) at the one 24-digit rejection call).",
+      "seconds": 3469.74
+    },
+    "allocation": {
+      "fill_sha256": "198765c74edb5494ef94c9aff958ab99d84eace5b77fafb7dd23d4e18d82aefa",
+      "fill_payload_sha256": "8f4d6965ba573ff2b71fd7bf6b552643e086739d90bd73c55889502077638e00",
+      "order_sha256": "927226d702bf3cada076f4c459da9063c0df7e7154a62955cf75c40cf30215b9",
+      "dispatch_sha256": "90edc935320dd6264e98dc735d868df3c95f5901c70d7d96171001fcb295cce0"
+    },
+    "profile": {
+      "1": 16376940,
+      "2": 4821840,
+      "3": 1567431,
+      "4": 679320,
+      "5": 147075,
+      "8": 53280,
+      "48": 282569
+    },
+    "scope": "Fresh bootstrap/native/discovery plus unchanged full release in a fresh external directory. Original controller remains timed out; no synthetic controller PASS receipt."
+  },
+  "comparator_origin_binding": {
+    "status": "PASS_EXACT_ORIGINAL_COMPARATOR_BYTES",
+    "origin": {
+      "path": "research/coupled-cap740-grid35/CLAIM.json",
+      "usage": "provenance",
+      "pin": "head:f9de2024916a347d939ed256a7a2e9e68d633684:research/coupled-cap740-grid35/CLAIM.json",
+      "git_blob": "87cacd0dd167954f70f6a2404604b12d126a447b",
+      "sha256": "43aadbe1181516c97ea7f12c65e65ee757df08ead084a9cbbd48a46ed6c59089"
+    },
+    "sha256": "43aadbe1181516c97ea7f12c65e65ee757df08ead084a9cbbd48a46ed6c59089",
+    "vendored_path": "research/coupled-cap740-binomial40/vendor/PR3361-CLAIM.json"
+  },
+  "environment": {
+    "python": "3.14.7 (main, Sep 19 2026, 23:03:37) [GCC 14.3.1 20250801]",
+    "executable": "/home/jake/ai/auto_multiplication/.venv/bin/python",
+    "platform": "Linux-6.18.52-gentoo-x86_64-Genuine_Intel-R-_CPU_0000_@_2.10GHz-with-glibc2.43",
+    "machine": "x86_64",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "sympy": "1.14.0",
+      "mpmath": "1.3.0"
+    },
+    "candidate_alternate_python": "Python 3.12.11",
+    "native_jobs_per_t740_replay": 2,
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "nice": 15,
+    "ionice_class": 3,
+    "paid_external_compute": false
+  },
+  "packaged_log_hashes": {
+    "validation-logs/FINITE-ADMISSION.json": "f50d75d744b70145d8cdde9000cee0739462df59c06eb23bc5cfb5259b4eae3a",
+    "validation-logs/FINITE-STAGES.json": "2b3314a6d9071474cd6f98b6beb8b588af1a849a9d1a08d05050a6dd8c8a0950",
+    "validation-logs/RELEASE-RECEIPT.json": "9809a55281b42dd99c5cc4f8396e11358607fa1edfac2f86da26078e1c5ca1ae",
+    "validation-logs/baseline-grid35.log": "4fbae9bed0a300afe6f794cdcd0bf6d7d94c76633ffeb9994b88b9d53aa7d9e6",
+    "validation-logs/candidate-clean-export.log": "16b1347c9cbafd2f5a9c9b78c726899b9404db07dbce0d6262b1e8e49e981331",
+    "validation-logs/candidate-final-export.log": "c6e4445d0b8a0f4791dae9e7d63c45b51adad6756617ff0059de9d4763ce6449",
+    "validation-logs/candidate-final-registered.log": "2cf3fe909e95a9e28b46ad99b24a58b3524b433010fe1a25825dad8f2121a9f7",
+    "validation-logs/candidate-merged-final.log": "2cf3fe909e95a9e28b46ad99b24a58b3524b433010fe1a25825dad8f2121a9f7",
+    "validation-logs/complete-admission.log": "370d0587483f9ad137bb02ad06de6c2dc9eb25ab9802ab6e6985d00379278207",
+    "validation-logs/complete-finite-release.log": "272b46a7505a7f389388ec4e44ac3f407488935644e9842d0518b2fbdbfbd531",
+    "validation-logs/complete-outer-release.log": "670f60ee3ecc7e2d7fc4b23b468d4cdb8cfab9edaf252cd2410c1cabcb0318dc",
+    "validation-logs/continue_t740_release.py": "310d3c57ce604b27736907b912595b1cb30dc3171d2c2e69c3dc667641a5897c",
+    "validation-logs/declared-edit-stage.log": "0c33d4323f555c64c0c9cc6cd4d821ed70c7163434a5b265cad51ad68d751b03",
+    "validation-logs/derive-closed-adapters.log": "5d84874bf71eb2cb5165fbb1ba0f12ee28f231d2dfe0a2cb04df512f09750f0c",
+    "validation-logs/export-pr2833.log": "38171e3306eb37fa70add18e75ba4593a4309187482885789cc6188635f682ed",
+    "validation-logs/export-pr2894.log": "6bd8df30779863897e48441608240db6a7e3fcbd0754511e44f854f3a5c462a6",
+    "validation-logs/final-clean-test_controls.py.log": "9450d5d5e4dc8019446d981fc5ec812baae4d27ee4cc5d048b8f0ea094f16782",
+    "validation-logs/final-clean-verify.py.log": "8b066284df70c75592a0b5ffd235192f34b6507919410ca6bbad38daa3faaa4c",
+    "validation-logs/four-kernel-stage.log": "f2bbb6462b3f5bb8a6415bb33c0c35355353b13343ddb90961660f7473caa5a2",
+    "validation-logs/fresh-current-native.log": "57a95a5df95aa0574b48d59d71a6e5e84d017172e51b8627d8713c52a7134206",
+    "validation-logs/fresh-retained-bootstrap.log": "4a1625fdd9a947187583e67492c492f309e28669082f2e6f2aa97b5da345ea29",
+    "validation-logs/make-frontier1094-verify.log": "70e18e535cf3ffe1db08dfc69770a8b929cfc5b46cc0f727bf8f40a23d885141",
+    "validation-logs/make-verify-diagnosis.json": "242e3508d47f7c2fc9d7b5625b7a08e86ceca4c802222f66d5fc41427b07f90a",
+    "validation-logs/make-verify-latest-main.log": "7a8d67488a890638868f2eabcc9547b6e70696e3c540bced3f275f7255a2ef8b",
+    "validation-logs/make-verify.log": "8d64f7877edb8aad04b4062dcf465ce679c7036bcc9eaa53a15d0bd7c4ef2bec",
+    "validation-logs/paired-extension-stage.log": "61cc77beeae833d7473b5c5338b176b150f95f6652a888c0307f080674cfde35",
+    "validation-logs/parent-paired-stage.log": "d80d8494c48816e3acf662db00cc0077a888b82392d736826f73beb1c4248299",
+    "validation-logs/preload-stage.log": "2eb7601c48840a39c58eb838886aed00a531349b259f0bbc3ea6421376b8ea3c",
+    "validation-logs/rank7-overlay-stage.log": "06150c3f42489b14e981b90ac0e594e7e32bfc6ec4a98f3551cf53b6d18acd36",
+    "validation-logs/t740-cold.log": "cbf085bba88fba1a2d0756892e0411b0d7ab87021ea5c4025e14662e96db7cdc",
+    "validation-logs/t740-finite.log": "ed03e7ad9c2affa678b1891fd0e2181a1d6aeacde435fc8a7c04c8045b04e815",
+    "validation-logs/t740-release-continuation.log": "ee1fba510fd3797da2894294783a5b19684fd060f04aa82477df4a8dd0283c33"
+  },
+  "upstream_refresh": {
+    "old_main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "new_main": "714606601d4aae7fbe8cf0c9727b59ba754bc02e",
+    "candidate_declared_inputs_changed": [],
+    "selected_and_guidance_files_changed": [],
+    "note": "New main archives PR3361; selected frontier unchanged. Historical runner diff only admits a new isolated-test cache helper digest.",
+    "final_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90"
+  },
+  "final_committed_export_replay": {
+    "commit": "493ab7216c1d4b1cfbadd7bd50a6d3b22d27c6d1",
+    "commands": [
+      {
+        "command": [
+          "python3.12",
+          "-B",
+          "/home/jake/ai/auto_multiplication/candidate-final-clean/research/coupled-cap740-binomial40/verify.py"
+        ],
+        "exit_code": 0,
+        "seconds": 1.6292412281036377
+      },
+      {
+        "command": [
+          "python3.12",
+          "-B",
+          "/home/jake/ai/auto_multiplication/candidate-final-clean/research/coupled-cap740-binomial40/test_controls.py"
+        ],
+        "exit_code": 0,
+        "seconds": 8.627039670944214
+      }
+    ],
+    "export_bytes_unchanged": true,
+    "files": 116
+  },
+  "latest_main_required_check": {
+    "command": [
+      "nice",
+      "-n",
+      "15",
+      "ionice",
+      "-c",
+      "3",
+      "make",
+      "verify"
+    ],
+    "base": "714606601d4aae7fbe8cf0c9727b59ba754bc02e",
+    "exit_code": 2,
+    "seconds": 7.55263090133667,
+    "reason": "Same pre-existing scripts/partial_swap/shared.py:171 singleton-target unpacking error as on original main; no candidate code involved."
+  },
+  "submission_frontier_snapshot": {
+    "timestamp": "2026-10-18T04:54:07.092175+00:00",
+    "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "open_prs": 247,
+    "snapshot_sha256": "24f024695ed84495207c5c7d2ec8c4f3cc0fa244f5ee849e4229c68ffdc85530",
+    "comparator_head": "f9de2024916a347d939ed256a7a2e9e68d633684",
+    "comparator_state": "MERGED_ARCHIVE_PARTIALLY_REVIEWED",
+    "selected_changed": false,
+    "candidate_inputs_changed_since_tested_main": []
+  }
+}

@@ -48,13 +48,40 @@ path can still be declared), never fewer.
 A row without an explicit `pin` resolves as `base_commit:<path>`. A file vendored
 from a pull-request head can instead carry `"pin": "head:<40-hex sha>:<path>"`,
 whose bytes resolve at that commit rather than at the package base. Any other
-pin form fails closed. The originating task catalogue
+pin form fails closed. Both forms preserve the exact path, including any LF or
+CRLF characters in a Git filename; encode them as JSON escapes in the manifest.
+The originating task catalogue
 `docs/research/agent-task-catalog.json` must stay pinned at `base_commit`, so a
 later catalogue revision cannot replace the card a package answers. Pins resolve
 only against Git objects reachable in this repository (the base commit or an
 explicit head sha); there is no `external` pin for bytes that are not a Git
 object here. For such an input, record its source and a byte-equality check in
 the verifier and explain the gap in the README.
+
+Shared Git source readers ignore local replacement refs, including a custom
+`GIT_REPLACE_REF_BASE` namespace. Otherwise Git can report the original blob ID
+while returning a replacement's bytes, allowing locally generated pins to fail
+in a clean checkout. The generator, metadata validator, HEAD input inventory,
+committed-byte preflight and package exporter use the stored objects. Replacement
+refs are left intact; the policy applies only to these Git subprocesses and does
+not change the caller's environment or verifier subprocesses. This authenticates
+source bytes, not publication ancestry or mathematical claims; the optional
+source-history preflight below remains separate.
+
+Regression controls use temporary Git repositories with blob and commit
+replacements, the legacy batch fallback, newline paths, a custom replacement
+namespace, forged live pins and an exported payload:
+
+```sh
+python3 -W error -B -m unittest discover -s tests -p 'test_research_git_replacements.py' -v
+```
+
+This extends the immutable-object policy of Nick Petalas's
+[source-history preflight (PR3304)](https://github.com/CrocSwap/integer-mult-bounds/pull/3304)
+to the shared source readers. The runner and scaffold retain Douglas Colkitt's
+attribution, and the exporter retains Tekalign's. Added regression coverage and
+reader policy prepared for roger-sato with substantial OpenAI Codex assistance;
+Apache-2.0.
 
 `original_card` in `TASK.json` must equal the full pinned catalogue card object.
 Hand authors can print the exact object instead of copying it by hand:
@@ -133,14 +160,16 @@ failures publish no matrix. These shared boundaries require a Git checkout with
 a valid `HEAD`; direct standalone verifiers keep their own source-export
 contracts. The generic hook does not infer transitive imports.
 
-Existing components below the repository root must
-also be free of symbolic links. The planner and metadata validator reject these
-aliases because Git reports changes under the target's path. Declare that
+Existing components below the repository root must also be free of symbolic
+links and Windows directory junctions. The planner and metadata validator reject
+these aliases because Git reports changes under the target's path. Declare that
 target path instead. Missing inputs still participate in replay selection, so
 deleting an input or its parent directory cannot suppress its consumer's replay.
 The checkout must remain stable during planning, validation and execution; these
 checks do not provide an atomic filesystem snapshot. The generic hook does not
-infer transitive imports.
+infer transitive imports. The [native Windows junction regression](replay-input-junctions.md)
+records the skipped-replay failure and the boundary of the component check;
+a junction at the repository root itself remains supported.
 
 Each command has a maximum 600-second timeout and the package total is at most
 1200 seconds. On POSIX, the launcher terminates the command's local process
@@ -227,6 +256,62 @@ otherwise correct the working bytes or publication commit and rerun the
 affected verifier before regenerating its receipt. The preflight never changes
 files or normalizes scientific evidence. Passing it does not run the verifier,
 validate the mathematics, or establish equivalence to a hosted CI environment.
+
+### Check declared source history before publication
+
+A correct source pin can work locally because another research branch left its
+commit in the shared object store. A clean hosted checkout may not contain that
+unmerged commit. To reject that dependency before pushing, opt in to the
+publication preflight's history check:
+
+```sh
+python3 -B scripts/check_research_commit.py --package research/my-experiment \
+  --check-source-history
+```
+
+After the existing byte comparison, this reads `SOURCES.json` from the exact
+publication commit. It requires the base commit and every supported explicit
+`head:` source-pin commit to be ancestors of that publication. Separate local
+branches and cached objects do not satisfy the check. Git replacement objects
+and legacy grafts cannot supply the ancestry. A shallow repository fails with
+a request for full history. The successful result lists the checked commit IDs
+in `source_history_commits`; the default byte-only command is unchanged.
+
+If a pending predecessor fails, retain its exact bytes, hashes and credit in
+your own published history or a self-contained committed export, then bind the
+package to that retained source. Do not weaken hash or mathematical assertions.
+The repaired PR3234 and PR3227 provenance chains motivated this opt-in check.
+An intentional external dependency can remain external, but this stricter
+publication check will not pass it. Document and test its explicit fetch step
+instead of treating the local object cache as evidence of cold availability.
+
+This is a conservative check of **declared Git-history availability**, not full
+metadata validation or a cold replay. Run the registered metadata and verifier
+commands separately. It does not discover pins embedded in scripts or archives,
+transitive imports, submodules, LFS payloads, dependencies or network services.
+No source bytes, pins, Git refs or frozen evidence are changed. The new path
+limits source metadata to 16 MiB, 100,000 rows and 256 distinct commits, with a
+30-second timeout on each Git query. The checkout must remain stable.
+
+Regression commands:
+
+```sh
+python3 -W error -B -m unittest discover -s tests -p 'test_research_source_history.py' -v
+python3 -W error -B -m unittest discover -s tests -p 'test_research_commit_bytes.py' -v
+```
+
+The tests build synthetic Git histories and a bare object-only fixture, without
+cloning the project or fetching remote objects. A valid side-commit pin passes
+byte-only comparison but fails ancestry; exporting only the publication's
+reachable objects confirms that the foreign commit is missing. Ancestor pins
+pass the same cold object test. Replacement/graft, shallow-history, malformed
+metadata, resource-limit, Git-failure and actual CLI controls remain active
+under optimized Python. This is not a theorem or supplier-admission check.
+
+Open next questions are explicit dependency declarations for script-embedded
+Git references and separately fetched sources. Start with one actual replay's
+source manifest and fetch command. Automatic import inference is not supplied
+by this check and would need its own contract and failure controls.
 
 The planner groups at most 256 package paths into each reusable-workflow batch,
 so a shared-runner change can select more than GitHub's single-matrix limit.

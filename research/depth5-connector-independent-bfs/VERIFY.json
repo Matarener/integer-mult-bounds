@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Vendored witnesses.json hash; standard-library BFS for depth 4 (m = 2..4) and depth 5 (m = 2); every witness by shape, unitriangular product and literal 2x2 noncommuting replay; full rows 9..20; m = 4 words; recorded bfs.c runs bound to bfs.c by SHA256 and matching #4281's minima; dropped-call and swap controls."
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+ "schema": "depth5-connector-mitm/1",
+ "mitm_sha256": "2b88b27be8c398f31e327ef742bbcf76cff295cc1086d927e2e04c9857c9631a",
+ "runs": [
+  {
+   "m": 5,
+   "counts": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "residues": [
+    1
+   ],
+   "seconds": 15,
+   "command": "verify.py reruns this",
+   "environment": "live"
+  },
+  {
+   "m": 5,
+   "counts": [
+    10,
+    5,
+    5,
+    5,
+    5
+   ],
+   "residues": [
+    1,
+    2
+   ],
+   "seconds": 138.7,
+   "command": "python3.12 -B mitm.py 5 10,5,5,5,5 --residues",
+   "environment": "CPython 3.12.4, numpy 1.26.4, Windows 11, 32 GB"
+  },
+  {
+   "m": 5,
+   "counts": [
+    5,
+    10,
+    5,
+    5,
+    5
+   ],
+   "residues": [
+    1,
+    2
+   ],
+   "seconds": 148.9,
+   "command": "python3.12 -B mitm.py 5 5,10,5,5,5 --residues",
+   "environment": "CPython 3.12.4, numpy 1.26.4, Windows 11, 32 GB"
+  },
+  {
+   "m": 5,
+   "counts": [
+    5,
+    5,
+    10,
+    5,
+    5
+   ],
+   "residues": [
+    1,
+    2
+   ],
+   "seconds": 162.5,
+   "command": "python3.12 -B mitm.py 5 5,5,10,5,5 --residues",
+   "environment": "CPython 3.12.4, numpy 1.26.4, Windows 11, 32 GB"
+  },
+  {
+   "m": 5,
+   "counts": [
+    5,
+    5,
+    5,
+    10,
+    5
+   ],
+   "residues": [
+    1,
+    2
+   ],
+   "seconds": 159.9,
+   "command": "python3.12 -B mitm.py 5 5,5,5,10,5 --residues",
+   "environment": "CPython 3.12.4, numpy 1.26.4, Windows 11, 32 GB"
+  },
+  {
+   "m": 5,
+   "counts": [
+    5,
+    5,
+    5,
+    5,
+    10
+   ],
+   "residues": [
+    1,
+    2
+   ],
+   "seconds": 143.0,
+   "command": "python3.12 -B mitm.py 5 5,5,5,5,10 --residues",
+   "environment": "CPython 3.12.4, numpy 1.26.4, Windows 11, 32 GB"
+  },
+  {
+   "m": 6,
+   "counts": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ],
+   "residues": [
+    1,
+    3
+   ],
+   "seconds": 205.0,
+   "command": "python3.12 -B mitm.py 6 6,6,6,6,6 --residues",
+   "environment": "CPython 3.12.4, numpy 1.26.4, Windows 11, 32 GB"
+  }
+ ],
+ "witnesses": [
+  {
+   "m": 5,
+   "c": 1,
+   "word": "4512341231215432154325435",
+   "counts": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ]
+  },
+  {
+   "m": 5,
+   "c": 2,
+   "word": "112345112311211432115432543545",
+   "counts": [
+    10,
+    5,
+    5,
+    5,
+    5
+   ]
+  },
+  {
+   "m": 5,
+   "c": 3,
+   "word": "45234111231112111543254322212225435",
+   "counts": [
+    10,
+    10,
+    5,
+    5,
+    5
+   ]
+  },
+  {
+   "m": 5,
+   "c": 4,
+   "word": "11223411223112211543221154322543545",
+   "counts": [
+    10,
+    10,
+    5,
+    5,
+    5
+   ]
+  },
+  {
+   "m": 6,
+   "c": 1,
+   "word": "345212341231121354321554325454",
+   "counts": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ]
+  },
+  {
+   "m": 6,
+   "c": 3,
+   "word": "121234543112121354322443555435",
+   "counts": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ]
+  }
+ ],
+ "minima": {
+  "5": {
+   "1": 25,
+   "2": 30,
+   "3": 35,
+   "4": 35
+  },
+  "6": {
+   "1": 30,
+   "3": 30,
+   "2": ">=36",
+   "4": ">=36",
+   "5": ">=36"
+  }
+ },
+ "note": "Length 5m for m<=5 reruns in the verifier; the length-30 runs are local evidence; length-35 hits are certified by witnesses."
+}

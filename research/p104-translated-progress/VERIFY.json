@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/copied-centers-complex.tex",
+    "notes/endpoint-gauge-complex.tex",
+    "research/p104-native-channel/PROOF.md",
+    "research/p104-native-channel/compile.py",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "LICENSE",
+    "research/p104-native-channel/notices/FRAME-SA504-NOTICE.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated physical labels, intrinsic2312/changed2416 endpoint bounds, all1410 native tariff uses and actual canonical adapter counterexample."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate dense symplectic and exact Gaussian operator checker:518400 products and2160 translations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "{package}",
+        "-p",
+        "test_verify.py",
+        "-v"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Six scientific/control methods including seven actual optimized CLI receipt/source faults."
+    }
+  ]
+}

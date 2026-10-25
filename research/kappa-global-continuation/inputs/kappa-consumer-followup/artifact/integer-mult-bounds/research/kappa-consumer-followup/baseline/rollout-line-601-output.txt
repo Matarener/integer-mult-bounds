@@ -1,0 +1,258 @@
+# E2: helper544 source clock and exact integer packing
+
+The scientific word is pinned PR3734 (`fa041037a3374eaa08feeca0b26a5d6893194147`), not the selected result. Its unchanged local profile is `{1:2440,2:725,3:224,4:102,5:20,8:8}`, width inventory `{4:26,5:2,6:18,7:53,8:96,9:213}`. Its actual T360 comparator has 1,321,920 roles,323,069 families, and profile `{1:7990332,2:2349000,3:748971,4:330480,5:69479,8:25920,32:1,48:137911}`. The pending author endpoint is `.001730448360207635461740 -1e-46 -1e-70`; PR3682/3653 report `.001730418899766071163804` minus guards. No newer fully supported comparator was found at intake. The selected `.001672660197076918` is unchanged.
+
+## An exact fixed-clock obstruction
+
+`diagnose.py` enumerates all2551 inventory patterns and runs a floating LP. Its twelve tight patterns are a diagnostic model, not a certified global ideal optimum. `exact_obstruction.py` proves a necessary inequality for that *explicit twelve-pattern set* using only integer counts and exact literal source windows:
+
+`total8 + 2*prefix7 >= cap8_bins + total6 + 2*cap16_bins_closed_in_prefix`.
+
+Every cap8 tight pattern consumes one8. A6 can only occur in a cap32 tight pattern consuming at least one8. Each closed cap16 bin consumes either two8 or7+9, and its7 must occur before closure. These charges use disjoint bins. At the first360 calls,25,088 cap16 bins have closed: the left side is349,200 while the right is350,416. The deficit1,216 rules out even fractional chronological owners in this restricted pattern model. This is stronger than a single-width Hall test: ten subset maximum-flow relaxations pass on each tested boundary clock and therefore do not prove feasibility. It does not certify the exact ideal root or exclude nontight patterns.
+
+## Boundary clock probe, actual integer flow and literal incumbent
+
+First swap adjacent call slots47/48: stage1/replica315 closes one tick later, stage0/replica5 occurs one tick earlier. All within-replica order remains. Two initial cap16 windows lengthen one tick and two cap8 windows begin one tick later. No calls, physical stock or local primitives are added. No change to scalar/native words is involved.
+
+Freeze every other owner. Group every actual eligible physical bin by remaining capacity and availability in the two changed calls; enumerate all integer two-slot patterns. The98-variable,6-group MILP reports a local optimum, but no rational optimality certificate is claimed. Every integer equality is checked after rounding, and the emitted fill is independently suitable for a complete literal audit:1,321,920 helper identities, exact widths, legal windows, same-call family uniqueness, compact chronological prefixes, capacity, idle remainders and complete rank mass. `FLOW.json`, `ORDER.json`, `FILL.json.gz` retain the literal witness.
+
+Actual paid delta is exactly zero, with moment interval[0,0] at the comparator's exact lower root. Idle histogram is `{1:84732,3:23211,5:4679,32:1,48:137911}`. The full profile equals PR3734. The clock still has the1,216 pattern obstruction; no increase follows. This incumbent is feasible, not a global packing optimum.
+
+## Small targeted clock extension
+
+The exact obstruction justifies delaying the stage1 closing sweeps more substantially. Stable-sort the old calls by twice their old time; each stage1 key is delayed by up to128 half-ticks, capped immediately before its own stage2. All other call keys stay fixed. `EXTENDED-ORDER.json` is literal and all360 within-replica chains remain ordered. This changes no call count, stock or local primitives. Its maximum deficit under the same necessary inequality is -4,256: the specific cut obstruction disappears. This is diagnostic only.
+
+Transporting the incumbent to this chronology violates47,156 role windows. `extension.py` tests deterministic best-fit repair of the displaced roles, freezing every other legal placement and searching every remaining legal actual bin. Roles are processed earliest-call/largest-width first; ties use earliest upper window and lexicographic owner/child/port. No eviction/backtracking, at most180seconds. The final receipt `EXTENSION.json` determines whether a complete allocation and invoice exist; clearing the cut alone grants neither.
+
+A broader brute-force scan was interrupted while implementing a bucket index that preserves exactly the same greedy order. Only the final indexed run is retained as the experiment's bounded receipt. No Lean, Docker, concurrent artifact regeneration, native cold replay or new supplier/outer release was run. Any future exponent claim needs complete supplier and outer admission plus inherited all-size/compiler, source/mutable-label hosting, precision/recovery, analytic and BIT obligations.
+
+Credit: dataisfire PR3734, PR3682 retiming, PR3638 chronological stock and independent literal contract, PR3605 staged entries, PR3687/3693 interpreter, PR3133/2979 native lineage. Frozen archives untouched. This package uses substantial OpenAI Codex assistance.
+
+The indexed greedy run completed all47,156 repairs and emitted `EXTENDED-FILL.json.gz`. Every1,321,920 literal role passes the complete in-script integer window/family/prefix/invoice audit; actual stock remains323,069 families. This is an exact feasible incumbent. It is **worse** than PR3734: the exact outward rational interval for the unnormalised profile moment difference at the comparator lower root is positive, approximately+405.5897222547438694. The complete rank mass is unchanged, but the repair fragments3,353 previously rank48 idle children and creates many smaller remainders. There is no achieved improvement, even though the clock itself adds no calls or primitives and clears the selected tight-pattern cut. Full strict supplier/outer admission was not run for this losing candidate. This is not an optimum or a general source-clock obstruction; different allocations may win.
+{
+  "actual_achieved_paid_delta": {
+    "E1": "none; no legal fixed-frame survivor",
+    "E2_boundary": "exact zero; actual complete profile equals PR3734",
+    "E2_extended": "positive losing unnormalised signed moment interval near+405.5897222547438694 at exact PR3734 lower root; actual complete owners/idles priced",
+    "E3": "not run"
+  },
+  "artifact_sha256": {
+    "README.md": "9f3bc951abd1388c67d9ef0c8769184a24659735fa2db30fc703f7298be241a5",
+    "REPORT.md": "8e4a6ce33305476742ded667b90a32674c9845f9bca6d8f7e4b172bc97acb7df",
+    "SOURCES.json": "18905dcaba408ac13e03d4df1a03c6240642cea16adaffd10e97b219901832f5",
+    "experiment1/CANDIDATE-WORDS.json.gz": "0401fa967e68face0114543d1264d35874f600b691b04f8a35e71238a65f1bd1",
+    "experiment1/POSITIVE-CONTROL.json": "f90b898b71e0b5213679c9fba39accf037b6c683746abfa1bd4b227d6962a4b5",
+    "experiment1/REPORT.md": "1b93c782c2db05f1f18d22d779d26e7bb162fb99b85c0a4d411618c4156d46d2",
+    "experiment1/RESULT.json": "0464e1a6e37b2103f87b3a201529bfc43813d459c795a4a9a8eca42a53af9fcd",
+    "experiment1/export_candidates.py": "0f03ee7103692035026c810ba4728f498f3ef98c6aa3a3c9845fd342f825ec64",
+    "experiment1/run.py": "6f5d0940aac6d72d7cd82a5abcf27d0370b0eca4630dd053a326664566c1973f",
+    "experiment2/EXACT-OBSTRUCTION.json": "1c236685e8b779dda342f3e01b75fbfc158e3900543e757cd4fe2bc267a047eb",
+    "experiment2/EXTENDED-FILL.json.gz": "4248fd6357d8bc10bacb494e41f6f18d716dccec5216e1d47de80b478b549ffd",
+    "experiment2/EXTENDED-ORDER.json": "c82fb4d2e8697ac715c7d8625711f0d8a1d3f7282a5fe3e04c208921419eb493",
+    "experiment2/EXTENSION.json": "8d8e6931b42ca0e6c49d11ca2ceaaa0b86843e1b455dbf1ad86f6530cb91b623",
+    "experiment2/FILL.json.gz": "310ae9ddbbc40dc139b58fdcb0134a873206a53a7660d89d86e4e9cbaa1a9598",
+    "experiment2/FLOW.json": "0048d7e9b2946666b785bc3325c00e0d4e45c31af4e11cfe32c15af17b3ff54d",
+    "experiment2/ORDER.json": "dc6b366ccfe147dffac7cfca762e1f60cae6162dc809464392dea3d3785c54cc",
+    "experiment2/REPORT.md": "39c173631a41997a0ce4805c8f4764d600430973b46957bb0c63df5b54d07035",
+    "experiment2/RESULT.json": "9a12252a4d4233b1d8551f7eb6fd5ad6b57ec1eb2637dfa668a3ed78f18b4d8a",
+    "experiment2/TIGHT-OBSTRUCTION.json": "c6f0469f4e2cb8b6e5afa4af73d9ef9e2664622df84df9d9477a853134e632d2",
+    "experiment2/diagnose.py": "8f62f449b2350af8ea7540fc121c07686688a67836cd94485b055f1edfe873f4",
+    "experiment2/exact_obstruction.py": "545de33235d99049cef215d331e54de4a1b23eef9ab4d1060853ba7ac92dc67c",
+    "experiment2/extension.py": "e3562b94b9760998274d1fbd9decdc8b8a28fceba5f78e44e22aa49e72ed77bd",
+    "experiment2/ideal-diagnostic.json": "8ff191a4bccc0e19d1a4b4bdc86f412f724f8dff47216b832a391b683ff18837",
+    "experiment2/run.py": "1977128faf1e5c262dfc98e08b970d32a138a003429b579aee49c4df327323d9",
+    "experiment2/tight_obstruction.py": "3fb6f4cc13da7a00f0fefd6696cdde8ac2f7498e4ecb43a610047d4b7bf2a2be",
+    "experiment2/vendor/source/new/borrow-fill/search/agg.py": "267a66287336b72731b897508073dae1a7c85fa72cd86093a7340ddfc12af04c",
+    "experiment2/vendor/source/new/borrow-fill/search/base74.py": "acc99c57730fe50f88538e4061e7165a7f278ed7499728c24b0522d479be8b8c",
+    "experiment2/vendor/source/new/borrow-fill/search/ceil74.py": "99df541abe458fb6154755d9c67066b2ba0430b06f879a7b5a43e30618f4c1d7",
+    "experiment2/vendor/source/new/borrow-fill/search/evac.py": "7c6ce4e8aa9833a9d451c5d4b891bbd1927315bcbf112d3c15845f0ede2d9dc3",
+    "experiment2/vendor/source/new/borrow-fill/search/fillbase.py": "4fc6fa920d8703ccec860bee0e1187a0a8b1e37b245789256f7a4d01ae8a2b00",
+    "experiment2/vendor/source/new/borrow-fill/search/inv.py": "eec279ea8e8d9d1dccc2733a88129351678c73fb51f06a4604a9c1da1d771387",
+    "experiment2/vendor/source/new/borrow-fill/search/lattice.py": "8f2ee194fa4992d1f45394b09b5151ec699b28e4c950b9d40b826f33cbb635ba",
+    "experiment2/vendor/source/new/borrow-fill/search/lnstime.py": "3a1ff558f10b0b935389137627359f875ca484717ffa3ced7de8d8b588836755",
+    "experiment3/REPORT.md": "826085d3530ea4c5bec5cb8b837597defa82a91f8a81153f6be710cc60897cf4",
+    "experiment3/RESULT.json": "4128f806a66f72fbcacbebb65239727507d8391c21b03cbda9bdb16281774ead",
+    "reviews/experiment1-astra.md": "31727317dcbdf3ff63e20fce79a65bed5c57a7a520448b5e3abd860e658a9132",
+    "reviews/experiment1-independent.py": "84ce50e48a7f49ddd3eff3a5d52cf8b0ab6f9b81b72de43db44bf6801075be29",
+    "reviews/experiment1-overlay-independent.py": "411c1f3ac4a1f6caedf4bdae58692eb9ef3b621146911afb64a0937e9790d7c1",
+    "reviews/experiment2-astra.md": "65fa9668de5b68a5ac6310618c456a18b81842b8b3ecbd21d9f0567e4c6baf51",
+    "reviews/experiment2-independent.py": "87247356b4cbc30e02db01a3d429c987db87b548e241ddc5447e42727c8787c2",
+    "reviews/experiment3-astra.md": "4736d0f5163adbb544776243fc2b906444c17a3b0ea5ace3e9e3626abce8841d",
+    "sources/SELECTED-SOURCE.json": "79b3de5db3dbcb9829789ba58e9e45758926031e2a7d80667a08429d369be53b",
+    "sources/pr3734/.gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "sources/pr3734/PINS.json": "e10d852000bc5d90b81db43d58ed77a790459da2d1d25df78e833aaf4e75b174",
+    "sources/pr3734/PRICE.json": "eb89e98609f7c6b3c4281feededbde11b30ae56696b2756a88b318447d1c92ca",
+    "sources/pr3734/PROOF.md": "be5fa8e381da957d52d02b154e2420f4459d7c8b30e23e82e245c11c978e3b62",
+    "sources/pr3734/README.md": "c545fa2478e83c314440fe2e3c6a2ed7f71588aa9dde524e3838a4feef541a6c",
+    "sources/pr3734/REPLAY-INPUTS.json": "727691274be6f91059c763dfa8206f7bca4516c5acf4703da403789a49b5e1e7",
+    "sources/pr3734/REPLAY-INPUTS.tar.gz": "e74d545c18f77b7a9b8f0cc3d4901a87bb686888edaf3e41b30e5b2748751041",
+    "sources/pr3734/SOURCE-CREDITS.md": "d4a13d8b8ed9cdb594f00efb3d1a336e09d934423330f02a1514308a720c278b",
+    "sources/pr3734/SOURCES.json": "0dae3c8f9197eab4a0aa57655e27025b521a870ac0ed9fad5a20db86f6ee1417",
+    "sources/pr3734/TASK.json": "626f4a7c5924f749c701692edb6b5d4b6ad438e517b57ad5035c427fcc84e0e7",
+    "sources/pr3734/VALIDATION.json": "7daa778fe0ccef875de9ff2face194a656e4461906ec1b0eb9f97a20a2938501",
+    "sources/pr3734/VERIFY.json": "f0a98631889b72cf9623e4607977208165880070c36b841c5472dbde70bfa368",
+    "sources/pr3734/audit_core.py": "888679ca8502cdcb100420fe5382a052529a494bf76cb332928b86e62612b951",
+    "sources/pr3734/audit_verify.py": "99971d3cc143cc894600e08c8cfbad3e8f537a544212f21dfbe4271cfa97354d",
+    "sources/pr3734/check_identity.py": "b96b6b27688428253a57bfd06740e8401c0d37145e8f80dc3f7fae5062be8033",
+    "sources/pr3734/evidence/ENVIRONMENT-REPAIR.json": "806bd6ee8af4dbaffdd0e9d5145ff3fac396e3f9b1f013f28825995f110e78a0",
+    "sources/pr3734/evidence/IDENTITY.json": "0ca72a0fe8684bee276afba37468aa17d2483a6f399fd3710115067caa155280",
+    "sources/pr3734/evidence/NATIVE-base.json": "d12ca528547af356176837b83e0de08a33fe5e59cc851238f321388dfbd81383",
+    "sources/pr3734/evidence/NATIVE-extra.json": "dd3c7d52685a056415c7a5d0582cf83b4b1248b7e06913c288efd5b05725eeb6",
+    "sources/pr3734/evidence/OUTER-CLAIM.json": "c0d8d1ae7f302ae00feade55470d524401fc464b392bf1bc931cdb7a421e23b4",
+    "sources/pr3734/evidence/OUTER-INDEPENDENT.json": "357bb31e581f820bf3caf84c25d1ad914e87dac9fb26664e67b587d946b040cf",
+    "sources/pr3734/evidence/OUTER-LEDGER.json": "6c558b421073e1f5599a76a533d88320c0ca8a076e9ee2942898d2a06d132c8a",
+    "sources/pr3734/evidence/PACKAGE-MANIFEST.json": "42aeee7f6d2ef17ba884573be0aaa2be0e0432357cfc2af475a3bf887436f53b",
+    "sources/pr3734/evidence/RELEASE.json": "1ca3c6a8baf3a0e1f37a0fef2299e75ad31280e08a4f72993e82e1784ebcc67a",
+    "sources/pr3734/evidence/RESIDUAL544.json": "c7d71f67d3884a3e1b1e7fbf87472be44b1846f3822eda46b2ce1424e2480f5e",
+    "sources/pr3734/full_replay.py": "8ed5573c1a2b1771c8a4aa29ef06384fc02edb8e963d13c8f01673b0283472e5",
+    "sources/pr3734/inputs/DISPATCH.json": "5d6fa711d704a1b498e5fe066ea821c4fa0217463702e82a7ce5be9da4023e8a",
+    "sources/pr3734/inputs/FILL.json.gz": "13adffec100112c6c5c14b5aa544e5626f433f16594101e016cff44d2f89aee9",
+    "sources/pr3734/inputs/NATIVE-base.json.gz": "bfe0cc0badac6c6d18461ceea0b299162c0f280c05f81b63f11fcc06cf9180e6",
+    "sources/pr3734/inputs/NATIVE-extra.json.gz": "c5eec94a64cecfd6b83de05619628ad4868e889d62a55b49973f09705cc60448",
+    "sources/pr3734/inputs/ORDER.json": "a2f308937e66c354a1c612556a8ad34c45bf685401238f5358a7bb9d65965ed4",
+    "sources/pr3734/inputs/PLAN.json.gz": "d566cfb87b71639d4138e1f89b543e2dd6a7772070226a2a14c799a6835bf21e",
+    "sources/pr3734/inputs/PR3682-CLAIM.json": "c7455323c62a5b1d5c9ceef07a305a5758df6971ac8f88e2be5223eb5f4c7553",
+    "sources/pr3734/inputs/PROFILE.json": "06b4e2abe8d56b49bad3bdc8f8504082404b40609d548fa8de2618eb7373fd48",
+    "sources/pr3734/inputs/TEMPLATE.json.gz": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e",
+    "sources/pr3734/outer-replay/CLAIM.json": "304956cca9a3fbfa590c8f2fb19986e6dd7e7a770f184e6d8ee0934e10d1db29",
+    "sources/pr3734/outer-replay/new/SPEC.json": "7c26c8539778eb349bd9a40534dfa7165ef7f826962e9f14dd1c27cc0f2c4793",
+    "sources/pr3734/outer-replay/outer/B.json": "36e6e7d8f32d5997b9e4a1c4d34169554d45b336e161624e3ea5c0d1afaae354",
+    "sources/pr3734/outer-replay/outer/INDEPENDENT.json": "357bb31e581f820bf3caf84c25d1ad914e87dac9fb26664e67b587d946b040cf",
+    "sources/pr3734/outer-replay/outer/LEDGER.json": "6c558b421073e1f5599a76a533d88320c0ca8a076e9ee2942898d2a06d132c8a",
+    "sources/pr3734/outer-replay/outer/check_ledger.py": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+    "sources/pr3734/outer-replay/outer/independent_check.py": "a5a0361539ec7cae9eb6c0371f857919335a1720040f22af291aa3e34fc864c7",
+    "sources/pr3734/owner_audit.py": "56405eacc7c2dd0f7834ed5d62a4db8303c71657300eb4e4bbe020319552cde1",
+    "sources/pr3734/rational_price.py": "ee38ccbc94411b2c9c7ab88b1f6d1b34debdafa896bd5f4b7214f20168f90dab",
+    "sources/pr3734/replay_outer.py": "d1b10a5f1fefa51461fb50f185c2919e26829a87185e5810887ca2ab5ea09dcd",
+    "sources/pr3734/review_staged544.py": "d3eebdb2f87b4eb3c891b4666fab3c2e2e8a58f928f3191e89bbfbd8c9bb329f",
+    "sources/pr3734/runtime/sitecustomize.py": "d8441dd432d89526123a5f0bc7304ab8ee7112ce570cba5806b1e66f814dd78b",
+    "sources/pr3734/stage544_applier.py": "95f6b63372d1a6a781bae9a8a4ce281429ccc712b180df92ba5a0c8f29bcc05d",
+    "sources/pr3734/staged544/PRE-base.json.gz": "0aca7560603d65902a50d68af43f594abd93b09594bac24878b846b1e51475fa",
+    "sources/pr3734/staged544/PRE-extra.json.gz": "6928ad79dc683e7e7bbf4b5da60f2df91f478c58b797922d6df41d9d43c87048",
+    "sources/pr3734/staged544/RECORD-base.json": "ceb8736120684a6b58cce04aedbbb77ea931be77e10cbfaa6573e0cedb8abf20",
+    "sources/pr3734/staged544/RECORD-extra.json": "f21fb29bce5e4cb960dc5bd13d9b959fcdc3690d3c63d26fe885f44d1fcaef08",
+    "sources/pr3734/staged_pair.py": "25fc9b025dbb90358032013303adea650a5f19937fd3edf30b6c6fd023e2d747",
+    "sources/pr3734/verify.py": "2fcbafb3a441293594ad677732b0b6435a7993a1760407447415f4b3d6b7a0bc",
+    "sources/pr3734/words/BORROW-WORD-43base.json.gz": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+    "sources/pr3734/words/BORROW-WORD-43extra.json.gz": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e",
+    "verify_manifest.py": "1d030cf25968a54ddb7c49672bcda9b610be5f476d6ce01091aff345f8c6b68c"
+  },
+  "branch": "codex/returning-prefix-clock",
+  "completed": true,
+  "coordinator_followup": "One fresh evidence assessment plus random browsing of http://localhost:8747/lineage; verify new primary sources because site is discovery metadata last known through PR3636; no automatic new dispatch/infinite loop",
+  "final_checkpoint": {
+    "comparator_heads": {
+      "p3653": {
+        "headRefOid": "607a09ff441c79b215a8127a81f4cc70021d0d9b",
+        "number": 3653,
+        "state": "OPEN",
+        "title": "Compose retimed T488 suppliers: conditional kappa 0.00173041889976"
+      },
+      "p3682": {
+        "headRefOid": "431e6c6023ef352c41696469de7fb614cd4ded8c",
+        "number": 3682,
+        "state": "OPEN",
+        "title": "Consume retimed staged releases with smaller T360 stock"
+      },
+      "p3700": {
+        "headRefOid": "aa0bd9fbc8700506b1fafcc55bca9bd32aced7d9",
+        "number": 3700,
+        "state": "OPEN",
+        "title": "Independent verification (no \u03ba): PR3647's composed R437 bit word, hosting and price pass an exact audit against single-change controls (c = 0.001736628253427115)"
+      },
+      "p3734": {
+        "headRefOid": "fa041037a3374eaa08feeca0b26a5d6893194147",
+        "number": 3734,
+        "state": "OPEN",
+        "title": "Stage helper544 after a returning producer excursion; improve conditional kappa"
+      }
+    },
+    "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
+    "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "overlap_coverage": {
+      "discussions": {
+        "complete_pagination": true,
+        "fetched_at": "2026-10-18T19:46:41.453731+00:00",
+        "records": 2507
+      },
+      "open_prs": {
+        "complete_pagination": true,
+        "fetched_at": "2026-10-18T19:46:01.602290+00:00",
+        "records": 462
+      }
+    },
+    "priority_revision": 6,
+    "utc": "2026-10-18T19:47:24.199458+00:00",
+    "warnings": []
+  },
+  "fresh_discovery_only": [
+    3740,
+    3747,
+    3748,
+    3754
+  ],
+  "new_kappa": null,
+  "nominal_or_diagnostic_only": {
+    "clock_inequality": "specific deficit clears, not a packing feasibility/gain proof",
+    "ideal_root": ".001730578437266246818740 author diagnostic; not achieved or globally certified here",
+    "tight_patterns": "explicit twelve-pattern model from floating LP; exact prefix inequality but no certified complete ideal dual"
+  },
+  "package": "research/returning-prefix-clock",
+  "publication": "LOCAL-ONLY; coordinator completion message authorized; no public post or PR",
+  "remaining_obligations": [
+    "No exclusion of arbitrary donors/cuts/frame refits or joint rewrites",
+    "A better delayed-clock allocation, with exact flow/literal owners and favorable complete invoice, remains unknown",
+    "No global packing optimum certified for either feasible incumbent",
+    "No new strict supplier/outer admission for losing changed-clock fill",
+    "Inherited native/phase for changed words, all-size/compiler, mutable-source/whole-call hosting, precision/recovery, analytic and BIT obligations remain for any new survivor"
+  ],
+  "reviewed_outcomes": [
+    {
+      "experiment": 1,
+      "fork_turns": "none",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "review": "reviews/experiment1-astra.md",
+      "reviewed_commit": "c4f3f7f8e94b697cd184f2ebaffc8e51b3383eae",
+      "status": "SCOPED_NEGATIVE",
+      "supplement_reviewed_commit": "00a66fbc1e4564c62a18cf55b85cf7d3d7552809",
+      "verdict": "CONCLUDE YES"
+    },
+    {
+      "experiment": 2,
+      "fork_turns": "none",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "review": "reviews/experiment2-astra.md",
+      "reviewed_commit": "96313cb9ed9165f3c7996ed19f86c1ec4a89c5db",
+      "status": "SCOPED_NEGATIVE_WITH_TWO_EXACT_FEASIBLE_INCUMBENTS",
+      "verdict": "CONCLUDE YES"
+    },
+    {
+      "experiment": 3,
+      "fork_turns": "none",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "review": "reviews/experiment3-astra.md",
+      "reviewed_commit": "00a66fbc1e4564c62a18cf55b85cf7d3d7552809",
+      "status": "NOT_RUN_PREREQUISITE_ABSENT",
+      "verdict": "CONCLUDE YES"
+    }
+  ],
+  "scientific_commands": [
+    "python3.12 -B research/returning-prefix-clock/sources/pr3734/verify.py",
+    "python3.12 -B research/returning-prefix-clock/experiment1/run.py",
+    "python3 -B research/returning-prefix-clock/reviews/experiment1-independent.py",
+    "python3 -B research/returning-prefix-clock/reviews/experiment1-overlay-independent.py",
+    "/tmp/returning-clock-venv/bin/python -B research/returning-prefix-clock/experiment2/diagnose.py",
+    "/tmp/returning-clock-venv/bin/python -B research/returning-prefix-clock/experiment2/run.py",
+    "/tmp/returning-clock-venv/bin/python -B research/returning-prefix-clock/experiment2/tight_obstruction.py",
+    "/tmp/returning-clock-venv/bin/python -B research/returning-prefix-clock/experiment2/exact_obstruction.py",
+    "/tmp/returning-clock-venv/bin/python -B research/returning-prefix-clock/experiment2/extension.py",
+    "python3.12 -B research/returning-prefix-clock/reviews/experiment2-independent.py"
+  ],
+  "scope": "three ordered bounded experiments, no achieved kappa gain or new supplier admission",
+  "selected_kappa": ".001672660197076918 unchanged",
+  "submission_scan_through": 3756,
+  "worktree": "/Users/temp/.codex/worktrees/returning-prefix-clock/integer-mult-bounds"
+}

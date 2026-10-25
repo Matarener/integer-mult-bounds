@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/qq16-producer-dirty-fault/verify.py",
+    "research/qq16-producer-dirty-fault/RESULT.json",
+    "research/qq16-producer-defect-transfer/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that register 359 is one rational and compare the four stored defects with 2^(-72)."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the zero-power defect, the exponent-8 miss, and rejection of a nested entry."
+    }
+  ]
+}

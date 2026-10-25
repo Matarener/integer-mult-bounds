@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact residue convolution cases, freshly reconstructed precision certificates, all 9 complete Gaussian products, every coefficient, genuine shorter charged child and frozen receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_hybrid.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Four semantic control groups: interval spacing and true-residue trust, actual slot spill, original p-domain/CRT/source normalization, and real Git-free CLI source/precision-receipt corruption."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_hybrid.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same safeguards with assertions disabled in parent and actual CLI child."
+    }
+  ]
+}

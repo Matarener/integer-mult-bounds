@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "selected-packing",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "selected-packing",
+    "question": "Is there a genuinely unsearched, explicitly bounded improvement to the selected packing?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/heterogeneous-owner-assembly/README.md",
+      "research/complex-local-word-ceiling/README.md"
+    ],
+    "methods": [
+      "Search a named unclaimed canonical candidate domain with a reproducible partition.",
+      "Prove a stronger scoped relaxation or exact optimum for one named residual subproblem."
+    ],
+    "acceptance_gate": "Check live PR overlap first, price both suppliers and distinguish a search best from an optimum. Report the word's packing cap from ceiling.ceiling() and the fraction of it realized; label packing gains as such.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Locate the selected packing source in the review and check live PRs for the same residual problem.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Define an unclaimed canonical domain and a favorable bound before starting a new search.",
+    "bottleneck_link": "An actual paid-profile gain can improve the frontier up to the other supplier cap.",
+    "allowed_variations": [
+      "One bounded residual packing instance or exact relaxation.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Rerunning an existing search with only a different seed as a separate mathematical contribution."
+    ],
+    "overlap_terms": [
+      "T16",
+      "owner exchange",
+      "packing"
+    ],
+    "existing_checks": [
+      {
+        "scope": "Packing-independent ceiling for the selected paid profile under the one-unpaid-coordinate coverage and halving guard.",
+        "evidence": "docs/research/community-efficient1000-review.md",
+        "remaining": "A changed word or model requires new pricing; a local packing search must name uncovered scope.",
+        "status": "reviewed",
+        "source_commit": "836b19bfa309ceafbc8ee32a15e8c4b10dde7e11",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "With two unpaid coordinates, the selected local profile has idle mass 13918/9 per call and integer mass 13918 on nine calls.",
+  "scope_change_reason": "The lost-free cover is a different question. This package checks this mass. It does not search a packing.",
+  "bottleneck_link": "The two-unpaid mass is an accounting contrast, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record this mass. Do not search a packing.",
+  "outcome": "partial",
+  "evidence": "One call leaves a denominator of 9. Nine calls leave 13918 = 272*51 + 46, and 144 calls leave 222688 = 4366*51 + 22.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "This mass is the accounting contrast. A realised two-unpaid word would leave it."
+}

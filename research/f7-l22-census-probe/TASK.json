@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "The prune-correction audit (#2973) is merged and its small-domain counterexample is already independently corroborated by #3005, #3096 and PR #3699. PR #3708 then derived the exact length-22 split domain and named as its blocker 'no node-count estimate or resource budget' for the corrected engine at length 22. This package refines the card to that named obligation: validate the corrected engine against its pinned sources and recorded receipts, then measure the L22 resource budget with capped probes, completing any split whose enumeration finishes under the cap. The active decision it can change is whether a complete corrected L22 census (and hence deciding f(7) = 22) is feasible and at what cost; no larger census is launched beyond the capped probes in this session.",
+  "actual_scope": "Single-gate extension (L<=20 to L<=22) of the pinned corrected census engine of #2973, validated node-exactly against all six of its recorded receipts and its brute-force small-domain cross-check, then capped L22 probes at the nine open splits of the PR #3708 domain. Complete zero-hit probes are finite split exclusions; aborted probes are measured tree-size lower bounds only.",
+  "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census. This package supplies the resource-budget measurement that the census-pruning-audit card and the PR #3708 handoff name as the blocker for deciding f(7) = 22 within PR943's prefix-walk model.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the nine capped probes finish (each completing or hitting the cap), or when the session budget is exhausted, whichever is first. A capped probe never becomes an exclusion; a complete zero-hit probe is recorded as a finite split exclusion; any hit word is reported verbatim and immediately.",
+  "outcome": "completed",
+  "evidence": "RESULT.json: integrity diff (3 gate lines only), predecessor math check exit 0, brute cross-check exit 0 over all small splits and budget modes, node-exact replay of all six recorded receipts, and nine capped L22 probes. Finite split exclusions completed at (11,7), (10,8), (11,8) with zero hits; the six remaining splits aborted at the 2e9-node cap and are recorded as tree-size lower bounds only. No hits; no f(7) claim.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does a restored universal length-22 seven-label word exist (f(7) = 22 versus 24)?",
+      "why_it_matters": "#2973 bounds 22 <= f(7) <= 24; deciding length 22 is the next word-level frontier step inside PR943's model.",
+      "first_step": "Run the extended engine at the tightest splits first; this package's RESULT.json records the measured node budgets per split.",
+      "blocked_by": "A complete nine-split census needs a resource decision beyond one session; the measured budgets in RESULT.json are the input to that decision."
+    },
+    {
+      "question": "Can the pair identity (sum_x A_x B_x >= need) be added as a third monotone prune in the engine to cut the (11,11) tree?",
+      "why_it_matters": "It is proved necessary in MATH.md section 3 but not implemented; it prunes branches the two budgets alone leave.",
+      "first_step": "Prove the partial quantity sum_x A_x B_x is dominated by its final necessary value under monotone growth, or find the monotone variant, before touching the engine.",
+      "blocked_by": "Monotonicity of the partial bound is not established; a non-monotone prune is unsound."
+    }
+  ]
+}

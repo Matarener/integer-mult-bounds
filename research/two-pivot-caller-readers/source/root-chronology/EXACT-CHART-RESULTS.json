@@ -1,0 +1,59 @@
+{
+  "limits": [
+    "The exact lower-bound certificate concerns n6 only; n8 has a matching break-even candidate but no general lower-bound claim here.",
+    "This is a finite exact certificate plus an all-f chart-compiler argument, not a formal-kernel theorem."
+  ],
+  "lower_bound": {
+    "ambient_arity": 12,
+    "banks": 6,
+    "cycles": 36,
+    "matching_word_mass": 72,
+    "native_mass_at_least": 72
+  },
+  "moment_consequence": "Within this fixed compiler, every full-output width6 caller has rankmass>=6*12. If every recursive rankr<12 and b>0, sum r^(1-b)>12^(-b)*sum r >=6*12^(1-b). Thus no favorable positive-b moment in this compiler; added costs cannot help.",
+  "no_new_kappa": true,
+  "positive_words": [
+    {
+      "D": 0,
+      "ambient_arity": 12,
+      "banks": 6,
+      "candidate": "SIGNED-CHART-HANDOFF-SIX.json",
+      "histogram": {
+        "2": 21,
+        "4": 4,
+        "6": 1,
+        "8": 1
+      },
+      "mass": 72,
+      "stock": 72
+    },
+    {
+      "D": 0,
+      "ambient_arity": 16,
+      "banks": 8,
+      "candidate": "SIGNED-CHART-HANDOFF-Q3.json",
+      "histogram": {
+        "2": 48,
+        "4": 2,
+        "8": 3
+      },
+      "mass": 128,
+      "stock": 128
+    }
+  ],
+  "producer_sha256": "feffe91b94f1b41c250580c727656d85d808a32c481f3dabff967bd51dc593b4",
+  "proof": "For any bit assignment to the chart graph, XOR of variable endpoint labels around every selected Eulerian subgraph is zero. Its odd signed edge sum forces at least one charged violation. Selected edge sets are disjoint; each violation has native rank2f. The bound72f matches the independently replayed word.",
+  "scope": "All native-product chart retimings with the fixed literal ADD/ADDRESS/bank-SWAP skeleton of INDEPENDENT-HANDOFF-SIX.json. It does not cover altered joint bridges, changed ADD skeletons, new source deliveries, projective splitting or different endpoint contracts.",
+  "sources": {
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/CHART-CYCLE-PACK-HANDOFF-SIX.json": "41b31ffd411ec8de46f218039ed1efa4f2d9edd9f5ebeac9fd21aae2880e09ab",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/HANDOFF-COMPLETE-Q3.json": "540b372de474495125620b481952b66f9b8766ffb03e3c49d8dc23b7a5b1e84b",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/INDEPENDENT-HANDOFF-SIX.json": "594bd4cabfcbbfff4de18e49381f46480118f8f1e41412431fa9ffc4b1ee9eaa",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/SIGNED-CHART-HANDOFF-Q3.json": "a55def49f15798c0c00c501f363a3889b54d92adc93e27bebf657de9f82b3970",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/SIGNED-CHART-HANDOFF-SIX.json": "c50cea2aabf5a160e32aa5f9f4424350d785586c63cbf9d9ca53e7ea073bc823",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/batch_paid_progress.py": "8773bb4bd31d76e45e3644e88069e48fab6f98aa9d0a2a879643835b96b98f33",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/chronology.py": "eed0590640dadcd48c683d142899396b563e843a6c15c9df3cc5d1ecdc107a2c",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/native_chart_search.py": "fc11ca0ba09c5f803bf011ba5fcf533045cc2e0cd6995eefc244dd5418aa8cfa",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/signed_chart_optimization.py": "b1ed5ee5ddfaac1e2d0242b499ad69d7adde8e6d636d095be58315b9739176e8"
+  },
+  "status": "PASS_EXACT_RETIMED_WORDS_AND_FIXED_N6_MASS_FLOOR"
+}

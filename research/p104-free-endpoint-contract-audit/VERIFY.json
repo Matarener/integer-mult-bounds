@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-caller-independent-audit/CAPSULE-INVENTORY.json",
+    "research/p104-caller-independent-audit/expected/caller.json.gz",
+    "research/p104-full-frame-contact/WORD.json.gz",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/pr4359-p7-padding/native_inventory.py",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticated PR5550 capsule; PR5545 endpoint census; patched checker reproduces the complete PR5550 output on PR5545 byte for byte; PASS on both PR5561 words; changed endpoint and changed invoice rejected; result equals RESULT.json."
+    }
+  ]
+}

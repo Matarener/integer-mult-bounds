@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/synthetic-twiddle-circuit/PROOF.md",
+    "research/synthetic-twiddle-circuit/circuit.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact formula/circuit identity, physical slot order, reads/writes/unit moves/Boolean gates/cells, complete small addresses, wider shapes, restoration and retries."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual optimized CLI rejection of semantic, physical invoice, restoration, source and receipt faults on exclusive owned regular byte copies, followed by valid retry."
+    }
+  ]
+}

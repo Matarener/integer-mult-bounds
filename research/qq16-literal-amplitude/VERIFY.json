@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/qq16-native-dirty-fault/native.py",
+    "research/qq16-native-dirty-fault/verify.py",
+    "research/qq16-native-dirty-fault/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Read the initial scalar of register 359 and the first amplitude of its constant-vector expansion."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that 256 stays at exponent 0 and that an even dyadic reduces."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "A 24-port even-group repair of PR3356, with exact all-field rank 32, block-rank 32d and complete-plane tariff 224.",
+  "scope_change_reason": "Seed 40 assigns structural decoder research. The initial complete-frame orbit construction failed; a bounded local repair instead shows that fewer full eight-frames can reduce total query groups. No native admission is claimed.",
+  "bottleneck_link": "Reduce query dimension while exposing the unchanged copied-information expense; avoid treating maximal full-frame packing as the correct objective.",
+  "budget_minutes": 60,
+  "stop_rule": "One bounded symmetry/exact-cover pilot, then the named 24-port repair domain, one three-frame follow-up limited to 180 seconds; package the completed rank 32 witness.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json, PROOF.md, RESULT.json and registered independent/primary/control replay.",
+  "author": "Tekalign (tekuuu), with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in source inspection, derivation, discovery, implementation, verification and writing; no independent human or proof-assistant review.",
+  "assignment_seed": 40,
+  "assignment_rng": "secrets.randbelow(100), operating-system randomness, drawn once on 2026-10-17T23:06:05Z",
+  "candidate_tasks": [
+    "Close the arbitrary-fitting-rank gap on the fixed PR3356 matching.",
+    "Chosen: symmetry-compressed frame partition; pivoted to a 24-port even-group repair.",
+    "Extend fractional native-copy pricing; existing Smith and denominator work covers the immediate bounds."
+  ],
+  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007978",
+  "open_questions": [
+    {
+      "question": "Can a named larger repair yield fifteen even orthonormal groups?",
+      "why_it_matters": "That would give a rank-30 fitting upper bound and test the objective mismatch further.",
+      "first_step": "Fix a 32-port cut and verify any returned partition and complete scalar mask.",
+      "blocked_by": "a verified witness; the three-frame pilot timed out after at least 21 logged completed instances"
+    },
+    {
+      "question": "Can physical copying exploit the smaller query interface?",
+      "why_it_matters": "The complete-plane tariff is still 224.",
+      "first_step": "Specify a changed source/reader contract and price a full producer/consumer route.",
+      "blocked_by": "source access, frames, restoration, hosting and recursive cost"
+    }
+  ]
+}

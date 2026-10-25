@@ -1,0 +1,91 @@
+{
+  "status": "Scientific verification complete; publication byte/export checks recorded separately after public commit",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "initial_full_extended_generation": {
+    "status": "PASS",
+    "seconds": 96.949,
+    "command": "python3 -u verify.py --emit /tmp/precision-complete.json"
+  },
+  "independent_controls": {
+    "status": "PASS",
+    "normal_and_optimized": true,
+    "coverage": [
+      "dense scalar full fault matrix",
+      "Gauss-Jordan inverse prefixes",
+      "noncommuting 2x2 unitary oracle",
+      "all-cut fault envelope",
+      "source hash mutation",
+      "compensation omission",
+      "cleanup coefficient sign",
+      "dirty-buffer leakage",
+      "private-buffer return",
+      "protected emit targets"
+    ]
+  },
+  "main_checkpoint": {
+    "utc": "2026-10-19T08:05:10Z",
+    "commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "pr3945_head": "91f81d131252db704f945891da1ea54e29d46b8b"
+  },
+  "overlap": {
+    "open_pr_bodies": 690,
+    "pages": 7,
+    "utc": "2026-10-19T08:06:26Z",
+    "discussions": "partial live1166/3945 coverage; no novelty certificate"
+  },
+  "bounded_root_review": "Root separately read the proof and critical forward/backward/inverse-prefix code; no actionable mathematical issue found. This is a bounded same-team review, not independent human approval.",
+  "failed_setup_attempts": [
+    "Metadata checker was initially passed an absolute package path; corrected to repository-relative research/<slug>.",
+    "TASK.evidence was a list and outcome was descriptive prose; corrected to schema-compliant string and completed enum before validation."
+  ],
+  "unrun": [
+    "Physical native arithmetic/phase compiler replay",
+    "Actual recursive frame-conversion defect implementation",
+    "Exact borrowed-bit restoration after rounding",
+    "Full owner/stock/tape and selected-stage uniform admission",
+    "Lean/proof-kernel verification"
+  ],
+  "registered_replay": {
+    "utc": "2026-10-19T08:13:48.585703+00:00",
+    "seconds": 97.69,
+    "exit_code": 0,
+    "science_bytes_unchanged": true,
+    "science_sha256": {
+      "FROZEN-SOURCES.json": "df79202c0c5eef8b020a592c1eee78f3aec6518590d9b6d6721051703c95c754",
+      "RESULT.json": "5a524cb440e59d0a02d953d4d8f04b2441cfbbb736b39f77985eccc106f4a54f",
+      "VERIFY.json": "fc63d4afb369338a058e18e6a989296a8ddda06fd6cba3a6228b4ecaad70f094",
+      "inputs/WORD-base.json.gz": "08e6c96fbe3dfec96cb8451b3867ef8c1a214109ecd1e5af7fcc28e0f05728d0",
+      "inputs/WORD-extra.json.gz": "d83c2ec9cecc0ad092d34ea4080b28a4fd7199579356b6d5a8fc6cd53ff93299",
+      "inputs/old-WORD-base.json.gz": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "inputs/old-WORD-extra.json.gz": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e",
+      "test_controls.py": "e5258abc549e49072432738feec3d837f904105abe778fab9737b89ed1d4d83a",
+      "verify.py": "27a707b93730b73fbd90c7b6b8a9c3378a0b0344a95000b5bfe9248d24c0b05d"
+    },
+    "log": "registered-final.log",
+    "command": "python3 scripts/research_package.py --package research/staged544-internal-error-transfer"
+  },
+  "standalone_full_replay": {
+    "utc": "2026-10-19T08:11:29.318032+00:00",
+    "seconds": 83.766,
+    "science_exit": 0,
+    "controls_exit": 0,
+    "all_export_bytes_unchanged": true,
+    "files": 19,
+    "git_free": true,
+    "read_only_copy": true
+  },
+  "standalone_updated_controls": {
+    "utc": "2026-10-19T08:12:37.490971+00:00",
+    "seconds": 25.25,
+    "science_reused": "unchanged verify.py and RESULT.json; standalone full replay83.766s",
+    "science_exit": 0,
+    "controls_exit": 0,
+    "all_export_bytes_unchanged": true,
+    "files": 19,
+    "git_free": true,
+    "read_only_copy": true
+  },
+  "review_fix": "Production source-mutation control replaced a bare hash-predicate test; final97.690s registered run includes the actual source-corruption rejection and unchanged frozen scientific bytes."
+}

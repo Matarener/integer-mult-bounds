@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/NOTICE.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-pinned literal three-tape scan: complete mask, exact action/space invoice, all head returns/private cleanup and actual semantic/counter/ownership mutants."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-pinned literal three-tape scan: complete mask, exact action/space invoice, all head returns/private cleanup and actual semantic/counter/ownership mutants."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_guard_oracle.py",
+        "research/unconditional-batched-crt/check_batched_crt.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Preimplementation mathematical interval/source-good/linear_guard oracle, full padded domains, parity/spectator and threshold controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_guard_oracle.py",
+        "research/unconditional-batched-crt/check_batched_crt.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Preimplementation mathematical interval/source-good/linear_guard oracle, full padded domains, parity/spectator and threshold controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/cross_check.py",
+        "{package}",
+        "."
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned actual machine/source adapter against complete independent masks plus generic admitted interval boundary cases."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cross_check.py",
+        "{package}",
+        "."
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned actual machine/source adapter against complete independent masks plus generic admitted interval boundary cases."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/cost_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate generic finite-tape opcode/space invoice, finite-control guardrails and an underbilled READ cost fault with unchanged mask/ownership."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cost_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate generic finite-tape opcode/space invoice, finite-control guardrails and an underbilled READ cost fault with unchanged mask/ownership."
+    }
+  ]
+}

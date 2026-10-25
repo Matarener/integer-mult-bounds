@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-gaussian-tensor/inputs/expansion-export.tar.gz",
+    "research/physical-gaussian-tensor/inputs/headroom-source.tar",
+    "research/physical-gaussian-tensor/inputs/chirp-export.tar.gz",
+    "research/physical-gaussian-tensor/inputs/p48-catalogue-v2.tar.gz",
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "references/semantic-bulk/rad20/reports/downstream-microbox-resampling.md",
+    "references/semantic-bulk/rad20/reports/compact-arbitrary-source-routing.md",
+    "references/semantic-bulk/rad20/reports/whole-complex-concatenation.md",
+    "references/semantic-bulk/rad20/reports/bulk-resampling-tape-transfer.md",
+    "references/semantic-bulk/rad20/reports/review-bulk-resampling.md",
+    "references/semantic-bulk/rad20/LICENSE",
+    "references/semantic-bulk/rad20/NOTICE",
+    "references/semantic-bulk/rad20/SOURCE.json",
+    "upstream/build/sections/07-resampling.tex",
+    "upstream/build/sections/08-assembly.tex"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","sources"],"timeout_seconds":20,"checks":"Complete source exports, live input pins, actual shared factories, six source-binding controls and exact conditional cost/restoration arithmetic."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","mechanics"],"timeout_seconds":20,"checks":"Dense-support router batches, canonical gathers, unequal short fields, periodic seams and overlaps, source-core assembly, restoration and encoded production policy metadata."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","arithmetic_all"],"timeout_seconds":70,"checks":"Fixed digit boundaries and fused accumulators; saturating leaf admission; complete recursive/FFT words; setup products; exact division with prefix interruption; encoded roots and phase tables; guarded scalars; literal signed records and binary support; wider/alias fallbacks, cursor/allocation failures and complete import-scope restoration."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","catalogue"],"timeout_seconds":310,"checks":"Regenerate the actual original-axis p48/P80 coefficient catalogue and compare all113537 cells against the immutable consumer input; inspect both axis profiles and source/core bindings."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","consumer"],"timeout_seconds":390,"checks":"Complete forward49-to64-to49 physical tensor against the separate staged reference, including all four full-support gathers, final restoration, altered-axis and half-disk rejections, positive reuse and protected return."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","consumer_opposite"],"timeout_seconds":390,"checks":"Complete opposite-sign physical tensor with actual input/output conjugation against its separate staged reference and the same full ownership and admission controls."}
+  ]
+}

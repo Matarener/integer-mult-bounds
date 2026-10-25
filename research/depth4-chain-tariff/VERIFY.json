@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json",
+    "research/universal-connector-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Pareto witnesses with UT5 product and literal dirty replay; unbounded outer-free completeness for m = 3, 4; m = 2 lemma check; exact m = 5 balanced exclusion; direct DP versus claimed cone and exact engine; controls; source-hash receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Same checks under -O; every check uses explicit require(), not assert."
+    }
+  ]
+}

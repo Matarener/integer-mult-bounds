@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-rank34-copy-audit/PR3335-CERTIFICATE.json",
+    "research/paired-plane-rank34-copy-audit/README.md",
+    "research/paired-plane-rank34-copy-audit/TASK.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exhaustively reconstruct the signed-ternary support/inverse-map classes and every channel-triple invoice; compare the exact certificate and result receipts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete search with optimization enabled to ensure explicit checks, not Python assertions, enforce the certificate."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "{package}",
+        "-p",
+        "test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Check source authentication, the singular-matrix exclusion, exact rational basis preservation, and the wrong-inverse negative control."
+    }
+  ]
+}

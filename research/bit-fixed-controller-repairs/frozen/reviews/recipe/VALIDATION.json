@@ -1,0 +1,63 @@
+{
+  "checker_sha256": "50ef2041dc27c11189e0f4293cd30aed2ee372b1a6e928dbe6197e21ceab75de",
+  "command_path_aliases": "Input aliases refer to exact files and hashes in SOURCE-DEPENDENCIES.json. Output paths may be external.",
+  "commands": [
+    [
+      "python3.12",
+      "-I",
+      "-B",
+      "check.py",
+      "--recipe-source",
+      "GLOBAL_K.py",
+      "--historical-receipt",
+      "BIT-NILPOTENT-RECIPE.json",
+      "--output",
+      "CHECKS.json"
+    ],
+    [
+      "python3.12",
+      "-I",
+      "-O",
+      "-B",
+      "check.py",
+      "--recipe-source",
+      "GLOBAL_K.py",
+      "--historical-receipt",
+      "BIT-NILPOTENT-RECIPE.json",
+      "--output",
+      "CHECKS-OPTIMIZED.json"
+    ]
+  ],
+  "executions": [
+    {
+      "elapsed_seconds": 0.09675,
+      "exit_code": 0,
+      "optimization": false,
+      "stderr": "",
+      "stdout": "PASS_FIXED_RECIPE_ALL_B_PROOF_CERTIFICATES\nB=1..12; all historical B=1..6 cases; 72 arbitrary-input instantiations; 12 intended rejections\n"
+    },
+    {
+      "elapsed_seconds": 0.122042,
+      "exit_code": 0,
+      "optimization": true,
+      "stderr": "",
+      "stdout": "PASS_FIXED_RECIPE_ALL_B_PROOF_CERTIFICATES\nB=1..12; all historical B=1..6 cases; 72 arbitrary-input instantiations; 12 intended rejections\n"
+    }
+  ],
+  "exit_codes": [
+    0,
+    0
+  ],
+  "finite_B_cases": 12,
+  "formal_kernel_proof": false,
+  "full_input_instantiations": 72,
+  "historical_full_cases": 6,
+  "intended_negative_controls": 12,
+  "python": "CPython 3.12.14",
+  "receipt_bytes": 194305,
+  "receipt_sha256": "e829f99da71b9a6b1a533d7743cc249e15ab7f65a936c7b89800c24e4b9dc687",
+  "receipts_byte_identical": true,
+  "spectator_negative_control": "Actual B4 complete passing replay, N=[[0,1],[1,0]], one dirty spectator; mutate its target I to N and require literal dirty spectator restoration rejection.",
+  "status": "PASS_NORMAL_AND_OPTIMIZED_IDENTICAL_RECEIPTS",
+  "utc_recorded": "2026-10-20T12:26:14.707742+00:00"
+}

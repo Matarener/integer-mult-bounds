@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Under p >= max(64, 4K+2C) and 16 g ceil(log2 p) <= p, the approximant monomial g (10 p^2 + p^6 exp(-p^2))^{g-1} p^6 exp(Kp - p^2) is below 2^{-C p}; g = p^2 leaves that error above 1."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Frozen source hashes, independent exact box/anchor agreement, sharp rank-three rational fixture, affine-system truth checks and semantic hypothesis/witness controls. The analytic theorem is in PROOF.md and is not formally machine verified."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the same finite controls with Python isolation, optimization and warnings as errors; rejection and evidence checks remain active without assertions."
+    }
+  ]
+}

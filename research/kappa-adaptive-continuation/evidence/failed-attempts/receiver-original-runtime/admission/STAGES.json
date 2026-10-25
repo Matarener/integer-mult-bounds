@@ -1,0 +1,69 @@
+[
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/package/reconstruct.py",
+      "--out",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/owners"
+    ],
+    "exit_code": 0,
+    "log_sha256": "6c8a5070adedf6df85fca8803330f5e2780f29a7c05a92809d18c83fd61cd0cd",
+    "name": "owners",
+    "script_sha256": "5472811c24aef3852dc7e189dff5060076a6c0b25bfde928da50dcfe9b5bdc15",
+    "seconds": 34.778689498998574
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/package/lift_parent.py",
+      "--package",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/package",
+      "--owners",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/owners",
+      "--out",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/parent-data"
+    ],
+    "exit_code": 0,
+    "log_sha256": "2d738a7322c4303d36deb694e6d79b6b51bfe098642bf5cda8abc319f03d66ab",
+    "name": "parent-lift",
+    "script_sha256": "9a1edd7d4ab4a2f2ac8d15b42b7e40f93653d65026bac59e4c1ce80b486bd60e",
+    "seconds": 68.11946053000065
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/package/new/rebind.py",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/package",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/inputs/native-cache/1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e/local",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/inputs/native-cache/82d4c962e0b2c6790d361364b02b5b7c53790a80747e814800c85bec112db791/local",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/rebound"
+    ],
+    "exit_code": 0,
+    "log_sha256": "abcc577af261722e6880737ae62665fcf03fa9d5131ebbb58c293c47cdbbef84",
+    "name": "rebind",
+    "script_sha256": "52f8b4cec2dab69cbe590e1fd0f7a68e1b35de5a540bd22fd2adfce07a92b46b",
+    "seconds": 7.124736263998784
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/layout/packing74/replay.py",
+      "--data",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/layout/packing74/candidate",
+      "--work",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/discovery",
+      "--local",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/inputs/native-cache/1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e/local",
+      "--discover"
+    ],
+    "exit_code": 1,
+    "log_sha256": "1c0e292f5a0574f12f14cbf7b9c7928a13619556dfd3547a6caaa52801a54319",
+    "name": "discovery",
+    "script_sha256": "4f5c0926b70edb5aef3af0f8a8d9fa8119fa7af6603df1721c0dc31760b08254",
+    "seconds": 332.8440901799986
+  }
+]

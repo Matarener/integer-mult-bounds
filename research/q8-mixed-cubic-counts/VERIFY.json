@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact mixed cubic basis/table, independent matrix/action fixtures, subspace rank fixtures, full dirty endpoints and retained quadratic false-positive control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual arithmetic/action/table faults, rank hypotheses, exact-domain/capacity, source/receipt corruption and exclusive output under optimized Python."
+    }
+  ]
+}

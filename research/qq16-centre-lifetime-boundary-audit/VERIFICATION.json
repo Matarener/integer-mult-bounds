@@ -1,0 +1,46 @@
+{
+  "environment": {
+    "python": "3.12.3",
+    "system": "Linux",
+    "dependencies": "standard library only"
+  },
+  "observed": [
+    {
+      "command": "python3 -I -Werror -B research/qq16-centre-lifetime-boundary-audit/verify.py",
+      "result": "PASS; complete RESULT comparison"
+    },
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-centre-lifetime-boundary-audit/verify.py",
+      "result": "PASS; normal/optimized stdout byte-identical"
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-centre-lifetime-boundary-audit",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed; seven integrity/export test groups pass in 75.617 seconds"
+    },
+    {
+      "command": "python3 -B scripts/research_baseline.py",
+      "result": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY"
+    }
+  ],
+  "coverage": [
+    "All eight original centre lifetimes and canonical frames",
+    "Byte-identical regeneration of both corrected core words",
+    "Exact scalar replay on704 persistent plus8 arbitrary private columns",
+    "Eight reachable integer outer-bridge collisions",
+    "All128 missing recovery directions and complete suffix invoice",
+    "Independent outward rational budget intervals",
+    "Pre-execution source authentication and corrupt-source/word/typed-receipt rejection",
+    "Read-only Git-free exported replay"
+  ],
+  "reviews": "REVIEWS.json; three user-requested AI agents and cross-review; no independent human/formal review",
+  "publication_preflight": "Run scripts/check_research_commit.py with --check-source-history against the published exact head before opening PR; record outcome in PR/comment rather than a self-referential commit hash.",
+  "hosted_ci": "Not run at preparation time. Record actual run/head and result in the PR after publication.",
+  "not_run": [
+    "Selected cold replay",
+    "Full inherited native kernel/huge payload replay",
+    "Physical six-tape execution",
+    "All-depth precision and dirty-helper magnitude supplier proof",
+    "Lean/formal proof or independent human review"
+  ],
+  "limits": "No global supplier, new coverage/invocation ledger, centre retirement credit or new kappa."
+}

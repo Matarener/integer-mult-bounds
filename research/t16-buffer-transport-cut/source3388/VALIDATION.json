@@ -1,0 +1,34 @@
+{
+  "status": "PASS_LOCAL_FULL_ADMISSION",
+  "baseline_pr": 3381,
+  "baseline_commit": "ef1f7b1f9cb582767e448dc047b2359ded28076f",
+  "canonical_main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "candidate_canonical_sha256": "8e5940efdf9026ec41200e6dc7132e3736f2d63f84d5e4e24d82d8db03967f4e",
+  "commands": [
+    "python3 -B research/t16-buffer-concentration/verify.py --write",
+    "python3 scripts/research_package.py --package research/t16-buffer-concentration --check-only",
+    "python3 -B research/t16-buffer-concentration/test_verify.py",
+    "python3 -O -B research/t16-buffer-concentration/test_verify.py"
+  ],
+  "full_replay_stages_passed": 11,
+  "controls": {
+    "admission": 69,
+    "bit_supplier": 12,
+    "controller_mutations": 15,
+    "independent_t16": 6,
+    "owner": 11
+  },
+  "independent_reconstruction": "All sixteen explicit stages independently reconstructed and fully owner-audited. Final payload agrees; net paid delta -2H16+H32.",
+  "complete_typed_invoice": "All fields equal after checking and normalizing the actual permutation of 144 complete call records; only three source-binding hashes differ and are rebound to generated files.",
+  "actual_charts": 10017,
+  "prefix_bits": 397,
+  "charged_prefix_bits": 512,
+  "physical_row_coefficient": 16469,
+  "hosted_ci": "Not claimed; checks are local.",
+  "scope": "Conditional finite construction and inherited assumptions; no complete theorem or packing optimality claim.",
+  "behavioral_tests": {
+    "normal": 9,
+    "optimized": 9,
+    "actual_lift_negative_controls": 6
+  }
+}

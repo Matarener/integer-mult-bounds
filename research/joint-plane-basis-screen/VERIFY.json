@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Authenticates the two pinned sources; validates the complete plane matching; enumerates all invertible 4x4 binary encoders and support patterns; exactly prices all 1540 plane pairs; checks adjugate identities, independent row/column ranks, controls, and the full RESULT.json receipt. Expected output: PASS_JOINT_PLANE_BINARY_BASIS_SCREEN."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeats the exact replay with optimized Python so correctness does not depend on assert statements."
+    }
+  ]
+}

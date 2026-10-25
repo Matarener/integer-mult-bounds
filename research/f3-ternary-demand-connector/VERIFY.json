@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/universal-connector-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Source hash, exhaustive canonical fifteen-event census (max coverage 241), small-n canonical-reduction controls, six literal 744-call words by generic coefficients and dense F3 actions, five rejection controls and four tariff fixtures."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Repeat the complete census and certificate under optimized Python; checks use explicit exceptions, not assert."
+    }
+  ]
+}

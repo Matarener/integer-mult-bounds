@@ -1,0 +1,46 @@
+name: GL3 native RUP replay
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: research-archive-replay
+  cancel-in-progress: false
+
+jobs:
+  native-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Compile and replay the unchanged certificates with controls
+        run: python -I -B research/gl3-rup-native-replay/native_replay.py --output "$RUNNER_TEMP/gl3-rup-native"
+      - name: Compare all proof-relevant fields
+        run: python -I -B research/gl3-rup-native-replay/verify.py --native-receipt "$RUNNER_TEMP/gl3-rup-native/RESULT.json"
+      - name: Retain raw logs and full typed receipt even after failure
+        if: always()
+        run: |
+          python - "$RUNNER_TEMP/gl3-rup-native" <<'PY'
+          import base64, json, pathlib, sys
+          output = pathlib.Path(sys.argv[1])
+          logs = sorted(output.glob('*.log'))
+          if (output / 'RESULT.json').is_file():
+              evidence = {
+                  'receipt': json.loads((output / 'RESULT.json').read_bytes()),
+                  'logs_base64': {p.name: base64.b64encode(p.read_bytes()).decode() for p in logs},
+              }
+              print('NATIVE_EVIDENCE ' + json.dumps(evidence, sort_keys=True, separators=(',', ':')))
+          for path in logs:
+              print('\nRAW_LOG ' + path.name)
+              print(path.read_bytes().decode('utf-8', 'replace'))
+          PY
+      - name: Package files remain unchanged
+        run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain --untracked-files=all -- research/gl3-rup-native-replay)"

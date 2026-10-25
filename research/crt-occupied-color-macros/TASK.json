@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Replace the CRT.md section-4 switch-layer factor O(K) by the occupied-color count, and prove that count is at most the pinned layout batch cap r_max.",
+  "scope_change_reason": "The card asks for one quantified #4100 implication at its caller. This is the unblocked occupied-color price left by research/pr4100-guard-coloring, the still-open many-target macro tariff. It does not build a tape macro, replay the production census, or accept #4100.",
+  "bottleneck_link": "Side result under the retained #4100 transfer audit. A tighter color factor does not change the selected exponent; unknown tape and repair costs stay unknown.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the occupied-color inequality and the recomputed production ratios are checked. Do not rerun the 104864-plan census or write a many-target tape program.",
+  "outcome": "completed",
+  "evidence": "PROOF.md lemmas and verify.py: CRT.md and allocator hashes, section-4 sentences, 4096-subset residue census, production rows K=196608 with r_max=5 and r_max=4.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial Cursor Grok assistance for the proof, verifier, and package text. No independent human or formal-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can the section-5 ell^2 polylog p line be rewritten with r_max in place of the hidden K factor?",
+      "why_it_matters": "The layer sentence is tighter, but the aggregate still hides K, so a later numerical budget may keep the loose factor.",
+      "first_step": "Expand O(log d) levels times O(ell) layers times c <= r_max colors and compare with the written aggregate.",
+      "blocked_by": "Section 5 does not display K as a separate multiplier."
+    },
+    {
+      "question": "Does one same-color macro's repair bill stay inside the one-color O(V) when that color holds two targets?",
+      "why_it_matters": "Occupied-color pricing charges one macro for a collision; the repair term might still grow with the target count.",
+      "first_step": "Instantiate the bad-density line at r = 2 and K = 196608.",
+      "blocked_by": "The literal many-target tape macro is not pinned, and this question does not ask for it."
+    }
+  ]
+}

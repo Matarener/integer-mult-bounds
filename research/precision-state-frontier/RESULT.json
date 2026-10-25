@@ -1,0 +1,235 @@
+{
+  "histories": {
+    "budget_cases": 72,
+    "changing_frame_roundtrips": 3,
+    "eighteen_same_grid_rounds": {
+      "components": 1,
+      "large_input_range_required": true,
+      "minimum_history_states": 25576595330541451188765832638549849298314373520153608786670906139957572402372141367568937940553448343243684988004734396737936160930207489715389784190815069636161,
+      "minimum_packed_bits": 533,
+      "new_fractional_slots": 0,
+      "rounds": 18,
+      "scope": "Fixed known unimodular frames, bounded rounding residuals, all initial inputs recoverable. Refined/side-information bounds are necessary, not claimed attainable.",
+      "side_states": 1,
+      "status": "SHARP_SAME_GRID_HISTORY"
+    },
+    "stationary": [
+      {
+        "packed_bits": 30,
+        "rounds": 1,
+        "sufficient_input_bound": 24,
+        "zero_fiber_states": 815730721
+      },
+      {
+        "packed_bits": 60,
+        "rounds": 2,
+        "sufficient_input_bound": 336,
+        "zero_fiber_states": 665416609183179841
+      },
+      {
+        "packed_bits": 89,
+        "rounds": 3,
+        "sufficient_input_bound": 4392,
+        "zero_fiber_states": 542800770374370512771595361
+      },
+      {
+        "packed_bits": 119,
+        "rounds": 4,
+        "sufficient_input_bound": 57120,
+        "zero_fiber_states": 442779263776840698304313192148785281
+      },
+      {
+        "packed_bits": 149,
+        "rounds": 5,
+        "sufficient_input_bound": 742584,
+        "zero_fiber_states": 361188648084531445929920877641340156544317601
+      },
+      {
+        "packed_bits": 178,
+        "rounds": 6,
+        "sufficient_input_bound": 9653616,
+        "zero_fiber_states": 294632676319010105335586872991323185304149065116720321
+      }
+    ]
+  },
+  "noncommuting_volume_controls": [
+    {
+      "frames": [
+        0,
+        1
+      ],
+      "input_bound": 64,
+      "inputs": 16641,
+      "maximum_fiber_in_window": 60,
+      "unbounded_maximum": 64
+    },
+    {
+      "frames": [
+        0,
+        1
+      ],
+      "input_bound": 128,
+      "inputs": 66049,
+      "maximum_fiber_in_window": 64,
+      "unbounded_maximum": 64
+    },
+    {
+      "frames": [
+        0,
+        1,
+        0
+      ],
+      "input_bound": 256,
+      "inputs": 263169,
+      "maximum_fiber_in_window": 512,
+      "unbounded_maximum": 512
+    }
+  ],
+  "recovery": {
+    "attaining_fiber_roundtrips": 97,
+    "frontier": [
+      {
+        "attaining_input_bound": 24,
+        "fractional_slots_plus_tag": 30,
+        "maximum_fiber": 815730721,
+        "packed_bits": 30,
+        "relative_guard": 0,
+        "sampled_tags": 20
+      },
+      {
+        "attaining_input_bound": 12,
+        "fractional_slots_plus_tag": 138,
+        "maximum_fiber": 51008161,
+        "packed_bits": 26,
+        "relative_guard": 1,
+        "sampled_tags": 20
+      },
+      {
+        "attaining_input_bound": 6,
+        "fractional_slots_plus_tag": 243,
+        "maximum_fiber": 362401,
+        "packed_bits": 19,
+        "relative_guard": 2,
+        "sampled_tags": 20
+      },
+      {
+        "attaining_input_bound": 16,
+        "fractional_slots_plus_tag": 348,
+        "maximum_fiber": 4096,
+        "packed_bits": 12,
+        "relative_guard": 3,
+        "sampled_tags": 20
+      },
+      {
+        "attaining_input_bound": 14,
+        "fractional_slots_plus_tag": 452,
+        "maximum_fiber": 16,
+        "packed_bits": 4,
+        "relative_guard": 4,
+        "sampled_tags": 16
+      },
+      {
+        "attaining_input_bound": 0,
+        "fractional_slots_plus_tag": 560,
+        "maximum_fiber": 1,
+        "packed_bits": 0,
+        "relative_guard": 5,
+        "sampled_tags": 1
+      }
+    ],
+    "other_input_roundtrips": 36
+  },
+  "rejections": [
+    "wrong-source",
+    "wrong-fiber",
+    "wrong-bound",
+    "wrong-bits",
+    "negative-tag",
+    "out-of-fiber-tag",
+    "boolean-guard",
+    "float-output",
+    "missing-owner",
+    "absolute-guard-is-not-relative-refinement"
+  ],
+  "scalar_intervals": 321,
+  "source_facts": {
+    "binary_codewords": [
+      0,
+      15,
+      51,
+      60,
+      85,
+      90,
+      102,
+      105,
+      150,
+      153,
+      165,
+      170,
+      195,
+      204,
+      240,
+      255
+    ],
+    "coset_enumerator_cases": 1280,
+    "dyadic_congruence_cases": 2016,
+    "gram_entries": 64,
+    "two_unit_witnesses": [
+      [
+        0,
+        1,
+        92,
+        -1
+      ],
+      [
+        0,
+        1,
+        87,
+        -1
+      ],
+      [
+        0,
+        1,
+        81,
+        1
+      ],
+      [
+        0,
+        1,
+        76,
+        -1
+      ],
+      [
+        1,
+        1,
+        75,
+        -1
+      ],
+      [
+        1,
+        1,
+        82,
+        -1
+      ],
+      [
+        2,
+        1,
+        89,
+        -1
+      ],
+      [
+        4,
+        1,
+        5,
+        -1
+      ]
+    ],
+    "weight_enumerator": {
+      "0": 1,
+      "4": 14,
+      "8": 1
+    }
+  },
+  "status": "PASS_PRECISION_STATE_FRONTIER",
+  "unchanged_kernel_calls": 24
+}

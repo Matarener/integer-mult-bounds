@@ -1,0 +1,62 @@
+Independent principal-Schur majorant oracle
+
+Source read: Jose Manuel (jmbarrancoml), completed PR4205 recursive head
+203d04313c0cb2b4a4663a5a2d4d407e5a5b6d20, TRIANGLE-PROOF.md. Its parity
+factorization/recursion and Schur-descendant lineage credit Vlado Vojdanovski
+PR1673; its phase lineage credits Chafik Boukhalfa PR628, and later caller
+context credits Cinna Davis. No new primary implementation was read/imported
+before this oracle and receipt were frozen. Substantial OpenAI Codex assistance;
+Apache-2.0 repository contribution.
+
+New candidate statement corroborated here: for A=I+H, a nonnegative entry
+majorant P with every row and column sum <=rho<1 retains that SAME bound
+after arbitrary principal restriction and principal Schur elimination.
+An entry majorant may dominate either complex modulus or
+mu(z)=abs(Re z)+abs(Im z), with the corresponding output interpretation.
+This sharpens the predecessor's loose rho+rho^2/(1-rho) bound, which is 1
+at rho=1/2. It does not change a precision allocation automatically.
+
+Written argument, separate from the finite computation: put B=retained,
+E=eliminated after first dropping other indices. The entry majorant is
+Q=P_BB+P_BE(I-P_EE)^(-1)P_EB. The inverse is nonnegative by the convergent
+Neumann series. Since P_EB*1 <= rho*1-P_EE*1,
+(I-P_EE)^(-1)P_EB*1 <= 1-(1-rho)(I-P_EE)^(-1)*1 <= rho*1.
+Consequently Q*1 <= P_BB*1+rho*P_BE*1 <= rho*1. Transpose the argument for
+columns. Each side separately needs its corresponding original budget;
+neither side alone implies the other. Entrywise majorization of the true
+Schur correction follows from submultiplicativity and the inverse's
+Neumann series. Gaussian component norm mu and complex modulus both have
+the needed triangle/product inequalities. Principal restrictions reduce
+nonnegative row/column budgets. Iterated restrictions/eliminations retain
+the original eliminated set in the principal-Schur description.
+
+Independent method: each complex Schur entry is the ratio of its bordered
+minor determinant to the eliminated principal determinant. There is no
+Gaussian-elimination routine or primary-source import. Fractions and pairs
+of Fractions are exact; no floating comparisons are used. Majorant Q is
+computed independently as I minus the corresponding bordered-minor Schur
+complement of I-P. All 2401 two-by-two matrices over seven small Gaussian
+rationals are checked, plus 36 bounded dense matrices of dimension3/4 and
+four lower triangular Toeplitz dimension4 matrices. Every retained,
+eliminated and dropped partition is included. Selected dense cases explore
+all one-index elimination/drop histories until one index remains.
+
+Controls: a row-only rho=3/4 three-by-three input gives a Schur correction
+with maximum column sum9/8; transpose gives the opposite one-sided failure.
+rho=1 admits a singular eliminated block. A nonprincipal submatrix of I2
+can be [0], violating near-identity conclusions. A wrong Schur correction
+sign fails the exact block-of-inverse identity although both signs satisfy
+the norm bound; the finite checker does not pretend that norm testing
+alone detects this fault. Diagonal examples with nonempty elimination
+attain rho exactly, proving no smaller uniform scalar bound is possible.
+
+Finite evidence is not a formal-kernel proof of the arbitrary-size lemma.
+The four Toeplitz examples are generic exact matrices, not a fresh replay
+of the predecessor's triangle_plan, phase compiler or rounded precision
+argument. Full bounded-generator/caller composition, tape delivery, setup,
+online/offline coefficient widths and multiplication/outer theorems remain
+outside this oracle. No new kappa or physical speedup is claimed.
+
+Replay: python3 -I -B oracle.py --output ORACLE.json
+Strict replay: python3 -I -O -W error -B oracle.py --output ORACLE-O.json
+API for crosscheck: matrix_cases(), G, mu(), schur(), principal(), determinant().

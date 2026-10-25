@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py",
+        "--json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact positive and negative algebra tables, independent transporter products, recovered-unit and hidden-generator charts, normalization and malformed-input controls, and witness mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "-O",
+        "{package}/verify.py",
+        "--json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact positive and negative algebra tables, independent transporter products, recovered-unit and hidden-generator charts, normalization and malformed-input controls, and witness mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/check_exhaustive.py",
+        "--json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent finite-span/bitset census of 525 tiny tables and complete unit-fixing positive GL4 target orbits (392 distinct tables)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "-O",
+        "{package}/check_exhaustive.py",
+        "--json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent finite-span/bitset census of 525 tiny tables and complete unit-fixing positive GL4 target orbits (392 distinct tables)."
+    }
+  ]
+}

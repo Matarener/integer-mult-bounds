@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/deferred-helper-sum/source4096/LICENSE",
+    "research/deferred-helper-sum/source4096/PROOF.md",
+    "research/deferred-helper-sum/source4096/README.md",
+    "research/deferred-helper-sum/source4096/RESULT.json",
+    "research/deferred-helper-sum/source4096/SOURCE-EXPORT.json",
+    "research/deferred-helper-sum/source4096/SOURCES.json",
+    "research/deferred-helper-sum/source4096/TASK.json",
+    "research/deferred-helper-sum/source4096/VERIFY.json",
+    "research/deferred-helper-sum/source4096/paired/PROOF.md",
+    "research/deferred-helper-sum/source4096/paired/RESULT.json",
+    "research/deferred-helper-sum/source4096/paired/verify.py",
+    "research/deferred-helper-sum/source4096/release/PROOF.md",
+    "research/deferred-helper-sum/source4096/release/RESULT.json",
+    "research/deferred-helper-sum/source4096/release/check.py",
+    "research/deferred-helper-sum/source4096/source4076/NOTICE.md",
+    "research/deferred-helper-sum/source4096/source4076/PROOF.md",
+    "research/deferred-helper-sum/source4096/source4076/inputs/NEW-base.json.gz",
+    "research/deferred-helper-sum/source4096/source4076/inputs/NEW-extra.json.gz",
+    "research/deferred-helper-sum/source4096/source4076/inputs/OLD-base.json.gz",
+    "research/deferred-helper-sum/source4096/source4076/inputs/OLD-extra.json.gz",
+    "research/deferred-helper-sum/source4096/source4076/recipe/ENTRIES.json",
+    "research/deferred-helper-sum/source4096/source4076/vendor/audit_core.py",
+    "research/deferred-helper-sum/SOURCE-EXPORT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-Werror",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Both exact723-input provider maps including91dirty buffers; forward, inverse-transpose, reverse pullback, boundary and regenerated cleanup; same paid chains/profile and persistent frame rejection;11defect controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-Werror",
+        "-I",
+        "-B",
+        "{package}/independent/check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately implemented current-state and frame witnesses, pair-chart/temporal scope controls; no primary/accountant import."
+    }
+  ]
+}

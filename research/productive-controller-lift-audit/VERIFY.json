@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.2.6"
+  ],
+  "inputs": [
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "A: #4359 cover covariance exact over Z/q^w with controls. B: #4440 p17/p16 controller words on lifted operators f=1..3, literal query shears, controls incl. [D0,Q] != 0. C: #4447 native word on physical frames, both orientations, f=1..3, controls. D: four new transports as dense matrices, ranks and absolute phases, Q^-1 identities. E: frame screen with positive control. RESULT.json compared byte for byte."
+    }
+  ]
+}

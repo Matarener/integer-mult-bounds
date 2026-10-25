@@ -1,0 +1,44 @@
+{
+  "status": "author_checked_and_independent_AI_cross_reviewed",
+  "utc": "2026-10-19T08:57:33Z",
+  "python": "3.12.3",
+  "canonical_base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "priority_revision": 6,
+  "last_shared_checkpoint_utc": "2026-10-19T08:47:40Z",
+  "checks": [
+    {
+      "command": "python3 -I -Werror -B research/qq16-dirty-commutator/verify.py",
+      "result": "PASS full976/352word and complete typed receipt; run within registered replay"
+    },
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-dirty-commutator/verify.py",
+      "result": "PASS; measured184.85s and546784KB before EOF-only normalization"
+    },
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-dirty-commutator/test_verify.py",
+      "result": "PASS2boundarygroups in199.693s within registered replay; includes normal and optimized Git-free read-only export, manifest/source/data/word/typed receipt controls and generation refusal"
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-dirty-commutator",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE outcome=negative-result"
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-dirty-commutator --check-only",
+      "result": "PASS_PACKAGE_METADATA_AND_PINS"
+    },
+    {
+      "check": "EOF/trailing-whitespace preflight before commit",
+      "result": "PASS; extra replay.py EOF blank lines removed with parsed AST equality"
+    }
+  ],
+  "science_controls": "Six literal failure controls and114688 signed-recipe columns; all new976/352 native occurrences bound to source recipes. Nine independent auxiliary dirt symbols restored in each full replay.",
+  "unrun": [
+    "Actual borrowed F16 bank placement/allocation",
+    "Physical tape routing/address/movement tariffs",
+    "Dirty magnitude and rounded-cancellation error bounds",
+    "Full recursive or supplier admission",
+    "Selected supplier cold replay",
+    "Human or proof-kernel review"
+  ],
+  "publication": "Exact published bytes/source ancestry and hostedCI are reported externally after commit creation; no self-referential head in this record."
+}

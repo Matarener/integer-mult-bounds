@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Conditional universal P112 commoncut34 theorem for three arbitrary residual binary-support ranks5,6,6 over every characteristic-zero field.",
+  "scope_change_reason": "Explicit PR3325 open question; equality refines the union82 singleton bound, with PR3324 concentration14. Narrow geometric side result, not decoder synthesis or the5% supplier gate.",
+  "bottleneck_link": "Support-code contract relevant to P112 decoder/caller bounds; no physical supplier profile or kappa improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after this one commoncut34 implication, exact new checks and publication; no additional construction round.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, RESULT.json, independent.py and optimized behavioral/source controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Substantial AI assistance in drafting and computational checks; no independent human or proof-kernel review is claimed.",
+  "open_questions": [
+    {
+      "question": "Does commoncut35 hold for arbitrary residual support ranks5,6,6?",
+      "why_it_matters": "Would strengthen this exact geometric shortening contract without assuming a caller.",
+      "first_step": "Resolve the E6 equality86 and all D6 branches at the new retained-site budgets; use literal support/coefficient realization for any counterexample.",
+      "blocked_by": "This strict-incidence proof has no E6 margin at35 and does not establish sharpness."
+    },
+    {
+      "question": "Which current literal caller needs exactly the commoncut34 contract?",
+      "why_it_matters": "A theorem about arbitrary residual pieces does not itself exclude a caller or yield a paid supplier.",
+      "first_step": "Pin one caller and check its actual support ranks, single common cut and surviving code dimension.",
+      "blocked_by": "No current caller binding or complete physical invoice is supplied here."
+    }
+  ]
+}

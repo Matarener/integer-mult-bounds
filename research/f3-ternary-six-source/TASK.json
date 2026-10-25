@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact unsigned F3 six-source complete-call optimum for all 728 nonzero ternary coefficient rows with one arbitrarily dirty restored connector (2208 calls), and a source-deletion averaging lower bound on extra call triples for every n >= 6.",
+  "scope_change_reason": "Takes the six-source open question of PR4238 in the same unchanged F3 alphabet. Increasing the source count without changing the alphabet is a changed assignment under the card's trigger; this is a local interface side result, not an alphabet extension or supplier admission.",
+  "bottleneck_link": "Side result. It closes the source count PR4238 left undecided and shows the gap above the operator-count floor grows (one extra triple at n = 5, two at n = 6, at least three at n = 7). No consumer or recursive saving is established.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the deletion-averaging lower bound, one literal 2208-call witness with semantic checks and bounded controls. No census, exact n >= 7 value, price envelope or selected-frontier change.",
+  "outcome": "completed",
+  "evidence": "verify.py checks the 24-event witness path covers all 728 nonzero rows by boundary triple sums, checks the literal 2208-call word by a generic coefficient ledger and dense random F3 execution at dimensions 2 and 3 with dirty registers, checks that all six source deletions of the literal word are valid five-source words with extras [1,1,2,2,2,2], prints the extra-triple lower-bound table for n = 5..12 from the averaging recurrence and the counting bound, and runs five rejection controls. The lower bound uses PR4238's cited five-source census value e(5) = 1, which is not re-run here.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the exact seven-source optimum? The lower bound is 6588 calls (three extra triples).",
+      "why_it_matters": "It tests whether the averaging recurrence is sharp beyond n = 6.",
+      "first_step": "Search 30-event paths with three sources used six times for full coverage of the 2186 nonzero rows; a bounded annealing run reached 1952.",
+      "blocked_by": "No witness at the lower bound is known; proving a larger bound would need a new argument or a large census."
+    },
+    {
+      "question": "Is the averaging recurrence sharp at n = 8, where it ties the counting bound at four extra triples?",
+      "why_it_matters": "Both bounds agree there, so one witness would settle n = 8 exactly.",
+      "first_step": "Search 36-event paths with four doubled sources for full coverage of 6560 rows.",
+      "blocked_by": "Not attempted."
+    },
+    {
+      "question": "Does any concrete caller need full ternary rather than binary demand?",
+      "why_it_matters": "Without a consumer the extra calls are an interface fact, not a cost change.",
+      "first_step": "Identify an immutable-source, unobserved-output caller whose outputs use coefficient 2.",
+      "blocked_by": "No physical or selected-supplier consumer is instantiated."
+    }
+  ],
+  "predecessor_handoff": {
+    "pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/4238",
+    "head": "191a905d7adba6695b079f744140a73e832787a8",
+    "author": "Nick Petalas",
+    "usage": "Interface, triple-prefix readout criterion, five-source census value e(5) = 1 and the explicit six-source open question; cited, not re-run, and no executable dependency."
+  },
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19081265",
+    "upstream_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "overlap_scope": "100 live open PR titles; 60 recent account PRs; recent hub comments; find_overlap for connector-alphabet-change; title search for ternary; README grep on main. Closed work and arbitrary diffs are incompletely covered.",
+    "family_decision": "Narrow local interface result; stop. Consumer, complete primitive prices and admission remain unknown."
+  }
+}

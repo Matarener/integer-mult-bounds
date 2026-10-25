@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 360,
+      "checks": "26570provider/hyperplane pairs,2551pattern tariff, ten literal dirty witnesses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Positive dirty witness and four rejecting controls, two actual optimized CLI mutations."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "status": "PASS_READ_ONLY_GIT_FREE_NATIVE_JOIN_EXPORT",
+  "python": "Python 3.12.14",
+  "files": 14,
+  "empty_path": true,
+  "all_hashes_unchanged": true,
+  "checks": [
+    {
+      "optimized": false,
+      "exit_code": 0,
+      "seconds": 236.686,
+      "stdout": "PASS_BALANCED_J_ACTUAL_NATIVE_WORD_JOIN {\"controls\": 6, \"native_events\": 21473, \"original_columns\": 632, \"owned_zero_returns\": 9}",
+      "stderr": ""
+    },
+    {
+      "optimized": true,
+      "exit_code": 0,
+      "seconds": 215.817,
+      "stdout": "PASS_BALANCED_J_ACTUAL_NATIVE_WORD_JOIN {\"controls\": 6, \"native_events\": 21473, \"original_columns\": 632, \"owned_zero_returns\": 9}",
+      "stderr": ""
+    }
+  ],
+  "source_mutation": {
+    "mutation": "changed_Clifford_source_before_import",
+    "exit_code": 1,
+    "seconds": 0.051,
+    "stderr": "Traceback (most recent call last):\n  File \"/tmp/balanced-j-export-4fnp_u54/research/balanced-j-native-word-join/verify.py\", line 500, in <module>\n    main()\n  File \"/tmp/balanced-j-export-4fnp_u54/research/balanced-j-native-word-join/verify.py\", line 476, in main\n    payloads=authenticate()\n             ^^^^^^^^^^^^^^\n  File \"/tmp/balanced-j-export-4fnp_u54/research/balanced-j-native-word-join/verify.py\", line 33, in authenticate\n    need(sha256(raw).hexdigest() == record['sha256'],\n  File \"/tmp/balanced-j-export-4fnp_u54/research/balanced-j-native-word-join/verify.py\", line 53, in need\n    raise ValueError(message)\nValueError: Changed live input: research/coded-native-caller/clifford_exact.py\n",
+    "result": "REJECT_CHANGED_LIVE_INPUT_BEFORE_IMPORT"
+  },
+  "file_sha256": {
+    "research/balanced-j-native-word-join/PROOF.md": "53745a57034a358bcfdfd40fa38bc202a5f2dfd422ff2c6e6c90d8de0ce252e5",
+    "research/balanced-j-native-word-join/README.md": "34a14ad76ec9cbfbf96fa9a60f95c38d0f21ffeaba86480a091c57916d89b2fc",
+    "research/balanced-j-native-word-join/RESULT.json": "3b02a1944a470c7c17c4f40ffcd298b326818909c5d8af77775ed819364a0e21",
+    "research/balanced-j-native-word-join/SOURCES.json": "0978debeedc4f22816211dd3aebebff1fb6f9010827b19668b4a6e8d4dd873ca",
+    "research/balanced-j-native-word-join/TASK.json": "2b1c1dde86c9fd42cf9b2e4b9469a20c1d1db4a585b715554b8cebf5976f64fe",
+    "research/balanced-j-native-word-join/VERIFY.json": "df031eca870047d33cacf8833616bfdf0b9296190adb204042b499b59ef9c5df",
+    "research/balanced-j-native-word-join/verify.py": "aa74e3634d7173694931b86669a5e28ab728080abbc91d0ba7ad8b9011c2c938",
+    "research/coded-native-caller/NORMALIZERS.json": "ae8aad06aa5d1811d725895b3ab5a4f4daa9dcdd88294aa0d5f723e78bb1e0da",
+    "research/coded-native-caller/clifford_exact.py": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+    "research/global120-optimistic-budget/science/inputs/10-BALANCED-J-NATIVE-v1.json": "7f26477b561114e1189d1ac7e00fd5cf5b1aea4881433619c931c12c01eb1ffd",
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz": "7679daa4ec6a40f56fc7f0202379a6f454310e94945aba4f48beaaaafb838d05",
+    "research/native-rank8-helper-provider/PROVIDER.json": "676de7551d3364598f4a7e29ae97cae0e4364348786bbe70435b84294ba7dd65",
+    "research/native-rank8-helper-provider/WITNESS.json": "24599011da06325e1012619b2b84a4dd3aceb90ab42d3caaf6414879e7d16591",
+    "research/native-rank8-helper-provider/WORD.json.gz": "7dc356001ed597ad6fc9fd3e0bc6ff7e3ec3a580a579a956827aa17fccfdd2dc"
+  }
+}

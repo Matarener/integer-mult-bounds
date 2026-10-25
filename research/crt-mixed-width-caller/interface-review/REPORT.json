@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "PASS_INDEPENDENT_MIXED_WIDTH_CALLER_PROOF_INTERFACE_REVIEW",
+  "reviewer": "Independent OpenAI Codex; not human or formal-kernel review",
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "scope": "Declared mixed-width balanced CRT semantic caller, local row/idle decoder and all-padded-state inverse",
+  "source_files": [
+    {
+      "path": "research/unconditional-batched-crt/CRT.md",
+      "sha256": "02c3a1e38cbee25aefe2640cc72676da62ba10eb7519fbcb9adb9d48b74eff2b"
+    },
+    {
+      "path": "research/unconditional-batched-crt/check_batched_crt.py",
+      "sha256": "681e2e3d71fa74c8b9b326f3860104fd9d89590a222e26ae6ee718d1fd40ff2e"
+    }
+  ],
+  "review_files": [
+    {
+      "path": "INDEPENDENT-INTERFACE-REVIEW.md",
+      "sha256": "5f9fe0dc860b5d9f9eecc280f8f8d571fe3a0d5d30b375732536bff9db0844cd"
+    },
+    {
+      "path": "COUNTEREXAMPLES.json",
+      "sha256": "6cd7a1d031680842a07b21afb29aa450c7f6d8d3635e2c45f3944ae4e8d3c1e3"
+    }
+  ],
+  "quantified_domain": [
+    "d=2^m, m>=0",
+    "h_i in {ell-1,ell}, h_i>=1",
+    "2<=s_i<2^h_i, pairwise coprime",
+    "Every state in product_i [0,2^h_i)"
+  ],
+  "material_interface_requirements": [
+    "Declared-width compilation, not source compiled helper minimal widths",
+    "Idle rows carry no phantom target bit or table query",
+    "Left-half controls remain unchanged for the whole tree level",
+    "Reverse whole padded row order and tree level order for exact inverse",
+    "Do not gate micro-switches by current target validity"
+  ],
+  "counterexamples_checked": [
+    "N4,s3,c1,x1 trace1,1,3,2 disproves micro-switch validity invariance",
+    "Widths2,2 moduli3,2 state1,2: source compiled helper raises IndexError; direct endpoint1,2"
+  ],
+  "primary_implementation_reviewed": true,
+  "remaining_obligations": [
+    "Production physical placement and borrowed-field restoration",
+    "Full numerical evaluator and tape/bit tariff",
+    "Compact repair and ordinary-callee execution",
+    "Precision/native/outer multiplication theorem",
+    "Independent human or formal-kernel acceptance"
+  ],
+  "credit": [
+    "Cinna Davis: balanced factorization, modular rotations and Bene\u0161 source",
+    "PR4169 and PR4174: existing omission, allocator and inverse work"
+  ],
+  "primary_review_mode": "Read-only mathematical and interface inspection; no edits and no independently implemented caller supplied by this reviewer",
+  "primary_files_reviewed": [
+    {
+      "path": "research/crt-mixed-width-caller/verify.py",
+      "sha256": "5e62787f3c4a8f1175ca7dea6c6b8ceff7863a3f879abd6245faf6aeb272fd45"
+    },
+    {
+      "path": "research/crt-mixed-width-caller/PROOF.md",
+      "sha256": "ded150e3ab4da3561ac8623fd7d0041deb6f31dbf7b49a04dc19e0ba959c58d9"
+    },
+    {
+      "path": "research/crt-mixed-width-caller/README.md",
+      "sha256": "c5126d2e1f381fe5a34b8e3350799ac4c3a58fe2def590b12ad4354da7b01ebf"
+    },
+    {
+      "path": "research/crt-mixed-width-caller/RESULT.json",
+      "sha256": "2ba6f2e1661d8d9af0861eaf903bc596acd9bf0912b090389b1bc6d1f9898dd0"
+    },
+    {
+      "path": "research/crt-mixed-width-caller/SOURCE-PINS.json",
+      "sha256": "e8e5c7320fb0bd1494e063eaa5aaf5f2f08562b80b72750081ea5a409eea5b1e"
+    }
+  ],
+  "primary_embedding_checked": "Short axes idle at global ell-1 and ell; local g before, g-2 after; supplied ell preserved on all-short inputs",
+  "material_findings_remaining": [],
+  "stored_primary_evidence_read_only": {
+    "marker": "PASS_EXPLICIT_WIDTH_SYNCHRONIZED_CRT_CALLER",
+    "fixtures": 3,
+    "padded_states": 16480,
+    "scope": "Stored receipt inspected; its replay is separately owned by the coordinating agent/oracle reviewer"
+  }
+}

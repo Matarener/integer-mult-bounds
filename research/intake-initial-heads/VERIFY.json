@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/pr-ledger.json",
+    "docs/research/pr-intake-decisions.json",
+    "docs/research/pr-intake-evidence/queue-next-20261017.json",
+    "docs/research/pr-intake-evidence/queue-tail-20261017.json",
+    "docs/research/pr-intake-evidence/queue-refresh-20261017.json",
+    "docs/research/pr-intake-evidence/queue-oct18-20261018.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the three retained starting heads against their receipts."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the three intake numbers are distinct."
+    }
+  ]
+}

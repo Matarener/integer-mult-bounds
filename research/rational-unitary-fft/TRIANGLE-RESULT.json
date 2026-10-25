@@ -1,0 +1,3210 @@
+{
+  "schema_version": 1,
+  "scope": "retained parity recursion and inverse on one data grid",
+  "sources": [
+    {
+      "path": "research/unconditional-batched-crt/GAUSSIAN.md",
+      "sha256": "2f63c91c58f2d1cf31294812c75970ea390c61866a8da7ed700d4316a033a242"
+    },
+    {
+      "path": "research/unconditional-batched-crt/vendor/SHALLOW-TOEPLITZ.md",
+      "sha256": "b384b93f3fb4a8c97da2e617ebc14d55cebb0a739070e7f8dbb66f63e24e9310"
+    },
+    {
+      "path": "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py",
+      "sha256": "06d1861bfe8af543908e26557ffda7e451ff176bceb9bacfaf0f04f234b336d5"
+    },
+    {
+      "path": "research/cubic-cyclic-inverse/vendor/PR628-PROOF.md",
+      "sha256": "595893609764c64a90d9b21b9cbd6d9e61980703f3deb43361105cf8c3d1d093"
+    },
+    {
+      "path": "research/cubic-cyclic-inverse/vendor/PR628-NOTICE.md",
+      "sha256": "abeacf1ad1491d5797cfcf1f3832799bbf3b24b99597229d7bc884059a51ec68"
+    },
+    {
+      "path": "research/cubic-cyclic-inverse/vendor/interval_kernel.py",
+      "sha256": "9b7bb24640a9a7d3f83c7951dfef483ec933db4c50de6c0130b85f450eeddfbe"
+    },
+    {
+      "path": "research/cubic-cyclic-inverse/vendor/check.py",
+      "sha256": "a3e46b556894d71a1c83bbbac01c50c1a541285fc9422a3567d5eb1d1ee86e7d"
+    },
+    {
+      "path": "research/physical-ring-product/README.md",
+      "sha256": "dc4769ad9d7f3179659e28dc02bacc2822931a9bb8daaf9ad67cd935c1bb7094"
+    }
+  ],
+  "cases": [
+    {
+      "label": "complex-rational",
+      "n": 1,
+      "indices": [
+        0
+      ],
+      "symbol": [
+        [
+          "4/5",
+          "1/35"
+        ]
+      ],
+      "budget": {
+        "n": 1,
+        "radius": "4096",
+        "target_bits": 20,
+        "incoming_bits": 33,
+        "ideal_bound": 100,
+        "macro_layers": 1,
+        "layer_bound": 1,
+        "gate_bound": 1,
+        "leaf_bits": 54,
+        "phase_bits": 60,
+        "multiplier_bits": 56,
+        "data_bits": 33,
+        "epsilon": "1/18014398509481984",
+        "theta": "625/1125899906842624",
+        "coefficient_error": "15625/140737488355328",
+        "rounding_error": "25/67108864",
+        "total_error": "28425/34359738368",
+        "physical_prefix_suffix_bound": 3200,
+        "segment_bound": 10240000,
+        "amplitude_bound": "6871947674225/524288",
+        "integer_bits": 26,
+        "coefficient_height_bound": 264,
+        "temporary_bits": 2262
+      },
+      "partitions": [
+        [
+          0,
+          1,
+          [
+            [
+              0
+            ]
+          ]
+        ]
+      ],
+      "layers": 1,
+      "gates": 1,
+      "children": 0,
+      "leaves": 1,
+      "triangle_nodes": 1,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "a503b808922403f5eff9ae69a272989277fa703c2cd3711e2d11609085829bd0",
+      "inverse_sha256": "7e8dba597f3ecc05707af1f72fac5f624848922b23b2698f936b7808577ab7a3",
+      "max_coefficient_height": 108,
+      "forward_frobenius_squared_upper": "312494668021627/1461501637330902918203684832716283019655932542976",
+      "inverse_frobenius_squared_upper": "760983912045037/1461501637330902918203684832716283019655932542976",
+      "rounded_roundtrip_squared_upper": "0",
+      "rounded_roundtrip_bound": "14200412575496735825/4835703278458516698824704",
+      "roundtrip_width": {
+        "radius": "281474976739081/34359738368",
+        "integer_bits": 27,
+        "temporary_bits": 2264,
+        "statistics": {
+          "max_observed_height": 108,
+          "max_grid_numerator_bits": 32,
+          "max_reduced_fractional_bits": 2,
+          "rounded_outputs": 1
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "ff0c976836c46ef72bdea0afd5eb912b659bb9507546b1da17bc821efafd7e1a",
+          "output_sha256": "80dbe13ed238f332fd9381a255e66aa1ea8daa30e4c6f2c5b018e9284850df62",
+          "coefficient_squared_upper": "2441364593919/91343852333181432387730302044767688728495783936",
+          "rounding_squared_upper": "2441365381421/2596148429267413814265248164610048",
+          "total_squared_upper": "171795760553889507537021321/182687704666362864775460604089535377456991567872",
+          "statistics": {
+            "max_observed_height": 57,
+            "max_grid_numerator_bits": 31,
+            "max_reduced_fractional_bits": 33,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "cc78217a9f2f3a43425f2ddc7632d4af55c4b13b90653748592530ce59c0ed3a",
+          "output_sha256": "c62b5b848caf56b52a9fadd4e127b07970bd3058353c20bb1a320f4fd48ceaab",
+          "coefficient_squared_upper": "5242790544247116318879/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "78125/19342813113834066795298816",
+          "total_squared_upper": "2950844828337396247106483865/730750818665451459101842416358141509827966271488",
+          "statistics": {
+            "max_observed_height": 54,
+            "max_grid_numerator_bits": 45,
+            "max_reduced_fractional_bits": 33,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "672cee31eecc12d1ebabd53cd90b0d9cc56c5013088d7175a19e377f2b27b510",
+          "output_sha256": "672cee31eecc12d1ebabd53cd90b0d9cc56c5013088d7175a19e377f2b27b510",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "3233802551602626419152909175/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "404225318950328253028285461/182687704666362864775460604089535377456991567872",
+          "statistics": {
+            "max_observed_height": 87,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 32,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "ff0c976836c46ef72bdea0afd5eb912b659bb9507546b1da17bc821efafd7e1a",
+          "output_sha256": "2724bfc541410ae4b2f7f3b9adf53f8381c25e1f1a5e2c660ed5eba7ef3cc089",
+          "coefficient_squared_upper": "47561494502815/730750818665451459101842416358141509827966271488",
+          "rounding_squared_upper": "7317249653475157565475088597/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "3658625339034499665943908535/730750818665451459101842416358141509827966271488",
+          "statistics": {
+            "max_observed_height": 108,
+            "max_grid_numerator_bits": 32,
+            "max_reduced_fractional_bits": 33,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "cc78217a9f2f3a43425f2ddc7632d4af55c4b13b90653748592530ce59c0ed3a",
+          "output_sha256": "2841684440097e6e3333dc73ac3445ae9900be4bc51e3c7bc29e5db3c11b3767",
+          "coefficient_squared_upper": "12767191464904587021671/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "629777534580266503929419741/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "630797472247327528611018713/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 120,
+            "max_grid_numerator_bits": 46,
+            "max_reduced_fractional_bits": 33,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "672cee31eecc12d1ebabd53cd90b0d9cc56c5013088d7175a19e377f2b27b510",
+          "output_sha256": "672cee31eecc12d1ebabd53cd90b0d9cc56c5013088d7175a19e377f2b27b510",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "2523189888989310490389711547/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "5046379777978620228888149703/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 108,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 32,
+            "rounded_outputs": 1
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 60,
+        "oracle_bits": 184,
+        "certificates": []
+      }
+    },
+    {
+      "label": "half-identity-boundary",
+      "n": 1,
+      "indices": [
+        0
+      ],
+      "symbol": [
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "budget": {
+        "n": 1,
+        "radius": "4096",
+        "target_bits": 20,
+        "incoming_bits": 33,
+        "ideal_bound": 100,
+        "macro_layers": 1,
+        "layer_bound": 1,
+        "gate_bound": 1,
+        "leaf_bits": 54,
+        "phase_bits": 60,
+        "multiplier_bits": 56,
+        "data_bits": 33,
+        "epsilon": "1/18014398509481984",
+        "theta": "625/1125899906842624",
+        "coefficient_error": "15625/140737488355328",
+        "rounding_error": "25/67108864",
+        "total_error": "28425/34359738368",
+        "physical_prefix_suffix_bound": 3200,
+        "segment_bound": 10240000,
+        "amplitude_bound": "6871947674225/524288",
+        "integer_bits": 26,
+        "coefficient_height_bound": 264,
+        "temporary_bits": 2262
+      },
+      "partitions": [
+        [
+          0,
+          1,
+          [
+            [
+              0
+            ]
+          ]
+        ]
+      ],
+      "layers": 1,
+      "gates": 1,
+      "children": 0,
+      "leaves": 1,
+      "triangle_nodes": 1,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "35d58d56ce473c28445cf47de49cb6935f1f9927e8da0aa9192bf20be991a01a",
+      "inverse_sha256": "d4f3516902b25fdb41b77a261a02517e1bca5244ac172019e3726afbe9fbc4c2",
+      "max_coefficient_height": 2,
+      "forward_frobenius_squared_upper": "0",
+      "inverse_frobenius_squared_upper": "0",
+      "rounded_roundtrip_squared_upper": "0",
+      "rounded_roundtrip_bound": "14200412575496735825/4835703278458516698824704",
+      "roundtrip_width": {
+        "radius": "281474976739081/34359738368",
+        "integer_bits": 27,
+        "temporary_bits": 2264,
+        "statistics": {
+          "max_observed_height": 3,
+          "max_grid_numerator_bits": 32,
+          "max_reduced_fractional_bits": 2,
+          "rounded_outputs": 1
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "ff0c976836c46ef72bdea0afd5eb912b659bb9507546b1da17bc821efafd7e1a",
+          "output_sha256": "81ec21336ccecdc0915411a749f96d6a92e38b6a2f6c3ed33f76c087fbba2a37",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 4,
+            "max_grid_numerator_bits": 31,
+            "max_reduced_fractional_bits": 3,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "cc78217a9f2f3a43425f2ddc7632d4af55c4b13b90653748592530ce59c0ed3a",
+          "output_sha256": "744ecb2c812cc5b03de7cedef96a0a3e9edc911b7252dd11076ed54848a96a19",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 12,
+            "max_grid_numerator_bits": 45,
+            "max_reduced_fractional_bits": 0,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "672cee31eecc12d1ebabd53cd90b0d9cc56c5013088d7175a19e377f2b27b510",
+          "output_sha256": "35b80f12bec893efd2c36013bd3ca18343b7b75dc95f6317f0f7bb62994c6000",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 34,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 33,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "ff0c976836c46ef72bdea0afd5eb912b659bb9507546b1da17bc821efafd7e1a",
+          "output_sha256": "706bf8b84e2eefd9c6a490511152e03594dbb28d987645288e0831ae5770e0c4",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 2,
+            "max_grid_numerator_bits": 33,
+            "max_reduced_fractional_bits": 1,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "cc78217a9f2f3a43425f2ddc7632d4af55c4b13b90653748592530ce59c0ed3a",
+          "output_sha256": "4a9af9c294ee0ea5e867dc3eb70230aeffd9286c7b3fa406aac1a8dad3620ad6",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 14,
+            "max_grid_numerator_bits": 47,
+            "max_reduced_fractional_bits": 0,
+            "rounded_outputs": 1
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "672cee31eecc12d1ebabd53cd90b0d9cc56c5013088d7175a19e377f2b27b510",
+          "output_sha256": "720d7934983635908d6300e582e566071ca3a52df96bcd4944bdc73c572a88e0",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 32,
+            "max_grid_numerator_bits": 3,
+            "max_reduced_fractional_bits": 31,
+            "rounded_outputs": 1
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 60,
+        "oracle_bits": 184,
+        "certificates": []
+      }
+    },
+    {
+      "label": "complex-rational",
+      "n": 2,
+      "indices": [
+        0,
+        1
+      ],
+      "symbol": [
+        [
+          "4/5",
+          "1/35"
+        ],
+        [
+          "-1/64",
+          "1/128"
+        ]
+      ],
+      "budget": {
+        "n": 2,
+        "radius": "9216",
+        "target_bits": 20,
+        "incoming_bits": 41,
+        "ideal_bound": 800,
+        "macro_layers": 3,
+        "layer_bound": 17,
+        "gate_bound": 22,
+        "leaf_bits": 66,
+        "phase_bits": 73,
+        "multiplier_bits": 68,
+        "data_bits": 41,
+        "epsilon": "1/73786976294838206464",
+        "theta": "1875/72057594037927936",
+        "coefficient_error": "46875/1125899906842624",
+        "rounding_error": "425/1073741824",
+        "total_error": "857075/1099511627776",
+        "physical_prefix_suffix_bound": 25600,
+        "segment_bound": 655360000,
+        "amplitude_bound": "247390116260225/1048576",
+        "integer_bits": 30,
+        "coefficient_height_bound": 316,
+        "temporary_bits": 2702
+      },
+      "partitions": [
+        [
+          0,
+          4,
+          [
+            [
+              1,
+              0
+            ]
+          ]
+        ],
+        [
+          4,
+          5,
+          [
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ]
+        ],
+        [
+          5,
+          9,
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      ],
+      "layers": 9,
+      "gates": 14,
+      "children": 2,
+      "leaves": 2,
+      "triangle_nodes": 3,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "c3172a7fca4f205b9d1cbbc16c88d9a577de517f70439eda432cf9d177031498",
+      "inverse_sha256": "1a72eb9fa4f96ffa98b599118fdd538b5fd4f8e6bf9bd1dd85e7395d21aed605",
+      "max_coefficient_height": 132,
+      "forward_frobenius_squared_upper": "23761381/730750818665451459101842416358141509827966271488",
+      "inverse_frobenius_squared_upper": "28443813/365375409332725729550921208179070754913983135744",
+      "rounded_roundtrip_squared_upper": "0",
+      "rounded_roundtrip_bound": "3369931011210833285025/1237940039285380274899124224",
+      "roundtrip_width": {
+        "radius": "20266198324024307/1099511627776",
+        "integer_bits": 31,
+        "temporary_bits": 2704,
+        "statistics": {
+          "max_observed_height": 132,
+          "max_grid_numerator_bits": 40,
+          "max_reduced_fractional_bits": 41,
+          "rounded_outputs": 18
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "9d5041d6ac79c93b42f44ef3b7b2cdb7222dfed7546833f0721dd24599f16b5f",
+          "output_sha256": "03f0c7cf529e63d04ebbbea3c26d18074bed20534565fdb7a8b605a5ed2e1a1e",
+          "coefficient_squared_upper": "5765551/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "40708726574504566793791/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "81417453157719924010825/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 109,
+            "max_grid_numerator_bits": 40,
+            "max_reduced_fractional_bits": 41,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "afbe14749d7859c719a2ac76b6a52f2bb837a1427d222693f7b03621d079ad95",
+          "output_sha256": "5c794e16452ba8105fd8248f7bb19ed6c607e5a78fc6739f023be83158037268",
+          "coefficient_squared_upper": "525510678503463/730750818665451459101842416358141509827966271488",
+          "rounding_squared_upper": "65376420453880872288795/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "65380682081199332917783/730750818665451459101842416358141509827966271488",
+          "statistics": {
+            "max_observed_height": 120,
+            "max_grid_numerator_bits": 54,
+            "max_reduced_fractional_bits": 41,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "1b0398ccb8aa64c76be9bcca325cad78586d104faf468ac389cf6fecaa480f21",
+          "output_sha256": "1b0398ccb8aa64c76be9bcca325cad78586d104faf468ac389cf6fecaa480f21",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "49712845886152932858531/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "24856422943076466428531/730750818665451459101842416358141509827966271488",
+          "statistics": {
+            "max_observed_height": 108,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 40,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "9d5041d6ac79c93b42f44ef3b7b2cdb7222dfed7546833f0721dd24599f16b5f",
+          "output_sha256": "37555ea0a02d3b79cdf0b1aa557c0488fc64ed813c0502b0a3ddc082f08e8b82",
+          "coefficient_squared_upper": "13480259/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "280896605835365071323835/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "280896604340455391327679/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 132,
+            "max_grid_numerator_bits": 40,
+            "max_reduced_fractional_bits": 41,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "afbe14749d7859c719a2ac76b6a52f2bb837a1427d222693f7b03621d079ad95",
+          "output_sha256": "d754ce77c0a066cea50ec0846c28ba5f940db178bd0731c6af6a99242215b053",
+          "coefficient_squared_upper": "2460424573416135/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "64758702900931868655937/182687704666362864775460604089535377456991567872",
+          "total_squared_upper": "518069026434716539105901/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 144,
+            "max_grid_numerator_bits": 54,
+            "max_reduced_fractional_bits": 41,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "1b0398ccb8aa64c76be9bcca325cad78586d104faf468ac389cf6fecaa480f21",
+          "output_sha256": "1b0398ccb8aa64c76be9bcca325cad78586d104faf468ac389cf6fecaa480f21",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "9737508890094203218553/182687704666362864775460604089535377456991567872",
+          "total_squared_upper": "77900071120753625745617/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 132,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 40,
+            "rounded_outputs": 18
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 73,
+        "oracle_bits": 210,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          }
+        ]
+      }
+    },
+    {
+      "label": "half-identity-boundary",
+      "n": 2,
+      "indices": [
+        0,
+        1
+      ],
+      "symbol": [
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "budget": {
+        "n": 2,
+        "radius": "9216",
+        "target_bits": 20,
+        "incoming_bits": 41,
+        "ideal_bound": 800,
+        "macro_layers": 3,
+        "layer_bound": 17,
+        "gate_bound": 22,
+        "leaf_bits": 66,
+        "phase_bits": 73,
+        "multiplier_bits": 68,
+        "data_bits": 41,
+        "epsilon": "1/73786976294838206464",
+        "theta": "1875/72057594037927936",
+        "coefficient_error": "46875/1125899906842624",
+        "rounding_error": "425/1073741824",
+        "total_error": "857075/1099511627776",
+        "physical_prefix_suffix_bound": 25600,
+        "segment_bound": 655360000,
+        "amplitude_bound": "247390116260225/1048576",
+        "integer_bits": 30,
+        "coefficient_height_bound": 316,
+        "temporary_bits": 2702
+      },
+      "partitions": [
+        [
+          0,
+          4,
+          [
+            [
+              1,
+              0
+            ]
+          ]
+        ],
+        [
+          4,
+          5,
+          [
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ]
+        ],
+        [
+          5,
+          9,
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      ],
+      "layers": 9,
+      "gates": 14,
+      "children": 2,
+      "leaves": 2,
+      "triangle_nodes": 3,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "7624d08841338c1384ab1e35f439a5399593b9bd9da2889e423823f5a017479c",
+      "inverse_sha256": "ea2d160db647e3f1022d99abc2bfedf69242cdc09dffda63e3c68124504b8b68",
+      "max_coefficient_height": 2,
+      "forward_frobenius_squared_upper": "0",
+      "inverse_frobenius_squared_upper": "0",
+      "rounded_roundtrip_squared_upper": "0",
+      "rounded_roundtrip_bound": "3369931011210833285025/1237940039285380274899124224",
+      "roundtrip_width": {
+        "radius": "20266198324024307/1099511627776",
+        "integer_bits": 31,
+        "temporary_bits": 2704,
+        "statistics": {
+          "max_observed_height": 5,
+          "max_grid_numerator_bits": 40,
+          "max_reduced_fractional_bits": 4,
+          "rounded_outputs": 18
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "9d5041d6ac79c93b42f44ef3b7b2cdb7222dfed7546833f0721dd24599f16b5f",
+          "output_sha256": "6c0d40964cf320d4757f63c2f361d0857e41177c77ad0e52ccf5cad138a400c3",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 5,
+            "max_grid_numerator_bits": 40,
+            "max_reduced_fractional_bits": 4,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "afbe14749d7859c719a2ac76b6a52f2bb837a1427d222693f7b03621d079ad95",
+          "output_sha256": "37a54a1113f6d9eaf10ad417acab3e3bae384e0b2c4be87dc92b284a9ca8f1ee",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 13,
+            "max_grid_numerator_bits": 54,
+            "max_reduced_fractional_bits": 0,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "1b0398ccb8aa64c76be9bcca325cad78586d104faf468ac389cf6fecaa480f21",
+          "output_sha256": "c4e45376174dc5c411120ea9cfcc25bec161798bbe7369d12b11c82bb65f054e",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 42,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 41,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "9d5041d6ac79c93b42f44ef3b7b2cdb7222dfed7546833f0721dd24599f16b5f",
+          "output_sha256": "e32423b9ce2e0e5c52e7d394e8e567714f7d2aa1b24b9bd57a1e17bd44ad367b",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 4,
+            "max_grid_numerator_bits": 41,
+            "max_reduced_fractional_bits": 3,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "afbe14749d7859c719a2ac76b6a52f2bb837a1427d222693f7b03621d079ad95",
+          "output_sha256": "5624c57f4bbe9afb06c71dcf368ad9ff7058653fb29aa2fdc22d689a6b302bfa",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 14,
+            "max_grid_numerator_bits": 55,
+            "max_reduced_fractional_bits": 0,
+            "rounded_outputs": 18
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "1b0398ccb8aa64c76be9bcca325cad78586d104faf468ac389cf6fecaa480f21",
+          "output_sha256": "52aaf9531822cf0ac61cd86a27dd18c1845ee6417c0765ba86809ef146a83ce5",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 41,
+            "max_grid_numerator_bits": 3,
+            "max_reduced_fractional_bits": 40,
+            "rounded_outputs": 18
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 73,
+        "oracle_bits": 210,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          }
+        ]
+      }
+    },
+    {
+      "label": "complex-rational",
+      "n": 4,
+      "indices": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "symbol": [
+        [
+          "4/5",
+          "1/35"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ]
+      ],
+      "budget": {
+        "n": 4,
+        "radius": "18432",
+        "target_bits": 20,
+        "incoming_bits": 47,
+        "ideal_bound": 6400,
+        "macro_layers": 5,
+        "layer_bound": 41,
+        "gate_bound": 100,
+        "leaf_bits": 77,
+        "phase_bits": 85,
+        "multiplier_bits": 79,
+        "data_bits": 47,
+        "epsilon": "1/151115727451828646838272",
+        "theta": "3125/2305843009213693952",
+        "coefficient_error": "78125/4503599627370496",
+        "rounding_error": "1025/4294967296",
+        "total_error": "1227925/2199023255552",
+        "physical_prefix_suffix_bound": 204800,
+        "segment_bound": 41943040000,
+        "amplitude_bound": "1979120930022425/524288",
+        "integer_bits": 34,
+        "coefficient_height_bound": 364,
+        "temporary_bits": 3106
+      },
+      "partitions": [
+        [
+          0,
+          12,
+          [
+            [
+              2,
+              0,
+              3,
+              1
+            ]
+          ]
+        ],
+        [
+          12,
+          16,
+          [
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ]
+          ]
+        ],
+        [
+          16,
+          17,
+          [
+            [
+              3
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              0
+            ]
+          ]
+        ],
+        [
+          17,
+          21,
+          [
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        ],
+        [
+          21,
+          33,
+          [
+            [
+              3,
+              1,
+              2,
+              0
+            ]
+          ]
+        ]
+      ],
+      "layers": 33,
+      "gates": 68,
+      "children": 6,
+      "leaves": 4,
+      "triangle_nodes": 7,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "34cacb7db5c382bae19c5bc715c805d6f502aad3a0f595cf7f64c4adb3310d60",
+      "inverse_sha256": "4a4f3cd1bb70219b8ff284c9142d76b5116dfcc886c56e4129155a98a013a580",
+      "max_coefficient_height": 179,
+      "forward_frobenius_squared_upper": "25/730750818665451459101842416358141509827966271488",
+      "inverse_frobenius_squared_upper": "61/730750818665451459101842416358141509827966271488",
+      "rounded_roundtrip_squared_upper": "1/19807040628566084398385987584",
+      "rounded_roundtrip_bound": "19756841205407560543025/9903520314283042199192993792",
+      "roundtrip_width": {
+        "radius": "81064793293896853/2199023255552",
+        "integer_bits": 35,
+        "temporary_bits": 3108,
+        "statistics": {
+          "max_observed_height": 226,
+          "max_grid_numerator_bits": 47,
+          "max_reduced_fractional_bits": 47,
+          "rounded_outputs": 100
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "dc7ddff43a5e08eb80ec7a7fb9f67920c0aece94b543803c39c8f5b63d17b37c",
+          "output_sha256": "75dedd8f5c6e129fe91be13b465840b2a7bf6494dc175e025c3d4ee09f49f356",
+          "coefficient_squared_upper": "9/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "281143438298951818831/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "562286876499848699871/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 47,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "382f8923775771d9430c36989792d68db8d71f1b78a36a007ca00827feaab4cd",
+          "output_sha256": "d5ab5f0aa257254ddf16d9f0efd4b4b23b63f7b3b80fe239caf5e8aac435ec15",
+          "coefficient_squared_upper": "397694403/730750818665451459101842416358141509827966271488",
+          "rounding_squared_upper": "441215986189103675093/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "55152000138743863505/182687704666362864775460604089535377456991567872",
+          "statistics": {
+            "max_observed_height": 238,
+            "max_grid_numerator_bits": 60,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "1ec73940cd0512e8ed27ca5b39cf3710411e79767cf60001e39fa6a5d5e3870c",
+          "output_sha256": "3dad6fe3ed1db65e196a6c835ec317c63a57f901c666ff779efd81a4f487da17",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "26804248531594287247/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "26804248531594287247/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "dc7ddff43a5e08eb80ec7a7fb9f67920c0aece94b543803c39c8f5b63d17b37c",
+          "output_sha256": "90b3760843a2a0de853edf5af09fcd98239e8fe6aaf31350db8ec8caf30ebe3f",
+          "coefficient_squared_upper": "19/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "593044043492214666309/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "593044043347293551213/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 47,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "382f8923775771d9430c36989792d68db8d71f1b78a36a007ca00827feaab4cd",
+          "output_sha256": "28df4be8eb67e706fabc97d2b44e51110bcc76d6927531cc44cc9a4ffe90808e",
+          "coefficient_squared_upper": "925225877/730750818665451459101842416358141509827966271488",
+          "rounding_squared_upper": "629722527505484798699/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "314860711060370801379/730750818665451459101842416358141509827966271488",
+          "statistics": {
+            "max_observed_height": 238,
+            "max_grid_numerator_bits": 60,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "1ec73940cd0512e8ed27ca5b39cf3710411e79767cf60001e39fa6a5d5e3870c",
+          "output_sha256": "3dad6fe3ed1db65e196a6c835ec317c63a57f901c666ff779efd81a4f487da17",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "82951600739101550579/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "82951600739101550579/730750818665451459101842416358141509827966271488",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 85,
+        "oracle_bits": 234,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 2,
+            "numerator": 1,
+            "unit": [
+              "-1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 1,
+            "unit": [
+              "0",
+              "1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 8,
+            "numerator": 1,
+            "unit": [
+              "317390218651471443462226777266383488740976182761817615/448857551781472985716946736308771103068393378329983473",
+              "317390218651471443462226777609463552688560982565322752/448857551781472985716946736308771103068393378329983473"
+            ],
+            "error_bound": "9471406312027665609266975900599458165517540605255460765767840694384092910172290625693755461058277/12391603872948549983298802638346326800758681463274259752786958031447649494840137630913423058224705401763942681111235796140032",
+            "parameter": "256385776838343298780624423/618970019642690137449562112"
+          }
+        ]
+      }
+    },
+    {
+      "label": "half-identity-boundary",
+      "n": 4,
+      "indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "symbol": [
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "budget": {
+        "n": 4,
+        "radius": "18432",
+        "target_bits": 20,
+        "incoming_bits": 47,
+        "ideal_bound": 6400,
+        "macro_layers": 5,
+        "layer_bound": 41,
+        "gate_bound": 100,
+        "leaf_bits": 77,
+        "phase_bits": 85,
+        "multiplier_bits": 79,
+        "data_bits": 47,
+        "epsilon": "1/151115727451828646838272",
+        "theta": "3125/2305843009213693952",
+        "coefficient_error": "78125/4503599627370496",
+        "rounding_error": "1025/4294967296",
+        "total_error": "1227925/2199023255552",
+        "physical_prefix_suffix_bound": 204800,
+        "segment_bound": 41943040000,
+        "amplitude_bound": "1979120930022425/524288",
+        "integer_bits": 34,
+        "coefficient_height_bound": 364,
+        "temporary_bits": 3106
+      },
+      "partitions": [
+        [
+          0,
+          12,
+          [
+            [
+              1,
+              3,
+              0,
+              2
+            ]
+          ]
+        ],
+        [
+          12,
+          16,
+          [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        ],
+        [
+          16,
+          17,
+          [
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              1
+            ],
+            [
+              3
+            ]
+          ]
+        ],
+        [
+          17,
+          21,
+          [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        [
+          21,
+          33,
+          [
+            [
+              0,
+              2,
+              1,
+              3
+            ]
+          ]
+        ]
+      ],
+      "layers": 33,
+      "gates": 68,
+      "children": 6,
+      "leaves": 4,
+      "triangle_nodes": 7,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "ddc9281952e2a906c2ece6d5f39e21eb74bfeb1eeb48d833126e40b642bc37f2",
+      "inverse_sha256": "d22bcf0eb67e338e40afba659e701938cb395ee4da5c70d677a0e36488cb863d",
+      "max_coefficient_height": 179,
+      "forward_frobenius_squared_upper": "0",
+      "inverse_frobenius_squared_upper": "0",
+      "rounded_roundtrip_squared_upper": "1/19807040628566084398385987584",
+      "rounded_roundtrip_bound": "19756841205407560543025/9903520314283042199192993792",
+      "roundtrip_width": {
+        "radius": "81064793293896853/2199023255552",
+        "integer_bits": 35,
+        "temporary_bits": 3108,
+        "statistics": {
+          "max_observed_height": 226,
+          "max_grid_numerator_bits": 47,
+          "max_reduced_fractional_bits": 47,
+          "rounded_outputs": 100
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "dc7ddff43a5e08eb80ec7a7fb9f67920c0aece94b543803c39c8f5b63d17b37c",
+          "output_sha256": "e3cb87de4272e331023be6958305b71e991ef4e891dc872622c20a8f8bc64286",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 47,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "382f8923775771d9430c36989792d68db8d71f1b78a36a007ca00827feaab4cd",
+          "output_sha256": "2a85e65fcbdd041990c3d1fd310ee0bfb06223a7157a5066de760c4cef94257a",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "1/9903520314283042199192993792",
+          "total_squared_upper": "1/9903520314283042199192993792",
+          "statistics": {
+            "max_observed_height": 238,
+            "max_grid_numerator_bits": 60,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "1ec73940cd0512e8ed27ca5b39cf3710411e79767cf60001e39fa6a5d5e3870c",
+          "output_sha256": "3dad6fe3ed1db65e196a6c835ec317c63a57f901c666ff779efd81a4f487da17",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "dc7ddff43a5e08eb80ec7a7fb9f67920c0aece94b543803c39c8f5b63d17b37c",
+          "output_sha256": "66490d43003f077192633affa6d9c9a5fb5f2dd96aa7ebc3eed2c5e166d7e4cf",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "5/9903520314283042199192993792",
+          "total_squared_upper": "5/9903520314283042199192993792",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 48,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "382f8923775771d9430c36989792d68db8d71f1b78a36a007ca00827feaab4cd",
+          "output_sha256": "3a9b6125bc93ef231d842f6ada26814ff5c1a2fe44fcc9203a03d1ae98211393",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 239,
+            "max_grid_numerator_bits": 61,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "1ec73940cd0512e8ed27ca5b39cf3710411e79767cf60001e39fa6a5d5e3870c",
+          "output_sha256": "3dad6fe3ed1db65e196a6c835ec317c63a57f901c666ff779efd81a4f487da17",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "9/19807040628566084398385987584",
+          "total_squared_upper": "9/19807040628566084398385987584",
+          "statistics": {
+            "max_observed_height": 226,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 47,
+            "rounded_outputs": 100
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 85,
+        "oracle_bits": 234,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 2,
+            "numerator": 1,
+            "unit": [
+              "-1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 1,
+            "unit": [
+              "0",
+              "1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 8,
+            "numerator": 1,
+            "unit": [
+              "317390218651471443462226777266383488740976182761817615/448857551781472985716946736308771103068393378329983473",
+              "317390218651471443462226777609463552688560982565322752/448857551781472985716946736308771103068393378329983473"
+            ],
+            "error_bound": "9471406312027665609266975900599458165517540605255460765767840694384092910172290625693755461058277/12391603872948549983298802638346326800758681463274259752786958031447649494840137630913423058224705401763942681111235796140032",
+            "parameter": "256385776838343298780624423/618970019642690137449562112"
+          }
+        ]
+      }
+    },
+    {
+      "label": "complex-rational",
+      "n": 8,
+      "indices": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "symbol": [
+        [
+          "4/5",
+          "1/35"
+        ],
+        [
+          "-1/256",
+          "1/512"
+        ],
+        [
+          "1/256",
+          "1/512"
+        ],
+        [
+          "-1/256",
+          "1/512"
+        ],
+        [
+          "1/256",
+          "1/512"
+        ],
+        [
+          "-1/256",
+          "1/512"
+        ],
+        [
+          "1/256",
+          "1/512"
+        ],
+        [
+          "-1/256",
+          "1/512"
+        ]
+      ],
+      "budget": {
+        "n": 8,
+        "radius": "36864",
+        "target_bits": 20,
+        "incoming_bits": 100,
+        "ideal_bound": 51200,
+        "macro_layers": 7,
+        "layer_bound": 73,
+        "gate_bound": 344,
+        "leaf_bits": 87,
+        "phase_bits": 95,
+        "multiplier_bits": 89,
+        "data_bits": 100,
+        "epsilon": "1/154742504910672534362390528",
+        "theta": "4375/36893488147419103232",
+        "coefficient_error": "109375/9007199254740992",
+        "rounding_error": "1825/2417851639229258349412352",
+        "total_error": "1082331758592001825/2417851639229258349412352",
+        "physical_prefix_suffix_bound": 1638400,
+        "segment_bound": 2684354560000,
+        "amplitude_bound": "2228292070713684494818423648825/36893488147419103232",
+        "integer_bits": 38,
+        "coefficient_height_bound": 404,
+        "temporary_bits": 3540
+      },
+      "partitions": [
+        [
+          0,
+          16,
+          [
+            [
+              6,
+              4,
+              2,
+              0,
+              7,
+              5,
+              3,
+              1
+            ]
+          ]
+        ],
+        [
+          16,
+          28,
+          [
+            [
+              5,
+              1,
+              7,
+              3
+            ],
+            [
+              4,
+              0,
+              6,
+              2
+            ]
+          ]
+        ],
+        [
+          28,
+          32,
+          [
+            [
+              3,
+              7
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        ],
+        [
+          32,
+          33,
+          [
+            [
+              7
+            ],
+            [
+              3
+            ],
+            [
+              5
+            ],
+            [
+              1
+            ],
+            [
+              6
+            ],
+            [
+              2
+            ],
+            [
+              4
+            ],
+            [
+              0
+            ]
+          ]
+        ],
+        [
+          33,
+          37,
+          [
+            [
+              7,
+              3
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        ],
+        [
+          37,
+          49,
+          [
+            [
+              7,
+              3,
+              5,
+              1
+            ],
+            [
+              6,
+              2,
+              4,
+              0
+            ]
+          ]
+        ],
+        [
+          49,
+          65,
+          [
+            [
+              7,
+              5,
+              3,
+              1,
+              6,
+              4,
+              2,
+              0
+            ]
+          ]
+        ]
+      ],
+      "layers": 65,
+      "gates": 264,
+      "children": 14,
+      "leaves": 8,
+      "triangle_nodes": 15,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "663b945beaeddfa8fcfbfd55576d773faf3b5d2ec9a20e5e25c5874feba54790",
+      "inverse_sha256": "5c01fb687a7c1145d4265385da00bd180ca225e6fcc11f863442251106624d0a",
+      "max_coefficient_height": 199,
+      "forward_frobenius_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+      "inverse_frobenius_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+      "rounded_roundtrip_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+      "rounded_roundtrip_bound": "38995111237607908009834332962540575/21778071482940061661655974875633165533184",
+      "roundtrip_width": {
+        "radius": "178263365658177091344065890081/2417851639229258349412352",
+        "integer_bits": 39,
+        "temporary_bits": 3542,
+        "statistics": {
+          "max_observed_height": 299,
+          "max_grid_numerator_bits": 100,
+          "max_reduced_fractional_bits": 100,
+          "rounded_outputs": 424
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "a1136c5ec2a081fe752b0f179951f64ee627e0fc89e631467ee1d8ec8f069780",
+          "output_sha256": "feb3445b42c44555ed009e147d0664c71022a05c856f6a3cefa2ed83f433069c",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 299,
+            "max_grid_numerator_bits": 100,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "1c0a164fd9d67b77295d6b9f94e73fc960c316d2a213164eb8327ac705cdde40",
+          "output_sha256": "5f88d4368a7bee0f10a5d9489e7af4186cff1f27d5a7f7ac255c84d802347f01",
+          "coefficient_squared_upper": "3113/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "3113/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 312,
+            "max_grid_numerator_bits": 114,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "4b93ceb3ba876cb29d430e59791a533a4a42af664d34dc7c4b5a960b59b18a41",
+          "output_sha256": "4b93ceb3ba876cb29d430e59791a533a4a42af664d34dc7c4b5a960b59b18a41",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 299,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "20a3af56716c2864925a866ef064125752dbdc965666893da907db57a7902e33",
+          "output_sha256": "4b93ceb3ba876cb29d430e59791a533a4a42af664d34dc7c4b5a960b59b18a41",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 299,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "a1136c5ec2a081fe752b0f179951f64ee627e0fc89e631467ee1d8ec8f069780",
+          "output_sha256": "99357ddad60326a55fa72444c8cd0ca5914e736683b8041a19ecc1dbe7f38364",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 299,
+            "max_grid_numerator_bits": 100,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "1c0a164fd9d67b77295d6b9f94e73fc960c316d2a213164eb8327ac705cdde40",
+          "output_sha256": "ea9dc43111f08a73c690e5eae4e59b82e5606bbc1de7cbeb77505bce70933c06",
+          "coefficient_squared_upper": "7159/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "7159/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 312,
+            "max_grid_numerator_bits": 114,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "4b93ceb3ba876cb29d430e59791a533a4a42af664d34dc7c4b5a960b59b18a41",
+          "output_sha256": "4b93ceb3ba876cb29d430e59791a533a4a42af664d34dc7c4b5a960b59b18a41",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 299,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "20a3af56716c2864925a866ef064125752dbdc965666893da907db57a7902e33",
+          "output_sha256": "4b93ceb3ba876cb29d430e59791a533a4a42af664d34dc7c4b5a960b59b18a41",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 299,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 100,
+            "rounded_outputs": 424
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 95,
+        "oracle_bits": 254,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 2,
+            "numerator": 1,
+            "unit": [
+              "-1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 1,
+            "unit": [
+              "0",
+              "1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 3,
+            "unit": [
+              "0",
+              "-1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 8,
+            "numerator": 1,
+            "unit": [
+              "332807765912685320299847905304416025354008184072102149904943/470661256216809817471133140866165275907093312819294267745745",
+              "332807765912685320299847905303823083578086411153578525720576/470661256216809817471133140866165275907093312819294267745745"
+            ],
+            "error_bound": "17164491757516668297231984729208410815973446912584488421710554107679559507005038063978130063748639823536103/13624712545101046084835764100024738903333766019300779455441460946734401504491832023464759521781381116408513548183579860510128977561518080",
+            "parameter": "262539035482463537951359408951/633825300114114700748351602688"
+          },
+          {
+            "denominator": 8,
+            "numerator": 3,
+            "unit": [
+              "-332807765912685320299847905304416025354008184072102149904943/470661256216809817471133140866165275907093312819294267745745",
+              "332807765912685320299847905303823083578086411153578525720576/470661256216809817471133140866165275907093312819294267745745"
+            ],
+            "error_bound": "2145561469689583537153998091151051351996680867897183759475399030412901707913222624742399424625345903376191/1703089068137630760604470512503092362916720752412597431930182618341800188061479002933094940222672639551064193522947482563766122195189760",
+            "parameter": "-262539035482463537951359408951/633825300114114700748351602688"
+          }
+        ]
+      }
+    },
+    {
+      "label": "half-identity-boundary",
+      "n": 8,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "symbol": [
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "budget": {
+        "n": 8,
+        "radius": "36864",
+        "target_bits": 20,
+        "incoming_bits": 51,
+        "ideal_bound": 51200,
+        "macro_layers": 7,
+        "layer_bound": 73,
+        "gate_bound": 344,
+        "leaf_bits": 87,
+        "phase_bits": 95,
+        "multiplier_bits": 89,
+        "data_bits": 51,
+        "epsilon": "1/154742504910672534362390528",
+        "theta": "4375/36893488147419103232",
+        "coefficient_error": "109375/9007199254740992",
+        "rounding_error": "1825/4294967296",
+        "total_error": "1918775/2199023255552",
+        "physical_prefix_suffix_bound": 1638400,
+        "segment_bound": 2684354560000,
+        "amplitude_bound": "3958241860039225/65536",
+        "integer_bits": 38,
+        "coefficient_height_bound": 404,
+        "temporary_bits": 3442
+      },
+      "partitions": [
+        [
+          0,
+          16,
+          [
+            [
+              1,
+              3,
+              5,
+              7,
+              0,
+              2,
+              4,
+              6
+            ]
+          ]
+        ],
+        [
+          16,
+          28,
+          [
+            [
+              2,
+              6,
+              0,
+              4
+            ],
+            [
+              3,
+              7,
+              1,
+              5
+            ]
+          ]
+        ],
+        [
+          28,
+          32,
+          [
+            [
+              4,
+              0
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              7,
+              3
+            ]
+          ]
+        ],
+        [
+          32,
+          33,
+          [
+            [
+              0
+            ],
+            [
+              4
+            ],
+            [
+              2
+            ],
+            [
+              6
+            ],
+            [
+              1
+            ],
+            [
+              5
+            ],
+            [
+              3
+            ],
+            [
+              7
+            ]
+          ]
+        ],
+        [
+          33,
+          37,
+          [
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              7
+            ]
+          ]
+        ],
+        [
+          37,
+          49,
+          [
+            [
+              0,
+              4,
+              2,
+              6
+            ],
+            [
+              1,
+              5,
+              3,
+              7
+            ]
+          ]
+        ],
+        [
+          49,
+          65,
+          [
+            [
+              0,
+              2,
+              4,
+              6,
+              1,
+              3,
+              5,
+              7
+            ]
+          ]
+        ]
+      ],
+      "layers": 65,
+      "gates": 264,
+      "children": 14,
+      "leaves": 8,
+      "triangle_nodes": 15,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "b81cf86d757975d91ce4a3284fc8cfb2209e1518f7edcc93f70000e73bdb3bd1",
+      "inverse_sha256": "9543200e2202b1f2bbcad11679f60242b0049dff6f2290cf67c9467fa1e68e5f",
+      "max_coefficient_height": 199,
+      "forward_frobenius_squared_upper": "0",
+      "inverse_frobenius_squared_upper": "0",
+      "rounded_roundtrip_squared_upper": "53/5070602400912917605986812821504",
+      "rounded_roundtrip_bound": "60714828016642470790025/19807040628566084398385987584",
+      "roundtrip_width": {
+        "radius": "162129586587256631/2199023255552",
+        "integer_bits": 39,
+        "temporary_bits": 3444,
+        "statistics": {
+          "max_observed_height": 250,
+          "max_grid_numerator_bits": 51,
+          "max_reduced_fractional_bits": 51,
+          "rounded_outputs": 424
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "a1136c5ec2a081fe752b0f179951f64ee627e0fc89e631467ee1d8ec8f069780",
+          "output_sha256": "ea3f4127beca4668579b8bf38c19bd4abb9cc4af525230db3d21f089ea0c00df",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "1/633825300114114700748351602688",
+          "total_squared_upper": "1/633825300114114700748351602688",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 51,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "1c0a164fd9d67b77295d6b9f94e73fc960c316d2a213164eb8327ac705cdde40",
+          "output_sha256": "5b30fad4d13ff91f9fba186202583af44ec2613b72a82e047e74f124a14473a0",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 262,
+            "max_grid_numerator_bits": 65,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "eab66be3c11755b89acb1dd56ca9bc6211f27d9d3896271541dc2d910d0e7aa1",
+          "output_sha256": "a8430d5ff0a5508713aa9dab93656e56d88fa7b575df5c9ef7d02f8b77ddf96f",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "a1136c5ec2a081fe752b0f179951f64ee627e0fc89e631467ee1d8ec8f069780",
+          "output_sha256": "fabdde240eef1c213b298dabb41ef5dfbf240c2787980633caef2012336c1dad",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "15/5070602400912917605986812821504",
+          "total_squared_upper": "15/5070602400912917605986812821504",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 52,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "1c0a164fd9d67b77295d6b9f94e73fc960c316d2a213164eb8327ac705cdde40",
+          "output_sha256": "44ebf745f6fdbbe675b104f19a0229bc5968ccd32b524412789b8a3d92fa6fcf",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "0",
+          "total_squared_upper": "0",
+          "statistics": {
+            "max_observed_height": 263,
+            "max_grid_numerator_bits": 66,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "eab66be3c11755b89acb1dd56ca9bc6211f27d9d3896271541dc2d910d0e7aa1",
+          "output_sha256": "a8430d5ff0a5508713aa9dab93656e56d88fa7b575df5c9ef7d02f8b77ddf96f",
+          "coefficient_squared_upper": "0",
+          "rounding_squared_upper": "9/5070602400912917605986812821504",
+          "total_squared_upper": "9/5070602400912917605986812821504",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 95,
+        "oracle_bits": 254,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 2,
+            "numerator": 1,
+            "unit": [
+              "-1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 1,
+            "unit": [
+              "0",
+              "1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 3,
+            "unit": [
+              "0",
+              "-1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 8,
+            "numerator": 1,
+            "unit": [
+              "332807765912685320299847905304416025354008184072102149904943/470661256216809817471133140866165275907093312819294267745745",
+              "332807765912685320299847905303823083578086411153578525720576/470661256216809817471133140866165275907093312819294267745745"
+            ],
+            "error_bound": "17164491757516668297231984729208410815973446912584488421710554107679559507005038063978130063748639823536103/13624712545101046084835764100024738903333766019300779455441460946734401504491832023464759521781381116408513548183579860510128977561518080",
+            "parameter": "262539035482463537951359408951/633825300114114700748351602688"
+          },
+          {
+            "denominator": 8,
+            "numerator": 3,
+            "unit": [
+              "-332807765912685320299847905304416025354008184072102149904943/470661256216809817471133140866165275907093312819294267745745",
+              "332807765912685320299847905303823083578086411153578525720576/470661256216809817471133140866165275907093312819294267745745"
+            ],
+            "error_bound": "2145561469689583537153998091151051351996680867897183759475399030412901707913222624742399424625345903376191/1703089068137630760604470512503092362916720752412597431930182618341800188061479002933094940222672639551064193522947482563766122195189760",
+            "parameter": "-262539035482463537951359408951/633825300114114700748351602688"
+          }
+        ]
+      }
+    },
+    {
+      "label": "deep-parity",
+      "n": 16,
+      "indices": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "symbol": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ],
+        [
+          "1/128",
+          "1/256"
+        ],
+        [
+          "-1/128",
+          "1/256"
+        ]
+      ],
+      "budget": {
+        "n": 16,
+        "radius": "73728",
+        "target_bits": 20,
+        "incoming_bits": 56,
+        "ideal_bound": 409600,
+        "macro_layers": 9,
+        "layer_bound": 113,
+        "gate_bound": 1040,
+        "leaf_bits": 98,
+        "phase_bits": 106,
+        "multiplier_bits": 100,
+        "data_bits": 56,
+        "epsilon": "1/316912650057057350374175801344",
+        "theta": "5625/1180591620717411303424",
+        "coefficient_error": "140625/36028797018963968",
+        "rounding_error": "2825/8589934592",
+        "total_error": "2712025/4398046511104",
+        "physical_prefix_suffix_bound": 13107200,
+        "segment_bound": 171798691840000,
+        "amplitude_bound": "15832967440045025/16384",
+        "integer_bits": 42,
+        "coefficient_height_bound": 448,
+        "temporary_bits": 3812
+      },
+      "partitions": [
+        [
+          0,
+          20,
+          [
+            [
+              14,
+              12,
+              10,
+              8,
+              6,
+              4,
+              2,
+              0,
+              15,
+              13,
+              11,
+              9,
+              7,
+              5,
+              3,
+              1
+            ]
+          ]
+        ],
+        [
+          20,
+          36,
+          [
+            [
+              13,
+              9,
+              5,
+              1,
+              15,
+              11,
+              7,
+              3
+            ],
+            [
+              12,
+              8,
+              4,
+              0,
+              14,
+              10,
+              6,
+              2
+            ]
+          ]
+        ],
+        [
+          36,
+          48,
+          [
+            [
+              11,
+              3,
+              15,
+              7
+            ],
+            [
+              9,
+              1,
+              13,
+              5
+            ],
+            [
+              10,
+              2,
+              14,
+              6
+            ],
+            [
+              8,
+              0,
+              12,
+              4
+            ]
+          ]
+        ],
+        [
+          48,
+          52,
+          [
+            [
+              7,
+              15
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              5,
+              13
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              4,
+              12
+            ],
+            [
+              0,
+              8
+            ]
+          ]
+        ],
+        [
+          52,
+          53,
+          [
+            [
+              15
+            ],
+            [
+              7
+            ],
+            [
+              11
+            ],
+            [
+              3
+            ],
+            [
+              13
+            ],
+            [
+              5
+            ],
+            [
+              9
+            ],
+            [
+              1
+            ],
+            [
+              14
+            ],
+            [
+              6
+            ],
+            [
+              10
+            ],
+            [
+              2
+            ],
+            [
+              12
+            ],
+            [
+              4
+            ],
+            [
+              8
+            ],
+            [
+              0
+            ]
+          ]
+        ],
+        [
+          53,
+          57,
+          [
+            [
+              15,
+              7
+            ],
+            [
+              11,
+              3
+            ],
+            [
+              13,
+              5
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              14,
+              6
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        ],
+        [
+          57,
+          69,
+          [
+            [
+              15,
+              7,
+              11,
+              3
+            ],
+            [
+              13,
+              5,
+              9,
+              1
+            ],
+            [
+              14,
+              6,
+              10,
+              2
+            ],
+            [
+              12,
+              4,
+              8,
+              0
+            ]
+          ]
+        ],
+        [
+          69,
+          85,
+          [
+            [
+              15,
+              11,
+              7,
+              3,
+              13,
+              9,
+              5,
+              1
+            ],
+            [
+              14,
+              10,
+              6,
+              2,
+              12,
+              8,
+              4,
+              0
+            ]
+          ]
+        ],
+        [
+          85,
+          105,
+          [
+            [
+              15,
+              13,
+              11,
+              9,
+              7,
+              5,
+              3,
+              1,
+              14,
+              12,
+              10,
+              8,
+              6,
+              4,
+              2,
+              0
+            ]
+          ]
+        ]
+      ],
+      "layers": 105,
+      "gates": 848,
+      "children": 30,
+      "leaves": 16,
+      "triangle_nodes": 31,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "bdd51ebb9b70f510210a53082226df3aa957e93f3a8d73cede3fe6d2ba570618",
+      "inverse_sha256": "ab5bbd72cc13ebb1d6e2e887ca7f54358e73832330f5169821be1ea42d6b4746",
+      "max_coefficient_height": 441,
+      "forward_frobenius_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+      "inverse_frobenius_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+      "rounded_roundtrip_squared_upper": "27/1298074214633706907132624082305024",
+      "rounded_roundtrip_bound": "338731940933574916461225/158456325028528675187087900672",
+      "roundtrip_width": {
+        "radius": "648518346344063449/4398046511104",
+        "integer_bits": 43,
+        "temporary_bits": 3814,
+        "statistics": {
+          "max_observed_height": 497,
+          "max_grid_numerator_bits": 56,
+          "max_reduced_fractional_bits": 56,
+          "rounded_outputs": 1424
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "7d1db4083b158851a77c3d1c3c3eafdf3817d867ef14d876ffde4558ff22ab18",
+          "output_sha256": "bbd58e42cab7d3e288021d5d943d1e95b1b362495783f229607e6fead5f49655",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "26740122787512367/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "95/5192296858534827628530496329220096",
+          "statistics": {
+            "max_observed_height": 497,
+            "max_grid_numerator_bits": 56,
+            "max_reduced_fractional_bits": 56,
+            "rounded_outputs": 1424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "8726830c99553a9444c22415061e48e9b76df3532a5856bbaa186b048ddff960",
+          "output_sha256": "2d9eb68187095306fa7d4870d86c8a7b94b5ac26f9cf54cd93936362f1ba52d1",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "22517998135747359/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "5/324518553658426726783156020576256",
+          "statistics": {
+            "max_observed_height": 510,
+            "max_grid_numerator_bits": 70,
+            "max_reduced_fractional_bits": 56,
+            "rounded_outputs": 1424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "25d175f6ed82314c4e436bdc53c0081470f2fa348016bb53c52db1f2f95b5f97",
+          "output_sha256": "35ce8a4e3b5a570b1b44662153e6f2dc791a646a8799830c7cc27ffa3bab60c7",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "3/5192296858534827628530496329220096",
+          "total_squared_upper": "3/5192296858534827628530496329220096",
+          "statistics": {
+            "max_observed_height": 497,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 56,
+            "rounded_outputs": 1424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "7d1db4083b158851a77c3d1c3c3eafdf3817d867ef14d876ffde4558ff22ab18",
+          "output_sha256": "9540d5d643240da2b732a653f7dc9f32de23b519c65920c1366818b51a1a65f2",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "22420079748870449/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "22420079748870427/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 497,
+            "max_grid_numerator_bits": 56,
+            "max_reduced_fractional_bits": 56,
+            "rounded_outputs": 1424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "8726830c99553a9444c22415061e48e9b76df3532a5856bbaa186b048ddff960",
+          "output_sha256": "0f6f6752f74e3713365f149816f560da2645c2d5dbcfe2d958ff61644c70527a",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "14382348449690929/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "28764696899114319/1461501637330902918203684832716283019655932542976",
+          "statistics": {
+            "max_observed_height": 510,
+            "max_grid_numerator_bits": 70,
+            "max_reduced_fractional_bits": 56,
+            "rounded_outputs": 1424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "25d175f6ed82314c4e436bdc53c0081470f2fa348016bb53c52db1f2f95b5f97",
+          "output_sha256": "eafbc7b4d24e5cc7f32d2872502fe5d49daa05f2d42c03989351f158e1ff5c32",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "562949953421313/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "1/2596148429267413814265248164610048",
+          "statistics": {
+            "max_observed_height": 497,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 56,
+            "rounded_outputs": 1424
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 106,
+        "oracle_bits": 276,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 2,
+            "numerator": 1,
+            "unit": [
+              "-1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 1,
+            "unit": [
+              "0",
+              "1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 3,
+            "unit": [
+              "0",
+              "-1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 8,
+            "numerator": 1,
+            "unit": [
+              "1395896943798639689674933268609205334161337354955323519724755734951/1974096389595190284658443617268248500043305697862248040413195546201",
+              "1395896943798639689674933268609203967230516185799356597751355801600/1974096389595190284658443617268248500043305697862248040413195546201"
+            ],
+            "error_bound": "165968374006868149444324338983017146763197916853281562345781471468272512267891357708163749628688552584946386830357791/239688477895106223922210604403911503354004833847615374732442202379632075633543818486936347365066805542895364740525717850805218871264073988369952014336",
+            "parameter": "537679944668085325724384069532325/1298074214633706907132624082305024"
+          },
+          {
+            "denominator": 8,
+            "numerator": 3,
+            "unit": [
+              "-1395896943798639689674933268609205334161337354955323519724755734951/1974096389595190284658443617268248500043305697862248040413195546201",
+              "1395896943798639689674933268609203967230516185799356597751355801600/1974096389595190284658443617268248500043305697862248040413195546201"
+            ],
+            "error_bound": "41492093501717037361081084745754286690799479213358391941945075280047803106605253210666771041855986421014550721853817/59922119473776555980552651100977875838501208461903843683110550594908018908385954621734086841266701385723841185131429462701304717816018497092488003584",
+            "parameter": "-537679944668085325724384069532325/1298074214633706907132624082305024"
+          },
+          {
+            "denominator": 8,
+            "numerator": 5,
+            "unit": [
+              "-1395896943798639689674933268609205334161337354955323519724755734951/1974096389595190284658443617268248500043305697862248040413195546201",
+              "-1395896943798639689674933268609203967230516185799356597751355801600/1974096389595190284658443617268248500043305697862248040413195546201"
+            ],
+            "error_bound": "41492093501717037361081084745754286690799479213358391941945075280047803106605253210666771041855986421014550721853817/59922119473776555980552651100977875838501208461903843683110550594908018908385954621734086841266701385723841185131429462701304717816018497092488003584",
+            "parameter": "537679944668085325724384069532325/1298074214633706907132624082305024"
+          },
+          {
+            "denominator": 8,
+            "numerator": 7,
+            "unit": [
+              "1395896943798639689674933268609205334161337354955323519724755734951/1974096389595190284658443617268248500043305697862248040413195546201",
+              "-1395896943798639689674933268609203967230516185799356597751355801600/1974096389595190284658443617268248500043305697862248040413195546201"
+            ],
+            "error_bound": "165968374006868149444324338983017146763197916853281562345781471468272512267891357708163749628688552584946386830357791/239688477895106223922210604403911503354004833847615374732442202379632075633543818486936347365066805542895364740525717850805218871264073988369952014336",
+            "parameter": "-537679944668085325724384069532325/1298074214633706907132624082305024"
+          },
+          {
+            "denominator": 16,
+            "numerator": 1,
+            "unit": [
+              "1618327869707080474893716093107631654490758136419251298836714161007/1751665463686749499439660792769822179713884916398320261301237120145",
+              "670333351999031815651873855281638011365510999334166189162077618176/1751665463686749499439660792769822179713884916398320261301237120145"
+            ],
+            "error_bound": "89295354480387197779953256587127252282386511180801253259459257099067164502500160604523834435411256144494927953770329/212681625368150356427357428520987145370444085302452461340773192702903256858352950076081086234459478361342065489737528087208579938243692642551170334720",
+            "parameter": "258203015067280948033169991959337/1298074214633706907132624082305024"
+          },
+          {
+            "denominator": 16,
+            "numerator": 3,
+            "unit": [
+              "670333351999031815651873855281638011365510999334166189162077618176/1751665463686749499439660792769822179713884916398320261301237120145",
+              "1618327869707080474893716093107631654490758136419251298836714161007/1751665463686749499439660792769822179713884916398320261301237120145"
+            ],
+            "error_bound": "5580959655024199861247078536695453267649156948800844682356566521597702633003096834986364476864127774145252288350709/13292601585509397276709839282561696585652755331403278833798324543931453553647059379755067889653717397583879093108595505450536246140230790159448145920",
+            "parameter": "-258203015067280948033169991959337/1298074214633706907132624082305024"
+          },
+          {
+            "denominator": 16,
+            "numerator": 5,
+            "unit": [
+              "-670333351999031815651873855281638011365510999334166189162077618176/1751665463686749499439660792769822179713884916398320261301237120145",
+              "1618327869707080474893716093107631654490758136419251298836714161007/1751665463686749499439660792769822179713884916398320261301237120145"
+            ],
+            "error_bound": "89295354480387197779953256587127252282386511180881829870788847576041388898967572424790673141565578876514784861296999/212681625368150356427357428520987145370444085302452461340773192702903256858352950076081086234459478361342065489737528087208579938243692642551170334720",
+            "parameter": "258203015067280948033169991959337/1298074214633706907132624082305024"
+          },
+          {
+            "denominator": 16,
+            "numerator": 7,
+            "unit": [
+              "-1618327869707080474893716093107631654490758136419251298836714161007/1751665463686749499439660792769822179713884916398320261301237120145",
+              "670333351999031815651873855281638011365510999334166189162077618176/1751665463686749499439660792769822179713884916398320261301237120145"
+            ],
+            "error_bound": "44647677240193598889976628293563626141193255590520615713992170890245199015554813121572318334478913010146598719615097/106340812684075178213678714260493572685222042651226230670386596351451628429176475038040543117229739180671032744868764043604289969121846321275585167360",
+            "parameter": "-258203015067280948033169991959337/1298074214633706907132624082305024"
+          }
+        ]
+      }
+    },
+    {
+      "label": "zero-odd-polynomial",
+      "n": 8,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "symbol": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/8",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "-1/16",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/32",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "budget": {
+        "n": 8,
+        "radius": "36864",
+        "target_bits": 20,
+        "incoming_bits": 51,
+        "ideal_bound": 51200,
+        "macro_layers": 7,
+        "layer_bound": 73,
+        "gate_bound": 344,
+        "leaf_bits": 87,
+        "phase_bits": 95,
+        "multiplier_bits": 89,
+        "data_bits": 51,
+        "epsilon": "1/154742504910672534362390528",
+        "theta": "4375/36893488147419103232",
+        "coefficient_error": "109375/9007199254740992",
+        "rounding_error": "1825/4294967296",
+        "total_error": "1918775/2199023255552",
+        "physical_prefix_suffix_bound": 1638400,
+        "segment_bound": 2684354560000,
+        "amplitude_bound": "3958241860039225/65536",
+        "integer_bits": 38,
+        "coefficient_height_bound": 404,
+        "temporary_bits": 3442
+      },
+      "partitions": [
+        [
+          0,
+          16,
+          [
+            [
+              1,
+              3,
+              5,
+              7,
+              0,
+              2,
+              4,
+              6
+            ]
+          ]
+        ],
+        [
+          16,
+          28,
+          [
+            [
+              2,
+              6,
+              0,
+              4
+            ],
+            [
+              3,
+              7,
+              1,
+              5
+            ]
+          ]
+        ],
+        [
+          28,
+          32,
+          [
+            [
+              4,
+              0
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              7,
+              3
+            ]
+          ]
+        ],
+        [
+          32,
+          33,
+          [
+            [
+              0
+            ],
+            [
+              4
+            ],
+            [
+              2
+            ],
+            [
+              6
+            ],
+            [
+              1
+            ],
+            [
+              5
+            ],
+            [
+              3
+            ],
+            [
+              7
+            ]
+          ]
+        ],
+        [
+          33,
+          37,
+          [
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              3,
+              7
+            ]
+          ]
+        ],
+        [
+          37,
+          49,
+          [
+            [
+              0,
+              4,
+              2,
+              6
+            ],
+            [
+              1,
+              5,
+              3,
+              7
+            ]
+          ]
+        ],
+        [
+          49,
+          65,
+          [
+            [
+              0,
+              2,
+              4,
+              6,
+              1,
+              3,
+              5,
+              7
+            ]
+          ]
+        ]
+      ],
+      "layers": 65,
+      "gates": 264,
+      "children": 14,
+      "leaves": 8,
+      "triangle_nodes": 15,
+      "source_ast_sha256": "d3e57ae98483b6c2ca83f2f8bbd94263015cfe7eeb7074265084cfc32c77cb7c",
+      "adapted_ast_sha256": "13dd940318feb17ec725d30fc2ed94175c990dec08903f48eb723fc2b6dd0c08",
+      "plan_sha256": "945d8e1e8dc31bb5c0b8e3bbfe758434725f33a737c60bc27b6ef5f21a264e4c",
+      "inverse_sha256": "1618c2518b0994fb0026379c8b6bb2c57a8f57cf106d79b5a2572158d8f47dc8",
+      "max_coefficient_height": 199,
+      "forward_frobenius_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+      "inverse_frobenius_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+      "rounded_roundtrip_squared_upper": "37/5070602400912917605986812821504",
+      "rounded_roundtrip_bound": "60714828016642470790025/19807040628566084398385987584",
+      "roundtrip_width": {
+        "radius": "162129586587256631/2199023255552",
+        "integer_bits": 39,
+        "temporary_bits": 3444,
+        "statistics": {
+          "max_observed_height": 250,
+          "max_grid_numerator_bits": 51,
+          "max_reduced_fractional_bits": 51,
+          "rounded_outputs": 424
+        }
+      },
+      "states": [
+        {
+          "direction": "forward",
+          "input_sha256": "a1136c5ec2a081fe752b0f179951f64ee627e0fc89e631467ee1d8ec8f069780",
+          "output_sha256": "c13d6300696604d4938b1c78c9314992b08714d29fb0c97f14543b8a5468de5e",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "5188146770730810941/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "9/2535301200456458802993406410752",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 51,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "1c0a164fd9d67b77295d6b9f94e73fc960c316d2a213164eb8327ac705cdde40",
+          "output_sha256": "5357e210cb492d81a435430450ac5c3a5620d677155fb011a7a3cb2f58cda30a",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "720575940379312605/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "5/5070602400912917605986812821504",
+          "statistics": {
+            "max_observed_height": 262,
+            "max_grid_numerator_bits": 65,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "forward",
+          "input_sha256": "eab66be3c11755b89acb1dd56ca9bc6211f27d9d3896271541dc2d910d0e7aa1",
+          "output_sha256": "a8430d5ff0a5508713aa9dab93656e56d88fa7b575df5c9ef7d02f8b77ddf96f",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "311874274195406849/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "277/1298074214633706907132624082305024",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 1,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "a1136c5ec2a081fe752b0f179951f64ee627e0fc89e631467ee1d8ec8f069780",
+          "output_sha256": "8d6b07bc6e954edd3dab09e03b529b1f97e565cc2c549f73c21a6a703677dcf8",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "864691128455135359/730750818665451459101842416358141509827966271488",
+          "total_squared_upper": "3/2535301200456458802993406410752",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 51,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "1c0a164fd9d67b77295d6b9f94e73fc960c316d2a213164eb8327ac705cdde40",
+          "output_sha256": "7f9bd9c5cda26b779f4d319c2541d4c933337d7bc2ba8863263b5824b3e1c9c9",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "2882303761516268971/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "5/2535301200456458802993406410752",
+          "statistics": {
+            "max_observed_height": 262,
+            "max_grid_numerator_bits": 65,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        },
+        {
+          "direction": "inverse",
+          "input_sha256": "eab66be3c11755b89acb1dd56ca9bc6211f27d9d3896271541dc2d910d0e7aa1",
+          "output_sha256": "a8430d5ff0a5508713aa9dab93656e56d88fa7b575df5c9ef7d02f8b77ddf96f",
+          "coefficient_squared_upper": "1/1461501637330902918203684832716283019655932542976",
+          "rounding_squared_upper": "316030428148400129/1461501637330902918203684832716283019655932542976",
+          "total_squared_upper": "71857/332306998946228968225951765070086144",
+          "statistics": {
+            "max_observed_height": 250,
+            "max_grid_numerator_bits": 2,
+            "max_reduced_fractional_bits": 51,
+            "rounded_outputs": 424
+          }
+        }
+      ],
+      "phases": {
+        "phase_bits": 95,
+        "oracle_bits": 254,
+        "certificates": [
+          {
+            "denominator": 1,
+            "numerator": 0,
+            "unit": [
+              "1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 2,
+            "numerator": 1,
+            "unit": [
+              "-1",
+              "0"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 1,
+            "unit": [
+              "0",
+              "1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 4,
+            "numerator": 3,
+            "unit": [
+              "0",
+              "-1"
+            ],
+            "error_bound": "0",
+            "parameter": null
+          },
+          {
+            "denominator": 8,
+            "numerator": 1,
+            "unit": [
+              "332807765912685320299847905304416025354008184072102149904943/470661256216809817471133140866165275907093312819294267745745",
+              "332807765912685320299847905303823083578086411153578525720576/470661256216809817471133140866165275907093312819294267745745"
+            ],
+            "error_bound": "17164491757516668297231984729208410815973446912584488421710554107679559507005038063978130063748639823536103/13624712545101046084835764100024738903333766019300779455441460946734401504491832023464759521781381116408513548183579860510128977561518080",
+            "parameter": "262539035482463537951359408951/633825300114114700748351602688"
+          },
+          {
+            "denominator": 8,
+            "numerator": 3,
+            "unit": [
+              "-332807765912685320299847905304416025354008184072102149904943/470661256216809817471133140866165275907093312819294267745745",
+              "332807765912685320299847905303823083578086411153578525720576/470661256216809817471133140866165275907093312819294267745745"
+            ],
+            "error_bound": "2145561469689583537153998091151051351996680867897183759475399030412901707913222624742399424625345903376191/1703089068137630760604470512503092362916720752412597431930182618341800188061479002933094940222672639551064193522947482563766122195189760",
+            "parameter": "-262539035482463537951359408951/633825300114114700748351602688"
+          }
+        ]
+      }
+    }
+  ],
+  "controls": [
+    "near-identity-admission",
+    "nondyadic-size",
+    "floating-coefficients",
+    "zero-leaf-margin",
+    "leaf-adjoint-instead-of-reciprocal",
+    "inverse-layer-order",
+    "omitted-schur-correction",
+    "serialized-parallel-middle",
+    "swapped-parity-bank-routing",
+    "exact-vector-copy-zero-semantics",
+    "discarded-incoming-grid",
+    "underfunded-global-grid"
+  ],
+  "physical_tape_execution": false,
+  "full_generator_execution": false
+}

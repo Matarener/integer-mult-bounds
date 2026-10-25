@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "result": "PASS_CRT_RESERVOIR_PLACEMENT",
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "source_inputs_checked": 5,
+  "production": {
+    "domain": "descriptor census, not a payload execution or time certificate",
+    "d": 65536,
+    "ell": 24,
+    "p": 9240576,
+    "L": 1540096,
+    "width_pattern": "24,23 repeated",
+    "G": 3072,
+    "r_max": 5,
+    "H": 15360,
+    "tree_levels": 16,
+    "batches_per_level": [
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554,
+      6554
+    ],
+    "total_batches": 104864,
+    "active_axis_visits": 524288,
+    "max_extra_descriptor_fragments": 7,
+    "schedule_sha256": "f9979a256e00013e4546d82b2b48b75d8f588c2cb46e57d226fe91fe713c1bd2"
+  },
+  "finite_caller": {
+    "domain": "small geometry and caller fixture, below the large-family cutoff",
+    "moduli": [
+      3,
+      5,
+      7,
+      11
+    ],
+    "widths": [
+      2,
+      3,
+      3,
+      4
+    ],
+    "L": 12,
+    "H": 1,
+    "root_target_axis": 3,
+    "reservoir_axis": 2,
+    "layers": 7,
+    "all_dirty_addresses": 4096,
+    "single_layer_conjugations": 28672,
+    "borrowed_field_omission_checks": 86016,
+    "forward_steps": 28672,
+    "inverse_steps": 28672,
+    "payload_permutation_sha256": "ad2000f8aa6457d130d93b336e441111533a311ff04e04ca519e5565a7ec5cb6",
+    "semantic_failure_controls": [
+      {
+        "name": "root reservoir intersects full left-child dependency",
+        "reservoir": [
+          7,
+          12
+        ],
+        "target": [
+          0,
+          4
+        ]
+      },
+      {
+        "name": "overlapping source/destination rejected"
+      },
+      {
+        "name": "stale coordinate descriptors",
+        "witness": {
+          "placed_address": 0,
+          "layer": 3,
+          "toggled_physical_position": 11
+        }
+      },
+      {
+        "name": "global bit used as middle-field bit",
+        "witness": {
+          "address": 1,
+          "layer": 3
+        }
+      },
+      {
+        "name": "split axis read as one contiguous slice",
+        "witness": {
+          "address": 1,
+          "axis": 3
+        }
+      },
+      {
+        "name": "third inverse exchange omitted",
+        "input": 32,
+        "output": 1
+      }
+    ]
+  },
+  "input_rejections": [
+    "small geometry cannot pass as actual-family Layout",
+    "non-power-of-two axis count",
+    "width outside ell-1 or ell",
+    "ell below ceil(log2(p+2))"
+  ],
+  "limitations": [
+    "Quantified claim is the written proof; finite census is corroboration.",
+    "All-address restoration assumes a completed repaired switch macro.",
+    "No ordinary exchange implementation, control evaluator or tape-cost certificate.",
+    "No last-K tail, full CRT construction, multiplication theorem or new kappa."
+  ]
+}

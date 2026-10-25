@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/paired-cube-bit-fast/paired_cube_bit_word.py",
+    "research/gzip-container-reproducibility/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Compress two canonical words that differ only in the private gauge annihilator and compare their payloads."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the private key is absent from the serialization and that an operation change remains."
+    }
+  ]
+}

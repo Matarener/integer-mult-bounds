@@ -1,0 +1,210 @@
+{
+ "clifford_exact_sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+ "compiler_sha256": "9d2fc2d81962ddb0b4dd7d6482d9918a87a6b05759690317dea79939ca5656a3",
+ "recipes": [
+  {
+   "new": [
+    256,
+    132,
+    68,
+    32,
+    16,
+    8,
+    2,
+    1
+   ],
+   "old": [
+    256,
+    128,
+    64,
+    32,
+    16,
+    8,
+    4,
+    2,
+    1
+   ],
+   "rank": 1,
+   "recipe": {
+    "left": {
+     "linear_Z4": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "matrix_rows": [
+      2,
+      4,
+      1,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+     ],
+     "offset": 0,
+     "phase": 0,
+     "quadratic_rows": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "rank": 1,
+    "right": {
+     "linear_Z4": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "matrix_rows": [
+      4,
+      1,
+      2,
+      8,
+      16,
+      32,
+      68,
+      132,
+      256
+     ],
+     "offset": 192,
+     "phase": 1,
+     "quadratic_rows": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "new": [
+    256,
+    128,
+    64,
+    32,
+    16,
+    8,
+    4,
+    2,
+    1
+   ],
+   "old": [
+    256,
+    132,
+    68,
+    32,
+    16,
+    8,
+    2,
+    1
+   ],
+   "rank": 1,
+   "recipe": {
+    "left": {
+     "linear_Z4": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "matrix_rows": [
+      2,
+      4,
+      9,
+      16,
+      32,
+      64,
+      129,
+      1,
+      256
+     ],
+     "offset": 0,
+     "phase": 0,
+     "quadratic_rows": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "rank": 1,
+    "right": {
+     "linear_Z4": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0
+     ],
+     "matrix_rows": [
+      132,
+      1,
+      2,
+      128,
+      8,
+      16,
+      32,
+      192,
+      256
+     ],
+     "offset": 9,
+     "phase": 0,
+     "quadratic_rows": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "schema_version": 1,
+ "scope": "Native recipes for the transport edges used by corrections T, S, P and T48 that are absent from the published p104-native-channel recipe set and from #3508's REPAIR-RECIPES.json. Lowered with the pinned compile.py / vendor/clifford_exact.py; checked by the published check_native.validate() during replay."
+}

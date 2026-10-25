@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "34 certified rows, 340 complex line values, 80 independently indexed direct tensor outputs, host frame, source hashes and exact result receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_expansion.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Seven semantic groups including domain/cache aliases, coefficient/center/deficit mutants, nearest-grid and missing-winding controls, dirty ownership, exported CLI/source/receipt corruptions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_expansion.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same meaningful semantic/export controls with Python assertions disabled."
+    }
+  ]
+}

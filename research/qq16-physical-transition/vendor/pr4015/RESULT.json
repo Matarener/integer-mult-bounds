@@ -1,0 +1,7616 @@
+{
+  "checks": {
+    "independent_current_routed_arrays": 224,
+    "nine_bank_reference_independent_current_replay": 224,
+    "original_routed_arrays": 224,
+    "phase_coordinates": 73,
+    "semantic_controls": [
+      "hold private scratch across native call",
+      "omit source native line",
+      "omit dirty query initialization",
+      "omit recycled source initialization",
+      "clear query before responses",
+      "drop inverse response map",
+      "omit output reinitialization clear",
+      "omit output restore copy",
+      "borrowed output alias",
+      "reject live selected output alias",
+      "wrong negative native wrapper offset"
+    ]
+  },
+  "hosting": {
+    "aliases": {
+      "D": "Z10",
+      "Q0": "Z1",
+      "Q1": "Z2",
+      "Q2": "Z3",
+      "Q3": "Z4",
+      "Q4": "Z5",
+      "Q5": "Z6",
+      "Q6": "Z8",
+      "Q7": "Z9"
+    },
+    "deferred_definitions": {
+      "Z1": {
+        "source_events": [
+          5,
+          6
+        ],
+        "word": [
+          [
+            "clear",
+            "Z1",
+            "current"
+          ],
+          [
+            "add",
+            "Z1",
+            "X1",
+            "1"
+          ]
+        ]
+      },
+      "Z10": {
+        "source_events": [
+          50,
+          51
+        ],
+        "word": [
+          [
+            "clear",
+            "Z10",
+            "current"
+          ],
+          [
+            "add",
+            "Z10",
+            "X10",
+            "1"
+          ]
+        ]
+      },
+      "Z2": {
+        "source_events": [
+          10,
+          11
+        ],
+        "word": [
+          [
+            "clear",
+            "Z2",
+            "current"
+          ],
+          [
+            "add",
+            "Z2",
+            "X2",
+            "1"
+          ]
+        ]
+      },
+      "Z3": {
+        "source_events": [
+          15,
+          16
+        ],
+        "word": [
+          [
+            "clear",
+            "Z3",
+            "current"
+          ],
+          [
+            "add",
+            "Z3",
+            "X3",
+            "1"
+          ]
+        ]
+      },
+      "Z4": {
+        "source_events": [
+          20,
+          21
+        ],
+        "word": [
+          [
+            "clear",
+            "Z4",
+            "current"
+          ],
+          [
+            "add",
+            "Z4",
+            "X4",
+            "1"
+          ]
+        ]
+      },
+      "Z5": {
+        "source_events": [
+          25,
+          26
+        ],
+        "word": [
+          [
+            "clear",
+            "Z5",
+            "current"
+          ],
+          [
+            "add",
+            "Z5",
+            "X5",
+            "1"
+          ]
+        ]
+      },
+      "Z6": {
+        "source_events": [
+          30,
+          31
+        ],
+        "word": [
+          [
+            "clear",
+            "Z6",
+            "current"
+          ],
+          [
+            "add",
+            "Z6",
+            "X6",
+            "1"
+          ]
+        ]
+      },
+      "Z8": {
+        "source_events": [
+          40,
+          41
+        ],
+        "word": [
+          [
+            "clear",
+            "Z8",
+            "current"
+          ],
+          [
+            "add",
+            "Z8",
+            "X8",
+            "1"
+          ]
+        ]
+      },
+      "Z9": {
+        "source_events": [
+          45,
+          46
+        ],
+        "word": [
+          [
+            "clear",
+            "Z9",
+            "current"
+          ],
+          [
+            "add",
+            "Z9",
+            "X9",
+            "1"
+          ]
+        ]
+      }
+    },
+    "removed_terminal_clears": 9,
+    "restore_events": {
+      "Z1": [
+        2600,
+        2601
+      ],
+      "Z10": [
+        2616,
+        2617
+      ],
+      "Z2": [
+        2602,
+        2603
+      ],
+      "Z3": [
+        2604,
+        2605
+      ],
+      "Z4": [
+        2606,
+        2607
+      ],
+      "Z5": [
+        2608,
+        2609
+      ],
+      "Z6": [
+        2610,
+        2611
+      ],
+      "Z8": [
+        2612,
+        2613
+      ],
+      "Z9": [
+        2614,
+        2615
+      ]
+    },
+    "source_window": [
+      1714,
+      2627
+    ],
+    "temporary_abi": "Aliased roles end by paid CLEAR/X-copy into their output banks, not independent zero-return buffers"
+  },
+  "native_lowering": {
+    "basis_columns": 114688,
+    "monomial_wrappers": 448,
+    "positive_children": 224,
+    "signed_rank_one_recipes": [
+      {
+        "events": [
+          4,
+          2541
+        ],
+        "left_columns": [
+          11,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 0,
+        "q": 11,
+        "rank": 1,
+        "right_columns": [
+          11,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          11,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 11,
+        "port": 0,
+        "q": 11,
+        "rank": 1,
+        "right_columns": [
+          11,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          7
+        ],
+        "left_columns": [
+          19,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 1,
+        "q": 19,
+        "rank": 1,
+        "right_columns": [
+          19,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1707
+        ],
+        "left_columns": [
+          19,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 19,
+        "port": 1,
+        "q": 19,
+        "rank": 1,
+        "right_columns": [
+          19,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          10
+        ],
+        "left_columns": [
+          35,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 2,
+        "q": 35,
+        "rank": 1,
+        "right_columns": [
+          35,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1715
+        ],
+        "left_columns": [
+          35,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 35,
+        "port": 2,
+        "q": 35,
+        "rank": 1,
+        "right_columns": [
+          35,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          13
+        ],
+        "left_columns": [
+          67,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 3,
+        "q": 67,
+        "rank": 1,
+        "right_columns": [
+          67,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1723
+        ],
+        "left_columns": [
+          67,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 67,
+        "port": 3,
+        "q": 67,
+        "rank": 1,
+        "right_columns": [
+          67,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          16
+        ],
+        "left_columns": [
+          131,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 4,
+        "q": 131,
+        "rank": 1,
+        "right_columns": [
+          131,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1731
+        ],
+        "left_columns": [
+          131,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 131,
+        "port": 4,
+        "q": 131,
+        "rank": 1,
+        "right_columns": [
+          131,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          19
+        ],
+        "left_columns": [
+          259,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 5,
+        "q": 259,
+        "rank": 1,
+        "right_columns": [
+          259,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1739
+        ],
+        "left_columns": [
+          259,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 259,
+        "port": 5,
+        "q": 259,
+        "rank": 1,
+        "right_columns": [
+          259,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          22
+        ],
+        "left_columns": [
+          13,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 6,
+        "q": 13,
+        "rank": 1,
+        "right_columns": [
+          13,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1747
+        ],
+        "left_columns": [
+          13,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 13,
+        "port": 6,
+        "q": 13,
+        "rank": 1,
+        "right_columns": [
+          13,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          27,
+          2549
+        ],
+        "left_columns": [
+          21,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 7,
+        "q": 21,
+        "rank": 1,
+        "right_columns": [
+          21,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          21,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 21,
+        "port": 7,
+        "q": 21,
+        "rank": 1,
+        "right_columns": [
+          21,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          30
+        ],
+        "left_columns": [
+          37,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 8,
+        "q": 37,
+        "rank": 1,
+        "right_columns": [
+          37,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1755
+        ],
+        "left_columns": [
+          37,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 37,
+        "port": 8,
+        "q": 37,
+        "rank": 1,
+        "right_columns": [
+          37,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          33
+        ],
+        "left_columns": [
+          69,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 9,
+        "q": 69,
+        "rank": 1,
+        "right_columns": [
+          69,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1763
+        ],
+        "left_columns": [
+          69,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 69,
+        "port": 9,
+        "q": 69,
+        "rank": 1,
+        "right_columns": [
+          69,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          36
+        ],
+        "left_columns": [
+          133,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 10,
+        "q": 133,
+        "rank": 1,
+        "right_columns": [
+          133,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1771
+        ],
+        "left_columns": [
+          133,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 133,
+        "port": 10,
+        "q": 133,
+        "rank": 1,
+        "right_columns": [
+          133,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          41
+        ],
+        "left_columns": [
+          261,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 11,
+        "q": 261,
+        "rank": 1,
+        "right_columns": [
+          261,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1779
+        ],
+        "left_columns": [
+          261,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 261,
+        "port": 11,
+        "q": 261,
+        "rank": 1,
+        "right_columns": [
+          261,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          46
+        ],
+        "left_columns": [
+          41,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 12,
+        "q": 41,
+        "rank": 1,
+        "right_columns": [
+          41,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1787
+        ],
+        "left_columns": [
+          41,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 41,
+        "port": 12,
+        "q": 41,
+        "rank": 1,
+        "right_columns": [
+          41,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          51
+        ],
+        "left_columns": [
+          73,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 13,
+        "q": 73,
+        "rank": 1,
+        "right_columns": [
+          73,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1795
+        ],
+        "left_columns": [
+          73,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 73,
+        "port": 13,
+        "q": 73,
+        "rank": 1,
+        "right_columns": [
+          73,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          56
+        ],
+        "left_columns": [
+          137,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 14,
+        "q": 137,
+        "rank": 1,
+        "right_columns": [
+          137,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1803
+        ],
+        "left_columns": [
+          137,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 137,
+        "port": 14,
+        "q": 137,
+        "rank": 1,
+        "right_columns": [
+          137,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          61
+        ],
+        "left_columns": [
+          265,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 15,
+        "q": 265,
+        "rank": 1,
+        "right_columns": [
+          265,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1811
+        ],
+        "left_columns": [
+          265,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 265,
+        "port": 15,
+        "q": 265,
+        "rank": 1,
+        "right_columns": [
+          265,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          66
+        ],
+        "left_columns": [
+          49,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 16,
+        "q": 49,
+        "rank": 1,
+        "right_columns": [
+          49,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1819
+        ],
+        "left_columns": [
+          49,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 49,
+        "port": 16,
+        "q": 49,
+        "rank": 1,
+        "right_columns": [
+          49,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          71
+        ],
+        "left_columns": [
+          81,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 17,
+        "q": 81,
+        "rank": 1,
+        "right_columns": [
+          81,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1827
+        ],
+        "left_columns": [
+          81,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 81,
+        "port": 17,
+        "q": 81,
+        "rank": 1,
+        "right_columns": [
+          81,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          76
+        ],
+        "left_columns": [
+          145,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 18,
+        "q": 145,
+        "rank": 1,
+        "right_columns": [
+          145,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1835
+        ],
+        "left_columns": [
+          145,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 145,
+        "port": 18,
+        "q": 145,
+        "rank": 1,
+        "right_columns": [
+          145,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          81
+        ],
+        "left_columns": [
+          273,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 19,
+        "q": 273,
+        "rank": 1,
+        "right_columns": [
+          273,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1843
+        ],
+        "left_columns": [
+          273,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 273,
+        "port": 19,
+        "q": 273,
+        "rank": 1,
+        "right_columns": [
+          273,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          86,
+          2557
+        ],
+        "left_columns": [
+          161,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 20,
+        "q": 161,
+        "rank": 1,
+        "right_columns": [
+          161,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          161,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 161,
+        "port": 20,
+        "q": 161,
+        "rank": 1,
+        "right_columns": [
+          161,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          91
+        ],
+        "left_columns": [
+          289,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 21,
+        "q": 289,
+        "rank": 1,
+        "right_columns": [
+          289,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2475
+        ],
+        "left_columns": [
+          289,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 289,
+        "port": 21,
+        "q": 289,
+        "rank": 1,
+        "right_columns": [
+          289,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          96
+        ],
+        "left_columns": [
+          193,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 22,
+        "q": 193,
+        "rank": 1,
+        "right_columns": [
+          193,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1851
+        ],
+        "left_columns": [
+          193,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 193,
+        "port": 22,
+        "q": 193,
+        "rank": 1,
+        "right_columns": [
+          193,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          101
+        ],
+        "left_columns": [
+          321,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 23,
+        "q": 321,
+        "rank": 1,
+        "right_columns": [
+          321,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1859
+        ],
+        "left_columns": [
+          321,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 321,
+        "port": 23,
+        "q": 321,
+        "rank": 1,
+        "right_columns": [
+          321,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          106
+        ],
+        "left_columns": [
+          385,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 24,
+        "q": 385,
+        "rank": 1,
+        "right_columns": [
+          385,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1867
+        ],
+        "left_columns": [
+          385,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 385,
+        "port": 24,
+        "q": 385,
+        "rank": 1,
+        "right_columns": [
+          385,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          111
+        ],
+        "left_columns": [
+          14,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 25,
+        "q": 14,
+        "rank": 1,
+        "right_columns": [
+          2,
+          13,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1875
+        ],
+        "left_columns": [
+          14,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 14,
+        "port": 25,
+        "q": 14,
+        "rank": 1,
+        "right_columns": [
+          2,
+          13,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          116
+        ],
+        "left_columns": [
+          22,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 26,
+        "q": 22,
+        "rank": 1,
+        "right_columns": [
+          2,
+          21,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1883
+        ],
+        "left_columns": [
+          22,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 22,
+        "port": 26,
+        "q": 22,
+        "rank": 1,
+        "right_columns": [
+          2,
+          21,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          121,
+          2565
+        ],
+        "left_columns": [
+          38,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 27,
+        "q": 38,
+        "rank": 1,
+        "right_columns": [
+          2,
+          37,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          38,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 38,
+        "port": 27,
+        "q": 38,
+        "rank": 1,
+        "right_columns": [
+          2,
+          37,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          126
+        ],
+        "left_columns": [
+          70,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 28,
+        "q": 70,
+        "rank": 1,
+        "right_columns": [
+          2,
+          69,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1891
+        ],
+        "left_columns": [
+          70,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 70,
+        "port": 28,
+        "q": 70,
+        "rank": 1,
+        "right_columns": [
+          2,
+          69,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          131
+        ],
+        "left_columns": [
+          134,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 29,
+        "q": 134,
+        "rank": 1,
+        "right_columns": [
+          2,
+          133,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1899
+        ],
+        "left_columns": [
+          134,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 134,
+        "port": 29,
+        "q": 134,
+        "rank": 1,
+        "right_columns": [
+          2,
+          133,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          136
+        ],
+        "left_columns": [
+          262,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 30,
+        "q": 262,
+        "rank": 1,
+        "right_columns": [
+          2,
+          261,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1907
+        ],
+        "left_columns": [
+          262,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 262,
+        "port": 30,
+        "q": 262,
+        "rank": 1,
+        "right_columns": [
+          2,
+          261,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          141
+        ],
+        "left_columns": [
+          26,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 31,
+        "q": 26,
+        "rank": 1,
+        "right_columns": [
+          2,
+          25,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1915
+        ],
+        "left_columns": [
+          26,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 26,
+        "port": 31,
+        "q": 26,
+        "rank": 1,
+        "right_columns": [
+          2,
+          25,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          146
+        ],
+        "left_columns": [
+          74,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 32,
+        "q": 74,
+        "rank": 1,
+        "right_columns": [
+          2,
+          73,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1923
+        ],
+        "left_columns": [
+          74,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 74,
+        "port": 32,
+        "q": 74,
+        "rank": 1,
+        "right_columns": [
+          2,
+          73,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          151
+        ],
+        "left_columns": [
+          138,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 33,
+        "q": 138,
+        "rank": 1,
+        "right_columns": [
+          2,
+          137,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1931
+        ],
+        "left_columns": [
+          138,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 138,
+        "port": 33,
+        "q": 138,
+        "rank": 1,
+        "right_columns": [
+          2,
+          137,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          156
+        ],
+        "left_columns": [
+          266,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 34,
+        "q": 266,
+        "rank": 1,
+        "right_columns": [
+          2,
+          265,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1939
+        ],
+        "left_columns": [
+          266,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 266,
+        "port": 34,
+        "q": 266,
+        "rank": 1,
+        "right_columns": [
+          2,
+          265,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          161
+        ],
+        "left_columns": [
+          50,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 35,
+        "q": 50,
+        "rank": 1,
+        "right_columns": [
+          2,
+          49,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1947
+        ],
+        "left_columns": [
+          50,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 50,
+        "port": 35,
+        "q": 50,
+        "rank": 1,
+        "right_columns": [
+          2,
+          49,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          166,
+          2573
+        ],
+        "left_columns": [
+          146,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 36,
+        "q": 146,
+        "rank": 1,
+        "right_columns": [
+          2,
+          145,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          146,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 146,
+        "port": 36,
+        "q": 146,
+        "rank": 1,
+        "right_columns": [
+          2,
+          145,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          171
+        ],
+        "left_columns": [
+          274,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 37,
+        "q": 274,
+        "rank": 1,
+        "right_columns": [
+          2,
+          273,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2483
+        ],
+        "left_columns": [
+          274,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 274,
+        "port": 37,
+        "q": 274,
+        "rank": 1,
+        "right_columns": [
+          2,
+          273,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          176
+        ],
+        "left_columns": [
+          98,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 38,
+        "q": 98,
+        "rank": 1,
+        "right_columns": [
+          2,
+          97,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1955
+        ],
+        "left_columns": [
+          98,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 98,
+        "port": 38,
+        "q": 98,
+        "rank": 1,
+        "right_columns": [
+          2,
+          97,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          181
+        ],
+        "left_columns": [
+          162,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 39,
+        "q": 162,
+        "rank": 1,
+        "right_columns": [
+          2,
+          161,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1963
+        ],
+        "left_columns": [
+          162,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 162,
+        "port": 39,
+        "q": 162,
+        "rank": 1,
+        "right_columns": [
+          2,
+          161,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          186
+        ],
+        "left_columns": [
+          290,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 40,
+        "q": 290,
+        "rank": 1,
+        "right_columns": [
+          2,
+          289,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1971
+        ],
+        "left_columns": [
+          290,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 290,
+        "port": 40,
+        "q": 290,
+        "rank": 1,
+        "right_columns": [
+          2,
+          289,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          191
+        ],
+        "left_columns": [
+          194,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 41,
+        "q": 194,
+        "rank": 1,
+        "right_columns": [
+          2,
+          193,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1979
+        ],
+        "left_columns": [
+          194,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 194,
+        "port": 41,
+        "q": 194,
+        "rank": 1,
+        "right_columns": [
+          2,
+          193,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          196
+        ],
+        "left_columns": [
+          322,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 42,
+        "q": 322,
+        "rank": 1,
+        "right_columns": [
+          2,
+          321,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1987
+        ],
+        "left_columns": [
+          322,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 322,
+        "port": 42,
+        "q": 322,
+        "rank": 1,
+        "right_columns": [
+          2,
+          321,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          201
+        ],
+        "left_columns": [
+          386,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 43,
+        "q": 386,
+        "rank": 1,
+        "right_columns": [
+          2,
+          385,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          1995
+        ],
+        "left_columns": [
+          386,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 386,
+        "port": 43,
+        "q": 386,
+        "rank": 1,
+        "right_columns": [
+          2,
+          385,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          206
+        ],
+        "left_columns": [
+          28,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 44,
+        "q": 28,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          25,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2003
+        ],
+        "left_columns": [
+          28,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 28,
+        "port": 44,
+        "q": 28,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          25,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          211
+        ],
+        "left_columns": [
+          44,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 45,
+        "q": 44,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          41,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2011
+        ],
+        "left_columns": [
+          44,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 44,
+        "port": 45,
+        "q": 44,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          41,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          216,
+          2581
+        ],
+        "left_columns": [
+          140,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 46,
+        "q": 140,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          137,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          140,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 140,
+        "port": 46,
+        "q": 140,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          137,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          221
+        ],
+        "left_columns": [
+          268,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 47,
+        "q": 268,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          265,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2491
+        ],
+        "left_columns": [
+          268,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 268,
+        "port": 47,
+        "q": 268,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          265,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          226
+        ],
+        "left_columns": [
+          84,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 48,
+        "q": 84,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          81,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2019
+        ],
+        "left_columns": [
+          84,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 84,
+        "port": 48,
+        "q": 84,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          81,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          231
+        ],
+        "left_columns": [
+          148,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 49,
+        "q": 148,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          145,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2027
+        ],
+        "left_columns": [
+          148,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 148,
+        "port": 49,
+        "q": 148,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          145,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          236
+        ],
+        "left_columns": [
+          276,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 50,
+        "q": 276,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          273,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2035
+        ],
+        "left_columns": [
+          276,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 276,
+        "port": 50,
+        "q": 276,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          273,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          241
+        ],
+        "left_columns": [
+          100,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 51,
+        "q": 100,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          97,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2043
+        ],
+        "left_columns": [
+          100,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 100,
+        "port": 51,
+        "q": 100,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          97,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          246
+        ],
+        "left_columns": [
+          164,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 52,
+        "q": 164,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          161,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2051
+        ],
+        "left_columns": [
+          164,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 164,
+        "port": 52,
+        "q": 164,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          161,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          251
+        ],
+        "left_columns": [
+          292,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 53,
+        "q": 292,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          289,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2059
+        ],
+        "left_columns": [
+          292,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 292,
+        "port": 53,
+        "q": 292,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          289,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          256
+        ],
+        "left_columns": [
+          196,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 54,
+        "q": 196,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          193,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2067
+        ],
+        "left_columns": [
+          196,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 196,
+        "port": 54,
+        "q": 196,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          193,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          261
+        ],
+        "left_columns": [
+          324,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 55,
+        "q": 324,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          321,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2075
+        ],
+        "left_columns": [
+          324,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 324,
+        "port": 55,
+        "q": 324,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          321,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          266
+        ],
+        "left_columns": [
+          388,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 56,
+        "q": 388,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          385,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2083
+        ],
+        "left_columns": [
+          388,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 388,
+        "port": 56,
+        "q": 388,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          385,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          271,
+          2589
+        ],
+        "left_columns": [
+          56,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 57,
+        "q": 56,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          49,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          56,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 56,
+        "port": 57,
+        "q": 56,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          49,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          276
+        ],
+        "left_columns": [
+          88,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 58,
+        "q": 88,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          81,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2091
+        ],
+        "left_columns": [
+          88,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 88,
+        "port": 58,
+        "q": 88,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          81,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          281
+        ],
+        "left_columns": [
+          152,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 59,
+        "q": 152,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          145,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2099
+        ],
+        "left_columns": [
+          152,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 152,
+        "port": 59,
+        "q": 152,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          145,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          286
+        ],
+        "left_columns": [
+          280,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 60,
+        "q": 280,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          273,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2107
+        ],
+        "left_columns": [
+          280,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 280,
+        "port": 60,
+        "q": 280,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          273,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          291
+        ],
+        "left_columns": [
+          104,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 61,
+        "q": 104,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          97,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2115
+        ],
+        "left_columns": [
+          104,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 104,
+        "port": 61,
+        "q": 104,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          97,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          296
+        ],
+        "left_columns": [
+          168,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 62,
+        "q": 168,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          161,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2123
+        ],
+        "left_columns": [
+          168,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 168,
+        "port": 62,
+        "q": 168,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          161,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          301
+        ],
+        "left_columns": [
+          296,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 63,
+        "q": 296,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          289,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2131
+        ],
+        "left_columns": [
+          296,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 296,
+        "port": 63,
+        "q": 296,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          289,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          306
+        ],
+        "left_columns": [
+          200,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 64,
+        "q": 200,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          193,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2139
+        ],
+        "left_columns": [
+          200,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 200,
+        "port": 64,
+        "q": 200,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          193,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          311
+        ],
+        "left_columns": [
+          328,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 65,
+        "q": 328,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          321,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2147
+        ],
+        "left_columns": [
+          328,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 328,
+        "port": 65,
+        "q": 328,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          321,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          316
+        ],
+        "left_columns": [
+          392,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 66,
+        "q": 392,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          385,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2155
+        ],
+        "left_columns": [
+          392,
+          1,
+          2,
+          4,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 392,
+        "port": 66,
+        "q": 392,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          385,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          321
+        ],
+        "left_columns": [
+          112,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 67,
+        "q": 112,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          97,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2163
+        ],
+        "left_columns": [
+          112,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 112,
+        "port": 67,
+        "q": 112,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          97,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          326
+        ],
+        "left_columns": [
+          176,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 68,
+        "q": 176,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          161,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2171
+        ],
+        "left_columns": [
+          176,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 176,
+        "port": 68,
+        "q": 176,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          161,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          331
+        ],
+        "left_columns": [
+          304,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 69,
+        "q": 304,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          289,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2179
+        ],
+        "left_columns": [
+          304,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 304,
+        "port": 69,
+        "q": 304,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          289,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          336
+        ],
+        "left_columns": [
+          208,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 70,
+        "q": 208,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          193,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2187
+        ],
+        "left_columns": [
+          208,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 208,
+        "port": 70,
+        "q": 208,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          193,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          341
+        ],
+        "left_columns": [
+          336,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 71,
+        "q": 336,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          321,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2195
+        ],
+        "left_columns": [
+          336,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 336,
+        "port": 71,
+        "q": 336,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          321,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          346
+        ],
+        "left_columns": [
+          400,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 72,
+        "q": 400,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          385,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2203
+        ],
+        "left_columns": [
+          400,
+          1,
+          2,
+          4,
+          8,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 400,
+        "port": 72,
+        "q": 400,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          385,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          351
+        ],
+        "left_columns": [
+          224,
+          1,
+          2,
+          4,
+          8,
+          16,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 73,
+        "q": 224,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          193,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2211
+        ],
+        "left_columns": [
+          224,
+          1,
+          2,
+          4,
+          8,
+          16,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 224,
+        "port": 73,
+        "q": 224,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          193,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          356
+        ],
+        "left_columns": [
+          352,
+          1,
+          2,
+          4,
+          8,
+          16,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 74,
+        "q": 352,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          321,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2219
+        ],
+        "left_columns": [
+          352,
+          1,
+          2,
+          4,
+          8,
+          16,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 352,
+        "port": 74,
+        "q": 352,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          321,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          361
+        ],
+        "left_columns": [
+          416,
+          1,
+          2,
+          4,
+          8,
+          16,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 75,
+        "q": 416,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          385,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2227
+        ],
+        "left_columns": [
+          416,
+          1,
+          2,
+          4,
+          8,
+          16,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 416,
+        "port": 75,
+        "q": 416,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          385,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          366
+        ],
+        "left_columns": [
+          448,
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 76,
+        "q": 448,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          385,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2499
+        ],
+        "left_columns": [
+          448,
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          128,
+          256
+        ],
+        "left_offset": 448,
+        "port": 76,
+        "q": 448,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          385,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          371
+        ],
+        "left_columns": [
+          508,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 77,
+        "q": 508,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          505,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2235
+        ],
+        "left_columns": [
+          508,
+          1,
+          2,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 508,
+        "port": 77,
+        "q": 508,
+        "rank": 1,
+        "right_columns": [
+          2,
+          4,
+          505,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          376
+        ],
+        "left_columns": [
+          506,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 78,
+        "q": 506,
+        "rank": 1,
+        "right_columns": [
+          2,
+          505,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2243
+        ],
+        "left_columns": [
+          506,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 506,
+        "port": 78,
+        "q": 506,
+        "rank": 1,
+        "right_columns": [
+          2,
+          505,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          381
+        ],
+        "left_columns": [
+          502,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 79,
+        "q": 502,
+        "rank": 1,
+        "right_columns": [
+          2,
+          501,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2251
+        ],
+        "left_columns": [
+          502,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 502,
+        "port": 79,
+        "q": 502,
+        "rank": 1,
+        "right_columns": [
+          2,
+          501,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          386
+        ],
+        "left_columns": [
+          494,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 80,
+        "q": 494,
+        "rank": 1,
+        "right_columns": [
+          2,
+          493,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2259
+        ],
+        "left_columns": [
+          494,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 494,
+        "port": 80,
+        "q": 494,
+        "rank": 1,
+        "right_columns": [
+          2,
+          493,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          391
+        ],
+        "left_columns": [
+          478,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 81,
+        "q": 478,
+        "rank": 1,
+        "right_columns": [
+          2,
+          477,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2507
+        ],
+        "left_columns": [
+          478,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 478,
+        "port": 81,
+        "q": 478,
+        "rank": 1,
+        "right_columns": [
+          2,
+          477,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          396
+        ],
+        "left_columns": [
+          446,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 82,
+        "q": 446,
+        "rank": 1,
+        "right_columns": [
+          2,
+          445,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2267
+        ],
+        "left_columns": [
+          446,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 446,
+        "port": 82,
+        "q": 446,
+        "rank": 1,
+        "right_columns": [
+          2,
+          445,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          401
+        ],
+        "left_columns": [
+          382,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 83,
+        "q": 382,
+        "rank": 1,
+        "right_columns": [
+          2,
+          381,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2275
+        ],
+        "left_columns": [
+          382,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 382,
+        "port": 83,
+        "q": 382,
+        "rank": 1,
+        "right_columns": [
+          2,
+          381,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          406
+        ],
+        "left_columns": [
+          254,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 84,
+        "q": 254,
+        "rank": 1,
+        "right_columns": [
+          2,
+          253,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2283
+        ],
+        "left_columns": [
+          254,
+          1,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 254,
+        "port": 84,
+        "q": 254,
+        "rank": 1,
+        "right_columns": [
+          2,
+          253,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          411
+        ],
+        "left_columns": [
+          505,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 85,
+        "q": 505,
+        "rank": 1,
+        "right_columns": [
+          505,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2291
+        ],
+        "left_columns": [
+          505,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 505,
+        "port": 85,
+        "q": 505,
+        "rank": 1,
+        "right_columns": [
+          505,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          416
+        ],
+        "left_columns": [
+          501,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 86,
+        "q": 501,
+        "rank": 1,
+        "right_columns": [
+          501,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2299
+        ],
+        "left_columns": [
+          501,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 501,
+        "port": 86,
+        "q": 501,
+        "rank": 1,
+        "right_columns": [
+          501,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          421
+        ],
+        "left_columns": [
+          493,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 87,
+        "q": 493,
+        "rank": 1,
+        "right_columns": [
+          493,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2515
+        ],
+        "left_columns": [
+          493,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 493,
+        "port": 87,
+        "q": 493,
+        "rank": 1,
+        "right_columns": [
+          493,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          426
+        ],
+        "left_columns": [
+          477,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 88,
+        "q": 477,
+        "rank": 1,
+        "right_columns": [
+          477,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2307
+        ],
+        "left_columns": [
+          477,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 477,
+        "port": 88,
+        "q": 477,
+        "rank": 1,
+        "right_columns": [
+          477,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          431
+        ],
+        "left_columns": [
+          445,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 89,
+        "q": 445,
+        "rank": 1,
+        "right_columns": [
+          445,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2315
+        ],
+        "left_columns": [
+          445,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 445,
+        "port": 89,
+        "q": 445,
+        "rank": 1,
+        "right_columns": [
+          445,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          436
+        ],
+        "left_columns": [
+          381,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 90,
+        "q": 381,
+        "rank": 1,
+        "right_columns": [
+          381,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2323
+        ],
+        "left_columns": [
+          381,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 381,
+        "port": 90,
+        "q": 381,
+        "rank": 1,
+        "right_columns": [
+          381,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          441
+        ],
+        "left_columns": [
+          253,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 91,
+        "q": 253,
+        "rank": 1,
+        "right_columns": [
+          253,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2331
+        ],
+        "left_columns": [
+          253,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 253,
+        "port": 91,
+        "q": 253,
+        "rank": 1,
+        "right_columns": [
+          253,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          446
+        ],
+        "left_columns": [
+          499,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 92,
+        "q": 499,
+        "rank": 1,
+        "right_columns": [
+          499,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2523
+        ],
+        "left_columns": [
+          499,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 499,
+        "port": 92,
+        "q": 499,
+        "rank": 1,
+        "right_columns": [
+          499,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          451
+        ],
+        "left_columns": [
+          491,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 93,
+        "q": 491,
+        "rank": 1,
+        "right_columns": [
+          491,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2339
+        ],
+        "left_columns": [
+          491,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 491,
+        "port": 93,
+        "q": 491,
+        "rank": 1,
+        "right_columns": [
+          491,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          456
+        ],
+        "left_columns": [
+          475,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 94,
+        "q": 475,
+        "rank": 1,
+        "right_columns": [
+          475,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2347
+        ],
+        "left_columns": [
+          475,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 475,
+        "port": 94,
+        "q": 475,
+        "rank": 1,
+        "right_columns": [
+          475,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          461
+        ],
+        "left_columns": [
+          443,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 95,
+        "q": 443,
+        "rank": 1,
+        "right_columns": [
+          443,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2355
+        ],
+        "left_columns": [
+          443,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 443,
+        "port": 95,
+        "q": 443,
+        "rank": 1,
+        "right_columns": [
+          443,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          466
+        ],
+        "left_columns": [
+          379,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 96,
+        "q": 379,
+        "rank": 1,
+        "right_columns": [
+          379,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2363
+        ],
+        "left_columns": [
+          379,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 379,
+        "port": 96,
+        "q": 379,
+        "rank": 1,
+        "right_columns": [
+          379,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          471
+        ],
+        "left_columns": [
+          251,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 97,
+        "q": 251,
+        "rank": 1,
+        "right_columns": [
+          251,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2371
+        ],
+        "left_columns": [
+          251,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 251,
+        "port": 97,
+        "q": 251,
+        "rank": 1,
+        "right_columns": [
+          251,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          476
+        ],
+        "left_columns": [
+          487,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 98,
+        "q": 487,
+        "rank": 1,
+        "right_columns": [
+          487,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2379
+        ],
+        "left_columns": [
+          487,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 487,
+        "port": 98,
+        "q": 487,
+        "rank": 1,
+        "right_columns": [
+          487,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          481
+        ],
+        "left_columns": [
+          471,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 99,
+        "q": 471,
+        "rank": 1,
+        "right_columns": [
+          471,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2387
+        ],
+        "left_columns": [
+          471,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 471,
+        "port": 99,
+        "q": 471,
+        "rank": 1,
+        "right_columns": [
+          471,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          486
+        ],
+        "left_columns": [
+          439,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 100,
+        "q": 439,
+        "rank": 1,
+        "right_columns": [
+          439,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2395
+        ],
+        "left_columns": [
+          439,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 439,
+        "port": 100,
+        "q": 439,
+        "rank": 1,
+        "right_columns": [
+          439,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          491
+        ],
+        "left_columns": [
+          375,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 101,
+        "q": 375,
+        "rank": 1,
+        "right_columns": [
+          375,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2403
+        ],
+        "left_columns": [
+          375,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 375,
+        "port": 101,
+        "q": 375,
+        "rank": 1,
+        "right_columns": [
+          375,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          496
+        ],
+        "left_columns": [
+          247,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 102,
+        "q": 247,
+        "rank": 1,
+        "right_columns": [
+          247,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2411
+        ],
+        "left_columns": [
+          247,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 247,
+        "port": 102,
+        "q": 247,
+        "rank": 1,
+        "right_columns": [
+          247,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          501
+        ],
+        "left_columns": [
+          463,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 103,
+        "q": 463,
+        "rank": 1,
+        "right_columns": [
+          463,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2419
+        ],
+        "left_columns": [
+          463,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 463,
+        "port": 103,
+        "q": 463,
+        "rank": 1,
+        "right_columns": [
+          463,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          506
+        ],
+        "left_columns": [
+          431,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 104,
+        "q": 431,
+        "rank": 1,
+        "right_columns": [
+          431,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2427
+        ],
+        "left_columns": [
+          431,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 431,
+        "port": 104,
+        "q": 431,
+        "rank": 1,
+        "right_columns": [
+          431,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          511
+        ],
+        "left_columns": [
+          367,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 105,
+        "q": 367,
+        "rank": 1,
+        "right_columns": [
+          367,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2435
+        ],
+        "left_columns": [
+          367,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 367,
+        "port": 105,
+        "q": 367,
+        "rank": 1,
+        "right_columns": [
+          367,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          516
+        ],
+        "left_columns": [
+          239,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 106,
+        "q": 239,
+        "rank": 1,
+        "right_columns": [
+          239,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2443
+        ],
+        "left_columns": [
+          239,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 239,
+        "port": 106,
+        "q": 239,
+        "rank": 1,
+        "right_columns": [
+          239,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          521
+        ],
+        "left_columns": [
+          415,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 107,
+        "q": 415,
+        "rank": 1,
+        "right_columns": [
+          415,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2451
+        ],
+        "left_columns": [
+          415,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 415,
+        "port": 107,
+        "q": 415,
+        "rank": 1,
+        "right_columns": [
+          415,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          526
+        ],
+        "left_columns": [
+          351,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 108,
+        "q": 351,
+        "rank": 1,
+        "right_columns": [
+          351,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2459
+        ],
+        "left_columns": [
+          351,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 351,
+        "port": 108,
+        "q": 351,
+        "rank": 1,
+        "right_columns": [
+          351,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          531
+        ],
+        "left_columns": [
+          223,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 109,
+        "q": 223,
+        "rank": 1,
+        "right_columns": [
+          223,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2467
+        ],
+        "left_columns": [
+          223,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 223,
+        "port": 109,
+        "q": 223,
+        "rank": 1,
+        "right_columns": [
+          223,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          536
+        ],
+        "left_columns": [
+          319,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 110,
+        "q": 319,
+        "rank": 1,
+        "right_columns": [
+          319,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [
+          2531
+        ],
+        "left_columns": [
+          319,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 319,
+        "port": 110,
+        "q": 319,
+        "rank": 1,
+        "right_columns": [
+          319,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      },
+      {
+        "events": [
+          541,
+          2597
+        ],
+        "left_columns": [
+          191,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 0,
+        "port": 111,
+        "q": 191,
+        "rank": 1,
+        "right_columns": [
+          191,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": 1
+      },
+      {
+        "events": [],
+        "left_columns": [
+          191,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "left_offset": 191,
+        "port": 111,
+        "q": 191,
+        "rank": 1,
+        "right_columns": [
+          191,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "sign": -1
+      }
+    ],
+    "spectator_action": "identity outside first nine address coordinates"
+  },
+  "new_full_invoice": {
+    "add": 2816,
+    "begin": 2,
+    "checkpoint": 1,
+    "clear": 416,
+    "end": 2,
+    "line": 224,
+    "map": 352,
+    "native_wrappers": 448,
+    "quarter_ADD": 896,
+    "scalar_allowance": 26944,
+    "unit_ADD": 1920
+  },
+  "nine_bank_reference_invoice": {
+    "add": 2816,
+    "begin": 2,
+    "checkpoint": 1,
+    "clear": 425,
+    "end": 2,
+    "line": 224,
+    "map": 352,
+    "native_wrappers": 448,
+    "quarter_ADD": 896,
+    "scalar_allowance": 26962,
+    "unit_ADD": 1920
+  },
+  "nine_bank_reference_word_sha256": "12dedec59eeb95d1cbaf4964dcc9f9d7bb5ef3118966f8fb59856ee672e0bd54",
+  "output_contract": "All224 original x0/y0 inF17; all224 currentXY borrowed untouched; only224 owned output banks plus existing owner-private scratch",
+  "previous_full_invoice": {
+    "add": 2816,
+    "begin": 3,
+    "checkpoint": 1,
+    "clear": 536,
+    "end": 3,
+    "line": 224,
+    "map": 352,
+    "native_wrappers": 448,
+    "quarter_ADD": 896,
+    "scalar_allowance": 27184,
+    "unit_ADD": 1920
+  },
+  "query_rank": {
+    "pivot_ports": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      12
+    ],
+    "rank": 8,
+    "response_rank": 8,
+    "scope": "Rank of materialized query interface; not a general workspace lower bound"
+  },
+  "scalar_access_protocol": {
+    "head_movement": "unknown",
+    "hosted_block_including_nine_deferred_output_definitions": {
+      "cover_maps": 112,
+      "native_calls": 112,
+      "reads_per_site": 1138,
+      "scalar_passes": 698,
+      "writes_per_site": 698
+    },
+    "model": "One whole-cover pass per ADD or CLEAR; ADD reads both operands and writes destination, CLEAR writes destination. Native/map/wrapper/address/control/bit costs excluded and unknown.",
+    "moved_from_prefix": {
+      "reads_per_site": 18,
+      "scalar_passes": 18,
+      "writes_per_site": 18
+    },
+    "net_delta_vs_nine_bank": {
+      "reads_per_site": 0,
+      "scalar_passes": -9,
+      "writes_per_site": -9
+    },
+    "nine_bank_block": {
+      "cover_maps": 112,
+      "native_calls": 112,
+      "reads_per_site": 1120,
+      "scalar_passes": 689,
+      "writes_per_site": 689
+    },
+    "numerical_precision_and_bit_cost": "unknown",
+    "physical_storage_allocation_and_release": "unknown"
+  },
+  "scope": "Exact hosted streamed module, primitive and bank-lifetime improvement. No new physical movement tariff, numerical error proof, supplier admission or kappa improvement.",
+  "source_pins": {
+    "research/community-frontier1042-audit/selected-replay.tar.gz": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+    "research/joint-query/certificate.json.gz": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7",
+    "research/joint-query/evidence/JOINT-QUERY-TRANSFER.md": "9e13e73ebf3192a6548798c2f1d13bd4d83957e8db0dc34de12b1a5311a52a75",
+    "research/joint-query/verify_native.py": "1c58e7b6e8e1cde4df455c2129601c145ed763fc63a3ab427eb1058d1fc08bd2",
+    "research/joint-query/verify_scalar.py": "33bdbad17a0531fe527aff306eb235d9c38c1629db4fd167b989725930b0327a",
+    "research/qq16-line-normalized-decoder/PREDECESSORS.json": "a8be0439e350d7a634a188176894ec51180efc0d236a56b293d39dc96383a87d",
+    "research/qq16-line-normalized-decoder/PROOF.md": "0a0995e70f2a64c15cdd1aee66634d1ba221cbcb2a7cfa3a4d4950a37d0e143a",
+    "research/qq16-line-normalized-decoder/README.md": "017bb0a0ec15a5c5df446f721e9e68d4eeffac8bfe6fab2a4016a6dc0a666f14",
+    "research/qq16-line-normalized-decoder/RESULT.json": "58df4ad68e2ff335ee58fa4336a449d0f73f3366d840574e5e30b50f507c358d",
+    "research/qq16-line-normalized-decoder/SOURCES.json": "66bf8f57019632ef45780769c6f112d287e145e23ff03336998589b474165fbe",
+    "research/qq16-line-normalized-decoder/TASK.json": "117a044e72b1bb16c7567fa0906ceba93138131c9b446354a848d59b945cf23a",
+    "research/qq16-line-normalized-decoder/VERIFY.json": "1f63618a1c1d8973059fffd230bb35c5363755a0694eee56520fb9f768e53bae",
+    "research/qq16-line-normalized-decoder/WORD.json": "5623b9cd62635d47f84e78135d817cfddec7ae31c154c565bf6e16cf5ed75475",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/PROOF.md": "471f6360cdac94d9e1054c6c9530ace1822b11942f7e141dfd344864d2357862",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/README.md": "b658e00db095f1097b9ae7ec49d8dd465c1a317cdc84da4251cbdd3e0af597d3",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/RESULT.json": "e4f3ff28be27f96c341b225a62a2ba84d3907ed3466122d18bcaaf5a60da740e",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/SOURCES.json": "30a88d8bf33c603836fffdcab3c3dabf663b98f2deda95893685e394c60ea95c",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/WORD.json": "f02e57d238f127c8fd195dc6a4a9dce6db6bee9f6050bd9d5b9c14cf6e1946d0",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/references/PR2540-PROOF.md": "09d587f1d6bc250e90e29fa8751a40f45be79f1a8a56af0b645c144cefaefa46",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/references/PR2540-README.md": "07588c3863b8d686497d9c0b263c35c47424fa3b63d43b7c2e5f788bd31a8d3f",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/verify.py": "71f9a010553691e892703e3ec8d5eedf3e48d72b7f6af24b954a5442f4a52ccf",
+    "research/qq16-line-normalized-decoder/verify.py": "0f6fb86aafb74b9722f20cc97af70a3a3c78bd012c142b2eaa19cb00e02d1fe9"
+  },
+  "status": "PASS_QQ16_HOSTED_STREAMING_RECOVERY",
+  "storage": {
+    "lifetime": {
+      "D": {
+        "first_clear": 1704,
+        "host": "Z10",
+        "last_role_use": 2599,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2616,
+        "output_copy": 2617
+      },
+      "Q0": {
+        "first_clear": 1696,
+        "host": "Z1",
+        "last_role_use": 2585,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2600,
+        "output_copy": 2601
+      },
+      "Q1": {
+        "first_clear": 1697,
+        "host": "Z2",
+        "last_role_use": 2586,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2602,
+        "output_copy": 2603
+      },
+      "Q2": {
+        "first_clear": 1698,
+        "host": "Z3",
+        "last_role_use": 2587,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2604,
+        "output_copy": 2605
+      },
+      "Q3": {
+        "first_clear": 1699,
+        "host": "Z4",
+        "last_role_use": 2588,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2606,
+        "output_copy": 2607
+      },
+      "Q4": {
+        "first_clear": 1700,
+        "host": "Z5",
+        "last_role_use": 2593,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2608,
+        "output_copy": 2609
+      },
+      "Q5": {
+        "first_clear": 1701,
+        "host": "Z6",
+        "last_role_use": 2594,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2610,
+        "output_copy": 2611
+      },
+      "Q6": {
+        "first_clear": 1702,
+        "host": "Z8",
+        "last_role_use": 2595,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2612,
+        "output_copy": 2613
+      },
+      "Q7": {
+        "first_clear": 1703,
+        "host": "Z9",
+        "last_role_use": 2596,
+        "native_calls_before_output_restore": 112,
+        "output_clear": 2614,
+        "output_copy": 2615
+      }
+    },
+    "new_additional_owned": 0,
+    "new_private_future_peak": 0,
+    "nine_bank_reference_additional_owned": 9,
+    "owned_outputs": 224,
+    "previous_additional_owned": 112,
+    "private_peak": 16,
+    "return": "All nine aliased output banks are reinitialized by paid CLEAR/X-copy before the original suffix; final224outputs exact"
+  },
+  "word_events": 3813,
+  "word_sha256": "569d09187358786e0234f2fcc7d3b92441ec35a6714394045c6a2f97cfaaf597"
+}

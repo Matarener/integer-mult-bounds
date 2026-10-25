@@ -1,0 +1,70 @@
+{
+  "N": "2^(73 lambda) complex payload coordinates per owner, lambda positive integer",
+  "baseline": {
+    "CLEAR": 416,
+    "H1": 224,
+    "cover_maps": 352,
+    "cover_numeric_ops_per_N": 1408,
+    "monomial_wrappers": 448,
+    "native_numeric_ops_per_lambda_N": 2240,
+    "numeric_constant_per_N": 12352,
+    "private_peak": 16,
+    "quarter_ADD": 896,
+    "scalar_allowance": 26944,
+    "scalar_numeric_ops_per_N": 8256,
+    "unit_ADD": 1920,
+    "wrapper_numeric_ops_per_N": 2688
+  },
+  "candidate": {
+    "CLEAR": 416,
+    "H1": 224,
+    "cover_maps": 352,
+    "cover_numeric_ops_per_N": 1408,
+    "monomial_wrappers": 448,
+    "native_numeric_ops_per_lambda_N": 2240,
+    "numeric_constant_per_N": 12152,
+    "private_peak": 16,
+    "quarter_ADD": 896,
+    "scalar_allowance": 26144,
+    "scalar_numeric_ops_per_N": 8056,
+    "unit_ADD": 1820,
+    "wrapper_numeric_ops_per_N": 2688
+  },
+  "common_width_tariff": "For each reference primitive priced at any common positive tau(W), candidate prescribed bill is200N tau(W) smaller; logical allowance model separately gives800 tau_L(W). These are comparisons of prescribed bounds, not lower bounds on optimal implementations.",
+  "logical_allowance_difference": "800 allowance units; distinct from200N numeric operations",
+  "numeric_bound_per_owner": {
+    "baseline": "(12352+2240 lambda)N",
+    "candidate": "(12152+2240 lambda)N",
+    "difference": "200N numeric word operations"
+  },
+  "numeric_storage_bound": "(930N+12) signed W-bit component slots, including448 persistent complexfields,16 privatefields,one complex permutation buffer,and12 scalar native temporaries",
+  "premises": [
+    "Common sufficient range/grid certificate for every numerical reference interior.",
+    "Exact dyadic divisions and no overflow/underflow at the stated common W.",
+    "Pair-first coordinate Gaussian reference is permitted for this numerical bill; it is not inferred to implement a paid recursive child tariff."
+  ],
+  "reference_lowering": {
+    "CLEAR": "2N zero stores",
+    "buffer_protocol": "Two-leg out-of-place permutation returns to its fixed external bank; address/control work is outside numeric count.",
+    "cover": "2N outward copies plus2N copies back to the fixed destination bank",
+    "quarter_ADD": "2N exact binary shifts by two (one W-bit shift primitive per component) plus 2N additions/subtractions",
+    "signed_H1": "lambda coordinate Gaussian lines; each at most4N additions,2N exact halves,4N copies",
+    "unit_ADD": "2N real-component additions or subtractions",
+    "wrapper": "2N component sign operations plus2N outward copies and2N copies back to the fixed destination bank"
+  },
+  "status": "PASS_CONDITIONAL_COMMON_WIDTH_NUMERIC_REFERENCE_COMPARISON",
+  "unpriced": [
+    "Owner/payload address generation and control",
+    "physical movement and placement tariffs",
+    "actual recursive native child error/width/cost contract",
+    "native workspace exclusivity in a recursive implementation",
+    "caller entry-format conversion",
+    "recursive usage and supplier caps"
+  ],
+  "width_mismatch_break_even": {
+    "equal_width": "Delta=0 satisfies bothstrictinequalities for everylambda>=1 andW>0",
+    "general": "tau(W_candidate)/tau(W_baseline) < (12352+2240 lambda)/(12152+2240 lambda)",
+    "linear_tau_W": "Delta < 200 W_baseline/(12152+2240 lambda), forW_candidate=W_baseline+Delta",
+    "logical_allowance_only": "tau_L(W_candidate)/tau_L(W_baseline) < 26944/26144"
+  }
+}

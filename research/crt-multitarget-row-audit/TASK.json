@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently audit PR5496 RowQuery multi-target stream consumption, mixed active/idle targets, physical ROM-bank reuse and successful retirement, under the retained numerical Entry and producer contracts. Derive the exact fixed-P singleton-ROM shared-bank footprint and its three disjoint extra ports.",
+  "scope_change_reason": "The revision-7 card names one actual caller-bound CRT implication. Successor PR5496 supplies the concrete join; its completed fixtures have one active target, so this audit derives the target-loop invariant and adds independently checked multi-target boundary executions. The same rolewise reuse audit sharpens the bank storage accounting without changing the implementation or recursive invoice.",
+  "bottleneck_link": "CRT total repair needs correct current-state physical queries. This audits one necessary composition implication without treating it as complete all-size transfer or supplier admission.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at a source-relative proof or exact counterexample for this one loop, with h<=3 producer executions and no full native, ordinary, outer or production-size replay.",
+  "outcome": "completed",
+  "evidence": "PROOF.md gives the quantified conditional audit; RESULT.json freezes nine caller cases, thirteen complete producer invocations, 32 independent oracle networks/236 addresses and twelve control groups. No defect found in the audited implication; inherited theorems remain hypotheses. The bank footprint B(P,H)=5P*2^H*(H^2+3H+1)+2^H*(4H-1)+48P+2H+104 follows from the literal arena/serialization loops and componentwise monotonicity at fixed P.",
+  "author": "commdata2338",
+  "ai_assistance": "Substantial OpenAI Codex (GPT-6 Astra) assistance in derivation, implementation, checking and writing. No independent human or formal-kernel review is claimed.",
+  "open_questions": [
+    {
+      "question": "Update the actual encoded axis source with the returned coordinate stream and execute the next row without host serialization.",
+      "why_it_matters": "This is the next physical whole-level composition boundary after the audited single-row service.",
+      "first_step": "Use the five-row mixed h=3/h=2 example and price an in-place coordinate splice with input/ownership invariants.",
+      "blocked_by": "A caller update/ownership contract and its paid implementation; the row output itself is available."
+    },
+    {
+      "question": "Compose the service at all three current-state epochs of an exceptional reverse key.",
+      "why_it_matters": "A current-row audit does not close CRT total repair or justify freezing the left-state offset.",
+      "first_step": "Bind actual encoded source descriptors at PR4716's two stale-offset discriminator states and retain all conversions/restorations.",
+      "blocked_by": "Physical current-state descriptor production and complete key/caller tariff."
+    }
+  ],
+  "scope_key": "ce7411fb7cf6f3460bfc",
+  "scope_refinement": "pr5496-multi-target-current-row-bank-invariant",
+  "selection": {
+    "seed": "44f05f574fc586d49962b167a149c6d8",
+    "track": "adversarial-audit",
+    "chosen_suggestion": 2,
+    "priority_revision": 7,
+    "alternatives": [
+      {
+        "task": "census-pruning-audit",
+        "reason": "Earlier account PR3215 audits that family; the concrete CRT implication is a current central question."
+      },
+      {
+        "task": "supplier-boundary-audit",
+        "reason": "Complete mixed admission exceeds this scoped session; current source-sensitive successor work is separate."
+      }
+    ],
+    "handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4709#discussioncomment-19173182",
+    "existing_checks": "PR4100 author construction; PR5496 complete single-active-target h=2 pipeline and four controls. Its h=4 four-axis attempt was incomplete. This audit does not reuse its verifier.",
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4709#discussioncomment-19173680"
+  },
+  "dependency_heads": {
+    "PR5496": "a99afd7e0024af8367d5a2f6f4d2da57a1d13dd5",
+    "PR5353": "07a135eee3a8da9392c4a1e01d4b89db05b4ac03",
+    "main_input_pin": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+    "PR4100": "337d04939571a637aeab54a0f58f54fde811663a"
+  },
+  "boundary": {
+    "inputs": "One sequential padded-axis source, eight protected numerical ports, compiled node/row/width topology and blank new owned backing.",
+    "output": "Ordered right-axis micro-row stream; idle targets unchanged; source and protected ports restored.",
+    "cleanup": "Full produced layers, selected ROM, headers, coordinate/countdown scratch and all numerical owned ports; caller retires returned stream with close.",
+    "inherited": "Numerical Entry and encoded ROM producer success theorems and their stated tariffs.",
+    "not_claimed": "Whole-level input update, three-epoch key, full E(p,ell), binary numerical compiler, supplier admission or new kappa.",
+    "storage": "Exact 52-role ROM-bank and three-extra-port cell counts for one fresh RowQuery, including retained old tails; numerical Entry and any external initial blank reserve remain separate."
+  },
+  "family_decision": "Narrow and stop after this independent audit. All consumer/whole-key costs remain explicit; no larger dependent search.",
+  "overlap": {
+    "open_prs_fetched_at": "2026-10-25T05:11:23.081429+00:00",
+    "discussions_fetched_at": "2026-10-25T05:12:32.988336+00:00",
+    "local_head_records": 7402,
+    "nearest": [
+      "PR5496 (construction and single-active-target tests; audited here)",
+      "PR5353 (numerical row entry; inherited)",
+      "PR5092 (ROM producer; inherited)",
+      "PR5505 (cross-session numerical bank history; distinct)",
+      "PR5486 (fixed repair binary lowering; distinct)"
+    ],
+    "limits": "Complete snapshot pagination and full local note inventory; arbitrary code diffs and unpublished work outside coverage. No novelty guarantee.",
+    "footprint_check": {
+      "open_prs_fetched_at": "2026-10-25T05:31:21.052548+00:00",
+      "discussions_fetched_at": "2026-10-25T05:33:05.370314+00:00",
+      "queries": [
+        "ROM bank",
+        "producer footprint",
+        "48P"
+      ],
+      "distinction": "PR5505 concerns changing-precision numerical Entry histories, not the fixed-P singleton-ROM service bank. No matching exact bank formula found in the checked main notes and snapshot."
+    }
+  }
+}

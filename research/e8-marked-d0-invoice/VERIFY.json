@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "formal/lean/lake-manifest.json",
+    "formal/lean/lean-toolchain",
+    "research/e8-d0-root-swaps/EXTENSION.md",
+    "research/e8-d0-root-swaps/PROOF.md",
+    "research/e8-d0-root-swaps/extension_check.py",
+    "research/e8-d0-root-swaps/geometry_audit.py",
+    "research/e8-d0-root-swaps/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate frozen scientific inputs; recompute root-only/F1/plane geometry; two E8 algorithms with exact binding; eleven actual P112 factorizations covering paid/free and losing/no-loss singleton pivots, independently reconstructed sharp controls, repeated low-frame packet and omitted-g counterexample."
+    }
+  ]
+}

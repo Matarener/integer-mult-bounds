@@ -1,0 +1,8 @@
+{
+  "status": "COLD_CLI_REJECTED_BEFORE_MATHEMATICAL_REPLAY_COMPLETE",
+  "error": "New CLI compared integer-key in-memory paid dictionaries with string-key JSON dictionaries without explicit serialization normalization.",
+  "old_manifest_sha256": "f07ec8a3f35b1f70ec8d6fe06bdd38fab252bf44041746b27230c47a9219f42e",
+  "preserved": ["MANIFEST.json", "verify.py"],
+  "correction": "Compare the exact stats record through json.loads(json.dumps(stats)). No rows, ranks, SOURCE predicates, generated stream, input or scientific data changed.",
+  "claim": "This attempt is not a cold replay PASS. A new runtime manifest and fresh verification output are required."
+}

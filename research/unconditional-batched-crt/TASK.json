@@ -1,0 +1,66 @@
+{
+  "actual_scope": "Construct and audit an unconditional all-size multiplication route above PR4088, including a new batched CRT permutation.",
+  "ai_assistance": "Substantial OpenAI Codex assistance in mathematical research, implementation, source review, proof writing and tests; no independent human or new formal-kernel verification.",
+  "author": "Cinna Davis, with OpenAI Codex assistance",
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "bottleneck_link": "Near-one dimension parameters invalidate the older O(Vd) CRT and chirp construction; complete BIT, complex and Gaussian implementations must be bound before a root becomes kappa.",
+  "budget_minutes": null,
+  "evidence": "Complete author-submitted written BIT, CRT, mixed-provider complex, Gaussian and outer composition proof, exact source pins, rational ledger and finite controls. No independent acceptance or new formal verification claimed; AUDIT.md records execution limits.",
+  "open_questions": [
+    {
+      "blocked_by": "No external dependency; review is not claimed by the author.",
+      "first_step": "Review CRT.md and the operator-valued tensor lift in COMPLEX.md against the exact pinned inputs.",
+      "question": "Independently review the complete fixed-tape construction and its all-size bounds.",
+      "why_it_matters": "Finite certificates do not validate the quantified mathematical argument."
+    },
+    {
+      "blocked_by": "Formal development and literal tape refinement; not used as a premise of the proposed written theorem.",
+      "first_step": "Formalize the compact arbitrary-function guard, total keyed repair and complete reservoir layout.",
+      "question": "Formalize the new construction and remove the remaining gap between a written machine construction and a kernel-checked implementation.",
+      "why_it_matters": "The existing Lean baseline does not certify this exponent."
+    }
+  ],
+  "original_card": {
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "id": "uniform-transfer-audit",
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ],
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ]
+  },
+  "outcome": "completed",
+  "priority_revision": 6,
+  "schema_version": 1,
+  "scope_change_reason": "Explicit user request requires the largest supported kappa with every transfer premise discharged, rather than one isolated lemma.",
+  "scope_status": "changed",
+  "stop_rule": "Do not declare the requested result until every inherited premise is proved in the complete construction and a reviewable PR is published.",
+  "task_id": "uniform-transfer-audit"
+}

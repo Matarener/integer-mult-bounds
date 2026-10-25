@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "primary"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual 24-port repair, complete 112-port partition/Gram/mask, forced I32 and full-plane 224 tariff."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "independent"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate explicit-vector geometry, dense three-field ranks and all 224 literal source/dirty-target field-program columns."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-O",
+        "{package}/verify.py",
+        "--suite",
+        "controls"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Partition, Gram, clique, source and representative-only undercharge controls."
+    }
+  ]
+}

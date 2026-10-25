@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/pr3190-remainder-stream-obstruction/obstruction.py",
+    "research/pr3190-remainder-stream-obstruction/vendor/PR3190-MOVES.json.gz",
+    "research/pr3934-pr3955-operator-replay/vendor/PR3251-MOVES.json.gz",
+    "research/pr3934-pr3955-operator-replay/vendor/PR3934-MOVES.json.gz",
+    "research/pr3934-pr3955-operator-replay/vendor/PR3955-MOVES.json.gz",
+    "research/rank7-idle-star-stream-obstruction/SOURCES.json",
+    "research/rank7-idle-star-stream-obstruction/algebra.py",
+    "research/rank7-idle-star-stream-obstruction/source.py",
+    "research/rank7-idle-star-stream-obstruction/vendor/BASE-FILL.json.gz",
+    "research/rank7-idle-star-stream-obstruction/vendor/EXCHANGE.json",
+    "research/rank7-idle-star-stream-obstruction/vendor/PR3133-CREDITS.md",
+    "research/rank7-idle-star-stream-obstruction/vendor/PR3133-NOTICE",
+    "research/rank7-idle-star-stream-obstruction/vendor/PROVIDERS.json",
+    "research/rank7-idle-star-stream-obstruction/vendor/STAR-MOVES.json.gz",
+    "research/rank7-joint-endframes/allocation/DISPATCH.json",
+    "research/rank7-joint-endframes/allocation/ORDER.json",
+    "research/rank7-joint-endframes/allocation/vendor/PLAN.json.gz",
+    "research/rank7-joint-endframes/allocation/vendor/TEMPLATE.json.gz",
+    "research/split-centres-global/proofs/INHERITED-COMPLEX-GEOMETRY.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "pinned PR3251/PR3934/PR3955 MOVES; PR3251 moves and PR3296 witness contained in the open chain; owner-0 port-0 witness reproduces PR3296 (10 entries at 2^72); each of PR3934's 2,374 hosted-receiver moves changes the exact operator at its own owner replica and port; every identity-selection PR3955 port of owner replica 0 changes it; empty-overlay, foreign-axis and self-move controls; equality with RESULT.json"
+    }
+  ]
+}

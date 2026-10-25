@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/complex-local-word-ceiling/ceiling.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Rebuild the 120 E8 label rows, certify pairing rank 9 and attainment, reject a synthetic rank-10 row, and screen the favorable rank-9 local histogram against a=1/99 with the pinned ceiling engine. The rank-44 control must pass that one-point screen."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the same certificate with interpreter optimization enabled. Rejection checks do not use assertions."
+    }
+  ]
+}

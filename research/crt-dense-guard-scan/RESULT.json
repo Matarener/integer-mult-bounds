@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "result": "PASS_LITERAL_DENSE_GUARD_MASK",
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "source_inputs_checked": 3,
+  "fixtures": [
+    {
+      "address_bits": 14,
+      "addresses": 16384,
+      "good_addresses": 256,
+      "bad_addresses": 16128,
+      "read_actions": 1015887,
+      "write_actions": 49181,
+      "move_actions": 1015900,
+      "total_cell_head_actions": 2080968,
+      "visited_cells_including_owned_mask": 16418,
+      "heads_returned": true,
+      "private_data_blank": true,
+      "mask_semantics": "1=bad, 0=good; increasing MSB-first binary address",
+      "mask_ascii_sha256": "5d1906a782234a5664d5b1478baaaea2becd207fe111676581c6fc64c40fca29",
+      "name": "two_target_complete",
+      "G": 1,
+      "H": 2,
+      "Y_bits": 10,
+      "targets": [
+        0,
+        5
+      ],
+      "K": 5,
+      "back_skip_bits": 0,
+      "domain": "predicate projection/stencil fixture, not a full production reservoir invocation"
+    },
+    {
+      "address_bits": 15,
+      "addresses": 32768,
+      "good_addresses": 13824,
+      "bad_addresses": 18944,
+      "read_actions": 2162772,
+      "write_actions": 98335,
+      "move_actions": 2162786,
+      "total_cell_head_actions": 4423893,
+      "visited_cells_including_owned_mask": 32804,
+      "heads_returned": true,
+      "private_data_blank": true,
+      "mask_semantics": "1=bad, 0=good; increasing MSB-first binary address",
+      "mask_ascii_sha256": "92e2c33f11c21d88a022ab8fedd137181ee026557f2b84dce81d7a1bd40d1354",
+      "name": "inactive_digits_and_Y_spectators",
+      "G": 2,
+      "H": 3,
+      "Y_bits": 9,
+      "targets": [
+        1
+      ],
+      "K": 7,
+      "back_skip_bits": 0,
+      "domain": "predicate projection/stencil fixture, not a full production reservoir invocation"
+    },
+    {
+      "address_bits": 8,
+      "addresses": 256,
+      "good_addresses": 32,
+      "bad_addresses": 224,
+      "read_actions": 9777,
+      "write_actions": 785,
+      "move_actions": 9784,
+      "total_cell_head_actions": 20346,
+      "visited_cells_including_owned_mask": 278,
+      "heads_returned": true,
+      "private_data_blank": true,
+      "mask_semantics": "1=bad, 0=good; increasing MSB-first binary address",
+      "mask_ascii_sha256": "30852858b0e592a63a14bf785536c81b448d1d6fb4fc3f79979876aad58bd278",
+      "name": "one_target_with_back_spectator",
+      "G": 1,
+      "H": 1,
+      "Y_bits": 5,
+      "targets": [
+        0
+      ],
+      "K": 5,
+      "back_skip_bits": 1,
+      "domain": "predicate projection/stencil fixture, not a full production reservoir invocation"
+    }
+  ],
+  "all_skip_boundaries": [
+    {
+      "address_bits": 1,
+      "addresses": 2,
+      "good_addresses": 2,
+      "bad_addresses": 0,
+      "read_actions": 34,
+      "write_actions": 9,
+      "move_actions": 34,
+      "total_cell_head_actions": 77,
+      "visited_cells_including_owned_mask": 10,
+      "heads_returned": true,
+      "private_data_blank": true,
+      "mask_semantics": "1=bad, 0=good; increasing MSB-first binary address",
+      "mask_ascii_sha256": "f1534392279bddbf9d43dde8701cb5be14b82f76ec6607bf8d6ad557f60f304e"
+    },
+    {
+      "address_bits": 2,
+      "addresses": 4,
+      "good_addresses": 4,
+      "bad_addresses": 0,
+      "read_actions": 75,
+      "write_actions": 17,
+      "move_actions": 76,
+      "total_cell_head_actions": 168,
+      "visited_cells_including_owned_mask": 14,
+      "heads_returned": true,
+      "private_data_blank": true,
+      "mask_semantics": "1=bad, 0=good; increasing MSB-first binary address",
+      "mask_ascii_sha256": "9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0"
+    },
+    {
+      "address_bits": 3,
+      "addresses": 8,
+      "good_addresses": 8,
+      "bad_addresses": 0,
+      "read_actions": 168,
+      "write_actions": 31,
+      "move_actions": 170,
+      "total_cell_head_actions": 369,
+      "visited_cells_including_owned_mask": 20,
+      "heads_returned": true,
+      "private_data_blank": true,
+      "mask_semantics": "1=bad, 0=good; increasing MSB-first binary address",
+      "mask_ascii_sha256": "7e071fd9b023ed8f18458a73613a0834f6220bd5cc50357ba3493c6040a9ea8c"
+    }
+  ],
+  "negative_controls": {
+    "semantic_mutants": [
+      {
+        "name": "lower threshold incorrectly strict",
+        "address": 8,
+        "correct_bad_bit": "0",
+        "wrong_bad_bit": "1"
+      },
+      {
+        "name": "upper threshold incorrectly inclusive",
+        "address": 24,
+        "correct_bad_bit": "1",
+        "wrong_bad_bit": "0"
+      },
+      {
+        "name": "last differing bit overrides MSB significance",
+        "address": 10,
+        "correct_bad_bit": "0",
+        "wrong_bad_bit": "1"
+      },
+      {
+        "name": "whole K-bit segment compared to unadjusted K-1-bit thresholds",
+        "address": 4,
+        "correct_bad_bit": "1",
+        "wrong_bad_bit": "0"
+      }
+    ],
+    "ownership_mutants": [
+      "owned mask head return omitted"
+    ],
+    "counter_mutants": [
+      "least significant counter bit omitted"
+    ],
+    "unpriced_adapter_rejections": [
+      "empty stencil",
+      "missing interval start",
+      "missing interval end",
+      "overlapping source guards",
+      "incomplete source guard"
+    ]
+  },
+  "limitations": [
+    "Literal transducer starts from admitted ordered finite-alphabet stencil.",
+    "Geometry/stencil generation and admission are unpriced host adapters, not discharged tape obligations.",
+    "Observer integers, hashes and source comparisons are outside runtime finite control.",
+    "No source/E callback exists in the detector interface; keyed work is outside it.",
+    "No extraction/sort/repair/payload movement, full CRT evaluator or new kappa."
+  ]
+}

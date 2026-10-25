@@ -1,0 +1,1203 @@
+{
+  "scope": "Local session screens, scripts preserved in workspace handoff; not standalone public optimality claims. No paid-profile gain survived.",
+  "experiments": [
+    {
+      "hypothesis": "commuting_same_frame",
+      "command": "python3 -B commuting_screen.py",
+      "seed": "deterministic; no random choices",
+      "artifact": "experiments/commuting/RESULT.json",
+      "sha256": "0242ce7e04202f658d501d0cabcdd3ab90ffbc0a199de85a9deb58775f0fda8b",
+      "result": [
+        {
+          "tag": "base",
+          "input_sha256": "300a9b8ad1d554f0e6f84f43f3f5fd870a5b4e5f81ad856900b6e8999684892e",
+          "baseline_profile": {
+            "1": 2433,
+            "2": 724,
+            "3": 228,
+            "4": 102,
+            "5": 20,
+            "8": 8
+          },
+          "baseline_inventory": {
+            "4": 26,
+            "5": 2,
+            "6": 18,
+            "7": 50,
+            "8": 99,
+            "9": 213
+          },
+          "sections": {
+            "A": {
+              "gates": 4079,
+              "fusible_pairs": 24,
+              "inverse_pairs": 3
+            },
+            "B": {
+              "gates": 1872,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            },
+            "restore": {
+              "gates": 212,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            }
+          },
+          "candidates": [
+            {
+              "section": "A",
+              "indices": [
+                91,
+                93
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                235,
+                239
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                579,
+                580
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            }
+          ]
+        },
+        {
+          "tag": "extra",
+          "input_sha256": "495d030f1e03b90e954dad3043994f03293d41b9ed220a3beaef849df435d3f0",
+          "baseline_profile": {
+            "1": 2433,
+            "2": 724,
+            "3": 228,
+            "4": 102,
+            "5": 20,
+            "8": 8
+          },
+          "baseline_inventory": {
+            "4": 26,
+            "5": 2,
+            "6": 18,
+            "7": 50,
+            "8": 99,
+            "9": 213
+          },
+          "sections": {
+            "A": {
+              "gates": 4079,
+              "fusible_pairs": 24,
+              "inverse_pairs": 3
+            },
+            "B": {
+              "gates": 1872,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            },
+            "restore": {
+              "gates": 212,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            }
+          },
+          "candidates": [
+            {
+              "section": "A",
+              "indices": [
+                91,
+                93
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                235,
+                239
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                579,
+                580
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hypothesis": "commuting_arbitrary_frames",
+      "command": "python3 -B commuting_screen.py --vary-frames",
+      "seed": "deterministic; no random choices",
+      "artifact": "experiments/commuting-vary-frames/RESULT.json",
+      "sha256": "0242ce7e04202f658d501d0cabcdd3ab90ffbc0a199de85a9deb58775f0fda8b",
+      "result": [
+        {
+          "tag": "base",
+          "input_sha256": "300a9b8ad1d554f0e6f84f43f3f5fd870a5b4e5f81ad856900b6e8999684892e",
+          "baseline_profile": {
+            "1": 2433,
+            "2": 724,
+            "3": 228,
+            "4": 102,
+            "5": 20,
+            "8": 8
+          },
+          "baseline_inventory": {
+            "4": 26,
+            "5": 2,
+            "6": 18,
+            "7": 50,
+            "8": 99,
+            "9": 213
+          },
+          "sections": {
+            "A": {
+              "gates": 4079,
+              "fusible_pairs": 24,
+              "inverse_pairs": 3
+            },
+            "B": {
+              "gates": 1872,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            },
+            "restore": {
+              "gates": 212,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            }
+          },
+          "candidates": [
+            {
+              "section": "A",
+              "indices": [
+                91,
+                93
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                235,
+                239
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                579,
+                580
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            }
+          ]
+        },
+        {
+          "tag": "extra",
+          "input_sha256": "495d030f1e03b90e954dad3043994f03293d41b9ed220a3beaef849df435d3f0",
+          "baseline_profile": {
+            "1": 2433,
+            "2": 724,
+            "3": 228,
+            "4": 102,
+            "5": 20,
+            "8": 8
+          },
+          "baseline_inventory": {
+            "4": 26,
+            "5": 2,
+            "6": 18,
+            "7": 50,
+            "8": 99,
+            "9": 213
+          },
+          "sections": {
+            "A": {
+              "gates": 4079,
+              "fusible_pairs": 24,
+              "inverse_pairs": 3
+            },
+            "B": {
+              "gates": 1872,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            },
+            "restore": {
+              "gates": 212,
+              "fusible_pairs": 0,
+              "inverse_pairs": 0
+            }
+          },
+          "candidates": [
+            {
+              "section": "A",
+              "indices": [
+                91,
+                93
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                235,
+                239
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            },
+            {
+              "section": "A",
+              "indices": [
+                579,
+                580
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changes_profile": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hypothesis": "three_to_two_braids",
+      "command": "python3 -B braid_screen.py",
+      "seed": "deterministic; no random choices",
+      "artifact": "experiments/braids/RESULT.json",
+      "sha256": "6280113f76becee5461c733f71199cc861e2843c62db601684251118fcdc5af6",
+      "result": [
+        {
+          "tag": "base",
+          "source_sha256": "300a9b8ad1d554f0e6f84f43f3f5fd870a5b4e5f81ad856900b6e8999684892e",
+          "window": 100,
+          "candidates": [
+            {
+              "section": "A",
+              "indices": [
+                1858,
+                1859,
+                1860
+              ],
+              "frame": [
+                82,
+                42
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                20,
+                21,
+                36
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                34,
+                17,
+                11,
+                4
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                22,
+                23,
+                38
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                34,
+                17,
+                11,
+                4
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                26,
+                27,
+                51
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                38,
+                20,
+                10,
+                1
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                30,
+                31,
+                62
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                32,
+                19,
+                11,
+                6
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                32,
+                33,
+                73
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                37,
+                21,
+                8,
+                3
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            }
+          ]
+        },
+        {
+          "tag": "extra",
+          "source_sha256": "495d030f1e03b90e954dad3043994f03293d41b9ed220a3beaef849df435d3f0",
+          "window": 100,
+          "candidates": [
+            {
+              "section": "A",
+              "indices": [
+                1858,
+                1859,
+                1860
+              ],
+              "frame": [
+                82,
+                42
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                20,
+                21,
+                36
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                34,
+                17,
+                11,
+                4
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                22,
+                23,
+                38
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                34,
+                17,
+                11,
+                4
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                26,
+                27,
+                51
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                38,
+                20,
+                10,
+                1
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                30,
+                31,
+                62
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                32,
+                19,
+                11,
+                6
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            },
+            {
+              "section": "restore",
+              "indices": [
+                32,
+                33,
+                73
+              ],
+              "frame": [
+                256,
+                128,
+                64,
+                37,
+                21,
+                8,
+                3
+              ],
+              "profile": {
+                "1": 2433,
+                "2": 724,
+                "3": 228,
+                "4": 102,
+                "5": 20,
+                "8": 8
+              },
+              "inventory": {
+                "4": 26,
+                "5": 2,
+                "6": 18,
+                "7": 50,
+                "8": 99,
+                "9": 213
+              },
+              "changed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hypothesis": "restore_deletion_changed_word",
+      "command": "python3 -B restore_screen.py",
+      "seed": "deterministic; no random choices",
+      "artifact": "experiments/restore/RESULT.json",
+      "sha256": "3238dce24a2eb6e6270ec8b17c63657e57c6002d7df4f8c03fd43284d3b1d53b",
+      "result": [
+        {
+          "tag": "base",
+          "source_sha256": "300a9b8ad1d554f0e6f84f43f3f5fd870a5b4e5f81ad856900b6e8999684892e",
+          "deletion": {
+            "deletions": 212,
+            "exact": 10,
+            "exact_deletions": [
+              {
+                "deleted": 165,
+                "gate": [
+                  "add",
+                  40,
+                  226,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 176,
+                "gate": [
+                  "add",
+                  230,
+                  22,
+                  1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 184,
+                "gate": [
+                  "add",
+                  40,
+                  18,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 185,
+                "gate": [
+                  "add",
+                  18,
+                  40,
+                  1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 186,
+                "gate": [
+                  "add",
+                  40,
+                  18,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 187,
+                "gate": [
+                  "add",
+                  40,
+                  54,
+                  2,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 190,
+                "gate": [
+                  "add",
+                  61,
+                  63,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 203,
+                "gate": [
+                  "add",
+                  59,
+                  73,
+                  1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 210,
+                "gate": [
+                  "scale",
+                  96,
+                  -1,
+                  1,
+                  [
+                    256,
+                    128,
+                    64,
+                    32,
+                    16,
+                    8,
+                    5,
+                    3
+                  ]
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 211,
+                "gate": [
+                  "add",
+                  5,
+                  96,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              }
+            ],
+            "min_delta": 0
+          },
+          "baseline_guide_cost": 10863919157,
+          "scope": "Exact end-boundary and finite guide weights; actual moment/native/hosting required for a winner"
+        },
+        {
+          "tag": "extra",
+          "source_sha256": "495d030f1e03b90e954dad3043994f03293d41b9ed220a3beaef849df435d3f0",
+          "deletion": {
+            "deletions": 212,
+            "exact": 10,
+            "exact_deletions": [
+              {
+                "deleted": 165,
+                "gate": [
+                  "add",
+                  40,
+                  226,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 176,
+                "gate": [
+                  "add",
+                  230,
+                  22,
+                  1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 184,
+                "gate": [
+                  "add",
+                  40,
+                  18,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 185,
+                "gate": [
+                  "add",
+                  18,
+                  40,
+                  1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 186,
+                "gate": [
+                  "add",
+                  40,
+                  18,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 187,
+                "gate": [
+                  "add",
+                  40,
+                  54,
+                  2,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 190,
+                "gate": [
+                  "add",
+                  61,
+                  63,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 203,
+                "gate": [
+                  "add",
+                  59,
+                  73,
+                  1,
+                  1
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 210,
+                "gate": [
+                  "scale",
+                  96,
+                  -1,
+                  1,
+                  [
+                    256,
+                    128,
+                    64,
+                    32,
+                    16,
+                    8,
+                    5,
+                    3
+                  ]
+                ],
+                "delta": 0
+              },
+              {
+                "deleted": 211,
+                "gate": [
+                  "add",
+                  5,
+                  96,
+                  -1,
+                  1
+                ],
+                "delta": 0
+              }
+            ],
+            "min_delta": 0
+          },
+          "baseline_guide_cost": 10863919157,
+          "scope": "Exact end-boundary and finite guide weights; actual moment/native/hosting required for a winner"
+        }
+      ]
+    }
+  ],
+  "failed_initial_endpoint": "An initial experimental outer input guessed r0=10^-130 and FLOOR=10^91; unchanged checker rejected b. Correct existing formulas are endpoint_digits+80 and endpoint_digits+46; fixed inputs, not predicates. Failure logs preserved in workspace.",
+  "search_triage": [
+    {
+      "priority": 1,
+      "hypothesis": "Delete or fuse commuting inverse ADD pairs; then allow differing recorded frames",
+      "plausible_gain": "A positive paid-child reduction would be structural; gate count alone gives no kappa gain",
+      "verification_cost": "Low: bounded inverse-pair pattern scan and exact profile audit",
+      "outcome": "Three inverse pairs per provider, zero paid-profile change"
+    },
+    {
+      "priority": 2,
+      "hypothesis": "Replace short elementary-transvection braids through commuting intervals",
+      "plausible_gain": "Potential paid-child reduction if both replacement operations fit cheaper legal frames",
+      "verification_cost": "Low to medium: bounded 100-event windows, exact rational coefficient patterns and conservative frame joins",
+      "outcome": "Six exact triples per provider, no improved paid profile"
+    },
+    {
+      "priority": 3,
+      "hypothesis": "Recheck restore deletions after the PR3133 word changes",
+      "plausible_gain": "Potential savings only if a nonzero-priced restore gate can be removed while retaining arbitrary-dirty interfaces",
+      "verification_cost": "Medium: all 212 deletions per provider, exact rational matrices",
+      "outcome": "Ten exact deletions per provider, every guide-cost delta zero"
+    },
+    {
+      "priority": 4,
+      "hypothesis": "Reduce explicit endpoint and outer rounding slack",
+      "plausible_gain": "Microscopic only; bounded by the already published 40-digit root bracket",
+      "verification_cost": "Low: new certified enclosure and unchanged exact outer checkers",
+      "outcome": "Positive explicit rational gain about 3.609e-36; no circuit change"
+    }
+  ],
+  "excluded_before_search": [
+    "Fixed-word owner reshuffling cannot beat the attained exact 2551-pattern packing cap.",
+    "Existing idle-axis donations have published operator obstructions; current PR3251 six-move owner 0 / port 0 composition was rebound and still fails."
+  ],
+  "local_replay_archive": {
+    "archive": "negative-search-replay.tar.gz",
+    "sha256": "c93fdb22b6f4714f3bf5c33d195de95bd08dfe4a7227c0a11e14af671c91a95f",
+    "files": 206,
+    "source_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "scope": "Exact original negative-search scripts, source packages, expected results and licenses; no claim of a new replay."
+  }
+}

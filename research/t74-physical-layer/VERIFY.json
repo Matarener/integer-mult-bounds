@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": ["numpy==2.2.6"],
+  "inputs": [
+    "research/rank7-joint-endframes/allocation/PROFILE.json",
+    "research/rank7-joint-endframes/allocation/ORDER.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/t74-physical-layer/inputs/pr3385-controller.tar",
+    "research/t74-physical-layer/inputs/t74-native-controller.tar"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","native"],"timeout_seconds":300,"checks":"Both fresh five-stage native chains, artifact equality, four compilations, modular endpoints and rejection controls"},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","binding"],"timeout_seconds":540,"checks":"Complete emitted controller, owner/provider dispatch, monomial algebra and encoded phases, height inventory and strict layer budget"},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","physical"],"timeout_seconds":360,"checks":"Reduced complete private-Z/warp execution, nonzero-release rejection, normalized direct and fast root returns"}
+  ]
+}

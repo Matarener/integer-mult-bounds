@@ -1,0 +1,19 @@
+# Fixed-T8 construction and complete bill
+
+The authenticated T16 source has every replica/stage call exactly once and stages 0 through 8 in order per replica. Retaining replicas 0 through 7 gives exactly 72 calls, preserving each retained event order. `PLAN-T8.json` is checked against that exact projection; the public interface binds T=8, m=73, nine stages and live stock 7168. This is not an arbitrary-T public verifier. Existing parent geometry supports one complete group of eight replicas. The independent owner auditors rederive child windows from source events rather than accepting retained windows as authority.
+
+Both native words produce the same ordered 408 helper widths and local profile. The certificate contains 106 group/pattern allocations and 645 integer flows across 72 chronological groups. Each group has two owner/child keys with 112 ports each. Checks conserve all group capacities, width slots and every call's demand, admit only actual source-window edges, and bound each call degree by the allocation's number of bins.
+
+For each allocation, a bipartite multigraph joins call times to width-labeled pattern slots. Its maximum degree is the bin count. Dummy vertices and edges make it regular, and repeated perfect matchings decompose it into physical bins. No bin repeats a call; source geometry separately forbids eligible-child family aliases. Deterministic coloring reconstructs the literal fill without any solver. Both current native interfaces and the inherited independent owner engine validate every one of the 29,376 occurrences, active pairs, times, widths, offsets, capacity and physical-family uniqueness.
+
+Adding 72 local profiles to the exact idle profile gives `{1:177140,2:52128,3:16950,4:7344,5:1612,7:2,8:576,48:3050}`, mass 520704 and deficit 2560. Moment normalization uses actual W=7168 and m=73. Two rational engines certify `0.001728992447095271166656` and reject its next grid point. Comparing unnormalized T8 and T16 sums would be invalid; each construction is priced with its own live stock and deficit.
+
+## Complete finite admission
+
+The unchanged modern admission adapter infers T from the literal calls and requires the complete nine-stage set for every replica. Its parent lift supports arbitrary positive replica counts grouped by eight; T8 uses one full group. The physical ledger charges `7168+408+8+91+2=7677`, including all 91 private cleanup families. The outer normalization binds W=896T to checked live stock. No call, window, family, controller or private-stock assertion is removed. The dispatcher exercises `extra` at (0,0) and `gauge44` at the other 71 calls.
+
+Fresh changed-geometry admission passed owners, parent lift, rebind, discovery, both outer engines and final `PASS_RELEASE`. The conditional exponent is `0.001728992447095271166656-10^-46-10^-70`, strictly above PR3465 by `0.000001738106498620572263`. The reused native receipt SHA256 is `f90cafe84385533a0eeb96356f385b646f402ff85cd05154c47a81c783023d9d`; it authenticates prior fresh PR3148 artifacts. The portable runner reexecutes complete changed-owner/controller/outer admission and does not substitute a saved release receipt for execution.
+
+The original successful run's serialized fill, order and dispatch SHA256 values are respectively `d4994893283ec03ff139e0be694daf144d6f940e3c685b381da10d1d253a4c35`, `2acd6b2004be3d3ef6645f3c968feb22b5167c400bb49eb446821e5cb7af6eee`, and `dceae31022b9ac51b8e3793739fefd563f9a50b97442db0e18d19ebe2847940b`. The public reconstructor canonically serializes equivalent decoded inputs; each replay binds its own bytes. Historical hashes are not acceptance shortcuts.
+
+The exact current-word cap comparison is in `CAP-RATIO.json`. It is a common supplier cap, not proof of T8 chronological optimality. The stronger T740 endpoint and inherited all-size/analytic obligations are not superseded.

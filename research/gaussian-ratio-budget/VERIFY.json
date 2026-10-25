@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "references/semantic-bulk/rad20/reports/review-phase-cell-inverse.md",
+    "research/capped-phase-fusion/CAPPED-GAUGE-AUDIT.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "4\u03b7 is below the weight floor and 16 p^2 \u03b4 < 1 for every integer p \u2265 2; \u03b5 = 1/2 is larger than 1/(16p^2) at p = 2."
+    }
+  ]
+}

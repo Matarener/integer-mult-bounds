@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "General ordered commutator; literal commutator under a projection that commutes with T; no scalar when N-port scales differ; scalar -1/2 when they agree; dropped commutation and dropped idempotence both fail closed."
+    }
+  ]
+}

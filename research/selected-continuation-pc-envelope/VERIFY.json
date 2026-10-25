@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-hyperplane599-audit/pr589/bit589/v9/hosted/GLOBAL-TEMPLATE.json.gz",
+    "research/physical-complex-controller/check_prime.py",
+    "research/pr589-five-helper-hosting/verify.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/catalogue.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/topology.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/low_codes.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/plan.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/records.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/words.py",
+    "research/selected-bit-physical-caller/macro_binding.py",
+    "research/selected-bit-physical-caller/macro_code.py",
+    "research/selected-bit-physical-caller/macro_machine.py",
+    "research/selected-bit-physical-caller/residual_blocks.py",
+    "research/selected-bit-physical-caller/role_parking.py",
+    "research/selected-itinerary-compression/itinerary.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual source envelope, literal Cursor plans and header statements, exact tape costs, semantic mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual source envelope, literal Cursor plans and header statements, exact tape costs, semantic mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/portable_checks.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Git-free empty-PATH optimized replay and missing/typed receipt/source-byte controls."
+    }
+  ]
+}

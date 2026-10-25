@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-query-series-transfer/PREDECESSOR-PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact Gaussian support checks, base and difference transfer, retained source hashes and binary degeneracy"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Separate integer minors and all GF4 annihilators, all star premises and binary control"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Eight optimized CLI corruptions must reject and eight restoration runs must pass"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "bulk-partial/asymmetric.py": [
+    {
+      "new": "PORTABLE.compare_json(HERE/'ASYMMETRIC.json', out)",
+      "old": "(HERE/'ASYMMETRIC.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\\n')"
+    }
+  ],
+  "bulk-partial/screen.py": [
+    {
+      "new": "PORTABLE.root / 'source-context'",
+      "old": "Path('/Users/ross/git/math/integer-mult-bounds')"
+    },
+    {
+      "new": "PORTABLE.root / 'legacy-budget'",
+      "old": "Path('/Users/ross/git/math/.research-automation/runs/kappa-3605-successor-20261018T0940Z/major-frontier/complex-alternative')"
+    }
+  ],
+  "h6-fusion/compose.py": [
+    {
+      "new": "PORTABLE.root / 'source-context'",
+      "old": "Path('/Users/ross/git/math/integer-mult-bounds')"
+    },
+    {
+      "new": "PORTABLE.root",
+      "old": "HERE.parent.parent / 'kappa-major-20261018T1330Z'"
+    },
+    {
+      "new": "need(not args.write, 'portable replay is read only')\n    PORTABLE.compare_json(dest, result)",
+      "old": "if args.write:dest.write_text(json.dumps(result,indent=2,sort_keys=True)+'\\n')\n    else:need(json.loads(dest.read_text())==result,'stored composition receipt differs')"
+    }
+  ],
+  "legacy-budget/optimistic_budget.py": [
+    {
+      "new": "PORTABLE.root / 'source-context'",
+      "old": "Path('/Users/ross/git/math/integer-mult-bounds')"
+    },
+    {
+      "new": "PORTABLE.authenticate(REPO/ORACLE)",
+      "old": "subprocess.check_output(['git','show',PIN+':'+ORACLE],cwd=REPO)"
+    },
+    {
+      "new": "PORTABLE.authenticate(REPO/rel)",
+      "old": "subprocess.check_output(['git','show',PIN+':'+rel],cwd=REPO)"
+    },
+    {
+      "new": "PORTABLE.code(REPO/ORACLE)",
+      "old": "compile(raw,oracle.__file__,'exec')"
+    }
+  ],
+  "partial-native/adapter_work.py": [
+    {
+      "new": "PORTABLE.compare_bytes(HERE/'BASELINE-RECIPES.json', base_raw)",
+      "old": "(HERE/'BASELINE-RECIPES.json').write_bytes(base_raw)"
+    },
+    {
+      "new": "PORTABLE.compare_json(HERE/'ADAPTER-WORK.json', result)",
+      "old": "(HERE/'ADAPTER-WORK.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\\n')"
+    }
+  ],
+  "partial-native/audit.py": [
+    {
+      "new": "PORTABLE.root / 'source-context'",
+      "old": "Path('/Users/ross/git/math/integer-mult-bounds')"
+    },
+    {
+      "new": "hashlib.sha256(PORTABLE.resolve(path).read_bytes()).hexdigest()",
+      "old": "hashlib.sha256(Path(path).read_bytes()).hexdigest()"
+    },
+    {
+      "new": "PORTABLE.compare_bytes(HERE / 'RECIPES.json', raw)",
+      "old": "(HERE / 'RECIPES.json').write_bytes(raw)"
+    },
+    {
+      "new": "PORTABLE.compare_json(HERE / 'RESULT.json', result)",
+      "old": "(HERE / 'RESULT.json').write_text(json.dumps(result, indent=2, sort_keys=True) + '\\n')"
+    }
+  ],
+  "partial-native/precision.py": [
+    {
+      "new": "PORTABLE.root / 'source-context'",
+      "old": "Path('/Users/ross/git/math/integer-mult-bounds')"
+    },
+    {
+      "new": "PORTABLE.compare_json(HERE / 'PRECISION.json', result)",
+      "old": "(HERE / 'PRECISION.json').write_text(json.dumps(result, indent=2, sort_keys=True) + '\\n')"
+    }
+  ],
+  "partial-native/replay.py": [
+    {
+      "new": "PORTABLE.compare_json(HERE/'REPLAY-OPTIMIZED.json', receipt)",
+      "old": "(HERE/destination).write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\\n')"
+    }
+  ]
+}

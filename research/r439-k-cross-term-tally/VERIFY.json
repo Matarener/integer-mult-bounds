@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-bit-p111-tuned/code/xcheck_p.py",
+    "research/r439-bsection-stars-seed01/candidate.json.gz",
+    "research/r439-bsection-stars-seed01/composition.json.gz",
+    "research/r439-helper-stars-seed19/candidate.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "SHA-256 pins; E equals K on every target of the three words; cross tally equals the defect; owner-checker raw K agrees and syntactic K_equals_D is false; deleting one helper edge breaks the match; a synthetic restored edge separates the defect from the cross term"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py",
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_tensor_compiler.py",
+    "research/cubic-cyclic-inverse/vendor/interval_kernel.py",
+    "research/cubic-cyclic-inverse/vendor/PR628-PROOF.md",
+    "research/cubic-cyclic-inverse/vendor/PR628-NOTICE.md",
+    "research/capped-phase-fusion/TENSOR-COMPILER.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/rational-fft-fixed-h/vendor/rational_fft/engine.py",
+    "research/rational-fft-fixed-h/vendor/rational_fft/exact.py",
+    "research/rational-fft-fixed-h/vendor/PROVENANCE.json",
+    "research/rational-fft-fixed-h/vendor/full_source/full.py",
+    "research/rational-fft-fixed-h/vendor/full_source/generator.py",
+    "research/rational-fft-fixed-h/vendor/full_source/triangular.py",
+    "research/rational-fft-fixed-h/vendor/full_source/FULL-PROOF.md",
+    "research/rational-fft-fixed-h/vendor/full_source/GENERATOR-PROOF.md",
+    "research/rational-fft-fixed-h/vendor/full_source/TRIANGLE-PROOF.md",
+    "research/rational-fft-fixed-h/vendor/full_source/PROOF.md",
+    "research/rational-fft-fixed-h/vendor/full_source/vendor/stein_rational.py",
+    "research/rational-fft-fixed-h/vendor/full_source/vendor/STEIN-PROVENANCE.json",
+    "research/rational-fft-fixed-h/vendor/full_source/PROVENANCE.json",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+    "research/unconditional-batched-crt/vendor/SHALLOW-TOEPLITZ.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the unchanged FFT producer and fixed-H compiler; check exact word/route/full-circuit identities, all standalone word segments and inverses, rounded FFT and stored-adjoint errors, active/inactive data widths and calibrated controls; compare the complete typed receipt."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete fixed-H lowering and rounded execution under optimized Python, retaining source assertions, exact input seals and full typed receipt equality."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify_dense.py"],
+      "timeout_seconds": 300,
+      "checks": "Execute the actual admitted full Toeplitz and stored inverse programs through fixed-H stages; compare complete root/inverse and logical references, mixed/idle words, exact segment envelopes and the nonunitary endpoint-factor counterexample; reject source/request/plan/page drift and compare the complete typed dense receipt."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_dense.py"],
+      "timeout_seconds": 300,
+      "checks": "Repeat all full-circuit native arithmetic, exact references, width/error checks and calibrated controls under optimized Python with source assertions retained and complete typed receipt equality."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: Seven-source second native lift replay
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: research-archive-replay
+  cancel-in-progress: false
+
+jobs:
+  full-native-lifts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Compiler identity
+        run: c++ --version
+      - name: Complete second native enumeration
+        run: python -I -B research/seven-source-lift-replay/native_replay.py
+      - name: Strict optimized launcher and complete native enumeration
+        run: python -I -O -W error -B research/seven-source-lift-replay/native_replay.py
+      - name: Committed inputs unchanged
+        run: git diff --exit-code

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Pin one parking node, list its child widths, role count and modulus, and evaluate Psi at tau = 1/2.",
+  "scope_change_reason": "The normalized counterexample used a made-up child list. The retained parking schedule has an explicit bit-motif node.",
+  "bottleneck_link": "If this node's Psi at one half is already below one, the transfer hypothesis holds at that exponent for the selected bit schedule.",
+  "budget_minutes": 60,
+  "stop_rule": "Evaluate this one node at tau = 1/2. Do not prove the manuscript's exponential comparison at tau = 1-2^{-50}.",
+  "outcome": "partial",
+  "evidence": "The bit-motif parking node has modulus 1000000, role count 177176569091445000000, and 177176569088785861287000000 children of width 1. Psi(1/2) = 22587334999661/22587335000, which is greater than 1.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "At the manuscript exponent tau = 1-2^{-50}, is Psi(tau) < 1 for this same child list?",
+      "why_it_matters": "The displayed motif bound claims s/W < m^tau at that exponent, which is exactly Psi(tau) < 1 for width-1 children.",
+      "first_step": "Compare s_b/W_b with m^{1-2^{-50}} from the displayed deficit and the stated logarithm bound, without replaying the network.",
+      "blocked_by": "This package evaluates only tau = 1/2."
+    }
+  ]
+}

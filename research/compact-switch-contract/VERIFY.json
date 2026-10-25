@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Live-digit identity on every sharp window for B in {2,4,8,16}; published margin is a subset; single-target and disjoint two-target macros; frozen, overlap, and target-reading controls must fail the ideal endpoint; published primitive_f matches the live digit on (1,0,17)."
+    }
+  ]
+}

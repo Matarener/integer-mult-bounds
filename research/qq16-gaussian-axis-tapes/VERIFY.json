@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/qq16-native-rounded-components/vendor/native.py",
+    "research/qq16-all-depth-producer-grid/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Hash authentic source bytes; test native operator, exact pair and routed fixture values, all tape movement/cleanup/counts and frozen result."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Twelve behavioural controls including source tamper, scratch leak, missing movement invoice, malformed alias/head and invalid arithmetic domains."
+    }
+  ]
+}

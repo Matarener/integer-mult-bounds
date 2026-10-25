@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Discharge the actual PR4024/PR3935 many-axis odd coprime source-length premise with an explicit sufficient prime-supply/period domain, written uniform setup bill, and source-bound finite host reference.",
+  "scope_change_reason": "Handoff-first inspection found the explicit remaining PR4024 prime-supply premise. The old source08/Cinna selector premise log(t)>8d does not port to the newer D=Theta(p^.997), ell=Theta(p^.003) family. Use the named supplier-boundary card as changed provenance; no reroll or selected-construction bug claim. The prescribed research_baseline.py was attempted but its inventory check is blocked by sparse omission of research/community-frontier1094-audit/ASSEMBLY.json. No full selected replay is claimed.",
+  "bottleneck_link": "Supplies one explicit source premise needed by the pending encoded CRT converter and numerical tensor caller. It is a proof/input repair for that conditional lane; it does not admit the selected supplier or change kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Freeze one source-bound length-supply proof, exact finite host reference and independent controls. Stop on overlap, invalid source predicates, failed prime-count or setup budget. No numerical recovery, large native execution or unrelated optimization. Science cutoff2026-10-19T10:50:26Z; final15minutes reserved for verification/handoff.",
+  "outcome": "partial",
+  "evidence": "PROOF.md and INDEPENDENT.md establish the explicit conditional analytic statement and written uniform construction. RESULT.json records five bounded host-reference cases and8 internal controls; test_verify.py adds50 expected rejections and5 positives. These do not reprove imported analytic theorems or execute an encoded producer.",
+  "author": "ToikY",
+  "ai_assistance": "Substantial OpenAI Codex assistance in source analysis, proof, reference implementation, testing and separate AI review contexts. No independent human or formal-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can this source-length producer be connected to the actual encoded TensorPlan and CRT caller?",
+      "why_it_matters": "The finite program here uses host integers and a semantic Count adapter; the uniform fixed-tape construction/bill is written.",
+      "first_step": "Review the exact period and prime-count hypotheses, lower the sequential prime queues to actual encoded Count streams, and compare full metadata/head/cleanup contracts with pinned TensorPlan and Converter.run_plan.",
+      "blocked_by": "No literal encoded prime producer or full numerical composition is executed here."
+    },
+    {
+      "question": "Can the numerical tensor sandwich and integer recovery be completed under the actual caller policies?",
+      "why_it_matters": "Pairwise coprime lengths alone do not price or validate numerical error, final normalization, physical reserve or a supplier.",
+      "first_step": "Coordinate with Jose Manuel Discussion3664; bind all production_common policies, actual gamma and both final S factors at the pinned source interface.",
+      "blocked_by": "Numerical/native analytic premises, precision and recovery, complete physical caller/stock and supplier admission remain separate."
+    }
+  ],
+  "selection": {
+    "method": "handoff-first; named supplier-boundary-audit card retained as changed provenance",
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "entry_checked_at_utc": "2026-10-19T10:06:22Z",
+    "entry_open_pr_bodies_including_drafts": 729,
+    "pagination": "seven100-record pages plus29-recordpage8 and empty9;729unique",
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/pull/4024#issuecomment-6264858503",
+    "live_coordination": [
+      "Discussions1166,1163,active board before card",
+      "Discussion3664 clarification19036660: prospective numerical recovery distinct; repeated7x7 is not CRT production supply"
+    ],
+    "pre_selection": {
+      "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+      "checked_at_utc": "2026-10-19T10:14:00Z",
+      "source4024_head": "e99297be6749518a1b5b85cd129ecaf204d26c63",
+      "decision": "Continue one new-regime source prime premise, not prior generic prime-selection or repeated small tensor conformance."
+    },
+    "coverage_limit": "All729 open PR bodies including drafts at entry, helper report, targeted retained source-selector/fine-prime packages and bounded live threads. Broader Discussions, arbitrary code and closed work partial; absence of match is not novelty proof.",
+    "pre_submission": {
+      "checked_at_utc": "2026-10-19T10:23:09.584045+00:00",
+      "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+      "priority_revision": 6,
+      "source4024_head": "e99297be6749518a1b5b85cd129ecaf204d26c63",
+      "source3935_head": "240597ed313fc2854c0462b23c89dc3bae72aaf5",
+      "latest_number": 4028,
+      "discussions": "Live1166 reloaded, newest19037308; source4024 only own active claim; Discussion3664 numerical recovery distinct.",
+      "decision": "Main/guidance/selected/source pins unchanged; no competing prime-supply claim in inspected latest100 delta. Continue frozen baseline; broader coverage remains partial."
+    }
+  }
+}

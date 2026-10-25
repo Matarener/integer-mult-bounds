@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "research/capped-fusion-t74-k554/vendor/pr1786/FINE-PRIME-PADDING.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated sources; exact scalar budgets; rational matrix inverse and polynomial identities; signed mixed rounding; row-only, column-only, diagonal, excess, residual-side and boundary controls. Universal implications are proved in README.md."
+    }
+  ]
+}

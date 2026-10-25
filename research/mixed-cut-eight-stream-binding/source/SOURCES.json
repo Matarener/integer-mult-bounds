@@ -1,0 +1,108 @@
+{
+ "schema_version": 1,
+ "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+ "upstream_repository": "https://github.com/CrocSwap/integer-mult-bounds",
+ "files": [
+  {
+   "path": "docs/research/agent-task-catalog.json",
+   "usage": "provenance",
+   "git_blob": "64bfc5af6709ed9811171e0a2108f05e1219cb65",
+   "sha256": "352a6184713b8843d96fd2c2071eb7aeaa655906b7c51d45ad444912666c8a96"
+  },
+  {
+   "path": "research/rank7-joint-endframes/data/WORD-base.json.gz",
+   "usage": "input",
+   "git_blob": "d9aa96a93fea5f7395e7783aef0bc117c0a0ae89",
+   "sha256": "abaf67bfcb257528658c906b612f57025617592bd7889828f92b97a5f4f4300d"
+  },
+  {
+   "path": "research/rank7-joint-endframes/data/WORD-extra.json.gz",
+   "usage": "input",
+   "git_blob": "74f6cb64595c21f7726ae77e69437868620bdcee",
+   "sha256": "e0eaf64c4d5d324693d43889bce1b9e53e8da00402105c8c978fd102f208bed7"
+  },
+  {
+   "path": "research/rank7-joint-endframes/allocation/FILL.json.gz",
+   "usage": "input",
+   "git_blob": "8d4fd644d60ba2c98106dc770803b647afdf0963",
+   "sha256": "c2136be9434cda511a1a8a44d98f9f72ea5376830a8426674253b4ee351c4c39"
+  },
+  {
+   "path": "research/rank7-joint-endframes/allocation/ORDER.json",
+   "usage": "input",
+   "git_blob": "7409c4df1092241729739596c7648bda504e6aad",
+   "sha256": "519d1d5dbb997a219fcfcad34c0b03e7838bef24199784d7e964fa10090f66e1"
+  },
+  {
+   "path": "research/rank7-joint-endframes/allocation/DISPATCH.json",
+   "usage": "input",
+   "git_blob": "9544fee4e6ee1f202cee22bfaeaf229ee3b2515e",
+   "sha256": "65e435bd68e97243c003677271b88485a29d4d0fae2dff1354100404a145e74c"
+  },
+  {
+   "path": "research/rank7-joint-endframes/allocation/PROFILE.json",
+   "usage": "input",
+   "git_blob": "46a83eeda67ab67cccbffe8b7ad8e44368b40ea7",
+   "sha256": "94a819747f3ced41f1544ada0036c983fc0c92847b9644380f877a06cd7931cf"
+  },
+  {
+   "path": "research/rank7-joint-endframes/allocation/PROVIDERS.json",
+   "usage": "input",
+   "git_blob": "e1d99e12cfa3ac8375984d85c0b040dc36ea1312",
+   "sha256": "f2edb7922f3029a5d607437e737775ff3371bca49ebab62e5e2495d16d3bf573"
+  },
+  {
+   "path": "research/rank7-joint-endframes/allocation/vendor/PLAN.json.gz",
+   "usage": "input",
+   "git_blob": "7a1db55a4d53ee99280be4f3ab7d29f7b2033adf",
+   "sha256": "d566cfb87b71639d4138e1f89b543e2dd6a7772070226a2a14c799a6835bf21e"
+  },
+  {
+   "path": "research/rank7-joint-endframes/allocation/vendor/TEMPLATE.json.gz",
+   "usage": "input",
+   "git_blob": "114808c32b1799da53524bdc25cea67efb60009e",
+   "sha256": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e"
+  },
+  {
+   "path": "research/rank7-joint-endframes/CLAIM.json",
+   "usage": "input",
+   "git_blob": "8ec2ce4e440c0b584ee982c551e526a011c9324c",
+   "sha256": "436e0d297cbdf195445d3697d496ac675e95210b79e70ce602a6a6667a4c6ce9"
+  }
+ ],
+ "inputs_note": "The ten input rows are PR #2979's files (Marius-Paul Dumitrean, research/rank7-joint-endframes, merged on main at head be191346391661f4d35fc0d1508d0a6029572576). They are read in place; nothing of #2979 is copied into this package.",
+ "external_sources": [
+  {
+   "what": "the Lean proofs of the DFT bounds and the published copies of this package's programs and network files",
+   "repository": "https://github.com/jacobalansussman/wht-power-saving-lean",
+   "commit": "563b4e6e913625637f36ba7869bf5fcd0dd4975a",
+   "byte_equality": "every program in tools/ (*.py), every file under network/ and both files under fills/2979Fc/ of this package equals, byte for byte, a file of that commit (the pairs of paths are listed in 'paths'); this cannot be pinned here because that commit is not a Git object of this repository",
+   "paths": "tools/transport.py = tools/lever-hub/transport.py; tools/lower_w.py = tools/lever-hub/lower_w.py; tools/rate_cert.py = tools/lever-hub/rate_cert.py; tools/g0_staged.py = tools/lever/g0_staged.py; tools/pricer.py = tools/lever/pricer.py; tools/mixed.py = tools/lever/mixed.py; tools/lever_price.py = tools/lever/lever_price.py; tools/price_ours.py = tools/lever/price_ours.py; network/Gates.lean = tools/lever-hub/network/Gates.lean; network/XHost/HCert.lean = tools/lever-hub/network/XHost/HCert.lean; network/XHost/HStage.lean = tools/lever-hub/network/XHost/HStage.lean; network/XHost/HostK.lean = tools/lever-hub/network/XHost/HostK.lean; fills/3945H/FILL.json.gz = package/leverB/fill/FILL.json.gz; fills/2979Fc/FILL.json.gz = research/record-track/data/a-fc/design/FILL.json.gz; fills/2979Fc/PROFILE.json = research/record-track/data/a-fc/design/PROFILE.json"
+  },
+  {
+   "what": "network/Gates.lean",
+   "repository": "https://github.com/shea256/fourier-transform-below-nlogn",
+   "commit": "52394849c7ecf3412d39b925d75fc7fdb98994d8",
+   "path": "lean/complex588/Work/Bridge401/Gates.lean",
+   "sha256": "077bcf0362a06cdf222477ae8fb68a1c556aa740119df50520efaa6705715d3f"
+  },
+  {
+   "what": "the second instance, PR #3945 (Dugongue, research/staged544-terminal-gap-fill), archived on main on 20 October 2026 with the same files as its head (merge commit 0a2d65f22afd532ce3d17cdf229d98fbed910d59)",
+   "head": "91f81d131252db704f945891da1ea54e29d46b8b",
+   "pinned_in": "instances/3945.json (sha256 of each input file)"
+  },
+  {
+   "what": "the third instance, PR #3945 with every head kept: #3945's files (the head above) with this package's table of hosts fills/3945H/FILL.json.gz, made by the allocation programs that #3945 uses (Erwan Secousses / ChaloupeMusic, #3815) with one added condition; the commands that made it are in the Lean repository's package/leverB/fill/",
+   "head": "91f81d131252db704f945891da1ea54e29d46b8b",
+   "pinned_in": "instances/3945H.json (sha256 of each input file and of the table of hosts)",
+   "table_of_hosts_sha256": "9c06677d66b04436b02ec8d88036327bdc8fb12e6fd4f71a1b9c7e915c10c2d3"
+  },
+  {
+   "what": "the fourth instance, the full cut on PR #3945 with every head kept: #3945's files (the head above) with the same table of hosts fills/3945H/FILL.json.gz; nothing new is read",
+   "head": "91f81d131252db704f945891da1ea54e29d46b8b",
+   "pinned_in": "instances/3945F.json (sha256 of each input file and of the table of hosts)",
+   "table_of_hosts_sha256": "9c06677d66b04436b02ec8d88036327bdc8fb12e6fd4f71a1b9c7e915c10c2d3"
+  }
+ ],
+ "source_boundary": "Only this new package is submitted. No file outside research/lever-mixed-targets-2979 changes."
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-helper-contract",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "bit-helper-contract",
+    "question": "Can one precisely specified helper-mixing word satisfy a replacement for the inherited H2/K interface?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/r439-bsection-stars-seed01/README.md",
+      "research/r439-copy-path-sharing-barrier/README.md"
+    ],
+    "methods": [
+      "Derive a replacement interface lemma and price its implementation.",
+      "Seek an exact dirty-input or chronological-cut counterexample to the proposed replacement."
+    ],
+    "acceptance_gate": "A full boundary contract and paid profile; unchanged scalar counts alone are insufficient. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/r439-bsection-stars-seed01/verify.py"
+      ],
+      "expected": "PASS_R439_BSECTION_STARS",
+      "inspect": "Compare the two false H2/K flags with the unchanged paid profile in its README.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write one replacement H2/K implication for a single helper-star operation, then try to falsify it on dirty inputs.",
+    "bottleneck_link": "A legitimate replacement could admit a cheaper bit circuit; scalar savings alone do not alter the selected moment.",
+    "allowed_variations": [
+      "Choose one helper-star or quartet instance; narrow to one boundary implication."
+    ],
+    "scope_change_triggers": [
+      "Changing only source count or scalar addition count without an interface argument."
+    ],
+    "overlap_terms": [
+      "H2_D_frame0_targets_from_helpers",
+      "K_equals_D",
+      "helper-star"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Requirement map of the +10% two-call centre-sharing route at c* = 921658892752012102303/5e23 (centre-sharing-overhead-budget, PR1791). Complex side: the complex endpoint must itself reach c* (asserted), a net saving of >= 511 rank-1 children (about 3.55 units per call), correcting PR1791 OQ1's 1.33 units per call; additive rank-1/rank-8 two-call overhead budget at c*. Bit side: sharp integer pricing of each listed revision-3 bit lever, one premise at a time on the actual PR589 histogram (surcharge recomputed): halving-depth cap raise, width-8 re-hosting, copy carriage/count, two-call bit centre sharing with its overhead budget, unpaid coordinates (pure removal), helper deletion (two local models), width-7 helper conversion (#1023's window-free placement and bracket; PR1736's window bound cited) and ideal local shapes. Second method: levers.py interval arithmetic on independently rebuilt histograms.",
+  "scope_change_reason": "The card's H2/K helper-interface question is saturated by other packages; this answers the explicit, unowned open question 1 of centre-sharing-overhead-budget (PR1791), which decides whether the strongest complex lever (two-call centre sharing) can be part of a +10% route. That needs a bit lever netting at least 649 rank-1 units on the actual histogram, which no package had priced.",
+  "bottleneck_link": "Two-call centre sharing makes the bit side bind; +10% kappa needs both endpoints at least 0.0018433. The complex side then needs >= 511 net rank-1 units (about 3.55 per call; overhead <= about 28.3 units per call in the additive rank-1/rank-8 model), not PR1791's 1.33. On the bit side no admitted lever nets anything (halving-depth cap slack at max window 42, record hosting optimal, rank-8 carriage loses 2,578 units); clearing 649 needs a new word, decoder or coverage law: one fewer rank-7 copy per call (threshold 93 record-wide), bit-side two-call centre sharing (overhead <= about 29.1 units per call), >= 40 pure helper deletions per call (stage-relaxed), a full window-feasible width-7 conversion (partial k <= 74 clears only window-free: k = 71; under replica-local windows none clears, PR1736), >= 649 doubly-unpaid families, or ideal shapes in >= 52 of 288 calls. No kappa claim.",
+  "budget_minutes": 90,
+  "stop_rule": "Stop once the lever table is exact and the primary (D/E-diagnostic engine) and independent (levers.py) methods agree on every pass/fail sign at c* - 1e-24, c* and c* + 1e-24; build no construction and search for no new bit word.",
+  "outcome": "completed",
+  "evidence": "RESULT.json: requirement 649 rank-1 (648 fails) / 16 rank-42; complex need at c* 511 rank-1 (510 fails), 3.549 per call; (a) caps 45/50/53, max child 42 = max window, net 0; (a') per-slot costs 7.94284 < 7.94625 < 7.95184 rank-1 units, record optimal, net 0; (b1) cst 72: -2577.6; (b2) 93 copies threshold (92 fails), one fewer per call +2008.8; (b3) cst 31.5: +9039.5, overhead budget 8391 rank-1 / 1203 rank-7 / 201 rank-42; (c) F >= 649 families (pure removal); (d) RANK1 40 per call (39 fails for every hosting), TEMPLATE exhausted by d = 19 at +169.8 (explicit hosting), <= +170.4 (concavity bound); (f) window-free only: width-7 rank-1-removed 71 per call (70 fails), +656.0; largest-trimmed fails at 74 (+580.6 explicit, <= +581.2 bound); under replica-local windows no k <= 74 reaches c* (PR1736, cited); (e) 52 of 288 calls (51 fails), all calls +3647.6; complex k=2 overhead at c*: 4079 rank-1 / 511 rank-8 (28.3-28.4 units per call). 75 signs reproduced by independent.py at c* - 1e-24, c* and c* + 1e-24.",
+  "author": "Sagar Thakrar (thakrarsagar)",
+  "ai_assistance": "Claude (Anthropic, Claude Opus 5.5) via Claude Code scoped the question and wrote the code and prose in one session of an automated research loop; checked only by AI review passes in the same loop, no independent human review.",
+  "open_questions": [
+    {
+      "question": "Can the bit centre path be shared by two calls within about 29 paid-mass units of overhead per call (8,391 rank-1 / 1,203 rank-7 / 201 rank-42 children in total)?",
+      "why_it_matters": "It has the largest margin of the clearing rows (about 14x the need) and a constructed complex-side analogue (PR1708/PR1748, scalar-macro level, not admitted; row f also has complex analogues PR601/PR593/PR569 per #1023); the complex half must then deliver >= 511 net rank-1 units at c*, i.e. keep its additive rank-1/rank-8 overhead within about 28.3 units per call.",
+      "first_step": "Write the bit analogue of PR1748's two-call reverse phase for the nine rank-7 copies of one replica and price its restoration and hosting children.",
+      "blocked_by": "No bit sharing word exists, PR1748's ownership/sink blocker has no bit analogue yet, and r439-copy-path-sharing-barrier (section T) shows the nine retained totals read pairwise-disjoint source sets."
+    },
+    {
+      "question": "Is there a decoder contract with eight retained totals (cst <= 56 per call)?",
+      "why_it_matters": "One fewer rank-7 copy per call nets about 2,009 rank-1 units, 3.1x the requirement.",
+      "first_step": "Test whether one of the nine retained totals of the v = 111 word can be recomputed instead of copied, and price the extra climbs.",
+      "blocked_by": "A replacement contract for the decoder's copied totals (the centre-path-sharing card's scope-change trigger); r439-copy-path-sharing-barrier section T shows the totals' source sets are disjoint."
+    },
+    {
+      "question": "Which bit word reaches the 52-call reshaping, the 40-deletion size or a window-feasible width-7 conversion?",
+      "why_it_matters": "These are the non-sharing alternatives for the bit half of a +10% route.",
+      "first_step": "Measure the best per-call delta of PR1043-style deletions combined with climb merges, or test the six width-7 survivors of #1128 with a B/C rewrite (prefix through scatter fixed); the other 433 need a changed prefix, and partial conversion must beat PR1736's window bound.",
+      "blocked_by": "PR1250 found no further single deletion beyond PR1043 within arbitrary source XOR masks on the fixed R439 word (it does not exclude simultaneous deletions); width-7 helpers need a changed prefix (bit-width-seven-boundary, #1128)."
+    }
+  ]
+}

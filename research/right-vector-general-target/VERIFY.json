@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.5.4"
+  ],
+  "inputs": [
+    "research/f2-right-vector-diagonal-minimum/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py",
+        "--stage",
+        "main"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Exact minimum versus min_T dim_K (M T - I) K^n on every target over ten (algebra, n) domains, including M2(F2) at n=2; asserts the #4243 lower bound everywhere, exactly 72 formula failures (all M2(F2), cost 3 versus 2), the no-free-map gap counts 2, 6 and 684, and an independent M_4(F_2) recheck of the transposition witness."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py",
+        "--stage",
+        "large"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Same comparison on all 262,144 targets over F2[C2] at n=3: no formula failure and no no-free-map gap."
+    }
+  ]
+}

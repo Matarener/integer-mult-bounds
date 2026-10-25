@@ -1,0 +1,15 @@
+# Draft title
+
+Prove a completion-independent native H obstruction from one ordinary edge
+
+# Reviewed submission description
+
+PR4359’s fresh-axis inverse probe checks one particular H completion. This contribution proves that its obstruction persists for every invertible selected-row completion, including non-scalar matrices and inverse calls. One fixed ordinary entry, G[1,2] = -1/2, gives an exact native leakage coefficient. A commutator identity then rules out every inverse word that preserves the old fresh block, with no word-length or coefficient search.
+
+The package independently reconstructs the signed owner witness, checks its complete quadratic phase identities, and verifies that all 784 later stored charts preserve the block. Controls show that an old-block revisit or a changed ordinary body escapes the scope, while erasing the leaked sector loses arbitrary input data.
+
+This is a scoped negative result with no new kappa or query-count lower bound. Coupled boundary decoders and costed old-block mixing remain open. README.md contains the proof, complete scope/cost ledger and concrete next questions; VENDOR.json pins the exact PR4359 inputs.
+
+Validation: registered Python 3.12 replay and source metadata pass; a Git-free optimized replay passes, and changed-source/changed-receipt controls reject. Reproduce with `python3.12 -B scripts/research_package.py --package research/h-completion-sector-obstruction`.
+
+Prepared by zxv with substantial OpenAI Codex assistance, Apache-2.0. No subagents or independent human mathematical review.

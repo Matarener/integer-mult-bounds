@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 5,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently audit PR2809 ScratchPool lease-end annotations and Machine.call empty-pool cut at the physical-contract-map named remaining boundary, with three semantic mutants showing each annotation is load-bearing.",
+  "scope_change_reason": "The catalogue supplier-boundary card is refined to the contract map's still-open lease-end / CALL-invariant handoff after opcode/source (physical-compiler-correspondence) and residual/CALL (residual-call-refinement). Historical owner/scatter diagnostics are orientation only.",
+  "bottleneck_link": "Downstream PR2899/PR2915 incorporation does not discharge PR2809's pending universal refinement review; lease-end and CALL cuts are named missing checks on that dependency.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the lease-end / CALL-cut obligation with independent algebra and mutants; do not expand to GL64, H2, stock-envelope, or route-cube.",
+  "outcome": "completed",
+  "evidence": "Pin-authenticated scratch_pool/macro_machine/PROOF/contract-map bytes; independent lease algebra; three mutants (stale clear erases borrower; sticky live blocks reuse; skip empty crosses CALL); CERTIFICATE.json matched read-only.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance in mathematics, implementation, checks and writing; no independent human or proof-assistant review.",
+  "open_questions": [
+    {
+      "question": "Can lease-end, residual/CALL, and whole-word ordering be composed into one NODE/MERGE ownership theorem?",
+      "why_it_matters": "Recursive closure needs the enclosing node contracts, not only the scratch cut.",
+      "first_step": "Identify the exact NODE/peel/MERGE boundaries still treated as hypotheses in residual-call-refinement.",
+      "blocked_by": "No enclosing-node correspondence is supplied here."
+    },
+    {
+      "question": "What is the complete machine-step invoice for scratch-role initialization and marker provisioning?",
+      "why_it_matters": "Empty-pool cuts do not price fixed-control setup or failure cleanup.",
+      "first_step": "Start from high-scaling-scratch-traffic's open k+p simultaneous-role ledger question.",
+      "blocked_by": "Initialization and interrupted-macro recovery remain outside this package."
+    },
+    {
+      "question": "Does interrupted-macro recovery preserve the same lease-end discipline?",
+      "why_it_matters": "The present claim is successful-path only, matching PR2809's stated scope.",
+      "first_step": "Pin abort/close paths and construct one interrupted fixture with live leases.",
+      "blocked_by": "No interruption model is audited here."
+    }
+  ],
+  "track": "adversarial-audit",
+  "predecessor": {
+    "package": "research/selected-bit-physical-caller",
+    "author": "Jose Manuel / jmbarrancoml",
+    "delta": "Supplies ScratchPool lease-end annotations and CALL empty-pool cut; this package independently audits them with mutants."
+  },
+  "related": [
+    {
+      "package": "research/physical-compiler-correspondence",
+      "delta": "Opcode/source correspondence and compiler/Driver admission mutants; complementary, not repeated."
+    },
+    {
+      "package": "research/residual-call-refinement",
+      "delta": "Residual block and CALL/RETURN packet preservation; complementary, not repeated."
+    }
+  ],
+  "validation": {
+    "not_claimed": [
+      "selected GL64 cold replay",
+      "full physical-caller formal refinement",
+      "H2 time improvement",
+      "stock-envelope A/B/rho",
+      "route-cube fibre/key invoice",
+      "new kappa",
+      "independent human review"
+    ]
+  }
+}

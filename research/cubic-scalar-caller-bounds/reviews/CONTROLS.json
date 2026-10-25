@@ -1,0 +1,621 @@
+{
+  "control_source_sha256": "2c6c1e6f86416dc68e390fcc540922f2804a361ddae05aed9a9a61f9d513c200",
+  "executed_check_deletions_per_mode": 6,
+  "full_scientific_receipts_compared": 2,
+  "full_scientific_stages_replayed": false,
+  "intended_rejections_per_mode": 54,
+  "no_new_kappa": true,
+  "normal_and_optimized_receipts_equal_except_mode": true,
+  "runs": [
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "coverage": {
+        "actual_dispatch_tested_with_tiny_receipts": true,
+        "executed_check_deletions": 1,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "cubic_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "cubic_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "cubic_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "omitted_actual_compare"
+          }
+        ],
+        "stage_counts": {
+          "cubic": 1,
+          "independent": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "output": {
+        "early_output_guards": true,
+        "exclusive_output_creation_exercised": true,
+        "rejections": [
+          {
+            "intended_gate": "output must be absolute",
+            "name": "relative_output"
+          },
+          {
+            "intended_gate": "output already exists",
+            "name": "existing_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "internal_output"
+          },
+          {
+            "intended_gate": "exclusive output creation FileExistsError",
+            "name": "output created during replay"
+          }
+        ]
+      },
+      "parent_optimization": 0,
+      "real_records": [
+        {
+          "nested_path": [
+            "complete_historical_receipts",
+            "cubic",
+            "normalization_fixtures",
+            1,
+            "word",
+            0,
+            "matrix",
+            0,
+            0
+          ],
+          "record": "cubic/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: cubic/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: cubic/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "88623b95217b8ec844b0de70d9937ec5a98504c726d061b632d21cc428dd824c"
+        },
+        {
+          "nested_path": [
+            "normalization_fixtures",
+            0,
+            "all_prefixes",
+            0,
+            0,
+            0
+          ],
+          "record": "independent/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "32604d0af7774963dde86bc56ad45390a34d71b6711cb85ae56353198f6a7eca"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "scientific": {
+        "actual_mathematical_mutations_after_authentication": true,
+        "deletion_scope": "the same named production predicate",
+        "executed_check_deletions": 4,
+        "full_scientific_stages_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "complete full-cubic target on all columns",
+            "name": "discard actual augmentation component"
+          },
+          {
+            "intended_gate": "rank-one square-zero bank direction",
+            "name": "admit identity as a query direction"
+          },
+          {
+            "intended_gate": "all inactive-bank idle charges",
+            "name": "omit actual inactive-bank progress"
+          },
+          {
+            "intended_gate": "literal two-layer inverse",
+            "name": "reverse actual pair inverse"
+          }
+        ]
+      },
+      "sources": {
+        "all_mutations_in_disposable_bytes_or_directory": true,
+        "full_scientific_stages_replayed": false,
+        "historical_assertions_execute_with_optimization_zero": true,
+        "no_path_import_or_pyc_execution": true,
+        "rejections": [
+          {
+            "intended_gate": "HISTORICAL_DIRECT_ASSERT",
+            "name": "captured_direct_assertion"
+          },
+          {
+            "intended_gate": "HISTORICAL_NESTED_ASSERT",
+            "name": "captured_nested_assertion"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/README.md"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/INDEPENDENT-REVIEW.md"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/cubic_gate.py"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/wide_gate.py"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/CUBIC-FOUR-CALL-GATE.json"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/WIDE-MIXED-CUBIC-GATES.json"
+          },
+          {
+            "intended_gate": "historical input authentication",
+            "name": "changed_independent_historical_input"
+          }
+        ]
+      }
+    },
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "coverage": {
+        "actual_dispatch_tested_with_tiny_receipts": true,
+        "executed_check_deletions": 1,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "cubic_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "cubic_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "cubic_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cubic",
+            "name": "omitted_actual_compare"
+          }
+        ],
+        "stage_counts": {
+          "cubic": 1,
+          "independent": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "output": {
+        "early_output_guards": true,
+        "exclusive_output_creation_exercised": true,
+        "rejections": [
+          {
+            "intended_gate": "output must be absolute",
+            "name": "relative_output"
+          },
+          {
+            "intended_gate": "output already exists",
+            "name": "existing_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "internal_output"
+          },
+          {
+            "intended_gate": "exclusive output creation FileExistsError",
+            "name": "output created during replay"
+          }
+        ]
+      },
+      "parent_optimization": 1,
+      "real_records": [
+        {
+          "nested_path": [
+            "complete_historical_receipts",
+            "cubic",
+            "normalization_fixtures",
+            1,
+            "word",
+            0,
+            "matrix",
+            0,
+            0
+          ],
+          "record": "cubic/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: cubic/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: cubic/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "88623b95217b8ec844b0de70d9937ec5a98504c726d061b632d21cc428dd824c"
+        },
+        {
+          "nested_path": [
+            "normalization_fixtures",
+            0,
+            "all_prefixes",
+            0,
+            0,
+            0
+          ],
+          "record": "independent/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "32604d0af7774963dde86bc56ad45390a34d71b6711cb85ae56353198f6a7eca"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "scientific": {
+        "actual_mathematical_mutations_after_authentication": true,
+        "deletion_scope": "the same named production predicate",
+        "executed_check_deletions": 4,
+        "full_scientific_stages_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "complete full-cubic target on all columns",
+            "name": "discard actual augmentation component"
+          },
+          {
+            "intended_gate": "rank-one square-zero bank direction",
+            "name": "admit identity as a query direction"
+          },
+          {
+            "intended_gate": "all inactive-bank idle charges",
+            "name": "omit actual inactive-bank progress"
+          },
+          {
+            "intended_gate": "literal two-layer inverse",
+            "name": "reverse actual pair inverse"
+          }
+        ]
+      },
+      "sources": {
+        "all_mutations_in_disposable_bytes_or_directory": true,
+        "full_scientific_stages_replayed": false,
+        "historical_assertions_execute_with_optimization_zero": true,
+        "no_path_import_or_pyc_execution": true,
+        "rejections": [
+          {
+            "intended_gate": "HISTORICAL_DIRECT_ASSERT",
+            "name": "captured_direct_assertion"
+          },
+          {
+            "intended_gate": "HISTORICAL_NESTED_ASSERT",
+            "name": "captured_nested_assertion"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/README.md"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/INDEPENDENT-REVIEW.md"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/cubic_gate.py"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/wide_gate.py"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/CUBIC-FOUR-CALL-GATE.json"
+          },
+          {
+            "intended_gate": "authenticated captured source bytes",
+            "name": "changed_component_frozen/WIDE-MIXED-CUBIC-GATES.json"
+          },
+          {
+            "intended_gate": "historical input authentication",
+            "name": "changed_independent_historical_input"
+          }
+        ]
+      }
+    }
+  ],
+  "source_hashes": {
+    "FROZEN-SHA256.json": "f600e53d5e26cb292fb67add38e1e0d469d10f44cec934c87a76f27691ee4e11",
+    "ORIGINS.json": "d6014bb28325fa9350fc8a1da43e6b44f602e6b0140842cd84949f56d18a5d95",
+    "cubic/check.py": "57c4c002d8bff4ee863a6d8ef359df5532b18b5d3d0fa3b16525f265f16734f1",
+    "independent/check.py": "bd6dd0d297f259756f6ea3c1555a05b5232ad568fd8d16d079f8b397876c8cdc",
+    "verify.py": "15681d12b313b4e62350d488bf06fbe5b588be3fed6df007faa90086339f188b"
+  },
+  "status": "PASS_C09_CUBIC_COMPACT_SOURCE_RECORD_AND_SEMANTIC_CONTROLS"
+}

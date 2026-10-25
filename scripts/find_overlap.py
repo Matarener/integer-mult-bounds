@@ -18,6 +18,13 @@ import sys
 import tempfile
 import time
 
+# Retain direct script execution under -I; the shared helper uses stdlib only.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from research_package import git_source_env
+finally:
+    sys.path.pop(0)
+
 ROOT = Path(__file__).resolve().parents[1]
 REPO = "CrocSwap/integer-mult-bounds"
 
@@ -323,6 +330,46 @@ def local_records(root):
     return records
 
 
+def local_coverage(root, records):
+    """Compare searched working-tree notes with the regular note paths at HEAD."""
+    coverage = {"head": None, "records": len(records), "head_records": None,
+                "complete_head_inventory": None, "unsearched_head_paths": None}
+    try:
+        def git(*args):
+            return subprocess.run(
+                ["git", "--no-replace-objects", *args], cwd=root, check=True,
+                capture_output=True, encoding="utf-8", errors="surrogateescape", timeout=15,
+                env={**git_source_env(), "GIT_NO_LAZY_FETCH": "1"},
+            ).stdout
+
+        # Pin the tree once; only metadata is read, never omitted note blobs.
+        coverage["head"] = git("rev-parse", "--verify", "HEAD^{commit}").strip()
+        tree = git("ls-tree", "-r", "-z", "--full-tree", coverage["head"], "--",
+                   "research", "docs/research/pr-ledger.md")
+        expected = set()
+        for entry in tree.split("\0"):
+            if not entry:
+                continue
+            metadata, path = entry.split("\t", 1)
+            mode, kind, _ = metadata.split()
+            parts = PurePosixPath(path).parts
+            in_scope = (path == "docs/research/pr-ledger.md"
+                        or (len(parts) == 3 and parts[0] == "research"
+                            and parts[2] in ("README.md", "TASK.json")))
+            if in_scope and kind == "blob" and mode in ("100644", "100755"):
+                expected.add(path)
+    except (OSError, subprocess.SubprocessError, ValueError) as exc:
+        return coverage, ["local: HEAD note inventory unavailable; local coverage is unknown. "
+                          + error_summary(exc)]
+    missing = sorted(expected - {record["path"] for record in records})
+    coverage.update(head_records=len(expected), complete_head_inventory=not missing,
+                    unsearched_head_paths=missing)
+    warnings = ([f"local: {len(missing)} HEAD note paths were not searched; "
+                 "inspect coverage.local.unsearched_head_paths in --json output and materialize relevant notes "
+                 "before treating a lack of matches as evidence."] if missing else [])
+    return coverage, warnings
+
+
 def match_position(text, term, pattern):
     if pattern is None:
         return text.find(term)
@@ -403,10 +450,12 @@ def main():
         ap.error("provide terms, --task or --path")
     patterns = [p.strip() for p in args.path if p.strip()]
     local = local_records(ROOT)
+    local_status, local_warnings = local_coverage(ROOT, local)
     snapshot, warnings = remote_snapshot(args.cache, args.offline, args.refresh, args.max_age,
                                          need_files=bool(patterns), include_closed=args.include_closed)
+    warnings = local_warnings + warnings
     records = list(local) + pull_corpus(snapshot, args.include_closed)
-    coverage = {}
+    coverage = {"local": local_status}
     corpus_names = ("open_prs", "discussions", "closed_prs") if args.include_closed else ("open_prs", "discussions")
     for name in corpus_names:
         source = snapshot["sources"].get(name)
@@ -421,6 +470,11 @@ def main():
         coverage["pr_files"] = {k: source[k] for k in ("fetched_at", "complete_pagination")} if source else None
         if source:
             coverage["pr_files"]["records"] = len(source["records"])
+            truncated = sorted({row["number"] for row in source["records"] if row.get("truncated", False)})
+            coverage["pr_files"]["truncated_prs"] = truncated
+            if truncated:
+                warnings.append(f"pr_files: incomplete file inventories for {len(truncated)} PRs; "
+                                "paths may be missing. Check truncated_prs in coverage, even when no path matches.")
             pulls = snapshot["sources"].get("open_prs", {"records": []})["records"]
             heads = {pull["number"]: pull.get("head") for pull in pulls}
             file_heads = {row["number"]: row.get("head") for row in source["records"]}
@@ -445,7 +499,7 @@ def main():
         hits = {m["number"]: m for m in path_matches}
         matches = [dict(m, **{key: hits[m["number"]][key]
                              for key in ("matched_paths", "head", "body_head", "head_matches",
-                                         "base", "body_base", "base_matches")}) for m in matches
+                                         "base", "body_base", "base_matches", "truncated")}) for m in matches
                    if m.get("kind") == "pr" and m.get("number") in hits]
     if patterns and not any(t.strip() for t in terms):
         matches = []
@@ -456,13 +510,17 @@ def main():
                           "State changes are deduplicated by latest PR update; snapshots are not atomic. "
                           if args.include_closed else
                           "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. ")
-                         + "No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."),
+                         + "Local coverage compares searched working-tree notes with regular note paths at coverage.local.head; "
+                         "it does not certify HEAD contents or historical coverage. "
+                         "No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."),
               "matches_total": len(matches), "matches": matches[:args.limit]}
     if patterns:
         report["path_patterns"] = patterns
         report["path_limits"] = ("Path matching covers the changed file paths GitHub reports for open PRs, "
                                  "not diff contents; all available file pages are followed. Missing lists or "
-                                 "advertised-count shortfalls are flagged truncated. Head/base identify the file "
+                                 "advertised-count shortfalls are flagged truncated and listed in coverage.pr_files.truncated_prs "
+                                 "independently of matches or --limit. complete_pagination describes list paging, "
+                                 "not completeness of each PR's file inventory. Head/base identify the file "
                                  "snapshot; body_head/body_base identify PR metadata. Both endpoints must match. "
                                  "This is not an atomic server snapshot. Unverified joins are flagged, "
                                  "including inventories with no matching path.")
@@ -475,7 +533,12 @@ def main():
         if hasattr(sys.stdout, "reconfigure"):
             sys.stdout.reconfigure(errors="backslashreplace")
         print(report["status"])
-        print("Coverage: " + json.dumps(coverage))
+        # A sparse checkout can omit thousands of notes. Keep the complete
+        # path list in JSON; the text report surfaces the count and warning.
+        local_summary = {k: v for k, v in local_status.items() if k != "unsearched_head_paths"}
+        omitted = local_status.get("unsearched_head_paths")
+        local_summary["unsearched_head_paths_count"] = None if omitted is None else len(omitted)
+        print("Coverage: " + json.dumps({**coverage, "local": local_summary}))
         if reference_terms:
             print("Task references (identifier matching): " + ", ".join(reference_terms))
         print(report["limits"])
@@ -485,7 +548,8 @@ def main():
             print("WARNING: " + warning)
         print(f"{len(matches)} possible matches; showing {min(args.limit, len(matches))}")
         for match in matches[:args.limit]:
-            print(f"\n[{match['kind']}] {match['title']}\n{match.get('url', match.get('path'))}")
+            flags = " (file list truncated)" if match.get("truncated") else ""
+            print(f"\n[{match['kind']}] {match['title']}{flags}\n{match.get('url', match.get('path'))}")
             if match.get("head"):
                 print("Head: " + match["head"])
             if match.get("head_matches") is False:

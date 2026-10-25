@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/q8-count-region-rank-floor/PROOF.md",
+    "research/q8-homogeneous-mixed-floor/PROOF.md",
+    "research/q8-mixed-boundary-rank/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exhaustive bounded integer projection and constructive count witnesses; new binary rank inference; complete dirty Q8 direct words and failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same scientific checks under optimized Python, with explicit contracts active."
+    }
+  ]
+}

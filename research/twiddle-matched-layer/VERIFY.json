@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/twiddle-matched-layer/LICENSE",
+    "research/twiddle-matched-layer/NOTICE",
+    "research/twiddle-matched-layer/diagonal/upstream/PROOF.md",
+    "research/twiddle-matched-layer/diagonal/upstream/README.md",
+    "research/twiddle-matched-layer/diagonal/upstream/RESULT.json",
+    "research/twiddle-matched-layer/diagonal/upstream/SOURCES.json",
+    "research/twiddle-matched-layer/diagonal/upstream/TASK.json",
+    "research/twiddle-matched-layer/diagonal/upstream/VERIFY.json",
+    "research/twiddle-matched-layer/diagonal/upstream/inputs/consumer-PROOF.md",
+    "research/twiddle-matched-layer/diagonal/upstream/inputs/consumer.py",
+    "research/twiddle-matched-layer/diagonal/upstream/inputs/controller-PROOF.md",
+    "research/twiddle-matched-layer/diagonal/upstream/inputs/controller.py",
+    "research/twiddle-matched-layer/diagonal/upstream/pass.py",
+    "research/twiddle-matched-layer/diagonal/upstream/verify.py",
+    "research/twiddle-matched-layer/pr2298-PROOF.md",
+    "research/twiddle-matched-layer/pr3493-PROOF.md",
+    "research/twiddle-matched-layer/pr3493-outer_layer.py",
+    "research/twiddle-matched-layer/pr3593-PROOF.md",
+    "research/twiddle-matched-layer/pr3593-controller.py",
+    "research/twiddle-matched-layer/pr3599-PROOF.md",
+    "research/twiddle-matched-layer/pr3599-active_plan.py",
+    "research/twiddle-matched-layer/pr3599-active_root.py",
+    "research/twiddle-matched-layer/pr3611-PROOF.md",
+    "research/twiddle-matched-layer/pr3611-consumer.py",
+    "research/twiddle-matched-layer/transforms.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate 13 retained source inputs and the typed original receipt; exact boundary, layout, round, rounding, width and actual single-packet checks. No physical H/root or whole-layer invoice."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate 13 retained source inputs and the typed original receipt; exact boundary, layout, round, rounding, width and actual single-packet checks. No physical H/root or whole-layer invoice. All explicit guards remain active under optimization."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/diagonal/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate 12 PR3617 files, the source inventory, the frozen arithmetic checker and the strict typed receipt; 12 complete arithmetic-H rounds with 384 actual diagonal packets, wrong-K, off-grid, one-shot and tape-lifecycle controls. No all-round allocation/reuse theorem."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/diagonal/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate 12 PR3617 files, the source inventory, the frozen arithmetic checker and the strict typed receipt; 12 complete arithmetic-H rounds with 384 actual diagonal packets, wrong-K, off-grid, one-shot and tape-lifecycle controls. No all-round allocation/reuse theorem. All explicit guards remain active under optimization."
+    }
+  ],
+  "execution_boundary": "Standard-library bounded checks. Original two header/consumer modules and later unchanged PR3617 fixed diagonal execute. H, Q_p, layout and host serialization are arithmetic oracles. No historical full source suite, production physical root, full-layer reuse/stock, complete invoice, independent human/formal acceptance or supplier admission."
+}

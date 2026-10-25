@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Literal Gaussian matrices with phases, exact Gram ranks and bounds, quantified-domain controls, source/receipt equality"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Literal Gaussian matrices with phases, exact Gram ranks and bounds, quantified-domain controls, source/receipt equality (optimized)"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify_symplectic.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent exhaustive binary symplectic matrices, actual fixed-space characters and residual forms, exact tails and phase controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify_symplectic.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent exhaustive binary symplectic matrices, actual fixed-space characters and residual forms, exact tails and phase controls (optimized)"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/audit_mutations.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Six deliberate independent-checker defects rejected in normal and optimized Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/audit_matrix_mutations.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source/receipt corruption and three actual matrix-checker defects rejected in normal and optimized Python"
+    }
+  ]
+}

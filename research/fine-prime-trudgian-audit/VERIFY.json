@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/many-axis-prime-supply/README.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Bind the cited theorem, eta, epsilon and theta range to the #4100 sources; exact theta endpoints for p=2..199; Trudgian dominance threshold at the caller's epsilon; exact small prime counts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Rejecting controls: log t=Theta(log p) fails dominance; #4029's d<=ell^334 domain excludes epsilon=1-1e-30; eta=0 gives no admissible theta; sieve sanity."
+    }
+  ]
+}

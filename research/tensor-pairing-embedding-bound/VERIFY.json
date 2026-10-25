@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": ["research/community-frontier1094-audit/selected-replay.tar.gz"],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "research/tensor-pairing-embedding-bound/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Exact tensor pairing, all 65536 principal ranks, all 12544 selected-port pairings, attaining witness, abstract-label calibration and rejection controls; compare complete result."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "research/tensor-pairing-embedding-bound/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Repeat the exact finite certificate with assertions disabled and require the same complete result."
+    }
+  ]
+}

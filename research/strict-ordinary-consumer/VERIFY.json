@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-outer-borrowing-wrapper/README.md",
+    "research/selected-outer-borrowing-wrapper/outer.py",
+    "research/selected-outer-borrowing-wrapper/predecessor.py",
+    "research/selected-outer-borrowing-wrapper/VENDOR.json",
+    "research/selected-outer-borrowing-wrapper/checks.py",
+    "research/selected-outer-borrowing-wrapper/integration.py",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/PREDECESSOR.json",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/README.md",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/padding.py",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/predecessor.tar.gz",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/source.py",
+    "research/strict-padding-borrowing/tape_padding.py",
+    "research/strict-padding-borrowing/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Complete strict ordinary endpoints, toy source calls and failure controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same complete replay with acceptance checks active under optimization"
+    }
+  ]
+}

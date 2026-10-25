@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/q8-inverse-label-pair-census/CERTIFICATE.json",
+    "research/q8-mixed-uniform-tariff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Recompute source pins, full formal and regular dirty endpoints, saturation census, exact attaining tariffs and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual wrong endpoint/tariff producers, invalid call/scope/price, optimized CLI, source drift, typed receipt and no-overwrite failures in private temporary exports."
+    }
+  ]
+}

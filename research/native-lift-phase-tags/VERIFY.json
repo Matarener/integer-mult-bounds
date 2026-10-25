@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exactsourcepins; explicitphase tags,coboundary,inverses andsixgate signedword certificate; centralC globali; typedreceipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate row/permutation oracle; all168GL3 maps and28224orderedpairs/all8states; actualfourmap512states; signedprefixes andcompensated/naiveframe/globalphasecontrols."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Semantic tag,pullback,order/inverse/globalphase controls plusdamagedactualCLI sources/certificate; normal/optimized andread-onlyGit-free positive replays."
+    }
+  ]
+}

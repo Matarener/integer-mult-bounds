@@ -1,0 +1,468 @@
+{
+  "audited_at_utc": "2026-10-20T20:29:47.934615+00:00",
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "blocking_findings": [],
+  "closure_checks": {
+    "Mac_exit0_single_VERIFIED_zeroRAT": true,
+    "Mac_pair": [
+      7,
+      8
+    ],
+    "VERIFY_inputs_equal_SOURCES_inputs": true,
+    "actual_Mac_raw_logs_authenticated": 20,
+    "all15_public_ancestry_blobs_match": true,
+    "all_eight_current_review_files_exact": true,
+    "all_original_container_SHA256_Git_blobs_match": true,
+    "declared_inputs": 15,
+    "dedicated_native_comparison_intentionally_has0receipt_selftests": true,
+    "generic_commands_inspect_saved_evidence_with16controls": true,
+    "hard_ram_cap_enforced": false,
+    "official_LF_vs_retained_CRLF_pairs": 2,
+    "original_source_files": 14,
+    "raw_logs_gitignore_exception_and_byte_preservation": true,
+    "reviewer_native_reruns": 0,
+    "rss_bytes": null,
+    "six_native_controls_passed": true
+  },
+  "credit": "Brian Ross/OpenAI original strategy, encoding, proofs/checker integration; Hanson Sun/Josie Elliston lineage; Marijn Heule/Nathan Wetzler MIT checker; Glucose4/PySAT proof production; James Reed and separate4214/4223/4230 audits. New ToikY/OpenAI-assisted native harness, evidence inspection and separate reviews.",
+  "environment_input_ancestor": "8f5e7ffc1467969e0812f074f65d51260aa2b8a7",
+  "excluded_self": "PACKAGE-REVIEW.json",
+  "external_environment_inputs_excluded_from_package_file_count": [
+    {
+      "bytes": 2035,
+      "git_blob": "fa6e4aec0a992d16acfcd930d399b5ba2edf57e8",
+      "path": ".github/workflows/gl3-rup-native-replay.yml",
+      "sha256": "c0a65c14526a3e478b9dd9afaef36a53f2de647eb5beeb3f503d73dda3551e24"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 83,
+      "git_blob": "284291605b4947ee4bc0458c4d3f4841462b40ba",
+      "path": ".gitattributes",
+      "sha256": "b55be41e9563abbe73505f7b048d8f7423589069cf0d1268cae6fb9d297c28fc"
+    },
+    {
+      "bytes": 19,
+      "git_blob": "6ba217f7d55a1c5757433de8d568617733b182f3",
+      "path": ".gitignore",
+      "sha256": "c2ad41b6f5990822f2f87629a834cb442ffc37dad61e3c42770cd7b8fd16446b"
+    },
+    {
+      "bytes": 3139,
+      "git_blob": "40875cf3129ab484abb33498d6f913da65cca6d4",
+      "path": "CHECKER-REVIEW.json",
+      "sha256": "67e3ec6bc750970e8f699cbc2cd65d0f8a8e06bce906c7eabb9d283306d4fd96"
+    },
+    {
+      "bytes": 8523,
+      "git_blob": "32e4defb33fa03fc6a65b366317591bfe3bbd823",
+      "path": "CHECKER-REVIEW.md",
+      "sha256": "e3f304931dfd85ac3b37ff78e69da114b90551e35dce249ef78e10487a8e298a"
+    },
+    {
+      "bytes": 4504,
+      "git_blob": "1406ca4fc2fdb119016519bd6887c4aafb18d8f2",
+      "path": "CODE-REVIEW.json",
+      "sha256": "8850e74d3f2b30639898623d32902ede4de4ba1a535a54cec5bf531117fe8cf0"
+    },
+    {
+      "bytes": 3672,
+      "git_blob": "f228200c473199b9eb386b04c3a30ccc12f44df0",
+      "path": "CODE-REVIEW.md",
+      "sha256": "862becca16a72b10d082e209589f42c6e673e731be376b2866f6b7c325e65cd7"
+    },
+    {
+      "bytes": 34114,
+      "git_blob": "64e2173e9d5da45279378a01515f9b4d48e82132",
+      "path": "NATIVE-RESULT.json",
+      "sha256": "9449e13d7b360044a3b97945b30d478c06cdb518f6db1227e7fc715da42a7020"
+    },
+    {
+      "bytes": 1249,
+      "git_blob": "b5955bc47a9361b19e5df7e0822231d64fd0a535",
+      "path": "NOTICE.md",
+      "sha256": "efacd3cd1e9e73c2c7ba8caa79b7fc2921da92c775655d239c7476de31f1e4ac"
+    },
+    {
+      "bytes": 7280,
+      "git_blob": "ee54885f4cce55f0fcb63dd94f8f59938629eed5",
+      "path": "README.md",
+      "sha256": "542c11e322610953442110f5c96353e5a7786578df4611a598902ec28220cc89"
+    },
+    {
+      "bytes": 5653,
+      "git_blob": "2e9d0231fa92ba0042b1089e168e5e3eda254a47",
+      "path": "SOURCE-PINS.json",
+      "sha256": "c1ffa96fda47deeb1e7f2ed0b6023cd4d864be31ab3b853a72912d5bf3e06308"
+    },
+    {
+      "bytes": 6287,
+      "git_blob": "afb5a7f5c506c2d878925cc722edec001176b16f",
+      "path": "SOURCES.json",
+      "sha256": "c013b0518a76af43f5506fa443ad42249549ead1fea7861a1efc0f5f6609c258"
+    },
+    {
+      "bytes": 8161,
+      "git_blob": "c7becd8cea842be828cec008ba5bf677202ccdeb",
+      "path": "TASK.json",
+      "sha256": "eb9f038a53b8b31abb26cdcf347a90f04155a3da1377359591b7bdc7cb33bc3d"
+    },
+    {
+      "bytes": 1659,
+      "git_blob": "12a3acb4017456ff0a8a09751173b40b7ced8b72",
+      "path": "UPSTREAM-LINE-ENDINGS.json",
+      "sha256": "d5bef710d0867d09ccb2509ba39b15d38a90462f31fa4dc9d7c5985f0f1694b7"
+    },
+    {
+      "bytes": 6234,
+      "git_blob": "07b66b66ad29e178e056c9722cf63c7051c356eb",
+      "path": "VERIFIER-REVIEW.json",
+      "sha256": "f494dbcd440b716c8408422b7b0a060f86f24f32599492e7e7d7d2bfb32e19bf"
+    },
+    {
+      "bytes": 4619,
+      "git_blob": "12cd0aadc9f0cc6e76c125107ec0a80883e30ff3",
+      "path": "VERIFIER-REVIEW.md",
+      "sha256": "cb3de17762d4e9885ee40146f4646f15048aa2c8474f8a198409c4f73c2bd5be"
+    },
+    {
+      "bytes": 1831,
+      "git_blob": "3497b5e456351c04c16afad3fd16769b13c1e875",
+      "path": "VERIFY.json",
+      "sha256": "17a8bf2d326c48d0c13745c8af9d4a44cc78dd097e96a21223fad7b000dee8db"
+    },
+    {
+      "bytes": 1457,
+      "git_blob": "d1ab4b3790bac0bc4eeec6396af54f0fa9f33987",
+      "path": "WORKFLOW-REVIEW.json",
+      "sha256": "2b8a05f641e65bea9ee34c24dd11691949617b346018776f6a8705fe37dcab30"
+    },
+    {
+      "bytes": 1918,
+      "git_blob": "cbc923f287813071cc5f5e5be5019e0011e922c5",
+      "path": "WORKFLOW-REVIEW.md",
+      "sha256": "124e1be71763ccc77e8f4422b84a1282e09e405f4546e06a702851d18c031dba"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/ascii_rup_positive.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 356,
+      "git_blob": "df8b246141cf971904225256513ac3141d694e76",
+      "path": "native-logs/ascii_rup_positive.stdout.log",
+      "sha256": "3e46afe013683f7db0ee07e458de955c5507ce7eb3ccb608e8231be78bc55c8a"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/binary_parser_positive.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 421,
+      "git_blob": "3855bf8bf4e03cbcd335b90ee56510631c7718c1",
+      "path": "native-logs/binary_parser_positive.stdout.log",
+      "sha256": "c74dddf5ea98ee7060765e80fce04b9d87544571b61c3c9766782e75e18fe76b"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/compile.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/compile.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/compiler-version.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 159,
+      "git_blob": "8e6ead0cd0c4c5f99db42d4eeae6c053919d8947",
+      "path": "native-logs/compiler-version.stdout.log",
+      "sha256": "76a924f59997fb65051981eb13105e0a8c151f16cd9c3e45e0f7c27ecefdb839"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/empty_only_rejected.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 166,
+      "git_blob": "4e01aad6099b599652ee028da8a0276137665220",
+      "path": "native-logs/empty_only_rejected.stdout.log",
+      "sha256": "6f24c13bb17e61792b110771a446685d726a1eb79ea193c6b058986b91d841b1"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/length7_rup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 389,
+      "git_blob": "67757b8dca2f5f2d7bb6c5b5095d4b7aaab2081b",
+      "path": "native-logs/length7_rup.stdout.log",
+      "sha256": "e34a9d60e63bce77f6b153ed9cba507a04c9cdc9349dc30ae4f8c942a98b1f4d"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/length8_rup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 395,
+      "git_blob": "f14e8186609c6db429cdd3826d88a55ac893b312",
+      "path": "native-logs/length8_rup.stdout.log",
+      "sha256": "3aec269cb3157c8e3b02f594ab3da1276d64a556c3648fa7733ce5a12b9dda37"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/rat_core_default_positive.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 357,
+      "git_blob": "3084e1980fcf1b6dab29e16b3642bd24d150fb59",
+      "path": "native-logs/rat_core_default_positive.stdout.log",
+      "sha256": "b246c7c02f5ce1641857468deebbefda2db9dbc923d57a5c2aca77b7e6841d7a"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/rat_core_rup_only_rejected.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 265,
+      "git_blob": "eca08edc9126b2cd95e6efe2c731f028b858e23d",
+      "path": "native-logs/rat_core_rup_only_rejected.stdout.log",
+      "sha256": "f55ef9d31c972c577c2e3794a2572b3a08df6612bab34562292644d13a81f649"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "native-logs/wrong_satisfiable_formula_rejected.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 166,
+      "git_blob": "fcd6457e30af33b3cdc72402e2d57f1ca0ebc0f5",
+      "path": "native-logs/wrong_satisfiable_formula_rejected.stdout.log",
+      "sha256": "3bd3af014f5242f4c465cc3e08ca0d964c478472836389e3f7e05c47eaa006cf"
+    },
+    {
+      "bytes": 20704,
+      "git_blob": "849dd3423b9b22df1925e2aa7e039623bbc8dae3",
+      "path": "native_replay.py",
+      "sha256": "33c943d94471e3122bb8d75054af8af74b0c34a974d048bb580bd2558c31344a"
+    },
+    {
+      "bytes": 3361,
+      "git_blob": "75af63d806197aa9a6d4caf57b8a9e5d811ee26c",
+      "path": "source/CERTIFICATES.json",
+      "sha256": "f5bc7526ca29724a89ea3126cdf4b3780774c3f15a0328f3f91b227c7ad16042"
+    },
+    {
+      "bytes": 1273,
+      "git_blob": "8a08e739e21a42351a9013950ebb01f6281dd794",
+      "path": "source/CHECKER.json",
+      "sha256": "681a2c0e19a570255ab67ca52092f3eac3b26f73c04ba38c166d2e03873a08f0"
+    },
+    {
+      "bytes": 1201,
+      "git_blob": "82d3a735c3feb832968d5fd691bbd7b9048a2892",
+      "path": "source/DRAT-LICENSE",
+      "sha256": "0cc0980a36c87c5884bf6f9aad4556187c19881ab6dfcf8cd7ed016a65277a8d"
+    },
+    {
+      "bytes": 7436,
+      "git_blob": "96f842f3143aafbdaae1e175c974db2d4f8d813a",
+      "path": "source/ENCODING_AUDIT.md",
+      "sha256": "b149c967439acffd458f22c4e480e475c8732249313bd23bd7b55265d72892f0"
+    },
+    {
+      "bytes": 11357,
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "path": "source/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 938,
+      "git_blob": "239fbc6630d13c3d64c6a6970ec219a4e583d958",
+      "path": "source/NOTICE.md",
+      "sha256": "4e0e33ce73e962a9acd7a41ea3206e93e8ef3d2513deb45980f6596e04f13329"
+    },
+    {
+      "bytes": 8074,
+      "git_blob": "5d588836cdbca7c9c2a8c96d5b9d3b44cf139898",
+      "path": "source/README.md",
+      "sha256": "f5e97f74a34d53607eac9802f9cacdb84a39c187c7ee8c7bb2e8fb96c9698294"
+    },
+    {
+      "bytes": 61047,
+      "git_blob": "6a910615d3149a2d1b3f079f1892e82895fa2622",
+      "path": "source/drat-trim.c",
+      "sha256": "78026871882de3f2fee66034e549e9c1a0a9a5291abd817d06f611f9ba0f355d"
+    },
+    {
+      "bytes": 397,
+      "git_blob": "62802b0a4bd474dde80d12f70ce07360d77acfb3",
+      "path": "source/length7-checker.log",
+      "sha256": "677071fa0f56c77970ee39cdc8c2704f8a9d1700d2d033856347656106bb5c76"
+    },
+    {
+      "bytes": 1004699,
+      "git_blob": "729d0117e352bbab6205c64473303629f138ceed",
+      "path": "source/length7.cnf",
+      "sha256": "2f1b925d8cc84ce36f35ac8033d6e4afffe373a2ab37fe5f52d6e29884c1ed0c"
+    },
+    {
+      "bytes": 981561,
+      "git_blob": "367a877e42af51923c9818380b1c410ecfa7ce63",
+      "path": "source/length7.rup.gz",
+      "sha256": "63bbaaf387740a52ba0874b0766bac682f52d41a4b26ea0e16e030dd3a7b0eec"
+    },
+    {
+      "bytes": 404,
+      "git_blob": "b6e4e354d87123a3e457d91d2c097fad527d1966",
+      "path": "source/length8-checker.log",
+      "sha256": "d6ef8d3027b2116ebe3ff8d81d293f5ec5ed9c919bca9253f60f5a805f2e9fe2"
+    },
+    {
+      "bytes": 1673686,
+      "git_blob": "2c2866e55fe4487c98ec3dfe81c99c4a5b33b7c9",
+      "path": "source/length8.cnf",
+      "sha256": "34706dd378805dc7ef46501d7129f6a7441317379df82b865dc20b5e07aeea7f"
+    },
+    {
+      "bytes": 31169765,
+      "git_blob": "aaa09a8243e32f2eaefc8b572b965216ceccb0f2",
+      "path": "source/length8.rup.gz",
+      "sha256": "ff7982b88e4f12a74db262d01561d79e53d54621ade9a16c6c1586ab5bcebfc2"
+    },
+    {
+      "bytes": 28211,
+      "git_blob": "f3f8d6038534abed37db54ba2720a08ced1b1e4a",
+      "path": "verify.py",
+      "sha256": "476f82244cbd995bfb25dfe8b27410283825d60339c7590e0b2ebfa779927944"
+    }
+  ],
+  "files_sealed_excluding_self": 54,
+  "package": "research/gl3-rup-native-replay",
+  "prior_obligations_closed": [
+    "Actual native six controls and Mac7/8 pair",
+    "Strict input serialization/hash/count and postnative equality",
+    "Full typed verifier, raw-log normalization and public16mutation controls",
+    "Official LF/predecessor CRLF provenance corrected with prior report preserved",
+    "Critical native log Git inclusion and raw byte preservation"
+  ],
+  "public_input_ancestry": [
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "6a910615d3149a2d1b3f079f1892e82895fa2622",
+      "path": "research/gl3-rup-native-replay/source/drat-trim.c"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "82d3a735c3feb832968d5fd691bbd7b9048a2892",
+      "path": "research/gl3-rup-native-replay/source/DRAT-LICENSE"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "729d0117e352bbab6205c64473303629f138ceed",
+      "path": "research/gl3-rup-native-replay/source/length7.cnf"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "2c2866e55fe4487c98ec3dfe81c99c4a5b33b7c9",
+      "path": "research/gl3-rup-native-replay/source/length8.cnf"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "367a877e42af51923c9818380b1c410ecfa7ce63",
+      "path": "research/gl3-rup-native-replay/source/length7.rup.gz"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "aaa09a8243e32f2eaefc8b572b965216ceccb0f2",
+      "path": "research/gl3-rup-native-replay/source/length8.rup.gz"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "8a08e739e21a42351a9013950ebb01f6281dd794",
+      "path": "research/gl3-rup-native-replay/source/CHECKER.json"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "75af63d806197aa9a6d4caf57b8a9e5d811ee26c",
+      "path": "research/gl3-rup-native-replay/source/CERTIFICATES.json"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "239fbc6630d13c3d64c6a6970ec219a4e583d958",
+      "path": "research/gl3-rup-native-replay/source/NOTICE.md"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "path": "research/gl3-rup-native-replay/source/LICENSE"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "5d588836cdbca7c9c2a8c96d5b9d3b44cf139898",
+      "path": "research/gl3-rup-native-replay/source/README.md"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "96f842f3143aafbdaae1e175c974db2d4f8d813a",
+      "path": "research/gl3-rup-native-replay/source/ENCODING_AUDIT.md"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "62802b0a4bd474dde80d12f70ce07360d77acfb3",
+      "path": "research/gl3-rup-native-replay/source/length7-checker.log"
+    },
+    {
+      "ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+      "git_blob": "b6e4e354d87123a3e457d91d2c097fad527d1966",
+      "path": "research/gl3-rup-native-replay/source/length8-checker.log"
+    },
+    {
+      "ancestor": "8f5e7ffc1467969e0812f074f65d51260aa2b8a7",
+      "git_blob": "fa6e4aec0a992d16acfcd930d399b5ba2edf57e8",
+      "path": ".github/workflows/gl3-rup-native-replay.yml"
+    }
+  ],
+  "remaining_obligations": [
+    "Committed cold evidence inspection and immutable package verification",
+    "Hosted Ubuntu native pair, exact typed/base64 payload recovery and proof-relevant comparison",
+    "Fresh main/overlap, PR maintainer edits disabled, Discussion handoff and durable archive",
+    "Same checker/compiler/runtime trust remains; independent checker/human/kernel/model-padding/minimum/supplier/outer/kappa admission absent"
+  ],
+  "review_statuses": [
+    "PASS_SCOPED_CHECKER_INTERFACE_REVIEW_NATIVE_EXECUTION_PENDING (historical checkpoint; native obligations closed by later reports)",
+    "PASS_NATIVE_HARNESS_CODE_AND_CONTROLS_REVIEW",
+    "PASS_TYPED_NATIVE_EVIDENCE_VERIFIER_REVIEW",
+    "PASS_SCOPED_NATIVE_WORKFLOW_REVIEW"
+  ],
+  "schema_version": 1,
+  "scope": "Unchanged predecessor-retained checker/formula/proof bytes, fresh Mac RUP-only refutation-core pair, decisive controls, typed evidence inspection and dedicated hosted workflow. Same checker; no minimum/kappa admission.",
+  "source_input_ancestor": "37fdc4122f84d80cccd85aa51f631acf79904003",
+  "source_original_commit": "ca0002008b497428f0b651501c4a220a9d2785e7",
+  "status": "PASS_FINAL_PACKAGE_REVIEW",
+  "total_package_files_after_self": 55
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source hashes, general sharp-size admission, allwidths/frozenprecisions, freshp180operators and two actualGaussianmaximal products."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "No predecessorimports; independent exact precision and complete-width classification with retainedreceipt equality and semanticcontrols."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_cli.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Actual CLI failures for source and scientificallymeaningful receipt corruptions undernormal and optimized Python."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+PASS bind
+PASS emit
+Traceback (most recent call last):
+  File "/workspace/scratch/1a12211da438/adaptive-clock-full-release/full/admission/layout/packing74/replay.py", line 21, in <module>
+    run('audit',P/'audit_fast.py',code/'audit_allcold.py',g/'base',g/'hosted',g/'audit/ASYNC-AUDIT.json','--mutation-controls')
+  File "/workspace/scratch/1a12211da438/adaptive-clock-full-release/full/admission/layout/packing74/replay.py", line 17, in run
+    stages.append(dict(name=name,seconds=time.monotonic()-t,exit_code=r.returncode,log_sha256=sha(log)));(work/'STAGES.json').write_text(json.dumps(stages,indent=2));assert r.returncode==0,(name,log.read_text()[-5000:]);print('PASS',name,flush=True)
+                                                                                                                                                                             ^^^^^^^^^^^^^^^
+AssertionError: ('audit', '')

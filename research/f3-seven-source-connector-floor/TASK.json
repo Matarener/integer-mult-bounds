@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Decide whether the unsigned F3 seven-source connector (seven immutable sources, all 127 nonzero binary-mask outputs, one arbitrarily dirty restored connector) attains the 402-call floor of three calls per operator.",
+  "scope_change_reason": "Keeps the F3 alphabet and answers PR4232's open question 1, a source-count question the card lists as a scope-change trigger. With PR4232's deletion lemma it fixes the exact batch size up to which an F3 connector pays three calls per operator.",
+  "bottleneck_link": "Bounds the largest batch at which an F3 connector consumer can pay exactly three calls per operator: six sources. No physical consumer, admission or transfer is supplied, so no kappa change follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the exhaustive n=7 census with two engines and the n<=6 and brute-force calibrations. Exact optima for n>=8 are left open.",
+  "outcome": "completed",
+  "evidence": "Two separately written C enumerators check every restored 21-event path up to rotation and relabelling; neither finds a path serving all 127 masks. CERTIFICATE.json records per-shard leaf counts and n<=6 calibration counts; verify.py cross-checks both reductions against a pure-Python brute force for n<=4 and re-checks PR4232's 405-call word.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the exact optimum for each n=8..13?",
+      "why_it_matters": "A consumer of a larger F3 batch needs the exact surcharge; only floor+3 is known as a lower bound.",
+      "first_step": "Search for words whose source path serves all but a few masks with triples and pays six readouts for the rest, then bound the number of triple-served masks.",
+      "blocked_by": "No upper or lower bound beyond floor+3 is proved for n>=8."
+    },
+    {
+      "question": "What is the maximum number of masks a seven-source 21-event path serves with readout triples?",
+      "why_it_matters": "It bounds how many outputs need longer readout lists in any near-floor word.",
+      "first_step": "Extend reduced.c to record the maximum served count instead of exiting at the first unserved mask.",
+      "blocked_by": "The census exits early and records only the decision."
+    },
+    {
+      "question": "Is there a short written proof that no seven-source floor path exists?",
+      "why_it_matters": "It would replace a 4e9-path census and might explain where the threshold sits.",
+      "first_step": "Apply PR4232's window form to the all-ones mask and the seven weight-six masks.",
+      "blocked_by": "No structural argument is known."
+    }
+  ],
+  "predecessor_handoff": {
+    "pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/4232",
+    "head": "86ad339efc9f817846479431d8cc0f04edf95fb9",
+    "author": "Nick Petalas",
+    "usage": "Interface, boundary-triple reduction, deletion lemma and 405-call seven-source word; open question 1 answered here. No executable dependency."
+  },
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19081034",
+    "upstream_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "overlap_scope": "100 live open PR titles, 60 recent account PRs, last 30 handoff comments, find_overlap helper, and merged README grep for seven-source F3 terms. Only PR4232 studies the n-source unsigned F3 floor; a concurrent characteristic-four claim is a separate question.",
+    "family_decision": "Local interface result; stop. No construction round is justified without a consumer."
+  }
+}

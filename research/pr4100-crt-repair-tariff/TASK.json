@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Audit the fixed-tape tariff of #4100 CRT.md section 4's sparse exception repair (extraction from the hole mask, TS^-1 keys at holes, two-bucket radix sort, keyed reinsertion, erasure) at Theta(p)-bit records, with exact absorption at #4100's G, B, K.",
+  "scope_change_reason": "The card asks for one quantified implication at its caller; this is the repair-cost implication CRT.md states, which every open CRT audit excludes and whose PR2250 predecessor tariff does not transfer to Theta(p)-bit records.",
+  "bottleneck_link": "If the repair cost per color were not O(V), the batched CRT row (power 1-a2+2(1-epsilon)) and hence #4100's proposed exponent would fail.",
+  "budget_minutes": 75,
+  "stop_rule": "Stop once dense and sparse repair costs are bounded with explicit constants, absorbed at #4100's parameters, and matched by literal tape counts with failing controls.",
+  "outcome": "completed",
+  "evidence": "README accounting: dense <= 9MR+5M, sorted holes <= N(L+R)(9L+6), counter <= 8M+4LN+4L; exact r-target density 1-[(1-1/B)^2(1-8B/2^K)]^r; exact absorption 2^-640 (p=16) to 2^-37326 (p=2^64) of V. verify.py on #4100's compact/good: 5 one-target fixtures (M up to 65,536) plus every one of 2^20 two-target addresses for two sources; densities equal the product formula exactly (943/1024 at r=2); repair realizes T on every record; sweep-level repair matches per-cell repair exactly; controls: full sort 262 MR, keys without T misplace records (5,888; 724,224; 603,520) undetected by the key check, no repair leaves 2,048 wrong, a source reading the other active target breaks S=T on 55,296 good addresses.",
+  "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
+  "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, accounting proof, simulator implementation and writing; no independent human or proof-kernel review.",
+  "open_questions": [
+    {
+      "question": "Compose the guard-scan hole mask, the TS^-1 key evaluator and this repair as one fixed-tape program.",
+      "why_it_matters": "#4201/#4208, #4192/#4169 and this package are audited with separate input/output contracts; ownership and erasure across them are not joined.",
+      "first_step": "Feed #4208's produced mask and #4169's reverse-word keys into this repair on one shared fixture.",
+      "blocked_by": "The full E(p,ell) evaluator from CRT data (#4192 follow-up)."
+    },
+    {
+      "question": "Bind disjoint guard windows at the actual position-mod-K coloring and mixed ell/ell-1 axis offsets.",
+      "why_it_matters": "The exact r-target density (and the union bound) needs every active guard window disjoint from the others and from active targets.",
+      "first_step": "Check coloring mod K with (K-1)-bit windows against #4174's actual split-axis descriptors.",
+      "blocked_by": "None."
+    }
+  ]
+}

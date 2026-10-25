@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "At p=19, beta0=-1/2, bandwidth 2, and t_i=i, is the 2-norm of the normalized Schur matrix itself strictly below 19^10?",
+  "scope_change_reason": "The inverse 2-norm is strictly below 319/100, which is strictly below 19^10. The named next step is the 2-norm of the matrix itself.",
+  "bottleneck_link": "FINE-PRIME.md asks for both ||H||_2 and ||H^{-1}||_2 to be at most p^10. On this section every absolute row and column sum is strictly below 1226/625, so ||H||_2 is strictly below 1226/625 and hence below 19^10.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the matrix 2-norm is compared with 19^10. Do not form Q = I - p^{-20} H* H.",
+  "outcome": "partial",
+  "evidence": "research/gaussian-origin-matrix-norm bounds all six normalized absolute row sums and column sums by 1226/625. Their product is strictly below (1226/625)^2, and 1226/625 < 2 < 6131066257801.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the interval enclosure, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "On this section, do the eigenvalues of Q = I - p^{-20} H* H lie in [0, 1 - p^{-40}]?",
+      "why_it_matters": "FINE-PRIME.md places those eigenvalues in that interval once both 2-norms are at most p^10. Both norms are now below that envelope, and Q itself is not yet checked.",
+      "first_step": "Compare p^{-20}*(1226/625)^2 with 1 and p^{-20}*(100/319)^2 with p^{-40}.",
+      "blocked_by": "Q is not formed in this package."
+    }
+  ]
+}

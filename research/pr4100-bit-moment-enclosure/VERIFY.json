@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/unconditional-batched-crt/BIT.md",
+    "research/unconditional-batched-crt/evidence/composition-controls.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source pins and 8 BIT.md phrases; exact mu_1 against the ledger; certified mu_(1-c) enclosure; root bracket; one-child sensitivity; stage algebra; body-word states; H and W bound to the selected BIT supplier (selected-result -> ASSEMBLY -> EXPECTED.json) and the selected root reproduced to 1e-20."
+    }
+  ]
+}

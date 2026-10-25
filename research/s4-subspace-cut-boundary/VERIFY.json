@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/s4-two-premium-cut-envelope/PROOF.md",
+    "research/s4-two-premium-cut-envelope/README.md",
+    "research/symmetric-adjacent-cut-bound/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source SHA256 pins; all 2,892 binary subspaces; complete profile/membership receipts; shared duals; sharp attaining cuts and all-field natural case inequality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "No primary imports. All binary RREF subspaces, explicit quotient ranks and full inventory hashes/profiles; 212 ternary and 1,120 quinary natural subspaces."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Six behavioral groups: actual optimized Git-free replays, source/capacity faults, false/Boolean receipts, omitted noncoordinate subspaces, changed target/dual and duplicate/nonfinite JSON."
+    }
+  ]
+}

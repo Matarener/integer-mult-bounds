@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "references/semantic-bulk/rad20/reports/review-phase-cell-inverse.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pinned caller sources; exact phase/exponent identities, interval-certified across-cell coefficients, adversarial oracle error mesh and semantic failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same evidence and rejection controls with Python assertions disabled."
+    }
+  ]
+}

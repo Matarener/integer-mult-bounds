@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/PROOF.md",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/NATIVE-RECIPES.json.gz",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-native-channel/vendor/clifford_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact280-row channel and actual tail; lifetime/dirty/rank controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/native.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Eight source-bound forward/reverse rank7 native recipes;8192 exact Gaussian columns and global phase fault."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized-mode identity and ownership failures remain enforced."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/native.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Optimized-mode exact native columns and phase rejection."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Seven actual optimized CLI rejection fixtures: Boolean/float receipt types, false mass, duplicate JSON, changed/missing source and altered tail export."
+    }
+  ]
+}

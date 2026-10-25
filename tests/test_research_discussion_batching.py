@@ -131,6 +131,7 @@ class DiscussionBatchingTests(unittest.TestCase):
             output = io.StringIO()
             argv = ["find_overlap.py", "D0C206R206", "--json", "--cache", str(cache)]
             with (patch.object(overlap, "ROOT", root), patch.object(sys, "argv", argv),
+                  patch.object(overlap, "local_coverage", return_value=({}, [])),
                   patch.object(overlap, "graphql", side_effect=board.api),
                   patch.object(overlap, "gh_json", return_value=[[]]), redirect_stdout(output)):
                 overlap.main()

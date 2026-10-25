@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/batched-assembly.tex",
+    "notes/batched-algorithms.tex",
+    "notes/batched-bit-rank-accounting.tex",
+    "certificates/batched-network.json",
+    "certificates/controlled-bit-rank-moment.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Rebuild both displayed child lists from their pinned counts, certify the direct moment intervals at the published savings, recompute the sufficient bounds exactly, and bracket the sharp moment thresholds."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Cross-check the rational enclosures against high-precision Decimal logarithms, check binary64 agreement, and check that each published saving passes while a saving above the certified bracket fails."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Vendored witness hashes; depth-3 BFS m=2..8; #4249 Lemma 3 words for 5<=m<=400 and the (6,5) word; depth-4 BFS m=2..4; #4263 words and #4280 records decoded from Lemma 2, balanced and correct by group product; full (m,c) coverage 6..64; literal 2x2 noncommuting replays; rho and dropped-call controls."
+    }
+  ]
+}

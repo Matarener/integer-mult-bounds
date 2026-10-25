@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coded-native-caller/NORMALIZERS.json",
+    "research/coded-native-caller/clifford_exact.py",
+    "research/global120-optimistic-budget/science/inputs/10-BALANCED-J-NATIVE-v1.json",
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+    "research/native-rank8-helper-provider/PROVIDER.json",
+    "research/native-rank8-helper-provider/WITNESS.json",
+    "research/native-rank8-helper-provider/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate every input before importing science; reconstruct all21473 actual native records, source frame spans and all632 original plus9 owned columns; compose every balanced-J boundary with exact phases and both column parities; check all392 helper returns, complete component census and six mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Repeat the complete joined check under optimized Python. The inherited Clifford engine keeps its assertions active."
+    }
+  ]
+}

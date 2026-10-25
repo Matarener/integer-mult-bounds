@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-minrank-bracket-audit/CERTIFICATE.json",
+    "research/paired-plane-minrank-bracket-audit/verify.py",
+    "research/paired-plane-scalar-mask-obstruction/PR1825-CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "perfect Gram-I2 matching; 34 disjoint fitting supports and dense rank 34 mod 2, 3, 1000003; 17 pairwise non-orthogonal planes forcing I_34; PR1825 clique 24 control; three rejection controls; equality with RESULT.json"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "commands": [
+    "python3 -I -B independent_oracle.py --out RESULT.json",
+    "python3 -I -O -W error -B independent_oracle.py --out RESULT-O.json"
+  ],
+  "file_sha256": {
+    "NOTES.txt": "5f80466e60f99250ef65f4c0b6cbd7eadc159f064b79196183f5679e2b9609c2",
+    "RESULT-O.json": "938b42ded10164d2d6e331f0592ae3f676e0d120ba3c9bc5c33545319226f8f7",
+    "RESULT.json": "938b42ded10164d2d6e331f0592ae3f676e0d120ba3c9bc5c33545319226f8f7",
+    "independent_oracle.py": "58ead94a392f2f74d27f408fa98cf7077a0edae3e15352b7897759ee6197dfa3"
+  },
+  "guards": "explicit RuntimeError; no assert in independent_oracle.py",
+  "normal_optimized_results_byte_identical": true,
+  "python": "3.12.14",
+  "source_head": "ddfc3133cbdf548e163c867d5671f8f01dd5d5ae",
+  "source_main_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "source_pr": 4200,
+  "source_sha256": {
+    "AGENTS.md": "eb25d8ec495b80190a4b1a634710819bb74f0fae88d5203285c2b75b6f147347",
+    "CONTRIBUTING.md": "8a49fe97e2ad088a2b2e0c5b222aaab08752783b1f9c1260790d7dd13011d215",
+    "autoresearch.md": "8c98d179208c34a8c6768931e13f3bbeaa1cb63d59c660799ffde05c40935d9b",
+    "research/bit-copy-path/construction/PROOF.md": "0993a370d83b7a3cae2fe98b8b36b274719f94c66ac189b2b87be118863762bd"
+  },
+  "status": "PASS",
+  "retained_original_to_package": {
+    "NOTES.txt": "ORACLE-NOTES.txt",
+    "RESULT.json": "ORACLE-RESULT.json",
+    "RESULT-O.json": "ORACLE-RESULT.json",
+    "independent_oracle.py": "independent_oracle.py"
+  }
+}

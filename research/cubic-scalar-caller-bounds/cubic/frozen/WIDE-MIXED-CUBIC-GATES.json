@@ -1,0 +1,396 @@
+{
+  "cases": [
+    {
+      "favorable_mass_deficit_at_that_call_count": -8,
+      "minimum_calls_from_written_bound": 5,
+      "n": 3
+    },
+    {
+      "favorable_mass_deficit_at_that_call_count": 0,
+      "minimum_calls_from_written_bound": 9,
+      "n": 6
+    },
+    {
+      "favorable_mass_deficit_at_that_call_count": 8,
+      "minimum_calls_from_written_bound": 13,
+      "n": 9
+    },
+    {
+      "favorable_mass_deficit_at_that_call_count": 16,
+      "minimum_calls_from_written_bound": 17,
+      "n": 12
+    },
+    {
+      "favorable_mass_deficit_at_that_call_count": 48,
+      "minimum_calls_from_written_bound": 33,
+      "n": 24
+    },
+    {
+      "favorable_mass_deficit_at_that_call_count": 112,
+      "minimum_calls_from_written_bound": 65,
+      "n": 48
+    }
+  ],
+  "coefficient_ring": "The proposed word must be valid over Z[N]/(N^3-1), or its rational extension. The lower bound uses the necessary specialization to Q(zeta). No positive primitive-component identity is promoted to a full-ring identity.",
+  "coverage": "Written all-word/all-n proofs, with finite exact identity and negative-control fixtures. No exhaustive search, formal-kernel proof, positive scalar caller, or native admission is claimed.",
+  "finite_identity_checks": [
+    {
+      "coefficient_split": true,
+      "defect_identity": true,
+      "k": 5,
+      "n": 3,
+      "not_a_central_factorization": true,
+      "r_if_central": 2,
+      "rank_C": 5,
+      "rank_U": 3,
+      "rank_V": 3,
+      "resolvent_identity": true,
+      "target_defect_rank": 3,
+      "types": [
+        1,
+        2,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "coefficient_split": true,
+      "defect_identity": true,
+      "k": 8,
+      "n": 6,
+      "not_a_central_factorization": true,
+      "r_if_central": 2,
+      "rank_C": 8,
+      "rank_U": 6,
+      "rank_V": 6,
+      "resolvent_identity": true,
+      "target_defect_rank": 6,
+      "types": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "coefficient_split": true,
+      "defect_identity": true,
+      "k": 11,
+      "n": 9,
+      "not_a_central_factorization": true,
+      "r_if_central": 2,
+      "rank_C": 11,
+      "rank_U": 9,
+      "rank_V": 9,
+      "resolvent_identity": true,
+      "target_defect_rank": 9,
+      "types": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "coefficient_split": true,
+      "defect_identity": true,
+      "k": 17,
+      "n": 12,
+      "not_a_central_factorization": true,
+      "r_if_central": 5,
+      "rank_C": 17,
+      "rank_U": 12,
+      "rank_V": 12,
+      "resolvent_identity": true,
+      "target_defect_rank": 12,
+      "types": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ]
+    }
+  ],
+  "four_pure_layer_gate": {
+    "proof": "Every adjacent two-layer product must have trace0. Equal-type neighboring layers have trace n-3*zeta*s or n-3*zeta^2*s with rational s, impossible. Types must alternate. Coefficient comparison gives D(2A+B+3AB)=A+AB; multiply right by B and use D^2=0 to force AB=0, contradicting the first pair trace0.",
+    "scope": "Mixed N and N^2 coefficients within a layer are outside this pure-layer argument.",
+    "statement": "No four layers, each entirely I+(zeta-1)A_l or entirely I+(zeta^2-1)A_l with rational A_l^2=0, multiply to zeta I_n for n>0."
+  },
+  "general_bound": {
+    "statement": "k>=n+ceil((n+1)/3)",
+    "strict_rank_form": "For r=k-n, k<4r.",
+    "written_proof": "README.md, general interaction-matrix argument. Valid for every finite n and k in the stated model, not a search result."
+  },
+  "independent_review": {
+    "four_pure_layer_gate": "See INDEPENDENT-REVIEW.md",
+    "general_rank_gate": "PASS",
+    "record": "INDEPENDENT-REVIEW.md",
+    "reviewer": "/root/stabilizer_escape_1019",
+    "three_layer_trace_gate": "PASS"
+  },
+  "layer_controls": [
+    {
+      "central_target_forced_trace_difference": [
+        "3",
+        "6"
+      ],
+      "layer_squarezero_ranks": [
+        1,
+        1,
+        1
+      ],
+      "n": 3,
+      "trace_inverse_two_layers": [
+        "0",
+        "0"
+      ],
+      "trace_two_layers": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "central_target_forced_trace_difference": [
+        "6",
+        "12"
+      ],
+      "layer_squarezero_ranks": [
+        3,
+        3,
+        3
+      ],
+      "n": 6,
+      "trace_inverse_two_layers": [
+        "0",
+        "3"
+      ],
+      "trace_two_layers": [
+        "0",
+        "3"
+      ]
+    },
+    {
+      "central_target_forced_trace_difference": [
+        "12",
+        "24"
+      ],
+      "layer_squarezero_ranks": [
+        6,
+        6,
+        6
+      ],
+      "n": 12,
+      "trace_inverse_two_layers": [
+        "0",
+        "6"
+      ],
+      "trace_two_layers": [
+        "0",
+        "6"
+      ]
+    }
+  ],
+  "model": "n independent banks; each paid query is Eij(+-N) or Eij(+-N^2); constant rational GL_n bridges are free. Equivalently normalized directions u_i,v_i are constant rational and v_i^T u_i=0. Arbitrary operator-dependent directions, or unrelated polynomial query coefficients, are outside this wide bound.",
+  "no_new_kappa": true,
+  "projection_control": {
+    "complementary_diagonals": true,
+    "lower_projection": [
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "upper_projection": [
+      [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "-2",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "-3",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    ],
+    "warning": "This fixture does not assert equal row/column spaces. Their equality is the contradictory hypothesis in the written all-word proof."
+  },
+  "pure_four_layer_control": {
+    "coefficient_identity": true,
+    "forced_hypothetical_relation": "If target defect vanishes, D(2A+B+3AB)=A+AB, so 2DAB=AB; D^2=0 forces AB=0.",
+    "n": 3,
+    "pure_coefficients_in_application_order": [
+      "N-1",
+      "N^2-1",
+      "N-1",
+      "N^2-1"
+    ],
+    "target_defect_omission_rejected": true,
+    "warning": "The finite fixture does not solve the target. It checks the algebra used in the written all-n obstruction."
+  },
+  "remaining": [
+    "Four matching layers with mixed N/N^2 coefficients inside a layer are not excluded by these gates.",
+    "A four-layer construction must still give every bank its full native endpoint, source-code transport, literal inverse and complete scalar/native/idle invoice."
+  ],
+  "scientific_pin": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "status": "PASS_WRITTEN_WIDE_MIXED_CUBIC_RANK_AND_THREE_LAYER_GATES",
+  "three_matching_layer_gate": {
+    "proof": "For P=(I+A2)(I+A1), tr(P)=tr(P^-1). The target gives P=zeta(I-A3), hence tr(P)=n*zeta and tr(P^-1)=n*zeta^-1, a contradiction.",
+    "scope": "Constant scalar bridges may occur between layers. Arbitrary mixing inside a nominal layer is outside the squarezero-layer premise unless that premise is separately proved.",
+    "statement": "No three normalized layers I+A_l with A_l^2=0 can multiply to zeta I_n in characteristic0."
+  }
+}

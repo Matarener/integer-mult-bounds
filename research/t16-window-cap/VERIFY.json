@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/complex-t16-rare-pattern-exchanges/data/SPEC.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact selected PLAN/SPEC/manifest binding, both integer group/flow equations, independent literal expansion to 69120 rows per profile, all windows, capacity/prefix disjointness, attaining histograms and full receipt equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Seven behavior groups: both positive attainments; wrong time, lost/duplicate flow, boolean count, lost bins, overfull pattern, false idle claim, literal row faults, source inventory/window faults and actual optimized CLI source drift."
+    }
+  ]
+}

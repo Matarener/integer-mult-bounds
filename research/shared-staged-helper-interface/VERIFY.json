@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/shared-staged-helper-interface/source4076/PROOF.md",
+    "research/shared-staged-helper-interface/source4076/NOTICE.md",
+    "research/shared-staged-helper-interface/source4076/inputs/NEW-base.json.gz",
+    "research/shared-staged-helper-interface/source4076/inputs/NEW-extra.json.gz",
+    "research/shared-staged-helper-interface/source4076/inputs/OLD-base.json.gz",
+    "research/shared-staged-helper-interface/source4076/inputs/OLD-extra.json.gz",
+    "research/shared-staged-helper-interface/source4076/recipe/ENTRIES.json",
+    "research/shared-staged-helper-interface/source4076/vendor/audit_core.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/paired/verify.py",
+        "--source",
+        "{package}/source4076"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact eight-source authentication, both provider full/suffix pair columns, inverse rows and all-coordinate pullbacks;10algebra/cut rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/release/check.py",
+        "--source",
+        "{package}/source4076"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Independent723input forward/dual/boundary/inverse semantics, exact release-site/cut reconstruction, rank2target correction, shared610rewrite, source-pinned complete frame ledger and10rejection controls."
+    }
+  ]
+}

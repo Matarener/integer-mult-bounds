@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+    "research/two-full-border-paid-precision/independent-review/invariance/check_invariance.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Retained moving-frame audit; exact 4524-cut census; 75 coefficient pairs; six direct cut checks; four internal rejection controls; full declared target and uniform width bill."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_mutations.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Changed source bytes and witness coefficients are rejected in isolated normal and optimized processes."
+    }
+  ]
+}

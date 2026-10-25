@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-recursive-closure/vendor/controlled_normalizer.py",
+    "research/selected-bit-recursive-closure/vendor/descriptor.py",
+    "research/selected-bit-recursive-closure/vendor/fallback_program.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Through the unchanged prepare/paid_children path: the m=6 rank-3 counterexample over Z/3^w for w=1,2,3 and f=1,2,3; family A (rank m-3, s=7) for every 6<=m<=64; family B (rank 4, s=2(m-4)+1) for every 8<=m<=64; rank-one control. Independent F_q elimination: diag(W,I) attains 2(m-r) for q=3,5 and m<=12; complete idempotent censuses (3,2), (3,3), (3,4), (3,5) and (5,3), where the bound holds and is attained."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--quick"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Repeat every predicate with assertions disabled, skipping only the (3,5) census; all checks use explicit require()."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "historical"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fixed 23-sign witness: exact declared record differences, retained complete integer/F2 replays, both original signed receipts and full new range summary; no sign search."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "integer"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent dense all 651-column integer/F2/frame/COPY audit, both roundtrips, attained prefix norms, exact fixed-transfer proof for all 2^47 signs and intended-gate controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "range"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent sparse range reconstruction, selected arbitrary-code schedule, all ordered controller factors and complete adjoint/dual/forward defect checks for both actual 651-input words."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Normal and optimized source-selection/module assertions, compression bindings, all five full typed receipts, semantic inverse-sign control and deleted-check sensitivity."
+    }
+  ]
+}

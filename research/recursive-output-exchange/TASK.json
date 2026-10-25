@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "task_id": "centre-path-sharing",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "centre-path-sharing",
+    "question": "Can the 64-per-call centre path (eight rank-8 COPY/ERASE totals through the private temporary) be shared across calls or shrunk?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/split-centres-global/proofs/PR386-BIT-GEOMETRY.txt",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Derive a fully charged favorable relaxation for sharing one centre path across k calls, including restoration, hosting and precision.",
+      "Prove a lower bound on copied information per call for the selected decoder contract."
+    ],
+    "acceptance_gate": "Show the changed centre charge and copy profile per call with every added restoration or hosting cost charged, and its ceiling via ceiling.ceiling(centre=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write the per-call centre charge and copy children for sharing across k = 2 calls, charge the sharing overhead, and screen it; stop this route if even the ideal sharing gains under 10%. Ideal budgets: free 2.80x, shared by two 1.90x (levers.py).",
+    "bottleneck_link": "The centre path consumes 64 of about 99.6 unpaid coordinates per call, i.e. about 64% of the raw deficit.",
+    "allowed_variations": [
+      "One sharing pattern across a fixed number of calls.",
+      "One reduced copied-total contract for the existing decoder.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Removing copies without a replacement contract for the decoder's copied totals.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "centre path",
+      "copied totals",
+      "private temporary",
+      "shared centre",
+      "batching"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Completed C1/B1 output-role exchange with retained validation, ownership proof and complete cost recurrence.",
+  "scope_change_reason": "OS seed 58 selects recursive interfaces. The two sequential completed-output copies offer a concrete boundary expense with a finite role-selector implementation; the active complex-controller claim is separate.",
+  "bottleneck_link": "Remove repeated completed-output movement without dropping child costs, validation, restoration or distinct borrowed/owned interfaces.",
+  "budget_minutes": 60,
+  "stop_rule": "One opt-in boundary implementation, eight exact tariff fixtures, four complete route pairs and one fitted two-root pair, with ownership/corruption controls and same-input timing.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, RESULT.json, BENCHMARK.json and registered replay.",
+  "author": "Tekalign (tekuuu), with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in derivation, implementation, source inspection, verification and writing; no independent human or proof-assistant review.",
+  "assignment_seed": 58,
+  "assignment_rng": "secrets.randbelow(100), OS randomness, drawn once on 2026-10-17T23:33:56Z",
+  "candidate_tasks": [
+    "Eliminate the initial high-cube borrowed-source copy.",
+    "Chosen: exchange completed output-role ownership at the two C1/B1 handoffs.",
+    "Fuse padding across ordinary calls; requires a different callee contract."
+  ],
+  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2319#discussioncomment-19008205",
+  "open_questions": [
+    {
+      "question": "Can an enclosing admitted caller accept the finite internal role selector?",
+      "why_it_matters": "A fixed physical output alias cannot be silently replaced.",
+      "first_step": "Audit one consumer alias lifetime and immutable external-port obligation.",
+      "blocked_by": "independent finite-role refinement and enclosing admission review"
+    },
+    {
+      "question": "Which additional completed handoffs meet this contract?",
+      "why_it_matters": "The saved boundary work recurs but arbitrary role swaps are not legal.",
+      "first_step": "Inventory all live aliases and derive a complete local recurrence for one named boundary.",
+      "blocked_by": "complete validation, ownership and restoration accounting"
+    }
+  ]
+}

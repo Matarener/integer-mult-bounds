@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-tail-side-correction-seed749717/AUGMENTED-WITNESS.json.gz",
+    "research/p104-tail-side-correction-seed749717/README.md",
+    "research/p104-tail-side-correction-seed749717/RESULT.json",
+    "research/p104-tail-side-correction-seed749717/TASK.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Read event 5759 and the tail package's statements that no owner is assigned."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that a five-field add does not carry an owner."
+    }
+  ]
+}

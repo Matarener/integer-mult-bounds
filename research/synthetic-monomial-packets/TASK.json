@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Implement and prove the supplied-header J_E signed Gaussian packet transducer and inverse, data-role/movement/restoration contract, and reduced rounded synthetic-transform joins.",
+  "scope_change_reason": "The live PR3493/3504 handoffs leave an outer synthetic-round execution gap. This addresses the exact inter-round packet operation rather than repeating the historical scatter guard audit.",
+  "bottleneck_link": "Closes one concrete format/movement boundary in the pending outer caller. Exponent production, actual physical root refinement, complete caller invoice and supplier admission remain open; no kappa improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the exact packet contract, meaningful corruption controls, source-closed replay and publication. Do not start a new phase census or claim a physical round.",
+  "outcome": "partial",
+  "evidence": "PROOF.md and RESULT.json; 32370 complete word/phase cases, mixed packets, eight rounded transforms, exact data ticks, and optimized actual CLI controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Implement an encoded per-record exponent producer and join one actual normalized physical round.",
+      "why_it_matters": "Supplied host headers and a rational butterfly do not implement the outer synthetic caller.",
+      "first_step": "Translate the named-slot exponent formula to encoded descriptors and stream-address counters; bind one production root and its full data/control bill.",
+      "blocked_by": "Encoded producer, actual native/ordinary/root refinement and complete movement/storage invoice."
+    }
+  ]
+}

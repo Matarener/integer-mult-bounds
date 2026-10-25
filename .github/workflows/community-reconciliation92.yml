@@ -9,6 +9,8 @@ on:
       - 'scripts/run_parallel.py'
       - 'scripts/verify_parallel.py'
       - 'tests/test_parallel_verification.py'
+      - 'tests/test_script_exit_cleanup.py'
+      - 'tests/test_script_cancellation.py'
       - '.github/workflows/community-reconciliation92.yml'
   pull_request:
     paths:
@@ -19,6 +21,8 @@ on:
       - 'scripts/run_parallel.py'
       - 'scripts/verify_parallel.py'
       - 'tests/test_parallel_verification.py'
+      - 'tests/test_script_exit_cleanup.py'
+      - 'tests/test_script_cancellation.py'
       - '.github/workflows/community-reconciliation92.yml'
   workflow_dispatch:
 permissions:
@@ -35,3 +39,5 @@ jobs:
         run: python3 -B scripts/replay_historical_check.py reconciliation92
       - name: Check worker isolation and rejection controls
         run: python3 -m unittest discover -s tests -p test_parallel_verification.py -v
+      - name: Check direct-script completion and cancellation cleanup
+        run: python3 -W error -B -m unittest discover -s tests -p 'test_script_*.py' -v

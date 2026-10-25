@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/vendor/SHALLOW-TOEPLITZ.md",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py",
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_exact_algebra.py",
+    "research/capped-phase-fusion/README.md",
+    "research/capped-phase-fusion/evidence/independent_fusion_review_ultra/core_review.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Authenticate the Schur producer and generator macro, extract exact rational generators, verify ranks/norms/heights, replay source macro order with inverse prefixes and reject tiny-pivot/conjugation/restoration controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Repeat the complete typed certificate under optimized Python, keeping authenticated subject assertions enabled and numerical children outside the declared scope."
+    }
+  ]
+}

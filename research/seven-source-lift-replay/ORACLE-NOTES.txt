@@ -1,0 +1,66 @@
+Independent five-source core census and projection necessity
+
+Model: a restored source word has one bit-toggle coordinate per source. At
+each pre-gate cut its state is q_a. Available nonzero two-read masks are
+q_a XOR q_b. Required targets are every nonempty mask of weight at most4:
+30 for five sources,56 for six,98 for seven. The final cut duplicates the
+initial zero state and adds no nonzero two-read mask.
+
+This oracle was written/frozen without reading the new primary native lift
+implementation, predecessor census.c/verify/run_census, or source CENSUS.json.
+It uses no C or other source imports. Its enumeration differs from a canonical
+word DFS: choose the four positions of the unique four-use source, perfectly
+match the other eight positions, and label all five groups by first appearance.
+
+Completeness/uniqueness: every (4,2,2,2,2) word uniquely determines its four-block
+and four unordered two-blocks. Conversely these blocks give exactly one
+first-appearance canonical word. Thus there are
+choose(12,4)*(8!/(2^4*4!)) =495*105 =51975 words. Equivalently, start with five
+choices for the labeled four-use source and 12!/(4!*2!^4) label words, then
+divide by the free five-source relabeling action5!: the same51975. The
+four-use source is not assumed to be the first label. The executable checks
+all five possible first-appearance labels occur, including fully covered
+words with nonzero four-use labels.
+
+Each of the51975 words is evaluated twice: all pairs of actual prefix states
+and direct toggling along every literal contiguous interval. The nonzero
+available mask sets agree exactly. The full histogram and lexicographically
+sorted1257 full30 words are retained in ORACLE.json. A control records a word
+that covers every weight<=3 target yet misses a weight4 target. An odd-use
+unrestored word is rejected. Output writes require explicit --output.
+
+Projection necessity (not sufficiency): deleting any one source from a restored
+word projects each prefix onto the remaining coordinates. Deleted steps merely
+repeat a projected state, so collapsing them loses no projected prefix state.
+Every original two-read mask projects to an available mask in the shorter
+word; this is also checked on all full30 five-source words. Therefore a full98
+seven-source word with profile(4,4,4,2,2,2,2) must project, after deleting any
+four-use source, to a full56 six-source word with profile(4,4,2,2,2,2). Deleting
+either remaining four-use source yields a full30 five-source core of the
+enumerated profile. Insertion of a fresh four-use label followed by canonical
+relabeling can reconstruct every such extension; multiple parent choices can
+generate the same canonical child, so a lift computation must deduplicate.
+
+Crucial maximum scope: a reported maximum95 from seven-source lifts of ONLY
+full56 six-source words is a conditional filtered maximum, not the global
+maximum of the complete seven-source multiplicity profile. A nonfull six-source
+projection can cover at most55 of the56 targets avoiding the new source, hence
+its seven-source extension can cover at most55+42=97 of the98 targets. Thus a
+complete no98 exclusion can combine that projection fact with a complete
+filtered lift search, without claiming a global95 bound. Raw lift/insertion
+counts are not counts of canonical seven-source words.
+
+This oracle does not run the six/seven-source lift search, accept a length22
+witness, prove an arbitrary-length floor, or certify a complete source supplier,
+physical cost, precision/outer multiplication theorem or new kappa. Any
+profile-specific no98 result needs the separately pinned complete primary lift
+enumeration plus its coverage/binding checks. It is not an all-size barrier.
+
+Credit: Nick Petalas's source contribution; nightangelflowerwin PR4079/PR3780;
+commdata2338 PR2397; Cinna Davis PR2229/PR2236; Ross Richardson PR943 and the
+retained source lineage. James Reed's cheap and sealed checks are distinct
+predecessor corroboration, not this independent core enumeration. Substantial
+OpenAI Codex assistance; Apache-2.0 repository contribution.
+
+Replay: python3 -I -B oracle.py --output ORACLE.json
+Strict: python3 -I -O -W error -B oracle.py --output ORACLE-O.json

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "scope": "Independent R437 OQ4 delta plus separately classified exact-head execution evidence; no supplier admission.",
+  "r437": {
+    "head": "a24f9ff95c12fd0b6792e3f710569237efd72db2",
+    "author_entry_point": "research/bit-p111-r437-gl464-470-20261018/verify.py",
+    "classification": "Independent execution of author code, distinct from the new import-free delta verifier.",
+    "hosted_python": "3.12.15",
+    "hosted_exit_code": 0,
+    "hosted_seconds": 101.474042232,
+    "hosted_receipt_sha256": "62e887dd357ee6fcf194e438d8b05154e80c03c62ff86699070bbd548bf7370e",
+    "local_python": "3.13.5",
+    "local_seconds": 107.03005529400002,
+    "local_status": "PASS_COLD_REPLAY_CANONICAL_WORD_ACTUAL_PROGRAM_FULL_INVOICE_AND_BIT_RECORD",
+    "local_receipt_sha256": "d7ac180ef71ad51bb59e034bdb73303291d37b54129d0e00156002fa9b04cf4e",
+    "c": "1736646042038446578551/1000000000000000000000000",
+    "local_commands": [
+      {"script":"code/generate.py","exit_code":0}, {"script":"vendor/xcheck_p.py","exit_code":0},
+      {"script":"code/word_audit.py","exit_code":0}, {"script":"code/catalog_check.py","exit_code":0},
+      {"script":"code/source_history_scope.py","exit_code":0}, {"script":"vendor/export_records.py","exit_code":0},
+      {"script":"code/local_counter.py","exit_code":0}, {"script":"vendor/global_k.py","exit_code":0},
+      {"script":"code/match.py","exit_code":0}, {"script":"vendor/emit_k.py","exit_code":0},
+      {"script":"vendor/audit_hosted_k.py","exit_code":0}, {"script":"vendor/assemble9.py","exit_code":0},
+      {"script":"code/invoice_audit.py","exit_code":0}
+    ]
+  },
+  "staged544_t385": {
+    "head": "de2cd5c58009205210e3bf328b0ef5cadf3903af",
+    "entry_point": "research/staged544-t385/full_replay.py",
+    "exit_code": 124,
+    "timeout_seconds": 780,
+    "jobs": 1,
+    "dependencies": ["numpy==2.2.6", "scipy==1.15.3", "sympy==1.14.0", "mpmath==1.3.0"],
+    "native_and_ancestry_reused": true,
+    "status": "TIME_LIMIT_WITH_PARTIAL_EXECUTION_ONLY",
+    "result_status": "PREPARED_REPLICA_SAME_WORD_DERIVATIVE_NOT_ADMITTED",
+    "completed_top_level_stages": [
+      {"name":"owners","exit_code":0,"seconds":42.10427692499999,"log_sha256":"239d8562814d1627c19e7e6bf75f06ae2ef219b50c948bb612dcfa0f3f21ef1c"},
+      {"name":"parent-lift","exit_code":0,"seconds":84.426416155,"log_sha256":"c5102a5a2c10b2a5e08927636187a9c1df2841a094c58f1a61326a2b11274483"},
+      {"name":"rebind","exit_code":0,"seconds":7.864737166999987,"log_sha256":"4efcc424f53c49777d308af3bc568688d2eb0de9c0236aae9af6ab50190974a7"}
+    ],
+    "completed_discovery_substages": [
+      {"name":"bind","exit_code":0,"seconds":5.427147880000007,"log_sha256":"71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"},
+      {"name":"emit","exit_code":0,"seconds":162.92917068100002,"log_sha256":"cb7715dcffa5a5ec8e15559df8ad80620a6b1d1edd41b1f9ef1572711de318c5"}
+    ],
+    "uncompleted": ["discovery/audit", "remaining discovery checks", "outer-check_ledger.py", "outer-independent_check.py", "release"],
+    "no_assertion_failure_observed_in_retained_logs": true,
+    "complete_release_not_established": true
+  },
+  "price_crosscheck": {
+    "status": "PASS_CREDITED_PR3700_PRICE_ENGINE_ON_BOTH_HEADS",
+    "classification": "Reuse of Sagar Thakrar PR3700 exact rational engine, not a new independent price implementation",
+    "engine_head": "aa0bd9fbc8700506b1fafcc55bca9bd32aced7d9",
+    "engine_sha256": "a648e0455cd43b4398183a0fd00f1d1cb4b0b887e563ed5a40b8a6a688c1b9d9",
+    "input_paths": ["research/bit-p111-r437-gl464-470-20261018/EXPECTED.json"],
+    "input_heads": ["36ff441479ff9c7e70d83f0becccd44da50effb8", "a24f9ff95c12fd0b6792e3f710569237efd72db2"],
+    "old_c": "868314126713557740143/500000000000000000000000",
+    "current_c": "1736646042038446578551/1000000000000000000000000",
+    "both_moment_upper_at_c_below_one": true,
+    "both_moment_lower_at_next_grid_above_one": true,
+    "grid_spacing": "1/1000000000000000000000000",
+    "old_profile_at_current_c_rejected": true
+  },
+  "workflow": {
+    "repository": "Clear1nsight/integer-mult-bounds",
+    "run_id": 39186343975,
+    "commit": "6ce5b2ec7487f8f1c2331f018fd2a2758492d407",
+    "artifact_id": 12158762024,
+    "artifact_sha256": "8d58b5709f0542aa89cec8367d442dd84f7065c2b20649005697321185ebeb28",
+    "workflow_conclusion": "failure",
+    "explanation": "The final exit-code gate correctly rejected the T385 timeout; individual shell-step success is not mathematical PASS."
+  },
+  "source_export": {
+    "run_id": 39186804067,
+    "commit": "54465a1dfba4bcb84b5de02f6c5ea611c36448d6",
+    "artifact_sha256": "c1435fca5a8182973edbd87280fc98e0bf144fe19f020d88f41c7c4e8efe63d4"
+  }
+}

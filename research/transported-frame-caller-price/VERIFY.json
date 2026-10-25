@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/transported-frame-caller-price/inputs/BASE-WORD.json.gz",
+    "research/transported-frame-caller-price/inputs/RECIPE.json",
+    "research/transported-frame-caller-price/vendor/audit_core.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Caller-field identity, terminal end-climb identity, one entrance H1 scale, one cleanup inverse scale, histogram split, and the integer hypotheses of the power-tariff obstruction; a swapped exit frame is rejected"
+    }
+  ]
+}

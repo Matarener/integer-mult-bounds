@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "For the selected #1094 complex finite invoice, under the inherited degree-t ledger Row(t,S) = t*S + 9909 + 252 + prefix(t) bound to the selected complex-sw4-frame8 assembler: the largest admissible halving degree t (guard 73^t > 2R^t) under two row-contract readings (B, bridge-only and favoured by source: 10^6 - (51/25)K > 0; A, retained-binding fallback: Row < 20161) and two prefix readings (fixed 1024 or 512t); the exact admissible (R, S) region; the ideal local-word packing ceilings with idle ranks up to R for R = 51..72 (named: 51, 57, 72), the least R whose ceiling exceeds the selected bit endpoint, and a conditional sharper-depth-coefficient what-if under A. No supplier, no kappa.",
+  "scope_change_reason": "The card's allowed variation says: if the guard changes, \"derive an applicable fully charged replacement bound\" instead of applying the incumbent ceiling outside its scope. This package gives the guard ledger plus an ideal, not fully charged, ceiling. Every complex ceiling screen fixes R = 51 via the t = 2 halving guard; whether that is an invoice consequence or a convention decides how much the guard lever is worth. The question was raised as a local-only, unreviewed note by philippeVV (#2278) and left open in kappa010-rank-cap-floor OQ3. The card's two-unpaid-coordinate premise is not studied.",
+  "bottleneck_link": "The complex primitive binds. Every child rank, paid or idle, is <= 72 for every halving degree; the idle-cap component (selected word's paid children fixed) is at most +2.76469% ideal whatever the row contract. Under the inherited ledger: R <= 72 (t_max 181/152) if only the bridge binds (favoured by source); R <= 57 (+0.875558%) if the retained row 20161 binds, or R <= 59 (+1.1501%) with a conditional sharper depth coefficient. From R = 71 the relaxation no longer forces the complex side to bind. The same guard caps the paid ranks: the rank-shape screens' cap s = 51 (#3701/#3811, open) is this t = 2 guard, and A or B lifts it to 57 or 72; that paid-rank lever is not priced here.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after binding every t-dependent invoice term, exact t_max under both readings and prefixes, the (R, S) region and the ceilings; if source does not settle reading A versus B, ship both. No kappa, no supplier, no re-tabulation of the cap tables up to 51.",
+  "outcome": "completed",
+  "evidence": "RESULT.json: t_max = 181 (B, fixed prefix), 152 (B, 512t prefix), 3 (A, both prefixes; any prefix(3) <= 2073); R_max 72 (B) / 57 (A); conditional sharp-coefficient what-if under A: R <= 59 fixed / 58 scaled prefix (+1.1501% / +1.0138%); ceilings a < 0.001690054109089 (R=51, reproduced), 0.001704851516268 (R=57), 0.001736778936705 (R=72); bit-endpoint kappa cap 0.001730427469823603; least R with ceiling above bit endpoint = 71 (t_min 25); depth-six row 27037 (fits B, fails A); conditional #3667 lean-row what-if under A: t_max 7 / 6, R <= 66 / 65 (below the R = 71 crossing); 41 source bindings with the selected assembler hashed against SELECTED-SOURCE.json; 11 negative controls with expected failure reasons; ceilings checked by two methods, guard thresholds by power search plus an implementation cross-check.",
+  "author": "Sagar Thakrar (thakrarsagar)",
+  "ai_assistance": "Substantial: Claude (Anthropic, Claude Opus 5.5) bound the sources, chose the method, wrote verify.py and drafted README.md and PROOF.md. Reviewed by seven independent AI review passes (two rounds) in the same loop; no human has reviewed it.",
+  "open_questions": [
+    {
+      "question": "Does the retained row coefficient 20161 bind, or only the bridge (reading A versus B/C)?",
+      "why_it_matters": "It decides between R <= 72 (+2.76469% ideal, bit-crossing from R = 71) and R <= 57 (+0.875558%; up to R <= 59 with a sharper depth coefficient). Source favours B: outer.py uses degree_gap only as a positivity slack.",
+      "first_step": "Decide whether the selected transfer proof inherits the FINITE_BRIDGE section-4 'overcharge' clause (20161 = 10000 + 9909 + 252 sized at halving degree 1; lineage assemblers certify the bridge at max(20161, rows)), or whether the invoices' strict row < 20161 is a contract.",
+      "blocked_by": "A contract decision, not a computation."
+    },
+    {
+      "question": "Is row_prefix_extra = 2*payload fixed or proportional to the halving degree?",
+      "why_it_matters": "It moves t_max under reading B from 181 to 152 (not the R = 72 conclusion).",
+      "first_step": "Trace 2*payload to the PR582 plain-joint-prefix construction.",
+      "blocked_by": "None known."
+    },
+    {
+      "question": "Can idle children of rank 71-72 be hosted, and what do the leaf constant rho and the per-level divisor cost there?",
+      "why_it_matters": "That is where the complex ceiling first exceeds the current bit endpoint. A sharper depth coefficient is a row saving (it could raise reading A's cap to 58-59), not a cost.",
+      "first_step": "Bind rho for the m = 73 divisor on top of #3421's A = 0, B_bits = 2642, then check hosting above rank 48.",
+      "blocked_by": "#3805 (physical hosting above 48) and rho (#3113 / #3421)."
+    },
+    {
+      "question": "Does the bit invoice (m = 64) admit the depths the kappa010 bit rows need (t = 15 for rank 61)?",
+      "why_it_matters": "It is the bit-side counterpart of this guard lever.",
+      "first_step": "Bind the bit row ledger the same way.",
+      "blocked_by": "None known."
+    },
+    {
+      "question": "What do the rank-shape screens give at paid caps s = 52..72?",
+      "why_it_matters": "The halving guard caps paid ranks too; under A or B the paid cap rises from 51 to 57 or 72, and in the #3701/#3799 relaxation a(s) goes from 0.013675 (s = 51) to 0.019823 (s = 57).",
+      "first_step": "Rerun the #3701/#3811 screens with the cap lifted to 57 and 72, charging physical hosting (#3805) and stock/depth repricing.",
+      "blocked_by": "#3805 (physical hosting above 48)."
+    }
+  ]
+}

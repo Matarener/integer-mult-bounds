@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Two-stay interval lemma, three-point sums, five-point cover of F_2^3, exact excess for every weight >= n-1 mask on the (3,6) and (4,8) universal words, bit-0 false prune of 01021323, independent (4,12) weight-3 firing counts, and the two weight-(n-2) exception ledgers."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Failure controls: a 4-subset of F_2^3 misses a direction, four preserving steps can unbalance by at least 2, and on 01021323 bit 0 falsely prunes while mask 1110 does not."
+    }
+  ]
+}

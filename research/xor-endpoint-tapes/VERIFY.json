@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Literal finite transition semantics; exact XOR travel/time/state bills; arbitrary framing origins, borrowed input, dirty scratch and exterior restoration; source masks and full receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_machine.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Eight meaningful semantic and actual export/source/receipt corruption controls, including independent complex block correction and missing dirty-scratch restoration."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_machine.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same safeguards and export controls with Python assertions disabled."
+    }
+  ]
+}

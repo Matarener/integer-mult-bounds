@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Shared-kernel saturated E8 root fibers imply support floor178 for eleven pieces containing six P112 code dimensions; excludes one literal (6,5) caller2\u00b2,5,6\u2078 of capacity176. Discrete-convex capacity corollary covers at most11 pieces, weights2..6, strict excess<36 and code dimension>=6; no weight7 closure.",
+  "scope_change_reason": "Explicit multi-agent follow-up: combine E8/coding theory with incidence geometry of rational three-planes sharing a two-plane, beyond independently bounded fibers in PR3991.",
+  "bottleneck_link": "Side result for the decoder rank-shape route: a different exact quotient5/intersection6 caller has capacity176 beyond predecessor floor164; simultaneous saturated-fiber compatibility raises the floor to178.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after floor178 and the one capacity176 caller; no larger historical inventory or extra kernel-plane census after this implication.",
+  "outcome": "completed",
+  "evidence": "105 relevant rank4 Gram certificates;6930 saturated-flat pairs;3780 full orthogonal-plane quotient partitions; independent permutation determinants and pivot quotients; exact caller margin2. Independent exact budget DP and exhaustive multisets show capacity176 is maximal with unique sorted extremizer.",
+  "author": "Chris R / Clear1nsight with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance. Parent coordination and independent review agent checked the four kernel-root cases, scalar extension and grouped repeated columns. Same assisted contributor; no human/formal approval.",
+  "open_questions": [
+    {
+      "question": "Can an independent human or formal proof accept the shared-kernel lemma and inherited caller premises?",
+      "why_it_matters": "CI confirms executable certificates but is not mathematical acceptance.",
+      "first_step": "Audit candidate-closure completeness, grouped singleton sites, scalar extension, and d2/capacity provenance.",
+      "blocked_by": "Human or proof-kernel review remains open."
+    },
+    {
+      "question": "Does a separately bound current caller above capacity178 need a sharper geometric restriction?",
+      "why_it_matters": "This package does not settle the entire C5 stream or produce a construction.",
+      "first_step": "Check current overlap and identify an uncovered exact caller before more enumeration.",
+      "blocked_by": "No such next caller is established here."
+    }
+  ],
+  "freshness": {
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "open_PR_bodies": 702,
+    "snapshot_UTC": "2026-10-19 08:35 UTC",
+    "coverage": "Current main, parent open-PR bodies and nearby active/C5 handoffs; closed/private discussion coverage partial",
+    "scope": "No exact profile match or competing saturated shared-kernel result found; not a novelty guarantee",
+    "corollary_checkpoint": {
+      "UTC": "2026-10-19 09:06 UTC",
+      "main_unchanged": true,
+      "latest_open_PR_through": 4016,
+      "scope": "Focused additive capacity corollary; no geometry expansion"
+    }
+  }
+}

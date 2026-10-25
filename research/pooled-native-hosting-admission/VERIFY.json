@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-pooled-full-admission/EVIDENCE.json",
+    "research/complex-pooled-full-admission/OUTER-CHECK.md",
+    "research/complex-pooled-full-admission/OUTER-DOMAIN-PINS.json",
+    "research/complex-pooled-full-admission/OUTER-DOMAIN.md",
+    "research/complex-pooled-full-admission/OUTER-FACTORY-PINS.json",
+    "research/complex-pooled-full-admission/OUTER-JOIN.md",
+    "research/complex-pooled-full-admission/OUTER-PINS.json",
+    "research/complex-pooled-full-admission/PHYSICAL-BRIDGE.md",
+    "research/complex-pooled-full-admission/PHYSICAL-GLOBAL-PINS.json",
+    "research/complex-pooled-full-admission/PHYSICAL-GLOBAL.md",
+    "research/complex-pooled-full-admission/PHYSICAL-PINS.json",
+    "research/complex-pooled-full-admission/RECURSION.md",
+    "research/complex-pooled-full-admission/UNIFORM-GAP.md",
+    "research/complex-pooled-full-admission/evidence/ADMISSION-RESULT.json",
+    "research/complex-pooled-full-admission/evidence/OUTER-CHECK-PORTABLE.json",
+    "research/complex-pooled-full-admission/evidence/OUTER-DOMAIN.json",
+    "research/complex-pooled-full-admission/evidence/PHYSICAL-GLOBAL.json",
+    "research/complex-pooled-full-admission/frozen/physical-t74/GLOBAL-BINDING.tar.xz",
+    "research/complex-pooled-full-admission/frozen/physical-t74/SOURCE-BUNDLE.tar.gz",
+    "research/complex-pooled-full-admission/frozen/pr4181/owner/FILL.json.gz",
+    "research/complex-pooled-full-admission/joint_bound.py",
+    "research/staged544-mixed-fourth-entry/owner/PLAN.json.gz",
+    "research/staged544-mixed-fourth-entry/owner/TEMPLATE.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/native_admission.py",
+        "--check",
+        "{package}/evidence/NATIVE-ADMISSION.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact active word source equality; all native recipes, dirty endpoints and private cleanup; written all-f proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/native_admission.py",
+        "--check",
+        "{package}/evidence/NATIVE-ADMISSION.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact active word source equality; all native recipes, dirty endpoints and private cleanup; written all-f proof. Optimized run must match the same deterministic receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/hosting_admission.py",
+        "--check",
+        "{package}/evidence/HOSTING-ADMISSION.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Every actual whole-call window, original helper axis, residual and chart; complete phase polynomial and cover controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/hosting_admission.py",
+        "--check",
+        "{package}/evidence/HOSTING-ADMISSION.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Every actual whole-call window, original helper axis, residual and chart; complete phase polynomial and cover controls. Optimized run must match the same deterministic receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/machine_admission.py",
+        "--check",
+        "{package}/evidence/MACHINE-ADMISSION.json"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source-specific finite-control lowering side conditions, exact Tape/Count/HALF/Parking source and defect controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/machine_admission.py",
+        "--check",
+        "{package}/evidence/MACHINE-ADMISSION.json"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source-specific finite-control lowering side conditions, exact Tape/Count/HALF/Parking source and defect controls. Optimized run must match the same deterministic receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/admission.py",
+        "--check",
+        "{package}/evidence/ADMISSION.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Join exact companion receipts, complete profile and recursive/outer strict rational margins; preserve explicit retained hypotheses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/admission.py",
+        "--check",
+        "{package}/evidence/ADMISSION.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Join exact companion receipts, complete profile and recursive/outer strict rational margins; preserve explicit retained hypotheses. Optimized run must match the same deterministic receipt."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "All-field sharp actual-reader tariff floor for finite rank-two lists with at most three projective query directions realizing two literal PR3370 indicator terms; closes dependent-three-query handoff.",
+  "scope_change_reason": "Takes PR3414 dependent-list handoff rather than changing the hosted coverage identity. This decoder-interface obstruction is a scoped side result relevant to whether the rank32 fitting proposal can lower its real reader tariff.",
+  "bottleneck_link": "A smaller scalar fitting rank alone does not pay a native COPY bill. This closes a remaining low-query loophole at the actual-reader boundary, complementing PR3414 independent triples.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish this implication and its binary-map limitation; pause construction expansion. Require an explicit lower-tariff witness and full boundary/cost ledger before another implementation round.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md proves support-dominated binary replacement for arbitrary fields and finite lists. RESULT.json records 96 rational fixtures and 2408448 exact operator-entry checks. independent.py separately checks finite fields and expanded I224. VALIDATION.md records controls and replay limits.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can four or more projective directions lower the literal P112 pair actual-reader tariff?",
+      "why_it_matters": "The binary injection proof stops at three directions; this is an actual remaining low-dimensional decoder possibility.",
+      "first_step": "Produce an exact rank-two factorization with at least four directions on a named literal indicator pair, and price its actual complete-plane reader tariff. Require a strict bill below m_A+m_B before physical construction.",
+      "blocked_by": "No cheaper witness or unrestricted direction theorem is supplied. The abstract twelve-site example only limits this proof method."
+    },
+    {
+      "question": "Can a changed fitting matrix or coupled physical operation reduce a fully charged native COPY bill?",
+      "why_it_matters": "A fixed-K obstruction does not rule out a new source/consumer contract.",
+      "first_step": "State the changed target and explicit source/reader/dirty-state boundary; supply a finite identity and optimistic complete bill before implementation expansion.",
+      "blocked_by": "Acquisition, coefficient execution, restoration, hosting, stock, precision, all-size/compiler, supplier and outer-transfer obligations remain open."
+    }
+  ],
+  "family_expansion_decision": {
+    "decision": "pause after this missing implication",
+    "reason": "This is a scoped negative result, not evidence that a native construction fits. No additional cost is assigned zero.",
+    "next_trigger": "Exact lower-tariff changed-direction or changed-contract witness plus the family gate."
+  },
+  "freshness": {
+    "canonical_main_sha": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "priority_revision": 6,
+    "utc": "2026-10-18T01:23:04+00:00",
+    "overlap": "337 open PRs, 2263 Discussion records; complete pagination, body snapshots only; prior campaign PRs and batch7 peers checked."
+  }
+}

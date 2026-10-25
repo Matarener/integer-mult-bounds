@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/native_common.py",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+    "research/kappa-rebuild/controller/p3_native_cover.py",
+    "research/kappa-rebuild/controller/P3-NATIVE-COVER.json.gz",
+    "research/kappa-rebuild/controller/frame_exchange.py",
+    "research/kappa-rebuild/bit/complex_controller_factor.py",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact Gaussian-dyadic kernels at all 112 source ports, both orientations; all 512 Fourier characters; actual initial coordinate maps; retained p17 initial call; omitted-translation, wrong-inverse, noncommuting-character, wrong-port and wrong-map controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/check_export.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Git-free optimized replay with exact receipt equality, plus changed-source and changed-receipt rejection in a disposable export."
+    }
+  ]
+}

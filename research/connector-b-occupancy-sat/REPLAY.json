@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "python-sat==1.8.dev24"
+  ],
+  "inputs": [
+    "research/connector-caller-exhaustion-audit/README.md",
+    "research/connector-covering-code/README.md",
+    "research/connector-covering-code/TASK.json",
+    "research/connector-covering-code/cycle_search.cpp",
+    "research/connector-domain-completeness/README.md",
+    "research/connector-search-exhaustion-audit/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--controls"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Regenerate four exact CNFs, solve with bounded CaDiCaL and independently check each binary DRAT proof; reject forged/empty proof controls and changed sources."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_model.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Thirteen semantic groups including truth tables, known SAT/UNSAT words, partial-solver rejection, actual native template-ID agreement and trace finalization."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_model.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "The same semantic controls with Python assertions disabled."
+    }
+  ]
+}

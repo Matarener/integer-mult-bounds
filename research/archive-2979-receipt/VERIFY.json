@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/pr-intake-evidence/archive-pr2979.json",
+    "docs/research/pr-intake-decisions.json",
+    "docs/research/pr-ledger.md",
+    "CONTRIBUTORS.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Compare the 112 archived PR 2979 blobs with the pinned base and read the disposition."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the blob-identity count on one match and one mismatch."
+    }
+  ]
+}

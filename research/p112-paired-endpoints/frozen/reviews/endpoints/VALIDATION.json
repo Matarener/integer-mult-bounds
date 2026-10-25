@@ -1,0 +1,22 @@
+{
+  "CHECKS_gzip_sha256": "a84ed7c4afc0733f204389bee579850272fdbac9178984c602b5b26619e4d1e8",
+  "CHECKS_sha256": "197d67b7201c39248b142aa3d6633fbbe23ce4300e7ba31c65f08834ce5d420e",
+  "checker_sha256": "e0c5d6e5b7ce81dc78afcb82904b1729adf4458a0ce48f33147520ca604aef04",
+  "commands": [
+    "python3 check.py --ports ../c02-inputs/CANONICAL-WORD.json.gz --template ../c02-inputs/GLOBAL-TEMPLATE.json.gz --geometry frozen/ORDER3-GEOMETRY.json --compiler ../c02-inputs/clifford_exact.py --output CHECKS.json",
+    "python3 -O check.py --ports ../c02-inputs/CANONICAL-WORD.json.gz --template ../c02-inputs/GLOBAL-TEMPLATE.json.gz --geometry frozen/ORDER3-GEOMETRY.json --compiler ../c02-inputs/clifford_exact.py --output validation/CHECKS-optimized.json"
+  ],
+  "complete_normal_optimized_bytes_identical": true,
+  "coverage": "Local exact replay; no hosted CI or publication claim.",
+  "executed_controls": 126,
+  "existing_output_guard": {
+    "expected_error": "output_already_exists",
+    "return_code": 1
+  },
+  "geometry_contracts_sha256": "2765fa3074ba08133d8dbf1810c76e6d744127b4024d7933e1fe73d84e86389f",
+  "output_creation": "exclusive x-mode; initial existing-output guard also retained",
+  "prior_receipt_scientific_fields_identical_after_removing_only_checker_sha256": true,
+  "proof_sha256": "c9a74afa595c5b8c1a3567acc3b87d6597aec35bb3c9bba67e3ff748f4eee88b",
+  "schema": "paired_endpoint_validation.v1",
+  "status": "PASS"
+}

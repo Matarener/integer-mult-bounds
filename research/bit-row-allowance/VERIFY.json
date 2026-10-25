@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/code/assemble9.py",
+    "research/selected-bit-parent-reserve/README.md",
+    "notes/partial-gauge-assembly.tex"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Add the depth allowance to the two family degrees and compare with 18355."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that 2*(64^2+1)+367*27+9*28 is 18355."
+    }
+  ]
+}

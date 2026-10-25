@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/copied-centers-complex.tex",
+    "research/p104-native-channel/PROOF.md",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hash, exact native recount, all11025 count masks and asymmetric corner checks."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent explicit incidence sets for21844 masks, pair operators and rational corner optimization."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "{package}",
+        "-p",
+        "test_verify.py",
+        "-v"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Seven scientific/CLI control tests under optimized Python."
+    }
+  ]
+}

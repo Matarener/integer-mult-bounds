@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "baseline": "4c2261aa7d9587c9777ea05041e96064801b80a2",
+  "scope": "1 exact heads; source/integrity intake only, with separately reviewed configuration changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 4435,
+      "head": "d08a3fdd9b840ae79c11d830a53d66586e6a4b8a",
+      "merge_base": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+      "title": "Derive the broad forward inverse asymptotics: ||K^-1||_2 ~ e^(a/4)/(2 alpha sqrt(pi)) theta^(-1/2) from a turning-point harmonic oscillator; confirmed to 0.3% (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjcxMTQ0MzI0",
+        "is_bot": false,
+        "login": "pinterbanget",
+        "name": "Ryanson (Ryan) Jonathan"
+      },
+      "files": [
+        {
+          "path": "research/forward-turning-point/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3f487ef4f53021863060ca5b1a7560de22a287b5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/forward-turning-point/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ec956f87e8b53bfb06e4c24f529f484eaf417a8c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/forward-turning-point/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0e4f5d7b7781373d448ea40647e4e39a88829910"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/forward-turning-point/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7287dd8bff1f6544d62efd56951008413ad1a029"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/forward-turning-point/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "15c7dd506624ff85b5d3fe10113ab5db1199120b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 3
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/forward-turning-point/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "12fa8c5c844be21bfefb38a19503fbd867a11244:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/forward-turning-point/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "12fa8c5c844be21bfefb38a19503fbd867a11244:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/forward-turning-point/SOURCES.json",
+          "path": "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
+          "source_spec": "12fa8c5c844be21bfefb38a19503fbd867a11244:research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Summary\n\nThis adds `research/forward-turning-point/`. It answers open questions 1\u20132 of my #4408: why the broad-forward phase-cell inverse behind `FORWARD-SMALL-A-AUDIT.md`'s `O(\u03b1\u2075\u03c1\u00b2\u03b8\u207b\u00b2e^{a\u03c1/3})` grows only like `\u03b8^{\u22121/2}`, and how its constant depends on `\u03b1`.\n\n**Claim type:** a formal (semiclassical) derivation plus numerical confirmation to under 1%. **No new \u03ba, and not a proof.**\n\n## Result\n\n    \u2016K\u207b\u00b9\u2016\u2082 \u2248 e^{a/4}/(2\u03b1\u221a\u03c0) \u00b7 \u03b8^{\u22121/2},   a = \u03c0\u03b1\u00b2.\n\n- **Derivation.** Take an alternating ansatz `x_i = (\u22121)^i u(i)` and apply Poisson summation. Near `\u03b2\u2032 = \u00b11/2`, where the shifted Gaussian symbol vanishes, the block reduces to `T = A[(\u03c0\u03b8\u2032)y \u2212 (\u03c0/2b\u2080)\u2202_y]` with `A = 2\u221a(\u03c0/b\u2080)e^{\u2212\u03c0\u00b2/(4b\u2080)}/\u03b1`. Then `T*T` is a harmonic oscillator, so `\u03c3_min = A\u03c0\u221a(\u03b8\u2032/b\u2080)`.\n- **Numerics.** The verifier uses sparse inverse power iteration on the banded block down to `\u03b8 = 1/102400`. The ratio to the prediction reaches **0.99723** at `\u03b1 = 3` (constant 110.44) and **0.99438** at `\u03b1 = 4` (constant 20,223), with an `O(\u03b8^{1/2})` gap. A dense SVD and a localisation check serve as controls.\n- **Consequence.** At `\u03b8 = 1/(4p\u00b2)` the true conditioning is about `16p\u00b2/(\u03b1\u221a\u03c0)`. The ceiling loses through `e^{a\u03c1/3}` in place of `e^{a/4}` and through `\u03b8\u207b\u00b2` in place of `\u03b8^{\u22121/2}`. At `p = 19` the prediction is 4197, against a measured 4118 and a ceiling of `9.1\u00b710\u2079`.\n\n## Evidence\n\n```text\npython3.12 -B scripts/research_package.py --package research/forward-turning-point --check-only\n  PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)\npython3.12 -B scripts/research_package.py --package research/forward-tu",
+      "roots": [
+        "research/forward-turning-point"
+      ],
+      "installed": [
+        "research/forward-turning-point/README.md",
+        "research/forward-turning-point/SOURCES.json",
+        "research/forward-turning-point/TASK.json",
+        "research/forward-turning-point/VERIFY.json",
+        "research/forward-turning-point/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct21d-20261021-checks.txt",
+  "selected_frontier_changed": false
+}

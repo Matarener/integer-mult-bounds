@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "task_id": "p104-side-correction",
+  "priority_revision": 6,
+  "selected_kappa": "0.001672660197076918",
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "p104-side-correction",
+    "question": "Can the proposed P104 joint endpoint flags be realized by a chronological correction program with coefficients, dirty restoration and an affordable complete bill?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/p104-native-channel/README.md",
+      "research/p104-native-channel/PROOF.md",
+      "docs/research/community-efficient1000-review.md",
+      "research/p104-joint-unit-flags/README.md"
+    ],
+    "methods": [
+      "Construct one side-correction word at an explicit chronological cut with the needed frames still available.",
+      "Derive a lower bound on the side correction and hosting costs that decides whether this channel can beat the selected budget."
+    ],
+    "acceptance_gate": "An exact arbitrary-input identity, source/target frame availability and restoration at the chosen cut, plus the complete channel+correction+idle/hosting bill or an explicit favorable bound. The native channel alone is not a supplier. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the revision-6 family record and #2981 static joint flags, alongside the reviewed #1991 channel. #2981 is an author-checked source archive, not an independently validated executable correction or a refutation of program-level lifetime floors.",
+      "scope": "Source-bound orientation only. Read the named package and review before relying on its local evidence; this command is not its replay or supplier admission."
+    },
+    "first_experiment": "After checking live handoffs, pin one named collection from #2981 and attach acquisition/delivery times, source dependencies and coefficient requirements. Test legal access and arbitrary dirty restoration; price any completion against the full channel/endpoint/hosting allowance. Stop with the exact missing implication or a scoped counterexample rather than expanding the static cover census.",
+    "bottleneck_link": "Completing an already realized changed channel tests a concrete construction opportunity, instead of refining the incumbent packing. A positive local result still needs global and all-size admission.",
+    "allowed_variations": [
+      "One correction factorization, one chronological cut, or one explicit hosting obstruction.",
+      "A changed correction schedule with an updated full bill and native frame contract."
+    ],
+    "scope_change_triggers": [
+      "Recompiling the already certified low-rank channel without closing a new obligation.",
+      "Treating a pending ancestor, local histogram or unpriced side correction as an admitted global supplier.",
+      "Repeating a correction or physical conversion already supplied by a pending follow-up without adding independent coverage or a different unresolved obligation.",
+      "Repeating the 208-flag static matching or calling a static nested cover a chronological correction program. Independent audit of that certificate is distinct and remains useful."
+    ],
+    "overlap_terms": [
+      "P104",
+      "I-G/2",
+      "side correction",
+      "native channel",
+      "1972",
+      "1991",
+      "2586",
+      "endpoint transport",
+      "physical dual",
+      "relay composition",
+      "2981",
+      "joint unit flags",
+      "acquisition delivery",
+      "static nesting"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #2981 reports static joint endpoint flags and a matching of 208 departure and arrival flags; archival intake is not independent verification.",
+        "evidence": "research/p104-joint-unit-flags/README.md",
+        "remaining": "Independent flag check and a chronological coefficient program with dirty restoration and a complete cost.",
+        "status": "author-checked",
+        "source_commit": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Price the flag-1 entry of the I - G/2 side correction (Y7 += -G[7,0]/2 X0 = +1/2 X0) at both co-hosted charts of open #3532: R0's order-preserving chart [95,486,232] (correction at R0's terminal Y7 transport) and R1's relocated full chart (correction next to the relocated delivering ADD). Build and natively validate seven words (T, S, P, Trow on R0; E, Erow on R1; end-cut control Tend on the published word), give exact bills, prove that no zero-added-mass placement of the correction exists at any of 18 insertion classes for any of the 1,116 placements of the delivering ADD (strict minimum 2), and prove the joint co-hosting-plus-correction minimum: 2 with relocation (R1+E), 4 for order-preserving strict words (R0+T, R0+S).",
+  "scope_change_reason": "#3532 (open) co-hosts flag 1's head at its delivering update via R0/R1 at +2 rank mass and leaves the I - G/2 side correction unpriced; #3601 (open) priced flag 43's entry at #3508's cut and reported co-host discount 0. This package answers the same question for flag 1's entry and row at both #3532 charts. It cites #3532/#3601/#3451 as leave-alone priors, vendors #3532's two input files byte-identically from its head, and does not re-derive R0, R1 or the published chronology.",
+  "bottleneck_link": "For flag 1 the side correction and head co-hosting can share one +2 excursion, but only through relocation: R1 already lifts Y7 into the full chart where X0 lives, so the entry costs 0 there (co-host discount 2), while at R0's order-preserving chart it costs +2 (discount 0, as for flag 43) and the order-preserving joint minimum is 4. The strict correction alone still needs +2 because X7's own head 387 (outside Y7's final hyperplane) is forced into X0 at event 1074 via G11/X20/G18. Neither result is a supplier.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after flag 1: one entry, one target row, the charts of #3532's R0 and R1, seven validated words, the zero-mass obstruction over all insertion classes and delivering-ADD placements, and the single-register joint census. Do not touch flags 0, 9 or 43, the other 103 target rows, global hosting, precision or kappa.",
+  "outcome": "completed",
+  "evidence": "Flag-1 entry: G[7,0]=-1, so I-G/2 needs +1/2 X0 in Y7. R1-based E: one ADD in the full chart after R1's relocated delivering ADD: +1 event, +1 ADD, 0 transports, 0 rank vs R1 (+2 vs published); Erow carries all 48 off-diagonal entries at 0 rank, Y7's row becomes y7+x7. R0-based T: Y7 A3->FULL (6), ADD, FULL->F7 (1): +2 events, +1 ADD, +1 transport, +2 rank (profile H1-H5+H6); S: X0 FULL->F7->FULL detour, +2 rank (2H1); P: one private lifetime, +1 rank; Trow: 48 ADDs on T's lift, +2 rank. Tend on the published word: +2 rank. The unchanged check_native.validate() passes all seven coefficient-0 words (three newly lowered recipes A3->FULL, A2->FULL, F7->FULL; 208 adapters; 280 framed rows; 72 dirty helpers) and rejects each real word only at 'full physical boundary endpoint Y7'; exact replay changes only Y7. Co-host discount 0 at R0, 2 at R1. Obstruction: X7's head 387 (G[7,7]=2, outside F7) reaches X0 at 1074 via 616 X7-G11, 679 G11-X20, 1070 X20-G18; least-frame sweep with the delivering ADD dropped blocks all 18 insertion classes (u<=841 at Y8; u>=1075 at Y7), hence every one of 1,116 delivery placements; strict minimum 2 (Tend, R1+E). Joint: relocation minimum 2 (R1+E); order-preserving strict non-private minimum 4 (only D17 rescues co-hosting alone, and with D17 free all 19 correction classes stay blocked). Private route minimum 1 (5/5 early deliveries blocked). Selected kappa unchanged.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
+  "no_new_kappa": true,
+  "open_questions": [
+    {
+      "question": "Is there a co-hosted and corrected flag-1 word with joint added mass 1 (zero-mass late relocation plus a private-copy correction)?",
+      "why_it_matters": "The strict joint minimum is 2 with relocation; with an added private lifetime the lower bound is only 1. Closing the gap decides whether co-hosting can ever be cheaper than the end-cut correction alone.",
+      "first_step": "Combine #3532's late-slot relaxed sweep (247 slots after 3366) with this package's private-route sweep, keeping C's published lifetimes, and test whether any slot admits a monotone non-private schedule.",
+      "blocked_by": "#3532's open question 1 (no zero-mass construction in the late window is known)."
+    },
+    {
+      "question": "Does every present-head target row need +2 for its strict side-correction entry?",
+      "why_it_matters": "Flags 43 and 1 both need +2, through different forced heads (X12's 131 via G9; X7's own 387 via G11/X20/G18). If every row does, strict per-target corrections cost 208 rank mass in total, matching the end-cut invoice.",
+      "first_step": "Run this package's sweep() for every (target, source) pair with G[t,s] != 0 on the published word and record the first forcing source head outside the target's final hyperplane.",
+      "blocked_by": "Flag 9 is deferred elsewhere; this package treats flag 1 only."
+    },
+    {
+      "question": "Under the repo's actual per-rank weights, is R1+E (profile H8-H6 over published, correction included) cheaper than R0 alone or the published word plus Tend?",
+      "why_it_matters": "With relocation the correction is free, so R1+E is a complete co-hosted and corrected entry at the parity floor; whether it beats the end-cut Tend (H1-H6+H7) depends on H.",
+      "first_step": "Evaluate H8-H6 against H1-H6+H7 under the cost model used by the selected record's transport pricing.",
+      "blocked_by": "H_r is symbolic in the native channel package."
+    }
+  ]
+}

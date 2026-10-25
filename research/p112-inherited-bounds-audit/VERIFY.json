@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-a2-analytic-rank6/PROOF.md",
+    "research/e8-a2-joint-incidence20/PROOF.md",
+    "research/e8-quadratic-support-capacity/PROOF.md",
+    "research/one-sided-six-multisets/data/data.txt",
+    "research/p112-root-simplex-exclusion/geometry.py",
+    "research/p112-six-piece-concentration/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh original-table model, all4097782 global5/6spaces, all3360A2fibers with8961120 rank5 and426720 rank6 contained-space checks, quadratic signs,1920signed-reflection images, parabolic counts and exact actual normal-plane unions. No predecessor executable imported."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete primal-versus-dual subspace oracle through dimension5; actual minus-Gauss counterexamples; characteristic-two and finite-field union controls; wrong labels/reflection closure/quadratic binding/duplicate JSON rejection; three actual optimized CLI corruptions on private copies."
+    }
+  ]
+}

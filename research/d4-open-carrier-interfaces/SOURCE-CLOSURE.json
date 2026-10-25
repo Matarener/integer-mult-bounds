@@ -1,0 +1,437 @@
+{
+  "C02_disposition": "Separate paired 9D/P112 endpoint, gauge, contact and restricted scheduling review.",
+  "C14_disposition": "Local 28-field bus/width3 ancestry may be included; one-N, causal free-group, retained relay and BIT claims remain separate.",
+  "authenticated_package_input_count": 45,
+  "authenticated_package_inventory": {
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "OUTPUT-WRAPPER-LEMMA.md": "7419d11a2539031040dbbf8db505f10fed9c26bfbe44f0150998d0187d5798d9",
+    "PROOF-NATIVE.md": "875cf5208443b83437836971c1635350dd7e7252a23d6024e1089d79c8670e24",
+    "PROOF-NORMALIZATION.md": "7d81a984b40a03fcd6bdce6d135ed2d44d1636105528663707d13f1ede372f09",
+    "PROOF-STARS.md": "773524612c611f7641315c28e254d5f66c5ccf388a483b83fb2531698f18cb4e",
+    "REVIEW-NATIVE.md": "494ec84832c289707d76e75c1e34da36c2ed0a92c384813e795577404dbaa9f6",
+    "REVIEW-NORMALIZATION.md": "e1006d6971648c32d38e6e7ee490acdf5bacec073e6148ddebfa2b7b98d2ef0d",
+    "artifacts/NATIVE.json.gz": "d5b009dcbf798c181e480f4a06a65b862a1ce05a47bd169b261e844a5971ca88",
+    "artifacts/NORMALIZATION.json.gz": "a7c20a58e228490fd7b7f309bf44e7ab49c19b61dc9a964285ed1937d21725cc",
+    "artifacts/STARS.json.gz": "1814096b8537b5a506c7ad73708afd350ae332fdf6f2ad22c0df209540acd9d0",
+    "check_native.py": "6fbf626bc5712816045249fd4cbafc386949e65580514aa6b1b1b9517b1d03d0",
+    "check_normalization.py": "5793faa7808220de3a84b5c9b6baaf1a9cbc224ee9de65de319c2d904316cf70",
+    "check_stars.py": "2f02cee8b75f630851f3a6c4ab3014c43e119bf54ee7f0036300bc9c02d7c88a",
+    "frozen/compiler/clifford_exact.py": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+    "frozen/geometry/D4-BUS-INPUT.json": "93716ba2a0297c4b468ca7344a9b744fcdaee4013f490443a58ddc7a6610eedd",
+    "frozen/history/bus-owner/BUS-OWNER-NOTES.md": "28e2952d84fb49bd1007a217cd1ae237a4ccd5e614025e49a524ad58f277a23c",
+    "frozen/history/helper-factor/FACTOR.json": "c333667f32f39bb7ad968a9de326a19326e68386161d47c27afbb84e59834383",
+    "frozen/history/helper-factor/README.md": "27387be6cca4799e195c08b4949b25a85eb47766c21eb4589b082db337158c2d",
+    "frozen/history/helper-factor/verify_factor.py": "b6168d9fc4324055c03c0090901ceec002c6c21061217832f62047ab32778e56",
+    "frozen/history/paired-pivot/CARRIER-INTERFACES.md": "a7c06792bb62cdaee2436d1697522e28b8a259c0fd32d902bae2fa9c269170c5",
+    "frozen/history/paired-pivot/COMMON-FRAME-INVERSE-SEARCH.json": "bc45cf6f3ab114c565fd330d01174092bf4a32d94d3e3e2c49f80ccaa602bb99",
+    "frozen/history/paired-pivot/D4-BUS-WORD.json": "2ed5e70f7f1d0d313d0800a1b5410dde4b3504582d69ee9808df2ca42e238190",
+    "frozen/history/paired-pivot/FINAL-FREEZE.json": "fddce7e22fa9b4ed6234824ebc676222bfd7e6bc4680c4b6f29162ed379ddb00",
+    "frozen/history/paired-pivot/REVERSE-CARRIER.json": "20b7593a498e1819a443edaeefee877fd27912c1132cbac8a14e9477631d0304",
+    "frozen/history/paired-pivot/SOURCE-CARRIER.json": "a78cef449758825c4bb782ff8e8c789620d612cfb75fa11ac0c30d5a67b1677d",
+    "frozen/history/paired-pivot/SPLIT-LAGRANGIAN.md": "9cb54770e6056a5c8410b85f7db65b5c682716e04e4d40514d31ca1a5a67783e",
+    "frozen/history/paired-pivot/bus_word.py": "3d8eb666e7538666d2c465158ea4b4017acc587a489e3ea51c0ccdcf0ce02cef",
+    "frozen/history/paired-pivot/common_frame_inverse_search.py": "f32dbf42017aae00fc8658a3f28117dc7d101a33868b7a7ac9996dd3ae309d1d",
+    "frozen/history/paired-pivot/d4_geometry.py": "c394a816306605124f662df5751fdf51f8a664e04222fcf63cb648b74630e06a",
+    "frozen/history/paired-pivot/reverse_carrier.py": "c25118a5c5aeb0e6911af2bc040dfa624f365cedf477cd07dde5ad9dd9a5da1b",
+    "frozen/history/paired-pivot/source_carrier.py": "32095969d1d861b0f055069b41d7be276ec843590f33dca05ecc95747cada4d9",
+    "frozen/history/parent-normalizer/COMMON-FRAME-NORMALIZER.json": "b91aa28573849d166caf43852efa71dbc527c1f8767c1202609bea5bf678ca0f",
+    "frozen/history/parent-normalizer/common_frame_normalizer.py": "df510f9be2c14d3dcdd4313581469dd19acff9c59e1d7b7254062e8bbe0181d8",
+    "frozen/notices/KERNEL92-NOTICE.md": "538e7634331d7e24791be08dedd737bf458f35a3b46ce651e6aacd905f3dee6e",
+    "frozen/notices/PR531-NOTICE.md": "a92f49c5ced455160fbedcc8954e3c9255e3605e88ad12ae5a84f1c4302986f1",
+    "frozen/notices/PR533-NOTICE.md": "2c1961a07b0976e29e8e6f4da14a9aaeb2f961a3a78d842488065aa433fa2f98",
+    "frozen/reviews/native/OUTPUT-INVENTORY.json": "6fd7a0166de5e76e8eb78232f731b4c529918495ff1499f2d5279bd4fae315cb",
+    "frozen/reviews/native/SOURCE-INVENTORY.json": "00386de7d5e996bc89fdc01a248c35d2de3c09bf833ddb387b166551242d7d18",
+    "frozen/reviews/native/VALIDATION.json": "853e24cc4c1cd0daaeb25b34c1f14c3c515ac0a3f0db94f28f7cc44db33106d7",
+    "frozen/reviews/normalizer/ADDENDUM.json": "e719def2681a511e9847a5c6bd4342d79063cc071138097131b999afc2017e7f",
+    "frozen/reviews/normalizer/NATIVE-INVOICE-CROSSCHECK.json": "9506068cea83b3be4c1673afdd0fb3b678b3f960ac45a29728cba94227301540",
+    "frozen/reviews/normalizer/SOURCE-INVENTORY.json": "56cfb693464e643fadd726691ba91d48b9d25eda71c5d69bb7c8c196717947cd",
+    "frozen/reviews/normalizer/STAR-INVENTORY.json": "15b7ca82057a47b75e36446727ab78d64d19bf5b593e37f58958ffae5a50fb73",
+    "frozen/reviews/normalizer/STAR-VALIDATION.json": "f76c51d5fddcf3dbf87d52afab7a36d097cd79590452d3f48e394caedb52ba23",
+    "frozen/reviews/normalizer/VALIDATION.json": "4140d2a3e1fd5d62cf657bb680a2095e50ceacb689cbba30ff558315ed5d9fe2"
+  },
+  "controls": {
+    "complete_control_receipt_sha256": "714b36ecf5422796a202a769509aa5b4a59ca242db5d34a4b0c3c618d560bec6",
+    "complete_scientific_receipts_compared": 3,
+    "control_source_sha256": "433d5e08a1bd3a5ab84ec4ec7f0a99a7d8934118cf6983bef3c068eb9b4ca9ee",
+    "executed_check_deletions_per_mode": 3,
+    "intended_rejections_per_mode": 53,
+    "normal_and_optimized_receipts_byte_equal": true,
+    "python_version": "3.12.14"
+  },
+  "final_runtime_status": "PASS: reviewed captured-byte execution and all three complete expected receipts; no historical main is executed.",
+  "fixed_block_ancestry": {
+    "checks": {
+      "all_twelve_labels_retained": true,
+      "bus_factor_digest_matches": true,
+      "chart_maps_actual_groups": true,
+      "chart_orthonormal": true,
+      "factor_geometry_digest_matches": true,
+      "selected_tile_matches": true
+    },
+    "full_tiling_label_count": 120,
+    "retained_port_count": 112,
+    "selected_block": 1,
+    "selected_port_count": 12,
+    "unretained_labels": 8
+  },
+  "historical_freeze_entries_verified": 24,
+  "historical_manifest_missing_dependency": "d4_geometry.py is imported for elementary guards but absent from FINAL-FREEZE.json.",
+  "independent_star_cross_review": {
+    "executed_exact_operator_identities": 96,
+    "execution_owner": "carrier-native independent reviewer",
+    "path": "REVIEW-STARS.md",
+    "runtime_frozen_input": false,
+    "sha256": "f42355972be8035d04570ba531196a4dd8cedffedda54df0b78836168f6c7ae3",
+    "this_source_review_reexecuted_them": false
+  },
+  "provenance_inventory_note": "The source_entries list includes review-only ancestry and separate C02/C14 scope documents. It does not claim those files are bundled or executed. authenticated_package_inventory is the exact bundled input inventory at this review.",
+  "runtime_code_sha256": {
+    "check_native.py": "6fbf626bc5712816045249fd4cbafc386949e65580514aa6b1b1b9517b1d03d0",
+    "check_normalization.py": "5793faa7808220de3a84b5c9b6baaf1a9cbc224ee9de65de319c2d904316cf70",
+    "check_stars.py": "2f02cee8b75f630851f3a6c4ab3014c43e119bf54ee7f0036300bc9c02d7c88a",
+    "verify.py": "ff5e3a887ddfbb67ec2214a57b0b7d94c8fc78c7b01160f86d1fd509714989dd"
+  },
+  "runtime_stages": {
+    "native": {
+      "expected_complete_record": "artifacts/NATIVE.json.gz",
+      "inputs": [
+        "frozen/geometry/D4-BUS-INPUT.json",
+        "frozen/compiler/clifford_exact.py"
+      ],
+      "script": "check_native.py"
+    },
+    "normalization": {
+      "expected_complete_record": "artifacts/NORMALIZATION.json.gz",
+      "inputs": [
+        "frozen/geometry/D4-BUS-INPUT.json",
+        "frozen/compiler/clifford_exact.py",
+        "frozen/history/paired-pivot/COMMON-FRAME-INVERSE-SEARCH.json"
+      ],
+      "script": "check_normalization.py"
+    },
+    "stars": {
+      "expected_complete_record": "artifacts/STARS.json.gz",
+      "inputs": [
+        "frozen/geometry/D4-BUS-INPUT.json",
+        "frozen/compiler/clifford_exact.py"
+      ],
+      "script": "check_stars.py"
+    }
+  },
+  "schema": "carrier-source-closure-v1",
+  "scientific_pin": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "scope": "Fixed 12-port D4 h7 carrier and 28-field direct-sum boundary; no full P112, owner, precision, tape or kappa admission.",
+  "source_entries": {
+    ".research-automation/runs/kappa-3605-successor-20261018T0940Z/major-frontier/helper-boundary/PAIRED-COMPLEX.md": {
+      "bytes": 8750,
+      "roles": [
+        "C02-separate-scope-review"
+      ],
+      "sha256": "bc7b93fd41b8d2721e8d8a08f9de42adb0992e380647398788590636a961bc83"
+    },
+    ".research-automation/runs/kappa-changed-endpoints-20261019T0153Z/helper-factor/FACTOR.json": {
+      "bytes": 14153,
+      "roles": [
+        "historical-factor-source"
+      ],
+      "sha256": "c333667f32f39bb7ad968a9de326a19326e68386161d47c27afbb84e59834383"
+    },
+    ".research-automation/runs/kappa-changed-endpoints-20261019T0153Z/helper-factor/README.md": {
+      "bytes": 1920,
+      "roles": [
+        "historical-factor-source"
+      ],
+      "sha256": "27387be6cca4799e195c08b4949b25a85eb47766c21eb4589b082db337158c2d"
+    },
+    ".research-automation/runs/kappa-changed-endpoints-20261019T0153Z/helper-factor/verify_factor.py": {
+      "bytes": 6862,
+      "roles": [
+        "historical-factor-source"
+      ],
+      "sha256": "b6168d9fc4324055c03c0090901ceec002c6c21061217832f62047ab32778e56"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/BUS-OWNER-NOTES.md": {
+      "bytes": 7727,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "28e2952d84fb49bd1007a217cd1ae237a4ccd5e614025e49a524ad58f277a23c"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/BUS-WIDTH3-COMPILER.json": {
+      "bytes": 630957,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "8487ea16e710f99105ef51317d67d2a98af9dfcc0325087544b93c64aa76df52"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/CAUSAL-WORD.md": {
+      "bytes": 4638,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "62fbd39600344637a945983f3cd1a85c8a1f844be84f740881068ef7f5d05cca"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/HANDOFF.md": {
+      "bytes": 9731,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "80925657a062da2c95af24371d2621d0835d31afd32612c00f8845deac7093c5"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/ONE-N-CONTRACT.md": {
+      "bytes": 2841,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "f1c686b8025224557e60e9147520a50b710672ec942aadbdedbdec70ada4da53"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/bus_owner_factor.py": {
+      "bytes": 10891,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "70a1c7db88f65dea9ca798257c474b6405abfe6ff2076012e9dc1de563e7370d"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/bus_width3_compiler.py": {
+      "bytes": 8935,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "11ba6b18a5b05f339051bf162e7f2c1371e2fdb7b4b4120ad13055f08fadf893"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/reverse_bus_factor.py": {
+      "bytes": 7195,
+      "roles": [
+        "C14-scope-and-ancestry-review"
+      ],
+      "sha256": "919bee544f930fc24d0ce33be7ea5f962ff0bc5e8773559adcde462c42ff62b0"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/CARRIER-INTERFACES.md": {
+      "bytes": 9366,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "a7c06792bb62cdaee2436d1697522e28b8a259c0fd32d902bae2fa9c269170c5"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/COMMON-FRAME-INVERSE-SEARCH.json": {
+      "bytes": 90649,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "bc45cf6f3ab114c565fd330d01174092bf4a32d94d3e3e2c49f80ccaa602bb99"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/D4-BUS-INPUT.json": {
+      "bytes": 4680,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze-input"
+      ],
+      "sha256": "93716ba2a0297c4b468ca7344a9b744fcdaee4013f490443a58ddc7a6610eedd"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/D4-BUS-WORD.json": {
+      "bytes": 183296,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "2ed5e70f7f1d0d313d0800a1b5410dde4b3504582d69ee9808df2ca42e238190"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/D4-GEOMETRY.json": {
+      "bytes": 171088,
+      "roles": [
+        "fixed-block-ancestry-only-not-runtime"
+      ],
+      "sha256": "88979c12f7927b972f02bd3c393b9228d72611a1984affda985cdbcdc5931395"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/D4-P112-FACTORS.json": {
+      "bytes": 252206,
+      "roles": [
+        "fixed-block-ancestry-only-not-runtime"
+      ],
+      "sha256": "35aef22d01045e80a42fa2d8d8710c0970f29ad57e783992600f829946516c56"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/ENDPOINT-GAUGE.md": {
+      "bytes": 3452,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "52237c3b663221a74d68a18efb7946569342c200446cf7a181860c25718b8618"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/FINAL-FREEZE.json": {
+      "bytes": 3078,
+      "roles": [
+        "historical-manifest"
+      ],
+      "sha256": "fddce7e22fa9b4ed6234824ebc676222bfd7e6bc4680c4b6f29162ed379ddb00"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/FREQUENCY-MODEL.json": {
+      "bytes": 16470,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "6dfa3da56e42cfac5a2ad2428bdfcbe91c4e2e3db006890088fe5d7cfaec4689"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/HANDOFF.md": {
+      "bytes": 4662,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "e3012778e07519ca6ad296d59f58d158049df1e4171abd71a48bedf8c4eba1de"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/OPEN-NORMALIZATION.json": {
+      "bytes": 121505,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "3b573d1cf62b23683d36a91a15a7097794f4a3f1453d0e9ae2bd9e700dbe3a6f"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/PHASE-COVARIANCE.json": {
+      "bytes": 5940,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "9b774d16485d797442f7fa21e87155f8708d394528f2cbe610eca486b97e9696"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/RADICAL-GEOMETRY.json": {
+      "bytes": 3470,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "49b1d04a38422193ca849b419e908fd39c82778965f48b701a1712927f2314b5"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/REVERSE-CARRIER.json": {
+      "bytes": 36841,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "20b7593a498e1819a443edaeefee877fd27912c1132cbac8a14e9477631d0304"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/SOURCE-CARRIER.json": {
+      "bytes": 30712,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "a78cef449758825c4bb782ff8e8c789620d612cfb75fa11ac0c30d5a67b1677d"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/SPLIT-LAGRANGIAN.md": {
+      "bytes": 3333,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "9cb54770e6056a5c8410b85f7db65b5c682716e04e4d40514d31ca1a5a67783e"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/bus_word.py": {
+      "bytes": 16493,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "3d8eb666e7538666d2c465158ea4b4017acc587a489e3ea51c0ccdcf0ce02cef"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/common_frame_inverse_search.py": {
+      "bytes": 7766,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "f32dbf42017aae00fc8658a3f28117dc7d101a33868b7a7ac9996dd3ae309d1d"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/d4_geometry.py": {
+      "bytes": 18527,
+      "roles": [
+        "historical-elementary-helper-import"
+      ],
+      "sha256": "c394a816306605124f662df5751fdf51f8a664e04222fcf63cb648b74630e06a"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/export_factors.py": {
+      "bytes": 5793,
+      "roles": [
+        "fixed-block-ancestry-only-not-runtime"
+      ],
+      "sha256": "674bb5d9af33dbe67bbec0d9f25a177a3c45a42179f4945353347f8c90b760f4"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/frequency_model.py": {
+      "bytes": 12080,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "dc8dbb52129051c54f6b5d75f0204cb1ef7ca655cb812555db35a3e457a6edd1"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/open_normalization.py": {
+      "bytes": 8261,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "1bf25b678fb29b2ba0fc9672d4e4398589e30fff01fdaf0f67df2071d9c7655d"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/phase_covariance.py": {
+      "bytes": 4911,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "04dd8d86d7fb2778e42546a2dbcc8bce5008a8c420aa3e6b051ba330375cf232"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/radical_geometry.py": {
+      "bytes": 6138,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "7c5ed21150ef130c87ac214c0082d6fdea8cede8c3d2f17be17c03932303d36e"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/reverse_carrier.py": {
+      "bytes": 6921,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "c25118a5c5aeb0e6911af2bc040dfa624f365cedf477cd07dde5ad9dd9a5da1b"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/complex-boundary/paired-pivot/source_carrier.py": {
+      "bytes": 9508,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze"
+      ],
+      "sha256": "32095969d1d861b0f055069b41d7be276ec843590f33dca05ecc95747cada4d9"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/shared-helper-budget/COMMON-FRAME-NORMALIZER.json": {
+      "bytes": 46614,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze-input"
+      ],
+      "sha256": "b91aa28573849d166caf43852efa71dbc527c1f8767c1202609bea5bf678ca0f"
+    },
+    ".research-automation/runs/kappa-major-20261018T1330Z/shared-helper-budget/common_frame_normalizer.py": {
+      "bytes": 5566,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze-input"
+      ],
+      "sha256": "df510f9be2c14d3dcdd4313581469dd19acff9c59e1d7b7254062e8bbe0181d8"
+    },
+    "integer-mult-bounds/research/kernel92-frame-composition/vendor/pr531/vendor/clifford/clifford_exact.py": {
+      "bytes": 6824,
+      "historical_manifest_pin_verified": true,
+      "roles": [
+        "historical-final-freeze-input"
+      ],
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962"
+    }
+  }
+}

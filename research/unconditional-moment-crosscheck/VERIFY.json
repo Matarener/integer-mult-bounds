@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged544-mixed-fourth-entry/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent interval re-verification of PR4100's exact-root bracket (bill(b) < 1 < bill(b+1e-48) with certified margins), localized model root inside (b, b+1e-48), bill(kappa) < 1, twelve paid-power slacks, fifteen side slacks, five obsolete-route rejects, a1/a2/Strassen constants, the exact >5.7e-25 gap over PR4088's conditional exponent, profile agreement with the pinned PR4088 RESULT.json, and four rejecting controls."
+    }
+  ]
+}

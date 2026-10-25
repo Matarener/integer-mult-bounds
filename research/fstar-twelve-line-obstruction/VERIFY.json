@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact finite controls for the analytic obstruction reduction, all F_2 multiplicity patterns, positive box witnesses and the rational eight-row shortcut counterexample; authenticate the frozen oracle. The general rational twelve-line threshold is not claimed solved."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Replay the same semantic and source rejection controls under isolation, optimization and warnings-as-errors; no finite matrix census or formal proof claim."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/BIT.md",
+    "research/unconditional-batched-crt/NORMAL-FORM.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Bind BIT.md statements; Lucas-Lehmer for 2^89-1 and the constants; N(P) identities over Z/q^w; exact stock split and child divisibility; depth, halving; header-route carry decomposition and doubling; recurrence envelope; wrapper threshold; stage exponents."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Rejecting controls: non-involution C, overlapping projectors, wrong stock factor, one extra rank-1 child, small widths in the wrapper, and an omitted carry all fail."
+    }
+  ]
+}

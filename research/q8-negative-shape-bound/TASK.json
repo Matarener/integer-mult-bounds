@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "A shape-sensitive necessary-call theorem for mixed negative Q8 targets, and the exact integer projection of its strengthened count relaxation.",
+  "scope_change_reason": "This extends the explicitly open sharpness question after PR3589 and the count region in PR3736. It stays in the retained formal nonabelian model rather than supplying a new native operation alphabet; the result is a scoped mathematical obstruction, not supplier admission.",
+  "bottleneck_link": "Mathematical side result for the nonabelian bit-register model. It rules out previously permitted imbalanced target counts; physical implementation and the binding complex supplier remain outside scope.",
+  "budget_minutes": 60,
+  "stop_rule": "Prove the mixed quadratic rank inequalities and exact count-relaxation projection, corroborate them by bounded exact enumeration and rank/direct-word controls, and stop before endpoint search or physical implementation.",
+  "outcome": "completed",
+  "evidence": "PROOF.md and deterministic hash-bound stdout receipt from verify.py; bounded exhaustive integer projection, arithmetic witnesses, binary rank fixtures, full Q8 direct words and failure controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is a full 20-call word possible at the (7,1) inverse-target shape?",
+      "why_it_matters": "The new theorem leaves the actual minimum in {20,22,24}.",
+      "first_step": "Use the legal n=20 splits and all eight formal endpoint coefficient equations.",
+      "blocked_by": "No endpoint realization or exhaustive word exclusion is supplied."
+    },
+    {
+      "question": "Can the quadratic and cubic equality cases be realized simultaneously at t_i=4t_j?",
+      "why_it_matters": "The boundary determines whether the inherited 11t/5 count can be attained at its extreme ratio.",
+      "first_step": "Use the same chronological L in both orientations and inspect equality in each rank charge.",
+      "blocked_by": "Necessary count witnesses need not lift to endpoint words."
+    },
+    {
+      "question": "Can a formal word improve a matched complete physical caller bill?",
+      "why_it_matters": "Formal call counts alone do not imply an exponent gain.",
+      "first_step": "Name a caller, its source and output layout, allowed reads and all scalar and recursive costs.",
+      "blocked_by": "No such physical caller or complete invoice is supplied."
+    }
+  ],
+  "coordination": {
+    "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19080549",
+    "upstream_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "priority_revision": 7,
+    "checked_utc": "2026-10-20T19:59:00Z",
+    "overlap_coverage": "Complete cached pagination: 340 open PRs and 2972 Discussion records at 2026-10-20T19:53Z. Live first 100 open PRs and latest handoff comments refreshed before commit. Relevant open PRs 3906 and 2444 have distinct scopes; historical Q8 titles and source proofs were inspected. Unpublished work and arbitrary code diffs are outside this coverage."
+  }
+}

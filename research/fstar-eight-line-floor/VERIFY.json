@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact ordered-triple/two-block construction, frozen independent-oracle agreement, rational fixture and semantic rank/parity/order controls. The general theorem is the analytic PROOF.md, not a finite census or machine proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat all exact controls with Python isolation and optimization; proof-relevant rejection checks remain active without assertions."
+    }
+  ]
+}

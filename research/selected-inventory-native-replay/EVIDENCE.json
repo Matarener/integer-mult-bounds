@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "priority_revision": 6,
+  "environment": "Local macOS arm64, unprivileged uid 501; no Linux/Windows/hosted replay claimed.",
+  "code_sha256": {
+    "fixture_adapter.py": "4302081d5704d6c179149d2fdb42b1868c1c6e57fe53e00ecd4bf7a2cf06992c",
+    "test_adapter.py": "72dda7d3c23af4be386722d62bdc67469ab52169c412b5c71d0c8034cc6002ef",
+    "verify.py": "2459dd0e17cab2fff29f06f871764649788509d680cffc424aee31d2b0526c8f"
+  },
+  "scope": "All 59 original groups and five adapter-control groups. Original failing fixture corrected by exactly one root-normalization statement; no source, proof, certificate, production or selected-frontier modification.",
+  "interpreters": {
+    "python312": {
+      "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+      "platform": "macOS-26.3.1-arm64-arm-64bit"
+    },
+    "python314": {
+      "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+      "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O"
+    }
+  },
+  "runs": [
+    {
+      "interpreter": "python312",
+      "case": "canonical-original",
+      "temporary_root": "canonical directory",
+      "returncode": 0,
+      "tests": 59,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 5.220947834197432,
+      "log_sha256": "2b65a8b7e4eb3119df20bc3070e56190e3cb86332155da33cecb174bf1638355",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-fail-closed/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python312",
+      "case": "alias-original",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 1,
+      "tests": 59,
+      "errors": 1,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 5.08179795788601,
+      "log_sha256": "8224a02927a94eeaf9805c43124dc77b01a666c2cdb7b26e9720dbfa37b2efaa",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-fail-closed/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python312",
+      "case": "alias-adapted",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 59,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 5.075923708733171,
+      "log_sha256": "242b7cce049d80a67a9684d0596993482c548aa22c3c8542d2805d657949bdb6",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-native-replay/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python312",
+      "case": "alias-adapted-optimized",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 59,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 4.971653207670897,
+      "log_sha256": "aff2602ddcd97546142c0e10aa3bcd704191eddd77f8666d230c41af73aa1497",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "-O",
+        "research/selected-inventory-native-replay/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python312",
+      "case": "alias-controls",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 5,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 0.22535408288240433,
+      "log_sha256": "58bb6d944ae36ff55bf5b1f35555022f9b8010cc607d21825664ec6b94985421",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-native-replay/test_adapter.py"
+      ]
+    },
+    {
+      "interpreter": "python312",
+      "case": "alias-controls-optimized",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 5,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 0.22535850014537573,
+      "log_sha256": "58bb6d944ae36ff55bf5b1f35555022f9b8010cc607d21825664ec6b94985421",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "-O",
+        "research/selected-inventory-native-replay/test_adapter.py"
+      ]
+    },
+    {
+      "interpreter": "python314",
+      "case": "canonical-original",
+      "temporary_root": "canonical directory",
+      "returncode": 0,
+      "tests": 59,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 4.6751112919300795,
+      "log_sha256": "d3ea761bf5f53de25307875fce97acc14017ccc3b4dfd1b804f921036fa9231c",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-fail-closed/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python314",
+      "case": "alias-original",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 1,
+      "tests": 59,
+      "errors": 1,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 4.631149457767606,
+      "log_sha256": "cc2cdbf4cb99be77b0c9dccf8871f00dcc17afe2f2cddf440dae5f31bebf2e06",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-fail-closed/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python314",
+      "case": "alias-adapted",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 59,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 4.8494725418277085,
+      "log_sha256": "3eedff4f75d6f97875ae35507ac882457b126265877fcd404180246758ef9a15",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-native-replay/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python314",
+      "case": "alias-adapted-optimized",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 59,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 4.857286791317165,
+      "log_sha256": "d6a335eef68ba6fe23eaa034b9bfbe00dca5b1be387adbf3aead0ec5e65f8424",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "-O",
+        "research/selected-inventory-native-replay/verify.py"
+      ]
+    },
+    {
+      "interpreter": "python314",
+      "case": "alias-controls",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 5,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 0.2595801246352494,
+      "log_sha256": "566628336098a7d29d4e65999c0df9cc6a24e273994a929093b84e295275b6e2",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "research/selected-inventory-native-replay/test_adapter.py"
+      ]
+    },
+    {
+      "interpreter": "python314",
+      "case": "alias-controls-optimized",
+      "temporary_root": "explicit symlink alias",
+      "returncode": 0,
+      "tests": 5,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "seconds": 0.25210458412766457,
+      "log_sha256": "58bb6d944ae36ff55bf5b1f35555022f9b8010cc607d21825664ec6b94985421",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix={fresh-private-cache}",
+        "-O",
+        "research/selected-inventory-native-replay/test_adapter.py"
+      ]
+    }
+  ],
+  "logs": "Full local output was retained under /tmp/imb-session-1914-matrix-logs during the session. Log hashes bind those local receipts; the commands and controls are the public reproduction, not a claim of published log contents."
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "714606601d4aae7fbe8cf0c9727b59ba754bc02e",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Compare s_b/W_b with m^{1-2^{-50}} from the displayed deficit and the stated logarithm bound, without replaying the network.",
+  "scope_change_reason": "Psi(1/2) exceeds 1 for the bit-motif width-1 child list. The manuscript claims the transfer inequality at tau = 1-2^{-50}.",
+  "bottleneck_link": "s/W < m^tau is exactly Psi(tau) < 1 for this width-1 list, which is the hypothesis the normalized recurrence uses.",
+  "budget_minutes": 60,
+  "stop_rule": "Certify the bit-motif comparison. Do not replay the network and do not evaluate the complex motif.",
+  "outcome": "partial",
+  "evidence": "For m = 1000000 and eta = 339/22587335000000, 2^{50} eta exceeds 6 times the ninth harmonic number, which exceeds ln(m). Therefore s_b/W_b < m^{1-2^{-50}} and Psi at that exponent is below 1.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "Does the complex motif child list also satisfy Psi(sigma) < 1 at sigma = 1-2^{-50}?",
+      "why_it_matters": "The manuscript states the same exponent for s_c/W_c, with displayed deficit ratio 73/19906842167500.",
+      "first_step": "Rebuild s_c from its displayed rank sum and repeat the harmonic comparison.",
+      "blocked_by": "This package certifies only the bit motif."
+    }
+  ]
+}

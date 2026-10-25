@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Zero actionable heads at closing refresh. 73 PRs merged: 68 source archives and five reviewed tooling changes. Seven new/updated holds: 3120,3143,3147,3154,3181,3184,3190. 136 drafts,100 waiting revisions,seven deferred replays remain. Refresh once next session; do not rereview dormant holds. Selected kappa unchanged. No scientific, Lean, Docker or hosted replay run; skip-ci avoids an unbudgeted all-package sweep. Tooling:154 tests,18 platform skips. Exact source/publication evidence in latest_publication.",
+  "next": "Delta-only queue caught up: 308 open, zero actionable at recorded snapshot. Resume plan --refresh; do not repeat unchanged holds or deferred replays. Selected kappa remains 0.003027288235. Separate P104 #5551 admission with #5548/#5550/#5557 support remains the next substantive frontier task. #5553/#5561 require claim/certificate corrections before admission. PR5555 fixes shared CI planning only; #5466 registered replay schema remains open.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,90 +1011,38 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "source_publication_commit": "1d46d1603",
-    "merged": [
-      3111,
-      3112,
-      3113,
-      3114,
-      3115,
-      3116,
-      3117,
-      3118,
-      3119,
-      3121,
-      3122,
-      3123,
-      3124,
-      3125,
-      3126,
-      3127,
-      3128,
-      3129,
-      3130,
-      3131,
-      3132,
-      3133,
-      3134,
-      3135,
-      3136,
-      3137,
-      3138,
-      3139,
-      3140,
-      3141,
-      3142,
-      3146,
-      3148,
-      3150,
-      3151,
-      3152,
-      3153,
-      3157,
-      3158,
-      3159,
-      3160,
-      3161,
-      3162,
-      3163,
-      3164,
-      3165,
-      3166,
-      3167,
-      3168,
-      3169,
-      3170,
-      3171,
-      3172,
-      3173,
-      3174,
-      3175,
-      3176,
-      3177,
-      3179,
-      3180,
-      3182,
-      3183,
-      3185,
-      3186,
-      3187,
-      3188,
-      3189,
-      3192,
-      3193,
-      3194,
-      3195,
-      3196,
-      3197
+    "commits": [
+      "129a0465b7459a9c673ccc2da8533b496913b932"
     ],
-    "prepared": [],
-    "archive_count": 68,
-    "reviewed_tooling_count": 5,
+    "decisions": 10,
+    "merged": 8,
+    "archive_count": 7,
+    "reviewed_tooling_count": 1,
+    "revision_holds": [
+      5553,
+      5561
+    ],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "scientific_replays": 0,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-catchup-20261017.json",
-      "docs/research/pr-intake-evidence/queue-tail-20261017.json"
+      "docs/research/pr-intake-evidence/queue-oct25c-20261025.json",
+      "docs/research/pr-intake-evidence/queue-oct25c-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct25c-final-snapshot.json"
     ],
-    "selected_frontier_changed": false
+    "remaining_queue": {
+      "base": "129a0465b7459a9c673ccc2da8533b496913b932",
+      "observed_at": "2026-10-25T17:06:06.353681+00:00",
+      "counts": {
+        "draft": 178,
+        "waiting_revision": 123,
+        "deferred_replay": 7
+      },
+      "open_count": 308,
+      "actionable_count": 0,
+      "remaining_actionable": 0,
+      "selected": []
+    }
   },
   "reported_followups": [
     {
@@ -1106,16 +1054,726 @@
         2691
       ],
       "scope": "Contributor reports a parity-budget defect in earlier word-census engines. This intake archives the correction but does not independently validate it. Review before relying on the earlier exclusions."
+    },
+    {
+      "source_pr": 3214,
+      "affected_prs": [
+        3182
+      ],
+      "scope": "Source-bound audit reports premature output-loop exit and mismatched secondary-cycle encoding. PR3252 gives a repaired support implication and PR3259 separately audits the pooled cut; all are source archives pending independent scientific validation.",
+      "source_head": "faa6323371db1c5fbb43ab04c6e00715d2328bc6"
+    },
+    {
+      "source_pr": 3291,
+      "affected_prs": [
+        3147
+      ],
+      "scope": "Reports a concrete triangle-count counterexample and proposes a corrected fifteen-owner floor. Existing PR3147 hold is not discharged by this independent submission; correction and complete review remain required.",
+      "source_head": "5d027c3c8724aec4501e0e2876388bebefa00ef7"
+    },
+    {
+      "source_pr": 3296,
+      "affected_prs": [
+        3190,
+        3198,
+        3200,
+        3251
+      ],
+      "scope": "Reports literal hosted-remainder operator counterexamples. PR3311 contributes a separate source-bound reconstruction. No new kappa admitted; candidate repair required.",
+      "source_head": "6f78fe217ed63ef84096d53ed3651b38bab81e15"
+    },
+    {
+      "source_pr": 3452,
+      "source_head": "dc49c7d7c2fca45e18a9a3da7c9f40aca97d1701",
+      "affected_prs": [
+        2890
+      ],
+      "scope": "Archived source reports an explicit counterexample to Lemma C5 nonparallel-center classification and supplies a corrected arbitrary-field classification. Independent proof validation remains open; consult correction before relying on the predecessor lemma."
+    },
+    {
+      "source_pr": 4046,
+      "source_head": "84c2b2072e7cba265fc1e43f28ccd558b5a4cbfa",
+      "affected_prs": [
+        3934,
+        3939,
+        3955,
+        3958,
+        3959
+      ],
+      "scope": "Source archive reports inherited retracted idle-axis operator defects on the complex side. Do not select these larger claims without resolving the exact operator objection. Bit-side work is not thereby refuted; draft/held status is unchanged."
+    },
+    {
+      "source_pr": 4321,
+      "source_head": "05ff71ae097fe5cf19894beb83178cac442bbd35",
+      "affected_prs": [
+        4100
+      ],
+      "scope": "Contributor reports frozen-versus-live control-digit wording discrepancy; implementation reads live values. Review exact text and implementation together. Source archived; independent scientific validation remains open."
+    },
+    {
+      "source_pr": 4329,
+      "source_head": "a3b9095c536c404e11d2ed868699fc4fcd4d4f57",
+      "affected_prs": [
+        4100,
+        4174
+      ],
+      "scope": "Contributor reports that mod-K coloring needs K-1 guard bits and that tested PR4174 production descriptors have empty good sets. Scoped author finding, not independent refutation of the selected PR4359 result. Source archived; independent scientific validation remains open."
+    },
+    {
+      "source_pr": 4265,
+      "source_head": "665bfe79d726a0cb3494326d2f63ae81d313302f",
+      "affected_prs": [],
+      "scope": "Contributor reports a counterexample to a proposed general-target right-vector formula over M2(F2): three rather than two operations required. Source archived; independent scientific validation remains open."
+    },
+    {
+      "source_pr": 4339,
+      "source_head": "a6e02c006ccbb6612c3a6e8fcae8ae49c2f474c4",
+      "affected_prs": [],
+      "scope": "Contributor reports a P104 fiber-tag transpose correction; consult before reusing that scoped identity. Source archived; independent scientific validation remains open."
+    },
+    {
+      "source_pr": 4842,
+      "source_head": "acd3384454083d4eb673343eb7762877d43e5394",
+      "affected_prs": [
+        4813,
+        4818,
+        4819,
+        4826
+      ],
+      "scope": "Archived exact-source audit reports full-cascade condition number 3, contradicting smaller claimed loop-based bounds, and missing chronological paid-word admission. Four proposals held for correction or narrowed claims. No larger kappa selected."
+    },
+    {
+      "source_pr": 4946,
+      "affected_prs": [
+        2542,
+        2634,
+        2691
+      ],
+      "scope": "Archived author audit reports an unsound bit-0 census prune and classifies downstream use; claims existing replacement evidence covers relied exclusions. Source/integrity intake only; not independently replayed in this bulk pass."
+    },
+    {
+      "source_pr": 4951,
+      "affected_prs": [
+        4470
+      ],
+      "scope": "Archived independent invoice/moment join reports exact agreement and surplus smaller than one rank-one job. Physical charge completeness and stage-zero unit applicability remain stated audit questions; no change to selected result."
+    },
+    {
+      "source_pr": 5036,
+      "source_head": "a3b9733472db1da15d93745e9859b6a11bc1a555",
+      "affected_prs": [
+        4933,
+        4940,
+        5027,
+        5035
+      ],
+      "scope": "Archived source-bound counterexample reports a nonzero Y-to-Y residual for the specified physical-code substitution. Scalar compiler reserve and inverse-code arithmetic do not discharge this caller-binding gap. Independent scientific audit remains open; no general controller impossibility or selected-result defect inferred."
+    },
+    {
+      "source_pr": 5039,
+      "affected_prs": [
+        4470,
+        4951
+      ],
+      "scope": "Archived scoped owned-query/whole-IDLE charge correspondence retains physical ABIs as hypotheses. No full supplier or compiler review and no selected-frontier change."
     }
   ],
   "latest_queue": {
-    "observed_at": "2026-10-17T16:51:45.943740+00:00",
-    "open_count": 243,
-    "actionable_count": 0,
+    "base": "129a0465b7459a9c673ccc2da8533b496913b932",
+    "observed_at": "2026-10-25T17:06:06.353681+00:00",
     "counts": {
-      "draft": 136,
-      "waiting_revision": 100,
+      "draft": 178,
+      "waiting_revision": 123,
       "deferred_replay": 7
+    },
+    "open_count": 308,
+    "actionable_count": 0,
+    "remaining_actionable": 0,
+    "selected": []
+  },
+  "bulk_intake_20261020_completed": {
+    "decisions": 586,
+    "integrations": 569,
+    "archives": 549,
+    "tooling": 20,
+    "new_revision_holds": 14,
+    "new_deferrals": 3,
+    "latest_turn_decisions": 386,
+    "latest_turn_integrations": 382,
+    "latest_turn_archives": 380,
+    "latest_turn_tooling": 2,
+    "latest_turn_new_holds": [
+      4017,
+      4079,
+      4090,
+      4110
+    ],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "heavy_replays_run": false
+  },
+  "bulk_intake_20261021_completed": {
+    "exact_head_decisions": 248,
+    "counts": {
+      "deferred_replay": 1,
+      "waiting_revision": 5,
+      "archive": 239,
+      "reviewed_tooling": 3
+    },
+    "integrations": 242,
+    "publication_only_watch_refreshes": 43,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct21a-20261021.json",
+      "docs/research/pr-intake-evidence/queue-oct21b-20261021.json",
+      "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
+      "docs/research/pr-intake-evidence/queue-oct21d-20261021.json"
+    ],
+    "selected_frontier_changed": false,
+    "heavy_replays_run": false,
+    "tooling_tests_passed": 60,
+    "actionable_remaining": 0
+  },
+  "latest_substantive_review": {
+    "prs": [
+      5413,
+      5407,
+      5414
+    ],
+    "kappa": "605457647/200000000000",
+    "status": "published conditional selected result",
+    "promotion_commit": "1a3ced60b2f7a46bc70280a04f2eeb8ca027c700",
+    "evidence": [
+      "docs/research/pr-intake-evidence/pr5413-promotion/PROMOTION.md",
+      "docs/research/pr-intake-evidence/pr5413-promotion/VALIDATION.json",
+      "docs/research/pr-intake-evidence/pr5413-promotion/INTEGRATION.json"
+    ],
+    "selected_frontier_changed": true
+  },
+  "next_substantive_review": {
+    "source_pr": 5551,
+    "source_head": "1123635a6f63f23638df9459c994160e5e649d30",
+    "claim": "Conditional kappa 0.00304153; source archive only, not selected.",
+    "dependencies": [
+      {
+        "pr": 5544,
+        "head": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581"
+      },
+      {
+        "pr": 5545,
+        "head": "18968423711fd902aaee1099979497d55603e1dc"
+      }
+    ],
+    "supporting_audits": [
+      {
+        "pr": 5548,
+        "head": "b038f9d9b5cf0ce92184da909e57a3be476fc812"
+      },
+      {
+        "pr": 5550,
+        "head": "6125c07ae8ba4b8550e2a0a28a2c6be503153059"
+      }
+    ],
+    "plan": "Review the complete P104 producer/caller and the coupled-contact delta together. Reuse independently checked exact-source coverage only; supporting audits concern #5545 and do not certify #5551 automatically. Check native paid-map inventory, actual compiler/consumer obligations, all productive targets, precision/tape and complete funding. Do not invent a raw-inverse-transpose requirement without tracing actual all-forward assembly consumers. Use serial bounded replay; no admission or scientific execution performed by bulk intake.",
+    "other_claims": "#5440 has a concrete missing-Q payment hold. #5462/#5468 are archived numerical-headroom proposals; #5512 is a separate BIT supplier claim. None changes the selected result.",
+    "precision_support": [
+      {
+        "pr": 5557,
+        "head": "3b154c52cb05922fc10eb8ce656a2a314bbb8187",
+        "scope": "Residual-preserving all-cut stability and actual 265-axis caller range; source archive only."
+      }
+    ],
+    "newer_held_claims": {
+      "5553": "Headline .0030428242 vs certified KAPPA .00304282; mid-frame start admissibility unresolved.",
+      "5561": "Headline .0030814243 vs certified KAPPA .00308142; supporting .0030768801 exceeds its own root, certified starts-only KAPPA .003076879; endpoint admissibility unresolved."
+    }
+  },
+  "bulk_intake_20261022_completed": {
+    "merged": 236,
+    "research_archives": 230,
+    "reviewed_tooling": [
+      4579,
+      4631,
+      4679,
+      4683,
+      4686,
+      4738
+    ],
+    "unchanged_attribute_wakes_resolved": 42,
+    "scientific_replays": 0,
+    "scope": "Exact Git inventories, syntax and declared source integrity for archives; separately reviewed and focused-tested tooling. No scientific frontier promotion. Native Windows author evidence retained but not independently replayed on macOS."
+  },
+  "bulk_intake_20261022_second_pass": {
+    "decisions": 149,
+    "merged": 145,
+    "research_archives": 141,
+    "execution_evidence_archives": [
+      4905
+    ],
+    "reviewed_tooling": [
+      4779,
+      4857,
+      4906
+    ],
+    "new_revision_holds": [
+      4813,
+      4818,
+      4819,
+      4826
+    ],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "local_tooling_tests": {
+      "executed_passed": 46,
+      "platform_skipped": 23
+    },
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22e-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22f-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22f-closures.json"
+    ]
+  },
+  "bulk_intake_20261023_completed": {
+    "decisions": 20,
+    "merged": 20,
+    "research_archives": 19,
+    "historical_only": [
+      4947
+    ],
+    "reviewed_tooling": [
+      4936
+    ],
+    "new_revision_holds": [],
+    "external_closures_without_merge": [
+      4813,
+      4818,
+      4819,
+      4826
+    ],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "local_tooling_tests_passed": 14,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct22h-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22h-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22i-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22i-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
+    ]
+  },
+  "bulk_intake_20261023_second_pass": {
+    "decisions": 34,
+    "merged": 34,
+    "research_archives": 29,
+    "reviewed_tooling_and_docs": [
+      4964,
+      4973,
+      4975,
+      4984,
+      4988
+    ],
+    "new_revision_holds": [],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "tooling_tests_passed": 71,
+    "platform_skipped": 7,
+    "publication_commit": "9f789e8a33aef8aa224dbc77a78c69f5fd6d4618",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23a-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23a-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23a-final-snapshot.json"
+    ]
+  },
+  "bulk_intake_20261023_third_pass": {
+    "commit": "25594d6fb1cc7e01b684129214189e470abce904",
+    "decisions": 10,
+    "merged": 10,
+    "archive_count": 10,
+    "reviewed_tooling_count": 0,
+    "new_revision_holds": [],
+    "selected_frontier_changed": false,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23b-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23c-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23b-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23c-closures.json"
+    ],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "checks": "Git inventories, AST/JSON syntax, available source pins, ledger Markdown and per-decision invariants. Full historical reconciliation was not completed because its historical audit is absent from this sparse checkout."
+  },
+  "bulk_intake_20261023_fourth_pass": {
+    "commit": "9deaf5cf4420605d45b087f2fc40e689e17a2f21",
+    "decisions": 29,
+    "merged": 29,
+    "archive_count": 26,
+    "reviewed_tooling_count": 3,
+    "reviewed_tooling": [
+      5002,
+      5017,
+      5028
+    ],
+    "new_revision_holds": [],
+    "selected_frontier_changed": false,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23d-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23e-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23d-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23e-closures.json"
+    ],
+    "actionable_remaining": 0,
+    "tooling_tests_passed": 38,
+    "arithmetic_equivalence_replays": 2,
+    "supplier_outer_replays": 0,
+    "notes": "All original downset receipt evidence identical; 93 new product controls. No Lean, Docker, hosted workflow dispatch or archive scientific replay. First tooling invocation had one mistyped test-module name; corrected SIGTERM module passed separately."
+  },
+  "bulk_intake_20261023_fifth_pass": {
+    "commits": [
+      "9269eea18a6a10dddeac6a4f696904c55ef1d365",
+      "d809e986a1b1b45aae167ce83e85b989e5174e97"
+    ],
+    "decisions": 35,
+    "merged": 35,
+    "archive_count": 33,
+    "reviewed_tooling": [
+      5047,
+      5050
+    ],
+    "additional_fixture_fix_from": 5046,
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "supplier_outer_replays": 0,
+    "local_tests": {
+      "passed": 79,
+      "skipped": 18,
+      "failed_due_to_absent_historical_fixture": 1
+    },
+    "notes": "Historical frontier1042 fixture absent from sparse checkout; not a new-code failure. Windows native evidence retained from author only. No Lean, Docker or hosted workflow dispatched.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23f-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23f-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23g-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23g-closures.json"
+    ],
+    "remaining_queue": {
+      "counts": {
+        "draft": 176,
+        "waiting_revision": 118,
+        "deferred_replay": 7
+      },
+      "open_count": 301,
+      "actionable_count": 0,
+      "observed_at": "2026-10-23T08:20:37.912208+00:00"
+    }
+  },
+  "bulk_intake_20261023_sixth_pass": {
+    "commits": [
+      "bf5519aa000c0dac09e0c3fd2706558c4af6a481",
+      "b898c28c4a2c0c6a5cdab0c6e56d1e71e40c57e8"
+    ],
+    "decisions": 32,
+    "merged": 32,
+    "archive_count": 30,
+    "reviewed_tooling": [
+      5082,
+      5102
+    ],
+    "new_revision_holds": [],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "supplier_outer_replays": 0,
+    "local_tests": {
+      "normal_cases": 223,
+      "normal_platform_skips": 29,
+      "optimized_cases": 14
+    },
+    "notes": "No Lean, Docker, scientific replay or hosted workflow dispatched. Preserve PR5046 LF fixture and PR5047 Unicode argv in cleanup merge resolution. Full historical reconciliation unavailable in sparse tree; per-decision/review-completion and ledger Markdown checks pass. Native Windows unrun. PR5095 hosted full timeout retained as an unresolved obligation.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23h-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23h-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23i-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23i-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23h-tooling-tests.json"
+    ],
+    "remaining_queue": {
+      "counts": {
+        "draft": 177,
+        "waiting_revision": 118,
+        "deferred_replay": 7
+      },
+      "open_count": 302,
+      "actionable_count": 0,
+      "observed_at": "2026-10-23T09:41:52.361567+00:00"
+    }
+  },
+  "bulk_intake_20261023_seventh_pass": {
+    "commits": [
+      "4172bc5de406d30a527d0341276c0a2602ae9ffb",
+      "fe3f9b100d9fe5b72ca34a8d3d535b34788d5db4"
+    ],
+    "decisions": 19,
+    "merged": 19,
+    "archive_count": 17,
+    "reviewed_tooling": [
+      5123,
+      5129
+    ],
+    "new_revision_holds": [],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "supplier_outer_replays": 0,
+    "local_tests": {
+      "normal_cases": 70,
+      "normal_platform_skips": 8,
+      "optimized_cases": 70,
+      "optimized_platform_skips": 8
+    },
+    "notes": "No Lean, Docker, scientific replay or hosted workflow dispatched. PR5123 restores targeted fixture closure without changing frozen pins; PR5129 rejects ambient PYTHONINSPECT false acceptance. Historical live-input drift remains unresolved and native Windows unrun. Research archives remain partially reviewed.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23j-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23j-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23k-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23k-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23j-tooling-tests.json",
+      "docs/research/pr-intake-evidence/queue-oct23jk-final-snapshot.json"
+    ],
+    "remaining_queue": {
+      "counts": {
+        "draft": 177,
+        "waiting_revision": 118,
+        "deferred_replay": 7
+      },
+      "open_count": 302,
+      "actionable_count": 0,
+      "observed_at": "2026-10-23T10:41:31.203416+00:00"
+    }
+  },
+  "bulk_intake_20261023_eighth_pass": {
+    "commit": "e0c2e09b9443f22bb9e3c76ab08d1224493040e3",
+    "decisions": 41,
+    "merged": 41,
+    "archive_count": 41,
+    "history_only": [
+      5140,
+      5147
+    ],
+    "reviewed_tooling_count": 0,
+    "new_revision_holds": [],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "scientific_replays": 0,
+    "checks": "554 changed paths inventoried; Python/JSON syntax and 432 available source-pin checks. Exact installed Git modes/blobs verified before publication. Per-decision invariants and ledger Markdown checked. No submitted scientific code, Lean or Docker executed.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23l-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23l-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23l-final-snapshot.json"
+    ],
+    "remaining_queue": {
+      "base": "e0c2e09b9443f22bb9e3c76ab08d1224493040e3",
+      "observed_at": "2026-10-23T11:56:54.500592+00:00",
+      "counts": {
+        "draft": 177,
+        "waiting_revision": 118,
+        "deferred_replay": 7
+      },
+      "open_count": 302,
+      "actionable_count": 0,
+      "remaining_actionable": 0
+    }
+  },
+  "bulk_intake_20261023_ninth_pass": {
+    "commits": [
+      "5a0e4b6c270124a86a6da02eb6133d2b5cd70233",
+      "40991fac20d22099114e58a9f93df00b39297fbd"
+    ],
+    "decisions": 49,
+    "merged": 49,
+    "archive_count": 48,
+    "reviewed_tooling_count": 1,
+    "new_revision_holds": [],
+    "actionable_remaining": 1,
+    "selected_frontier_changed": false,
+    "scientific_replays": 0,
+    "checks": "450 changed paths inventoried; Python/JSON syntax and 768 available source-pin checks. Installed Git modes/blobs verified. PR5185: 57 reader and 35 caller tests in each normal/optimized mode. Per-decision invariants and ledger Markdown checked. No scientific verifier, Lean or Docker executed.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23m-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23m-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23m-tooling-tests.json",
+      "docs/research/pr-intake-evidence/queue-oct23n-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23n-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23mn-final-snapshot.json"
+    ],
+    "remaining_queue": {
+      "base": "40991fac20d22099114e58a9f93df00b39297fbd",
+      "observed_at": "2026-10-23T13:11:16.372857+00:00",
+      "counts": {
+        "draft": 177,
+        "waiting_revision": 118,
+        "deferred_replay": 7,
+        "new": 1
+      },
+      "open_count": 303,
+      "actionable_count": 1,
+      "remaining_actionable": 0,
+      "selected": [
+        {
+          "number": 5235,
+          "head": "48976daa4dce59b4867ef046da72a370e389925d",
+          "title": "Add compact universal certificates for dirty linear circuits (no new \u03ba)",
+          "lane": "new",
+          "changes": [],
+          "reason": "No cached intake decision.",
+          "evidence": []
+        }
+      ]
+    },
+    "next_action": "PR5235 arrived during publication and remains new/actionable. Resume delta-only intake; do not rereview unchanged revision holds or deferred replays."
+  },
+  "bulk_intake_20261023_tenth_pass": {
+    "observed_at": "2026-10-23T18:38:01.799626+00:00",
+    "publication_commit": "3b785d5197a073ea3304f19587fd65f2b670928f",
+    "reviewed_heads": 93,
+    "merged": 91,
+    "new_revision_holds": [
+      5298,
+      5347
+    ],
+    "fresh_queue": {
+      "open_count": 304,
+      "actionable_count": 0,
+      "counts": {
+        "draft": 178,
+        "waiting_revision": 119,
+        "deferred_replay": 7
+      }
+    },
+    "evidence": "docs/research/pr-intake-evidence/queue-oct23o-20261023.json",
+    "closures": "docs/research/pr-intake-evidence/queue-oct23o-closures.json",
+    "scientific_scope": "90 source archives and one reviewed replay-planner optimization. Targeted PR4628 Python certificate replay passed; no Lean, Docker or full supplier replay. Selected kappa unchanged.",
+    "next": "No actionable routine intake. Dedicated scientific follow-up: PR5241 admission audit of Cao Yifan/intqwq PR4610 at kappa 0.0030217758; archive acceptance is not frontier admission. Existing seven deferred replays remain deferred.",
+    "live_processes": []
+  },
+  "selected_admission_20261023": {
+    "construction": 4610,
+    "independent_audit": 5241,
+    "kappa": "15108879/5000000000",
+    "evidence": "docs/research/pr-intake-evidence/pr4610/INTEGRATION.json",
+    "status": "Admitted conditional change; frozen foundation reused; no research campaign resumed.",
+    "next": "Resume delta-only PR intake at the next queue request. PR5241 scientific follow-up completed; do not repeat unchanged holds or historical suites."
+  },
+  "bulk_intake_20261023_eleventh_pass": {
+    "commits": [
+      "e36f78358ea8995b49050ffc399c900f1b674ee5",
+      "15ec75e15661cb7374fbf496e65500d03b9bd58c"
+    ],
+    "reviewed_heads": 61,
+    "merged": 60,
+    "archive_count": 53,
+    "reviewed_tooling": [
+      5357,
+      5358,
+      5359,
+      5378,
+      5389,
+      5397,
+      5410
+    ],
+    "new_revision_holds": [
+      5386
+    ],
+    "selected_frontier_changed": false,
+    "selected_kappa": "15108879/5000000000",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23p-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23p-tooling-tests.json",
+      "docs/research/pr-intake-evidence/queue-oct23p-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23q-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23q-closures.json"
+    ],
+    "fresh_queue": {
+      "base": "15ec75e15661cb7374fbf496e65500d03b9bd58c",
+      "observed_at": "2026-10-24T02:56:52.219773+00:00",
+      "counts": {
+        "draft": 178,
+        "waiting_revision": 120,
+        "deferred_replay": 7
+      },
+      "open_count": 305,
+      "actionable_count": 0
+    },
+    "next": "Routine actionable intake is empty. Dedicated scientific next step: review Ali Romman PR5398 direct backward caller via Chris R/Clear1nsight PR5400, and its owned-relation predecessors PR5377/5383, Dugongue compiler refinements PR5387/5390. Distinct coupled completion PR5413 and audit PR5414 claim 0.003027288235, only 5e-12 above PR5398; preserve construction/audit credit and independent source-applicability review. All remain source archives, not selected suppliers. Do not repeat unchanged holds or deferred replays.",
+    "validation_scope": "150 normal and 60 optimized tooling tests (4 platform skips in each mode); 99 mathematical AST-equivalence and package metadata/source checks; normal/optimized historical #1094 control under 1 GiB /180s guards. No full supplier replay, Lean, Docker or hosted workflow; initial sparse-fixture and macOS cleanup failures retained.",
+    "live_processes": []
+  },
+  "bulk_intake_20261025_completed": {
+    "commits": [
+      "d99b37998150aa3719496e2a1d6287bc88c48249",
+      "19bba71d576191a1b39f8f512461b4bd3572d477"
+    ],
+    "decisions": 106,
+    "merged": 104,
+    "archive_count": 100,
+    "reviewed_tooling_count": 4,
+    "revision_holds": [
+      5298,
+      5440
+    ],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "scientific_replays": 0,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct25a-20261025.json",
+      "docs/research/pr-intake-evidence/queue-oct25b-20261025.json",
+      "docs/research/pr-intake-evidence/queue-oct25a-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct25b-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct25-final-snapshot.json"
+    ],
+    "remaining_queue": {
+      "base": "19bba71d576191a1b39f8f512461b4bd3572d477",
+      "observed_at": "2026-10-25T14:19:34.309538+00:00",
+      "counts": {
+        "draft": 178,
+        "waiting_revision": 121,
+        "deferred_replay": 7
+      },
+      "open_count": 306,
+      "actionable_count": 0,
+      "remaining_actionable": 0,
+      "selected": []
+    }
+  },
+  "bulk_intake_20261025_second_pass": {
+    "commits": [
+      "129a0465b7459a9c673ccc2da8533b496913b932"
+    ],
+    "decisions": 10,
+    "merged": 8,
+    "archive_count": 7,
+    "reviewed_tooling_count": 1,
+    "revision_holds": [
+      5553,
+      5561
+    ],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "scientific_replays": 0,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct25c-20261025.json",
+      "docs/research/pr-intake-evidence/queue-oct25c-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct25c-final-snapshot.json"
+    ],
+    "remaining_queue": {
+      "base": "129a0465b7459a9c673ccc2da8533b496913b932",
+      "observed_at": "2026-10-25T17:06:06.353681+00:00",
+      "counts": {
+        "draft": 178,
+        "waiting_revision": 123,
+        "deferred_replay": 7
+      },
+      "open_count": 308,
+      "actionable_count": 0,
+      "remaining_actionable": 0,
+      "selected": []
     }
   }
 }

@@ -1,0 +1,16 @@
+{
+  "status": "INCOMPLETE_RESOURCE_TIMEOUT",
+  "command": "/opt/local/bin/python3.12 -B research/crt-current-row-query/verify.py --four-axis --write-result",
+  "elapsed_limit_seconds": 180,
+  "exit_code": 1,
+  "completed_receipt": false,
+  "join_sha256": "bcae8074a67fe74ee9979a4608452de6e2decbe7023671624573f362f3caefe5",
+  "verify_sha256": "e0ba8c478eb5054e7f83be1840c42f99472e012e67cc2edf527c84589f80e9bf",
+  "case": "moduli5,7,11,13 widths3,3,4,4 current1,5,0,9 level2 row0 P15; two h4 complete producers",
+  "observation": "No completed producer/query result was emitted before the subprocess timeout killed the child. No progress count or passing h4 result is claimed.",
+  "subsequent_repairs": [
+    "Replace linear active tuple membership with the equivalent constant-time compiled width/node/row predicate.",
+    "Replace fixed2e9 watchdog with the proved T_rom bound computed from compiled P and h."
+  ],
+  "evidence_scope": "The final implementation is tested on the complete h2 actual pipeline. This timeout is not acceptance evidence for either version."
+}

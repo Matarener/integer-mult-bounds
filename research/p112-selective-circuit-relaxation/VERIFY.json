@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/p112-rational-decoder-gate/CANDIDATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact fixed dictionary: all192 marked requests, all512 augmented subset ranks, unchanged coordinate support, sole query-only relaxation; authenticated canonical I334/full-group invoices and local I18; immutable receipt. General lemma is a written proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent integer determinant ranks and explicit F4 span sets for all192 requests and512 augmented subsets; no producer import."
+    }
+  ]
+}

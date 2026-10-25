@@ -1,0 +1,116 @@
+{
+  "status": "PASS_SCOPED_AUDIT_VALIDATION",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "audited_head": "91f81d131252db704f945891da1ea54e29d46b8b",
+  "code_sha256": {
+    "fetch_sources.py": "02207bf5e280936e66f18a7bd6c28d0f4f39be46b95afd39fd3058408b17ddee",
+    "verify.py": "f0d685dcb95d3a24bf535946fd67d6af743db02000c2d630c76300feba5dc751"
+  },
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/staged544-terminal-owner-bridge-audit"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.09958932399968,
+      "coverage": "Both local providers and controls only; owner replay explicitly excluded"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/staged544-terminal-owner-bridge-audit/verify.py",
+        "--source-root",
+        "FRESH_FETCHED_INPUT_DIRECTORY"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 62.03305762200034,
+      "coverage": "Full local-to-owner bridge, all roles/bins and17 mathematical rejection controls; compares exact retained RESULT.json"
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "-B",
+        "research/staged544-terminal-owner-bridge-audit/verify.py",
+        "--source-root",
+        "FRESH_FETCHED_INPUT_DIRECTORY"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 50.445620321002934,
+      "coverage": "Full local-to-owner bridge, all roles/bins and17 mathematical rejection controls; compares exact retained RESULT.json"
+    }
+  ],
+  "cold_input_fetch": {
+    "status": "PASS_FETCHED_EXACT_IMMUTABLE_INPUTS",
+    "head": "91f81d131252db704f945891da1ea54e29d46b8b",
+    "files": [
+      "owner/FILL.json.gz",
+      "owner/PROFILE.json",
+      "owner/inputs/DISPATCH.json",
+      "owner/inputs/ORDER.json",
+      "owner/inputs/PLAN.json.gz",
+      "owner/inputs/TEMPLATE.json.gz",
+      "owner/inputs/WORD-base.json.gz",
+      "owner/inputs/WORD-extra.json.gz",
+      "owner/inputs/old-FILL.json.gz",
+      "owner/inputs/old-PROFILE.json",
+      "owner/inputs/old-WORD-base.json.gz",
+      "owner/inputs/old-WORD-extra.json.gz"
+    ],
+    "bytes": 15043881,
+    "manifest_sha256": "97397b129203566ce58fb230a7e0e451be26bfbfa9c02d42d18a5439e7782938",
+    "scope": "Byte acquisition only; run verify.py --source-root for mathematical audit."
+  },
+  "input_preservation": {
+    "status": "PASS",
+    "files_checked": 13,
+    "coverage": "All12 external immutable inputs plus fetch receipt unchanged across normal/optimized full audits"
+  },
+  "extra_binding_controls": {
+    "status": "PASS",
+    "production_cli_rejections": [
+      {
+        "mutation": "source",
+        "optimized": false,
+        "exit_code": 1,
+        "specific_rejection": "source bytes owner/inputs/old-WORD-base.json.gz"
+      },
+      {
+        "mutation": "receipt",
+        "optimized": false,
+        "exit_code": 1,
+        "specific_rejection": "fresh result differs from retained receipt"
+      },
+      {
+        "mutation": "source",
+        "optimized": true,
+        "exit_code": 1,
+        "specific_rejection": "source bytes owner/inputs/old-WORD-base.json.gz"
+      },
+      {
+        "mutation": "receipt",
+        "optimized": true,
+        "exit_code": 1,
+        "specific_rejection": "fresh result differs from retained receipt"
+      }
+    ]
+  },
+  "initial_development_notes": [
+    "Initial checker implementation assumed five fields for cleanup warp; pinned cleanup syntax uses four. Implementation corrected before all recorded final checks. No predecessor mismatch was inferred.",
+    "Initial metadata used an unsupported outcome label; corrected to completed before registered validation."
+  ],
+  "unrun": [
+    "fresh native phase replay",
+    "ordinary/outer full source release",
+    "new root isolation",
+    "uniform compiler/hosting/precision/tape/recovery/analytic/BIT obligations"
+  ],
+  "publication_checks": "Exact GitHub-authored commit byte/history checks are reported separately after commit; this file does not preclaim a publication receipt."
+}

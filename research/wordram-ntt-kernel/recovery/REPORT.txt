@@ -1,0 +1,70 @@
+Certified shared-butterfly and strict-recovery application
+
+Scope. This contribution supplies a concrete integer-only fixed-point complex FFT backend for multiplying two base-16 digit vectors of length at most 256. The transform length is 512. It applies the fixed-syntax sharing discipline of FastPoly and the strict lattice-recovery endpoint of mpfx. Its universal correctness argument is the elementary proof below; its executable evidence uses Python integers and exact Fractions. It does not import, port or kernel-check the upstream libraries. It is an optional approximate backend alongside the release's exact NTT backend, not a claimed advantage over exact modular arithmetic or a new kappa.
+
+1. Fixed syntax and shared product.
+
+For every commutative ring, B_w(u,v)=(u+w v,u-w v). Evaluate t=w v once, then emit u+t and u-t. This is one multiplication and two add/subtract operations when w is an input; evaluating the two output expressions independently repeats the product. This is exactly the distinction between Circuit.bind and two independently expanded Circuit.mul expressions. The fixed circuit is chosen before its input environment, matching MultiplicationProgram.RealizesFamily's quantifier order.
+
+Important accounting qualification: FastPoly.Circuit.scale charges zero nonscalar multiplications when w is a scalar constant. Our transform counts every executed complex twiddle multiplication, including constant and identity twiddles. Therefore its literal counts are executable complex-arithmetic counts, not FastPoly nonscalar-rank counts, machine instructions, or project rank-moment savings. Identity and other special twiddles have deliberately not been optimized out.
+
+For N=2^L, each transform uses L N/2 shared complex products, and two forward transforms, a pointwise product and one inverse use 3 L N/2+N. For N=512, L=9 this is 7,424 complex products and 6,912 butterflies, versus 14,336 complex products when each butterfly output recomputes its product. Each complex product is concretely four integer products, two integer add/subtractions and two nearest-scaled divisions. All loop, address, permutation, division and storage costs still require a separate machine refinement.
+
+2. Exact transform semantics.
+
+Let zeta=exp(-2 pi i/N). The forward transform is A_j=sum_t a_t zeta^(jt); the inverse has positive sign and divides by N. For any integer k, sum_j zeta^(jk) is N when N divides k and zero otherwise: the latter follows by multiplying the finite geometric sum by 1-zeta^k, which is nonzero. Consequently inverse(DFT(a) DFT(b))_k=sum_{r+s congruent k mod N} a_r b_s.
+
+Zero-pad operands of lengths at most N/2. Their largest nonzero linear-convolution index is N-2, so no nonzero term wraps. The inverse output is exactly c_k=sum_{r+s=k} a_r b_s, an integer in [0,225 N/2]. For N=512 this is at most 57,600. Evaluation at 16 gives sum_k c_k 16^k=(sum_r a_r 16^r)(sum_s b_s 16^s), by finite distributivity. Ordinary base-16 carry normalization, if required, preserves this value using t=16 floor(t/16)+(t mod 16).
+
+The implementation's initial bit reversal and iterative blocks realize this transform. More explicitly, after stage s, each consecutive block b of length m=2^s is the length-m DFT of a[r+t N/m], where r is the bit reversal of b in L-s bits. At s=0 this is the initial permutation. The next stage combines the even and odd t subsequences and uses zeta_N^(j N/(2m)), giving the standard two butterfly outputs. This proves the invariant inductively, and the full block at s=L is the stated DFT. Conjugating every twiddle gives the unnormalized inverse.
+
+3. A complete sufficient rounding theorem.
+
+Use Q=2^b and store complex values as integer pairs divided by Q. Input digits are exactly represented. Addition/subtraction is exact integer arithmetic. A complex multiplication first computes its two integer component numerators exactly and rounds each divided-by-Q numerator to the nearest integer. Each component error is at most 1/(2Q), so its Euclidean error is at most 1/Q. Ties are rounded toward positive infinity, but the theorem below is independent of this choice at final recovery.
+
+Assume each stored twiddle differs from its exact unit complex root by at most W in Euclidean norm. Let delta=1/Q. Suppose all exact inputs to a butterfly stage have magnitude at most M, and their approximations have error at most E. Write the exact lower product w v and computed product round(w_tilde v_tilde). By the triangle inequality,
+
+|round(w_tilde v_tilde)-w v|
+ <= delta + |w_tilde| |v_tilde-v| + |w_tilde-w| |v|
+ <= delta + (1+W) E + W M.
+
+Adding either signed product to u_tilde contributes at most one further E and no new rounding. Thus every output error is at most
+
+E_next=(2+W) E + W M + delta,
+
+and every exact output magnitude is at most M_next=2 M. This recurrence includes errors in the twiddle and product, including their interaction W E; it does not treat approximate twiddles as exact.
+
+Initialize M=15, E=0 and iterate L stages for each forward transform. The exact pointwise products have magnitude at most M^2. Their computed errors satisfy
+
+E_product <= 2 M E + E^2 + delta,
+
+by expansion (A+e)(B+f)-AB=A f+B e+e f. Initialize the same L-stage inverse recurrence at M^2,E_product. Exact normalization by division by N leaves coefficient error at most E_inverse/N. The implementation keeps this normalization rational until the final integer rounding; it does not incur a hidden intermediate fixed-format rounding.
+
+If E_inverse/N<1/2, every recovered coefficient is exactly c_k. Indeed x-c_k in (-1/2,1/2) implies c_k<=x+1/2<c_k+1 and hence floor(x+1/2)=c_k. Integer lattice membership is essential. Equality at 1/2 is insufficient: x=1/2 and intended coefficient zero gives floor(x+1/2)=1. These controls are executable and the strict endpoint is separately formalized in IntegerKernelRecovery20261024.lean.
+
+4. Twiddle certificates are generated, not assumed.
+
+Machin's identity pi=16 atan(1/5)-4 atan(1/239), together with the alternating arctangent series, encloses pi between two rational endpoints after 100 terms. The verifier takes a 96-bit dyadic midpoint and includes its distance to both endpoints. Angles are reflected to [0,pi/2]. It evaluates the cosine degree-30 and sine degree-31 Taylor polynomials over rational arguments. Taylor's theorem, using derivative magnitude at most one, bounds their remainders by |x|^31/31! and |x|^32/32!, respectively. The angle perturbation is added using |sin x-sin y|<=|x-y| and |cos x-cos y|<=|x-y|. Reflection changes only the cosine sign; the forward sine has negative sign.
+
+For each coordinate the checker proves, with Fractions, that the distance between the chosen dyadic and the polynomial plus the remainder and angle bounds is STRICTLY below 1/(2Q). Exact roots 1 and -i are handled directly. Thus each complex twiddle error is below 1/Q, justifying W=delta. No binary floating point, empirical root-quality assumption, or trusted external transcendental evaluator enters these checks. Machin's formula, the alternating-series theorem, elementary trigonometric identities and Taylor's theorem are the ordinary mathematical premises of this paper proof; their proofs have not been replayed in Lean here.
+
+5. Instantiated all-input result and executable checks.
+
+For every pair of nonnegative base-16 digit vectors of length at most 256, the stated fixed-point FFT with N=512, Q=2^40, the certified twiddle table and exact unbounded integer intermediate arithmetic recovers their complete linear convolution and product exactly. The rational recurrence proves E_inverse/N<1/1000<1/2 (approximately 0.000731335, given only as a readable illustration). The smallest precision satisfying this particular conservative recurrence is 31 bits; its bound is approximately 0.374444<1/2. This is not a lower bound or an optimal precision claim.
+
+The 40-bit run checks all-zero, all-15, both endpoint placements, alternating digits and 12 deterministic random input pairs and three signed-digit input pairs: 20 pairs total. Every recovered coefficient is independently compared with schoolbook convolution, and the packed product is compared with Python's integer multiplication. These finite controls corroborate the implementation and do not replace the universal argument above.
+
+The implementation uses Python unbounded integer arithmetic. Its fixed-point product numerators can exceed 64 bits, so this backend is NOT a 64-bit unit-cost Word RAM certificate. A carry/split implementation or charged multiword multiplication refinement is needed before comparing its machine costs. The exact NTT backend avoids these approximate-arithmetic costs and has a separate residue reconstruction theorem.
+
+Reproduce:
+  python fixedpoint_fft.py --n 512 --bits 40 --cases 12 --output verification.json
+
+Predecessor credit.
+- bksaiki/mpfx-lean, revision 8bd80452927ae9234fc378c07a00f2962e1e5b6f, Mpfx/Rounding/Ulp.lean, nearest_eq_of_close (line 198 in this snapshot) and nearest_eq_of_close' (line 229): strict closeness plus lattice alignment implies exact nearest rounding. We specialize the endpoint to integer coefficients; we do not claim the idea is novel.
+- thomasahle/fast-polynomials, revision 09a36b0e7a6c153462bd43b91d4a3bb7ac886bef, FastPoly/Cost/Circuit.lean: Circuit.bind/let1 implements genuine sharing; Circuit.gates computes syntax costs. MultiplicationProgram.lean: RealizesFamily fixes syntax before the environment. We apply this discipline to a butterfly and explicitly retain its differing scalar-cost convention.
+- The DFT convolution identity, radix-2 Cooley-Tukey decomposition, Machin identity, Taylor bounds and strict-half integer recovery are classical. This contribution is a scoped combination and reproducible bounded kernel, with no broad novelty or project-best-kappa claim.
+
+Signed extension. The entire error proof only uses absolute digit bounds. Therefore it also proves exact coefficient and integer-product recovery for signed digits in [-15,15], with coefficient absolute value at most 57,600. The verifier includes all-negative, alternating-sign and random signed operands. Base-16 normalization of a negative overall integer requires an explicit sign representation; packed integer equality already holds without that choice.
+
+Lean evidence. The corrected local helper in ../lean/IntegerKernelRecovery20261024.lean passed a fresh independent Lean 4.33.0 kernel and transitive-axiom audit. The four helpers use only the standard approved axioms; exact names, source SHA-256 and dependencies are recorded in ../lean/STATUS.json. This verifies only the local recovery/algebra endpoints, not the complete FFT or RAM program.
+

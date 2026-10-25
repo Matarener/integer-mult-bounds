@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gaussian-origin-two-power-c2/README.md",
+    "research/gaussian-origin-two-power-c2/verify.py",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/INVERSE-CONDITIONING.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Pinned notes, the inherited section majorant, and the degree-10 Taylor comparison with 2^{-57}."
+    }
+  ]
+}

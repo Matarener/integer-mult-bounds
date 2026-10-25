@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/children.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/controller.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/matrices.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/plan.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/records.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/words.py",
+    "research/selected-bit-physical-caller/macro_binding.py",
+    "research/selected-bit-physical-caller/macro_machine.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/low_codes.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact legacy/adapted producer bills, bytes, predicates, cleanup, visited backing and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same scientific checks under optimized Python."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_export.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Actual Git-free optimized positive plus every declared source mutation and receipt corruption reject."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "assumptions": [
+    "Integer L>=3; parent arity m=1+7L; three unchanged R438 seed calls occur.",
+    "Full candidate invoice has deficit D=mW-sum(c_r*r)<=33 after every cost is included.",
+    "Every child rank r is at most m, so omitted pressure terms are nonnegative.",
+    "The desired primitive supplier exponent a is at least1/500."
+  ],
+  "deficit_upper": 33,
+  "necessary_condition": "For normalized moment sum(c_r/W)*(r/m)^(1-a)<1, pressure sum(c_r*r*((m/r)^a-1)) must be less than D.",
+  "negative_controls": [
+    "omit one seed",
+    "relax max child rank7 to8",
+    "increase available deficit33 to35"
+  ],
+  "not_claimed": [
+    "universal BIT upper bound",
+    "independent replay of R438 native word",
+    "complete new-star owner allocation",
+    "new valid kappa"
+  ],
+  "one_seed_rank_mass": 5121,
+  "outer_transfer": "Tests primitive a=.002 directly. It does not assume kappa=a/(1+a) is the only available outer theorem. Both direct-target and retained-transfer routes to kappa>=.002 require a>=.002.",
+  "pressure_strict_lower": "21108762/609725",
+  "profile_source": "/Users/ross/git/math/integer-mult-bounds/research/bit-r438-transport-rehost/verify_rehost.py",
+  "profile_source_sha256": "4774841de10a8386204519174c5e56eb14f5852b20058db38a65a1034eeba275",
+  "proof": "Keep only three seeds. For each r<=7 and m>=22, (m/r)^a-1 >= a*ln(m/r) >= (1/500)*ln(22/7). Use ln(22/7)>2*(15/29+(15/29)^3/3). All inequalities are monotone for a>=1/500.",
+  "scientific_pin": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "scope": "Any completed invoice retaining these assumptions is rejected, irrespective of native or owner admission. The source-bound ideal D33 comes from N111:2*N-3*63. Added missing costs only strengthen rejection; a different seed, common coverage, rank profile or deficit is outside this theorem.",
+  "seed_profile": {
+    "1": 1322,
+    "2": 1342,
+    "3": 79,
+    "4": 44,
+    "5": 102,
+    "6": 11,
+    "7": 18
+  },
+  "seed_word_sha256": "a353999bceac4ac957f540adfd3e5f8768297138b27132eeb83332e2ea4b1022",
+  "status": "PASS_ALL_L_FIXED_THREE_SEED_STAR_REJECTION",
+  "strict_excess": "987837/609725"
+}

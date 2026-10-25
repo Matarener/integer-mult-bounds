@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-k492-audit/pr622/replay/baseline558/complex-global/base/work/complex-nine-native/DATA-PHASES.json",
+    "research/complex-k492-owner-repair/vendor/multicold/vendor/pr558/vendor/pr552/complex-global/vendor535/inputs/ROUND20-PARENT-TEMPLATE.json.gz",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/complex-t16-two-stage-cycles/data/OWNERS.json.gz",
+    "research/t16-owner-audit-seed67/SOURCES.json",
+    "research/t16-owner-audit-seed67/inputs/k8-seven-slot-word.json.gz",
+    "research/t16-owner-audit-seed67/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete source-bound owner reconstruction/audit, all relaxed edges and47 exact integer hinge potentials; complete typed RESULT equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Six behavioral groups: uncompressed hinge oracle; certificate/source/owner failure controls; exact concurrent five-role boundary."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same controls with assertions disabled."
+    }
+  ]
+}

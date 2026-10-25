@@ -1,0 +1,87 @@
+{
+  "status": "passed-scoped-replay-independent-AI-CONCLUDE-YES",
+  "scientific_commit": "bdbda8c442c734fe5a1dadafab6005f6ae08bf50",
+  "checked_utc": "2026-10-18T15:06:58.886627+00:00",
+  "python": "3.12.8 (main, Dec  7 2024, 10:11:37) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "commands": [
+    {
+      "argv": [
+        "python3.12",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/selective-p112-codelivery/verify.py"
+      ],
+      "result": "PASS"
+    },
+    {
+      "argv": [
+        "python3.12",
+        "scripts/research_package.py",
+        "--package",
+        "research/selective-p112-codelivery",
+        "--check-only"
+      ],
+      "result": "PASS_PACKAGE_METADATA_AND_PINS"
+    },
+    {
+      "argv": [
+        "python3.12",
+        "scripts/research_package.py",
+        "--package",
+        "research/selective-p112-codelivery"
+      ],
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE"
+    }
+  ],
+  "exported_checks": [
+    {
+      "command": "python3.12 -I -O -Werror -B exported/package/verify.py",
+      "returncode": 0,
+      "seconds": 2.8089294169913046
+    },
+    {
+      "control": "corrupt retained co-delivery source result",
+      "rejected": true
+    }
+  ],
+  "scope": [
+    "12,544 selected label pairings and 112 mixed source columns",
+    "All 14 original correction-support counts and augmented rank profiles",
+    "First cheap block: 25 independent dirty scalar columns and scratch restoration",
+    "Four cheap blocks: 704 ordinary normalized forward columns, common frames, final frames, all private restoration",
+    "Wrong scatter, omitted dirty entrance, omitted centre correction and retained source corruption rejection",
+    "Exact hypothetical one/two-unpaid interval screens"
+  ],
+  "unrun": [
+    "Native augmented COPY and recursive source acquisition",
+    "Unchanged native kernel/compiler recertification",
+    "Rounded precision/magnitude, storage and whole-call hosting",
+    "Changed complex and bit coverage laws, two-unpaid proof, complete global/outer invoice",
+    "Selected cold replay, Lean, Docker"
+  ],
+  "compute": "Bounded standard-library scalar/matrix arithmetic only; no heavy native/global replay or artifact regeneration.",
+  "review": {
+    "agent": "/root/astra_review",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium",
+    "fork_turns": "none",
+    "reviewed_commit": "bdbda8c442c734fe5a1dadafab6005f6ae08bf50",
+    "verdict": "CONCLUDE: YES",
+    "nonblocking_correction": "Eight centre roles describe the scalar model, with only two actively updated; not a resource minimum. Applied to README and output receipt."
+  },
+  "publication_packaging": {
+    "checked_utc": "2026-10-18T15:27:21.958229+00:00",
+    "source_pin_reorganization": "All retained source commit/blob/hash rows and archive pins compare equal to the Astra-reviewed handoff; only inventory placement changed.",
+    "RESULT_unchanged_from_reviewed_handoff": true,
+    "registered_replay": "PASS",
+    "isolated_git_checkout_validation": {
+      "result": "PASS",
+      "isolation": "Fresh Git repository with only the package, runner, and exact canonical-base provenance objects; foreign PR commits absent.",
+      "generic_registered_replay": "PASS",
+      "base_provenance_object_count": 10
+    }
+  }
+}

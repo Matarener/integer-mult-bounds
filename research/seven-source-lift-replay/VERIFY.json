@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/seven-source-lift-replay/source/PR4207-CENSUS.json.txt",
+    "research/seven-source-lift-replay/source/PR4207-README.md.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All51975 five-source set partitions; literal intervals versus prefix pairs; frozen complete histogram."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All51975 five-source set partitions; literal intervals versus prefix pairs; frozen complete histogram."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated actual native receipt plus all8576 literal six-source words/17152 projections and copied-receipt controls; does not run C++."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated actual native receipt plus all8576 literal six-source words/17152 projections and copied-receipt controls; does not run C++."
+    }
+  ]
+}

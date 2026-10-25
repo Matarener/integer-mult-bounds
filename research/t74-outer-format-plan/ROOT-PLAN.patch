@@ -1,0 +1,39 @@
+--- a/root_plan.py
++++ b/root_plan.py
+@@ -98,11 +98,17 @@
+ 
+ 
+ class RootPlan:
+-    def __init__(self, dimension, maximum_rank, level_divisor, guard_exponent=210000):
++    def __init__(self, dimension, maximum_rank, level_divisor, guard_exponent=210000,
++                 dimension_exponent=(997, 1000)):
+         need(type(dimension) is int and 2 <= dimension <= 73 and
+              type(maximum_rank) is int and 0 < maximum_rank < dimension and
+              type(level_divisor) is int and level_divisor > 1 and
+              type(guard_exponent) is int and guard_exponent >= 0, "fixed root construction constants")
++        need(type(dimension_exponent) is tuple and len(dimension_exponent) == 2 and
++             all(type(v) is int for v in dimension_exponent) and
++             0 < dimension_exponent[0] <= dimension_exponent[1] <= 1000,
++             "fixed root dimension exponent")
++        self.dimension_exponent = dimension_exponent
+         self.dimension, self.maximum_rank, self.level_divisor = dimension, maximum_rank, level_divisor
+         self.guard_exponent = guard_exponent
+         self.roles = {name: Tape() for name in FIELDS}
+@@ -168,7 +174,7 @@
+                 need(compare(precision, two) >= 0, "root precision at least two")
+                 positive(coefficients)
+                 positive(outer_rows)
+-                d = save("d", keep(floor_power(precision, 997, 1000)))
++                d = save("d", keep(floor_power(precision, *self.dimension_exponent)))
+                 need(compare(selected, d) <= 0, "selected width within root domain")
+                 K = save("K", keep(floor_power(d, 1, 500)))
+                 need(compare(residue, K) < 0, "selected root residue")
+@@ -193,7 +199,7 @@
+                     save("core_back", plus(keep(subtract(times(qB, K), H)), right))
+                     row_axes = times(q0, K)
+                     original_rows = save("original_rows", keep(power_two(row_axes)))
+-                    prefix_count = save("prefixes", times(outer_rows, keep(power_two(left))))
++                    save("prefixes", times(outer_rows, keep(power_two(left))))
+                     stock = literal(1)
+                     repetitions = keep(Counter(depth))
+                     while not repetitions.finished:

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the length-9 width-2 arc {0,1,2}, can one positive interior entry zero both directions of a far touching pair?",
+  "scope_change_reason": "A two-vertex pivot misses one adjugate column, so one entry cannot zero both directions. The named next step is one off-diagonal parameter on the arc {0,1,2}.",
+  "bottleneck_link": "The periodic caller reuses a width count after elimination. One path entry equal to 17/8 removes both directions of one distance-4 pair, but another far pair keeps the bandwidth at 4, and the row gap exceeds 1.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once every entry of this three-vertex pivot is solved. Do not start a longer arc or a boundary-order Gaussian elimination.",
+  "outcome": "partial",
+  "evidence": "research/length9-three-vertex-entry shows that both far numerators of pair (4,8) equal (x-17/8)/512. At x=17/8 the determinant is 81/64, both directions vanish, and the bandwidth stays 4.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the cofactor identities, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "After survivors are placed in boundary order, does one Gaussian interior elimination have bandwidth O(W)?",
+      "why_it_matters": "GAUSSIAN.md claims a bandwidth after reordering. These complements stay on the original circle.",
+      "first_step": "Pin one interior block and the stated boundary order, then measure the Schur bandwidth against W.",
+      "blocked_by": "No boundary-order elimination is computed in this package."
+    },
+    {
+      "question": "Does some longer arc have a positive common far-rim root that keeps the row gap below 1?",
+      "why_it_matters": "The three-vertex root 17/8 removes both directions of one far pair, but the Neumann hypothesis rho < 1 fails there.",
+      "first_step": "On the length-9 width-2 arc {0,1,2,3}, solve both far-rim numerators in one path entry and compare the root with the row-gap bound.",
+      "blocked_by": "Only the three-vertex arc is solved here."
+    }
+  ]
+}

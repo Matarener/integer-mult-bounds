@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For every width n from 3 through 2^20, the FFT geometry satisfies r beta < 8n, ell+1 <= 2 beta and p0 <= 4 beta, and the three invoice terms stay within 256, 512 and 64 times n beta^2.",
+  "scope_change_reason": "The absorption package bounded the logarithm. This package checks the geometry constants that feed that logarithm. It does not run the word multiplier.",
+  "bottleneck_link": "The three invoice terms stay inside the stated multiples, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record these constants. Do not run the word multiplier.",
+  "outcome": "partial",
+  "evidence": "All 1,048,574 widths from 3 through 1,048,576 obey the three comparisons, and the products of the stated factors are 256, 512 and 64.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "Every width through 2^20 meets the three comparisons, and the constant products are exact. A word-multiplier replay would leave this package."
+}

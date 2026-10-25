@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "scope_change_reason": "The catalogue card asks whether a larger or nonabelian register model escapes the scoped three-register obstruction. This package proves a different identity: every diagonal over every F2-algebra has exact minimum t when right vectors are F2-valued. The three-register rational model and the chain-ring hypothesis are not the alphabets under test.",
+  "actual_scope": "Exact diagonal minimum for I+u y^T with y in F2^n over an arbitrary F2-algebra, plus the finite-group label corollary and a ring-valued right-vector sharpness witness.",
+  "bottleneck_link": "A legal diagonal shorter than t would be a new bit primitive in every group algebra. The F2-span bound shows this alphabet does not supply one; kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Prove the F2-column bound and the coordinate construction, separate it from the chain-ring and torsion-free notes on the pin, check the sharpness witness with a second multiplier, exhaust the Klein and S3 controls, then stop.",
+  "outcome": "completed",
+  "evidence": "PROOF.md is the uniform argument. verify.py compares two Klein multiplications, exhausts 1049600 Klein words and 19740 S3 words, and checks the ring-valued witness. RESULT.json is compared, not regenerated, by the default command.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for the column argument, independent finite checks, and package metadata.",
+  "open_questions": [
+    {
+      "question": "Do free GL_n(F2) changes of basis between paid factors realize a diagonal with fewer than t factors?",
+      "why_it_matters": "The column argument evaluates P-I on the standard basis. A free basis change can move the endpoint out of that coordinate frame.",
+      "first_step": "Enumerate n=2 with every change of basis and a single paid factor, and record whether any diagonal with t=2 appears.",
+      "blocked_by": "No invariant for the conjugated endpoint is proved here. Do not replace that step with an order-at-most-16 group-label search."
+    },
+    {
+      "question": "What native frame, hosting, and precision bill does one legal coordinate word pay?",
+      "why_it_matters": "The exact call count is not a supplier invoice, so it does not move a physical tariff.",
+      "first_step": "Price one coordinate word on an existing supplier meter without changing the alphabet.",
+      "blocked_by": "This note has no physical schedule and does not change kappa."
+    }
+  ],
+  "selection_seed": "pin-search-bb4bccbf-f2-right-vector-diagonal",
+  "overlap": {
+    "pin": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+    "closest_on_pin": "research/bit-cyclic-root-barrier",
+    "not_a_corollary_because": "The chain-ring product theorem assumes R=F2[z]/(z^q) and R-valued right vectors. Its own Klein socle witness shows the column lemma fails off that hypothesis, and the displayed ring-valued outer product realizes t=2 in one factor. The F2-valued count is the complementary statement."
+  }
+}

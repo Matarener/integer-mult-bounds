@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "PASS_UNIVERSAL_GAUSSIAN_BACKEND_WIDTH_AUDIT",
+  "audited_at_utc": "2026-10-20T18:22:40.658267+00:00",
+  "source_head": "66b95cc916552f487203be14fd99a7aea0bdd78e",
+  "proposition": "For every nonnegative rational f and integer J>=16, actual Gaussian.exponential(f,J) terminates mathematically, encloses exp(-pi*f) and has width<=512J^2*2^-J.",
+  "corollaries": [
+    "J=2p+32, p>=1 gives width<=2^-p; actual inward quantization gives coefficient error<=2^-(p-1).",
+    "a=ceil(2/c), JQ=2a+36 gives positive conditioning lower endpoint L>=3/4 exp(-pi/(4c)) and N/exp(-pi/(4c))<=N/L<=4/3 N/exp(-pi/(4c))."
+  ],
+  "method": "Independent written derivation against every actual source branch/loop and exact integer floor/ceiling semantics, including termination and clipping. No scientific sweep or third oracle constructed; source proof was read for the proposition, not accepted as evidence of correctness.",
+  "source_files": [
+    {
+      "path": "intervals.py",
+      "bytes": 6859,
+      "sha256": "159d2a7d32a8cc7c8f56632a8ef127308b984a0a6753c9d6bdccacc6e7d6d4df",
+      "git_blob": "91d458865aa026bdf0d59653a4ecbfe3a178ecbc"
+    },
+    {
+      "path": "gaussian.py",
+      "bytes": 13379,
+      "sha256": "08155357fd39b5fd7959f51f1d205b6511b8577b51520d793c89f92368b399ab",
+      "git_blob": "52ad2e1d605f5f7d669234567c25bc087306dd44"
+    },
+    {
+      "path": "GAUSSIAN-PROOF.md",
+      "bytes": 11527,
+      "sha256": "9e6c567704bedcbd6f394ad736a874f918ef72444f49b65515aec32c0a1ed88e",
+      "git_blob": "b7c9cad252943d519cb5ed4318c163798b9865a7"
+    },
+    {
+      "path": "INTERVAL-PROOF.md",
+      "bytes": 16504,
+      "sha256": "65480dd23fb1aae314365aeea4aacbc146e160e5c8a7a4ac4f602f22ae4581de",
+      "git_blob": "9dace009004a4336d6ce57764c255190fbf87e64"
+    },
+    {
+      "path": "INTERVAL-NOTICE.md",
+      "bytes": 2170,
+      "sha256": "10acae9e78402ca70c6afd0e8d6da8fefc0da519c646cf43d93f923aba85b86d",
+      "git_blob": "5e3269b5afe5e11f044ffae45216c4731b42c7af"
+    }
+  ],
+  "source_lines": {
+    "interval_primitives": "intervals.py16-18,35-79",
+    "Machin_pi": "intervals.py96-111",
+    "large_exponent_branch": "intervals.py114-120",
+    "range_reduction": "intervals.py121-124",
+    "positive_Taylor_tail": "intervals.py125-137",
+    "reciprocal_squaring_clamp": "intervals.py138-141",
+    "inward_quantize": "intervals.py202-221",
+    "Gaussian_wrapper": "gaussian.py177-185",
+    "coefficient_binding": "gaussian.py141-143,195-207",
+    "conditioning_precision": "gaussian.py131-138"
+  },
+  "derived_bounds": {
+    "pi_width": "<(2+20/65536)h<3h",
+    "coercion_total_endpoint_deficit": "<=h",
+    "argument_width": "<=(3f+6)h",
+    "argument_lower": ">=3f-4h",
+    "nonshortcut": "W_X<=2Jh; X_U<=2J",
+    "range_divisor": "a=2^k<=32J",
+    "small_argument": "0<=Y_L<=Y_U<=1/8; W_Y<=W_X/a+2h",
+    "Taylor_iterations": "<=ceil(J/3)<=J",
+    "Taylor_term_width": "d_n<=d_(n-1)/8+W_Y+4h<=2W_Y+5h",
+    "Taylor_sum_width": "<=J(2W_Y+5h)+h; lower endpoint>=1",
+    "squaring_width": "<=2J*W_X+a(9J+5)h<=(292J^2+160J)h<=512J^2h"
+  },
+  "precision_inductions": {
+    "coefficient": {
+      "base_p": 1,
+      "left": 591872,
+      "right_power_of_two": 33,
+      "ratio_upper": "162/289<1"
+    },
+    "conditioning": {
+      "base_a": 1,
+      "left": 739328,
+      "right_power_of_two": 35,
+      "ratio_upper": "200/361<1"
+    }
+  },
+  "important_scope_guards": [
+    "Uniform width is for constructed pi_interval(J)*f, not arbitrary wide input boxes to exp_negative.",
+    "Idempotent final clamp is safe because reciprocal and all squaring endpoints remain in[0,1].",
+    "Taylor termination uses analytic tail bound, not rounded term endpoints.",
+    "Half-shift coefficient f=0 may occur off diagonal and returns exact1.",
+    "Conditioning corollary is scalar backend allowance only; no independent leading-section matrix proof."
+  ],
+  "assumptions": [
+    "Exact CPython integer/Fraction arithmetic and faithful unchanged source execution.",
+    "Machin identity, alternating arctangent remainder, positive Taylor remainder and elementary3<pi<4,2<e<4.",
+    "f rational>=0, J integer>=16; c rational>0 and N positive when stating conditioning corollary."
+  ],
+  "blocking_findings": [],
+  "written_audit_sha256": "9bc7b6ec02a43a548e36c5b423a6114ca43ca4c43af49d2dc1778e155c0ea5cd",
+  "remaining_obligations": [
+    "Independent frozen oracle and source adapter review to be performed separately when ready.",
+    "Leading-section conditioning, full-circuit proof, actual complete coefficient-table/root binding beyond this backend.",
+    "Raw alpha normalization/gauges, setup complexity, physical delivery, supplier/native/outer and formal-kernel acceptance."
+  ],
+  "credit": "Mason Hale/OpenAI unchanged interval and transcendental routines; Jose Manuel/OpenAI existing wrapper and width/precision proposition; retained original notices and prior lineage. Independent audit, no new general method/novelty claim."
+}

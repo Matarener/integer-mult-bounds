@@ -1,0 +1,51 @@
+{
+  "adapter": {
+    "path": "research/kappa-adaptive-continuation/runtime-repair/audit_fast.py",
+    "sha256": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+    "transformed_sha256": "8a0f19f533e5ceb93efe7262a69fc20fc68fb2427bfa4aff6092d558132b07ee"
+  },
+  "fixtures": {
+    "checks": 19,
+    "fresh_run_status": "PASS_RUNTIME_ADAPTER_FAILURE_MODES",
+    "path": "research/kappa-adaptive-continuation/runtime-repair/fixtures.py",
+    "sha256": "3a631583486ad6abfcf24ddf4d530e882896de15b556134a45e6b9ee3a27b787"
+  },
+  "independent_ast_checks": {
+    "audit_references_to_global_ct": 0,
+    "identical_predicates_in_identical_lexical_order": 76,
+    "scientific_assertions_after": 77,
+    "scientific_assertions_before": 77,
+    "sole_predicate_change": "Full decoded gzip SHA256 is streamed to EOF instead of retaining the full decoded byte string.",
+    "touches_reference_count_before": 2,
+    "unchanged_literal_mutator_calls_in_original_order": 27
+  },
+  "isolation_review": [
+    "Each forked child runs exactly one original mutator and then the original audit against its copy-on-write address space.",
+    "Only AssertionError, KeyError, IndexError, ValueError or TypeError raised by audit count as rejection. Mutator errors are outside that handler.",
+    "Accepted mutants, unexpected exceptions, signals, nonzero exits, malformed/missing receipts and oversized diagnostics fail the parent.",
+    "Controls execute serially in their original order. The parent template and separately parsed baseline objects remain unchanged.",
+    "Without fork the original pickle-copy isolation is retained. The optional resource import does not affect scientific outputs."
+  ],
+  "lifetime_review": [
+    "The parent is a separately parsed ancestral bank template. Only its first224 data owners are compared; all remaining call metadata comparisons exclude owners. Its helper-owner tail is not inspected or passed to another reader.",
+    "The actual hosted ct retains every one of the1321920 helper roles, the complete pooled-slot rows, all physical routes and all rank/chronology/nonaliasing checks.",
+    "The touches map has only its initialization and append uses; no returned or audited result reads it.",
+    "Streaming SHA256 hashes the same decoded bytes to EOF. Raw compressed hashes of source artifacts are unchanged."
+  ],
+  "limits": [
+    "This is a source, isolation and bounded-fixture review; it does not claim completion of the massive whole-owner replay.",
+    "The old exit-minus9 report alone is not evidence of a specific cause; failure to finish never counts as successful rejection.",
+    "The max_rss_kib diagnostic is in KiB on Linux and uses different operating-system units on macOS; no scientific receipt depends on it."
+  ],
+  "reviewer": "symmetric_transition independent review lane",
+  "source": {
+    "archive": "research/kappa-adaptive-continuation/sources/PR3815/research/staged544-producer-return/REPLAY-INPUTS.tar.gz",
+    "member": "source/code/audit_allcold.py",
+    "sha256": "fa3488b62efdf8a0c37de0ca0caba587b4b036c5f068e002eb04c71c12b9e9b4"
+  },
+  "status": "PASS_INDEPENDENT_RUNTIME_ADAPTER_SOURCE_REVIEW",
+  "unchanged_emitter": {
+    "mechanism": "Exact source pin and pass-through with the predecessor pickle-copy acceleration.",
+    "sha256": "549603ca6d28b163a43b2dfaaaa788161c73d7952ab9190289407caca5418c71"
+  }
+}

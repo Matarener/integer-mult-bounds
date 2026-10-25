@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/joint-query/certificate.json.gz",
+    "research/joint-query/evidence/JOINT-QUERY-TRANSFER.md",
+    "research/joint-query/verify_native.py",
+    "research/joint-query/verify_scalar.py",
+    "research/qq16-line-normalized-decoder/PREDECESSORS.json",
+    "research/qq16-line-normalized-decoder/PROOF.md",
+    "research/qq16-line-normalized-decoder/README.md",
+    "research/qq16-line-normalized-decoder/RESULT.json",
+    "research/qq16-line-normalized-decoder/SOURCES.json",
+    "research/qq16-line-normalized-decoder/TASK.json",
+    "research/qq16-line-normalized-decoder/VERIFY.json",
+    "research/qq16-line-normalized-decoder/WORD.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/PROOF.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/README.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/RESULT.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/SOURCES.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/WORD.json",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/references/PR2540-PROOF.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/references/PR2540-README.md",
+    "research/qq16-line-normalized-decoder/vendor/pr2681/verify.py",
+    "research/qq16-line-normalized-decoder/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All104 full Z4 source phase defects and inverse owners; exact typed certificate; rank lemmas, all-lambda coefficient and plane-mixing fixture."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent_frames.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "No inherited code: original recipe row matrices, direct character polarization and independently checked optimal partition."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/find_partition.py",
+        "--check"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Reconstruct the bounded seed47 positive independent-partition certificate."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Semantic phase/owner/group, source-before-execution and typed-receipt negative controls."
+    }
+  ]
+}

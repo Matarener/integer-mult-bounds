@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/evidence/composition-controls.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Source pins, 8 PROOF.md phrases and the ledger's rejected per-record d chirp; literal four-tape head counts against written bounds and a uniform constant; exact product counts; 60-digit toward-zero rounding bound; controls for a per-record d scan, skewed radices, nearest rounding and ratio-update drift."
+    }
+  ]
+}

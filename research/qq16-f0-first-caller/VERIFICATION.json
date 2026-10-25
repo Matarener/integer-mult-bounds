@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "executable": "/usr/bin/python3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "runs": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-Werror",
+        "-B",
+        "research/qq16-f0-first-caller/verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.115,
+      "stdout": "PASS_QQ16_FIRST_F0_CALLER_AUDIT event=9894 helper=L546 same_grid=REJECTED minimum_extra_fractional_bits=1 basis_columns=1024 dense_tape_cases=20 no_physical_caller_admission\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/qq16-f0-first-caller/verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 10.585,
+      "stdout": "PASS_QQ16_FIRST_F0_CALLER_AUDIT event=9894 helper=L546 same_grid=REJECTED minimum_extra_fractional_bits=1 basis_columns=1024 dense_tape_cases=20 no_physical_caller_admission\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-Werror",
+        "-B",
+        "research/qq16-f0-first-caller/test_verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.407,
+      "stdout": "",
+      "stderr": "...............\n----------------------------------------------------------------------\nRan 15 tests in 10.883s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/qq16-f0-first-caller/test_verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.478,
+      "stdout": "",
+      "stderr": "...............\n----------------------------------------------------------------------\nRan 15 tests in 10.718s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/qq16-f0-first-caller"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 23.561,
+      "stdout": "CHECK Authenticate actual first F0 caller; compare full receipt; exact unchanged-grid obstruction, existing finer-format implication, 1024 native columns and 20 dense metered tape cases.\nPASS_QQ16_FIRST_F0_CALLER_AUDIT event=9894 helper=L546 same_grid=REJECTED minimum_extra_fractional_bits=1 basis_columns=1024 dense_tape_cases=20 no_physical_caller_admission\nCHECK Independent signed pair arithmetic and source, prefix, recipe, grid, range, ownership and full-receipt rejection controls.\nPASS_REGISTERED_RESEARCH_PACKAGE research/qq16-f0-first-caller outcome=partial\n",
+      "stderr": "...............\n----------------------------------------------------------------------\nRan 15 tests in 11.073s\n\nOK\n"
+    }
+  ],
+  "live_inputs_sha256_before": {
+    "research/joint-query/certificate.json.gz": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7",
+    "research/community-frontier1042-audit/selected-replay.tar.gz": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+    "research/qq16-native-rounded-components/vendor/native.py": "999eb1230798b25821de7771ecfa86381e137124059b30ccef167169d176ee8e",
+    "research/qq16-native-rounded-components/verify.py": "16a6cf984f37adb2d98f5180312dc8637c3f653dd41db9252961c3ca1f3ffdba",
+    "research/qq16-all-depth-producer-grid/RESULT.json": "b954ab5c5a720b21a9ab49bda2e1a0824ab184a482243d6263dab3c4bddb91bb"
+  },
+  "live_inputs_unchanged": true,
+  "new_hosted_replay": "reported separately in exact publication PR checks; not inherited from the original draft",
+  "original_draft_hosted_replay": {
+    "source_head": "653366fcee6d7574db15a92e250c64e88a7133be",
+    "run_url": "https://github.com/Clear1nsight/integer-mult-bounds/actions/runs/39196387025",
+    "job_id": 117880394422,
+    "status": "inspected successful Python 3.12 source-binding replay, not evidence for new code"
+  },
+  "not_run": [
+    "full N=2^(73*lambda) payload execution",
+    "complete F0/B1/native/selected cold replay",
+    "physical caller implementation",
+    "Lean/formal-kernel proof",
+    "independent human review"
+  ],
+  "lint": "installed Ruff executable exited 139; warning-strict compilation and direct/registered replays used; no successful lint claimed",
+  "checked_code_sha256": {
+    "verify.py": "fe9ac959f31a1e449c725947a902404a2a530c3d49f4cd21c8899db25f22bcc4",
+    "test_verify.py": "8d4e53063673deed25fbb90af68f0bbdc7686dffcd90ca89e7db6f2cfb16edc6",
+    "vendor/tapes.py": "a3ad668b94d44ff1b9d7093e95c5af3ea0d80cdb798365ea7631c0e2a3dcae10"
+  },
+  "read_only_git_free_export": {
+    "command": "python3 -I -O -Werror -B EXPORT/research/qq16-f0-first-caller/verify.py",
+    "exit_code": 0,
+    "elapsed_seconds": 11.256,
+    "stdout": "PASS_QQ16_FIRST_F0_CALLER_AUDIT event=9894 helper=L546 same_grid=REJECTED minimum_extra_fractional_bits=1 basis_columns=1024 dense_tape_cases=20 no_physical_caller_admission\n",
+    "stderr": "",
+    "git_free": true,
+    "all_sources_read_only": true,
+    "all_exported_bytes_unchanged": true,
+    "exported_file_count": 15
+  }
+}

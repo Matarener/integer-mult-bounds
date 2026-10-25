@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/higher-moment-strictification/vendor/p7-RESULT.json",
+    "research/higher-moment-strictification/vendor/p7-NATIVE.md",
+    "research/higher-moment-strictification/vendor/p7-TENSOR.md",
+    "research/higher-moment-strictification/vendor/p7-ENDPOINT.md",
+    "research/higher-moment-strictification/vendor/outer_endpoint.py",
+    "research/higher-moment-strictification/vendor/invoice-review/verify.py",
+    "research/higher-moment-strictification/vendor/invoice-review/vendor/P7-FACTOR.json",
+    "research/higher-moment-strictification/vendor/invoice-review/vendor/RESULT.json",
+    "research/higher-moment-strictification/vendor/invoice-review/vendor/SUPPLIER-RESULT.json",
+    "research/higher-moment-strictification/vendor/invoice-review/vendor/NOTICE.md",
+    "research/higher-moment-strictification/vendor/invoice-review/DATA-PHASES.json",
+    "research/higher-moment-strictification/vendor/FINITE-PRECOMPILATION.md",
+    "research/higher-moment-strictification/vendor/FINITE-TEMPLATE-CLOSURE.md",
+    "research/higher-moment-strictification/vendor/LOG-MAJORANT.md",
+    "research/higher-moment-strictification/vendor/check_ledger.py",
+    "research/higher-moment-strictification/VENDOR.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Paid higher-moment tail, source invoice oracle, exact finite strictification, generalized logarithmic majorant and full outer predicates with rejection controls."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "full_release_repeated": false,
+  "optimized_entry_control": {
+    "exact_terminal_error": "RuntimeError: Python assertions must be enabled",
+    "exit_code": 1,
+    "optimization_flag": "-O",
+    "output_sha256": "0751d3b5dcf67880924ec747a5dc2c4d6b31b5874663b6cda921096be58001cb",
+    "scientific_release_executed": false,
+    "work_directory_created": false
+  },
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "reviewer_sha256": "3d1255bfac28259b640305fecc74f2172b7ad51db193adffa427227a12a3eef2",
+  "scope": "The completed nonoptimized release remains attributed to the retained executed runner. Its hardened successor differs only by the explicit assertion-mode rejection guard. No native, owner, price, or ordinary/outer gate is rerun or changed by this review.",
+  "source_comparison": {
+    "compilation_modes_checked": [
+      0,
+      1
+    ],
+    "exact_replacement": {
+      "new": "    if not __debug__: raise RuntimeError('Python assertions must be enabled')\n",
+      "occurrences": 1,
+      "old": "    assert __debug__\n"
+    },
+    "executed_runner_sha256": "081c39ee0636890f2fa8ae2fa070c03c9d6d25cc4594759d7ece2fd79a173ae9",
+    "guard_line": 73,
+    "guard_main_statement_index": 6,
+    "hardened_runner_sha256": "d6916b3cdab72d3815c9e90d76b0ffd6067b2c05a276cd5d1272b5fa183b157c",
+    "normal_mode_reason": "With __debug__ True, the original assertion succeeds and the replacement conditional body is skipped. Every remaining AST node and its order are identical.",
+    "remaining_assertions": 37,
+    "remaining_ast_identical": true,
+    "remaining_ast_sha256": "4d13be2cc5ab491a33d7da814299bb359ab909ac02baaf17e7f4eb7e4baaeb7d"
+  },
+  "status": "PASS_RUNNER_ASSERTION_GUARD_EQUIVALENCE"
+}

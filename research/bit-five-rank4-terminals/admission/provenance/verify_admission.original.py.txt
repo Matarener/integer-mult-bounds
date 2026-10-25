@@ -1,0 +1,342 @@
+#!/usr/bin/env python3
+"""Independent finite chart and coefficient audit; no supplier admission.
+
+Apache-2.0. Prepared with substantial OpenAI Codex assistance.
+Imports only the standard library; writes only its own requested receipt.
+"""
+from collections import Counter
+from copy import deepcopy
+from fractions import Fraction as Q
+from hashlib import sha256
+from pathlib import Path
+import argparse
+import gzip
+import json
+
+HERE = Path(__file__).resolve().parent
+RUN = HERE.parent
+INPUT = RUN.parent / 'kappa-four-coordinate-20261019T0717Z'
+REPO = Path('/Users/ross/git/math/integer-mult-bounds')
+
+
+def need(p, msg):
+    if not p:
+        raise ValueError(msg)
+
+
+def sha(p):
+    return sha256(Path(p).read_bytes()).hexdigest()
+
+
+def matrix_product(a, b):
+    return [[sum((x * y for x, y in zip(row, col)), Q(0))
+             for col in zip(*b)] for row in a]
+
+
+def identity(n):
+    return [[Q(i == j) for j in range(n)] for i in range(n)]
+
+
+def transpose(a):
+    return [list(x) for x in zip(*a)]
+
+
+def rank(rows):
+    a = deepcopy(rows)
+    k = 0
+    for j in range(len(a[0]) if a else 0):
+        p = next((i for i in range(k, len(a)) if a[i][j]), None)
+        if p is None:
+            continue
+        a[k], a[p] = a[p], a[k]
+        d = a[k][j]
+        a[k] = [x / d for x in a[k]]
+        for i in range(len(a)):
+            if i != k:
+                d = a[i][j]
+                a[i] = [x - d*y for x, y in zip(a[i], a[k])]
+        k += 1
+    return k
+
+
+def partial_swap(p):
+    n = len(p)
+    return [[(Q(i % n == j % n) - p[i % n][j % n])
+             if i // n == j // n else p[i % n][j % n]
+             for j in range(2*n)] for i in range(2*n)]
+
+
+def double(a):
+    return [[a[i % 8][j % 8] if i // 8 == j // 8 else Q(0)
+             for j in range(16)] for i in range(16)]
+
+
+def apply_gate(a, gate):
+    op, i, j = gate[:3]
+    if op == 'swap':
+        a[i], a[j] = a[j], a[i]
+    elif op == 'scale':
+        a[i] = [Q(j)*x for x in a[i]]
+    elif op == 'add':
+        a[i] = [x+Q(gate[3])*y for x, y in zip(a[i], a[j])]
+    else:
+        raise ValueError('unknown chart gate')
+
+
+def invert_gate(g):
+    if g[0] == 'swap':
+        return list(g)
+    if g[0] == 'scale':
+        return [g[0], g[1], str(1/Q(g[2]))]
+    return [g[0], g[1], g[2], str(-Q(g[3]))]
+
+
+def chart_program(chart):
+    """In-place Q via exact unit ADD, NEGATE, DOUBLE/HALVE, SWAP.
+
+    Reduction is nomination only; all emitted programs are independently
+    replayed as rational matrices, including every prefix denominator.
+    """
+    a = deepcopy(chart)
+    reduction = []
+    for j in range(8):
+        i = next(i for i in range(j, 8) if a[i][j])
+        if i != j:
+            g = ['swap', i, j]; apply_gate(a, g); reduction.append(g)
+        if a[j][j] != 1:
+            g = ['scale', j, str(1/a[j][j])]; apply_gate(a, g); reduction.append(g)
+        for i in range(8):
+            if i != j and a[i][j]:
+                g = ['add', i, j, str(-a[i][j])]; apply_gate(a, g); reduction.append(g)
+    need(a == identity(8), 'chart reduction reaches identity')
+    factored = [invert_gate(g) for g in reversed(reduction)]
+    program = []
+    for g in factored:
+        op, i, j = g[:3]
+        if op == 'swap':
+            program.append(g)
+        elif op == 'scale':
+            c = Q(j)
+            need(abs(c) in (Q(1), Q(2), Q(1, 2)), 'dyadic unit scale')
+            if c < 0:
+                program.append(['scale', i, '-1'])
+            if abs(c) != 1:
+                program.append(['scale', i, str(abs(c))])
+        else:
+            c = Q(g[3])
+            need(abs(c) in (Q(1), Q(2), Q(1, 2)), 'allowed dyadic shear')
+            unit = '1' if c > 0 else '-1'
+            if abs(c) == Q(1, 2):
+                program += [['scale', j, '1/2'], ['add', i, j, unit], ['scale', j, '2']]
+            else:
+                program += [['add', i, j, unit]] * int(abs(c))
+    inverse = [invert_gate(g) for g in reversed(program)]
+    def replay(gs):
+        matrix = identity(8)
+        max_norm = Q(1); max_denominator = 1
+        for g in gs:
+            apply_gate(matrix, g)
+            max_norm = max(max_norm, max(sum(map(abs, row)) for row in matrix))
+            max_denominator = max(max_denominator, max(x.denominator for row in matrix for x in row))
+        return matrix, str(max_norm), max_denominator
+    m, norm, den = replay(program)
+    mi, inorm, iden = replay(inverse)
+    need(m == chart and mi == transpose(chart), 'exact forward/inverse matrix')
+    need(matrix_product(mi, m) == identity(8), 'all-input inverse restoration')
+    need(replay(program[:-1])[0] != chart, 'missing-final-gate control')
+    def shifted(g, k):
+        out = list(g); out[1] += k
+        if out[0] in ('add', 'swap'):
+            out[2] += k
+        return out
+    residual = ([shifted(g, k) for k in (0, 8) for g in inverse]
+                + [['swap', i, i+8] for i in range(4)]
+                + [shifted(g, k) for k in (0, 8) for g in program])
+    state = identity(16); rnorm = Q(1); rden = 1
+    for g in residual:
+        apply_gate(state, g)
+        rnorm = max(rnorm, max(sum(map(abs, row)) for row in state))
+        rden = max(rden, max(x.denominator for row in state for x in row))
+    p = matrix_product([r[:4] for r in chart], transpose([r[:4] for r in chart]))
+    need(state == partial_swap(p), 'literal residual coordinate program')
+    invresidual = [invert_gate(g) for g in reversed(residual)]
+    for g in invresidual:
+        apply_gate(state, g)
+    need(state == identity(16), 'literal residual inverse restoration')
+    return {'elementary_factors': len(factored), 'program': program, 'inverse': inverse,
+            'primitive_count': len(program), 'primitive_histogram': dict(Counter(
+                g[0] + (':'+g[2] if g[0] == 'scale' else '') for g in program)),
+            'forward_max_prefix_row_l1': norm, 'inverse_max_prefix_row_l1': inorm,
+            'forward_max_prefix_denominator': den, 'inverse_max_prefix_denominator': iden,
+            'residual_16_coordinate_program': residual,
+            'residual_16_coordinate_primitive_count': len(residual),
+            'residual_max_prefix_row_l1': str(rnorm), 'residual_max_prefix_denominator': rden,
+            'scratch_field_elements': 0, 'missing_final_gate_rejected': True}
+
+
+def verify_chart(c, raw, full):
+    cols = [[Q(x) for x in r] for r in c['Q_columns']]
+    need(len(cols) == 8 and all(len(r) == 8 for r in cols), 'chart size')
+    need(matrix_product(cols, transpose(cols)) == identity(8), 'orthonormal columns')
+    labels = c['inside_full_root_labels'] + c['cold_full_root_labels']
+    need(cols == [[Q(x, 2) for x in full['lines'][j]] for j in labels], 'root labels')
+    need(all(x.denominator in (1, 2) for r in cols for x in r), 'half integral chart')
+    e = [[Q(x) for x in raw['lines'][j]] for j in raw['frames'][c['terminal_frame']]]
+    need(rank(e) == 4 and rank(e + cols[:4]) == 4, 'actual rank four terminal span')
+    p = matrix_product(transpose(cols[:4]), cols[:4])
+    need(p == [[Q(x) for x in r] for r in c['projector']], 'saved projector')
+    pc = [[Q(i == j and i < 4) for j in range(8)] for i in range(8)]
+    chart = transpose(cols)
+    need(matrix_product(matrix_product(double(chart), partial_swap(pc)), double(cols))
+         == partial_swap(p), 'all sixteen address basis columns')
+    return {'frame': c['terminal_frame'], 'rank': 4,
+            'address_basis_columns': 16, 'max_denominator': 2,
+            'coordinate_program': chart_program(chart)}
+
+
+def magnitude_and_defects(records, inverse=False):
+    """Exact-integer reset bound plus extended-shear no-reset defect bound.
+
+    Scalar ADD is exact. MOVE, COPY and ERASE may each inject an arbitrary
+    additive defect of norm at most one in the single destination row.
+    COPY/ERASE are extended to +/- source shears, not zero assignments.
+    """
+    mag = [1]*660 + [0]
+    error = [0]*661
+    max_mag = 1
+    max_error = 0
+    opened = None
+    erased = []
+    count = Counter()
+    for z in reversed(records) if inverse else records:
+        op, d, s, c, f, phase = z
+        count[str(op)] += 1
+        if op == 0:
+            error[d] += 1
+        elif op == 1:
+            mag[d] += abs(c)*mag[s]
+            error[d] += abs(c)*error[s]
+        elif op == (3 if inverse else 2):
+            need(opened is None, 'fresh episode')
+            opened = d
+            mag[660] = mag[d]
+            error[660] += error[d] + 1
+        else:
+            need(op == (2 if inverse else 3) and opened == d, 'matching episode')
+            opened = None
+            mag[660] = 0
+            error[660] += error[d] + 1
+            erased.append(error[660])
+        max_mag = max(max_mag, max(mag))
+        max_error = max(max_error, max(error))
+    need(opened is None, 'all episodes close')
+    return {'positive_envelope_exact_erase_only': max_mag,
+            'unit_defect_all_prefix_bound': max_error,
+            'unit_defect_persistent_endpoint_bound': max(error[:660]),
+            'unit_defect_private_endpoint_bound': error[660],
+            'private_bounds_after_each_erase': erased, 'opcode_counts': dict(count)}
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument('--write', action='store_true')
+    args = p.parse_args()
+    own = json.loads((RUN/'OWNERSHIP.json').read_text())
+    for k in ('input_manifest', 'frozen_manifest'):
+        need(sha(own[k+'_path']) == own[k+'_sha256'], 'ownership manifest authentication')
+    seen = {}
+    def authenticate(x):
+        if isinstance(x, list):
+            for y in x:
+                authenticate(y)
+        elif isinstance(x, dict):
+            if 'path' in x and 'sha256' in x:
+                need(sha(x['path']) == x['sha256'], 'pinned file changed: '+x['path'])
+                seen[x['path']] = x['sha256']
+            for y in x.values():
+                if isinstance(y, (dict, list)):
+                    authenticate(y)
+    authenticate(json.loads(Path(own['input_manifest_path']).read_text()))
+    authenticate(json.loads(Path(own['frozen_manifest_path']).read_text()))
+    wordfile = INPUT/'bit-boundaries/FIVE-TERMINALS-WORD.json.gz'
+    blob = gzip.decompress(wordfile.read_bytes())
+    need(sha256(blob).hexdigest() == own['decompressed_word_sha256'], 'literal word hash')
+    word = json.loads(blob)
+    rawpath = REPO/'research/bit-r438-transport-rehost/words/r438-t154.json.gz'
+    fullpath = REPO/'research/e8-bit-carrier-skeleton/data/bit/bitE8-r865.json.gz'
+    raw = json.loads(gzip.decompress(rawpath.read_bytes()))
+    full = json.loads(gzip.decompress(fullpath.read_bytes()))
+    charts = json.loads((INPUT/'bit-boundaries/TERMINAL-CHARTS.json').read_text())['charts']
+    need([x['terminal_frame'] for x in charts] == [506, 508, 509], 'three exact frames')
+    checked = [verify_chart(c, raw, full) for c in charts]
+    controls = []
+    bad = deepcopy(charts[0]); bad['Q_columns'][0][0] = '1'
+    try:
+        verify_chart(bad, raw, full)
+    except ValueError:
+        controls.append('nonorthogonal chart rejected')
+    else:
+        raise ValueError('chart mutation accepted')
+    bad = deepcopy(charts[0]); bad['terminal_frame'] = 0
+    try:
+        verify_chart(bad, raw, full)
+    except ValueError:
+        controls.append('wrong actual terminal span rejected')
+    else:
+        raise ValueError('frame mutation accepted')
+    forward = magnitude_and_defects(word['records'])
+    reverse = magnitude_and_defects(word['records'], True)
+    F = forward['positive_envelope_exact_erase_only']
+    R = reverse['positive_envelope_exact_erase_only']
+    need((F, R) == (8402567, 630744), 'both positive bounds')
+    p5 = 64*F**3*R**2
+    p9 = 2**18*F**5*R**4
+    need((p5.bit_length(), p9.bit_length()) == (114, 211), 'exact precision thresholds')
+    # Exact signed scalar minimal witness: a nonzero COPY defect survives
+    # its exact inverse source shear, irrespective of how small it is.
+    epsilon = Q(1, 2**256)
+    source = Q(0); temporary = source + epsilon
+    temporary -= source
+    need(temporary == epsilon and temporary != 0, 'positive finite precision does not imply exact ERASE')
+    controls.append('COPY defect survives inverse source shear at 256 bits')
+    # Sufficient conditional finite-invoice budget for depth two.
+    # coefficient = prefix + B. This is NOT a bound on an unbuilt compiler.
+    Bcap = 2**210 - 1
+    Ecap = 2**20 - 1
+    two_cap = (p9+Bcap+1)**2*(Ecap+1)**2
+    need(two_cap < 2**512, 'conditional two-level invoice fits inherited 512 bits')
+    sources = [
+        'research/e8-bit-carrier-skeleton/code/bit/checkers/columns_h.cpp',
+        'research/e8-bit-carrier-skeleton/code/bit/checkers/columns_k.cpp',
+        'research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r715-eleven-stage-whole/code/global_k.py',
+        'research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/code/assemble9.py',
+        'research/pr589-five-helper-hosting/PROOF.md',
+    ]
+    result = {'status': 'PASS_FINITE_ADMISSION_DIAGNOSTICS_NOT_NATIVE_SUPPLIER',
+              'no_new_kappa': True, 'authenticated_unique_files': len(seen),
+              'word_sha256': own['decompressed_word_sha256'],
+              'independent_charts': checked, 'forward': forward, 'inverse': reverse,
+              'precision': {'five_stage_integer_bound': str(p5), 'five_stage_bits': 114,
+                  'five_stage_multiple_of_64': 128, 'nine_stage_integer_bound': str(p9),
+                  'nine_stage_bits': 211, 'nine_stage_multiple_of_64': 256,
+                  'conditional_depth_two': {'extra_invoice_max': str(Bcap),
+                      'child_count_max': Ecap, 'upper_bound_bits': two_cap.bit_length(),
+                      'charged_bits': 512,
+                      'scope': 'Sufficient conditional arithmetic only; no compiler or owner invoice is supplied.'}},
+              'controls': controls,
+              'source_sha256': {x: sha(REPO/x) for x in sources},
+              'script_sha256': sha(__file__),
+              'limits': 'No exact rounded-child cleanup, chronological owners, paid native routes, all-size compiler, tape or outer admission.'}
+    outfile = HERE/'ADMISSION-CHECK.json'
+    if args.write:
+        outfile.write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
+    else:
+        need(json.loads(outfile.read_text()) == result, 'receipt matches independent recomputation')
+    print(result['status'])
+    print(json.dumps({'charts': len(checked), 'guards': [114,211],
+          'defect_bounds': [forward['unit_defect_all_prefix_bound'],reverse['unit_defect_all_prefix_bound']],
+          'conditional_two_level_bits': two_cap.bit_length()}))
+
+
+if __name__ == '__main__':
+    main()

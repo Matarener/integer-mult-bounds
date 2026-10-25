@@ -1,0 +1,98 @@
+[
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "-c",
+      "import numpy,sys; assert sys.version_info >= (3,11); print('NumPy',numpy.__version__)"
+    ],
+    "exit_code": 0,
+    "log_sha256": "ec833c2797c91c5cd98cdbece9bb3b3b33cc6e2c02d8f06ee69971a79dca68af",
+    "name": "numpy-preflight",
+    "seconds": 0.07292099900223548
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "--root-user-action=ignore",
+      "--no-compile",
+      "--no-index",
+      "--no-deps",
+      "--target",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/python-deps",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/replay-support/wheels/mpmath-1.3.0-py3-none-any.whl",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/replay-support/wheels/sympy-1.14.0-py3-none-any.whl"
+    ],
+    "exit_code": 0,
+    "log_sha256": "57dcb49855c447a3d13ac4b8cfe9aaad2eecd95f8a9fb2e5d6fc547ab563f28d",
+    "name": "install-outer-dependencies",
+    "seconds": 0.5386719609996362
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "-c",
+      "import json,numpy,sympy,mpmath; assert sympy.__version__=='1.14.0'; assert mpmath.__version__=='1.3.0'; print(json.dumps({'numpy':numpy.__version__,'sympy':sympy.__version__,'mpmath':mpmath.__version__},sort_keys=True))"
+    ],
+    "exit_code": 0,
+    "log_sha256": "66953bb687a7c991dd92d1b1d4555c830916ae6dbc1750ec14962fe2b20b8431",
+    "name": "complete-dependency-preflight",
+    "seconds": 1.361697047999769
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/inputs/source/new/borrow/review_receiver_share.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "5a67ddc15b9860ec9702bfa42bbc57ab53515ea49d4902446e2cc65e7e3988ba",
+    "name": "independent-receiver-word",
+    "seconds": 4.118386121997901
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/admit_receiver_share.py",
+      "--source",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/inputs/source",
+      "--fill",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/sources/PR3815/research/staged544-clock-ceiling/inputs/FILL.json.gz",
+      "--order",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/sources/PR3815/research/staged544-clock-ceiling/inputs/ORDER.json",
+      "--dispatch",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/sources/PR3815/research/staged544-producer-return/inputs/DISPATCH.json",
+      "--native-cache",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/inputs/native-cache",
+      "--native-receipt",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/NATIVE-RECEIPT.json",
+      "--work",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/admission",
+      "--replica-helper-dir",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/inputs/helpers",
+      "--reconstructor",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/inputs/helpers/reconstruct_replica.py",
+      "--comparison-claim",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/sources/PR3815/research/staged544-producer-return/inputs/PR3682-CLAIM.json",
+      "--blocknorm-checker",
+      "/workspace/scratch/1a12211da438/adaptive-receiver-complete-release/inputs/extension_blocknorm.py",
+      "--source-profile",
+      "receiver-share-672-676-v1",
+      "--comparison-profile",
+      "pr3682",
+      "--jobs",
+      "1"
+    ],
+    "exit_code": 0,
+    "log_sha256": "104cbc9d9b3254a9af6b50c1faca33fd5d7c385d89c6b81b114598de9df1dceb",
+    "name": "complete-admission",
+    "seconds": 1395.7473871719994
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "actual_candidate_ingress": {
+    "character": 1,
+    "declared_F17_query_phase_mod4": 1,
+    "event": [
+      "add_view",
+      "q0",
+      "Y0",
+      "1",
+      "r1_0"
+    ],
+    "event_index": 32,
+    "owner": "I73",
+    "payload_translation_only_impossible": true,
+    "raw_routed_Y_phase_mod4": 0,
+    "required_multiplier": "i",
+    "scope": "This exact first gate is invalid if interpreted as owner route plus raw scalar ADD, even allowing an extra payload translation; a paid native adapter remains possible.",
+    "word_sha256": "2a969e1f651fd5b6e8800073a1f345942de9c77594c8456aba5e245a00496192"
+  },
+  "cross_frame_selected_sum": {
+    "character": 1,
+    "logical_input_X": "chi_e0",
+    "logical_input_Y": "0",
+    "normal": 11,
+    "owner": "I73",
+    "physical_X": "i chi_e0",
+    "physical_Y": "0",
+    "port": 0,
+    "raw_physical_ADD_result": "i chi_e0",
+    "required_correction": "C_q^-1 on the X contribution, or equivalent native implementation",
+    "required_physical_Y_after_logical_sum": "chi_e0"
+  },
+  "fixed_carrier_translation_only_obstruction": {
+    "character": 1,
+    "claim": "No one fixed query-carrier phase can accept both these independent contributions using their actual owner routes and arbitrary payload translations only, because their required phase parities differ. Carrier changes and compensated native words remain open.",
+    "gates": [
+      {
+        "event": [
+          "add_view",
+          "q0",
+          "Y0",
+          "1",
+          "r1_0"
+        ],
+        "event_index": 32,
+        "raw_routed_source_phase_mod4": 0
+      },
+      {
+        "event": [
+          "add_view",
+          "q0",
+          "Y25",
+          "1",
+          "r1_25"
+        ],
+        "event_index": 50,
+        "raw_routed_source_phase_mod4": 3
+      }
+    ],
+    "owner": "I73"
+  },
+  "legal_controls": {
+    "X_after1": "common F17",
+    "Y_before2": "common F_(E1+E2), dimension16",
+    "active_axes": 25,
+    "characters_per_port_per_control": 326,
+    "ports": 112
+  },
+  "old_chart_query": {
+    "R_row": 0,
+    "aligned_multipliers": [
+      "-1",
+      "-i"
+    ],
+    "aligned_phase_exponents": [
+      2,
+      3
+    ],
+    "character": 1,
+    "coefficients": [
+      "1",
+      "1"
+    ],
+    "conclusion": "Two nonzero same-query sources have different native frames, so the unchanged Y-before1 alignment cannot collect this query into one common native accumulator.",
+    "map_ids": [
+      "m1",
+      "m334"
+    ],
+    "normals": [
+      11,
+      14
+    ],
+    "owner": "I73",
+    "ports": [
+      0,
+      25
+    ],
+    "query": "a=R_1 Y at completed stage1; attempt uses the Y-before1 maps"
+  },
+  "packet_sha256": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7",
+  "phase_member_sha256": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa",
+  "scope": "Necessary native-lift controls for a successful logical query factor. No native price lower bound, no general repair impossibility, no contradiction to properly gauged logical selected rotation, and no all-size supplier acceptance.",
+  "source_archive_sha256": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+  "status": "PASS_EXACT_NATIVE_QUERY_ALIGNMENT_DISCRIMINANTS"
+}

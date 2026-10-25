@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/selected-bit-recursive-closure/PROOF.md",
+    "research/selected-bit-parent-reserve/README.md",
+    "research/complex-t16-rare-pattern-exchanges/upstream1087.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Bound one GL_64 level and compare depth 2 with the row cap."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that 2 times 64 squared times 80 is 655360."
+    }
+  ]
+}

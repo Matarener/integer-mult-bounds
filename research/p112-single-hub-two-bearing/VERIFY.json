@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Extremal table, pairing lower bound, canonical witness, 40-by-40 Gram identity, GF4 transfer and charge 48"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Minor/Cramer recomputation of the twenty row minima, the pairing and the integer GF4 transfer"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Rejects a broken dxy reader, a substituted y image, and equating the strict dthx bearing count with the relaxed cost"
+    }
+  ]
+}

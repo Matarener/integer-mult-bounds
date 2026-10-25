@@ -1,0 +1,665 @@
+{
+  "core_commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/geometry_budget.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/GEOMETRY-BUDGET.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/verify_clock_reductions.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/CLOCK-REDUCTIONS-CHECK.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/verify_packing_duals.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/PACKING-DUALS-CHECK.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/review_bit_checkpoint.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/BIT-CHECKPOINT-INDEPENDENT-REVIEW.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/review_retimed444.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/BIT-RETIMED444-INDEPENDENT-REVIEW.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/review_final_bit_word.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/BIT-FINAL-INDEPENDENT-REVIEW.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/reprice_achieved_clock.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/ACHIEVED-BIT-CLOCK-REPRICE.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/final_entrance_closure.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/FINAL-ENTRANCE-CLOSURE.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/larger_pair_budget.py"
+      ],
+      "comparison": "exact JSON and exact source pins",
+      "fixed_output": "research/kappa-1745-continuation/bit-geometry/LARGER-PAIR-BUDGET.json"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "research/kappa-1745-continuation/bit-geometry/prefix_rational_feasibility.py",
+        "--out",
+        "research/kappa-1745-continuation/bit-geometry/prefix-rational-replay"
+      ],
+      "compare_to": "research/kappa-1745-continuation/bit-geometry/prefix-rational/RESULT.json",
+      "comparison": "exact JSON; output directory must not exist",
+      "fresh_output": "research/kappa-1745-continuation/bit-geometry/prefix-rational-replay/RESULT.json"
+    }
+  ],
+  "exclusions": "The optional SciPy proposal rerun is not required to validate the saved exact complex duals. No expensive full native/global replay is included in this scoped review inventory.",
+  "file_count": 109,
+  "input_files": [
+    {
+      "bytes": 5903,
+      "path": "research/complex-local-word-ceiling/ceiling.py",
+      "sha256": "86a1432870b3b21d8454106ec9162fddc0471472d9214c590a1420f2426cedfc"
+    },
+    {
+      "bytes": 10674,
+      "path": "research/kappa-1745-continuation/bit-geometry/ACHIEVED-BIT-CLOCK-REPRICE.json",
+      "sha256": "4655110db1d25c0ef58ee67d0ecd1a09cf0fe3136cdd0714f3db92b93ccd32b1"
+    },
+    {
+      "bytes": 11259,
+      "path": "research/kappa-1745-continuation/bit-geometry/BIT-CHECKPOINT-INDEPENDENT-REVIEW.json",
+      "sha256": "2a1d789036798930a650d3925839b72b6eafdad3dade14004f760bd1c9de4001"
+    },
+    {
+      "bytes": 41791,
+      "path": "research/kappa-1745-continuation/bit-geometry/BIT-FINAL-INDEPENDENT-REVIEW.json",
+      "sha256": "0c584d3edf752e08b105d22f95169021b410139ffcf90cb15ee68c1a4d253bca"
+    },
+    {
+      "bytes": 6425,
+      "path": "research/kappa-1745-continuation/bit-geometry/BIT-RETIMED444-INDEPENDENT-REVIEW.json",
+      "sha256": "853a6c2ab40116029f5795810d811215544a8a4427c0edfdc9b72ad99516eebd"
+    },
+    {
+      "bytes": 11199,
+      "path": "research/kappa-1745-continuation/bit-geometry/CLOCK-MODEL-PROOF.md",
+      "sha256": "33dc504a90c84f00e3e215b700251272dbeb5e1f9fd7f1ad39b467b9cc9a12e3"
+    },
+    {
+      "bytes": 3924,
+      "path": "research/kappa-1745-continuation/bit-geometry/CLOCK-REDUCTIONS-CHECK.json",
+      "sha256": "f3396e27516a1a987d8af6d19331aabd2dc68d52809d1d66e4fc5705d27cfb00"
+    },
+    {
+      "bytes": 176087,
+      "path": "research/kappa-1745-continuation/bit-geometry/COMPLEX-CLOCK-CEILING.json",
+      "sha256": "d1e1db094cd1bd28442be8b963f43e871b27a20934de4ffb4009b8c1d644f8a6"
+    },
+    {
+      "bytes": 183656,
+      "path": "research/kappa-1745-continuation/bit-geometry/COMPLEX-CLOCK-PACKING.json",
+      "sha256": "7befa6f3216f9fdae86c3eced661071c571a1c7f2d45a45fee44d64b0e5d54e3"
+    },
+    {
+      "bytes": 145382,
+      "path": "research/kappa-1745-continuation/bit-geometry/FINAL-ENTRANCE-CLOSURE.json",
+      "sha256": "604b715cdc0fe5c899a295439c4c18d6269cece0d45ac426c610ba4dbf2285e1"
+    },
+    {
+      "bytes": 12300,
+      "path": "research/kappa-1745-continuation/bit-geometry/GEOMETRY-BUDGET.json",
+      "sha256": "3c4611053c843675059b033843666d9be0f7a7995a16702032c5df27dfdb6773"
+    },
+    {
+      "bytes": 23219,
+      "path": "research/kappa-1745-continuation/bit-geometry/LARGER-PAIR-BUDGET.json",
+      "sha256": "82ec052e3135cc9054eca0bafbc26b555692a968080b3e121f5f77125920a998"
+    },
+    {
+      "bytes": 1937,
+      "path": "research/kappa-1745-continuation/bit-geometry/PACKING-DUALS-CHECK.json",
+      "sha256": "3889bb02a0ce906e2fe84c791a2f870e32bf7e098d563382ef39b13002fd025e"
+    },
+    {
+      "bytes": 21722,
+      "path": "research/kappa-1745-continuation/bit-geometry/README.md",
+      "sha256": "2fea71f7bd78c7dbb4fca195aa6d79ea5f2de5408ab5bc2ab968211e325a4561"
+    },
+    {
+      "bytes": 6123,
+      "path": "research/kappa-1745-continuation/bit-geometry/complex_clock_packing.py",
+      "sha256": "e0987c26616e247516c4c16a9020f90f6e0b3ea698c52de69e969c5de01a2c35"
+    },
+    {
+      "bytes": 1706,
+      "path": "research/kappa-1745-continuation/bit-geometry/controller-orbits/K2.json",
+      "sha256": "e63b1a2bd7bd39f25788a022dba17d0fa20ef67b21577d65d9eb2465b0da9d74"
+    },
+    {
+      "bytes": 2288,
+      "path": "research/kappa-1745-continuation/bit-geometry/controller-orbits/K3.json",
+      "sha256": "4af28e6dcb9a04aba04b29d30fa7591af1e2944569778e75ba1582aca4e17cd9"
+    },
+    {
+      "bytes": 2898,
+      "path": "research/kappa-1745-continuation/bit-geometry/controller-orbits/K4.json",
+      "sha256": "38c1dcb6814da9534c0a7242b0d73750eb54ec65d2e610bc2d0f200185e5bf83"
+    },
+    {
+      "bytes": 8629,
+      "path": "research/kappa-1745-continuation/bit-geometry/controller_clock_orbits.py",
+      "sha256": "243c049319312cb3ff548d500c22b5d96b40a2096ddd62d1310bfe0e976dc073"
+    },
+    {
+      "bytes": 4141,
+      "path": "research/kappa-1745-continuation/bit-geometry/final_entrance_closure.py",
+      "sha256": "319bbe83ca0a75cb202bc68512378763d01cfbc8ec449c205ef34462dd862277"
+    },
+    {
+      "bytes": 7515,
+      "path": "research/kappa-1745-continuation/bit-geometry/geometry_budget.py",
+      "sha256": "a7eff85de42b3b6536d4bd662a6b4614176e123673ac16f006c1ce0186eb6c16"
+    },
+    {
+      "bytes": 9935,
+      "path": "research/kappa-1745-continuation/bit-geometry/larger_pair_budget.py",
+      "sha256": "5287a6565778f743c0c2b7d493c264fef3f5b52e12dd8c77655e0c6b9d9afdb6"
+    },
+    {
+      "bytes": 206236,
+      "path": "research/kappa-1745-continuation/bit-geometry/prefix-rational/RESULT.json",
+      "sha256": "dd888c73982729a9ed0cc3fad860a56a0a3e6248a5c40f1da1c83f8ab668deff"
+    },
+    {
+      "bytes": 9688,
+      "path": "research/kappa-1745-continuation/bit-geometry/prefix_rational_feasibility.py",
+      "sha256": "22c484a8e13dbf2ee9b6b7772d916f45a2dd79aa04b156ed298ab519b61c15d1"
+    },
+    {
+      "bytes": 6100,
+      "path": "research/kappa-1745-continuation/bit-geometry/reprice_achieved_clock.py",
+      "sha256": "e96770568772ae82459db096a740b0c3d4bf0ac696c0e15b0d7b57204cf3eb85"
+    },
+    {
+      "bytes": 12897,
+      "path": "research/kappa-1745-continuation/bit-geometry/review_bit_checkpoint.py",
+      "sha256": "97e34fbd2e899b352423003fb3195f773ce0c203f7bbf7401e613af8802e67c4"
+    },
+    {
+      "bytes": 10855,
+      "path": "research/kappa-1745-continuation/bit-geometry/review_final_bit_word.py",
+      "sha256": "ca3a0d6f758a8620d029f089f7276576c9b9913130382320ec077fca93836f3f"
+    },
+    {
+      "bytes": 5086,
+      "path": "research/kappa-1745-continuation/bit-geometry/review_retimed444.py",
+      "sha256": "902f5eeb2499fe1249d35db8512410f81a25fd2f4d88072ab6859f7c0f44f042"
+    },
+    {
+      "bytes": 6217,
+      "path": "research/kappa-1745-continuation/bit-geometry/verify_clock_reductions.py",
+      "sha256": "7be2835ebf6ccd4eb3785288aba6ae438c8c775cba5ff44529619e955c7f4ff0"
+    },
+    {
+      "bytes": 4738,
+      "path": "research/kappa-1745-continuation/bit-geometry/verify_packing_duals.py",
+      "sha256": "a25871396b2a2926c774effae41e32c541a1d61661f30b9b8c4d0fff1eadf3ec"
+    },
+    {
+      "bytes": 851907,
+      "path": "research/kappa-1745-continuation/bit-integration/checkpoint/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "bff70c7016f1c8b3dd3ff54ed94a110fea70755786d2a9180264bac4cbb004ed"
+    },
+    {
+      "bytes": 333226,
+      "path": "research/kappa-1745-continuation/bit-integration/checkpoint/IDLE-INVENTORY.json.gz",
+      "sha256": "b1ac7d1123c33f4eccb5bfdcafac46c3d47b10f6725157cabf1bbf47bee49bdf"
+    },
+    {
+      "bytes": 606162,
+      "path": "research/kappa-1745-continuation/bit-integration/checkpoint/OWNER-INVENTORY.json.gz",
+      "sha256": "37d0160107b9b3f710d4d094172d9dd93134d8349a3d07317a9afc541e55e73f"
+    },
+    {
+      "bytes": 9577,
+      "path": "research/kappa-1745-continuation/bit-integration/checkpoint/RESULT.json",
+      "sha256": "491abf5edd2c0a79eaee815b2af7d7a7071b5c2c306c0ceeb11ff0df324fed1f"
+    },
+    {
+      "bytes": 851439,
+      "path": "research/kappa-1745-continuation/bit-integration/early-birth-prefixes/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "0bd4ca57b2137ea9734e48f1dbd6c5a62f7b89b54e3d2f1226eb5d41b25d5731"
+    },
+    {
+      "bytes": 333226,
+      "path": "research/kappa-1745-continuation/bit-integration/early-birth-prefixes/IDLE-INVENTORY.json.gz",
+      "sha256": "b1ac7d1123c33f4eccb5bfdcafac46c3d47b10f6725157cabf1bbf47bee49bdf"
+    },
+    {
+      "bytes": 606162,
+      "path": "research/kappa-1745-continuation/bit-integration/early-birth-prefixes/OWNER-INVENTORY.json.gz",
+      "sha256": "37d0160107b9b3f710d4d094172d9dd93134d8349a3d07317a9afc541e55e73f"
+    },
+    {
+      "bytes": 9568,
+      "path": "research/kappa-1745-continuation/bit-integration/early-birth-prefixes/RESULT.json",
+      "sha256": "4c01502c01614ea94f3c5f4e63ec0358e5c3a7ea8414148a04052157408eb0ae"
+    },
+    {
+      "bytes": 851890,
+      "path": "research/kappa-1745-continuation/bit-integration/retimed444/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "30ed43c67be90b0814fb349a944364ab1aa4692d3b52ae75dc727728e519027e"
+    },
+    {
+      "bytes": 333226,
+      "path": "research/kappa-1745-continuation/bit-integration/retimed444/IDLE-INVENTORY.json.gz",
+      "sha256": "b1ac7d1123c33f4eccb5bfdcafac46c3d47b10f6725157cabf1bbf47bee49bdf"
+    },
+    {
+      "bytes": 606162,
+      "path": "research/kappa-1745-continuation/bit-integration/retimed444/OWNER-INVENTORY.json.gz",
+      "sha256": "37d0160107b9b3f710d4d094172d9dd93134d8349a3d07317a9afc541e55e73f"
+    },
+    {
+      "bytes": 9567,
+      "path": "research/kappa-1745-continuation/bit-integration/retimed444/RESULT.json",
+      "sha256": "c5522bc59620b1597603fd5f6b6dff87702e676430b7f19d12c6851c114e3039"
+    },
+    {
+      "bytes": 43237,
+      "path": "research/kappa-1745-continuation/bit-word/checkpoint/WORD.json.gz",
+      "sha256": "d82ca7da69259343647624ceb72d041fc606d8d80688a5a443bc26845421ce92"
+    },
+    {
+      "bytes": 641232,
+      "path": "research/kappa-1745-continuation/bit-word/checkpoint/records/249-records.bin",
+      "sha256": "1d00359e81d78d07e96f0d193dec4fec5636539926c375cd8a13e71663aa5c3b"
+    },
+    {
+      "bytes": 43001,
+      "path": "research/kappa-1745-continuation/bit-word/early-birth-prefixes/WORD.json.gz",
+      "sha256": "defa63c0864f1f52cb0a1eb0d6c2b56f7d3a3b5542c8038082447aec2e810c2e"
+    },
+    {
+      "bytes": 641064,
+      "path": "research/kappa-1745-continuation/bit-word/early-birth-prefixes/records/249-records.bin",
+      "sha256": "91d74ab960e882aa7f5236265c3f4427735c4b8019f509758a33a238c05901fe"
+    },
+    {
+      "bytes": 43240,
+      "path": "research/kappa-1745-continuation/bit-word/retimed444/WORD.json.gz",
+      "sha256": "37410488d97fb2f697c6af58d8429b4f5d47d88358b696de67ff2dfc6d447b0a"
+    },
+    {
+      "bytes": 641232,
+      "path": "research/kappa-1745-continuation/bit-word/retimed444/records/249-records.bin",
+      "sha256": "f5c4d4245cf30f00ceca24f53aac32e71735dd99f369bc797a04b3474d603ab6"
+    },
+    {
+      "bytes": 43237,
+      "path": "research/kappa-1745-continuation/bit-word/source-resynthesis/PASS1-SEED2.json.gz",
+      "sha256": "d82ca7da69259343647624ceb72d041fc606d8d80688a5a443bc26845421ce92"
+    },
+    {
+      "bytes": 13190,
+      "path": "research/kappa-1745-continuation/complex/TARGET-BUDGET.json",
+      "sha256": "d0d777eb4da44fa9d09af5fa28c6f5f19fe38c970cceec9aabbe63badcb4e918"
+    },
+    {
+      "bytes": 12113,
+      "path": "research/kappa-1745-continuation/integrate_bit_checkpoint.py",
+      "sha256": "a5652c5f7d855f34afe4ca3a519a905521aed6531c4df18013d43c01dfc0ab08"
+    },
+    {
+      "bytes": 66509,
+      "path": "research/kappa-adaptive-continuation/architecture/evidence/PAIR-COUNT-CERTIFICATE.json",
+      "sha256": "62ec82a72c779610b8f7c2dab70587335e4f44031ffb92bb70f81332c67b8a89"
+    },
+    {
+      "bytes": 7549,
+      "path": "research/kappa-adaptive-continuation/architecture/evidence/RECEIVER-REVIEW.json",
+      "sha256": "067029d8b49218dbd6044ff349a6f2f501aa10e90ead6d307436521a293cfafd"
+    },
+    {
+      "bytes": 43191,
+      "path": "research/kappa-adaptive-continuation/architecture/evidence/SEVEN57-GEOMETRY.json.gz",
+      "sha256": "d4fceb4ab795d50dc202444882e161cc7015547d550b1b9e11f76043b4b4cd1b"
+    },
+    {
+      "bytes": 4532,
+      "path": "research/kappa-adaptive-continuation/architecture/pair-count-nominations/PAIRS-3.json",
+      "sha256": "1a6e6927674f58c02bdd0e90780e4867c3ada25acd4288accc02bd23d4876f07"
+    },
+    {
+      "bytes": 4781,
+      "path": "research/kappa-adaptive-continuation/architecture/pair-count-nominations/PAIRS-4.json",
+      "sha256": "931dae3f65bfa8d2ea7148f5983cb7a49266119c735aaf7ed0c57e0cc0c1d46a"
+    },
+    {
+      "bytes": 5224,
+      "path": "research/kappa-adaptive-continuation/architecture/pair-count-nominations/PAIRS-5.json",
+      "sha256": "a158c8d2f1646033553b52f182229071fa5f1957b7e3db573adcdd643925b612"
+    },
+    {
+      "bytes": 5386,
+      "path": "research/kappa-adaptive-continuation/architecture/pair-count-nominations/PAIRS-6.json",
+      "sha256": "c189e91b6642c942be143bec645563eada490e37cc4325e674719619c77fb63b"
+    },
+    {
+      "bytes": 5685,
+      "path": "research/kappa-adaptive-continuation/architecture/pair-count-nominations/PAIRS-7.json",
+      "sha256": "6f51a54af83751a880136658cf73e2d5cd85c846f1f26317466bfcccc641a0c5"
+    },
+    {
+      "bytes": 5810,
+      "path": "research/kappa-adaptive-continuation/architecture/pair-count-nominations/PAIRS-8.json",
+      "sha256": "fe163ce7715eca17123f9346742f18540af6e76b7b661e0f49d5f183873e74fb"
+    },
+    {
+      "bytes": 12660,
+      "path": "research/kappa-adaptive-continuation/architecture/pair_count_certificate.py",
+      "sha256": "4a4d2297b5cc2ab643ad437f1f634de87bdd79a9291d721298b9a05a477b4e7f"
+    },
+    {
+      "bytes": 8816,
+      "path": "research/kappa-adaptive-continuation/architecture/pair_count_screen.py",
+      "sha256": "daab9b8f901e2273541732f442fcc0875d3b48fc7a3d7ac7a57035598b9af200"
+    },
+    {
+      "bytes": 10375,
+      "path": "research/kappa-adaptive-continuation/architecture/review_receiver.py",
+      "sha256": "9c12509e57934bed08293dc01c51911ce48fd1230dc22001237dda3a60f64708"
+    },
+    {
+      "bytes": 14613,
+      "path": "research/kappa-adaptive-continuation/architecture/seven_geometry.py",
+      "sha256": "9156cba0dbc63960d9944d46f3c904f86f27e20deb38aed9445a11203ddfe365"
+    },
+    {
+      "bytes": 772,
+      "path": "research/kappa-adaptive-continuation/global-budget/receiver-sharing/PRICE.json",
+      "sha256": "0c2f05968afc870448779b9fee9670f29e56030d010bd8c7329db32e1925ff51"
+    },
+    {
+      "bytes": 72493,
+      "path": "research/kappa-adaptive-continuation/native-alternatives/candidate/BORROW-WORD-43base.json.gz",
+      "sha256": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e"
+    },
+    {
+      "bytes": 72487,
+      "path": "research/kappa-adaptive-continuation/native-alternatives/candidate/BORROW-WORD-43extra.json.gz",
+      "sha256": "82d4c962e0b2c6790d361364b02b5b7c53790a80747e814800c85bec112db791"
+    },
+    {
+      "bytes": 12129,
+      "path": "research/kappa-adaptive-continuation/native-alternatives/fanout_search.py",
+      "sha256": "30dc1f037ab6deccccc0eb4668b2a8b2aaa36e170e0d9b103f343470d929b41a"
+    },
+    {
+      "bytes": 72769,
+      "path": "research/kappa-global-continuation/inputs/kappa-consumer-followup/artifact/live-source/research/staged544-producer-return/words/BORROW-WORD-43base.json.gz",
+      "sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699"
+    },
+    {
+      "bytes": 72766,
+      "path": "research/kappa-global-continuation/inputs/kappa-consumer-followup/artifact/live-source/research/staged544-producer-return/words/BORROW-WORD-43extra.json.gz",
+      "sha256": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e"
+    },
+    {
+      "bytes": 18246,
+      "path": "research/kappa-global-continuation/invoice-analysis/invoice.py",
+      "sha256": "1cd074c691a2d8f31d6360ce41231b3c6961cdba7af3f93361add39054432fab"
+    },
+    {
+      "bytes": 13722,
+      "path": "research/kappa-next-regime/COMPLETE-WORD-INVOICE.json",
+      "sha256": "5f3ba302ef44c287946ded2c71bfaef0924eaa4c712658ad6c1dd4641361199b"
+    },
+    {
+      "bytes": 10895,
+      "path": "research/kappa-next-regime/complete_invoice.py",
+      "sha256": "4236d3e9f96a97e59b946c7472efe14adeb6bd5f99f9ed08f0fd1a379949a053"
+    },
+    {
+      "bytes": 4106,
+      "path": "research/kappa-next-regime/geometry-search/BLOCK-PREFIX-REVIEW-WORD.json",
+      "sha256": "fb93d443863677da524fabc2d50391a4b9e4f853a2b4e0bb06e7e6bc9a02a987"
+    },
+    {
+      "bytes": 8651,
+      "path": "research/kappa-next-regime/geometry-search/block_prefix.py",
+      "sha256": "840b84ec99781df357d4d657e74b9f6530ff29de44403b1cfe4eecec633f7fa1"
+    },
+    {
+      "bytes": 5857,
+      "path": "research/kappa-next-regime/geometry-search/block_prefix_word.py",
+      "sha256": "73e91befbc1c808dd1083ee24dba0b4ec962a553950b4de6290301aee5c86f95"
+    },
+    {
+      "bytes": 9148,
+      "path": "research/kappa-next-regime/geometry-search/build_word_pool35.py",
+      "sha256": "851c6b56de5e272707919973aa28502391b03fea6cff696df3ba0022582c8278"
+    },
+    {
+      "bytes": 852912,
+      "path": "research/kappa-next-regime/geometry-search/pool35/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "6b914cac4e7ce234532616af59cacf0e277b960ea023fdd023c5c4ac7bd4f125"
+    },
+    {
+      "bytes": 333226,
+      "path": "research/kappa-next-regime/geometry-search/pool35/IDLE-INVENTORY.json.gz",
+      "sha256": "b1ac7d1123c33f4eccb5bfdcafac46c3d47b10f6725157cabf1bbf47bee49bdf"
+    },
+    {
+      "bytes": 606162,
+      "path": "research/kappa-next-regime/geometry-search/pool35/OWNER-INVENTORY.json.gz",
+      "sha256": "37d0160107b9b3f710d4d094172d9dd93134d8349a3d07317a9afc541e55e73f"
+    },
+    {
+      "bytes": 14313,
+      "path": "research/kappa-next-regime/geometry-search/pool35/POOL-MOVES.json",
+      "sha256": "a7b65b8306517fcba7f2272fefc86a621e232e511eb66b02c7187a8456349f37"
+    },
+    {
+      "bytes": 2889,
+      "path": "research/kappa-next-regime/geometry-search/pool35/RESULT.json",
+      "sha256": "8bd9f1bad5b7983da8e7460d5aa64aa256d19fba6bbb53aacffdfdcc8ce6a3c5"
+    },
+    {
+      "bytes": 853472,
+      "path": "research/kappa-next-regime/geometry-search/pool35-word/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "4da117b5bc1e42d250e89831c4f5fc8a0872e24f979976cf13d97259c419b7ee"
+    },
+    {
+      "bytes": 333226,
+      "path": "research/kappa-next-regime/geometry-search/pool35-word/IDLE-INVENTORY.json.gz",
+      "sha256": "b1ac7d1123c33f4eccb5bfdcafac46c3d47b10f6725157cabf1bbf47bee49bdf"
+    },
+    {
+      "bytes": 606162,
+      "path": "research/kappa-next-regime/geometry-search/pool35-word/OWNER-INVENTORY.json.gz",
+      "sha256": "37d0160107b9b3f710d4d094172d9dd93134d8349a3d07317a9afc541e55e73f"
+    },
+    {
+      "bytes": 5515,
+      "path": "research/kappa-next-regime/geometry-search/pool35-word/RESULT.json",
+      "sha256": "6777e0b8598e3859335e0a017ddc5fc715cb61deecdfbfb10c5680ef1bcda81c"
+    },
+    {
+      "bytes": 22391,
+      "path": "research/kappa-next-regime/native-catalogue/adapter.py",
+      "sha256": "f5f3d254ce3ac10af0cc79c133b6c6a15b6dbd68a50e561a364373fee2ee2bf8"
+    },
+    {
+      "bytes": 1118,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/EXPECTED.json",
+      "sha256": "67d06bcb90d2307a11975d6b25107a695be477f168f2dc289b8484ba0b7e2de0"
+    },
+    {
+      "bytes": 14707,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/code/invoice_audit.py",
+      "sha256": "8bcf640e1e27313c92c00a7a76e72d8ae995360899d178221d1c65cf9b6dda6d"
+    },
+    {
+      "bytes": 5827833,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/data/GEOMETRY.json",
+      "sha256": "b9ed0e5e0084dcd285f33bfc71aab833ddcfa1062bd80c9c83da8244276d6830"
+    },
+    {
+      "bytes": 6290,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/vendor/assemble9.py",
+      "sha256": "808ef620230ac0ccb4c4b31a02288936fbe0be6d9b3ff715bbe828848d4642d1"
+    },
+    {
+      "bytes": 1742,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/vendor/engines/base_two_moment.py",
+      "sha256": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098"
+    },
+    {
+      "bytes": 5562,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/vendor/engines/moment.py",
+      "sha256": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482"
+    },
+    {
+      "bytes": 16997,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/vendor/global_k.py",
+      "sha256": "03255bec48261cc41a2fcbfb8e45d28506145162002e57d8ff46312946bd1eaf"
+    },
+    {
+      "bytes": 21651,
+      "path": "research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/vendor/xcheck_p.py",
+      "sha256": "af3decc877e27c00001cf56f50c6c09566e8e101297ab34c7860aed96a06d80e"
+    },
+    {
+      "bytes": 914,
+      "path": "research/kappa-next-regime/sources/PR3959/research/rank7-pooled-r437-bit/CLAIM.json",
+      "sha256": "496de468b69975ad5da003f32ffaa4e11289eb9df39cb81c4275c27679a2a390"
+    },
+    {
+      "bytes": 797946,
+      "path": "research/kappa-next-regime/sources/PR3959/research/rank7-pooled-r437-bit/R437-GLOBAL-TEMPLATE.json.gz",
+      "sha256": "6e03c76f5a4227394ea57e901eb7e93f4d1ee411ccfecd483fd44ea043550494"
+    },
+    {
+      "bytes": 7545,
+      "path": "research/kappa-next-regime/width-search/entrance_closure.py",
+      "sha256": "1cbc278aa38479ae426f0e78437796d2fcda89a6eda960808a6ea1af7c708852"
+    },
+    {
+      "bytes": 22487,
+      "path": "research/kappa-next-regime/width-search/review_composed_word.py",
+      "sha256": "e71af0ba0c55f0c35feecfac55402c510b946fdf60059ff2453e16515232a290"
+    },
+    {
+      "bytes": 21201,
+      "path": "research/kappa-next-regime/width-search/review_invoice_outer.py",
+      "sha256": "5845b9b7aa310f493dc943b2c7e4359e941817ad3bec8e53f4e450d44b3f260a"
+    },
+    {
+      "bytes": 9679,
+      "path": "research/kappa-next-regime/word-search/bit_joint_frames.py",
+      "sha256": "df61870af19fa398734631173c3d87da8064cb794238637b16dc7eb8eeb16e7f"
+    },
+    {
+      "bytes": 13273,
+      "path": "research/kappa-next-regime/word-search/bit_pair_search.py",
+      "sha256": "e6d7c0e3582db8ce4598f19a42e643fc8a39f3d111a7abc3b55399af31cf199b"
+    },
+    {
+      "bytes": 6854,
+      "path": "research/kappa-next-regime/word-search/bit_prefix_gl.py",
+      "sha256": "0dafed791294c60d2eed31c4530c527e2713b21445531eaf81842924841af850"
+    },
+    {
+      "bytes": 42319,
+      "path": "research/kappa-next-regime/word-search/candidate/WORD.json.gz",
+      "sha256": "ee42c58fb0cd23bad942ec472c7fb4f87db8261ce6ee4b2bc7e812212d8b836e"
+    },
+    {
+      "bytes": 651024,
+      "path": "research/kappa-next-regime/word-search/native/records/249-records.bin",
+      "sha256": "46de969ce23c7cc5fd0f93ab5b24dd1fd3dfed85ddb462c881082ca23702d2f4"
+    },
+    {
+      "bytes": 5562,
+      "path": "research/native-complex-moment552/engines/moment.py",
+      "sha256": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482"
+    },
+    {
+      "bytes": 10160,
+      "path": "research/r439-kernel-entrance-closure/verify.py",
+      "sha256": "7926571721ceec0571a2d88feeec318ad95c56d74b63aabf88bfecfe5d2a3325"
+    },
+    {
+      "bytes": 8889,
+      "path": "research/selected-bit-physical-caller/inputs/pr2753/predecessor/driver.py",
+      "sha256": "ee9e42fe95ab28fdd5e927c2d46fd480305aaad610eb2ca7ae514a5d22d9f0ac"
+    },
+    {
+      "bytes": 5245,
+      "path": "research/selected-bit-physical-caller/macro_code.py",
+      "sha256": "f626b018124747a5f17c1603bea36cd74c00a69a0647fd7b10e9c4e2964caea8"
+    }
+  ],
+  "optional_expensive_orbit": {
+    "argv": [
+      "python3",
+      "-B",
+      "research/kappa-1745-continuation/bit-geometry/controller_clock_orbits.py",
+      "--pairs",
+      "4",
+      "--idle-budget",
+      "6",
+      "--max-states",
+      "2000000",
+      "--output",
+      "research/kappa-1745-continuation/bit-geometry/controller-orbits/K4-replay.json"
+    ],
+    "comparison": "Compare with archived K4.json omitting only top-level seconds and logs[*].seconds; keep archived K4.json unchanged for downstream source pins."
+  },
+  "scope": "Read-only dependencies plus this scope. Copy with the same repository-relative paths into an isolated worktree before running fixed-output commands; no frozen original receipt needs to be overwritten. This inventory omits its own hash to avoid self-reference.",
+  "status": "SOURCE_PINNED_STANDARD_LIBRARY_REPLAY_INPUT_INVENTORY",
+  "total_bytes": 20182626
+}

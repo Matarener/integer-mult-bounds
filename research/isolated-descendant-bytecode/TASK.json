@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Propagate a private per-module import-cache policy to ordinary Python descendants of the isolated unittest runner, demonstrated on the existing source-history CLI test.",
+  "scope_change_reason": "Taking the explicit PR2990/Discussion2988 descendant handoff after overlap excluded an actively claimed exporter consumer. The portable-replay card is narrowed to one reproduced current-source versus executed-bytecode mismatch.",
+  "bottleneck_link": "Trustworthy test receipts require the launched Python processes to execute current source. This closes a measured child-import boundary in make verify-tests; it does not audit a supplier or increase kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the pinned actual-test differential, meaningful import/cleanup controls, affected runner/historical regressions and publication preflight. No repository-wide descendant census or cold supplier replay.",
+  "outcome": "partial",
+  "evidence": "Author-checked sixteen-run exact-source differential on the original source-history test. Old runner passes both stale cache modes and inherited-prefix case; successor reports the same current-source failure as cache removal. Eleven public-CLI groups pass on CPython 3.11.15, 3.12.14 and optimized 3.14.7. Actual runner integration passes 38 tests. Review and unrelated historical CI-document pin repair remain open.",
+  "author": "Arham Tahir",
+  "ai_assistance": "Substantial OpenAI Codex assistance in diagnosis, implementation, verification and prose. No independent human review or subagent review claimed.",
+  "open_questions": [
+    {
+      "question": "Which explicitly isolated (-I/-E) child in an actual research test needs its own source-bound cache policy?",
+      "why_it_matters": "Those options ignore the inherited environment policy and can still read existing bytecode.",
+      "first_step": "Pin one concrete caller and helper, reproduce a benign numeric mismatch, then add explicit cache arguments at that caller only.",
+      "blocked_by": "A separately scoped named caller and its tests; the current fix deliberately preserves explicit descendant commands."
+    }
+  ],
+  "chooser_seed": "dbf5a28077f8ffb1805ab91a9ca50627",
+  "track": "verifier-engineering",
+  "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2988#discussioncomment-19007616",
+  "milestone": "verification-tooling repair",
+  "selection": "Handoff-first: exporter consumer had a live claim; selected PR2990 ordinary-descendant handoff from the verifier-engineering portable-replay suggestion.",
+  "freshness": {
+    "upstream_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "priority_revision": 6,
+    "checked_at_utc": "2026-10-17T22:42:13Z",
+    "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+    "decision": "Continue and submit the saved result. Canonical main remained 6f100d4bb, priority revision 6; guidance, selected record and relevant runtime/test sources were unchanged. No new competing bytecode/descendant claim was found. Scientific sources remain pinned to the entry commit.",
+    "overlap": {
+      "coverage": {
+        "open_prs": {
+          "fetched_at": "2026-10-17T22:42:05.764210+00:00",
+          "complete_pagination": true,
+          "records": 261
+        },
+        "discussions": {
+          "fetched_at": "2026-10-17T22:42:46.271519+00:00",
+          "complete_pagination": true,
+          "records": 2191
+        }
+      },
+      "local_records": 3740,
+      "warnings": [],
+      "limitations": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."
+    }
+  },
+  "verification": {
+    "host": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+    "python_versions": [
+      "Python 3.11.15",
+      "Python 3.12.14",
+      "Python 3.14.7"
+    ],
+    "registered_replay": "PASS on CPython 3.12.14: sixteen-run differential, eleven bytecode groups and eight retained registered-interpreter groups.",
+    "direct_cli_matrix": "11/11 groups pass on CPython 3.11.15, 3.12.14 and 3.14.7 with optimized 3.14 parent and -W error.",
+    "isolated_suite": "48 collected, 34 passed, 14 preexisting platform skips on macOS. The final eleven-group file was rerun after strengthening the no-write observer.",
+    "actual_runner_integration": {
+      "command": "Load scripts/run_isolated_tests.py; run_modules([Path(\"tests\")/name for name in names], workers=2, module_timeout=60). names = test_research_source_history.py, test_research_bytecode_isolation.py, test_isolated_test_bytecode.py, test_isolated_historical_completion.py.",
+      "result": "38/38 passed (12 + 8 + 11 + 7), actual module completion and child environments retained."
+    },
+    "predecessor_registered_replay": "PASS research/isolated-test-bytecode, unchanged frozen package, current shared regressions.",
+    "historical_baseline": [
+      {
+        "path": "docs/ci-verification.md",
+        "sha256": "a3711fe12d560fac7726c530b9c8c622182f3d4f231a876c163616e49bd911bc",
+        "accepted": false,
+        "baseline_failure": "Unrecognized live source update: docs/ci-verification.md"
+      },
+      {
+        "path": "scripts/run_isolated_tests.py",
+        "sha256": "88d738d3c1e8eb9bd580d9dc2f40b0421975e46013ce09bd6833d97a8600789d",
+        "accepted": false,
+        "baseline_failure": "Unrecognized live source update: scripts/run_isolated_tests.py"
+      }
+    ],
+    "historical_suite": "Final scientific-commit run: 27 collected, 25 passed; test_live_guards_also_admit_the_actual_committed_source_bytes fails and test_real_snapshots_match_unchanged_predecessor_pins errors, both solely on unchanged docs/ci-verification.md. Its exact baseline failure was reproduced using the original canonical-main checker, live document and manifest. Own committed successor runner hash passes. No unrelated allowlist change made.",
+    "limitations": [
+      "No independent human or subagent review.",
+      "No native Windows/Linux runtime or hosted-CI success claimed.",
+      "No repository-wide suite or selected cold replay.",
+      "Environment-ignoring/overriding descendants remain out of scope."
+    ],
+    "optimized_differential": "The complete sixteen-run differential matches RESULT.json under both optimized CPython 3.12.14 and optimized CPython 3.14.7, with -W error, -I and -B.",
+    "publication_preflight": "PASS_RESEARCH_COMMIT_BYTES at scientific commit 2824fc68ffe792a3d8060f4acaea88f1fc123df4: all 13 package/dependency files match committed bytes; sole source commit 6f100d4bb5083f8c35d96fd95a539811c62f245c is publication ancestry.",
+    "commands": [
+      "python3.12 -B scripts/research_package.py --package research/isolated-descendant-bytecode",
+      "python3.12 -W error -B -m unittest discover -s tests -p test_isolated*.py -v",
+      "python3.12 -W error -B -m unittest discover -s tests -p test_historical_check.py -v",
+      "python3.12 -B scripts/research_package.py --package research/isolated-test-bytecode",
+      "python3.11 -W error -I -B tests/test_isolated_test_bytecode.py -v",
+      "python3.14 -W error -I -O -B tests/test_isolated_test_bytecode.py -v",
+      "python3.12 -W error -I -O -B research/isolated-descendant-bytecode/verify.py",
+      "python3.14 -W error -I -O -B research/isolated-descendant-bytecode/verify.py",
+      "python3.12 -B scripts/check_research_commit.py --package research/isolated-descendant-bytecode --check-source-history"
+    ]
+  },
+  "session": {
+    "started_at_utc": "2026-10-17T22:27:44Z",
+    "requested_budget_minutes": 60,
+    "loop_skills": "loop-budget, loop-triage and loop-verifier were not installed in the available skill roots. No loop skill was installed or scheduler enabled. Repository checkpoint and budget procedure used directly.",
+    "applied_skill": "minimal-fix",
+    "next_phase": "Publication and concise handoff only. One bounded result established; no additional research round or family expansion justified."
+  }
+}

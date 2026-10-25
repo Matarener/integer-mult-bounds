@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-rebuild/bit/PR589-STATE-SHARING-PROBE.json",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent characteristic/power spectra,exact group labels,complete positive words,distinct source helpers and full invoice."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Same checks and explicit rejecting controls with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Missing and bool/integer-corrupt receipts reject for the intended reason."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Receipt faults reject with optimization enabled."
+    }
+  ]
+}

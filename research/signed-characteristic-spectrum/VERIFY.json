@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/nonunit-signed-connector-rigidity/PROOF.md",
+    "research/signed-connector-obstruction/CERTIFICATE.json",
+    "research/ternary-connector-independent-seed84/CERTIFICATE.json",
+    "research/weighted-signed-connector-seed58/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Ring-characteristic count law, no modular alias, exact prices, noncommuting dual-ring dirty action/inverse, and 199 rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Identical scientific checks and authenticated receipt with Python assertions disabled."
+    }
+  ]
+}

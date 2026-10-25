@@ -1,0 +1,21 @@
+{
+  "actual_q2_q3_cases": 36,
+  "independent_audit_modes": [
+    "python3.12 -B audit_arbitrary_skew.py",
+    "python3.12 -B -O audit_arbitrary_skew.py"
+  ],
+  "initial_caller_pin_issue": "detected93c4a3e versus final8893ff; author preservedv1 and repaired final package before freeze",
+  "no_new_kappa": true,
+  "rank_extreme_cases": 14,
+  "same_engine_final_pin_transport_replay": {
+    "even_cuts": 56,
+    "fixtures": 14,
+    "mode": "python3.12 -B raw-source authenticated read-only produce(); source author separately records normal/-O PASS"
+  },
+  "source_compilation": "workspace raw source bytes compile optimize=0 via frozen prior audit loader; no bytecode cache reads for retained modules",
+  "status": "PASS_NORMAL_AND_OPTIMIZED",
+  "support_controls_modes": [
+    "python3.12 -B lambda_controls.py",
+    "python3.12 -B -O lambda_controls.py"
+  ]
+}

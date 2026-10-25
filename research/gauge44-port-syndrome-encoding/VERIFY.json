@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pins the selected replay archive, CANONICAL-WORD member, and DATA-PHASES payload; reconstructs the 112x8 scatter from literal cut instructions and verifies the D4 support floor, 104 integer shears, eight-anchor localization, exact decoder, orthogonality, and mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/plane_pairing_screen.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Replays a seeded 500-candidate screen pairing within repeated centre-signature classes, checking exact F2 factorizations, full decoder identities, raw support ranks, complete-plane reader closures, and the frozen predecessor control; then verifies the best sampled candidate and all 28,672 exact endpoint cases."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/budget_screen.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Replays four exact complex-side planning ceilings from the pinned coverage-ceiling implementation, including the 0.01 screen and the unproved rank-16 relaxation."
+    }
+  ]
+}

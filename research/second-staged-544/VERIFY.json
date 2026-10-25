@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "research/second-staged-544/source4076/INPUTS.json",
+    "research/second-staged-544/source4076/NOTICE.md",
+    "research/second-staged-544/source4076/PROOF.md",
+    "research/second-staged-544/source4076/README.md",
+    "research/second-staged-544/source4076/checks/independent_frames.py",
+    "research/second-staged-544/source4076/inputs/NEW-base.json.gz",
+    "research/second-staged-544/source4076/inputs/NEW-extra.json.gz",
+    "research/second-staged-544/source4076/vendor/audit_core.py",
+    "research/second-staged-544/source4076/vendor/audit_verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/candidate.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact source authentication; both actual words and723 arbitrary live/buffer inputs; changed ten-gate prefix, literal inverse and dirty semantic controls; direct/late terminal-frame witnesses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Separate exact least-frame DAG on both providers;127 entrance extensions; full632-column free-operator late recovery; scalar-block witness and25 meaningful controls."
+    }
+  ]
+}

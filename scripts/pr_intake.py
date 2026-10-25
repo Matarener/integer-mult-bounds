@@ -38,10 +38,35 @@ def validate_state(state):
         for p in row['watch_paths']:
             if Path(p).is_absolute() or '..' in Path(p).parts:
                 raise ValueError('watch paths must be repository relative')
+        if 'watch_modes' in row:
+            modes = row['watch_modes']
+            if (not isinstance(modes, dict) or not modes.keys() <= row['watch_paths'].keys()
+                    or any(not isinstance(mode, str)
+                           or mode not in {'040000', '100644', '100755', '120000', '160000'}
+                           for mode in modes.values())):
+                raise ValueError(f'invalid watched modes for PR {n}')
 
 
-def plan(state, live, tree, wake=(), limit=100):
-    """Unchanged waits are dormant; unfinished review remains visible and actionable."""
+def source_changes(old, pr, current, tree, modes=None):
+    changes = list(old.get('_mode_recovery_changes', []))
+    if old['head'] != pr['headRefOid']:
+        changes.append('head changed')
+    if old.get('policy_version') != POLICY_VERSION:
+        changes.append('intake policy changed')
+    changes += [f'main path changed: {p}' for p, oid in old['watch_paths'].items()
+                if tree.get(p) != oid]
+    changes += [f'dependency PR changed/left open queue: {p}'
+                for p, oid in old['watch_prs'].items()
+                if current.get(int(p), {}).get('headRefOid') != oid]
+    if modes is not None:
+        changes += [f'main path mode changed: {p}' for p, mode in old.get('watch_modes', {}).items()
+                    if old['watch_paths'][p] is not None and tree.get(p) == old['watch_paths'][p]
+                    and modes.get(p) != mode]
+    return changes
+
+
+def plan(state, live, tree, wake=(), limit=100, modes=None):
+    """Schedule deltas; the CLI supplies modes, while legacy OID-only callers may omit them."""
     validate_state(state)
     if not 1 <= limit <= 100:
         raise ValueError('review chunks must contain between 1 and 100 decisions')
@@ -56,15 +81,16 @@ def plan(state, live, tree, wake=(), limit=100):
         old = previous.get(n)
         changes = []
         if old:
-            if old['head'] != pr['headRefOid']:
-                changes.append('head changed')
-            if old.get('policy_version') != POLICY_VERSION:
-                changes.append('intake policy changed')
-            changes += [f'main path changed: {p}' for p, oid in old['watch_paths'].items()
-                        if tree.get(p) != oid]
-            changes += [f'dependency PR changed/left open queue: {p}'
-                        for p, oid in old['watch_prs'].items()
-                        if current.get(int(p), {}).get('headRefOid') != oid]
+            changes = source_changes(old, pr, current, tree, modes)
+            require_modes = (not pr['isDraft'] and not changes and n not in wake
+                             and old['status'] != 'pending_review')
+            if old.get('watch_modes') and modes is None and require_modes:
+                raise ValueError(f'current tree modes required for PR {n}')
+            if modes is not None and require_modes:
+                for p, oid in old['watch_paths'].items():
+                    if oid is not None and tree.get(p) == oid:
+                        if p not in old.get('watch_modes', {}):
+                            raise ValueError(f'missing watched mode for PR {n}: {p}')
         if pr['isDraft']:
             lane = 'draft'
         elif n in wake:
@@ -92,15 +118,58 @@ def plan(state, live, tree, wake=(), limit=100):
                 no_longer_open=sorted(set(previous) - set(current)))
 
 
-def tree_at(base):
+def tree_at(base, paths=()):
     # One Git traversal, not one process per file or PR. Includes directory IDs.
-    raw = subprocess.check_output(['git', 'ls-tree', '-r', '-t', '-z', base], cwd=ROOT)
-    result = {}
+    raw = subprocess.check_output(['git', '--literal-pathspecs', 'ls-tree', '-r', '-t',
+                                   '-z', base, '--', *paths], cwd=ROOT)
+    result, modes = {}, {}
     for item in raw.split(b'\0'):
         if item:
             metadata, path = item.split(b'\t', 1)
-            result[path.decode()] = metadata.decode().split()[2]
-    return result
+            mode, _, oid = metadata.decode().split()
+            result[path.decode()] = oid
+            modes[path.decode()] = mode
+    return result, modes
+
+
+def recover_watch_modes(state, live, tree, modes, wake=()):
+    """Read legacy file modes at recorded bases without rewriting the cache."""
+    current = {r['number']: r for r in live}
+    rows, requests = [], {}
+    for old in state['pull_requests']:
+        row = dict(old, watch_modes=dict(old.get('watch_modes', {})), _mode_recovery_changes=[])
+        rows.append(row)
+        pr = current.get(row['number'])
+        if (pr is None or pr['isDraft'] or row['number'] in wake
+                or row['status'] == 'pending_review'
+                or source_changes(row, pr, current, tree, modes)):
+            continue
+        for path, oid in row['watch_paths'].items():
+            if oid is None or tree.get(path) != oid or path in row['watch_modes']:
+                continue
+            # A tree/commit object's identity determines its only valid mode.
+            if modes[path] in {'040000', '160000'}:
+                row['watch_modes'][path] = modes[path]
+                continue
+            base = row.get('baseline')
+            if not isinstance(base, str) or not SHA.fullmatch(base):
+                raise ValueError(f'cannot recover watched modes for PR {row["number"]}: '
+                                 'missing immutable baseline; refresh the intake record')
+            requests.setdefault(base, {}).setdefault(path, []).append(row)
+    for base, paths in requests.items():
+        try:
+            old_tree, old_modes = tree_at(base, sorted(paths))
+        except subprocess.CalledProcessError as error:
+            raise ValueError(f'cannot recover watched modes at baseline {base}; '
+                             'make recorded history available or refresh the intake record') from error
+        for path, watchers in paths.items():
+            for row in watchers:
+                if old_tree.get(path) != row['watch_paths'][path]:
+                    row['_mode_recovery_changes'].append(
+                        f'watched file does not match recorded baseline: {path}')
+                    continue
+                row['watch_modes'][path] = old_modes[path]
+    return dict(state, pull_requests=rows)
 
 
 def fetch_live():
@@ -146,11 +215,15 @@ def main():
     validate_state(state)
     live = json.loads(args.live_json.read_text()) if args.live_json else fetch_live()
     base = command(['git', 'rev-parse', args.base]).strip()
-    tree = tree_at(base)
+    tree, modes = tree_at(base)
     if args.action == 'plan':
         if not args.output:
             parser.error('plan requires --output (outside the repository is recommended)')
-        result = plan(state, live, tree, args.wake, args.limit)
+        try:
+            recovered = recover_watch_modes(state, live, tree, modes, args.wake)
+            result = plan(recovered, live, tree, args.wake, args.limit, modes=modes)
+        except ValueError as error:
+            parser.error(str(error))
         result.update(base=base, observed_at=datetime.now(timezone.utc).isoformat(),
                       live_source='offline snapshot' if args.live_json else 'GitHub open PR query',
                       live=live)
@@ -177,6 +250,7 @@ def main():
     row = dict(number=args.number, head=args.head, status=args.status, reason=args.reason,
                evidence=args.evidence, policy_version=POLICY_VERSION, baseline=base,
                watch_paths={p: tree[p] for p in paths},
+               watch_modes={p: modes[p] for p in paths},
                watch_prs={str(n): current[n]['headRefOid'] for n in args.watch_pr})
     state['pull_requests'] = sorted([r for r in state['pull_requests'] if r['number'] != args.number]
                                    + [row], key=lambda r: r['number'])

@@ -1,0 +1,121 @@
+# Independent mathematical review
+
+**Result: exact partial capture, zero recursive-profile gain.** The local
+arbitrary-input identity, complete native-frame invoice, helper widths and
+literal/canceled cleanup agree with the construction worker's artifact. Under
+the same six physical block endpoints and monotone single-register child
+contract, four rank-1 target climbs are also a sharp lower bound. The original
+and candidate both attain it. No broader optimization or kappa claim passes.
+
+## Independent work and checked scope
+
+`INITIAL-DERIVATION.md` was saved before reading the construction worker's
+checker. The frozen word bytes, source export, predecessor description and
+PR4076-retained frame/cleanup contract had already been read. `check.py` does
+not import the construction checker, retained audit core or any other project
+module. It separately implements exact six-by-six rational matrices and GF(2)
+row-basis elimination. This is a separate AI mathematical context, not
+independent human review.
+
+The checker binds both compressed input SHA-256 values and Git blob hashes,
+checks all 36 local matrix entries on arbitrary dirty source and target values,
+and reconstructs every positive native climb and every helper width. It
+compares chronological positive frame paths separately for each register,
+including the entering/outgoing bases; local event indices may move. Both
+sources' positive event indices remain unchanged. Source-access counts include
+all scalar stages; explicit checks exclude extra accesses through native warps
+or initial corrections for helpers 600 and 601.
+
+The independent comparison certifies substitution of the local physical
+operator into the unchanged surrounding word. It does not independently
+reimplement the primary checker's complete 723-coordinate free-group-algebra
+evaluator, certify its predecessor endpoint theorem from scratch, or certify
+native Clifford phases. The primary checker separately reports those finite
+symbolic-map checks, with the source audit implementation disclosed.
+
+## Substantive findings and corrections
+
+- The local capture and undo restore helper 600 for every entering value of
+  helper 601. Target diagonal coefficients are all one; neither clean targets
+  nor clean helpers are assumed.
+- The sources already enter at `[45]`, but the four targets enter at `[]`.
+  Therefore the block has four target rank-1 calls, not zero total calls.
+  The independent result records all six entry and exit frames and the four
+  calls before and after. No target call is eliminated by merging two reads.
+- The unsimplified inverse cleanup has two extra FULL-frame helper shears.
+  They are adjacent inverse gates and cancel exactly. The old cleanup is
+  semantically valid after that cancellation; describing it as the unchanged
+  unsimplified inverse recipe is a representation error. This distinction is
+  checked explicitly, not hidden behind a stale-cleanup negative control.
+- The complete profile is `{1:2482,2:712,3:218,4:109,5:20,8:8}` and the helper
+  widths are `{5:28,6:18,7:53,8:96,9:213}` before and after. There are 3,549
+  positive child calls and rank mass 5,160. Both sources retain the positive
+  climb chain `(4,1,1,1,1)`, width eight and exact paid source-visit addresses.
+- Full executed record counts are 17,598 originally, 17,600 with literal
+  cleanup and 17,598 after cancellation. Both source roles and all later paid
+  source climbs remain. Two specific target reads are exchanged for capture
+  and undo reads; wording about unchanged source *events* must refer to paid
+  visits rather than literal scalar events.
+- Read-only operands receive frame checks. A separate malformed control uses
+  a legal zero-frame destination with an illegal `[45]`-frame source; it is
+  rejected at the source operand. Wrong target/capture signs, missing undo,
+  a wrong common frame and an incorrect inverse sign are also rejected.
+- The source-credit lineage is Rohan Arun's PR4076 retention of Sagar Thakrar's
+  PR3687 code, with Arham Tahir's earlier contract credit retained.
+
+The local minimum argument in `PROOF.md` is a written all-rewrite statement
+under its fixed boundaries: the dimension increments on each target sum to
+one and are nonnegative integers, so each physical target requires one
+rank-1 child. It allows arbitrary scalar couplings within this model. It is
+not an all-interface statement: changed boundaries, external retiming,
+physical ownership, descent/reset permissions and a changed joint-child ABI
+remain outside it.
+
+## Validation and artifact binding
+
+Final checks passed with Python 3.12.12, standard library only:
+
+```
+python3.12 -I -B research/partial-helper-capture/independent/check.py
+python3.12 -I -B -O research/partial-helper-capture/independent/check.py
+```
+
+Both emit `PASS_PARTIAL_CAPTURE_INDEPENDENT`; the default compares the freshly
+computed deterministic receipt without writing files. The receipt was first
+generated by the same checker using its explicit absolute `--output` option.
+The malformed-witness controls pass in normal and optimized Python. The primary
+and independent JSON reports were also compared for exact candidate gates,
+complete profile, width inventory, cancellation location and all three total
+record counts on both words; those comparisons passed. The primary checker was
+read after the independent derivation and implementation were established; it
+was never imported or executed by this independent checker.
+
+Reviewed file SHA-256 values, relative to the package:
+
+| file | SHA-256 |
+| --- | --- |
+| `independent/check.py` | `8ae562ae150866e1c8920c112b14ca7d5d0963527c2599d1edb43864006a8687` |
+| `independent/PROOF.md` | `dc25260c85b47d4e47d44ba3f7c5565abf13d43649daa4f331038924dfb07112` |
+| `independent/RESULT.json` | `5cba1543742ca3d01f9049ad92d93caa9f02155a97e0d5e09f2709fbc9714b20` |
+| `independent/INITIAL-DERIVATION.md` | `ece1a367b635dd47212e66f98c86e0450fff61bd49b4c4bb3c94faf77b7cc7f0` |
+| `construction/verify.py` | `d9335bfeed8db914404adb486797829f9913b8c00a5210c00be45e29a4cdab64` |
+| `construction/DERIVATION.md` | `7d90b3d977a4b2ffccb496e7116a21e93cd189ebffb10b3d666a8fb1864306b6` |
+| `construction/RESULT.json` | `7fb8347e2103cec0d0ebfbcfa87348a3b3113c22e6c16985e9f8f9554e808a9d` |
+
+These are content bindings, not signatures, hosted CI or formal-kernel evidence.
+Meaningful later edits invalidate the affected binding and checks.
+
+## Mathematical stop and remaining limits
+
+The smallest decisive obligation is complete: this exact partial capture cannot
+save the paid rank profile or a helper width under the specified interface,
+even after the favorable certified cleanup cancellation. Its fixed-boundary
+block floor is already attained by the predecessor. This warrants stopping the
+mechanism test, without broadening to another capture family.
+
+No physical supplier, precision theorem, tape/controller realization, owner
+allocation improvement, all-size recurrence improvement or new kappa is
+established. A useful successor must change and fully price a further boundary
+or delivery contract; this result supplies no such successor. Parent-run
+preservation, public submission, hosted checks and lifecycle closeout are
+separate obligations outside this mathematical review.

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/odd-unit-triangular-rank/inputs/small-unit-source.tar"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Source bytes, both complete selectors and type orbits, all triangular constraints, nonuniform multiplicities, repeated-port minors over Q/F2/F3/F5, paired-window/copy inequalities and retained rank16 projector control."
+    },
+    {
+      "argv": ["{python}", "-I", "-Werror", "-B", "{package}/independent.py"],
+      "timeout_seconds": 120,
+      "checks": "Separate Boolean-vector implementation with all even transvections and adjacent swaps; complete orbit incidences, selector digests and nonuniform weighted bounds; no primary geometry imports."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_controls.py"],
+      "timeout_seconds": 120,
+      "checks": "Nine boundary controls: fitting diagonal, repeated-port collapse, invalid multiplicity/type, broken triangular selector, omitted special orbit, nonidentity trace normalization, zero-charge removal and actual optimized CLI source corruption."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/general.py", "--max-dimension", "8"],
+      "timeout_seconds": 120,
+      "checks": "General selector size, diagonal counts, triangular property and full symmetry-orbit formulas for dimensions two through eight; edge cases and exact odd-fraction ordering checks. The all-dimension proof is written."
+    }
+  ]
+}

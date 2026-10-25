@@ -1,0 +1,24 @@
+# Local tail source-to-check map
+
+BINDINGS.json authenticates the full8-file author freeze, original admitted source and repaired physical source, every inherited exact library, original recipe utility and executed portable adapter. The complete frozen independent source review and all its declared raw inputs are also authenticated. Normal/-O and source-export tests are separate from the mathematical proofs and hosted CI.
+
+| Obligation | Fresh computation |
+|---|---|
+| q2 arbitrary-current-input matrix | local_block.produce replays the actual event69 suffix and full serialized inverse on all6 incoming fields; compares the displayed6×6 matrix, both inverse orders and actual A/W/R definitions including reverse-current order and sign. |
+| q3 arbitrary-current-input matrix | q3_tail.produce replays event119 suffix and inverse on all8 fields, recomputes the full WR coefficient and all source recipe bindings. |
+| Used native circuits | Every forward/inverse suffix unary is reconstructed from its original event ordinal/adjoin flag; exact signed operator, Gaussian tensor phase, current selected recipe ID, embedding and phase tags are compared. No unused source recipe is promoted into a native invoice. |
+| Support witnesses | The actual coefficient circuits are composed chronologically, native ranks6/8 recomputed, deterministic exact Bruhat/Fourier lowerings rederived and independently recompiled including Gaussian phase. These witnesses certify uniform row support, not executable complete cleanup. |
+| Complete bills | Full source prefixes66/120, suffixes10/12 and stocks72/128, every local original column and both inverse orders. |
+| Failures and scope | Omitted incoming bank3, omitted reverse-current query (spuriously6→4), source/transport/logical mutation and undeclared external source access reject; identical source/payloads and full exact local inverse are positive controls. Historical assertions stay active under optimized parents. |
+
+The original producer functions are unchanged. Only two local_block source guards follow the exact executed portable joint_algebra and verbatim pure recipe utility. Complete raw originals are retained; the verifier checks precisely those substitutions. Four pure compile/embedding functions from the original recipe utility remain byte-identical by AST source-segment SHA; unrelated cold-producer imports are omitted. Other inherited library adapters retain their original source/NOTICE and exact change maps from reviewed PR4080.
+
+Every complete logical JSON payload is SHA/length checked after deterministic gzip decoding. The actual executed modules compile from authenticated source bytes with optimize=0; no unchecked bytecode cache can replace them. Unmapped external workspace reads or dynamic loads reject. The official export is additionally tested normal/-O with empty PATH, no Git and unchanged exported bytes/modes/inodes.
+
+The source author normal/optimized receipts are historical execution evidence, including its recorded optimized-q3 read-before-file-existed sequencing failure and the successful corrected order. Fresh source production and independent audit are recorded separately; the finite receipts do not prove the arbitrary-circuit support lemma or a complete all-q source realization. Full-bank equal-volume macroarities, counted binary scans and fixed exact current-input matrix are mandatory cost premises. Partial/fused scans, growing ADD words, changed early entrances or target gauges need a new paid argument.
+
+Independent audit_tail.run reconstructs the complete6/8-bank matrices in its separate literal circuit algebra, both inverse orders, strict admitted-source slices, used-only recipe pools, Gaussian phase, prefix/local counts, explicit q2 inverse formula, omitted reverse-query and f2-phase controls. Its full result equals the retained independent receipt. q2..10 checks corroborate the separate conditional all-q tail formula; no all-q full caller is inferred.
+
+FULL-SCAN-COROLLARY.md uses only independently reviewed section4 of the retained threshold note, whose complete raw source is SHA-bound in independent_external_sources. The fresh verifier additionally recounts the exact fixed-prefix histograms H2=33/60 required by its limiting moment. Numerical planning/upstream candidate claims are not rerun or adopted. The all-b strict inequality is written algebra, not a finite numeric screen.
+
+The exact earlier-interface appendix executes unchanged cut58.produce and independent audit_cut58.run. Full6×6 current-input matrices/inverses, strict actual admitted slices, all source recipe/phase bindings, RP=-T sign, neutral rewrite and H2=9,H4=1 local bill22 are freshly verified. Actual b-accumulator omission and lost RP sign reject. The target16 remains explicitly unachieved; operator equality is not selected-native schema admission. No new lower bound, optimizer or saving is inferred.

@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Sharp additive COPY-mass floor for arbitrary finite scalar factorizations on two matched planes, including special rational/complex coefficients and overcomplete terms; bind all selected pairs and the unchanged pair-local coverage budget.",
+  "scope_change_reason": "The card asks for a better rank-shaped supplier. The chosen changed contract drops the invertible four-message basis restriction of PR3990/3997. An analytic rank dual closes that gap, but the full optimistic inherited budget fails already at zero saving; stop at a scoped negative result rather than build a supplier.",
+  "bottleneck_link": "Pair-local mixing cannot lower the 224 COPY mass under the retained plane-port two-unpaid-coordinate coverage model. Its optimistic complete mass/capacity is 293/292, so merely improving concave COPY-only costs cannot produce a saving.",
+  "budget_minutes": 120,
+  "stop_rule": "One written two-block proof, exact source-bound checks of all 1540 selected plane pairs, finite independent binary shortest-path corroboration, and corruption controls. No coefficient alphabet search, three-plane expansion, or supplier construction.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md; RESULT.json; verify.py; independent.py; registered replay and committed-byte/source-history checks recorded in VALIDATION.md.",
+  "author": "@CubeJerry, with OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in mathematical derivation, code, verification, and documentation. Both implementations were written in the same AI session; implementation independence is not independent human review. No proof assistant or sub-agent was used.",
+  "open_questions": [
+    {
+      "question": "Can a genuinely joint three-or-more-plane decoder lower the complete COPY mass under this support-pairing tariff?",
+      "why_it_matters": "The two-block rank dual does not add over overlapping messages, so this is a changed mechanism rather than a wider coefficient census.",
+      "first_step": "Name one three-plane endpoint and its 49 closure-pair tariffs, then derive an optimistic full coverage budget before synthesis.",
+      "blocked_by": "A favorable complete cost invoice including source access, native frames, restoration and owner hosting is not supplied."
+    },
+    {
+      "question": "Which changed consumer or coverage contract could use the equal-mass larger-copy boundary fixture?",
+      "why_it_matters": "The exact six-term fixture lowers a concave COPY-only bill but cannot repair the present zero-saving deficit.",
+      "first_step": "Specify a literal caller that changes the 71W+CN baseline and price every cross-term operation; reject it if mass still exceeds capacity.",
+      "blocked_by": "The four zero-COPY cross terms are not free physical operations; no native or all-size realization is provided."
+    }
+  ],
+  "assignment": {
+    "os_random_integer": 27,
+    "started_utc": "2026-10-21T14:48:38.144063+00:00",
+    "picker_nonce": "0000000000000000000000000000001b",
+    "priority_revision": 7,
+    "initial_orientation_minutes_under": 24,
+    "verification_reserved_minutes": 30,
+    "diversification": "Lexicographic plane-pair index 27: planes (0,28), ports (0,1)/(86,37). A uniform analytic inequality then permits the complete 1540-pair finite geometry check."
+  },
+  "claim": {
+    "track": "complex supplier / complex-rank-shape-decoder",
+    "assignment_seed": 27,
+    "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "claimed_utc": "2026-10-21T14:55:40.380972+00:00",
+    "object": "Exact identity decoder on two matched planes, with whole-plane support expansion, arbitrary scalar coefficients and any finite number of rank-one terms.",
+    "method": "Derive a coefficient-independent rank-budget dual; begin at plane pair index 27 in lexicographic order, then certify all 1540 selected pairs if the same inequality applies.",
+    "deliverable": "Scoped all-coefficient/overcomplete COPY lower bound or a counterexample, written proof, source-bound exact verifier and mutation controls. No supplier or kappa claim.",
+    "expected_finish_utc": "2026-10-21T16:48:38Z",
+    "overlap": [
+      "3990 binary bases",
+      "3997 generic and signed-ternary bases",
+      "2203 independent-block payload invoice",
+      "2126 identity endpoint"
+    ],
+    "distinction": "Close the arbitrary cofactor-cancellation and overcomplete gap left explicitly by #3990/#3997 using an analytic rank inequality, not a larger coefficient census.",
+    "coordination": "Local claim: only open issue is unrelated #913; no pinned sprint issue found. Public Discussion #1166 comments inspected; GitHub connector exposes no Discussion posting action.",
+    "candidates": [
+      {
+        "candidate": "P104 new source-chart correction",
+        "decision": "Not selected: would need a new literal producer contract before any affordable experiment."
+      },
+      {
+        "candidate": "Tensor block-climb decoder",
+        "decision": "Not selected: #3895 retains unresolved native frame tariff; no identified removed paid transition."
+      },
+      {
+        "candidate": "Two-plane arbitrary coefficient and overcomplete identity decoder",
+        "decision": "Selected: explicit unclosed #3997/#3990 scope, exact finite cost table and discriminating analytic test."
+      }
+    ]
+  },
+  "overlap": {
+    "checked_utc": "2026-10-21T15:07:25.119907+00:00",
+    "main": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "local_helper": "python3 scripts/find_overlap.py --task complex-rank-shape-decoder --cache ../overlap27.json --refresh",
+    "limitations": "Helper remote refresh failed because gh is absent. Supplemented with live GitHub connector PR title/body queries and public Discussion 1163/1166/1167 HTML. Anonymous Discussion pagination may omit older replies; no comprehensive novelty claim. No pinned coordination issue found; issue 913 is unrelated. Connector has no Discussion write capability, so claim is local.",
+    "predecessors": [
+      {
+        "pr": 3990,
+        "distinction": "Finite binary invertible-basis census; this proof permits any field and any finite term count."
+      },
+      {
+        "pr": 3997,
+        "distinction": "Generic rational and signed-ternary invertible bases; this proof includes special cofactor cancellation and overcomplete factors."
+      },
+      {
+        "pr": 2203,
+        "distinction": "Independent-block native invoice; this proof permits arbitrary mixing within each pair of planes."
+      },
+      {
+        "pr": 3383,
+        "distinction": "A distinct fixed grouped-fit row space and one-total principal-Gram cost; not invoked here."
+      },
+      {
+        "pr": 2398,
+        "distinction": "Fixed P112 rank-nine completion and minimal factor spaces, different endpoint and tariff support family."
+      },
+      {
+        "pr": 3489,
+        "head": "877ea00e462a4d306babb9867651d9fd9a1f74b1",
+        "distinction": "At-most-four-term floor for a fixed two-indicator target with external directions; this result fixes two whole planes/four independent payload coordinates, allows unbounded finite terms and uses a direct rank dual."
+      },
+      {
+        "pr": 3505,
+        "head": "c00f31594402e1769775a4fea2819ed9187cf9ee",
+        "distinction": "General reader floor conditional on characteristic-two representability of an augmented matroid; this two-plane proof imposes no representability premise. The finite F2 corroboration is not claimed as a new characteristic-two floor."
+      }
+    ],
+    "final_checked_utc": "2026-10-21T15:12:04.178941+00:00"
+  },
+  "budget_decision": {
+    "milestone": "scoped local obstruction and full optimistic rejection, not supplier admission",
+    "proved": "COPY >= 8 per disjoint plane pair for all finite scalar factorizations; sum >=224; coverage lower ratio 293/292 under retained model",
+    "constructively_upper_bounded": "Separate scalar identity factors attain COPY 8; inherited PR2203 native word supplies the baseline only",
+    "unknown": "Physical source access, scalar coefficients, adapters, restoration, ownership, shared native execution and all-size transfer for a changed realization",
+    "optimistic_prices": "All unknown extra charges relaxed to zero; no negative credits or unpaid helpers invented",
+    "decision": "Stop pair-local synthesis. Reopen only with a changed charged interface, coverage law, or genuine cross-pair mechanism. The bit/outer constraints cannot rescue an already failing complex budget."
+  },
+  "refresh_checkpoint": {
+    "checked_utc": "2026-10-21T15:12:04.178959+00:00",
+    "canonical_main": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "changed": false,
+    "branch": "research/two-plane-copy-floor-seed27-20261021-144838"
+  }
+}

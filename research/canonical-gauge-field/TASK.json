@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Show that the canonical word payload comparison accepts two words that differ only in _gauge_ann.",
+  "scope_change_reason": "The payload comparison is the repository's canonical gzip check. The word filter drops the gauge annihilator before that comparison.",
+  "bottleneck_link": "A payload match does not decide the omitted annihilator. The selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Certify this one omitted field. Do not edit the producer and do not rebuild the p=12 word.",
+  "outcome": "partial",
+  "evidence": "Public gauges with annihilators [3] and [4] decompress to the same payload. A changed public dimension does not. A changed gzip mtime changes the container hash only.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The omitted field is _gauge_ann. Restoring it in the canonical word would be a producer edit, which this audit does not make."
+}

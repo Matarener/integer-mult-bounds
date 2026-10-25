@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/centre-block-moore-bound/verify.py",
+    "research/centre-block-moore-bound/SOURCES.json",
+    "research/centre-block-repair-information/independent.py",
+    "research/centre-seven-owner-fano-independent/verify.py",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/centre-owner-observation-floor/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticate exact selected-source closure, reconstruct R/H and full73-dimensional routes, enumerate4080 subgroup elements, classify all112 port cosets, check rational ranks, attaining interface and conditional tariff with source/behavioral controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independently reconstruct row-major routes and subgroup, all port equivalences and scalar class kernels; compare the exact full-kernel/information certificate and reject wrong subgroup, orientation and coefficient controls."
+    }
+  ]
+}

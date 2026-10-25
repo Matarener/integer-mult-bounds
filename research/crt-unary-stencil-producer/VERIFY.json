@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/check_batched_crt.py",
+    "research/unconditional-batched-crt/NOTICE.md",
+    "research/crt-unary-stencil-producer/source/PREDECESSOR-PROOF.md.txt",
+    "research/crt-unary-stencil-producer/source/PREDECESSOR-README.md.txt",
+    "research/crt-unary-stencil-producer/source/predecessor_adapter.py",
+    "research/crt-unary-stencil-producer/source/predecessor_machine.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/primary_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual encoded admission/producer, paid tape actions, ownership and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/primary_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual encoded admission/producer, paid tape actions, ownership and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint preimplementation direct stencil/predicate oracle; no primary import."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint preimplementation direct stencil/predicate oracle; no primary import."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/cross_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Hash-bound produced stencils consumed by unchanged predecessor machine and compared against independent/source predicates."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cross_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Hash-bound produced stencils consumed by unchanged predecessor machine and compared against independent/source predicates."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/cost_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate primitive-call instrumentation corroborates exact producer action/space formulas and detects a one-READ undercharge with unchanged values/ownership."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cost_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate primitive-call instrumentation corroborates exact producer action/space formulas and detects a one-READ undercharge with unchanged values/ownership."
+    }
+  ]
+}

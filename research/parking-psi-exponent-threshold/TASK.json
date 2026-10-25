@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "The strict transfer hypothesis Psi(tau) < 1 is decided exactly on the two manuscript motif parking recurrences at the pinned exponent tau = 1-2^-50. On the manuscript's rank-one schedule Psi(tau) = (1-eta) m^(1-tau), so the hypothesis is equivalent to tau > tau*(eta) = 1 - ln(1/(1-eta))/ln m. Exact rational brackets give tau*(eta_b) = 1 - 1.08634499057e-12 and tau*(eta_c) = 1 - 2.65432164079e-13; the complex node binds. Both Psi(1-2^-50) are strictly below 1, with margins 1.4996140048e-11 and 3.6548102269e-12.",
+  "scope_change_reason": "Card-first scope was refined, not replaced. The card asks for one exact all-size/compiler/precision/hosting/restoration implication; this session took the explicit open question of the merged package research/uniform-parking-psi ('whether this same child list has Psi below 1 at that exponent', i.e. the manuscript exponent 1-2^-50 rather than 1/2). The resulting proposition is an exact quantified implication about the transfer recurrence's strict hypothesis, with explicit hypotheses (rank-one child list, displayed deficits, m = 10^6) and an exact decision procedure, so it meets the card's acceptance gate. It is not a new construction.",
+  "bottleneck_link": "The transfer recurrence's exponent is one of the inherited all-size premises behind the bit-side primitive budget. The previous package showed the bit parking node fails the strict hypothesis at tau = 1/2 and left the manuscript's own exponent untested, which reads as a gap in the transfer chain. This note shows the strict hypothesis does hold at the exponent the manuscript actually uses, so the gap is not there; it also gives the exact range of exponents the two recurrences support, which is what a later attempt to improve the exponent must clear. No kappa or selected-frontier change follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the exact decision on the two displayed recurrences with rigorous rational brackets, a separate integer-only implementation, rejecting controls and publication. No transfer theorem, no new exponent claim, no batched-child evaluation, no supplier or kappa claim.",
+  "outcome": "completed",
+  "evidence": "PROOF.md states Lemma 1 (rank-one collapse), Lemma 2 (exact threshold and its monotonicity) and the theorem with exact brackets. verify.py authenticates the three pinned inputs by SHA-256, re-derives m, s_b, s_c, eta_b, eta_c from the displayed source forms, checks integrality of the role counts, and computes rational brackets for ln m, -ln(1-eta) and exp(2^-50 ln m) before rendering any decimal. independent.py shares no series or logarithm: it proves the same conclusion from 20*2^-50 < eta by integer cross-multiplication, log m < 20 from m < 2^20 and 2 < e, and e^x <= 1/(1-x). test_controls.py runs twelve mutation groups (ten rejections, two positive runs), including the sharp boundary pair 1-2^-38 rejected against 1-2^-42 accepted, and the demonstration that 1-2^-42 fails the manuscript's displayed comparison while passing the exact decision. The registered replay under CPython 3.12 and the source-history check are recorded in the PR body.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does a batched child list with some t_i > 1 also meet Psi(tau) < 1 at tau = 1-2^-50?",
+      "why_it_matters": "The manuscript's displayed s/W < m^tau comparison does not imply Psi < 1 once a call batches several rank units, because sum_i (t_i/m)^tau exceeds s/(W m^tau). A batched schedule would need its own evaluation before the transfer hypothesis can be claimed for it.",
+      "first_step": "Take one explicit batched child list from the note's allowed range, compute sum_i (t_i/m)^tau against 1 exactly, and record the gap to s/(W m^tau).",
+      "blocked_by": "No batched schedule is emitted by the pinned rank-one parking construction, so there is no source-bound instance to test."
+    },
+    {
+      "question": "Can the surrounding proof use an exponent below 1-2^-50, given that both recurrences admit every tau in (1-2.6544e-13, 1)?",
+      "why_it_matters": "A smaller tau strengthens the O(e^tau) conclusion. The exact threshold shows 1-2^-41 is admissible for both nodes whereas 1-2^-38 is not; whether any downstream constant improves is a separate question.",
+      "first_step": "Trace where tau enters the outer complexity statement and re-price one occurrence at 1-2^-41.",
+      "blocked_by": "The exact threshold is only an admissibility statement; it says nothing about the downstream constants or their dependence on tau."
+    }
+  ],
+  "credit": "The Psi definition, the strict-hypothesis lemma, the rank-one parking schedule, the two relative rank deficits, the exponent tau = 1-2^-50 and the displayed comparison eta > 20*2^-50 are the manuscript's, pinned by Git blob in SOURCES.json. The previous package research/uniform-parking-psi (merged as PR3528) evaluated the bit node at tau = 1/2 and stated the manuscript exponent as its open question. No other credit line is changed."
+}

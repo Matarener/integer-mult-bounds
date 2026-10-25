@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Bind PR2753/PR2809 Callback.abort stack/residue rollback to the NumericLease parked-child interrupt invoice: four stack-face clears, protected residue/index rollback, program/fields rewind, then lease.close(strict=False), with three semantic mutants. Answers open #3999 OQ1.",
+  "scope_change_reason": "The drawn supplier-boundary card is refined to the still-open Callback.abort composition on the PR2809 interrupt invoice after #3999 covered NumericLease/SharedFrame alone. This is that one interrupt-module binding, not ScratchPool lease-end, priced park, or a stock-envelope reprint.",
+  "bottleneck_link": "Interrupted-macro recovery remains an open physical-caller obligation after successful-path ordinary backends. Binding Callback.abort to the parked-child invoice closes one named gap without claiming universal ownership refinement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after composed parked-child fixture, stack/residue rollback checks, three mutants, source correspondence, and package gates. Do not price park/restore or reopen ScratchPool lease-end.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json composed parked-child Callback.abort + lease nonstrict restore; independent algebra; three mutants; pinned controller.py / numerical_frame.py / PROOF.md / physical-contract-map correspondence.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
+  "open_questions": [
+    {
+      "question": "Can Callback.abort compose with ScratchPool lease-end/CALL-empty and residual/CALL into one enclosing ownership argument?",
+      "why_it_matters": "Separate successful-path and interrupt-path cuts do not yet state a single ownership theorem for mixed failure modes.",
+      "first_step": "Write one fixture that parks, leases scratch, enters Callback, fails, and checks all three cleanup invoices in order.",
+      "blocked_by": "No enclosing ownership schedule is constructed here."
+    },
+    {
+      "question": "What complete machine-step charge does park/restore pay on the interrupt path when Callback stack faces are included?",
+      "why_it_matters": "The interrupt invoice is qualitative; a priced park bill remains open on #3999.",
+      "first_step": "Meter park/restore unit moves with nonempty pending/values faces on abort.",
+      "blocked_by": "No priced park invoice is attached here."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 2809,
+      "credit": "Jose Manuel / jmbarrancoml; NumericLease interrupt and Callback lowering"
+    },
+    {
+      "pr": 2753,
+      "credit": "David Arias; logical caller retained by PR2809"
+    },
+    {
+      "pr": 3999,
+      "credit": "Wentao Li; NumericLease/SharedFrame interrupt audit; OQ1 answered here"
+    },
+    {
+      "pr": 3993,
+      "credit": "Wentao Li; ScratchPool lease-end / CALL-empty successful-path cut"
+    }
+  ]
+}

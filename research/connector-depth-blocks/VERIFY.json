@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Block words for all 54 cases 2<=c<=7, k<=2c with generic coefficients; exhaustive depth-one census at k=3 for c=2,3,4; the characteristic-four nine-source walk with generic and dense matrix simulation; nine deletion checks; counting thresholds for c<=9; six rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat every check under optimized Python; checks use explicit exceptions."
+    }
+  ]
+}

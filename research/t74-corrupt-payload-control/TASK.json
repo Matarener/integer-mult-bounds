@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Audit the T74 pivot-566 corrupted-word control: its regenerated container digest rejects the unmutated gauge44 payload, while payload equality separates that environment mismatch from the one-byte corruption.",
+  "scope_change_reason": "The card's second method is one canonical-payload audit. The object is the corrupt() control in research/t74-pivot566-kernel/verify.py, not a new mtime fixture and not an edit of that hash-pinned script.",
+  "bottleneck_link": "A container-digest failure control can pass on an unchanged word when zlib does not reproduce the committed gzip bytes. That blocks a portable replay without changing the selected exponent. The payload comparison keeps the immutable container pin and still detects the byte flip.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after this one control. Do not edit the pinned T74 verifier, rerun its SymPy admission, or scan other gzip call sites.",
+  "outcome": "partial",
+  "evidence": "On CPython 3.12 with zlib 1.3, gzip.compress of the unmutated gauge44 payload at mtime 0 does not match pin 0740b6f33927b9e60c9a7f35e7fcb2fd9ac6e2d3982112428b302a6966a18c73. The same predicate also rejects the one-byte mutant. Level-1 recompression keeps the payload and changes the container. The payload predicate accepts the original and rejects the mutant.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial Cursor Grok assistance in the audit, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "Can a successor of the bounded T74 hook replace corrupt() with a payload inequality while leaving the committed gauge44 container pin untouched?",
+      "why_it_matters": "Until that hook changes, corrupted_word passes whenever recompression misses the container pin, including on the unmutated word.",
+      "first_step": "Copy the five failure controls into a successor script and change only corrupt() to compare decompressed payloads.",
+      "blocked_by": "PINS.json pins verify.py at sha256 0b9c52118482a1e1e5f488e9d5877a4cf0f3648ac9e782e80f099de64787323f. This package does not rerun the SymPy admission those controls sit inside."
+    }
+  ]
+}

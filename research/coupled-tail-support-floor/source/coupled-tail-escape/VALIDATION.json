@@ -1,0 +1,80 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "local_block.py",
+        "--write"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-O",
+        "local_block.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "q3_tail.py",
+        "--write"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-O",
+        "q3_tail.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "earlier_attempt": {
+    "argv": [
+      "python3",
+      "-B",
+      "-O",
+      "q3_tail.py"
+    ],
+    "error": "FileNotFoundError for Q3-LOCAL-BLOCK.json: readback was started before normal writer finished; final rerun after file creation passed.",
+    "exit_code": 1
+  },
+  "files": [
+    {
+      "path": "local_block.py",
+      "sha256": "ac8abc744c616e60a221e8fadf1b590f2248f953bafcb2f61675d1c2541f7fe1"
+    },
+    {
+      "path": "LOCAL-BLOCK.json",
+      "sha256": "aad2ee156a1f1e028b4e0329b4af1c38285f0be90c27da720d4bb71885c29294"
+    },
+    {
+      "path": "PROOF.md",
+      "sha256": "5b4300fb15364dbdb17974d6d0bb7d387a189ff814fd0293057ea2a47ac58587"
+    },
+    {
+      "path": "q3_tail.py",
+      "sha256": "8fac76761684d17231ae4d766b7d9464a4ff5675e99038dfbd839bb8cf0d1082"
+    },
+    {
+      "path": "Q3-LOCAL-BLOCK.json",
+      "sha256": "3ad4d1bb498cd67588af0c0558c32b441b35dac56b9f3bb7001ae317fadc28fa"
+    },
+    {
+      "path": "ALL-Q-TAIL-LEMMA.md",
+      "sha256": "f3b8c42c0fe7d5c5a542e38fe0b3d14601c170959e18a45b60f26128703560b2"
+    }
+  ],
+  "no_active_processes": true,
+  "no_new_kappa": true,
+  "proof_domain": "Exact q2/q3 local current-input matrices; conditional all-q tail lemma only. R_f is full-bank same-volume native macroarity; partial/striped volume repricing outside.",
+  "status": "PASS_FINAL_Q2_Q3_LOCAL_MATRICES_INVERSES_PHASES_RECIPES_SUPPORT_WITNESSES"
+}

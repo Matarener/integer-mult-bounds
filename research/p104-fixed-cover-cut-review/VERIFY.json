@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact channel run (Y increment = G/2); PR3259 layered control; sharp support by one criterion in two loop orders and PR3252 full-memory recurrence (all equal; 2,309 own port pairs + (73,83); routes: 31 own pairs also via another type, (73,83) only via type (17,147)); PR3427 masks; vertex cover 104 of the 2,682 missing entries; rank(U-I)>=23 from a maximum independent 23x23 block; rank(G/2)=8 (rectangle cap 31); rows R1/R1u/R1c/R2/R3; 9,000-instance small-domain oracle (exhaustive reachability, realized programs, 18,000 random legal programs, the 9,000 directed ones run in the checked interpreter); six contract-violation controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Seven tests: tampered hash, unsound and too-tight oracle tests, wrong rank block (each with its own FAIL message); shared-type drop, containment drop (the containment-free variant over-grants), Y-relay escape (fact checks)"
+    }
+  ]
+}

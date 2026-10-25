@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/NATIVE-RECIPES.json.gz",
+    "research/p104-native-channel/check_native.py",
+    "research/p104-native-channel/compile.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-tail-side-correction-seed749717/AUGMENTED-WITNESS.json.gz",
+    "research/p104-tail-side-correction-seed749717/SIDE-TRANSPORTS.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Map event 5758's frames through the stored label isometry and compare them with the physical columns."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check basis reduction and the image of zero."
+    }
+  ]
+}

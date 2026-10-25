@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/staged-fourth-mixture-ceiling/RESULT.json",
+    "research/staged-fourth-mixture-ceiling/PROOF.md",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/THREE-base.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/THREE-extra.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/FOUR-base.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/FOUR-extra.json.gz",
+    "research/staged544-mixed-fourth-entry/RESULT.json",
+    "research/staged544-mixed-fourth-entry/README.md",
+    "research/staged544-mixed-fourth-entry/TASK.json",
+    "research/staged544-mixed-fourth-entry/inputs/THREE-base.json.gz",
+    "research/staged544-mixed-fourth-entry/inputs/THREE-extra.json.gz",
+    "research/staged544-mixed-fourth-entry/inputs/FOUR-base.json.gz",
+    "research/staged544-mixed-fourth-entry/inputs/FOUR-extra.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Independent transfer audit: 4/4 byte-identical word payloads, published word-profile anchors in both packages, identical 725,760-bin capacity inventory and constant 162,900 residual mass, unique word-law fourth-call counts 1080/1090 derived from rank-1/3/4 coordinates, Decimal bisection reproduction of the pooled-optimum ceiling root, the pinned literal root and the later-head root inside their published brackets, exact remaining headroom 1.140318244487202e-9 and consumed-margin agreement with the later package's published gain."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Same audit with assertions disabled; no check may depend on assert."
+    },
+    {
+      "argv": ["{python}", "-I", "-Werror", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Behavioural controls: extra rank-1 children break the word law; a wrong stock divisor moves the reproduced root out of its bracket; a tampered word delta breaks the cross-package L4 derivation; a corrupted word payload fails hash equality; a shifted idle total breaks the constant-residual check."
+    }
+  ]
+}

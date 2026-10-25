@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Decide the shortest unsigned word for the depth-four dirty chain connector z_l += B_l z_{l-1} (l = 1..4, z_0 = x immutable, z_1..z_3 and y = z_4 dirty) over characteristic m, answering open question 1 of PR #4249 for 6 <= m <= 32: the per-call floor 4m is attained for every nonzero residue c, by explicit witness words.",
+  "scope_change_reason": "The card asks about one extension of the connector alphabet. This package keeps the unsigned complete-call alphabet and lengthens the one-source chain by one more call, continuing the depth-three side question of PR #4249, whose open question 1 asks for the depth-four minimum. It does not extend a source-count census or claim a supplier improvement.",
+  "bottleneck_link": "A recursive boundary that routes through three dirty intermediates pays this call count. PR #4249 found a premium over the per-call floor for m <= 5 (12, 18, 20, 25 calls); this package shows the premium disappears for 6 <= m <= 32. Side result: no consumer, paid profile or kappa change is supplied.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after explicit witnesses for every (m, c) in a bounded range with literal dirty replay and source-bound publication checks. A uniform all-m construction was attempted for part of the session and not found; no all-m theorem is claimed.",
+  "outcome": "completed",
+  "evidence": "witnesses.json lists one word with exactly m copies of each call for each of the 523 pairs (m, c), 6 <= m <= 32, 1 <= c < m. verify.py checks each word by interval subword counts, by an independent UT5(Z/m) matrix product and by two literal replays with dirty registers and random 2x2 maps, plus rejection controls, and prints a receipt with package and input SHA-256 values. The 4m floor is Lemma 1 in README.md.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is the depth-four minimum exactly 4m for every m >= 6?",
+      "why_it_matters": "It would make the depth-four premium a small-characteristic effect, m <= 5 only, matching the depth-three law of PR #4249 where only three exceptions exist.",
+      "first_step": "Use the three-interleaving form of README Lemma 2. Find a parametric family of the sequences x, y, z for odd m and for even m, and test it against the 523 witnesses here.",
+      "blocked_by": "The structured families tried here (single interior blocks, x_j = j - 1, z_l = l - 1) either collapse c to 0 or exist only when m has a nontrivial cube root of unity."
+    },
+    {
+      "question": "Does the per-call floor km hold at depth k >= 5 for all large m, and from which m on?",
+      "why_it_matters": "This would say whether longer dirty chains pay only a small-characteristic premium.",
+      "first_step": "Run search_witnesses.py adapted to depth five for m from 6 to 12, and an exhaustive balanced-word search where m^(k(k-1)/2) states allow it.",
+      "blocked_by": "No depth-five search was run here."
+    },
+    {
+      "question": "Can a concrete recursive caller use a depth-four chain through three dirty intermediates at a favorable complete invoice?",
+      "why_it_matters": "The call count is exact in the stated range, but admission, dispatch and routing are unpriced.",
+      "first_step": "Locate one pinned caller that composes four complete calls through dirty workspace and price all 4m calls plus its frame changes.",
+      "blocked_by": "No selected-supplier caller is bound here."
+    }
+  ]
+}

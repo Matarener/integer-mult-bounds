@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-local-word-ceiling/levers.py",
+    "research/complex-local-word-ceiling/README.md",
+    "research/split-centres-global/proofs/PR386-BIT-GEOMETRY.txt",
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Screen the selected local word, the ideal two-call share, and the share with one rank-8 restoration per pair."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the two-call copy count, the centre charge, and the one-tenth gain test."
+    }
+  ]
+}

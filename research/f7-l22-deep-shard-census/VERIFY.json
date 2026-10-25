@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-l22-union-census/README.md",
+    "research/f7-l22-union-census/RESULT.json",
+    "research/f7-l22-union-census/engine/union_census.c"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--check-receipt",
+        "--control"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Engine bytes equal the SOURCES.json pin; the 251-entry cover is prefix-free and complete over all restricted-growth words of length eight; every recorded split has 251 complete zero-hit shard rows whose node sum equals its total; the closed splits are exactly #3818's capped splits plus (11,6) and (10,7); with #3731/#3818's exclusions they close all eleven rows of #3708's length-22 table. Partition control: the same engine compiled at (N,L)=(4,8),(4,10),(5,12) with the same kind of mixed-depth cover; on every accepted split the sharded hit set equals the unsharded hit set (77 splits, 2,452 universal words), and a dropped hit-bearing shard is detected."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--replay",
+        "10,9:231:251",
+        "--workers",
+        "4"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Fresh length-22 census of cover entries [231,251) of split (10,9): every shard complete with zero hits and per-shard node counts equal to RESULT.json (247,861,718 nodes)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--replay",
+        "11,9:244:251",
+        "--workers",
+        "4"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Fresh length-22 census of cover entries [244,251) of split (11,9): every shard complete with zero hits and per-shard node counts equal to RESULT.json (218,481,046 nodes)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--replay",
+        "11,11:249:251",
+        "--workers",
+        "4"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Fresh length-22 census of cover entries [249,251) of split (11,11): every shard complete with zero hits and per-shard node counts equal to RESULT.json (192,875,091 nodes)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--replay",
+        "11,10:249:251",
+        "--workers",
+        "4"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Fresh length-22 census of cover entries [249,251) of split (11,10): every shard complete with zero hits and per-shard node counts equal to RESULT.json (155,724,508 nodes)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--replay",
+        "10,10:249:251",
+        "--workers",
+        "4"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Fresh length-22 census of cover entries [249,251) of split (10,10): every shard complete with zero hits and per-shard node counts equal to RESULT.json (159,403,932 nodes)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--replay",
+        "10,7:0:251",
+        "--replay",
+        "11,6:0:251",
+        "--workers",
+        "4"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Fresh length-22 census of cover entries [0,251) of split (10,7): every shard complete with zero hits and per-shard node counts equal to RESULT.json (700,909 nodes). Fresh length-22 census of cover entries [0,251) of split (11,6): every shard complete with zero hits and per-shard node counts equal to RESULT.json (2,247 nodes)."
+    }
+  ],
+  "notes": "C11 compiler with unsigned __int128 required (clang or GCC). No Python dependencies. CI replays the registered cover slices only (about 1.2e9 of 1.74e11 nodes; a first CI run showed a 2e9-node slice exceeding 150 s on the hosted runner); every split was run in full locally, and '--replay S,T' with the default range replays a whole split (opt-in). Local timings on CPython 3.12 with 4 workers (Apple silicon, shared machine): (10,9) full split 121 s, (11,11) slice 46 s, control about 40 s, receipt check under 1 s. Timing fields are excluded from all equality checks."
+}

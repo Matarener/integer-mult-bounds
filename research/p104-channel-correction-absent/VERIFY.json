@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/EXPECTED.json",
+    "research/p104-native-channel/TASK.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Count the channel opcodes and follow X0's coefficient in Y34 to the end of the word."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that a cancelling add removes the coefficient from the trace."
+    }
+  ]
+}

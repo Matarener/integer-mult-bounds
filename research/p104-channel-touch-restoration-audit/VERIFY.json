@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-endpoint-geometric-budget/geometry.py",
+    "research/p104-flag-channel-schedule/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Forward touch scan, frame-restoration census, and #3242 field comparison"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/independent.py"],
+      "timeout_seconds": 60,
+      "checks": "Index-list touch scan and setwise frame comparison"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_package.py"],
+      "timeout_seconds": 90,
+      "checks": "Duplicate JSON keys, temp-copy certificate corruption, optimized admission, scanner agreement"
+    }
+  ]
+}

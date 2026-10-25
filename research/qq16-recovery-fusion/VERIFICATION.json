@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-19T07:49:00Z",
+  "python": "3.12",
+  "normal_final_generation": "PASS; deterministic final WORD and RESULT regenerated before frozen verification",
+  "full_boundary_suite": {
+    "command": "python3 -I -O -Werror -B research/qq16-recovery-fusion/test_verify.py",
+    "result": "PASS, five groups,418.835seconds",
+    "coverage": [
+      "normal and optimized read-only full replay",
+      "Git-free read-only export with PATH=/nonexistent",
+      "corrupt source rejected before execution",
+      "complete-word mutation rejected",
+      "integer-to-float receipt mutation rejected",
+      "initial generation refuses overwrite"
+    ]
+  },
+  "cross_review": "REVIEWS.json records independent AI source/proof reviews and root optimized replay",
+  "science_files": {
+    "verify.py": "1f30dcd071e4d86b298233b6ade27f2571726106b1eeff1a0ceecc749ddbcec6",
+    "replay.py": "2d7c5c92986fe8574d6ac25c2fcaf5039ac522de3c0922c323a549e8ee247510",
+    "native.py": "0a53f6df1d5ee88b206547b88a2805d9f7d5db582117baa48c08658d5cd7a4ba",
+    "budget.py": "9644113b9a1798160e656bfdf597687c15c74579a61af2edf12121681764951c",
+    "WORD.json": "a854f516f1d80635fb3414734f9e1c6d1251a5d79ef12e137c143fc6b0b51722",
+    "RESULT.json": "c8667f150380b277dff75bce442880e28cb0b8012fd878e4ab450d6268ba8b97",
+    "PROOF.md": "73d5598a49cf8132cca3250621806fbb82296a9ab077e38cdc6a5706c5c12d53"
+  },
+  "source_reuse": "Authenticated canonical PR2707 helper loading and PR2681 routed algebra. Signed native checker adapted and strengthened to both signs; not code-disjoint algebra verification.",
+  "command_registration": "Same tests split into500/350-second groups after full suite took418.835seconds; primary replay300; totaldeclared1150seconds below1200cap.",
+  "not_run": [
+    "full physical supplier or tape hosting",
+    "rounded precision and dirty-range analysis",
+    "Lean or full cold frontier replay"
+  ],
+  "publication_preflight": "Recorded after GitHub commit in the PR body, avoiding self-referential commit receipt.",
+  "registered_package_replay": {
+    "command": "python3 -B scripts/research_package.py --package research/qq16-recovery-fusion",
+    "result": "PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed",
+    "completed_at_utc": "2026-10-19T08:00:20Z",
+    "groups": [
+      "primary complete verifier PASS",
+      "normal/optimized/Git-free group PASS,276.881seconds",
+      "word/receipt/source/overwrite group PASS,263.630seconds"
+    ]
+  },
+  "cosmetic_cleanup_after_replay": {
+    "path": "budget.py",
+    "change": "Removed one extra blank line at EOF; parsed Python AST equality checked. No executable statement changed.",
+    "checked_before_sha256": "32ad4a2830c468618090eb881b5d7b6aa65f40674ee22f7804f8fb5899bcabf7",
+    "final_sha256": "9644113b9a1798160e656bfdf597687c15c74579a61af2edf12121681764951c"
+  }
+}

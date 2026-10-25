@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-query/certificate.json.gz",
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/joint-query/evidence/CONSERVED-QQ16.md",
+    "research/joint-query/evidence/NATIVE-REVIEW.md",
+    "research/qq16-all-depth-producer-grid/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent raw-source expansion, polynomial/max-plus all-depth capacity proof constants, owner inverses, complete primitive counters and receipt equality"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent exact Gaussian component/tensor oracle, primitive overflow/grid controls, carried state, source/usage/claim/receipt corruption and exclusive write"
+    }
+  ]
+}

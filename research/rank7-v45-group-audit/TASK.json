@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "independent-moment",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "independent-moment",
+    "question": "Does one changed supplier or assembly claim lack a source-bound independent check of a specific new implication?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/rank7-joint-endframes/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct a coordinated frame/circuit change and its single-change control, then derive the complete rank and physical ledger.",
+      "Implement certified moment inequalities through a different exact enclosure method."
+    ],
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls. Name the existing checks and the missing coverage. More digits or another equivalent evaluation of an unchanged root is not by itself new verification coverage.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2979 joint rank-7 end-frame proposal and the revision-6 evidence status. Its claimed kappa is not selected. Compare coordinated changes with the losing single-change controls and locate the complete physical ledger; an aggregate moment alone does not validate the mechanism.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Prioritize a bounded independent audit of #2979: reconstruct one joint group and its single-lowering control, check the declared frames/chronology, then trace changed children, idle widths and cleanup buffers into the complete invoice and both supplier caps. Choose one still-missing implication after checking existing audits. Stop with exact unresolved dependencies if full admission exceeds the session; do not launch a new lowering census on an unvalidated premise or substitute extra root digits for mechanism checking.",
+    "bottleneck_link": "Independent pricing prevents unsupported frontier claims and can reveal genuine accounting slack.",
+    "allowed_variations": [
+      "Reconstruct either a source ledger or a numeric enclosure with a different method."
+    ],
+    "scope_change_triggers": [
+      "Importing the primary function and calling its output independent verification.",
+      "Promoting #2979 from merged source archive to validated supplier solely from author PASS receipts or aggregate pricing."
+    ],
+    "overlap_terms": [
+      "independent moment",
+      "rank histogram",
+      "exact enclosure",
+      "2979",
+      "rank7 joint endframes",
+      "paired extraction",
+      "joint lowering"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On both PR2942 parents, measure the V45 group price as the profile cost of the 61 stage-one edits whose new frame lies only in the declared V45 frame. That walk is monotone: +78512 with endpoints unchanged and -8388172 with all four endpoints lowered. The 29 helper-touching edits are nonmonotone at register 169, and every 60-edit subset of the joint walk is nonmonotone.",
+  "scope_change_reason": "The card asks for one coordinated group and its losing single-change control. After overlap with open PRs #3911, #3543, #3823 and #3841, the package keeps only the missing monotone decomposition: #3911 already prices endpoint subsets on the full 139-edit word and derives +78512 from the pinned price row, and it records that the 29 role edits are nonmonotone at register 169. Intersection, printed ladder and the physical ledger are not re-offered as the result. Moment weights, groups A-D, stage 2 and stage 3 stay out of scope.",
+  "bottleneck_link": "A joint frame lowering is useful only if its paid profile can be attributed without inheriting the search-time price row. Measuring one monotone group walk separates that local saving from the unvalidated kappa claim.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the 61-edit witness, the 29-edit register-169 control, and the joint leave-one-out. Do not rerun the #3911 ledger or launch another lowering census.",
+  "outcome": "partial",
+  "evidence": "verify.py replays both parents without STAGE-PRICES.json. The 61-edit walk measures overhead 78512 and joint delta -8388172. The 29 role edits fail at register 169 with and without the four endpoint changes, and adding any one partner edit to those 29 stays nonmonotone when endpoints are unchanged. Every 60-edit subset of the joint walk is nonmonotone. Omitting restore index 137 or 157 keeps the gate-only walk monotone at cost 83508 and breaks the joint walk.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial AI assistance from Cursor Grok.",
+  "open_questions": [
+    {
+      "question": "Is there a proper subset of the 61 V45-only edits, omitting at least two, that stays monotone for every endpoint subset and still measures +78512 and -8388172?",
+      "why_it_matters": "Every 60-edit subset fails the four-endpoint walk, so a smaller witness would have to omit two or more edits at once. The two gate-only omissions (restore 137 and restore 157) miss the joint price. A smaller witness, or a proof that none exists, is the remaining optimality gap left open by the absent frame-search log.",
+      "first_step": "Search pairs drawn from the 29 role edits, keep all 32 partner edits, and reject any walk whose joint profile cost is not -8388172.",
+      "blocked_by": "Nothing mathematical blocks a finite pair search. It was left unrun. The #2979 archive still has no optimizer witness."
+    },
+    {
+      "question": "Do groups A, B, C and D have an exclusive-containment edit set that is monotone and prices each group from profile costs?",
+      "why_it_matters": "V45 is one of five stage-one groups. PR #3911 still takes the other four joint prices from the pinned row.",
+      "first_step": "Repeat the containment split for each remaining group, without importing producer.py or STAGE-PRICES.json.",
+      "blocked_by": "Nothing mathematical blocks the same finite check. It was left out after the V45 overlap shrink."
+    },
+    {
+      "question": "Does the measured V45 margin survive an independent enclosure of c_r and the idle-width packing cap?",
+      "why_it_matters": "The +22972 unit margin uses the published integer weights and a fixed break-even of 2091300. It is a local surrogate margin, so it does not move kappa.",
+      "first_step": "Recompute lo_r(b) at b=0.001703676387993676 from the frame-domain-ceiling engines, then price the measured profile delta.",
+      "blocked_by": "Those engines and the T74 allocation are outside this package. Unknown cap movement is not zero."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated retained free-word replay,24 noncommuting F101 tensor fixtures and incorrect-rule controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated retained free-word replay,24 noncommuting F101 tensor fixtures and incorrect-rule controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately written exact rational free-word pullback of5784 actual outputfunctionals, with noncommutative reduction controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately written exact rational free-word pullback of5784 actual outputfunctionals, with noncommutative reduction controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent_real.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate-agent exact rational signed-permutation oracle on24 actual dirty-input tensor fixtures and scalar/phase controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/independent_real.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate-agent exact rational signed-permutation oracle on24 actual dirty-input tensor fixtures and scalar/phase controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/mutation_controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Two exact symbolic counterexamples after in-memory mutations of the actual FOUR-base correction and scalar SCALE; source bytes unchanged."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/mutation_controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Two exact symbolic counterexamples after in-memory mutations of the actual FOUR-base correction and scalar SCALE; source bytes unchanged."
+    }
+  ]
+}

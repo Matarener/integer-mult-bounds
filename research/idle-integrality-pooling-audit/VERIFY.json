@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/community-frontier1094-audit/INDEPENDENT1094.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-t16-rare-pattern-exchanges/data/OWNERS.json.gz",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/gauge44-slots-t16/hosting/PROOF.md",
+    "research/gauge44-slots-t16/t16/indep16.py",
+    "research/idle-packing-stability/README.md",
+    "research/selected-t16-pattern-dual/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-bound global/per-call domain counterexample; independently enclosed root signs, selected owner capacity ledger, aggregate replication and changed-law integrality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact algebraic price calibration, exhaustive small partitions, source and owner corruption controls and normalization mutants, active under optimization."
+    }
+  ]
+}

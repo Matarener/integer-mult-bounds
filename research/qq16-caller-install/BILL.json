@@ -1,0 +1,430 @@
+{
+  "bank_volumes": {
+    "original_parent_B": "14336*V",
+    "owner_packet_v": "P*U*row_bits",
+    "service_protected_return": "448*V",
+    "service_source_S": "448*V",
+    "whole_family_V": "Gamma*v"
+  },
+  "coefficient_unit": "Multiply producer_outer and decoder_service occurrence coefficients by Gamma. Publication executes once per reached global service fence; B already includes the complete cover.",
+  "decoder_service": {
+    "ADD_scalar_calls": 2940,
+    "all_gather_scatter_commit_groups": 2022,
+    "all_monomial_calls_including_map_translations": 1696,
+    "direct_dispatch_excludes_exchange_internal": true,
+    "exchange_charge_note": "Each source exchange_step has one internal ScalarEngine negation plus transfers; these are included in T_exchange, not in the direct-dispatch3484 or charged a second time.",
+    "exchange_internal_scalar_calls": 176,
+    "intrinsic_wrappers": 672,
+    "map_router": {
+      "direct_dispatch_excludes_exchange_internal": true,
+      "exchange_internal_scalar_negations_per_Gamma": "176",
+      "extra_sign_scales_per_Gamma": "176",
+      "gather_scatter_commit_groups_per_Gamma": "176",
+      "maps": 352,
+      "orders": {
+        "2": 352
+      },
+      "owner_control_visits_per_Gamma": 352,
+      "scope": "Full-bank scans per emitted cycle. T_exchange includes its internal ScalarEngine negation and transfers; extra sign scale is an additional direct scalar dispatch. Do not charge the nested negation twice.",
+      "source_exchanges_per_Gamma": "176",
+      "translation_monomials_per_Gamma": 352
+    },
+    "nonmap_groups": 1846,
+    "owner_basis_monomials": 672,
+    "physical_line_monomials": 1344,
+    "private_zero_calls": 48,
+    "public_CLEAR_scalar_calls": 368,
+    "rank_one_children": 336,
+    "scalar_engine_calls_including_map_sign_corrections": 3484
+  },
+  "inventory": "Existing modified producer Machine, separate decoder Machine, separate original recursive C Machine, plus acquisition/compiler/service roles. Separate Ordinary instances and protected-return backing are charged.",
+  "logical": {
+    "current_reconnection_bound": {
+      "denominator_bits": 0,
+      "derivation": "W+=Z gives at most2M; Z-=W prefix at most3M<4M, exact endpoint -oldW.",
+      "growth_bits": 2
+    },
+    "decoder": {
+      "clear": 416,
+      "map": 352,
+      "native_rank_one": 224,
+      "quarter_add": 896,
+      "scalar_allowance": 26144,
+      "unit_add": 1820,
+      "wrapper": 448
+    },
+    "native_screen": {
+      "added_rank_one": 368,
+      "added_width_sum_over_lambda": 368,
+      "formula": "(added - removed*8**(1-alpha))*73**(alpha-1)",
+      "minimum_added_over_removed_charge_alpha_0_to_1": "23/8",
+      "positive_charge_difference_at_alpha_0_over_lambda": 240,
+      "ratio_at_alpha_1": "23",
+      "removed_rank_eight": 16,
+      "removed_width_sum_over_lambda": 128,
+      "scope": "Isolated same-volume homogeneous native-component tariff, alpha in [0,1]. Does not reject whole-connection affordability: changed retained-root protocols may supply compensating credit. No runtime lower bound or exponent claim.",
+      "zero_native_repair_added_rank_one": 256,
+      "zero_native_repair_deficit_alpha_0": 128
+    },
+    "reconnection": {
+      "affine_port_map": 0,
+      "bridge_legs_retained": 2,
+      "clear": 0,
+      "fixed_port_copyback": 224,
+      "native_rank_one": 112,
+      "native_wrapper": 224,
+      "owner_basis_monomial": 224,
+      "physical_line_monomial": 448,
+      "quarter_scale": 0,
+      "scalar_microinstructions_shear_only": 672,
+      "scope": "Actual G=(-y,x+y): W+=Z; Z-=W. Endpoint requires source lift and owner/frame proof. Copyback, disposal, bridge and routing priced separately.",
+      "unit_add": 224
+    },
+    "recovery_and_reconnection": {
+      "clear": 416,
+      "maps": 352,
+      "native_rank_one": 336,
+      "native_wrapper": 672,
+      "owner_basis_monomial": 672,
+      "physical_line_monomial": 1344,
+      "quarter_add": 896,
+      "quarter_scale": 0,
+      "scalar_allowance": 27936,
+      "scalar_microinstructions_before_copyback": 11028,
+      "unit_add": 2044
+    },
+    "same_boundary_difference": "Compare N_inst + sum_root_inst(P_inst + A_external + Run_C_external + Z_external) + T_service against N_base + sum_root_base(P_base + E_embedded + C_embedded + R_embedded). Apply at entry-through-bridge first, and retain the later-root protocol delta separately. Do not cancel retained children or their C execution contexts from equal ranks or outputs. Only the fixed/adopted variants of the same installation have the proved role-equivariant publication cancellation.",
+    "separately_charged_source_tariff_terms": [
+      "encoded descriptor work",
+      "actual C calls at each packet geometry",
+      "ordinary map/wrapper work",
+      "output fixed-port movement and disposal",
+      "private/engine inventory",
+      "long-record setup outside inherited rate domain"
+    ]
+  },
+  "numerical_controls": [
+    {
+      "Delta_bit_length": 210007,
+      "admitted": true,
+      "bridge_growth_bits": 1,
+      "debt_strictly_below_Delta": true,
+      "grid": "2**(-p-Delta)",
+      "growth_strictly_below_Delta": true,
+      "lambda": 1,
+      "maximum_debt_bit_length": 100008,
+      "maximum_growth_bit_length": 100008,
+      "physical_component_bits": "p+2*Delta+3",
+      "producer_denominator_bits": 112256,
+      "producer_growth_bits": 257958,
+      "root_width": 73,
+      "scope": "Conditional all-size arithmetic admission at unchanged source entry. Physical lowering, producer correctness, long records and original source height theorem remain premises."
+    },
+    {
+      "Delta_bit_length": 210008,
+      "admitted": true,
+      "bridge_growth_bits": 1,
+      "debt_strictly_below_Delta": true,
+      "grid": "2**(-p-Delta)",
+      "growth_strictly_below_Delta": true,
+      "lambda": 2,
+      "maximum_debt_bit_length": 100009,
+      "maximum_growth_bit_length": 100009,
+      "physical_component_bits": "p+2*Delta+3",
+      "producer_denominator_bits": 140090,
+      "producer_growth_bits": 285792,
+      "root_width": 146,
+      "scope": "Conditional all-size arithmetic admission at unchanged source entry. Physical lowering, producer correctness, long records and original source height theorem remain premises."
+    },
+    {
+      "Delta_bit_length": 210010,
+      "admitted": true,
+      "bridge_growth_bits": 1,
+      "debt_strictly_below_Delta": true,
+      "grid": "2**(-p-Delta)",
+      "growth_strictly_below_Delta": true,
+      "lambda": 8,
+      "maximum_debt_bit_length": 100011,
+      "maximum_growth_bit_length": 100011,
+      "physical_component_bits": "p+2*Delta+3",
+      "producer_denominator_bits": 307094,
+      "producer_growth_bits": 452796,
+      "root_width": 584,
+      "scope": "Conditional all-size arithmetic admission at unchanged source entry. Physical lowering, producer correctness, long records and original source height theorem remain premises."
+    },
+    {
+      "Delta_bit_length": 210013,
+      "admitted": true,
+      "bridge_growth_bits": 1,
+      "debt_strictly_below_Delta": true,
+      "grid": "2**(-p-Delta)",
+      "growth_strictly_below_Delta": true,
+      "lambda": 73,
+      "maximum_debt_bit_length": 100014,
+      "maximum_growth_bit_length": 100014,
+      "physical_component_bits": "p+2*Delta+3",
+      "producer_denominator_bits": 2116304,
+      "producer_growth_bits": 2262006,
+      "root_width": 5329,
+      "scope": "Conditional all-size arithmetic admission at unchanged source entry. Physical lowering, producer correctness, long records and original source height theorem remain premises."
+    }
+  ],
+  "paid_service_boundaries": [
+    "P-dependent assembly of224borrowed family fields plus initialization224owned zero fields",
+    "service Machine.run source copy, encoded node setup, every group full-service-bank scan",
+    "service protected return; compare all224borrowed fields; extract224owned fields",
+    "erase service assembly bank and protected return",
+    "224 fixed-destination transfers plus parent full-bank scatter/adopt/release; original fixed-copy commit retained as matched alternative"
+  ],
+  "producer_outer": {
+    "SCALE": 16,
+    "all_gather_scatter_commit_groups": "14479/51",
+    "intrinsic_wrappers": 64,
+    "map_router": {
+      "direct_dispatch_excludes_exchange_internal": true,
+      "exchange_internal_scalar_negations_per_Gamma": "14642/51",
+      "extra_sign_scales_per_Gamma": "14642/51",
+      "gather_scatter_commit_groups_per_Gamma": "12286/51",
+      "maps": 528,
+      "orders": {
+        "2": 464,
+        "5": 24,
+        "6": 12,
+        "12": 20,
+        "17": 4,
+        "20": 4
+      },
+      "owner_control_visits_per_Gamma": 528,
+      "scope": "Full-bank scans per emitted cycle. T_exchange includes its internal ScalarEngine negation and transfers; extra sign scale is an additional direct scalar dispatch. Do not charge the nested negation twice.",
+      "source_exchanges_per_Gamma": "14642/51",
+      "translation_monomials_per_Gamma": 528
+    },
+    "nonmap_groups": 43,
+    "original_replaced_group_coefficient": 2,
+    "owner_basis_monomials": 64,
+    "physical_line_monomials": 128,
+    "private_CLEAR": 32,
+    "rank_one_children": 32,
+    "unit_or_other_ADD": 2200
+  },
+  "publication_controls": [
+    {
+      "adopted_commit": {
+        "moves": 18,
+        "reads": 15,
+        "writes": 2
+      },
+      "bank_bits": 1,
+      "complete_comparison": "T_install_adopt = T_install_fixed - (11B+4) + c_R",
+      "finite_control_charge": "c_R additional to tape actions",
+      "fixed_commit": {
+        "moves": 24,
+        "reads": 22,
+        "writes": 4
+      },
+      "saved_cell_actions": 15,
+      "saved_cell_actions_by_kind": {
+        "moves": 6,
+        "reads": 7,
+        "writes": 2
+      },
+      "scope": "Same read-complete/scattered state and same continuation, fixed public ports, all internal current bindings updated. No source arithmetic credit."
+    },
+    {
+      "adopted_commit": {
+        "moves": 22,
+        "reads": 19,
+        "writes": 3
+      },
+      "bank_bits": 2,
+      "complete_comparison": "T_install_adopt = T_install_fixed - (11B+4) + c_R",
+      "finite_control_charge": "c_R additional to tape actions",
+      "fixed_commit": {
+        "moves": 32,
+        "reads": 31,
+        "writes": 7
+      },
+      "saved_cell_actions": 26,
+      "saved_cell_actions_by_kind": {
+        "moves": 10,
+        "reads": 12,
+        "writes": 4
+      },
+      "scope": "Same read-complete/scattered state and same continuation, fixed public ports, all internal current bindings updated. No source arithmetic credit."
+    },
+    {
+      "adopted_commit": {
+        "moves": 38,
+        "reads": 35,
+        "writes": 7
+      },
+      "bank_bits": 6,
+      "complete_comparison": "T_install_adopt = T_install_fixed - (11B+4) + c_R",
+      "finite_control_charge": "c_R additional to tape actions",
+      "fixed_commit": {
+        "moves": 64,
+        "reads": 67,
+        "writes": 19
+      },
+      "saved_cell_actions": 70,
+      "saved_cell_actions_by_kind": {
+        "moves": 26,
+        "reads": 32,
+        "writes": 12
+      },
+      "scope": "Same read-complete/scattered state and same continuation, fixed public ports, all internal current bindings updated. No source arithmetic credit."
+    },
+    {
+      "adopted_commit": {
+        "moves": 86,
+        "reads": 83,
+        "writes": 19
+      },
+      "bank_bits": 18,
+      "complete_comparison": "T_install_adopt = T_install_fixed - (11B+4) + c_R",
+      "finite_control_charge": "c_R additional to tape actions",
+      "fixed_commit": {
+        "moves": 160,
+        "reads": 175,
+        "writes": 55
+      },
+      "saved_cell_actions": 202,
+      "saved_cell_actions_by_kind": {
+        "moves": 74,
+        "reads": 92,
+        "writes": 36
+      },
+      "scope": "Same read-complete/scattered state and same continuation, fixed public ports, all internal current bindings updated. No source arithmetic credit."
+    },
+    {
+      "adopted_commit": {
+        "moves": 278,
+        "reads": 275,
+        "writes": 67
+      },
+      "bank_bits": 66,
+      "complete_comparison": "T_install_adopt = T_install_fixed - (11B+4) + c_R",
+      "finite_control_charge": "c_R additional to tape actions",
+      "fixed_commit": {
+        "moves": 544,
+        "reads": 607,
+        "writes": 199
+      },
+      "saved_cell_actions": 730,
+      "saved_cell_actions_by_kind": {
+        "moves": 266,
+        "reads": 332,
+        "writes": 132
+      },
+      "scope": "Same read-complete/scattered state and same continuation, fixed public ports, all internal current bindings updated. No source arithmetic credit."
+    },
+    {
+      "adopted_commit": {
+        "moves": 4000014,
+        "reads": 4000011,
+        "writes": 1000001
+      },
+      "bank_bits": 1000000,
+      "complete_comparison": "T_install_adopt = T_install_fixed - (11B+4) + c_R",
+      "finite_control_charge": "c_R additional to tape actions",
+      "fixed_commit": {
+        "moves": 8000016,
+        "reads": 9000013,
+        "writes": 3000001
+      },
+      "saved_cell_actions": 11000004,
+      "saved_cell_actions_by_kind": {
+        "moves": 4000002,
+        "reads": 5000002,
+        "writes": 2000000
+      },
+      "scope": "Same read-complete/scattered state and same continuation, fixed public ports, all internal current bindings updated. No source arithmetic credit."
+    }
+  ],
+  "rejection_controls": [
+    "missing native occurrence",
+    "unsupported scalar tariff",
+    "unknown decoder operation",
+    "under-counted native screen",
+    "parent narrower than prepared rank-one domain",
+    "non-dyadic producer arithmetic",
+    "insufficient physical range"
+  ],
+  "scope": "Constructive operation-sum invoice. Source authentication, map-order/census binding and exact operator refinement are required. No elapsed runtime claim.",
+  "selected_publication": {
+    "adopt_cell_actions": "9B+26",
+    "fixed_commit_cell_actions": "20B+30",
+    "frequency": "once per completed global installation",
+    "matched_cell_action_saving": "11B+4",
+    "protocol": "whole-bank adoption",
+    "saving_with_additional_finite_control": "11B+4-c_R",
+    "scope": "Matched publication implementations only; all other local installation work identical. No original QQ16 arithmetic or kappa credit."
+  },
+  "service_assembly_extract_bound": "4096*(S+448P*(bE+1)+bP+D_service+1)",
+  "uniform_source_grid_proof": {
+    "debt_constant": 84422,
+    "debt_lambda_slope": 27834,
+    "growth_constant": 230124,
+    "growth_lambda_slope": 27834,
+    "maximum_child_rank": 8,
+    "programs": 46,
+    "scope": "Actual complete producer interval, per-owner source traversal with family/owner permutation proof; not just the largest one-group PC.",
+    "strict_margin": "4B+2**24 < 2**210000",
+    "uniform_height_bound": "2**22*(lambda+1)"
+  },
+  "whole_root_child_protocol": {
+    "all_external_runs": 511014,
+    "baseline_prefix_calls": 17565,
+    "baseline_rank_counts": {
+      "1": 349604,
+      "2": 60192,
+      "3": 62585,
+      "4": 20448,
+      "5": 11808,
+      "7": 7,
+      "8": 1152,
+      "48": 4866
+    },
+    "baseline_root_calls": 510662,
+    "body_context_cancellation_proved": false,
+    "component_screen_only": true,
+    "embedded_call_operation_sum": [
+      "P_b: prepare_child arithmetic, capsule payload and descriptor copies, encoded header, Count closure",
+      "E_b: primitive boundary and role origins, Parking.park on every live parked role, capsule-to-active transfers and child control setup",
+      "C_emb: actual original child node/body and recursive descendants in embedded nonroot context; excludes its final parent return",
+      "R_b: output transfer, active child role cleanup, Parking.restore, header read/clear, group reconstruction, output-to-parent target transfer and bank/head rebinding"
+    ],
+    "exact_execution_comparison": "N_i + sum_inst(P_i+A_i+Run_C_ext+Z_i) + T_service < N_b + sum_base(P_b+E_b+C_emb+R_b)",
+    "external_call_operation_sum": [
+      "P_i: actual prepare_child arithmetic, capsule copies, encoded header and Count closure, with installed event indices",
+      "A_i: boundary/header/instruction checks and finite descriptor views",
+      "Run_C_ext: complete separate original Machine.run, borrowed input and descriptor copies, node setup, body/descendants, root protected return and engine closure",
+      "Z_i: protected output-to-target transfer, output-marker erase, all capsule and header cleanup and PC update"
+    ],
+    "installed_prefix_and_service_calls": 17917,
+    "installed_rank_counts": {
+      "1": 349636,
+      "2": 60192,
+      "3": 62585,
+      "4": 20448,
+      "5": 11808,
+      "7": 7,
+      "8": 1136,
+      "48": 4866
+    },
+    "installed_root_calls": 510678,
+    "later_obligation": "493097*Gamma changed root child protocols plus any later nonchild/control/context delta; retained source instructions alone do not cancel these costs.",
+    "later_root_calls_with_changed_protocol": 493097,
+    "next_discriminator": "Meter paired source embedded versus external child calls with actual live parent bank/descriptors/dirty backing and descendant context; then compare the constructive protocol credit against all added bank scans and service costs.",
+    "nonchild_operation_sum": [
+      "N_b or N_i: root Machine.run input/descriptors/setup, all nonchild scalar/monomial/exchange and group bank operations, event/owner control, final root output/cleanup",
+      "N_i includes every installed finish_group fence predicate, including after the local continuation",
+      "T_service contains assembly/compiler/lifecycle, service nonchild Machine.run/setup/return, and all336 external service child sums exactly once"
+    ],
+    "retained_prefix_calls_with_changed_protocol": 17549,
+    "retained_protocol_credit": "sum_retained[(P_b+E_b+C_emb+R_b)-(P_i+A_i+Run_C_ext+Z_i)]",
+    "retained_root_calls_with_changed_protocol": 510646,
+    "service_external_calls": 336,
+    "unit": "Each occurrence coefficient multiplies Gamma at this one modified outer root; original recursive descendants are inside their C execution terms."
+  }
+}

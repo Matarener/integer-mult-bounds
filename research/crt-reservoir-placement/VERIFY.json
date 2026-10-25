@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/SUPPORT-ROUTER.md",
+    "research/physical-support-router/PROOF.md",
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticate sources; complete production batch census; exhaustive dirty CRT caller, inverse, dependency omission and six semantic failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same receipt and discriminating controls with Python assertions disabled."
+    }
+  ]
+}

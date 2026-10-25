@@ -18,7 +18,8 @@ python3 scripts/post_update.py --discussion 1166 --reply-to DC_NODE_ID --body-fi
 ```
 
 The helper fixes the destination repository to CrocSwap/integer-mult-bounds,
-checks that a reply belongs to the requested discussion, and sends UTF-8 text
+checks that a reply belongs to the requested discussion, rejects nested replies
+before any mutation with the parent comment ID and URL, and sends UTF-8 text
 through JSON variables, preserving newlines and literal shell characters.
 It returns the created comment ID and URL. `--dry-run` makes no network calls.
 It never retries a mutation: after an uncertain response, inspect the discussion
@@ -76,6 +77,33 @@ unstructured discussions are inactive. Multiple/malformed metadata blocks are
 reported, not silently treated as valid claims. Task IDs should match the
 catalogue where possible; a genuinely different scope can use a descriptive ID.
 
+## Local overlap coverage
+
+`find_overlap.py` searches working-tree `research/*/README.md`,
+`research/*/TASK.json`, and `docs/research/pr-ledger.md`. A sparse checkout can
+omit most of these notes even when both remote snapshots are complete.
+`coverage.local` records the searched count (`records`), the pinned `head`,
+and the count of regular note files tracked there (`head_records`).
+In `--json` output, `unsearched_head_paths` lists every tracked note path absent
+from the searched corpus. Text output shows `unsearched_head_paths_count` to
+avoid printing thousands of omitted paths. Omissions produce a warning even
+with no matches or `--limit 1`.
+They can arise from sparse checkout, ordinary deletion, or a skipped symlink;
+the report does not infer the cause. Materialize relevant missing notes and
+rerun the search before relying on their coverage.
+
+`complete_head_inventory` is true only when every in-scope regular HEAD note
+path was searched. It is false for known omissions and null when Git or the
+HEAD inventory is unavailable, with an explicit warning. A complete empty
+inventory has count zero and completeness true. This compares paths, not
+content identities: local edits and untracked notes remain searchable, so
+`records` can exceed `head_records`. Nested vendor notes, arbitrary package
+files, and historical versions remain outside this local search. Git tree
+metadata is inspected without reading omitted blobs or expanding the checkout;
+local coverage is computed on each invocation and is not stored in the remote
+cache. Regression fixtures cover full, non-cone sparse, and cone sparse-index
+checkouts in `tests/test_research_overlap_local.py`.
+
 ## Changed-path overlap snapshots
 
 A `find_overlap.py --path PATTERN` report binds each file inventory to both
@@ -88,6 +116,11 @@ Joined path results show `head`/`base` for the file snapshot,
 `body_head`/`body_base` for PR metadata, and separate `head_matches` and
 `base_matches` flags. Check both flags and `truncated`. Coverage also lists
 `unverified_heads` and `unverified_bases`, even when no path matches the query.
+It also lists PRs with unavailable file lists or advertised-count shortfalls
+in `truncated_prs`, with a warning even when those PRs do not match
+the requested path or fall outside `--limit`. A true `complete_pagination`
+means the list paging finished; it does not mean every PR's file inventory
+is complete. Term-and-path intersections retain each match's `truncated` flag.
 A missing legacy base remains unknown; it is never copied from another snapshot.
 Online path queries refresh endpoint-incomplete sources. Offline or failed
 refreshes keep the old evidence and explicitly report the missing binding.

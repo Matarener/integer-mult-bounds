@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Construct and independently replay a concrete joint native H_ab primitive for the odd-E8 direct-sum geometry: 512 independent source inputs, 512 independent old target inputs, explicit 25-axis Clifford paths, absolute phases, owned zero return, and a complete local paid profile. Also provide the minimal I20 embedding of its two-cube geometry.",
+  "scope_change_reason": "Frozen full-frame history and fixed-bank lifts do not supply an affordable new producer. The polarized decomposition changes the native graph and helper interface:64 channels share four literal orthogonal8-space pairs, permitting coframed reads with one zero-owned scratch and no retained408-helper banks. This is a local constructive result and does not meet the card whole-supplier ceiling target.",
+  "bottleneck_link": "The unsupplied H in #5439 needs genuine native production and compatible main flags. This package closes one explicit cross-cube block, including all local paths, without treating pairing rank or static containment as free information.",
+  "budget_minutes": 60,
+  "stop_rule": "Freeze the exact local program and independent audit. Do not expand direct per-edge implementations into a global supplier without a compatible K/H schedule and a fully favorable complete invoice.",
+  "outcome": "partial",
+  "evidence": "POLARIZED-CROSS-CUBE.json; MODULE.json; PROGRAM.json.gz; INDEPENDENT-REVIEW.json; EMBEDDING.json; written proofs.",
+  "author": "THU New Media Research Center (@thu-nmrc)",
+  "ai_assistance": "Substantial OpenAI Codex assistance by a lead and separate geometry, physical-compiler and independent-review agents. This is not independent human or formal-kernel review.",
+  "open_questions": [
+    {
+      "question": "Can the polarized cross-cube modules share actual source and target flags with K and with every other H block?",
+      "why_it_matters": "The whole odd-E8 supplier needs all of H, while a field can only undergo a chronological sequence of actual physical charts. Containment alone does not make ADD legal.",
+      "first_step": "Exhibit one K-plus-cross-block word with every original input, exact same-frame reads, and all exits; compare its complete invoice with the 0.0902501847 per-port per-local planning allowance of #5439.",
+      "blocked_by": "No complete compatible K/H word or full-H schedule is known here."
+    },
+    {
+      "question": "Can the 20-dimensional isometry be consumed by a smaller complete supplier?",
+      "why_it_matters": "It preserves this restricted Gram geometry but returning to the global 25-dimensional service has a real extra cost.",
+      "first_step": "Use the explicit q20 data to give both physical entry and exit maps and pay the five missing global axes if any.",
+      "blocked_by": "The implemented native module is 25-dimensional; the 20-dimensional result is a geometry theorem only."
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "status": "PASS_SCOPED_PORTABLE_REPLAY",
+  "scope": "Finite local native operators, exact complete cost arithmetic, physical owner audit, and a finite terminal inverse. No new kappa, selected certificate, all-size supplier, or full uniform precision/tape admission.",
+  "manifest_sha256": "ffe88f38232d3825b3380fc65ef65862193530cb442d86847d8c49eceffe201f",
+  "started_utc": "2026-10-19T00:07:33.273461+00:00",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "assertions_enabled": true,
+    "isolated_bytecode_cache": true
+  },
+  "authenticated_files": 131,
+  "commands": [
+    {
+      "name": "modern_native",
+      "script": "recovered-involutory/modern_native_component.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/modern_native_component.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "f6769f1ecd6b2e582748805b3afcf4c65824ba108ce7f23a4d011c45f8b724de",
+      "exit_code": 0,
+      "elapsed_seconds": 8.823,
+      "log": "replay-logs/modern_native.log",
+      "log_sha256": "2c0d4b3920e0ff062ed9e327ce26d993d9e433f9418daf9a1e67b770e6d4b066"
+    },
+    {
+      "name": "baseline_outer_and_symmetric",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/baseline/replay.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/baseline/replay.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "dc04e06291eb2f94149d72492932e9491976bffb06d26e738953b2adc633ce35",
+      "exit_code": 0,
+      "elapsed_seconds": 41.814,
+      "log": "replay-logs/baseline_outer_and_symmetric.log",
+      "log_sha256": "8b13f6dea360654927f262bdd095d553655ec20ad57183907fddceb332ad6613"
+    },
+    {
+      "name": "rational_inverse",
+      "script": "recovered-involutory/rational_inverse_component.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/rational_inverse_component.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "a172f70fbe8736dbb9d53f420c199ffd0ec495df0453c41481f6fd7d0cbb0604",
+      "exit_code": 0,
+      "elapsed_seconds": 8.521,
+      "log": "replay-logs/rational_inverse.log",
+      "log_sha256": "4e72aa1ae11fba5896a45b399d764b6628c14d64cc05164b2d353a13676b1a39"
+    },
+    {
+      "name": "retained_controller",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/controller/check_controller.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/controller/check_controller.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "ca47061ee90e5aadd971ab672a52735d1eb3b695459751121d0c7693ac9315a5",
+      "exit_code": 0,
+      "elapsed_seconds": 7.87,
+      "log": "replay-logs/retained_controller.log",
+      "log_sha256": "c5214992c49bd1781dcf042b3e84b845e198a20b26b25686b92241490bb3dc1e"
+    },
+    {
+      "name": "dirty_core_pair",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/controller/dirty_core_component.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/controller/dirty_core_component.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "4b2df5766fc0b445e7116ecb0e177f7fb5a99c2156290b847d9a8394a8f33dfa",
+      "exit_code": 0,
+      "elapsed_seconds": 10.89,
+      "log": "replay-logs/dirty_core_pair.log",
+      "log_sha256": "e4895bdb85cd199ebb3d07cf72c53fe6df7a9a92975380f2b42e4b635d808aa5"
+    },
+    {
+      "name": "physical_owner_audit",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/controller/check_retention_owners.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/controller/check_retention_owners.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "6b57bf69a80726dcb573a5c18d697c9a30db65a9d39d8cdac39d5a1602cfe47c",
+      "exit_code": 0,
+      "elapsed_seconds": 8.299,
+      "log": "replay-logs/physical_owner_audit.log",
+      "log_sha256": "5bad3e75529c81c3e41af86a4b2ab1e93cdac3334b27b12c03d0a3731add2d13"
+    },
+    {
+      "name": "independent_symmetric_review",
+      "script": "recovered-involutory/review_symmetric_extension.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/review_symmetric_extension.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "ca1125141a609f29ee40643c863b8a988c08417c918dbe792016158eba40abfa",
+      "exit_code": 0,
+      "elapsed_seconds": 38.891,
+      "log": "replay-logs/independent_symmetric_review.log",
+      "log_sha256": "dbabbdf354057607ea74069039ec63a9182e98a9e778a28d5a6ef3944b06c082"
+    },
+    {
+      "name": "terminal_decoder",
+      "script": "recovered-involutory/terminal_native_decoder.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/terminal_native_decoder.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "9c6d634fc8c9b4e7a3fc075c65f9992c748644a1bbec0c2096f1ea52abee1e4f",
+      "exit_code": 0,
+      "elapsed_seconds": 10.74,
+      "log": "replay-logs/terminal_decoder.log",
+      "log_sha256": "8464e566aeb95052ef1e940bfc5da46093908812819344ce669d266e161b0be4"
+    }
+  ],
+  "regenerated_artifacts": [
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/baseline/symmetric-extended-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/baseline/symmetric-extended-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-BACKWARD-base.json.gz",
+      "canonical_json_sha256": "d954be6827589326bc9a0e4fda2e4d18a72a3f89d108a22906d781c2d1961f59",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-BACKWARD-extra.json.gz",
+      "canonical_json_sha256": "d954be6827589326bc9a0e4fda2e4d18a72a3f89d108a22906d781c2d1961f59",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-FORWARD-base.json.gz",
+      "canonical_json_sha256": "0daef2b22a6c76abd6c982c49c220ec4e442785bb379c22ad01c4c12893d355b",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-FORWARD-extra.json.gz",
+      "canonical_json_sha256": "0daef2b22a6c76abd6c982c49c220ec4e442785bb379c22ad01c4c12893d355b",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/RETAINED-OWNER-TRAJECTORIES.json.gz",
+      "canonical_json_sha256": "9044fc4704318f0f87fb746f0b75af9d88eac288ccc355e7d99d480eb3b5839c",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/RETAINED-PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "f2b62df291c188dd24949f63159abb64a8ec1c59999ed720e9767ac6e66f16bf",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/RETAINED-PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "f2b62df291c188dd24949f63159abb64a8ec1c59999ed720e9767ac6e66f16bf",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/modern-native-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "766f39fad69fd5a4e87ebd7a74284997f2ef8869203d9e676d55307738e7a60d",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/modern-native-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "766f39fad69fd5a4e87ebd7a74284997f2ef8869203d9e676d55307738e7a60d",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/rational-inverse-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "9a02686a90038709b1d382f57c0c94f9309746cb43caea6bbcf0fb1dae88304c",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/rational-inverse-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "9a02686a90038709b1d382f57c0c94f9309746cb43caea6bbcf0fb1dae88304c",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/symmetric-extension-review/symmetric-extended-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/symmetric-extension-review/symmetric-extended-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/terminal-native-results/DECODER-base.json.gz",
+      "canonical_json_sha256": "88da0634351816dac293c9b958dd1fdac85e1c9558effcb1d8794f5700185a65",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/terminal-native-results/DECODER-extra.json.gz",
+      "canonical_json_sha256": "88da0634351816dac293c9b958dd1fdac85e1c9558effcb1d8794f5700185a65",
+      "matches_delivered_payload": true
+    }
+  ],
+  "elapsed_seconds": 137.039,
+  "finished_utc": "2026-10-19T00:09:50.312182+00:00"
+}

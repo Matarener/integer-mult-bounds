@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/qq16-controller-scope-map.md",
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/joint-query/certificate.json.gz",
+    "research/qq16-current-frame-consumer/PROOF.md",
+    "research/qq16-separate-consumer-budget/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned canonical/retained data, all144 source invocations,16 proposed cuts, ownership/readsets, lifetimes, local invoices and complete typed rational RESULT."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Seven groups of provider, incidence, frame, ownership, native-rank, centre-credit, dirty-input, typed-result, source-hash and integer-cap controls; normal and optimized Git-free read-only replay."
+    }
+  ]
+}

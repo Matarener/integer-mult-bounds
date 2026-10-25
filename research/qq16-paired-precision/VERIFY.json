@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-query/evidence/JOINT-QUERY-TRANSFER.md",
+    "research/qq16-all-depth-producer-grid/PROOF.md",
+    "research/qq16-line-normalized-decoder/PROOF.md",
+    "research/qq16-line-normalized-decoder/verify.py",
+    "research/qq16-producer-defect-transfer/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate all five canonical and five retained inputs before new analyzers; recompute whole range, rounding, fixed-point literal binding, cost, independent all-depth polynomial and typed receipts; actual Gaussian and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 500,
+      "checks": "Git-free read-only normal/optimized replay; unchanged content snapshot; source-before-analysis authentication; manifest/vendor corruption; typed whole receipts, duplicate keys and exclusive creation."
+    }
+  ]
+}

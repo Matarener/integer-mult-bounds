@@ -1,0 +1,23 @@
+[
+  {
+    "after_sha256": "d83970aabb0b0f473f0458a9aa85d72351b80cd5d042535262ddb868f2a151d3",
+    "before_sha256": "56a5b32eedbf82606126ca70e3da22d8c72d905732be48c54b62e586f5a35260",
+    "new": "    import terminal_applier\n    chain.append(terminal_applier.apply(chain[-1],json.loads((D/'terminal'/f'RECORD-{wt}.json').read_text())));steps.append('terminal-width5')\n    final=json.loads(gzip.decompress(shipped.read_bytes()))",
+    "old": "    final=json.loads(gzip.decompress(shipped.read_bytes()))",
+    "path": "new/rebuild_borrow.py"
+  },
+  {
+    "after_sha256": "b0e1e66145652c3d949d097b465c2a6849014beddb2410906be6b148ed1730b9",
+    "before_sha256": "d3eebdb2f87b4eb3c891b4666fab3c2e2e8a58f928f3191e89bbfbd8c9bb329f",
+    "new": "w=load(P/'terminal'/f'PRE-{tag}.json.gz')",
+    "old": "w=load(P/'words'/f'BORROW-WORD-43{tag}.json.gz')",
+    "path": "new/borrow/review_staged544.py"
+  },
+  {
+    "after_sha256": "22361ee047d4f3804936e5c25199a035d17776a67949e021382f1b35e5502628",
+    "before_sha256": "196cf2d1cda601b7d88929cb17cbebbe3d4d06bc66d9e0d4b5edca750861d3ee",
+    "new": "run('staged544-independent-word-review',P/'new/borrow/review_staged544.py')\nrun('terminal-width5-independent-word-review',P/'new/borrow/terminal_review.py')",
+    "old": "run('staged544-independent-word-review',P/'new/borrow/review_staged544.py')",
+    "path": "verify.py"
+  }
+]

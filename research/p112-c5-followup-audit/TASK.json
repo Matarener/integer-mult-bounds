@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "ce148e5aa2bbdc6f420e8a6cf6935e37d5b54cd2",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "User-directed fresh audit of PR3931, CI check, then reconciliation of existing PR3295 exclusion of4,5^3,6^6. Fresh Fourier/table implementation and conditional named69/69 inventory.",
+  "scope_change_reason": "Overlap found an existing exact caller exclusion; audit it and correct the stale next-task guidance instead of duplicating its search.",
+  "bottleneck_link": "Specific decoder-floor proof audit and predecessor reconciliation; no supplier construction or kappa improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after source/proof audit, bounded replays, independently reviewable correction and handoff; no new global census or selected change.",
+  "outcome": "completed",
+  "evidence": "README.md; RESULT.json; verify.py; test_audit.py; CHECKS.json",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex assistance. Fresh code and written audit are same-author AI-assisted checking, not independent human/model or proof-kernel review.",
+  "open_questions": [
+    {
+      "question": "Does independent human or proof-kernel review confirm the characteristic-zero proof and the inherited successor premises?",
+      "why_it_matters": "Source authentication and executable replay do not discharge inherited universal theorems.",
+      "first_step": "Audit the rational-kernel/Weyl implication and PR3295 inherited global12/20 and A2 joint22/32 bounds, using exact source heads.",
+      "blocked_by": "This session checks the new finite facts and written composition; inherited global/A2 premises remain conditional."
+    },
+    {
+      "question": "Which literal C5 caller outside this fixed69-row inventory still needs a uniform normal-plane theorem?",
+      "why_it_matters": "The present named inventory is conditionally complete, so it does not motivate a duplicate census.",
+      "first_step": "Bind a current TWOSIDE caller, quotient dimension and one common set before enumerating any larger geometric domain.",
+      "blocked_by": "No such additional caller is established here; full C5 is not inferred."
+    }
+  ]
+}

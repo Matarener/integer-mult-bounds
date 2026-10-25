@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-binding, complete tight-face classification, joint-region witnesses, strict coupled gap, exact axial boundaries and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent closed-form/multiset/positive-exponential proof and constructive region, T360 integer boundaries and controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_cli.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual optimized CLI source/model/receipt mutations in disposable owned copies; original bytes unchanged."
+    }
+  ]
+}

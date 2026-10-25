@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/five-plane-port-p112-seed1f7fdfe4/CANDIDATE.json",
+    "research/five-plane-port-p112-seed1f7fdfe4/SOURCES.json",
+    "research/five-plane-port-p112-seed1f7fdfe4/core.py",
+    "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned selected-label xor, exact partition, 23 local Gaussian-dyadic endpoint identities over all 512 basis states, global deferred cancellation, exact predecessor local-screen comparison, rank-one budget arithmetic, and missing-block/duplicate-port controls."
+    }
+  ]
+}

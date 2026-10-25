@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/gaussian-column-gap/README.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Under the ideal-gap hypothesis the Neumann ceiling is strictly below p^6 and its square is strictly below p^11, so 11, 24, 26, 26 and 6 apply; 10, 23, 25 and 5 fail."
+    }
+  ]
+}

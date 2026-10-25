@@ -1,0 +1,25 @@
+--- predecessor/verify_word.py
++++ verify_word.py
+@@ -10,7 +10,8 @@
+ from pathlib import Path
+ import argparse, gzip, json
+ HERE=Path(__file__).resolve().parent
+-LANE=HERE.parent/'bit-boundaries'
++# Relocation-only adaptation; frozen source is retained under predecessor/.
++GEOMETRY=HERE.parent/'bit-r438-transport-rehost/words/r438-t154.json.gz'
+ EXPECTED_WORD='3bca74a2a8427eb18e86566baa19de597f10d0bc40c30b7443febd499ee2189a'
+ EXPECTED_GEOMETRY='a353999bceac4ac957f540adfd3e5f8768297138b27132eeb83332e2ea4b1022'
+ N=660
+@@ -91,10 +92,9 @@
+ 
+ def main():
+     ap=argparse.ArgumentParser();ap.add_argument('--write',action='store_true');a=ap.parse_args()
+-    receipt=json.loads((LANE/'FIVE-TERMINALS.json').read_text())
+-    blob=gzip.decompress((LANE/'FIVE-TERMINALS-WORD.json.gz').read_bytes())
++    blob=gzip.decompress((HERE/'WORD.json.gz').read_bytes())
+     need(sha256(blob).hexdigest()==EXPECTED_WORD,'independent frozen candidate word')
+-    source=Path(next(iter(receipt['source'])));rawbytes=source.read_bytes()
++    source=GEOMETRY;rawbytes=source.read_bytes()
+     need(sha256(rawbytes).hexdigest()==EXPECTED_GEOMETRY,'independent frozen geometry')
+     raw=json.loads(gzip.decompress(rawbytes));word=json.loads(blob);frames=Frames(raw)
+     rows,forward=replay(word,frames)

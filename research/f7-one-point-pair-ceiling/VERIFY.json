@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-weight-parity-census-correction/MATH.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Recompute the n=7 survivor table and checksum, monotonicity residues, the (9,9) witness and greedy odd set, exhaustive f-sum checks for n=3 and n=4, and the 01021323 fixture against the pinned MATH.md."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Literal (9,9) and (7,11) arithmetic, floor-for-ceil failure on (7,11) and (11,7), rejection of the witness with 84 replaced by 2, and a three-point completion increment."
+    }
+  ]
+}

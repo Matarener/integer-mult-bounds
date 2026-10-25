@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/q8-inverse-label-pair-census/CERTIFICATE.json",
+    "research/q8-mixed-uniform-tariff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Compile C++20 with strict diagnostics, exact MITM exclusions for ten role-bound symmetry orbits, independent Hamilton full-convolution balls/probes, 152 attaining words and omission controls, pinned source and exact receipt checks."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual native arithmetic mutants including a dirty-spectator fault, source drift, overwrite refusal and receipt type distinction."
+    }
+  ]
+}

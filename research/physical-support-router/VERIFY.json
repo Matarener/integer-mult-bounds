@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": ["research/physical-support-router/inputs/sparse-export.tar"],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","sources"],"timeout_seconds":30,"checks":"Official PR3608 export, exact inventory, all 23 actual ordinary backend files, altered-source and symlink rejection, one cold cohort."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","budget"],"timeout_seconds":30,"checks":"Exact retained exponent and finite capacity/cutoff controls; PROOF.md contains the all-size argument."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","metadata"],"timeout_seconds":90,"checks":"34 permutations, reduced fast geometry, standard-policy encoded plan, independent coordinate provenance, tail/multiple-edge batches and no-gap fallback."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","literal"],"timeout_seconds":30,"checks":"Complete literal and identity packets, arbitrary outer rows, opaque multi-bit records, borrowed ports and consumed-output reuse."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","forward"],"timeout_seconds":300,"checks":"Complete 2048-bit fast forward cycle, actual suffix swaps, four sparse batches, exact tail CNOTs, full bit provenance and shared retuned B1 flow."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","inverse"],"timeout_seconds":600,"checks":"Actual complete forward output through inverse router on the same physical cohort; each leg checks independent bit provenance and complete restoration."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","failures"],"timeout_seconds":60,"checks":"Malformed permutation and extent controls, omitted post-placement reindex, protected-output reuse and physical-allocation rejection."}
+  ]
+}

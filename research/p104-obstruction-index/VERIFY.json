@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/research-family-status.md",
+    "docs/research/p104-live-support-map.md",
+    "research/p104-channel-touch-restoration-audit/README.md",
+    "research/p104-pooled-cut-independent/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the family-to-map link and the two replay notes the map omits."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the omission predicate on a missing name and a present name."
+    }
+  ]
+}

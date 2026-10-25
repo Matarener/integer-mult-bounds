@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Five exact host-reference cases, authenticated complete source-guard AST, symbolic cutoff and8 internal rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent sieve/ratio/period/byte reconstruction of colocated RESULT.json, all5 source pins and separate symbolic-threshold proof; no primary code imported."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "50 semantic/integrity expected rejections and5 positive controls, source and receipt preservation; no imported analytic theorem or encoded-execution claim."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/community-frontier1094-audit/INDEPENDENT1094.json",
+    "research/complex-local-word-ceiling/README.md",
+    "research/joint-query/certificate.json.gz",
+    "research/qq16-entry-frame-tariff/README.md",
+    "research/qq16-entry-frame-tariff/RESULT.json",
+    "research/qq16-line-normalized-decoder/README.md",
+    "research/qq16-line-normalized-decoder/WORD.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate fixed sources, count literal cores/added children, certify conditional mass gates and unknown actual credit"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Strict versus equality gate, numeric schema, changed source profile, Git-free replay and private corruptions"
+    }
+  ]
+}

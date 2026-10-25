@@ -1,0 +1,234 @@
+{
+  "attaining_row_stars": [
+    {
+      "endpoint_dimension_sum": 8,
+      "k": 2,
+      "terms": 2
+    },
+    {
+      "endpoint_dimension_sum": 64,
+      "k": 4,
+      "terms": 8
+    },
+    {
+      "endpoint_dimension_sum": 384,
+      "k": 6,
+      "terms": 32
+    }
+  ],
+  "independent_subspace_oracle": {
+    "all_subspaces": 374,
+    "ambient_dimension": 5,
+    "feasible_pairs": 8,
+    "nondegenerate_subspaces": 194,
+    "support_pairs": 9
+  },
+  "live_inputs": [
+    "docs/research/parity-side.md",
+    "research/complex-parity-frames-seed35/README.md",
+    "research/even-subset-dyadic-kernels/PROOF.md",
+    "research/even-subset-dyadic-kernels/README.md"
+  ],
+  "rational_rank_checks": [
+    {
+      "block_size": 2,
+      "k": 2,
+      "minimum_endpoint_dimension_sum": 8,
+      "minimum_factors": 2,
+      "scalar_rank": 1
+    },
+    {
+      "block_size": 8,
+      "k": 4,
+      "minimum_endpoint_dimension_sum": 64,
+      "minimum_factors": 8,
+      "scalar_rank": 5
+    },
+    {
+      "block_size": 32,
+      "k": 6,
+      "minimum_endpoint_dimension_sum": 384,
+      "minimum_factors": 32,
+      "scalar_rank": 22
+    }
+  ],
+  "rejected_controls": [
+    {
+      "mutation": "odd_k",
+      "reason": "Even k at least two"
+    },
+    {
+      "mutation": "zero_k",
+      "reason": "Even k at least two"
+    },
+    {
+      "mutation": "omit_constant_coordinate",
+      "reason": "Norm-one label"
+    },
+    {
+      "mutation": "orthogonality_without_separation",
+      "reason": "Disjoint support radicals"
+    },
+    {
+      "mutation": "accept_degenerate_hulls",
+      "reason": "Nondegenerate source hull"
+    },
+    {
+      "mutation": "omit_hull_partner",
+      "reason": "Target containment"
+    },
+    {
+      "mutation": "wrong_scalar_coefficient",
+      "reason": "Exact row-star reconstruction"
+    },
+    {
+      "mutation": "omit_row_star",
+      "reason": "Exact row-star reconstruction"
+    }
+  ],
+  "scope": "Separate scalar rank-one factors with orthogonal nondegenerate binary endpoint hulls; no full native circuit or kappa claim.",
+  "star_readability": [
+    {
+      "k": 2,
+      "n": 3,
+      "stars": 4
+    },
+    {
+      "k": 2,
+      "n": 4,
+      "stars": 5
+    },
+    {
+      "k": 2,
+      "n": 5,
+      "stars": 6
+    },
+    {
+      "k": 4,
+      "n": 5,
+      "stars": 26
+    },
+    {
+      "k": 2,
+      "n": 6,
+      "stars": 7
+    },
+    {
+      "k": 4,
+      "n": 6,
+      "stars": 42
+    },
+    {
+      "k": 2,
+      "n": 7,
+      "stars": 8
+    },
+    {
+      "k": 4,
+      "n": 7,
+      "stars": 64
+    },
+    {
+      "k": 6,
+      "n": 7,
+      "stars": 120
+    },
+    {
+      "k": 2,
+      "n": 8,
+      "stars": 9
+    },
+    {
+      "k": 4,
+      "n": 8,
+      "stars": 93
+    },
+    {
+      "k": 6,
+      "n": 8,
+      "stars": 219
+    }
+  ],
+  "status": "PASS_EVEN_SUBSET_SEPARATOR_FLOOR",
+  "support_censuses": [
+    {
+      "direction_dimension_histogram": {
+        "0,0": 4,
+        "0,1": 2,
+        "1,0": 2
+      },
+      "feasible_rectangles": 8,
+      "k": 2,
+      "maximum_area": 2,
+      "rectangles": 9
+    },
+    {
+      "direction_dimension_histogram": {
+        "0,0": 64,
+        "0,1": 224,
+        "0,2": 560,
+        "0,3": 1192,
+        "1,0": 224,
+        "1,1": 672,
+        "1,2": 1120,
+        "2,0": 560,
+        "2,1": 1120,
+        "3,0": 1192
+      },
+      "feasible_rectangles": 6928,
+      "k": 4,
+      "maximum_area": 8,
+      "rectangles": 65025
+    }
+  ],
+  "walsh_spectra": [
+    {
+      "k": 2,
+      "kernel_eigenvalue_multiplicities": {
+        "0": 1,
+        "1": 2,
+        "2": 1
+      }
+    },
+    {
+      "k": 4,
+      "kernel_eigenvalue_multiplicities": {
+        "0": 5,
+        "1": 6,
+        "2": 5
+      }
+    },
+    {
+      "k": 6,
+      "kernel_eigenvalue_multiplicities": {
+        "0": 22,
+        "1": 20,
+        "2": 22
+      }
+    },
+    {
+      "k": 8,
+      "kernel_eigenvalue_multiplicities": {
+        "0": 93,
+        "1": 70,
+        "2": 93
+      }
+    },
+    {
+      "k": 10,
+      "kernel_eigenvalue_multiplicities": {
+        "0": 386,
+        "1": 252,
+        "2": 386
+      }
+    },
+    {
+      "k": 12,
+      "kernel_eigenvalue_multiplicities": {
+        "0": 1586,
+        "1": 924,
+        "2": 1586
+      }
+    }
+  ]
+}

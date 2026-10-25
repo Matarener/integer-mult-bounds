@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz",
+    "research/bit-boundary-persistence/FRAME-PATHS.json",
+    "research/e8-bit-p111-tuned/data/selection9-p111.json",
+    "research/bit-boundary-persistence/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Source pins; frame closure; for #589, #589+E464 (PR R438), #589+E470 (#1043 R438 rebuilt) and PR R437: F2 identity on all inputs by forward replay and reverse pull-back (entrywise agreement), reverse orientation, H1-H5/U/J, rebuilt D0/C; literal composition equals the PR's R437; #1043 FRAME-PATHS equality; exact rational projector identities on all climbs; aligned-trace non-interaction; helper-dirt census of the retained totals at the scatter (#589 vs R437); SOURCE write boundaries and chronology; profile deltas; byte equality of the PR record stream with an independent lowering, record replay in both orientations, and template local programs; schedule from main's recipe, idle windows by the selected rule, slot legality, owners and local-program hashes of 288 calls, remainders and the whole paid profile; invoice precision envelope with the payload-prefix and ROW caps; template m/W asserted equal to the inherited 64/28416; exact price bracket for c, with selected #589 and #1043 positive controls; #1043 CERTIFICATE profile, ADDs and gates vs the rebuilt control; 18 word mutants, 4 hosting mutants, 2 single-child price mutants and one positive control; receipt equality with RESULT.json."
+    }
+  ]
+}

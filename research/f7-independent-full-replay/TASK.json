@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 6,
+  "base_commit": "5ada57b37270163b736c7018db88cc27025abed0",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independent complete enumeration of all five admissible n=7, L=20 weight-parity split representatives, after independently reconstructing the n=4 false-prune witness and checking the pinned predecessor code.",
+  "scope_change_reason": "The original card first required a bounded counterexample, exact predecessor prune and small exhaustive domain; those gates passed in --quick. The corrected census package explicitly leaves a second complete n=7 length-20 implementation as an open question. This finite replay changes the evidence status of its f(7) >= 22 exclusion in the PR943 word model. I allocated one bounded 60-minute research session and did not start an L=22 search.",
+  "bottleneck_link": "Independent completion evidence tests whether the corrected finite singleton-word lower bound can be relied on; this is separate from both selected suppliers and does not change kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the five uncapped length-20 split runs, direct length-24 witness check, small counterexample audit and source/metadata verification. Do not search length 22 or claim a multiplier improvement.",
+  "outcome": "completed",
+  "evidence": "The independent raw-word oracle finds 22 universal n=4, L=8, (4,4) canonical simple words; the pinned old budget falsely removes 6. The independent C11 replay completes five uncapped n=7, L=20 split searches with zero admissible closed leaves and zero hits at 1,170,514,704 total nodes. It directly verifies the retained length-24 upper witness. Reproduce with python3 -I -B research/f7-independent-full-replay/verify.py --full.",
+  "author": "OpenAI Codex",
+  "ai_assistance": "Implemented and verified by OpenAI Codex. No separate human review or proof-assistant verification is claimed.",
+  "open_questions": [
+    {
+      "question": "Does a restored universal seven-label word of length 22 exist?",
+      "why_it_matters": "The independently corroborated lower bound and the verified length-24 word leave only 22 or 24 as f(7) in the PR943 model.",
+      "first_step": "Derive and source-check every admissible length-22 weight-parity split and its necessary collision inequalities before authorizing any bounded search.",
+      "blocked_by": "No length-22 split classification or enumeration is included in this package."
+    }
+  ]
+}

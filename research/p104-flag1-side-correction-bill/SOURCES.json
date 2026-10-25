@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "requested_base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "base_note": "The requested pin is an ancestor of the base. The base contains merged #3508 and #3451. #3532 (an input) is open, so its two input files are vendored byte-identically under inputs/pr3532/ from its head 8fecbf7df; the head: provenance rows bind those bytes, and both scanners check the vendored SHA-256.",
+  "vendored": [
+    {
+      "path": "research/p104-flag1-side-correction-bill/inputs/pr3532/CERTIFICATE.json",
+      "from": "head:8fecbf7df7b48c9004bd10a0da6a81f33d455737:research/p104-flag1-head-step-repair/CERTIFICATE.json",
+      "sha256": "5f29955e692d3fdb628ab0562c87defd21318c31cc2a8cafd6693f8004404359"
+    },
+    {
+      "path": "research/p104-flag1-side-correction-bill/inputs/pr3532/REPAIR-RECIPES.json",
+      "from": "head:8fecbf7df7b48c9004bd10a0da6a81f33d455737:research/p104-flag1-head-step-repair/REPAIR-RECIPES.json",
+      "sha256": "13d2b2f45d75697d137aca1baf953b2bdf482bc8b02da6887ebb492f18470209"
+    }
+  ],
+  "upstream": "CrocSwap/integer-mult-bounds",
+  "files": [
+    {
+      "path": "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+      "usage": "input",
+      "git_blob": "86beaf424e9f0f800ae3a62797d94ec9386b7706",
+      "sha256": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e",
+      "credit": "Reviewed #1991 native channel witness (PR1972 word)"
+    },
+    {
+      "path": "research/p104-native-channel/inputs/P104-FIXTURE.json",
+      "usage": "input",
+      "git_blob": "2e16f99b295bb386fd13bd8fbd57b42ef54143a9",
+      "sha256": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4",
+      "credit": "P104 fixture used by the published native checker"
+    },
+    {
+      "path": "research/p104-native-channel/NATIVE-RECIPES.json.gz",
+      "usage": "input",
+      "git_blob": "ab129678c2df4f0d39b02b88457d02c37de0d9b6",
+      "sha256": "a1c4d83d3d5fe1338e99b59272e8cf5d43244c33888597da340b2aa7fef5b3e8",
+      "credit": "Published native recipes (Chafik Boukhalfa, PR1991)"
+    },
+    {
+      "path": "research/p104-native-channel/check_native.py",
+      "usage": "input",
+      "git_blob": "f8e54afbf146cd6f250063bcb1b9dabf0cbc42ea",
+      "sha256": "e67b874a061a4a28007b9a0fabaf30c8db4a587b1e1c7dd9396c77ff1e3a9fe6",
+      "credit": "Published native checker; its validate() is run unchanged on each coefficient-0 corrected word"
+    },
+    {
+      "path": "research/p104-native-channel/vendor/native_verify.py",
+      "usage": "input",
+      "git_blob": "2c209dfa9cfade3bc20ac5fc9d876b433a147f8c",
+      "sha256": "3049471905b47b385c88378a1a3be7a18b8858aadd035b8a6da2f4a03b470f38",
+      "credit": "Independent native interpreter used by check_native.py and by independent.py"
+    },
+    {
+      "path": "research/p104-joint-unit-flags/CERTIFICATE.json",
+      "usage": "input",
+      "git_blob": "0fa7d2d40566e92f3ea1539723abf438ba65adb8",
+      "sha256": "a98126428a8da6eae91c50afcc42e014a284c82b554ef77e5b3a34fc6d228128",
+      "credit": "Nick Petalas, PR #2981 flag matching (flag 1 identity)"
+    },
+    {
+      "path": "research/p104-flag1-head-step-repair/CERTIFICATE.json",
+      "usage": "provenance",
+      "git_blob": "80c35a9f6743b91cadd14224de6a385b136bdc3e",
+      "sha256": "5f29955e692d3fdb628ab0562c87defd21318c31cc2a8cafd6693f8004404359",
+      "pin": "head:8fecbf7df7b48c9004bd10a0da6a81f33d455737:research/p104-flag1-head-step-repair/CERTIFICATE.json",
+      "credit": "#3532 R0/R1 splices (open leave-alone prior; vendored byte-identically as inputs/pr3532/CERTIFICATE.json, cited, not re-derived)"
+    },
+    {
+      "path": "research/p104-flag1-head-step-repair/REPAIR-RECIPES.json",
+      "usage": "provenance",
+      "git_blob": "18e2a0d1090c15af38597eeeeb4fa1ee365ed734",
+      "sha256": "13d2b2f45d75697d137aca1baf953b2bdf482bc8b02da6887ebb492f18470209",
+      "pin": "head:8fecbf7df7b48c9004bd10a0da6a81f33d455737:research/p104-flag1-head-step-repair/REPAIR-RECIPES.json",
+      "credit": "#3532 new-edge recipes (vendored byte-identically as inputs/pr3532/REPAIR-RECIPES.json; FULL->F7 and [95]->FULL reused)"
+    },
+    {
+      "path": "research/p104-flag1-head-step-repair/README.md",
+      "usage": "provenance",
+      "git_blob": "80b16f99b0c3ae62447aa14388719549e3dea8d3",
+      "sha256": "7faadcd1407c59b39eca6218d743c721fc004d312f43af11a8a4901c4b2e0c3b",
+      "pin": "head:8fecbf7df7b48c9004bd10a0da6a81f33d455737:research/p104-flag1-head-step-repair/README.md",
+      "credit": "#3532 statement of R0/R1, the +2 co-hosting bill and the late-slot open question"
+    },
+    {
+      "path": "research/p104-flag43-side-correction-bill/README.md",
+      "usage": "provenance",
+      "git_blob": "f11056d48c71d2203a77499abe8a517fa7b89514",
+      "sha256": "8ddaaf0c028f44dff042d17954baa00fd34267dd3f9aba0a4c96db330a05f981",
+      "pin": "head:26394881f0a183ca0df3d986ec58aa56900ada6c:research/p104-flag43-side-correction-bill/README.md",
+      "credit": "#3601 flag-43 side-correction bill (format, class Z, least-frame sweep, co-host discount 0); compared, not re-run"
+    },
+    {
+      "path": "research/p104-native-channel/compile.py",
+      "usage": "provenance",
+      "git_blob": "840d7608d6795d12ba174620279f88d8a6f727b4",
+      "sha256": "9d2fc2d81962ddb0b4dd7d6482d9918a87a6b05759690317dea79939ca5656a3",
+      "pin": "base_commit:research/p104-native-channel/compile.py",
+      "credit": "Native compiler used by build.py to lower the three new edges"
+    },
+    {
+      "path": "research/p104-native-channel/vendor/clifford_exact.py",
+      "usage": "provenance",
+      "git_blob": "166841a037f069249f6f7f6dedb89248812f59e2",
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+      "pin": "base_commit:research/p104-native-channel/vendor/clifford_exact.py",
+      "credit": "Exact Clifford lowering used by build.py"
+    },
+    {
+      "path": "research/p104-native-channel/PROOF.md",
+      "usage": "provenance",
+      "git_blob": "a69311b74f74a2f8e8f411c1451baacd9bacddce",
+      "sha256": "5d743145d389ffdfaffc66096fa7e32c7155b18f73d74755403151d0435bb94c",
+      "pin": "base_commit:research/p104-native-channel/PROOF.md",
+      "credit": "Binary-frame semantics: nested transports, adds only in a common chart, owned private lifetimes, paid rank per transport"
+    },
+    {
+      "path": "research/p104-present-head-flag1-audit/README.md",
+      "usage": "provenance",
+      "git_blob": "48e105431a55f1a59f30633bad3287d888d1aef2",
+      "sha256": "5b62f77b4db9a6124aceb2f9df487242f50fff93ecb5daf3d87b3a02f586d49c",
+      "pin": "base_commit:research/p104-present-head-flag1-audit/README.md",
+      "credit": "#3451 flag-1 chronology (leave-alone prior; cited only)"
+    },
+    {
+      "path": "research/p104-flag43-head-step-repair/README.md",
+      "usage": "provenance",
+      "git_blob": "37f19da438b2a7e0b1ffb401de50df8a4323efca",
+      "sha256": "5d63d2a0a6842e182ba0dc7e9984b1ef66bae1c51b34fa732b380dbf83465cb6",
+      "pin": "base_commit:research/p104-flag43-head-step-repair/README.md",
+      "credit": "#3508 head-step repair method and class Z (merged; cited only)"
+    },
+    {
+      "path": "research/p104-side-correction-rank-obstruction/README.md",
+      "usage": "provenance",
+      "git_blob": "7266bdce51f11bf1ee646b34516b79b76e939b33",
+      "sha256": "5a54ed54cae2cd08517f787e4085f8a3dfeda6c03a330e9e8e3bc88c01158f7a",
+      "pin": "base_commit:research/p104-side-correction-rank-obstruction/README.md",
+      "credit": "Prior end-cut side-correction invoices (+2 rank per target); compared, not re-run"
+    },
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "67f085acd86acd7d4e03922d9cf4b26bca66fed5",
+      "sha256": "47b42433f5a85809a3aadd29c2c339da2c6ed728e4f7762df6b88bccb7874cf0",
+      "pin": "base_commit:docs/research/agent-task-catalog.json",
+      "credit": "Priority revision 6 task catalogue at the pinned base"
+    }
+  ]
+}

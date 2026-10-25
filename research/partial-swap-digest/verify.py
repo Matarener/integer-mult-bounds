@@ -27,7 +27,7 @@ from partial_swap import shared as production  # noqa: E402
 BASE_COMMIT = "0b1cccf86e2f5132ed286a26ef0a681a495740ea"
 ORIGINAL_BLOB = "a2f0190704db83bd8ef48e46e723c49b925804fe"
 ORIGINAL_SHA256 = "81e9af92cdf38243a540cdcff2062778e449467848d444da37a9553c12ca4c34"
-OPTIMIZED_SHA256 = "7290bd639600aecff11941d3faf95c9ce95589125cc6a7f7440fb86af7a0f17c"
+OPTIMIZED_SHA256 = "5a0646a50b9f3e8ea55168620a78e8853b0ab810517cefc8cfb8696aedee278a"
 BASE_CERT_SHA256 = "f3c4be597b2f2136da4ae2cc80c7454f63c90aa01f84e5b8131cee4dd55de815"
 CERT_REL = "certificates/partial-swap-network.json"
 SOURCE_REL = "scripts/partial_swap/shared.py"

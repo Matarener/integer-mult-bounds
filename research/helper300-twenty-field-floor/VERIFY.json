@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coupled-helper-neutral-completion/capsule/workspace/swarm-provider-audit-sol-high-20261024/repository/research/native-rank8-helper-provider/WORD.json.gz",
+    "research/kappa-causal-continuation/buffer-borrowing/verify_buffers.py",
+    "research/kappa-rebuild/complex/native_extensions.py",
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source transfer, full monotone path domains, ordered reachability elimination, all 448 residual assignments, cut-rank controls, source survivor and RESULT.json equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source transfer, full monotone path domains, ordered reachability elimination, all 448 residual assignments, cut-rank controls, source survivor and RESULT.json equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/check_window.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately authored source/matrix/macro/basis checks, determinant and inverse, prefix and protected-contact audit, eleven semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_window.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately authored source/matrix/macro/basis checks, determinant and inverse, prefix and protected-contact audit, eleven semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/check_certificate.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Third independently authored full source and certificate audit: complete path domains, all68 domain eliminations, all447 residual rejection witnesses by direct cut deletion, sole source survivor, failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_certificate.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Third independently authored full source and certificate audit: complete path domains, all68 domain eliminations, all447 residual rejection witnesses by direct cut deletion, sole source survivor, failure controls."
+    }
+  ]
+}

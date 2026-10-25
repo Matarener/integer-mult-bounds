@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Direct Schur identity and rank trichotomy, exhaustive admitted commuting pairs, GL4 header cover, sharp examples, degenerate vector criterion and four premise/formula controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Direct Schur identity and rank trichotomy, exhaustive admitted commuting pairs, GL4 header cover, sharp examples, degenerate vector criterion and four premise/formula controls."
+    }
+  ]
+}

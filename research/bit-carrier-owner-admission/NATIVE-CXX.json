@@ -1,0 +1,289 @@
+{
+  "boost_dependency": {
+    "archive_sha256": "af57be25cb4c4f4b413ed692fe378affb4352ea50fbe294a11ef548f4d527d89",
+    "source": "https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.bz2",
+    "version": "1.87.0"
+  },
+  "boost_include": "{boost_include}",
+  "compiler": "/usr/bin/c++",
+  "compiler_version": "Apple clang version 17.0.0 (clang-1700.6.4.2)\nTarget: arm64-apple-darwin25.5.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+  "executed_commands": [
+    {
+      "argv": [
+        "/usr/bin/c++",
+        "--version"
+      ],
+      "elapsed_seconds": 0.133414,
+      "label": "compiler-version",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cec35ee58b68480b15c7872bab77f6e5300715758e22c7bf9c176a9d644b4015"
+    },
+    {
+      "argv": [
+        "/usr/bin/c++",
+        "-O2",
+        "-std=c++17",
+        "-DHDIM=8",
+        "-DNCOPY=9",
+        "-DVPORTS=111",
+        "-I",
+        "{output}/source",
+        "-I",
+        "{boost_include}",
+        "{output}/source/legality_h.cpp",
+        "-o",
+        "{output}/legality"
+      ],
+      "elapsed_seconds": 2.550752,
+      "label": "compile-legality",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/usr/bin/c++",
+        "-O2",
+        "-std=c++17",
+        "-DHDIM=8",
+        "-DNCOPY=9",
+        "-DVPORTS=111",
+        "-I",
+        "{output}/source",
+        "-I",
+        "{boost_include}",
+        "-DRHELP=438",
+        "-DKPAIRS=2",
+        "{output}/source/columns_k.cpp",
+        "-o",
+        "{output}/columns-k2"
+      ],
+      "elapsed_seconds": 1.410663,
+      "label": "compile-columns-control",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-c",
+        "import hashlib,pathlib,sys;p=pathlib.Path(sys.argv[1]);b=p.read_bytes();assert sys.flags.optimize==0;assert hashlib.sha256(b).hexdigest()==sys.argv[2];sys.argv=[str(p)]+sys.argv[3:];exec(compile(b,str(p),'exec'),{'__name__':'__main__','__file__':str(p)})",
+        "{output}/source/stage_cohort.py",
+        "6c288f6f234b528c1a7c0a4adfb724e91e0fe6b18c8dffad96af3f973de1829a",
+        "{provider}/baseline",
+        "{provider}/baseline",
+        "{output}/baseline-cin",
+        "{output}/baseline-cout"
+      ],
+      "elapsed_seconds": 0.041435,
+      "label": "stage-baseline",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "{output}/legality",
+        "{output}/baseline-cin",
+        "{output}/baseline-cout",
+        "{output}/baseline-legality.json"
+      ],
+      "elapsed_seconds": 0.379914,
+      "label": "legality-baseline",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ae4e1c8133fd87963cfcb8f4069b00606f8b2cbb5330e13564185ddfb5cb4391"
+    },
+    {
+      "argv": [
+        "{output}/columns-k2",
+        "{provider}/baseline/249-records.bin",
+        "{output}/baseline-old-columns.json"
+      ],
+      "elapsed_seconds": 0.487613,
+      "label": "old-cap-baseline",
+      "returncode": 2,
+      "stderr_sha256": "d50ddc47f5e048542534443df0cbf9e2c60a0fd6b0b8ab0391e11f1151c4569c",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-c",
+        "import hashlib,pathlib,sys;p=pathlib.Path(sys.argv[1]);b=p.read_bytes();assert sys.flags.optimize==0;assert hashlib.sha256(b).hexdigest()==sys.argv[2];sys.argv=[str(p)]+sys.argv[3:];exec(compile(b,str(p),'exec'),{'__name__':'__main__','__file__':str(p)})",
+        "{output}/source/stage_cohort.py",
+        "6c288f6f234b528c1a7c0a4adfb724e91e0fe6b18c8dffad96af3f973de1829a",
+        "{provider}/candidate",
+        "{provider}/candidate",
+        "{output}/candidate-cin",
+        "{output}/candidate-cout"
+      ],
+      "elapsed_seconds": 0.052044,
+      "label": "stage-candidate",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "{output}/legality",
+        "{output}/candidate-cin",
+        "{output}/candidate-cout",
+        "{output}/candidate-legality.json"
+      ],
+      "elapsed_seconds": 0.010231,
+      "label": "legality-candidate",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "de642b0f35e8e1ddc5db51c54ac75d7296fc2be3cbbdb40a0cd54b9924b55883"
+    },
+    {
+      "argv": [
+        "{output}/columns-k2",
+        "{provider}/candidate/249-records.bin",
+        "{output}/candidate-old-columns.json"
+      ],
+      "elapsed_seconds": 0.003632,
+      "label": "old-cap-candidate",
+      "returncode": 2,
+      "stderr_sha256": "d50ddc47f5e048542534443df0cbf9e2c60a0fd6b0b8ab0391e11f1151c4569c",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "native_source_pins": {
+    "bits/stdc++.h": "420094be2af295eed03a983dd66debbbe9cfb78d8252859f4498a615a0074b99",
+    "columns_k.cpp": "1c344d18fcd494eeca93e259f10cafae7705780e6592f6dcb35b34752dab9bc2",
+    "json.hpp": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63",
+    "legality_h.cpp": "6c1ef2b24e57781d6951c172a1024fc4300e6fd392c9d6672079a7806ab663b3",
+    "stage_cohort.py": "6c288f6f234b528c1a7c0a4adfb724e91e0fe6b18c8dffad96af3f973de1829a"
+  },
+  "no_new_kappa": true,
+  "normalization": {
+    "kind": "Replace local run paths and Python executable with documented placeholders; retain commands, exit status, output hashes, compiler and full C++ receipts.",
+    "observed_at_utc": "2026-10-20T12:15:42.856420+00:00",
+    "original_receipt_sha256": "a55df3c1c59debf78b3a58355cf4123c5fa8aa0d00f73ca6946a1a1cfb4bbc1a"
+  },
+  "old_CXX_scalar_columns_pass_claimed": false,
+  "old_H1_H5_pipeline_pass_claimed": false,
+  "physical_global_compiler_run_claimed": false,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "provider_receipt_sha256": "6fd351c5eb23b2c041e39bc2f0abd9e18111660b11336e488fa03116b2314745",
+  "scope": "New raw6 provider, unchanged chronological C++ legality; old scalar cap rejection is deliberate.",
+  "status": "PASS_FRESH_UNCHANGED_CPP_LEGALITY_AND_PRECISION_REJECTION_CONTROLS",
+  "words": {
+    "baseline": {
+      "legality": {
+        "all_final_frames_pass": true,
+        "common_frame_ADDs": 36005,
+        "containment_pairs_checked": 2385,
+        "copies": 9,
+        "donor_intersections": 0,
+        "erasures": 9,
+        "max_inherited_integer_abs": 2,
+        "nested_MOVEs": 2904,
+        "new_frame_ids_collision": false,
+        "nondegeneracy_checked_by_separate_exact_bank_audit": true,
+        "old_max_frame_id": 635,
+        "paid_histogram": [
+          [
+            1,
+            1322
+          ],
+          [
+            2,
+            1342
+          ],
+          [
+            3,
+            79
+          ],
+          [
+            4,
+            39
+          ],
+          [
+            5,
+            102
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            18
+          ]
+        ],
+        "rank_mass": 5101,
+        "records": 38927,
+        "scope": "Independent chronological geometry/copy/source-owner audit. F2 all-column replay is in the separately freshly compiled transform receipt; address transform theorem and bank completion remain separate.",
+        "selected_helpers": 0,
+        "selected_pairs": 0,
+        "source_owner_intersections": 0,
+        "status": "PASS_INDEPENDENT_COHORT_LEGALITY_SOURCE_OWNERS_AND_LIFECYCLE"
+      },
+      "native_raw6_sha256": "a4c3c14e242a78b14367710d571f61a7126118089fe9888512d766570514dce9",
+      "old_104_bit_cap_rejected": true
+    },
+    "candidate": {
+      "legality": {
+        "all_final_frames_pass": true,
+        "common_frame_ADDs": 35947,
+        "containment_pairs_checked": 2385,
+        "copies": 9,
+        "donor_intersections": 0,
+        "erasures": 9,
+        "max_inherited_integer_abs": 2,
+        "nested_MOVEs": 2903,
+        "new_frame_ids_collision": false,
+        "nondegeneracy_checked_by_separate_exact_bank_audit": true,
+        "old_max_frame_id": 635,
+        "paid_histogram": [
+          [
+            1,
+            1321
+          ],
+          [
+            2,
+            1342
+          ],
+          [
+            3,
+            79
+          ],
+          [
+            4,
+            39
+          ],
+          [
+            5,
+            102
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            7,
+            19
+          ]
+        ],
+        "rank_mass": 5101,
+        "records": 38868,
+        "scope": "Independent chronological geometry/copy/source-owner audit. F2 all-column replay is in the separately freshly compiled transform receipt; address transform theorem and bank completion remain separate.",
+        "selected_helpers": 0,
+        "selected_pairs": 0,
+        "source_owner_intersections": 0,
+        "status": "PASS_INDEPENDENT_COHORT_LEGALITY_SOURCE_OWNERS_AND_LIFECYCLE"
+      },
+      "native_raw6_sha256": "35b4d967ab9325a5e9bd433c121f73791b9bb79a299626fbccc6377c01dc074d",
+      "old_104_bit_cap_rejected": true
+    }
+  }
+}

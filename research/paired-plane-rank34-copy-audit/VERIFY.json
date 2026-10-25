@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/paired-plane-native-payload/README.md",
+    "research/paired-plane-scalar-mask-obstruction/README.md",
+    "research/plane-port-copy-budgets/README.md",
+    "research/support-balanced-port-floor/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent strict scalar mask, all-field rank witnesses, complete-plane tariff, rational half-weight control and exact receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/check_native.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-authenticated native private drops and line-entry adapters, separate Gaussian oracle, all512 columns of a rank8 drop, occurrence and phase controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Sixteen semantic and integrity groups, separate coordinate/dense-rank reconstruction, Git-free read-only export and deliberately corrupted evidence."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_native.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Native predicates remain effective with predecessor assertions disabled."
+    }
+  ]
+}

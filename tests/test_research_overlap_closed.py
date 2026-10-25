@@ -38,6 +38,7 @@ class ClosedOverlapTests(unittest.TestCase):
     def run_report(self, cache, argv=(), closed_pages=None, open_pages=None, seen=None):
         output = io.StringIO()
         with (patch.object(overlap, 'ROOT', cache.parent / 'empty-repo'),
+              patch.object(overlap, 'local_coverage', return_value=({}, [])),
               patch.object(sys, 'argv', ['find_overlap.py', 'needle', '--json', '--cache', str(cache), *argv]),
               patch.object(overlap.subprocess, 'run', side_effect=cli(open_pages or [[]], closed_pages or [[]], seen if seen is not None else [])),
               patch.object(overlap, 'fetch_discussions', return_value=[]),

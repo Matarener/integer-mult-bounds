@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Vendored length-7 CNF/proof and CERTIFICATES.json hashes; Python forward RUP replay of length 7; dropped-core-clause and flipped-literal controls; brute-force fuzz of soundness and completeness; recorded rupcheck.c runs bound by SHA256 to the checker and to #4331's length-7 and length-8 input pins, with every length-8 proof line accounted for."
+    }
+  ]
+}

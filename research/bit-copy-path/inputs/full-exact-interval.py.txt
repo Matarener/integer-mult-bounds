@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+"""Small exact rational log/exp intervals; no floating-point decisions.
+
+Substantial OpenAI Codex assistance. This is an arithmetic certificate
+engine, not a formal-kernel proof.
+"""
+from fractions import Fraction as Q
+from functools import lru_cache
+
+BITS = 256
+SCALE = 1 << BITS
+LOG_TERMS = 100
+EXP_TERMS = 40
+
+
+def need(test, message):
+    if not test:
+        raise ValueError(message)
+
+
+def exact(x):
+    x = Q(x)
+    return x, x
+
+
+def add(x, y):
+    return x[0] + y[0], x[1] + y[1]
+
+
+def mul(x, c):
+    c = Q(c)
+    return (x[0] * c, x[1] * c) if c >= 0 else (x[1] * c, x[0] * c)
+
+
+def sub(x, y):
+    return add(x, mul(y, -1))
+
+
+def round_out(x):
+    lo = (x[0].numerator * SCALE) // x[0].denominator
+    hi = -((-x[1].numerator * SCALE) // x[1].denominator)
+    return Q(lo, SCALE), Q(hi, SCALE)
+
+
+def _small_log(x):
+    """Enclose log(x), 1 <= x <= 2, by the positive atanh series."""
+    need(1 <= x <= 2, "range-reduced log domain")
+    y = (x - 1) / (x + 1)
+    z, term, total = y * y, y, Q(0)
+    for j in range(LOG_TERMS):
+        total += term / (2 * j + 1)
+        term *= z
+    tail = 2 * term / ((2 * LOG_TERMS + 1) * (1 - z))
+    return round_out((2 * total, 2 * total + tail))
+
+
+@lru_cache(None)
+def log(x):
+    x = Q(x)
+    need(x >= 1, "log domain")
+    shift = 0
+    while x > 2:
+        x /= 2
+        shift += 1
+    return round_out(add(_small_log(x), mul(_small_log(Q(2)), shift)))
+
+
+def exp_point(x):
+    """Positive Taylor sum and geometric bound on its entire omitted tail."""
+    need(0 <= x < 1, "exp domain")
+    term = total = Q(1)
+    for j in range(1, EXP_TERMS + 1):
+        term *= x / j
+        total += term
+    first = term * x / (EXP_TERMS + 1)
+    tail = first / (1 - x / (EXP_TERMS + 2))
+    return round_out((total, total + tail))
+
+
+@lru_cache(None)
+def power(base, exponent):
+    exponent = Q(exponent)
+    need(exponent >= 0, "nonnegative exponent")
+    y = mul(log(Q(base)), exponent)
+    return exp_point(y[0])[0], exp_point(y[1])[1]
+
+
+@lru_cache(None)
+def phi(rank, exponent, width=64):
+    if rank == 0:
+        return exact(0)
+    need(0 < rank <= width, "rank domain")
+    return mul(power(Q(width, rank), Q(exponent)), rank)
+
+
+def linear_phi(coefficients, exponent, width=64):
+    total = exact(0)
+    for rank, coefficient in sorted(coefficients.items()):
+        total = add(total, mul(phi(rank, exponent, width), coefficient))
+    return total
+
+
+def report(interval, digits=30):
+    # For a negative number ceil(x*S)=-floor(-x*S), so this is sign-aware.
+    lo, hi = interval
+    scale = 10 ** digits
+    nlo = (lo.numerator * scale) // lo.denominator
+    nhi = -((-hi.numerator * scale) // hi.denominator)
+    def show(n):
+        sign = "-" if n < 0 else ""
+        n = abs(n)
+        return f"{sign}{n // scale}.{n % scale:0{digits}d}"
+    return {
+        "lower": str(lo), "upper": str(hi),
+        "decimal_lower": show(nlo), "decimal_upper": show(nhi),
+    }

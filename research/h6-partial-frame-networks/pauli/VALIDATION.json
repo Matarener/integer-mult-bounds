@@ -1,0 +1,56 @@
+{
+  "checker_sha256": "97b97531bd312ccae4da4ce2e7a767f32c749db2eb7408eb38b517699f970a66",
+  "cyclic_cross_contract": {
+    "all_frames_exact_equal": true,
+    "all_gauge_signs_exact_equal": true,
+    "all_pairs_exact_equal": true,
+    "all_triples_exact_equal": true,
+    "cyclic_receipt_gzip_sha256": "d3d514082425e82c8d133921b78b1ae62c158cb963f7059e93df3bd2106255e4",
+    "frame_cases_sha256": "90b0a4049066b6eb08ab223ba03d8f9af95bbe688a09c4ee5c7f586ad1fdd46b"
+  },
+  "executed_named_guard_deletions": 28,
+  "external_output_guards": [
+    {
+      "exit_code": 1,
+      "name": "relative_output",
+      "rejected_by": "output must be absolute"
+    },
+    {
+      "exit_code": 1,
+      "name": "inside_package",
+      "rejected_by": "output must be external to code and inputs"
+    },
+    {
+      "exit_code": 1,
+      "name": "inside_overridden_inputs",
+      "rejected_by": "output must be external to code and inputs"
+    },
+    {
+      "exit_code": 1,
+      "name": "existing_external_output",
+      "rejected_by": "output must be new"
+    }
+  ],
+  "finite_diagnostics": {
+    "complementary_lines": 96,
+    "fixed_quadratic_columns": 35,
+    "individual_support_spans": 8,
+    "ordinary_columns_each": 46,
+    "orientations": 2,
+    "physical_supported_ports": 5760,
+    "selected_tiling_joins": 1440,
+    "tiling_frame_cases": 2400,
+    "variants": 2
+  },
+  "geometry_sha256": "05d23eeb09cd04785b28d5337f0c2e19de3bf1cd7e54a26c219cb10c9a3daf25",
+  "normal_command": "python3 -I -B check.py --output /absolute/external/new-normal.json",
+  "normal_optimized_complete_json_bytes_identical": true,
+  "optimized_command": "python3 -I -O -B check.py --output /absolute/external/new-optimized.json",
+  "production_rejections": 28,
+  "proof_sha256": "74e81020d348b57f21bb857ce25f1d68efd822d6c7a4e1e97219d80f1eb8ed9c",
+  "receipt_gzip_sha256": "8e87b99cbab046151357691f7b891f25daf4aba5f2ad6c6bedda3342d003bce4",
+  "receipt_raw_sha256": "dd2bd852b6b5b3c78f2e0cb6a5e6aff49cf4f3956aa18673bd555bfb6b069220",
+  "schema": "c03_pauli_validation.v1",
+  "scope": "Local exact verification under the declared abstract frame and private interfaces. No hosted CI, native phase/compiler, rounded supplier, L1 capped invoice, or new kappa.",
+  "status": "PASS"
+}

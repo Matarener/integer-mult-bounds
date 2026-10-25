@@ -1,0 +1,113 @@
+{
+  "status": "partial_conversion",
+  "completed": [
+    {
+      "length": 7,
+      "source_cnf": {
+        "path": "length7.cnf",
+        "bytes": 1004699,
+        "sha256": "2f1b925d8cc84ce36f35ac8033d6e4afffe373a2ab37fe5f52d6e29884c1ed0c"
+      },
+      "saved_rup": {
+        "path": "length7.rup.gz",
+        "bytes": 981561,
+        "sha256": "63bbaaf387740a52ba0874b0766bac682f52d41a4b26ea0e16e030dd3a7b0eec"
+      },
+      "generated_lrat": {
+        "path": "length7.lrat.gz",
+        "bytes": 4858637,
+        "sha256": "2074fb6f25423014fd6b0e95cd90ea9c661457cd727b84a4d055cce7e466d3ff"
+      },
+      "payload_bytes": 15470341,
+      "payload_sha256": "e9dc28fd07c4a2db004601474b3d83ea7d00435c496bf443cb828af228a83be3",
+      "lines": 13267
+    }
+  ],
+  "incomplete": [
+    {
+      "length": 8,
+      "exit": -25,
+      "signal": "SIGXFSZ",
+      "partial_output": {
+        "path": "length8.lrat",
+        "bytes": 536870912,
+        "sha256": "c3236d89355ede8a7d6d19c1335678f8b78caa69d117a5e7a80c699ab7c9e93f"
+      },
+      "cause": "enforced RLIMIT_FSIZE512MiB",
+      "independent_replay": false
+    }
+  ],
+  "generator": "unchanged predecessor-vendored drat-trim C, untrusted hint producer",
+  "limits": {
+    "CPU_seconds": 300,
+    "external_wall_seconds": 420,
+    "output_bytes": 536870912,
+    "disk_reserve_bytes": 8589934592
+  },
+  "trust": "Conversion itself supplies no UNSAT acceptance; only independent interpreter replay can do that.",
+  "recorded_at": "2026-10-21T09:42:52.910694+00:00",
+  "compile_command": [
+    "cc",
+    "/private/tmp/crocswap-b5-s01/research/gl3-lrat-independent-check/source/drat-trim.c",
+    "-std=c99",
+    "-O2",
+    "-Dgetc_unlocked=getc",
+    "-o",
+    "/private/tmp/contribution-batch-20261021T092636Z/session-1/generation/drat-trim"
+  ],
+  "commands": [
+    [
+      "/private/tmp/contribution-batch-20261021T092636Z/session-1/generation/drat-trim",
+      "/private/tmp/crocswap-b5-s01/research/gl3-lrat-independent-check/source/length7.cnf",
+      "/private/tmp/contribution-batch-20261021T092636Z/session-1/generation/length7.rup",
+      "-U",
+      "-L",
+      "/private/tmp/contribution-batch-20261021T092636Z/session-1/generation/length7.lrat",
+      "-t",
+      "300"
+    ],
+    [
+      "/private/tmp/contribution-batch-20261021T092636Z/session-1/generation/drat-trim",
+      "/private/tmp/crocswap-b5-s01/research/gl3-lrat-independent-check/source/length8.cnf",
+      "/private/tmp/contribution-batch-20261021T092636Z/session-1/generation/length8.rup",
+      "-U",
+      "-L",
+      "/private/tmp/contribution-batch-20261021T092636Z/session-1/generation/length8.lrat",
+      "-t",
+      "300"
+    ]
+  ],
+  "raw_logs": [
+    {
+      "path": "generation/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "generation/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "generation/length7.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "generation/length7.stdout",
+      "bytes": 385,
+      "sha256": "c3f2890ba3f3cda85aae79d43e0f334e3c957cc1ca3a8f39a821435488ab3fbe"
+    },
+    {
+      "path": "generation/length8.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "generation/length8.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binary_sha256": "b3c5aecc22d3f47f009dfbaea0f7c4429bcadaba6d918be2292f76025b4e9b2b"
+}

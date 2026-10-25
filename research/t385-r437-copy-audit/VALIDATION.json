@@ -1,0 +1,30 @@
+{
+  "R437": {
+    "status": "PASS",
+    "python": "CPython 3.12.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "commands": [
+      "verify.py normal",
+      "verify.py -O",
+      "test_package.py actual optimized Git-free CLI"
+    ],
+    "semantic_controls": 7,
+    "export_controls": 4,
+    "selected_baseline": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+    "scope": "Exact stream-model application and finite arithmetic under inherited coefficients; no uniform compiler/theorem admission",
+    "registered_manifest_sha256_before_execution_evidence_command": "3991a0ec9aeaac420ddddea79cdaeb7d7381334c69c975a3056d22bc99a4b024"
+  },
+  "T385": {
+    "classification": "COMPLETE_CONDITIONAL_REPLAY",
+    "source_head": "de2cd5c58009205210e3bf328b0ef5cadf3903af",
+    "exit_code": 0,
+    "completed_top_level_stages": 7,
+    "recorded_supervisor_seconds": 2946.085577381,
+    "summed_top_level_stage_seconds": 2923.4258081869957,
+    "evidence_command": "python3 -I -O -B research/t385-r437-copy-audit/check_execution.py",
+    "evidence_controls": 3,
+    "native_and_ancestry_reused": true,
+    "scope": "Fresh author wrapper execution with explicit runtime adaptations and native/ancestry reuse; no fresh native rebuild or new theorem."
+  },
+  "registered_manifest_sha256": "1f6c6f1d6738e300cdd7a0871e8a4fc175f6d16889512d727f71d664e9ac3a96"
+}

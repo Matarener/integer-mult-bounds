@@ -1,0 +1,85 @@
+{
+  "frozen/old/recursive/bit_native_controller.py": [
+    {
+      "new": "REPO = PORTABLE.root/'frozen/upstream'",
+      "old": "REPO = Path('/Users/ross/git/math/integer-mult-bounds')",
+      "reason": "Relocate the unchanged upstream input tree."
+    },
+    {
+      "new": "path = Path(PORTABLE.normalize(frozen['source_word']))",
+      "old": "path = Path(frozen['source_word'])",
+      "reason": "Relocate absolute frozen provenance input path; source hash remains enforced."
+    },
+    {
+      "new": "PORTABLE.equal(HERE / 'BIT-NATIVE-CONTROLLER.json',complete)",
+      "old": "need(json.loads((HERE / 'BIT-NATIVE-CONTROLLER.json').read_bytes()) == json.loads(output),\n             'full BIT native/controller receipt differs')",
+      "reason": "Full typed receipt comparison, mapping original absolute provenance paths only."
+    },
+    {
+      "new": "PORTABLE.equal(HERE / 'BIT-NATIVE-CONTROLLER-WORD.json',\n             {'inplace_code_CNOTs': gates, 'ordered_controller': controller_word})",
+      "old": "need(json.loads((HERE / 'BIT-NATIVE-CONTROLLER-WORD.json').read_bytes()) ==\n             {'inplace_code_CNOTs': gates, 'ordered_controller': controller_word},\n             'full ordered BIT native/controller word differs')",
+      "reason": "Full typed ordered-word comparison."
+    },
+    {
+      "new": "    exec(compile(selected, str(RECIPE_SOURCE), 'exec', dont_inherit=True, optimize=0), env)",
+      "old": "    exec(compile(selected, str(RECIPE_SOURCE), 'exec'), env)",
+      "reason": "Retain assertions in source-extracted AST functions under optimized parent Python."
+    },
+    {
+      "new": "    exec(compile(ast.Module(body=[fn], type_ignores=[]), str(source), 'exec', dont_inherit=True, optimize=0), env)",
+      "old": "    exec(compile(ast.Module(body=[fn], type_ignores=[]), str(source), 'exec'), env)",
+      "reason": "Retain assertions in source-extracted AST functions under optimized parent Python."
+    },
+    {
+      "new": "raw = PORTABLE.authenticate(RECIPE_SOURCE)",
+      "old": "raw = RECIPE_SOURCE.read_bytes()",
+      "reason": "Compile the exact authenticated source bytes for the extracted AST fragment."
+    },
+    {
+      "new": "ast.parse(PORTABLE.authenticate(source))",
+      "old": "ast.parse(source.read_bytes())",
+      "reason": "Compile the exact authenticated source bytes for the extracted AST fragment."
+    }
+  ],
+  "frozen/old/recursive/bit_owner_prune.py": [
+    {
+      "new": "REPO = PORTABLE.root/'frozen/upstream'",
+      "old": "REPO = Path('/Users/ross/git/math/integer-mult-bounds')",
+      "reason": "Relocate the unchanged upstream input tree."
+    },
+    {
+      "new": "PORTABLE.equal(path,data)",
+      "old": "need(json.loads(path.read_bytes()) == json.loads(cap.canonical(data)),'complete owner restriction receipt differs')",
+      "reason": "Full typed receipt comparison, mapping original absolute provenance paths only."
+    }
+  ],
+  "frozen/reviews/owner/check_owner_accounting.py": [
+    {
+      "new": "PORTABLE.equal(path,result)",
+      "old": "need(json.loads(path.read_bytes()) == json.loads(canonical(result)), \"review receipt differs\")",
+      "reason": "Compare complete typed independent receipt; no mathematical fields omitted."
+    }
+  ],
+  "frozen/upstream/research/r438-rehost-projectors/verify.py": [
+    {
+      "new": "    exec(compile(ast.Module(body=nodes, type_ignores=[]), path, 'exec', dont_inherit=True, optimize=0), ns)",
+      "old": "    exec(compile(ast.Module(body=nodes, type_ignores=[]), path, 'exec'), ns)",
+      "reason": "Retain assertions in source-extracted AST functions under optimized parent Python."
+    },
+    {
+      "new": "    exec(compile(ast.Module(body=nodes, type_ignores=[]), GEOMETRY, 'exec', dont_inherit=True, optimize=0), ns)",
+      "old": "    exec(compile(ast.Module(body=nodes, type_ignores=[]), GEOMETRY, 'exec'), ns)",
+      "reason": "Retain assertions in source-extracted AST functions under optimized parent Python."
+    },
+    {
+      "new": "ast.parse(PORTABLE.authenticate(ROOT / path))",
+      "old": "ast.parse((ROOT / path).read_text())",
+      "reason": "Compile the exact authenticated source bytes for the extracted AST fragment."
+    },
+    {
+      "new": "ast.parse(PORTABLE.authenticate(ROOT / GEOMETRY))",
+      "old": "ast.parse((ROOT / GEOMETRY).read_text())",
+      "reason": "Compile the exact authenticated source bytes for the extracted AST fragment."
+    }
+  ]
+}

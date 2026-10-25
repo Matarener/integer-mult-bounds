@@ -1,85 +1,85 @@
 # Current research priorities
 
 This is the changing diagnosis and allocation; [autoresearch.md](../../autoresearch.md)
-contains the standing session procedure. Refresh this file and the task catalogue
-at each research checkpoint. Priority revision 6 and all track weights are unchanged
-by the workflow split.
+links the standing session procedure. Refresh this file and the task catalogue
+at each research checkpoint.
 
+**Priority revision 7 — October 20, 2026**, assessed against main
+`9200177938843d92957bbfe6f1fdbe88768d8cc5`.
+**Selection refresh — October 23, 2026:** the
+[selected conditional result](../../certificates/selected-result.json) is now
+**κ = 0.0030217758 (#4610, independently audited in #5241)**. Read the
+[changed-construction review](pr-intake-evidence/pr4610/PROOF-REVIEW.md) and
+[contributor map](community-native4610-contributors.md). Cao Yifan's native/helper
+changes retain the PR4470 controller and productive profile; Chris R / Clear1nsight
+supplies the complete independent admission package. The same five framework
+assumptions remain. This small improvement does not change the mechanism-search
+allocation. Admission of this exact #4610 witness is complete; source-sensitive
+follow-ups must use its final word and compiler parameters.
+Use `python3 -B scripts/research_selected_baseline.py` for source-bound orientation;
+the older `research_baseline.py` uses a historical balanced-transfer schema.
+The revision-7 allocation below is retained pending a separate strategic review.
+Its old-inventory ceilings, stale admission tasks and a/(1+a) conversion are
+not constraints on this mixed-target selection. Check the selected assumptions
+and latest handoffs before adopting an old card.
 
-**Priority revision 6 — October 16, 2026.** The selected conditional result remains
-κ = 0.001672660197076918 (#1094). The complex side binds; both suppliers must
-advance for a large jump. The [review through #2027](community-efficient1000-review.md)
-adds checked components and scoped obstructions, not a new selected exponent.
-Recheck the selected record and live overlap before starting.
+**Keep broad mechanism exploration; update the exact missing work.** Roughly
+60% of the portfolio remains on bit mechanisms, complex mechanisms and recursive
+interfaces. The latest packages justify fresher assignments, not a measured
+claim that any track has a higher success rate. Use the
+[family record](research-family-status.md#revision-7-evidence-and-assignments)
+for source pins, attribution, remaining obligations and stop rules. Check live
+[handoffs](https://github.com/CrocSwap/integer-mult-bounds/discussions/1166)
+before selecting a card.
 
-**Keep the mechanism portfolio; refresh the exact missing task.** Start from
-[the research-family status and expansion gate](research-family-status.md).
-It distinguishes reviewed predecessors, newer pending claims and the maintainer's
-local-only product checkpoint. This revision does not admit any of those newer
-claims or change the frontier.
-
-| Card | Starting evidence | Next decision |
+| Card | Current evidence, author-checked unless stated otherwise | Next bounded decision |
 |---|---|---|
-| `p104-side-correction` | Reviewed #1991 channel; author-checked #2981 joint endpoint flags | Can one named static collection acquire and deliver the right coefficients chronologically, restore dirty state, and fit the complete physical bill? |
-| `joint-query-controller` | Reviewed #1969 words; author-checked #2965 producer-defect transfer | Can an actual producer meet the completed-output error budgets, including dirty helpers, and feed an affordable consumer? |
-| `selected-stock-envelope` | Reviewed stock obligations; author-checked #2972 cutoff chain | Derive the actual selected stock coefficient; cutoff comparisons alone do not supply it. |
-| `independent-moment` | Author-checked #2979 joint rank-7 frame/circuit proposal | Independently check one coordinated group and its losing single-change control, then trace the changed costs through the complete invoice. |
-| `supplier-boundary-audit` | Author-checked #2977 scatter/export mismatch | Reproduce the tiny semantic mismatch and evaluate the proposed guard at the actual exporter boundary. |
-| `census-pruning-audit` | Author-checked #2973 parity-pruning correction | Check the tiny counterexample and identify precisely which predecessor exclusions need revalidation. |
+| `uniform-transfer-audit` | #4100 proposed all-size construction | Audit **one** quantified implication at its actual caller: CRT total repair, native/free-algebra lift, precision/conditioning, or fixed-tape cost. Independent acceptance is absent. |
+| `supplier-boundary-audit` | #4088 mixed four-provider local construction | Rebind the ordinary/outer admission engine to all four providers and dispatch, preserving every predicate and rejection control. The full mixed engine has not been rerun. |
+| `joint-query-controller` | #4166 actual QQ16 caller installation | Compare the complete matched parent park/restore and external-call protocols, retaining all later calls; or change the actual demand to remove paid work. The native-component profile loses. |
+| `r437-carrier-integration` | #4067 paid two-window carrier; #4147 reverse coefficient | Close one pooled compiler/request, physical caller, or precision/stock obligation. Do not rederive the covered coefficient. |
+| `p104-side-correction` | #4133/#4136/#4140/#4153/#4154 scoped slot, commutation, encoding, chart and fiber-seam objections | Name a changed producer/consumer premise, then test literal action, dirty restoration and the fully charged boundary. Static flags alone do not supply it. |
+| `independent-moment` | #4088 changed ledger; #4091 proposed fixed-inventory ceiling; #4067 paid exchange | Independently bind a changed mechanism to its bill or check the scoped pooled dual. More digits of the same root are not additional mechanism coverage. |
+| `formal-interface-lemma` | #3807 gate-operand and #3857 endpoint formalizations | Target an uncovered interface statement. Audit the proposed compact-switch contract before a formalization campaign. |
 
-**These newer packages are source archives, not scientific admissions.** This
-guidance pass inspected their claims and remaining obligations without replaying
-their mathematics. In particular, #2979's claimed κ ≈ 0.001729 is not the selected
-result. Its reported joint win motivates a bounded independent audit, not a mass
-search for more lowerings. Exact heads, attribution and stop rules are in the
-[family record](research-family-status.md#revision-6-handoffs-source-archives-awaiting-independent-validation).
+**Separate admission from proof audit.** #4088 needs finite/compiler integration;
+#4100 claims to discharge all-size premises. Those are different tasks, and neither
+is closed by checking the other's numerical root. Partition work by proposition,
+caller and domain, with one canonical thread and exact source pins. A short session
+can produce an acceptance coverage map, a counterexample or a single proved lemma.
+A complete ordinary/outer replay or Lean build needs a separate resource budget;
+no heavy run is part of default orientation.
 
-Read and pin the current dependency before assigning its missing work. A pending
-local completion changes the useful question even though it has not been admitted
-as a supplier. Audit its claim or close a specific remaining obligation; do not
-silently treat it as verified, and do not reconstruct it just because the old card
-started earlier. Live claims are advisory, not exclusive reservations.
+**Pause repetitive searches within a fixed invoice.** #4091 proposes a sharp
+pooled ceiling for the fixed THREE/FOUR words and inventory. It is pinned to an
+earlier #4088 revision: verify local-word, capacity and stock equivalence before
+applying it to the later 1090-call fill. Its pooled witness is not a chronological
+implementation. The `selected-packing` card now starts with this scope/headroom
+check; any tiny residual search is explicitly bounded and optional. Changed words
+or interfaces require a fresh model, not the old ceiling.
 
-**A local contribution and a family expansion have different acceptance gates.**
-A checked partial construction, interface lemma or scoped obstruction remains
-valuable. Contributors need not solve the whole supplier. Before expanding it
-into another large search or dependent implementation round, the director must
-update the complete boundary and cost ledger: proved costs, constructive upper
-bounds, unknowns, and the consumer that avoids repaying the saving. Unknown costs
-are not zero, and passing an optimistic relaxation does not establish feasibility.
-Use the linked family record's five-point gate. This is an evidence checkpoint,
-not an approval queue: a solo agent can record the decision in its existing
-task/thread. A useful handoff needs no extra session report.
+Likewise, #3998/#4019 and #4112/#4152 cover scalar A2 contractions and related
+audits. The `scalar-to-moment` card requires an actual removed paid transition,
+a legal replacement itinerary and the complete cost delta. Stop if only scalar
+ADD counts change; that may have a separate benefit, but does not justify a larger
+κ-oriented scan of the same domain.
 
-The recent local product work motivates this discipline but does not justify
-routing the community into that branch or declaring a global obstruction. Pause
-the maintainer's fixed preparation recipe; different source/consumer contracts,
-coupled passes and coding mechanisms remain open. Its local evidence and narrow
-scope are explicitly labelled in the family record.
+**Local contributions remain welcome.** A checked partial identity, interface
+lemma or scoped obstruction can be valuable without a complete supplier. Before
+expanding a family, update its full producer/consumer ledger: proved costs,
+constructive upper bounds, unknowns, and why the consumer does not repay the gain.
+Unknown costs are not zero. Use the [five-point expansion gate](research-family-status.md#contribution-acceptance-and-family-expansion-are-different-gates).
+This is an evidence checkpoint, not an approval queue or an extra reporting task.
 
-**Stop rediscovering covered cases.** #1995/#2013 bound terminal-frame and
-monotone-frame changes within the fixed selected scalar word and cleanup
-contract. #2017 proves sharp `C=40` in its Eisenstein binary scalar-rectangle
-and fixed-support block-linear additive pairing model. #1974 completes its
-two-register GL3 census and a bounded three-register probe. Name a changed
-hypothesis before reopening those domains; none is a universal barrier.
-The catalogue links the precise sources and retains broader exploration.
+The selected stock coefficients remain a targeted audit obligation; cutoff
+arithmetic does not provide them. For census and exporter work, check successor
+corrections and their exact scope before repeating a tiny example. Independent
+verification must name missing coverage. The reviewed #1995/#2013 fixed-word
+frame bounds, #2017 fixed-model C=40 result and #1974 bounded census remain scoped
+predecessors, not universal barriers. The maintainer's older product checkpoint
+also remains local-only evidence as labelled in the family record.
 
-Verification should target an unproved implication, changed source binding or
-new failure mode. Inventory existing independent checks before another root
-calculation. A handoff on a central missing lemma is preferable to inventing a
-peripheral task merely to finish a PR. Incremental and independent contributions
-remain welcome with their scope stated.
-
-Before extending a static cover search, precision calculation or source-count
-census, name the unresolved obligation it closes or the active research decision
-it changes. Do not rebuild #2981's static matching, #2965's decoder error constants
-or #2972's cutoff comparisons merely because they are easy to run. Independent
-checks of those claims remain useful when they supply missing coverage. For the
-#2542/#2634/#2691 census chain, first audit the pruning objection in #2973; neither
-the old exclusions nor their proposed replacement should silently close a route.
-
-**Retained revision-3 quantitative diagnosis (scoped arithmetic independently replayed for #1240 and #1264).** On the binding complex side, a ≈ D/E:
+**Retained selected-profile diagnosis (revision 3; scoped arithmetic independently replayed for #1240 and #1264).** This paragraph and its lever table concern the frozen selected profile, not the changed #4088 words or every possible supplier. On the binding complex side, a ≈ D/E:
 
 - **D is small.** Each call has about 99.6 live families. The coverage identity leaves one unpaid
   coordinate per family, and the centre path then takes back 64. Only about 35.6 of 7,232 paid
@@ -128,7 +128,7 @@ valuable even when the other supplier prevents an immediate headline change.
 
 The helper allocates effort as follows. These are portfolio weights, not success
 probabilities; the catalogue is the machine-readable source for assignments.
-Revision 6 keeps the track weights: current evidence supports fresher tasks and
+Revision 7 keeps the track weights: current evidence supports fresher tasks and
 stronger expansion decisions, not a measured reason to reallocate the portfolio.
 Prefer a live, unclaimed central handoff over a generic card when it matches your track or expertise;
 record the scoped override and check overlap.

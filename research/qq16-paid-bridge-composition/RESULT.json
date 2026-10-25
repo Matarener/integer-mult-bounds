@@ -1,0 +1,202 @@
+{
+  "actual_bridge_physical_prefix": [
+    {
+      "entry_exit_phase_adapters": "DATA-PHASES.recipes[port].stage_alignment[stage]",
+      "kind": "local_cover_sweep",
+      "provider_id": "gauge44",
+      "replica": 0,
+      "replicas": [
+        0
+      ],
+      "source_event": 0,
+      "stage": 0,
+      "time": 0
+    },
+    {
+      "entry_exit_phase_adapters": "DATA-PHASES.recipes[port].stage_alignment[stage]",
+      "kind": "local_cover_sweep",
+      "provider_id": "gauge44",
+      "replica": 0,
+      "replicas": [
+        0
+      ],
+      "source_event": 1,
+      "stage": 1,
+      "time": 4
+    },
+    {
+      "child_indices": [
+        0,
+        2
+      ],
+      "from_level": -1,
+      "kind": "idle_cover_sweep",
+      "pair": 1,
+      "replica": 0,
+      "replicas": [
+        0
+      ],
+      "source_event": 2,
+      "time": 4,
+      "to_level": 1
+    },
+    {
+      "coefficient": 1,
+      "dst": 0,
+      "kind": "bridge",
+      "replica": 0,
+      "replicas": [
+        0
+      ],
+      "source_event": 3,
+      "src": 1,
+      "time": 4
+    },
+    {
+      "entry_exit_phase_adapters": "DATA-PHASES.recipes[port].stage_alignment[stage]",
+      "kind": "local_cover_sweep",
+      "provider_id": "gauge44",
+      "replica": 0,
+      "replicas": [
+        0
+      ],
+      "source_event": 4,
+      "stage": 2,
+      "time": 10
+    }
+  ],
+  "archive_members": {
+    "t16/global/base/work/complex-nine-native/DATA-PHASES.json": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa",
+    "t16/global/hosted/GLOBAL-TEMPLATE.json.gz": "73f47a1e60b1e4ea66dbca9a497c411c8e6adc7984e276a437a10a9a7a13b47a"
+  },
+  "checks": {
+    "arbitrary_independent_data_fields": 208,
+    "exact_final_operator_and_frames_equal_direct": true,
+    "full_mod4_phase_coordinates": 73,
+    "independent_owned_dirt_fields": 120,
+    "intermediate_projected_routed_terms": 4992,
+    "literal_projection_events": 1410,
+    "query_routed_terms": 448,
+    "regenerated_projection_matches": true,
+    "scalar_frame_equalities": 1432
+  },
+  "decision": "stop serial decode/query/reconstitute route for this bridge-only demand: fusion yields existing direct Y bridge, not source saving",
+  "equation": "Y2_U=h+K_(1,U)a; h=Y2_U-K_(1,U)R_1Y2; a=R_1Y2",
+  "invoices": {
+    "augmented_producer": {
+      "begin": 1,
+      "clear": 152,
+      "end": 1,
+      "line": 112,
+      "map": 208,
+      "native_wrappers": 224,
+      "quarter_ADD": 384,
+      "scalar_allowance": 9456,
+      "unit_ADD": 568
+    },
+    "consumer": {
+      "begin": 0,
+      "clear": 104,
+      "end": 0,
+      "line": 96,
+      "map": 192,
+      "native_wrappers": 192,
+      "quarter_ADD": 384,
+      "scalar_allowance": 5584,
+      "unit_ADD": 96
+    },
+    "direct_bridge": {
+      "begin": 0,
+      "clear": 0,
+      "end": 0,
+      "line": 0,
+      "map": 0,
+      "native_wrappers": 0,
+      "quarter_ADD": 0,
+      "scalar_allowance": 768,
+      "unit_ADD": 96
+    },
+    "direct_same_workspace": {
+      "begin": 0,
+      "clear": 120,
+      "end": 0,
+      "line": 0,
+      "map": 0,
+      "native_wrappers": 0,
+      "quarter_ADD": 0,
+      "scalar_allowance": 1008,
+      "unit_ADD": 96
+    },
+    "projection": {
+      "begin": 1,
+      "clear": 144,
+      "end": 1,
+      "line": 112,
+      "map": 208,
+      "native_wrappers": 224,
+      "quarter_ADD": 384,
+      "scalar_allowance": 9376,
+      "unit_ADD": 560
+    },
+    "serial_composition": {
+      "begin": 1,
+      "clear": 256,
+      "end": 1,
+      "line": 208,
+      "map": 400,
+      "native_wrappers": 416,
+      "quarter_ADD": 768,
+      "scalar_allowance": 15040,
+      "unit_ADD": 664
+    }
+  },
+  "native_kernel_checks": {
+    "negative_ports": 96,
+    "negative_translation_controls": 96,
+    "normalization": "common Gaussian denominator2; tensor extension by products",
+    "positive_ports": 112,
+    "signed_basis_columns": 106496
+  },
+  "negative_controls": [
+    "wrong query sign changes exact routed bridge output",
+    "omit affine shift rejects frame mismatch",
+    "omit inverse C_q rejects target frame mismatch",
+    "omit query clear leaves nonzero owned output"
+  ],
+  "no_new_kappa": true,
+  "scope": "Constructive local native contract and exact operator/frame proof. Global placement, movement, coverage, precision and recursive admission remain open. No optimality theorem for changed producers/shared consumers.",
+  "source_pins": {
+    "docs/research/qq16-controller-scope-map.md": "9b6d42ff4acc044d8272a405839f0bbb1f42a61813da163e7a27f45b61e6ee8c",
+    "research/community-frontier1042-audit/selected-replay.tar.gz": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+    "research/joint-query/certificate.json.gz": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7",
+    "research/joint-query/evidence/CONSERVED-QQ16.md": "60f0de3a7205ba5046b5ae7ffa8bf2b1ea42ea46b498face0a77966b59e7f3fb",
+    "research/qq16-line-normalized-decoder/PROOF.md": "0a0995e70f2a64c15cdd1aee66634d1ba221cbcb2a7cfa3a4d4950a37d0e143a"
+  },
+  "source_work_replaced": {
+    "additional_source_ADDs_eliminated": 0,
+    "ordinary_X_bridge": "unchanged and outside replacement",
+    "ordinary_Y_bridge_unit_ADDs": 96
+  },
+  "status": "PASS_QQ16_PAID_BRIDGE_COMPOSITION",
+  "typed_contract": {
+    "borrowed_current_Y": 112,
+    "borrowed_sources": "unchanged",
+    "early_retention": 0,
+    "global_owner_placement": "not established for complete QQ16 substitution",
+    "mutable_other_pair_Y_U": 96,
+    "mutable_target_frame": "F17 C_q^-1 before and after",
+    "owned_full_cover_workspace": 120,
+    "owned_intermediate_outputs": {
+      "a_F17": 8,
+      "h_F17": 96
+    },
+    "owned_workspace_final": "all zero/I",
+    "private_scratch_peak": 8
+  },
+  "word_sha256": {
+    "augmented_producer": "7e9570072473e22611c3a847cb757b162286b34cbc866377cf0e3abab7ae7105",
+    "consumer": "96b74d99df576f38efb6270dfb766d45310bb4d343323d612ff8b84db58bfcf4",
+    "direct_bridge": "1db1e8a5141edcee25050159b71c05e4ea35da64dc3748a197cce9b593dc20c5",
+    "direct_same_workspace": "3f072d7a65c0bdb884731ac04389d6d441d4973d3e97b49410a813325a73cc58"
+  }
+}

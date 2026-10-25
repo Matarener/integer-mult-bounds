@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-endpoint-geometric-budget/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Program-order scan of flag 0 hosting on X0 and Y34: literal frames plus GF(2) span by row reduction"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/independent.py"],
+      "timeout_seconds": 60,
+      "checks": "Per-register scan of the same flag-0 obstruction with explicit XOR-closure spans and subset search"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_package.py"],
+      "timeout_seconds": 120,
+      "checks": "Duplicate JSON keys, temp-tree certificate and input corruption under -O, optimized admission, span negative control, scanner agreement, read-only replay"
+    }
+  ]
+}

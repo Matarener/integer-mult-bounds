@@ -1,0 +1,131 @@
+Exact NTT-to-integer multiplication application
+
+Result and scope
+For any base B >= 2, nonempty digit vectors a[0..s-1], b[0..t-1]
+with integer digits in [0,B), let N be a power of two with N >= s+t-1.
+Let p be prime, N < p, and omega in F_p have exact multiplicative order N.
+If min(s,t)*(B-1)^2 < p, then the following explicit algorithm returns
+(sum_i a_i B^i)*(sum_j b_j B^j): zero-pad both vectors to N; take their
+positive-exponent NTTs; multiply corresponding entries; take the normalized
+negative-exponent inverse NTT; lift each residue to [0,p); carry in base B.
+Signed inputs follow by applying this to absolute values and restoring the
+product of signs. This is a universal sufficient correctness theorem, with
+an informal proof below. It is not a kernel-checked new theorem or a kappa
+certificate, and does not assert a faster all-size multiplication bound.
+
+1. Zero-padding removes cyclic aliasing
+Define c_k=sum_{0<=i<s,0<=j<t,i+j=k} a_i*b_j for 0<=k<s+t-1,
+and c_k=0 through k=N-1. In cyclic convolution, every potentially nonzero
+pair has 0<=i+j<=s+t-2<N. Thus (i+j) mod N=i+j, and its residue k is
+exactly its ordinary index. Reindex the cyclic sum by these pairs; every
+ordinary pair occurs once, and all padded terms vanish. Consequently the
+length-N cyclic convolution of the padded inputs is c reduced modulo p.
+This argument includes s=t=N=1; no nonexistent negative index is used.
+
+2. Exact transform and inverse
+CatCrypt's dft_cyclicConv identifies the DFT of that cyclic convolution with
+the pointwise product of the input DFTs. Its idft_dft, over a field with
+(N:F_p)!=0, then gives the cyclic convolution exactly. Here prime p gives
+the field, and 1<=N<p discharges nonzero length. The source conventions are
+DFT(x)_k=sum_j x_j*omega^(j*k) and
+IDFT(X)_k=N^(-1)*sum_j X_j*(omega^(-1))^(j*k).
+These are exactly the signs and normalization in exact_ntt.py.
+
+3. The executable radix-2 transform computes those formulas
+Let N=2^L. First permute x into bit-reversed order. After stage h, with
+m=2^h and q=N/m, block b (0<=b<q) at offset b*m satisfies, for 0<=k<m,
+ A[b*m+k]=sum_{r=0}^{m-1} x[rev_{L-h}(b)+q*r]*omega^((N/m)*r*k).
+At h=0 this is precisely bit reversal. To pass from h to h+1, split the
+sum into even and odd r. The two previous adjacent blocks supply these two
+sums; multiplication of the odd sum by omega^((N/(2*m))*k) gives the first
+butterfly output. The second output subtracts that same term because a
+primitive even-order root in a field has omega^(N/2)=-1. This proves the
+invariant by induction, with all intermediate indices in [0,N). At h=L
+there is one block and the invariant is the DFT formula. Replacing omega by
+its inverse proves the inverse-transform formula before scaling; multiplying
+by N^(-1) supplies the specified IDFT. N=1 has no butterflies and is immediate.
+The direct quadratic DFT oracle tests this implementation independently;
+the finite tests support the code, while the induction is its informal
+universal correctness argument. This implementation has not been extracted
+from Lean or compiler-refined to Word RAM.
+
+4. Least-residue lifting recovers the integer coefficients
+For fixed k, at most min(s,t) pairs satisfy i+j=k, because either index
+uniquely determines the other. Each product is between 0 and (B-1)^2.
+Therefore 0<=c_k<=min(s,t)*(B-1)^2<p. Reduction modulo p is injective on
+[0,p), so the least nonnegative residue returned by the inverse transform
+is c_k itself. Strict inequality is essential. This asymmetric length bound
+can permit an unbalanced multiplication that a bound N*(B-1)^2 would reject.
+It does not imply the fixed modulus supports arbitrary input lengths.
+
+5. Carrying preserves value and terminates
+Set q_0=0. At position k write c_k+q_k=d_k+B*q_{k+1} by Euclidean division,
+with 0<=d_k<B. After r coefficient positions, the loop invariant is
+ sum_{k<r} c_k B^k = sum_{k<r} d_k B^k + q_r B^r.
+The induction step multiplies the Euclidean identity at r by B^r and adds
+it. After the coefficient list ends, repeatedly divide the remaining carry
+by B. Since B>=2 and q>=1 implies q div B<q, this terminates and preserves
+the same invariant. Removing leading zero digits preserves value. Finally,
+distributing the product of the two digit sums groups each pair (i,j) by
+k=i+j and gives sum_k c_k B^k. The returned digit value is therefore the
+actual integer product. Multiplying by signs proves the signed endpoint.
+
+Concrete fully explicit family used here
+p=65537, generator g=3, N a power of two with 1<=N<=65536,
+omega=3^(65536/N) modulo 65537. Trial division through 256 verifies p is
+prime; pow(3,65536,p)=1 and pow(3,32768,p)=65536. Since every proper divisor
+of 65536 divides 32768, g has exact order 65536, and omega has order N.
+The tests recompute primality and the required exact-order checks; they do
+not rely on a lookup table or a prime-selection oracle.
+
+For base 16, s,t<=256 imply coefficient bound 256*225=57600<65537 and
+N<=512. Thus all signed operands with |x|,|y|<16^256=2^1024 are handled.
+More generally min(s,t)<=291 is sufficient for coefficient lifting, provided
+the needed transform length remains <=65536. At min(s,t)=292 the generic
+bound fails (292*225=65700); the API rejects that contract rather than
+silently computing a modular product.
+
+For base 2, s,t<=32768 imply coefficients <=32768<65537 and N<=65536.
+Thus all signed operands with |x|,|y|<2^32768 are handled using this fixed
+modulus. The maximum dense all-one pair is checked independently against
+its triangular coefficient formula and Python's integer product.
+
+Paid arithmetic ledger, with explicit limits
+An N-point forward or inverse radix-2 transform has (N/2)*log2(N)
+butterflies. This implementation uses two modular products in each butterfly:
+one data-times-twiddle product and one twiddle update, including updates
+whose results are not subsequently needed. Three transforms therefore use
+3*N*log2(N) modular products; pointwise multiplication and inverse scaling
+add 2*N. For N=512 the exact instrumented total is 14848 modular products
+and 13824 butterfly additions/subtractions. There are also pow calls,
+primality checks, division/modulo, allocations, bit reversal, address/control
+operations, digit conversion and carries. These are intentionally excluded
+from Counts and MUST be included before claiming a Word RAM bound. Python
+integers and Python's pow are not bounded-word RAM instructions.
+
+A practical bounded-word interface follows from the proved ranges: residues
+are below 65537, butterfly products below 65537^2=4295098369, and a base-16
+carry is at most min(s,t)*(B-1), hence at most 3840 for s,t<=256. A 33-bit
+unsigned intermediate suffices for modular products; a 64-bit host word
+suffices for every arithmetic intermediate in that fixed kernel. Unsigned
+subtraction must be implemented as u+p-v before reduction to avoid underflow.
+Word address, instruction and compiler contracts are separate obligations.
+
+Reproduction
+Run from this directory using Python 3.10 or later:
+  python -B -m unittest -v test_exact_ntt.py
+Only the standard library is used. No native binary, OS-specific dependency,
+external package, network access or absolute source path is required.
+
+Evidence and predecessor credit
+CatCrypt Contributors, spitters/CatCrypt-core, commit
+ dc39071735465240b54b43db9b98335d66660d48, MIT, Lean 4.33.1.
+Reused mathematical interfaces: dft_cyclicConv, idft_dft and the even/odd
+radix decomposition dft_even_odd_split. sources.json records exact public
+paths, line numbers, whole-file hashes and declaration-region hashes.
+All three frozen source hashes were independently rechecked. These source
+files have not been rebuilt here and no transitive axiom audit is claimed.
+The zero-padding/lifting/carry bridge and Python implementation are original
+application work in this deliverable. The underlying transform, coefficient
+bound, radix-2 algorithm and carry arguments are standard mathematics; no
+new general NTT algorithm or literature novelty is claimed.

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/q8-affine-dirty-compiler/README.md",
+    "research/q8-inverse-label-pair-census/CERTIFICATE.json",
+    "research/q8-mixed-uniform-tariff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact all-target attaining words, all 64 predecessor pair minima, full coefficient support, all three parity quotients, Sylvester, nilpotent controls and typed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint Hamilton quaternion faithful regular action on every dirty input column; signed targets, spectators and noncommuting omission controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Full dirty-matrix engine comparison, actual bad endpoint/tariff producers, Git-free source/receipt corruption and non-overwrite controls."
+    }
+  ]
+}

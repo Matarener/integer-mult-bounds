@@ -168,10 +168,10 @@ class SharedPointCircuit:
         for (common,target),node in sorted(self.outputs.items()):
             excluded=tuple(sorted(points[common].index(x) for x in target if x!=common))
             assert support_in(node,common)==local_support[local_outputs[excluded]]
-            t0,t1,t2=target
+            target_text=','.join(map(str,target))
             # Byte-identical to json.dumps((common,target,node),
             # separators=(',',':'))+'\n'
-            update(encode(f'[{common},[{t0},{t1},{t2}],{node}]\n'))
+            update(encode(f'[{common},[{target_text}],{node}]\n'))
         return dict(h=self.h,inputs=len(self.inputs),partial_outputs=len(self.outputs),
                     additions=self.additions,roles=self.additions+len(self.outputs),
                     merged_additions=self.merged,

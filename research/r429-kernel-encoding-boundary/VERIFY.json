@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "encoded"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Complete633 binary columns,18 parity zeros, systematic102 code and470 parity ADDs, all111 source ADDRESS images,102 code witnesses,9 exact last-MOVE cuts and complete sampled invoices."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "independent-native"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Independent scalar and actual source/target ADDRESS boundary reconstruction with explicit field premises and actual changes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "independent-accounting"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent column-matroid greedy optimum, exact parity counts, all-odd-L complete deficit proof and cost/credit controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Frozen source and complete typed receipt coverage, path-collision rejection and authenticated source execution despite matching poisoned bytecode."
+    }
+  ]
+}

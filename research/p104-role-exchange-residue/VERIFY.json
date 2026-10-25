@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/PROOF.md",
+    "research/p104-role-exchange-residue/geometry.json",
+    "research/p104-role-exchange-residue/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source hashes and extraction; original exit-frame binding; complete new-tail coefficients, inverse, modulo-three ranks, typed frozen result, and formal invoice."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimised source-bound replay; explicit failure checks remain active."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent integer-quarter geometry and all 280 by 280 endpoint coefficients, plus 16 signed fixtures; no primary implementation import."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Word mutation, dirty-state, changed-output-bank, shear-scope, typed-result, JSON, and sharp scalar-grid controls."
+    }
+  ]
+}

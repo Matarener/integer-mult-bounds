@@ -1,0 +1,582 @@
+{
+ "admission_owners_stage_note": "PR3633 admission stage \"owners\" (package/reconstruct.py, the PR2839 replica reconstruction: windows, helper and family uniqueness, capacity and compact prefixes) exited 0 in runs 2, 3 and 4; its output line is recorded verbatim.",
+ "admission_owners_stage_output": "PASS_OWNER_VERIFY {1: 114192, 5: 6954, 48: 186782, 3: 31842} {1: 10826280, 2: 3188592, 3: 1015650, 4: 447984, 5: 94794, 8: 35136, 48: 186782}",
+ "author_receipt_json_files_equal": [
+  "local/CLIFFORD-RECIPES.json",
+  "local/CLIFFORD-RECIPES.json",
+  "local/LOCAL-CHECKS.json",
+  "local/LOCAL-CHECKS.json",
+  "local/RESIDUAL-ADAPTERS.json",
+  "local/RESIDUAL-ADAPTERS.json",
+  "local/WRAPPER-CHECKS.json",
+  "local/WRAPPER-CHECKS.json"
+ ],
+ "command": "python -B research/staged-width-t488/replay.py --work WORK --allocation OWNERS --main-files MAIN --t8-package MAIN/research/t8-rank7-two-swaps (PR3633 head 72c268f1; OWNERS from PR3633 owners/portable_expand.py, payload sha256 20662cc6...)",
+ "conclusion": "Both changed native providers rebuild with PASS (PASS_TWO_FRESH_SHARED_KERNEL_NATIVE_CHAINS_AUTHENTICATED_PARENT_REUSE) in all four runs. Every regenerated CANONICAL-WORD, FULL-WORD and LOCAL-PROGRAMS .json.gz equals the author-pinned bytes once gzip header byte 9 (OS) is set to 0x13 (sha256 comparison; for FULL-WORD also a direct byte comparison showing offset 9 as the only difference); payloads are identical. The complete replay did not finish on this machine: owners passed in runs 2-4; parent-lift was OOM-killed in run 2 and passed in runs 3 and 4; rebind and discovery bind passed in runs 3 and 4; discovery emit was OOM-killed in runs 1, 3 and 4.",
+ "environment": {
+  "boost": "1_90",
+  "cxx": "g++ (GCC) 15.2.0",
+  "numpy": "2.5.4",
+  "os": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "ram_gb": 7.9,
+  "scipy": "1.18.1",
+  "swap": 0,
+  "sympy": "1.14.0",
+  "zlib": "1.3.1"
+ },
+ "fresh_native_files": [
+  {
+   "author_sha256": "b87f174cd72d194f23c075fd82b2fe42f5e9606e8500e4dfa23c31e8655c8de5",
+   "equal_after_os_byte": true,
+   "file": "local/CANONICAL-WORD.json.gz",
+   "fresh_gzip_os_byte": "0xff",
+   "fresh_sha256": "064c7fe3743328cdcccd781338abd823657f31ec54ff3c8b2b6535d5a3f57b04",
+   "fresh_with_os_byte_0x13_sha256": "b87f174cd72d194f23c075fd82b2fe42f5e9606e8500e4dfa23c31e8655c8de5",
+   "payload_sha256": "8566a2b7aa6f73ab827fe25dc905eefb36d77581d831457784303a3ff34252f0",
+   "provider_word": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653"
+  },
+  {
+   "author_sha256": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653",
+   "equal_after_os_byte": true,
+   "file": "local/FULL-WORD.json.gz",
+   "fresh_gzip_os_byte": "0xff",
+   "fresh_sha256": "c857fe8140410f8afc005b7b2b92201924be09f0b75118340634f153c41daad8",
+   "fresh_with_os_byte_0x13_sha256": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653",
+   "payload_sha256": "94d33db98720483f57efcd7bf50657f29f710554474e4f6b4b90617ad4500263",
+   "provider_word": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653"
+  },
+  {
+   "author_sha256": "86726cc4014d65848cbda3ce093cea96f9411d17e6368a77eb3523bdddb6ff7d",
+   "equal_after_os_byte": true,
+   "file": "local/LOCAL-PROGRAMS.json.gz",
+   "fresh_gzip_os_byte": "0xff",
+   "fresh_sha256": "5d85b75e7dd6b0ea8b76de83b1b07695f169b5bdad6abdf096d5fe44ea62835c",
+   "fresh_with_os_byte_0x13_sha256": "86726cc4014d65848cbda3ce093cea96f9411d17e6368a77eb3523bdddb6ff7d",
+   "payload_sha256": "b0273b99ad204e4c61a63d03c610e63c73a3348641bfac57ba1e349965b4bf21",
+   "provider_word": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653"
+  },
+  {
+   "author_sha256": "8276f3d7f6f85bf3d678832f63baabb38550d11ed8f3841aa47020121e8e4e82",
+   "equal_after_os_byte": true,
+   "file": "local/CANONICAL-WORD.json.gz",
+   "fresh_gzip_os_byte": "0xff",
+   "fresh_sha256": "181efb82ddc286685e40ef487769be7b26094f3a4a7d029c6c574422e45558de",
+   "fresh_with_os_byte_0x13_sha256": "8276f3d7f6f85bf3d678832f63baabb38550d11ed8f3841aa47020121e8e4e82",
+   "payload_sha256": "dad6d27360457b458f30ee6aba9545e8a78097c927daf2ec142dda0283a8f19d",
+   "provider_word": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f"
+  },
+  {
+   "author_sha256": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f",
+   "equal_after_os_byte": true,
+   "file": "local/FULL-WORD.json.gz",
+   "fresh_gzip_os_byte": "0xff",
+   "fresh_sha256": "d643252355aa21cb2cbbe6d564e880781043467c771fd13f4f8dfb1edf1bcced",
+   "fresh_with_os_byte_0x13_sha256": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f",
+   "payload_sha256": "ec4b2e15beaf99be4a96a6056fd6e92d09ea2382a4d0e8ab321f10bb2fc1dd10",
+   "provider_word": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f"
+  },
+  {
+   "author_sha256": "86726cc4014d65848cbda3ce093cea96f9411d17e6368a77eb3523bdddb6ff7d",
+   "equal_after_os_byte": true,
+   "file": "local/LOCAL-PROGRAMS.json.gz",
+   "fresh_gzip_os_byte": "0xff",
+   "fresh_sha256": "5d85b75e7dd6b0ea8b76de83b1b07695f169b5bdad6abdf096d5fe44ea62835c",
+   "fresh_with_os_byte_0x13_sha256": "86726cc4014d65848cbda3ce093cea96f9411d17e6368a77eb3523bdddb6ff7d",
+   "payload_sha256": "b0273b99ad204e4c61a63d03c610e63c73a3348641bfac57ba1e349965b4bf21",
+   "provider_word": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f"
+  }
+ ],
+ "full_word_direct_byte_comparison": [
+  {
+   "compared_with": "PR3633 supplier3605/STAGED644-660-base.json.gz (the pinned bytes; sha256 = cache key)",
+   "differing_offsets": [
+    9
+   ],
+   "file": "735c540b1fe2/local/FULL-WORD.json.gz",
+   "same_length": true
+  },
+  {
+   "compared_with": "PR3633 supplier3605/STAGED644-660-extra.json.gz (the pinned bytes; sha256 = cache key)",
+   "differing_offsets": [
+    9
+   ],
+   "file": "886338fc32da/local/FULL-WORD.json.gz",
+   "same_length": true
+  }
+ ],
+ "gzip_os_byte_observations": {
+  "cpython_3_12_15_gzip_compress_mtime0": "0x3 (zlib 1.3.2)",
+  "cpython_3_14_4_gzip_compress_mtime0": "0xff",
+  "note": "Observed on this machine only. PR3605 supplier3605/staged_pair.py already restores this byte for the supplier words (gzip_os_byte 19); PR3633 pins FILL by decompressed payload; replay.py's native stage compares FULL-WORD by decompressed JSON, which is why fresh-native passed unpatched. The one gate in PR3633 that compares a rebuilt .json.gz file hash is owners/independent_literal.py (native_canonical pins).",
+  "pinned_files": "0x13 (zlib OS code 19)",
+  "zlib_1_3_1_compress_wbits31_this_machine": "0x3"
+ },
+ "label": "LOCAL-ONLY evidence (not replayed by verify.py or CI); recorded by the package author on one machine",
+ "oom_note": "exit_code -9 = killed by the kernel OOM killer (dmesg). Run 1: emit at 4.33 GB RSS; run 2: parent-lift at 3.78 GB; runs 3 and 4: emit again (run 4, with no other heavy job, was killed at 5.14 GB RSS). The machine has 7.9 GB RAM and no swap; /tmp is a RAM-backed tmpfs, so runs 3 and 4 used a disk work directory.",
+ "runs": {
+  "run1": {
+   "discovery": [
+    {
+     "exit_code": 0,
+     "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a",
+     "name": "bind",
+     "seconds": 4.445759210000688
+    },
+    {
+     "exit_code": -9,
+     "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "name": "emit",
+     "seconds": 57.94057986900043
+    }
+   ],
+   "top": [
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/tmp/iter22-t488-release/changed/prepare_extension_native.py",
+      "--source",
+      "/tmp/iter22-t488-release/changed/source",
+      "--retained-cache",
+      "/tmp/iter22-t488-release/predecessor/native-cache",
+      "--retained-receipt",
+      "/tmp/iter22-t488-release/predecessor/NATIVE-RECEIPT.json",
+      "--out",
+      "/tmp/iter22-t488-release/changed/native",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 0,
+     "log_sha256": "d7581123b0f3330f2598e7758ccbca466018d2599124fc6ceb1b678a9ee27dec",
+     "name": "fresh-native"
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/tmp/iter22-t488-release/changed/admit_extension.py",
+      "--source",
+      "/tmp/iter22-t488-release/changed/source",
+      "--fill",
+      "/tmp/iter22-t488-release/FILL-legacy.json.gz",
+      "--order",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/ORDER.json",
+      "--dispatch",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/DISPATCH.json",
+      "--native-cache",
+      "/tmp/iter22-t488-release/changed/native/native-cache",
+      "--native-receipt",
+      "/tmp/iter22-t488-release/changed/native/NATIVE-RECEIPT.json",
+      "--work",
+      "/tmp/iter22-t488-release/admission",
+      "--replica-helper-dir",
+      "/tmp/iter22-t488-release/predecessor/helpers",
+      "--reconstructor",
+      "/tmp/iter22-t488-release/predecessor/helpers/reconstruct_replica.py",
+      "--comparison-claim",
+      "/tmp/iter22-t488-release/predecessor/PR2969-CLAIM.json",
+      "--blocknorm-checker",
+      "/tmp/iter22-t488-release/predecessor/adapters/extension_blocknorm.py",
+      "--source-profile",
+      "staged3605",
+      "--comparison-profile",
+      "pr2969",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 1,
+     "log_sha256": "04fec98d5ee995adcc48d39568edcddf2716d0801466bc9e25cb766231911fdd",
+     "name": "full-admission"
+    }
+   ]
+  },
+  "run2": {
+   "admission": [
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/tmp/iter22-t488-release/admission/package/reconstruct.py",
+      "--out",
+      "/tmp/iter22-t488-release/admission/owners"
+     ],
+     "exit_code": 0,
+     "log_sha256": "8092c046470ac3a41f32f3d58b862950fcb5ad0009c13efa513ac528ac5bd5bf",
+     "name": "owners",
+     "script_sha256": "5472811c24aef3852dc7e189dff5060076a6c0b25bfde928da50dcfe9b5bdc15",
+     "seconds": 51.47574688300119
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/tmp/iter22-t488-release/admission/package/lift_parent.py",
+      "--package",
+      "/tmp/iter22-t488-release/admission/package",
+      "--owners",
+      "/tmp/iter22-t488-release/admission/owners",
+      "--out",
+      "/tmp/iter22-t488-release/admission/parent-data"
+     ],
+     "exit_code": -9,
+     "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "name": "parent-lift",
+     "script_sha256": "9a1edd7d4ab4a2f2ac8d15b42b7e40f93653d65026bac59e4c1ce80b486bd60e",
+     "seconds": 78.83684588100004
+    }
+   ],
+   "top": [
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/tmp/iter22-t488-release/changed/prepare_extension_native.py",
+      "--source",
+      "/tmp/iter22-t488-release/changed/source",
+      "--retained-cache",
+      "/tmp/iter22-t488-release/predecessor/native-cache",
+      "--retained-receipt",
+      "/tmp/iter22-t488-release/predecessor/NATIVE-RECEIPT.json",
+      "--out",
+      "/tmp/iter22-t488-release/changed/native",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 0,
+     "log_sha256": "d7581123b0f3330f2598e7758ccbca466018d2599124fc6ceb1b678a9ee27dec",
+     "name": "fresh-native"
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/tmp/iter22-t488-release/changed/admit_extension.py",
+      "--source",
+      "/tmp/iter22-t488-release/changed/source",
+      "--fill",
+      "/tmp/iter22-t488-release/FILL-legacy.json.gz",
+      "--order",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/ORDER.json",
+      "--dispatch",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/DISPATCH.json",
+      "--native-cache",
+      "/tmp/iter22-t488-release/changed/native/native-cache",
+      "--native-receipt",
+      "/tmp/iter22-t488-release/changed/native/NATIVE-RECEIPT.json",
+      "--work",
+      "/tmp/iter22-t488-release/admission",
+      "--replica-helper-dir",
+      "/tmp/iter22-t488-release/predecessor/helpers",
+      "--reconstructor",
+      "/tmp/iter22-t488-release/predecessor/helpers/reconstruct_replica.py",
+      "--comparison-claim",
+      "/tmp/iter22-t488-release/predecessor/PR2969-CLAIM.json",
+      "--blocknorm-checker",
+      "/tmp/iter22-t488-release/predecessor/adapters/extension_blocknorm.py",
+      "--source-profile",
+      "staged3605",
+      "--comparison-profile",
+      "pr2969",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 1,
+     "log_sha256": "7ed49469dc66df08156d2110812bbf6c5bcaa5e2dad7590a31f7169488922d3d",
+     "name": "full-admission"
+    }
+   ]
+  },
+  "run3": {
+   "admission": [
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/package/reconstruct.py",
+      "--out",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/owners"
+     ],
+     "exit_code": 0,
+     "log_sha256": "8092c046470ac3a41f32f3d58b862950fcb5ad0009c13efa513ac528ac5bd5bf",
+     "name": "owners",
+     "script_sha256": "5472811c24aef3852dc7e189dff5060076a6c0b25bfde928da50dcfe9b5bdc15",
+     "seconds": 50.421530191000784
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/package/lift_parent.py",
+      "--package",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/package",
+      "--owners",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/owners",
+      "--out",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/parent-data"
+     ],
+     "exit_code": 0,
+     "log_sha256": "430d982dddcdcd6976bcfa18d5bb718bb6c3bcaa7918722464c817063563b878",
+     "name": "parent-lift",
+     "script_sha256": "9a1edd7d4ab4a2f2ac8d15b42b7e40f93653d65026bac59e4c1ce80b486bd60e",
+     "seconds": 90.03408756700082
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/package/new/rebind.py",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/package",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/native/native-cache/735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653/local",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/native/native-cache/886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f/local",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/rebound"
+     ],
+     "exit_code": 0,
+     "log_sha256": "78b7c6fb391a9266999649deca7bfd0a8c63e9542f31ca49a0ad37549352248e",
+     "name": "rebind",
+     "script_sha256": "52f8b4cec2dab69cbe590e1fd0f7a68e1b35de5a540bd22fd2adfce07a92b46b",
+     "seconds": 10.218786642999476
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/layout/packing74/replay.py",
+      "--data",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/layout/packing74/candidate",
+      "--work",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission/discovery",
+      "--local",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/native/native-cache/735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653/local",
+      "--discover"
+     ],
+     "exit_code": 1,
+     "log_sha256": "d78e859dba2c27694238470b6ef911928f4246f2307235a33c0956976bcb7c17",
+     "name": "discovery",
+     "script_sha256": "4f5c0926b70edb5aef3af0f8a8d9fa8119fa7af6603df1721c0dc31760b08254",
+     "seconds": 176.21827154600032
+    }
+   ],
+   "discovery": [
+    {
+     "exit_code": 0,
+     "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a",
+     "name": "bind",
+     "seconds": 4.449389909999809
+    },
+    {
+     "exit_code": -9,
+     "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "name": "emit",
+     "seconds": 171.64894347299924
+    }
+   ],
+   "top": [
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/prepare_extension_native.py",
+      "--source",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/source",
+      "--retained-cache",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/predecessor/native-cache",
+      "--retained-receipt",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/predecessor/NATIVE-RECEIPT.json",
+      "--out",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/native",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 0,
+     "log_sha256": "d7581123b0f3330f2598e7758ccbca466018d2599124fc6ceb1b678a9ee27dec",
+     "name": "fresh-native"
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/admit_extension.py",
+      "--source",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/source",
+      "--fill",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/FILL-legacy.json.gz",
+      "--order",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/ORDER.json",
+      "--dispatch",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/DISPATCH.json",
+      "--native-cache",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/native/native-cache",
+      "--native-receipt",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/changed/native/NATIVE-RECEIPT.json",
+      "--work",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/admission",
+      "--replica-helper-dir",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/predecessor/helpers",
+      "--reconstructor",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/predecessor/helpers/reconstruct_replica.py",
+      "--comparison-claim",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/predecessor/PR2969-CLAIM.json",
+      "--blocknorm-checker",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release3/predecessor/adapters/extension_blocknorm.py",
+      "--source-profile",
+      "staged3605",
+      "--comparison-profile",
+      "pr2969",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 1,
+     "log_sha256": "e39672a8ffd0efd3766eccd095cb21dd6a236abfa348336c7b508585877fe7fe",
+     "name": "full-admission"
+    }
+   ]
+  },
+  "run4": {
+   "admission": [
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/package/reconstruct.py",
+      "--out",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/owners"
+     ],
+     "exit_code": 0,
+     "log_sha256": "8092c046470ac3a41f32f3d58b862950fcb5ad0009c13efa513ac528ac5bd5bf",
+     "name": "owners",
+     "script_sha256": "5472811c24aef3852dc7e189dff5060076a6c0b25bfde928da50dcfe9b5bdc15",
+     "seconds": 47.95485870199991
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/package/lift_parent.py",
+      "--package",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/package",
+      "--owners",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/owners",
+      "--out",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/parent-data"
+     ],
+     "exit_code": 0,
+     "log_sha256": "430d982dddcdcd6976bcfa18d5bb718bb6c3bcaa7918722464c817063563b878",
+     "name": "parent-lift",
+     "script_sha256": "9a1edd7d4ab4a2f2ac8d15b42b7e40f93653d65026bac59e4c1ce80b486bd60e",
+     "seconds": 89.78357079899979
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/package/new/rebind.py",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/package",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/native/native-cache/735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653/local",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/native/native-cache/886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f/local",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/rebound"
+     ],
+     "exit_code": 0,
+     "log_sha256": "78b7c6fb391a9266999649deca7bfd0a8c63e9542f31ca49a0ad37549352248e",
+     "name": "rebind",
+     "script_sha256": "52f8b4cec2dab69cbe590e1fd0f7a68e1b35de5a540bd22fd2adfce07a92b46b",
+     "seconds": 10.070241393001197
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/layout/packing74/replay.py",
+      "--data",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/layout/packing74/candidate",
+      "--work",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission/discovery",
+      "--local",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/native/native-cache/735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653/local",
+      "--discover"
+     ],
+     "exit_code": 1,
+     "log_sha256": "20b45a78b99eae861ab36f4e1df6a55e10be344e2140f7574626dd5dfc1bca25",
+     "name": "discovery",
+     "script_sha256": "4f5c0926b70edb5aef3af0f8a8d9fa8119fa7af6603df1721c0dc31760b08254",
+     "seconds": 143.2647706050011
+    }
+   ],
+   "discovery": [
+    {
+     "exit_code": 0,
+     "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a",
+     "name": "bind",
+     "seconds": 4.548172221000641
+    },
+    {
+     "exit_code": -9,
+     "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "name": "emit",
+     "seconds": 138.62347031899844
+    }
+   ],
+   "note": "run with no other heavy job (only interactive agent processes, about 1.5 GB); emit still killed by the OOM killer",
+   "top": [
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/prepare_extension_native.py",
+      "--source",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/source",
+      "--retained-cache",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/predecessor/native-cache",
+      "--retained-receipt",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/predecessor/NATIVE-RECEIPT.json",
+      "--out",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/native",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 0,
+     "log_sha256": "d7581123b0f3330f2598e7758ccbca466018d2599124fc6ceb1b678a9ee27dec",
+     "name": "fresh-native"
+    },
+    {
+     "command": [
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/venv/bin/python",
+      "-B",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/admit_extension.py",
+      "--source",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/source",
+      "--fill",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/FILL-legacy.json.gz",
+      "--order",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/ORDER.json",
+      "--dispatch",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/t488-owners/DISPATCH.json",
+      "--native-cache",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/native/native-cache",
+      "--native-receipt",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/changed/native/NATIVE-RECEIPT.json",
+      "--work",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/admission",
+      "--replica-helper-dir",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/predecessor/helpers",
+      "--reconstructor",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/predecessor/helpers/reconstruct_replica.py",
+      "--comparison-claim",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/predecessor/PR2969-CLAIM.json",
+      "--blocknorm-checker",
+      "/root/projects/integer-mult-bound-loop/.loop-scratch/iter22/release4/predecessor/adapters/extension_blocknorm.py",
+      "--source-profile",
+      "staged3605",
+      "--comparison-profile",
+      "pr2969",
+      "--jobs",
+      "1"
+     ],
+     "exit_code": 1,
+     "log_sha256": "45373e5ada2fad8eb1093e1bbcbe48af62464913a6df7d464257d81d921c10cd",
+     "name": "full-admission"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "cyclic"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All r2..7 cyclic forward/dual ordinary maps, complete invoices, actual frames, 4800 disjoint modules and counted residual completion; exact finite profiles and defect controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "pauli"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All 5760 support ports, actual U15/W2 and 2400 shared tiling cases, four diagnostic operators and the fully paid shared-visit histograms; rigorous rational signs and mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "independent"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Separate reverse-covector operators and integer-dyadic prefixes, full frame/invoice comparisons, factored pairing certificate, and named semantic gate-deletion controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Authenticated captured-source execution, complete typed records, exact stage coverage and shared geometry, optimization and output-path defects, with check-deletion sensitivities."
+    }
+  ]
+}

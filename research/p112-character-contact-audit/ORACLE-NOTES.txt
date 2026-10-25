@@ -1,0 +1,66 @@
+Universal noncommuting frame transport with arbitrary dirty helper
+
+Assumptions: V is one additive module, P,Q,L,S,T are arbitrary invertible
+linear frame maps on V, and a is the central scalar +1 or -1. Composition
+acts right-to-left on column vectors. Entrance x,y,h are arbitrary and
+independent; no helper or target is initialized to zero. No two frame maps
+are assumed to commute, be orthogonal, or preserve any native metric.
+
+Chronological helper word:
+y-=a*h; x=L*P^-1*x; y=L*Q^-1*y; h=L*Q^-1*h;
+h+=x; y+=a*h; h-=x; h=Q*L^-1*h;
+x=S*L^-1*x; y=T*L^-1*y.
+
+Written universal derivation: after the three entrance frame changes, the
+registers are LP^-1*x, LQ^-1*(y-a*h), LQ^-1*h. The two helper additions and
+the compensated target delivery give
+y_local=LQ^-1*y+a*LP^-1*x,
+h_local=LQ^-1*h.
+The helper return is QL^-1 LQ^-1*h=h. The final source/target frame maps
+give SP^-1*x and TQ^-1*y+a*TP^-1*x. Thus the complete operator matrix is
+[[SP^-1,0,0],[a*TP^-1,TQ^-1,0],[0,0,I]]. Each cancellation is adjacent;
+there is no reordering of P,Q,L,S,T. The identity is classical linear
+change of frame and dirty-helper cancellation, not a broad priority claim.
+
+For the direct word y+=a*x; x=SP^-1*x; y=TQ^-1*y; h unchanged, the same
+endpoint requires P=Q. Without that hypothesis its cross operator is
+a*TQ^-1 rather than a*TP^-1. The oracle retains this premise explicitly.
+
+Executable method: integer-coefficient sums of reduced free-group words
+on five generators P,Q,L,S,T. Each register has three independent raw-input
+columns. Elementary instructions route those columns chronologically.
+Only adjacent inverse letters cancel; equal reduced words combine by
+integer addition. The arbitrary-dimensional statement is the written
+derivation above. This mechanical normal form is not a formal proof kernel.
+
+Both signs pass. Five faulty programs per sign fail: helper return in
+L^-1 Q order, omitted helper return, omitted precompensation, wrong target
+delivery sign, and a global central minus phase on the helper return.
+The phase example concerns exact operator restoration; a scalar phase
+does not change an invertible map's rank, so no phase evidence follows
+from rank or kernel data alone.
+
+Numeric corroboration is an independent literal vector interpreter over
+exact rational2x2 matrices, not an evaluation of the reduced free-ring
+answer. Its GL2(Z) frame choices are
+P=[[1,1],[0,1]], Q=[[1,0],[1,1]], L=[[2,1],[1,1]],
+S=[[0,-1],[1,0]], T=[[1,2],[1,3]]. Q and L do not commute.
+All six raw basis columns plus one nonzero arbitrary dirty input pass for
+both signs (14 cases). The wrong-return-order program fails six of these
+cases. On scalar-multiple frames2I,3I,5I,7I,11I, the same wrong program
+passes all14 tests: commutative scalar tests would miss the error. The
+direct P=Q case passes14 cases; its unequal-entrance control fails six.
+
+No primary phase checker, original check_geometry, source implementation,
+or phase/source data was viewed or imported before freeze. This oracle
+does not bind P112 source frames, scalar phases, individual ports, the
+whole source circuit, native/compiler transport, physical invoices,
+precision/supplier/outer multiplication theorems or any new kappa.
+
+Credit: Ross Richardson/PR4204 and retained PR425/433/523/531/kernel92
+lineage. The contribution is an independent abstract identity/control,
+with source binding left to the coordinating package. Substantial OpenAI
+Codex assistance; Apache-2.0 repository contribution.
+
+Replay: python3 -I -B oracle.py --output ORACLE.json
+Strict: python3 -I -O -W error -B oracle.py --output ORACLE-O.json

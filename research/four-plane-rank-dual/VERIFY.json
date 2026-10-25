@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Pinned archive and matching; tariffs of all 367,290 plane quadruples recomputed; 9,330 distinct certificates of value 16 checked exactly (integer-scaled weights, self-built zeroed-block bound table) on every referenced class; 361,706 quadruples certified, 5,584 reported open."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS_REGISTERED_AND_OPTIMIZED_FULL",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "external": "No network required; exact frozen inputs",
+  "independence": "New cone proof/propagation; reused credited trace, dirty auditor and tariff arithmetic.",
+  "runs": [
+    {
+      "label": "registered",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/staged544-scalar-interior-refit"
+      ],
+      "seconds": 73.182610914002,
+      "returncode": 0
+    },
+    {
+      "label": "optimized-full",
+      "command": [
+        "/usr/bin/python3",
+        "-O",
+        "-B",
+        "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/round3-joint-interior-session/worktree/research/staged544-scalar-interior-refit/verify.py"
+      ],
+      "seconds": 39.782545166999626,
+      "returncode": 0
+    }
+  ],
+  "controls": "Four rejecting controls plus literal dirty positive; two optimized CLI mutations",
+  "unrun": [
+    "New literal owner assignment",
+    "Physical native/precision/stock/tape/uniformity/outer/all-size/analytic/BIT admission",
+    "HostedCI/export/committed-byte receipts reported separately at publication"
+  ]
+}

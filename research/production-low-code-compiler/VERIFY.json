@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-complex-controller/README.md",
+    "research/physical-complex-controller/check_prime.py",
+    "research/physical-complex-controller/cohort.py",
+    "research/physical-complex-controller/production_native.py",
+    "research/physical-gaussian-leaf/inputs/pr3087.tar",
+    "research/physical-gaussian-leaf/leaf_sources.py",
+    "research/selected-bit-node/catalogue.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/low_codes.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/oracle.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/routes.py",
+    "research/selected-source-packets/PROOF.md",
+    "research/selected-source-packets/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "source-equivalence-and-selected-prime"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "optimized-source-equivalence"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_integrity.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Git-free optimized replay, missing/changed source, altered archive and typed-receipt corruption"
+    }
+  ]
+}

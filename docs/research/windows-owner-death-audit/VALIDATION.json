@@ -1,0 +1,83 @@
+{
+  "status": "PASS_SCOPED_SOURCE_RECEIPT_AND_STAGED_BYTE_CHECKS",
+  "checked_at_utc": "2026-10-25T06:32:35.852747+00:00",
+  "canonical_main": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "priority_revision": 7,
+  "scope": "Native process-lifetime audit, not a production change or mathematical replay",
+  "commands": [
+    "python -I -W error -B docs/research/windows-owner-death-audit/probe.py --output docs/research/windows-owner-death-audit/evidence/windows-normal.json",
+    "python -I -O -W error -B <standalone>/probe.py --output <evidence>/windows-optimized-standalone.json (empty PATH, no .git)",
+    "git diff --cached --check"
+  ],
+  "executed_source_pins_match_git_objects": true,
+  "probe_sha256": "afcc16f221ba09d9cfa87d4995f9a807c0f1de786cca2daf0d07a70dc39499a7",
+  "normal_and_optimized_full_cases": [
+    14,
+    14
+  ],
+  "original_gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db",
+  "gate_bypass_control_sha256": "7ac91dc15d521c87b26d2c69d0e338681744455e2cfe9bcff30dae8e3aa27a44",
+  "receipts": {
+    "windows-normal.json": "15d32888312d80fca678eb819c6a473f27c69fc036c88d353a32e25020d26502",
+    "windows-optimized-standalone.json": "84f3ca90c4f0ccc47a165c7876ffb337e3bda22b6f30c5d12084eba8818e5aa3"
+  },
+  "standalone_integrity_receipt_sha256": "cef81c0ef174c4abcdf6a1ca569f6c317b55a026632ecbed9ca50173f84a28d3",
+  "checked_staged_files": {
+    "docs/research/windows-owner-death-audit/.gitattributes": "22ed04d435a0bb7555a180951fe12000f9a933d153a7d50e22dd95fbf52800e1",
+    "docs/research/windows-owner-death-audit/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "docs/research/windows-owner-death-audit/NOTICE": "b49022cb4104d90b182e4c335f670faf45529025b15db77bf0291835083c28bd",
+    "docs/research/windows-owner-death-audit/README.md": "43350b04a0e248e12dfe209ea0caee6467d43423c84b1e52be4d07e20344c984",
+    "docs/research/windows-owner-death-audit/SOURCES.json": "ffa6553eb0e2ce4b0766ae6f0736ace2ab75f70347f57d18bd7c55df381baad0",
+    "docs/research/windows-owner-death-audit/evidence/standalone-integrity.json": "cef81c0ef174c4abcdf6a1ca569f6c317b55a026632ecbed9ca50173f84a28d3",
+    "docs/research/windows-owner-death-audit/evidence/windows-normal.json": "15d32888312d80fca678eb819c6a473f27c69fc036c88d353a32e25020d26502",
+    "docs/research/windows-owner-death-audit/evidence/windows-optimized-standalone.json": "84f3ca90c4f0ccc47a165c7876ffb337e3bda22b6f30c5d12084eba8818e5aa3",
+    "docs/research/windows-owner-death-audit/probe.py": "afcc16f221ba09d9cfa87d4995f9a807c0f1de786cca2daf0d07a70dc39499a7",
+    "docs/research/windows-owner-death-audit/sources/NOTICE-stream": "cf3d9fe806ac9ae186e72a0f03f2af252494fcfaf7aa9f05520aff471fd6db8d",
+    "docs/research/windows-owner-death-audit/sources/owned_pipe.py": "01f597c8ecb955b2ef7faa8f0650e67c0eca5c0d5f6a817a181c536bef9c37aa",
+    "docs/research/windows-owner-death-audit/sources/research_package.py": "84a45190a6a96c20993a0d4a1045fbf24de660d2e6fef8f8a447bb3d1aa78db6"
+  },
+  "source_notice": {
+    "path": "sources/NOTICE-stream",
+    "source_commit": "991da9010925914ec64a5293286edb10a7910218",
+    "sha256": "cf3d9fe806ac9ae186e72a0f03f2af252494fcfaf7aa9f05520aff471fd6db8d"
+  },
+  "overlap": {
+    "coverage": {
+      "local": {
+        "head": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+        "records": 7402,
+        "head_records": 7402,
+        "complete_head_inventory": true
+      },
+      "open_prs": {
+        "fetched_at": "2026-10-25T06:26:12.213951+00:00",
+        "complete_pagination": true,
+        "records": 379
+      },
+      "discussions": {
+        "fetched_at": "2026-10-25T06:27:49.111401+00:00",
+        "complete_pagination": true,
+        "records": 4797
+      }
+    },
+    "warnings": [],
+    "concurrent_audit": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4681#discussioncomment-19174028",
+    "scope_coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4681#discussioncomment-19174200",
+    "distinction": "Shared runner, event-open race and kill-on-close control; shared stream cuts are corroboration"
+  },
+  "selected_baseline": {
+    "command": "python -B scripts/research_selected_baseline.py",
+    "exit_code": 1,
+    "error": "Invalid selected file: certificates/frontier5413/CLAIM.json",
+    "reason": "Input omitted by sparse checkout; no baseline pass claimed"
+  },
+  "not_run": [
+    "selected cold replay",
+    "full historical suite",
+    "production consumer adoption",
+    "other native OS/Python versions",
+    "hosted native Windows CI",
+    "full source-history preflight"
+  ],
+  "assistance": "Mihir Srivastava with substantial OpenAI Codex assistance, one agent; no independent human review"
+}

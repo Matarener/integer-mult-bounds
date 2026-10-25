@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact minimum of the relaxed literal actual-reader model on the complete extremal table of the PR3573 star with one, two and three independent hubs, including the crossed five-query rows that appear once a second hub exists.",
+  "scope_change_reason": "Handoff-first, and a refinement of that handoff rather than the handoff's first question. The catalogue card asks for one all-size, compiler, precision, hosting or restoration implication. Discussion #1166 comment 19021149 asks two questions: whether the two-bearing mechanism appears in the PR3573 single-hub certificate, and whether a further hub repeats the twelve-unit K3,2 excess. Open PR #4124 takes the first question. This package takes the second. The card's acceptance gate asks for an identified proposition and its downstream effect: the proposition is the excess 4h(h+1), exact through three hubs, and the downstream effect is that the twelve-unit K3,2 figure is a different 21-premise certificate, not the charge of the complete extremal table.",
+  "bottleneck_link": "The actual-reader pair floor is one retained complex-side tariff. The single-hub excess of 8 does not stay fixed when hubs are added, but the larger finite excess is still not a supplier bill or a kappa change.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the three-hub extremal charge and the 21-premise control are proved. Do not run the h=4 census or a characteristic-two transfer in this session.",
+  "outcome": "completed",
+  "evidence": "PROOF.md pairing and determinant; verify.py rational census for h<=3 and the K3,2 charge 54; independent.py integer cross-multiplication census; test_controls.py rank agreement, minimality, certificate separation and a dropped-row mutation.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial AI assistance from Cursor Grok 4.7.",
+  "open_questions": [
+    {
+      "question": "Does the excess stay equal to 4h(h+1) for every hub count, rather than only through three hubs?",
+      "why_it_matters": "The inequality is proved for every h. Equality at every h would say the crossed families are the whole excess, not an accident of three hubs.",
+      "first_step": "Run the same subset census at h=4, where there are 2^15 query masks.",
+      "blocked_by": "Nothing mathematical. This session stops at the third hub named in the handoff."
+    },
+    {
+      "question": "Does any three-hub extremal row survive a characteristic-two support transfer?",
+      "why_it_matters": "PR3573 still has a GF4 transfer at one hub, and PR3583 loses characteristic-two transfer on a different two-hub premise list. A transfer here would say whether the excess 48 can meet a star that still moves.",
+      "first_step": "Test one crossed five-query reader against the shape of PR3573's GF4 map.",
+      "blocked_by": "PR3591 moves support obstructions, not this row cost. A failed transfer would not by itself raise the pair floor."
+    }
+  ]
+}

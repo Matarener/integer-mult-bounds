@@ -67,8 +67,8 @@ class BytecodeIsolationTests(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
 
-    def direct(self, argv):
-        return subprocess.run(argv, cwd=self.root, capture_output=True, text=True, timeout=15)
+    def direct(self, argv, env=None):
+        return subprocess.run(argv, cwd=self.root, env=env, capture_output=True, text=True, timeout=15)
 
     def checked_receipt(self, optimize=0, arguments=()):
         receipt = json.loads(self.output.read_text())
@@ -87,7 +87,11 @@ class BytecodeIsolationTests(unittest.TestCase):
                 with self.subTest(mode=mode.name, optimize=optimize):
                     cache_fixture(self.source, mode, optimize)
                     argv = [sys.executable, *flags, str(self.script)]
-                    bad = self.direct(argv)
+                    # This control deliberately has no import isolation, even
+                    # when its unittest parent was launched by the shared runner.
+                    unprotected = os.environ.copy()
+                    unprotected.pop('PYTHONPYCACHEPREFIX', None)
+                    bad = self.direct(argv, env=unprotected)
                     self.assertNotEqual(bad.returncode, 0)
                     self.assertIn('UNVERIFIED_BYTECODE_SENTINEL', bad.stderr)
                     package.run_python_replay(argv, self.root, 15)

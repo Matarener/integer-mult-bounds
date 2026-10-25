@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-chirp-middle/inputs/ring-export.tar",
+    "research/chirp-symbolic-seed80/vendor/stream.py",
+    "research/chirp-symbolic-seed80/vendor/PROOF.md",
+    "upstream/build/sections/07-resampling.tex",
+    "upstream/build/sections/08-assembly.tex"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","sources"],"timeout_seconds":30,"checks":"Whole corrected product export, external source pins, local runtime modules, one shared physical cohort and two binding controls."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","budget"],"timeout_seconds":30,"checks":"Exact fine-grid and norm controls, complete phase-error bill and authenticated full Fourier power; PROOF.md supplies the quantified argument."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","odometer"],"timeout_seconds":90,"checks":"Complete encoded cubes and a forty-axis prefix against original formula and Chafik reference, including local head movement and final rollover."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","kernel"],"timeout_seconds":60,"checks":"Complete numerical kernel against exact eighth-root integer formulas, borrowed ports and restoration."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","phases"],"timeout_seconds":180,"checks":"Certified phase intervals and disk norms across shape/precision reuse; exact signed narrowing and overflow rejection."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","failures"],"timeout_seconds":150,"checks":"Thirteen malformed-input and physical phase/carry/setup controls, followed by a positive packet on the same kernel owner."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","middle"],"timeout_seconds":600,"checks":"Actual whole chirp caller against staged and dense exact Fourier models, nonzero rounding, nested physical calls and protected output; exact fixed metadata specialization disclosed in EVIDENCE.md."}
+  ]
+}

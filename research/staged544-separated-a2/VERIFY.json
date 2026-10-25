@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Authenticated frozen base word; rational local witnesses, frame bill/hygiene, ordinary+dual/reverse/cleanup semantics with all723formalinputs; typedreceipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Authenticated frozen extra word; rational local witnesses, frame bill/hygiene, ordinary+dual/reverse/cleanup semantics with all723formalinputs; typedreceipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate exact local/composition/projected-cleanup checker; no credited interpreter imported."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Semantic graph, cut, frame, source and receipt damage controls; normal and optimized rejection behavior."
+    }
+  ]
+}

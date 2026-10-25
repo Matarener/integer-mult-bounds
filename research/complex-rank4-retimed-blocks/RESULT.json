@@ -1,0 +1,149 @@
+{
+  "status": "PASS_COMPLEX_RANK4_RETIMED_BLOCKS",
+  "source": {
+    "archive_sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
+    "local_program_sha256": "241fde27d4e43f5a9cb6b128f9f76c5131a53d09f0371676163f914d0b0fef3a",
+    "canonical_word_sha256": "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219",
+    "selected_profile": {
+      "1": 2412,
+      "2": 418,
+      "3": 432,
+      "4": 142,
+      "5": 82,
+      "8": 8
+    }
+  },
+  "per_orientation": {
+    "forward": {
+      "rank4_calls": 142,
+      "eligible_target_frames": {
+        "415": 7,
+        "416": 7,
+        "417": 7,
+        "418": 7,
+        "419": 7,
+        "420": 7,
+        "421": 7,
+        "422": 7,
+        "431": 4,
+        "432": 4,
+        "433": 4,
+        "434": 4,
+        "436": 4,
+        "437": 4
+      },
+      "blocks": 22,
+      "grouped_calls": 80,
+      "grouped_rank_mass": 320,
+      "block_sides": {
+        "12": 8,
+        "16": 14
+      },
+      "retimed_scalar_events": 62
+    },
+    "backward": {
+      "rank4_calls": 142,
+      "eligible_target_frames": {
+        "415": 7,
+        "416": 7,
+        "417": 7,
+        "418": 7,
+        "419": 7,
+        "420": 7,
+        "421": 7,
+        "422": 7,
+        "431": 4,
+        "432": 4,
+        "433": 4,
+        "434": 4,
+        "436": 4,
+        "437": 4
+      },
+      "blocks": 22,
+      "grouped_calls": 80,
+      "grouped_rank_mass": 320,
+      "block_sides": {
+        "12": 8,
+        "16": 14
+      },
+      "retimed_scalar_events": 62
+    }
+  },
+  "direct_sum_identity": {
+    "tested_block_counts": [
+      3,
+      4
+    ],
+    "child_side_4_to_block_side": {
+      "3": 12,
+      "4": 16
+    },
+    "identity": "diag(A_1,...,A_t) diag(B_1,...,B_t) = diag(A_1 B_1,...,A_t B_t)"
+  },
+  "rank4_candidate": {
+    "grouped_calls": 80,
+    "new_blocks": {
+      "12": 8,
+      "16": 14
+    },
+    "profile": {
+      "1": 2412,
+      "2": 418,
+      "3": 432,
+      "4": 62,
+      "5": 82,
+      "8": 8,
+      "12": 8,
+      "16": 14
+    },
+    "rank_mass": 5586,
+    "charges_waived": [
+      "physical input gathering and block-diagonal layout",
+      "output routing and storage",
+      "frame/interface conversion",
+      "hosting and precision",
+      "arbitrary-dirty restoration"
+    ],
+    "ceiling_a_hi": "8620858381/5000000000000",
+    "kappa_cap_hi": "8620858381/5008620858381",
+    "ceiling_gain_percent_over_selected": "2.01872631866020768222278215341",
+    "five_percent_gate_passed_alone": false
+  },
+  "joint_zero_charge_screen": {
+    "predecessor": "research/complex-mixed-rank-diagonal-seed8433/RESULT.json",
+    "predecessor_profile": {
+      "1": 2412,
+      "2": 362,
+      "3": 123,
+      "4": 158,
+      "5": 87,
+      "6": 127,
+      "8": 9,
+      "9": 1,
+      "12": 4,
+      "15": 5,
+      "16": 3
+    },
+    "composed_profile": {
+      "1": 2412,
+      "2": 362,
+      "3": 123,
+      "4": 78,
+      "5": 87,
+      "6": 127,
+      "8": 9,
+      "9": 1,
+      "12": 12,
+      "15": 5,
+      "16": 17
+    },
+    "composed_ceiling_a_hi": "2252606751/1250000000000",
+    "composed_kappa_cap_hi": "2252606751/1252252606751",
+    "ceiling_gain_percent_over_selected": "6.62885827718615024075621769097",
+    "five_percent_gate_passed_under_zero_charge_only": true,
+    "new_supplier_or_kappa": false
+  },
+  "baseline_ceiling_a_hi": "16900541091/10000000000000",
+  "mixed_rank23_ceiling_a_hi": "8824220643/5000000000000",
+  "scope_wall": "The frozen trace authenticates child ranks, target frames and scalar register context, but does not specify a physical block-input/output ownership contract or complete gathering, routing, hosting, precision and dirty-restoration bill for a fused rank-12/rank-16 call."
+}

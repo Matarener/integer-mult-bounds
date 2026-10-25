@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "Separate internal AI cold validation; not external or maintainer acceptance.",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_manifest_sha256_at_cold_run": "b3a62011ed854709c04976a214d041be5339cc02cac4549532462de632008ca8",
+  "source_change_after_run": "Only package-local .gitattributes, this receipt and the README rounded gain label are changed after the four cold runs; all mathematical sources, wrappers, immutable inputs and proof payloads are byte-identical. Registered replay and Git-free committed export cold replay passed on ancestor62b41a07894bf1b0042b9dd3f0c0e8060391fb22.",
+  "canonical_comparison": "Every proof-relevant JSON value and decompressed complete stream; only CPU_seconds/at_utc are excluded. Every unchanged vendor byte is authenticated before and after replay.",
+  "runs": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "verify.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 18.391000000000076,
+      "result": {
+        "status": "PASS_G20_NINE_OWNED_RELATIONS_COLD_PRIMARY",
+        "proof_payloads": 11,
+        "admitted": "435496247/125000000000",
+        "python_optimize": 0,
+        "scope": "Conditional ordinary BIT component; no whole multiplication or external acceptance claim."
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "independent.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 5.514999999999873,
+      "result": {
+        "status": "PASS_G20_NINE_OWNED_RELATIONS_COLD_SEPARATE_AUDIT",
+        "proof_payloads": 4,
+        "admitted": "435496247/125000000000",
+        "python_optimize": 0,
+        "scope": "Separate internal AI audits, not external or complete theorem verification."
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-O",
+        "-B",
+        "verify.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 16.188000000000102,
+      "result": {
+        "status": "PASS_G20_NINE_OWNED_RELATIONS_COLD_PRIMARY",
+        "proof_payloads": 11,
+        "admitted": "435496247/125000000000",
+        "python_optimize": 1,
+        "scope": "Conditional ordinary BIT component; no whole multiplication or external acceptance claim."
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-O",
+        "-B",
+        "independent.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 6.342999999999847,
+      "result": {
+        "status": "PASS_G20_NINE_OWNED_RELATIONS_COLD_SEPARATE_AUDIT",
+        "proof_payloads": 4,
+        "admitted": "435496247/125000000000",
+        "python_optimize": 1,
+        "scope": "Separate internal AI audits, not external or complete theorem verification."
+      }
+    }
+  ],
+  "git_free_committed_export": {
+    "commit": "62b41a07894bf1b0042b9dd3f0c0e8060391fb22",
+    "primary": "PASS_G20_NINE_OWNED_RELATIONS_COLD_PRIMARY",
+    "separate_audit": "PASS_G20_NINE_OWNED_RELATIONS_COLD_SEPARATE_AUDIT",
+    "export_integrity": "PASS_RESEARCH_EXPORT",
+    "external_runtime_dependencies": false
+  }
+}

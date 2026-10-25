@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/weighted-wrapper-contract/TASK.json",
+    "research/weighted-wrapper-contract/README.md",
+    "research/weighted-wrapper-contract/algebra.py",
+    "research/weighted-wrapper-contract/runtime_check.py",
+    "research/selected-outer-borrowing-wrapper/README.md",
+    "research/selected-outer-borrowing-wrapper/VENDOR.json",
+    "research/selected-outer-borrowing-wrapper/controls.py",
+    "research/selected-outer-borrowing-wrapper/outer.py",
+    "research/selected-outer-borrowing-wrapper/predecessor.py",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/PREDECESSOR.json",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/README.md",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/padding.py",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/predecessor.tar.gz",
+    "research/selected-outer-borrowing-wrapper/vendor/pr2786/source.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Source pins; Boolean raw 729/6561 vs normalized 6561/6561; dual-scale (7,4); single-factor obstruction; complete line items; prior algebra cross-check; controls; certificate admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "need() admission remains enforced under -O; identical PASS marker."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent closed-form invoice; single-factor obstruction; match CERTIFICATE counts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Duplicate JSON keys; temp certificate corruption rejected; package files unchanged after read-only verify; -O -Werror; need() under -OO."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-h8-receiver-census/README.md",
+    "research/bit-h8-receiver-census/TASK.json",
+    "research/bit-h8-receiver-census/data/STAGE-A.csv.gz",
+    "research/bit-h8-receiver-census/data/STAGE-B.csv.gz",
+    "research/bit-h8-receiver-census/data/STAGE-C.csv.gz",
+    "research/bit-h8-receiver-census/data/TUNED.csv",
+    "research/bit-h8-receiver-census/producer/README.md",
+    "research/bit-h8-receiver-census/producer/run_stageB.py",
+    "research/bit-h8-receiver-census/producer/run_stageC.py",
+    "research/bit-h8-receiver-census/verify.py",
+    "research/e8-bit-p111/code/gen_p3.py",
+    "research/e8-bit-p111/data/plan-l3.json",
+    "research/e8-bit-carrier-skeleton/code/skeleton/e8.py",
+    "research/e8-bit-carrier-skeleton/data/skeleton/d4part-pairs.json",
+    "research/bit-h8-receiver-census/sets.py",
+    "research/e8-bit-carrier-skeleton/code/skeleton/geom.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate all inputs; exact projected key inventory, duplicate draws, explicit missing key and AST effort mismatch; compare complete RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "The same complete receipt with Python assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent inclusion-exclusion control and semantic, source and receipt rejection controls."
+    }
+  ]
+}

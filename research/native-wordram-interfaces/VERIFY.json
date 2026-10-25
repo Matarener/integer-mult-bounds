@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Frozen source hashes; all native exports/matrix/frame checks; literal recoding; complete source terminal decode; exact recovery controls. No kappa claim.",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Optimized wrapper/native/recoding/recovery replay. Decoder runs in an explicit assertion-enabled child.",
+      "timeout_seconds": 300
+    }
+  ],
+  "package_local_inputs": [
+    "research/native-wordram-interfaces/.gitattributes",
+    "research/native-wordram-interfaces/FRONTIER.json",
+    "research/native-wordram-interfaces/LICENSE",
+    "research/native-wordram-interfaces/MANIFEST.json",
+    "research/native-wordram-interfaces/NOTICE.txt",
+    "research/native-wordram-interfaces/README.md",
+    "research/native-wordram-interfaces/SOURCES.json",
+    "research/native-wordram-interfaces/TASK.json",
+    "research/native-wordram-interfaces/VERIFY.json",
+    "research/native-wordram-interfaces/decoder/LICENSE",
+    "research/native-wordram-interfaces/decoder/PREDECESSOR.json",
+    "research/native-wordram-interfaces/decoder/TERMINAL-PROOF.txt",
+    "research/native-wordram-interfaces/decoder/source/research/closed-helper-feedback/SOURCES.json",
+    "research/native-wordram-interfaces/decoder/source/research/closed-helper-feedback/derived_replay.py",
+    "research/native-wordram-interfaces/decoder/source/research/closed-helper-feedback/three_query_terminal.py",
+    "research/native-wordram-interfaces/decoder/source/research/coded-native-caller/PHYSICAL.md",
+    "research/native-wordram-interfaces/decoder/source/research/coded-native-caller/clifford_exact.py",
+    "research/native-wordram-interfaces/decoder/source/research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+    "research/native-wordram-interfaces/decoder/source/research/native-center-free-code/CODED-PROOF.md",
+    "research/native-wordram-interfaces/decoder/source/research/native-center-free-code/native_core.py",
+    "research/native-wordram-interfaces/decoder/source/research/native-helper-query-bank/ATTRIBUTION.md",
+    "research/native-wordram-interfaces/decoder/source/research/native-helper-query-bank/BANK.json",
+    "research/native-wordram-interfaces/decoder/source/research/native-helper-query-bank/PROOF.md",
+    "research/native-wordram-interfaces/decoder/source/scripts/compare_recursive_invoices.py",
+    "research/native-wordram-interfaces/decoder/three-query-terminal-result.json",
+    "research/native-wordram-interfaces/decoder/verify_terminal.py",
+    "research/native-wordram-interfaces/native/REPORT.txt",
+    "research/native-wordram-interfaces/native/RESULT.json",
+    "research/native-wordram-interfaces/native/SOURCES.json",
+    "research/native-wordram-interfaces/native/UNIT0-backward.json.gz",
+    "research/native-wordram-interfaces/native/UNIT0-forward.json.gz",
+    "research/native-wordram-interfaces/native/compile_unit.py",
+    "research/native-wordram-interfaces/native/vendor/research/coded-native-caller/NORMALIZERS.json",
+    "research/native-wordram-interfaces/native/vendor/research/coded-native-caller/PHYSICAL.md",
+    "research/native-wordram-interfaces/native/vendor/research/native-center-free-code/CODE.json",
+    "research/native-wordram-interfaces/native/vendor/research/native-center-free-code/CODED-PROOF.md",
+    "research/native-wordram-interfaces/native/vendor/research/native-center-free-code/CODED-WORDS.json.gz",
+    "research/native-wordram-interfaces/native/vendor/research/native-center-free-code/SOURCE-WORD.json.gz",
+    "research/native-wordram-interfaces/native/vendor/research/native-center-free-code/coded_verify.py",
+    "research/native-wordram-interfaces/native/vendor/research/native-center-free-code/native_core.py",
+    "research/native-wordram-interfaces/precision/CODE.json",
+    "research/native-wordram-interfaces/precision/RECODING-PROOF.txt",
+    "research/native-wordram-interfaces/precision/RECODING-RESULT.json",
+    "research/native-wordram-interfaces/precision/REPORT.txt",
+    "research/native-wordram-interfaces/precision/RESULTS.json",
+    "research/native-wordram-interfaces/precision/SOURCES.json",
+    "research/native-wordram-interfaces/precision/mode_columns.json",
+    "research/native-wordram-interfaces/precision/native_recoding.py",
+    "research/native-wordram-interfaces/precision/precision_certificate.py",
+    "research/native-wordram-interfaces/verify.py"
+  ]
+}

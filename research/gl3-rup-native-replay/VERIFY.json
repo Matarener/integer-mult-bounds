@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gl3-rup-native-replay/source/drat-trim.c",
+    "research/gl3-rup-native-replay/source/DRAT-LICENSE",
+    "research/gl3-rup-native-replay/source/length7.cnf",
+    "research/gl3-rup-native-replay/source/length8.cnf",
+    "research/gl3-rup-native-replay/source/length7.rup.gz",
+    "research/gl3-rup-native-replay/source/length8.rup.gz",
+    "research/gl3-rup-native-replay/source/CHECKER.json",
+    "research/gl3-rup-native-replay/source/CERTIFICATES.json",
+    "research/gl3-rup-native-replay/source/NOTICE.md",
+    "research/gl3-rup-native-replay/source/LICENSE",
+    "research/gl3-rup-native-replay/source/README.md",
+    "research/gl3-rup-native-replay/source/ENCODING_AUDIT.md",
+    "research/gl3-rup-native-replay/source/length7-checker.log",
+    "research/gl3-rup-native-replay/source/length8-checker.log",
+    ".github/workflows/gl3-rup-native-replay.yml"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--selftest"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate all immutable inputs, retained native raw logs and every proof-relevant typed receipt field, with decisive receipt corruptions. Inspection only; fresh native replay has its dedicated workflow."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--selftest"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate all immutable inputs, retained native raw logs and every proof-relevant typed receipt field, with decisive receipt corruptions. Inspection only; fresh native replay has its dedicated workflow."
+    }
+  ]
+}

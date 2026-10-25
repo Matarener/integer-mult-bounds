@@ -70,6 +70,18 @@ Update current priorities, affected cards and their coverage, and the evidence
 log together. For PR work, use [delta-only intake](docs/research/pr-intake.md)
 and its construction-grouped view. Do not rerun unchanged historical reviews.
 
+## Hill-climbing track
+
+For κ-oriented work, beat the best open conditional κ by a small, exact step.
+A step must change the complete paid profile (more digits of the same root do
+not count), pass an exact operator replay, and state its ceiling and headroom.
+Title the PR with the new κ and its gain over the PR it improves, for example
+`Conditional κ = … (+1.140e-9 over #4088)`. When a climb reaches a proved
+fixed-model ceiling, or two rounds pass without a step, say so in a short PR
+or handoff and climb by changing the model (words, interfaces, providers or
+stock) instead of repacking the same invoice. This is not admission; the
+selected record still decides the frontier.
+
 ## Short prompt for donating a session
 
 > Contribute one useful, independently reviewable result to

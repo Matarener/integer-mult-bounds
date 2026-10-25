@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-query/certificate.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Frozen 512 matrix maps and 528 uses; independent row/column inverses; literal four-tape routing versus separate oracle; restored buffers/heads, finite footprint, cost bounds and rejecting controls. Physical theorem remains informal."
+    }
+  ]
+}

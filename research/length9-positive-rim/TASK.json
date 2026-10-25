@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the length-9 width-1 cycle, can one positive off-diagonal entry zero a touching Schur entry?",
+  "scope_change_reason": "Every equal-weight arc meets the touching diameter. The named next step is one sign-flipped neighbor on the length-9 width-1 cycle. The matching positive value is the entry that actually cancels.",
+  "bottleneck_link": "The periodic caller reuses a width count after elimination. A sign flip keeps the length-9 width-1 bandwidth. Matching the one-vertex fill in both directions is what drops it below the touching diameter.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the one-entry identities on this cycle are checked. Do not start a width-2 cycle or a boundary-order Gaussian elimination.",
+  "outcome": "partial",
+  "evidence": "research/length9-positive-rim checks every directed neighbor sign flip. The opposite rim stays -1/16. One entry +1/16 zeros one Schur direction and leaves the other at -1/16. Both directions drop the bandwidth from 2 to 1.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the identities, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "After survivors are placed in boundary order, does one Gaussian interior elimination have bandwidth O(W)?",
+      "why_it_matters": "GAUSSIAN.md claims a bandwidth after reordering. These complements stay on the original circle.",
+      "first_step": "Pin one interior block and the stated boundary order, then measure the Schur bandwidth against W.",
+      "blocked_by": "No boundary-order elimination is computed in this package."
+    },
+    {
+      "question": "On the length-9 width-2 cycle, can one positive entry zero both directions of a far touching pair?",
+      "why_it_matters": "Width 1 has a one-vertex product, so one body entry cancels only one direction. Width 2 has several touching pairs and a larger fill.",
+      "first_step": "Delete one vertex, record both Schur directions of a far pair, and set one of those body entries equal to its update.",
+      "blocked_by": "Only width 1 is checked here."
+    }
+  ]
+}

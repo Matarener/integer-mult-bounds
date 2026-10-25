@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Audit the head-travel, product-count and rounding claims of #4100 PROOF.md's cached chirp prefix-product odometer with a written amortization and a literal four-tape head-movement count.",
+  "scope_change_reason": "The card asks for one quantified implication at its caller; this is the fixed-tape cost implication of the chirp section, whose failure (a per-record d factor) the #4100 ledger itself rejects.",
+  "bottleneck_link": "A leftover per-record d factor in the chirp would cost power epsilon > 1-kappa and invalidate #4100's proposed exponent; the claimed power-0 phase row depends on this tariff.",
+  "budget_minutes": 75,
+  "stop_rule": "Stop once the stated amortized head travel, product count and rounding bound are proved with constants and checked on literal head counts with failing controls.",
+  "outcome": "completed",
+  "evidence": "README written amortization; verify.py: 36 literal four-tape cases (d up to 12, radices 2..8, factor-two premise) within the per-case bounds and the uniform constant 31 (max 6.997 TP), cache <= 12 TP, counter <= 4T, exact product counts (< 2 per record); 4,820 rounding records at <= 0.754 of (2d-1) sqrt2 2^-P; controls: per-record d scan grows linearly (66 TP at d=12), skewed radices (2,512) reach 258.5 TP, nearest rounding leaves the unit disk (112 entries), ratio updates drift 965x the bound.",
+  "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
+  "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, the amortization proof, simulator implementation and writing; no independent human or proof-kernel review.",
+  "open_questions": [
+    {
+      "question": "Interleave the chirp stream with the actual polynomial-record payload layout.",
+      "why_it_matters": "The chirp must be emitted in the payload's physical order (axis 0 packed into r-coefficient records) without an extra pass.",
+      "first_step": "Add a packed-record payload tape to the four-tape model and count one pointwise pass.",
+      "blocked_by": "None."
+    },
+    {
+      "question": "Price chirp table setup at the real precision.",
+      "why_it_matters": "It is the remaining o(V) claim of the section.",
+      "first_step": "Bound elementary cos/sin evaluation at Cp+o(p) bits times d*t entries.",
+      "blocked_by": "Fixing the precision constant C (#4320 open question 1)."
+    }
+  ]
+}

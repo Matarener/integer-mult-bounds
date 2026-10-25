@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/class-c-dominance-campaign/inputs/rows70.csv",
+    "research/class-c-dominance-campaign/inputs/rows17.csv",
+    "research/class-c-dominance-campaign/inputs/help-README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact full source-bound dominance and threshold certificates, literal minima, and four rejecting certificate mutants."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separately implemented injective-role matching, all incidence comparisons, exhaustive minimum covers and threshold controls."
+    }
+  ]
+}

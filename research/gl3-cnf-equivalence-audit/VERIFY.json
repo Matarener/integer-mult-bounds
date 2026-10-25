@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gl3-cnf-equivalence-audit/source/CERTIFICATES.json",
+    "research/gl3-cnf-equivalence-audit/source/DIRECT_NINE.json",
+    "research/gl3-cnf-equivalence-audit/source/ENCODING_AUDIT.md",
+    "research/gl3-cnf-equivalence-audit/source/LICENSE",
+    "research/gl3-cnf-equivalence-audit/source/NOTICE.md",
+    "research/gl3-cnf-equivalence-audit/source/README.md",
+    "research/gl3-cnf-equivalence-audit/source/cnf_model.py",
+    "research/gl3-cnf-equivalence-audit/source/exact_checker.py",
+    "research/gl3-cnf-equivalence-audit/source/model.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/oracle.py",
+        "--summary"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent Boolean/onehot/coefficient semantics and meaningful backward-clause, order and endpoint controls; written all-positive-length proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/oracle.py",
+        "--summary"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent Boolean/onehot/coefficient semantics and meaningful backward-clause, order and endpoint controls; written all-positive-length proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Complete actual directCNF DAG/clauses and all transition/boundary coefficients bind to frozen independent semantics; positive extensions and exact saved formula bytes, no SAT/RUP."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Complete actual directCNF DAG/clauses and all transition/boundary coefficients bind to frozen independent semantics; positive extensions and exact saved formula bytes, no SAT/RUP."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS_EXACT_FRESH_SLOT_UNIT_TOKEN_PATH_OBSTRUCTION",
+  "script_sha256": "ff39171dbc692d98bde3d4c520d46292d8109fa88d8ce46494983fabcc559a0a",
+  "source_fill_sha256": "13adffec100112c6c5c14b5aa544e5626f433f16594101e016cff44d2f89aee9",
+  "frozen_invoice_receipt_sha256": "362a51f32d3b729d9caca124dcaf76430c23d8c2a0be6b19f75397011a01db61",
+  "parameters": {
+    "seconds": 60.0,
+    "maximum_depth": 32
+  },
+  "start_bins": 84732,
+  "states_explored": 93161,
+  "states_discovered": 93161,
+  "contexts_expanded": 3271,
+  "maximum_depth_explored": 1,
+  "queue_exhausted": true,
+  "search_seconds": 0.25059968700225,
+  "swaps": [],
+  "complete_profile": {
+    "1": 7990332,
+    "2": 2349000,
+    "3": 748971,
+    "4": 330480,
+    "5": 69479,
+    "8": 25920,
+    "32": 1,
+    "48": 137911
+  },
+  "scope": "Bounded one-visit-per-call/width context discovery. Each emitted path is subsequently checked as a literal simple-bin sequence of same-call owner swaps, preserving actual source eligibility and same-call physical-family injection. A search failure does not certify all possible augmenting paths.",
+  "complete_first_step_obstruction": {
+    "all_initial_contexts": 3271,
+    "all_first_donor_rows": 8429,
+    "untouched_width_census_over_first_donor_states": {
+      "9": 21365
+    },
+    "complete_first_step_coverage_checked": true,
+    "proof": "Every positive-remainder bin with an outgoing unit swap has remainder1 and supplies width4 or width6. All same-call width5 or width7 donor rows are covered. Every donor bin is initially full, so a first step merely changes remainders(1,0) to(0,1), preserving price. After removing that donor, its untouched slots all have maximal width9. Thus no second unit step can use an untouched slot; no simple remainder-token path with a distinct incoming and outgoing slot can have length at least two.",
+    "scope": "The proposed same-call one-unit token path, with the incoming changed slot excluded at each interior bin. Multi-item exchanges, multiple interacting tokens, changed clocks, and arbitrary other move families are not excluded."
+  }
+}

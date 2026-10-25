@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/weighted-wrapper-contract/TASK.json",
+    "research/weighted-wrapper-contract/README.md",
+    "research/weighted-wrapper-contract/algebra.py",
+    "research/weighted-wrapper-contract/runtime_check.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "n=5/n=7 dual-scale support classification, far+near existence, illegal emptiness, certificate match, source pins"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same admission under PYTHONOPTIMIZE via need(); -Werror clean"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate closed-form far/near dual-scale and n² exclusivity replay"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Corruption rejection, duplicate JSON keys, read-only default verify"
+    }
+  ]
+}

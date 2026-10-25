@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 6,
+  "base_commit": "c1c5c0c6a897c23686957caae19105a149eec091",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "For the live #2954 class-C 6554 four-flat configuration, can a provably sound stabilizer subgroup quotient the six-dimensional V2 mask enumeration for one five-dimensional V1 orbit?",
+  "scope_change_reason": "The task catalog has no card for the active #2954 route-B checker handoff. replay-runtime is the closest method card, but its original scope concerns selected-result replays. This changed investigation certifies a finite symmetry quotient for the separately pinned s4z direction catalog; it does not claim an end-to-end s4z speedup or a class-C row exclusion.",
+  "bottleneck_link": "The #2954 route-B handoff identifies V2 pair enumeration as a major cost before four-flat closure. A sound stabilizer quotient can reduce candidate V2 masks while preserving the exact span predicate.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after an exact group-action proof and a fully enumerated bounded V1/V2 mask orbit slice; do not infer any row kill, full-config pass, or kappa change without integrating and completing the s4z closure search.",
+  "outcome": "partial",
+  "evidence": "The verifier pins the 18,100-row data88 catalog, confirms all 12 generators act linearly and invertibly on F2^9, checks each induced Off-support permutation and exact invertible Q^8 matrix witness on every listed line/plane direction, then exhaustively partitions the 776,806 unique six-flat root masks into 47,850 orbits under a five-generator subgroup fixing a canonical five-flat mask. This is one first-flat group orbit and a candidate-count result only; catalog completeness is inherited from the pinned source.",
+  "author": "OpenAI Codex",
+  "ai_assistance": "Prepared and verified by OpenAI Codex with substantial AI assistance. No independent human proof review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can the subgroup quotient be integrated into the pinned s4z engine for every first-flat orbit of config 6554?",
+      "why_it_matters": "The measured 16.234x candidate reduction is for one first-flat orbit; it does not establish the aggregate reduction or preserve the existing run output after code integration.",
+      "first_step": "Use Schreier witnesses to generate stabilizer subgroups for each canonical V1 mask, then compare exact per-pair candidate sets against unchanged s4z on the bounded existing fixture.",
+      "blocked_by": "The pinned s4z source is external to canonical main and uses its own union-find representative order; integration and same-input baseline replay remain to be done."
+    },
+    {
+      "question": "What aggregate time and memory change results across all nonredundant class-C configurations and the 17 rows?",
+      "why_it_matters": "Candidate-count reduction alone does not determine end-to-end closure cost or whether any row is killed.",
+      "first_step": "After the config audit in merged PR #3315 and the threshold-preserving reduction in PR #3334, run one time-capped 6554@T7 shard with the quotient and its unchanged control, then account for all remaining shards before extrapolating.",
+      "blocked_by": "Full per-V1 stabilizer preparation and the expensive closure searches remain unmeasured."
+    },
+    {
+      "question": "Is the 18,100-row data88 direction catalog complete for every direction with |Off(h)| <= 88?",
+      "why_it_matters": "The symmetry check is exact on the pinned rows but cannot certify omitted directions.",
+      "first_step": "Independently regenerate the bounded direction catalog from the E8 frame split and compare normalized supports and subspaces.",
+      "blocked_by": "The source package states completeness, but this contribution does not regenerate its direction enumeration."
+    }
+  ]
+}

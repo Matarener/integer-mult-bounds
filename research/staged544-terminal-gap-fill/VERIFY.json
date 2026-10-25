@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Literal guarded reconstruction, both exact symbolic semantics and native closure receipts; owner/moment bridge."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/checks/independent_frames.py",
+        "--controls"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent basis frame, inventory, caller and opcode checks; eight semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/checks/exact_root.py",
+        "--controls"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Rational complete root bracket, rigorous predecessor upper, profile bridge and uniform gain; three controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/owner/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All literal owner roles, strict source windows, family distinctness, compact offsets and complete profile; four controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/owner/check_gain.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact rational uniform strict-gain proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Six guarded recipe mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same controls with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/admission/authenticate.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate complete ordinary/outer release, changed source inputs and every retained/reused receipt; no full rerun."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/universal-connector-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-W", "error", "-B", "{package}/verify.py"],
+      "timeout_seconds": 240,
+      "checks": "Exact UT4(Z/m) BFS minima for m=2..8; independent balanced-word census for m=2,3,4; explicit 3m construction for every residue at m=5..256; exception witnesses; literal dirty noncommuting replay through m=32; exact depth-four BFS minima for m=2,3,4; six controls; source hashes."
+    },
+    {
+      "argv": ["{python}", "-O", "-W", "error", "-B", "{package}/verify.py"],
+      "timeout_seconds": 240,
+      "checks": "The same scientific checks with Python assertions disabled; all contracts use explicit exceptions."
+    }
+  ]
+}

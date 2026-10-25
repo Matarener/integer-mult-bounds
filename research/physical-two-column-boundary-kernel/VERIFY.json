@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-boundary-pages/boundary_pages.py",
+    "research/physical-boundary-pages/verify.py",
+    "research/physical-gaussian-core/gaussian_axis.py",
+    "research/physical-gaussian-core/gaussian_boundary.py",
+    "research/physical-gaussian-core/gaussian_check_interior.py",
+    "research/physical-gaussian-core/gaussian_check_window.py",
+    "research/physical-gaussian-core/gaussian_convolution.py",
+    "research/physical-gaussian-core/gaussian_core.py",
+    "research/physical-gaussian-core/gaussian_exponentials.py",
+    "research/physical-gaussian-core/gaussian_interior.py",
+    "research/physical-gaussian-core/gaussian_matrix.py",
+    "research/physical-gaussian-core/gaussian_page.py",
+    "research/physical-gaussian-core/gaussian_rationals.py",
+    "research/physical-gaussian-core/gaussian_rows.py",
+    "research/physical-gaussian-core/gaussian_sources.py",
+    "research/physical-gaussian-core/gaussian_window.py",
+    "research/physical-gaussian-core/inputs/branchfree-source.tar",
+    "research/physical-gaussian-core/inputs/word-export.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual R2 Core first-pass, complete baseline/refinement costs and backing, cross-block and fallback cases, zero-column/rounding controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual R2 Core first-pass, complete baseline/refinement costs and backing, cross-block and fallback cases, zero-column/rounding controls optimized"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_integrity.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual optimized Git-free CLI rejects changed/missing predecessor and changed retained/adapted source helper before scientific execution"
+    }
+  ]
+}

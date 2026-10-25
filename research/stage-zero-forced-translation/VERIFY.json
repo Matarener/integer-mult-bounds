@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 112 ports of DATA-PHASES.json: orthonormal [q;B], mod-4 character identity D0 = T_t G_B for all 512 characters, closed form t_i = [c_i = 3 mod 4] equals recorded translation_after, exact [D0,Q]=0 kernels at two ports, port-0 witness -1/16, weight profiles. Closed form also reproduces all 2,016 nonempty idle-normalization translations."
+    }
+  ]
+}

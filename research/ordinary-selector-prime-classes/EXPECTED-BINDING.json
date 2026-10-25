@@ -1,0 +1,361 @@
+{
+  "archive": {
+    "commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "current_members_equal": [
+      "research/physical-ordinary-interchange/encoded.py",
+      "research/physical-ordinary-interchange/ordinary.py"
+    ],
+    "extracted": false,
+    "manifest_sha256": "920cec57d358249261a539adb9265ee00fa2fb820641b83d3757158ff401f503",
+    "members_read": 36,
+    "path": "research/retuned-ordinary-coupling/inputs/pr2899-export.tar.gz",
+    "producer_imported": false,
+    "sha256": "0fef1707c6460418fd01fd49faf0d8ff7945907fa57284765c852a12d2674d3c"
+  },
+  "bound_input_count": 11,
+  "domain": "every integer original e>=1; fixed prime q>2^80 satisfying retained source premises",
+  "inherited_or_unproved": [
+    "Count/Counter primitive arithmetic, comparison and lifetime semantics",
+    "successful well-bracketed execution and physical cleanup/resource bounds",
+    "active loader/cohort execution and selected prime/source admissibility",
+    "tau, beta, supplier and multiplication transfer obligations"
+  ],
+  "inputs": [
+    {
+      "bytes": 7305,
+      "git_blob": "2280fa98ff5e4da7c4909814ce4a1c405605ada8",
+      "path": "research/physical-ordinary-interchange/encoded.py",
+      "sha256": "10ad2fa5902a48d49cf2b89a30b3f2711d63a6a43b9512a6427affcdf07335a7"
+    },
+    {
+      "bytes": 8660,
+      "git_blob": "81b330a4b886a0f4deab7b0811478bab3fbc107a",
+      "path": "research/physical-ordinary-interchange/ordinary.py",
+      "sha256": "7f8338e748bcd42fbef1e7cc47b6c5040dfb3aad216e34759bcb12b8e14f7705"
+    },
+    {
+      "bytes": 1222,
+      "git_blob": "045b0dd1aa6ec47051730fc01fa8b3c6a825ab72",
+      "path": "research/physical-complex-controller/production_native.py",
+      "sha256": "4c1f8f69212162bd297010c6e21a32e31755cbfe2e40f9935b8d87a9e4260d46"
+    },
+    {
+      "bytes": 8312,
+      "git_blob": "8a0f47a1541a0b8e67866df4f65928de31073651",
+      "path": "research/retuned-ordinary-coupling/PROOF.md",
+      "sha256": "3e554832c38b4b801f55b20868679f3283bc90cd5a9d8ce1960f828ed2655f22"
+    },
+    {
+      "bytes": 858,
+      "git_blob": "6479a08fe78f7f4fe93d144cec26ac84aebcf9d3",
+      "path": "research/retuned-ordinary-coupling/interface.py",
+      "sha256": "25707c61b9fc6c1f09388c7cc72d269be0f8f8cae4dbc7cd5c2d00ce7fadf839"
+    },
+    {
+      "bytes": 4269,
+      "git_blob": "3a196ed2ae7030a75f4fadc423e15f0c4fb23193",
+      "path": "research/retuned-ordinary-coupling/check_setup.py",
+      "sha256": "5ccea0216b701e3e1adb6bb0890ba3db179b1d7b3d1a6e9913ac1fdc4d56bfca"
+    },
+    {
+      "bytes": 890,
+      "git_blob": "7f51e925db0e4e6885107ad51e09f90b95757900",
+      "path": "research/t74-retuned-physical-layer/retuned_native.py",
+      "sha256": "4b48f4a0d2900195201cdb8eaf715cb22460de391410e66bee5a6302fd1796dc"
+    },
+    {
+      "bytes": 4148,
+      "git_blob": "1b6d7f0663c26d170dfb6b33d1dc983f854e2a68",
+      "path": "research/t74-retuned-physical-layer/check_active_contracts.py",
+      "sha256": "d3862b7720a484fef58afcf1c0f0c25f09e8cf33e767cc502a656c1dd65b15e7"
+    },
+    {
+      "bytes": 3336,
+      "git_blob": "31c08659c843dc114ae84d9c431bd749919c40bc",
+      "path": "research/retuned-ordinary-coupling/predecessor.py",
+      "sha256": "4733b33a6a840f73ebc87f0c3f9e9f1aee95438b10eae7f8dbbf20d5b11b2306"
+    },
+    {
+      "bytes": 8202240,
+      "git_blob": "5c07cf429005658400d7a64e229162ea845e5bf7",
+      "path": "research/retuned-ordinary-coupling/inputs/pr2899-export.tar.gz",
+      "sha256": "0fef1707c6460418fd01fd49faf0d8ff7945907fa57284765c852a12d2674d3c"
+    },
+    {
+      "bytes": 8835,
+      "git_blob": "4f7f8d1aa8ea37aa7e66f6887606821a0b48bbba",
+      "path": "research/t74-retuned-physical-layer/active_sources.py",
+      "sha256": "599c701b15d45f3dfee531a118e11a0aa0997d070e9cce4b6298d5b20defad49"
+    }
+  ],
+  "loop_invariants": [
+    {
+      "component": "encoded.atom_width",
+      "invariant": "For e>=1 and profile (1,577), target=e; 1<=low<=ceil(e^(1/577))<=high<=e. Each iteration uses middle=floor((low+high)/2) and min(middle^577,target)>=target iff middle^577>=e, then high=middle or low=middle+1. The nonnegative integer high-low strictly decreases while positive; return low=high is the least w>=1 with w^577>=e."
+    },
+    {
+      "component": "encoded.select.depth",
+      "invariant": "Initially cursor=e and depth=0. Each loop with cursor>=64 sets cursor=42*floor(cursor/64) and increments depth once; this strictly contracts positive cursor. Thus depth=D(e), where D(e)=0 for e<64 and D(e)=1+D(42*floor(e/64)) otherwise. It is computed before borrowing from original, never from body or width."
+    },
+    {
+      "component": "encoded.select.stock",
+      "invariant": "For D=0 stock remains 1. Otherwise order=product_{i=0}^{63}(q^64-q^i); after j repeats level=269241600*order*q^(4096*j), j=0..w-1. After t levels stock=level^t, t=0..D. Therefore stock=(269241600*|GL_64(F_q)|*q^(4096*(w-1)))^D under the stated prime-field order identity."
+    },
+    {
+      "component": "encoded.select.borrowing",
+      "invariant": "Initially rows=1=q^0 and borrowed=0. Each iteration while rows<stock multiplies rows by q and increments borrowed. For integer q>=2 and stock>=1 it terminates at the least k>=0 with q^k>=stock; rows=q^k. Equality with stock terminates; this is covering, not strict padding."
+    },
+    {
+      "component": "encoded.select.first_guard",
+      "invariant": "body=remainder=0 initially. The first fits is exactly 2*k<e. If false, division is skipped, both zeros remain, and fits is false. If true, remaining=e-k>0, so divide receives a nonnegative numerator and positive w."
+    },
+    {
+      "component": "encoded.select.body_guard",
+      "invariant": "Only after the first guard, (body,remainder)=divmod(e-k,w); e=k+body*w+remainder and 0<=remainder<w. The final fits is body>=64. Body/remainder remain the computed values when this second guard fails. Both guards use original e and the selected w."
+    },
+    {
+      "component": "ordinary.run/execute_plan",
+      "invariant": "run passes select(original,self.q,self.profile) as the sole plan factory. execute_plan checks positive original/extents, calls that factory once, selects fitted iff plan['fits'] else fallback with original, transfers and clears the result, closes every non-fits plan value in finally, and finishes using the same fits boolean. This is a syntactic ownership/control-flow observation, not proof that the primitives discharge cleanup."
+    },
+    {
+      "component": "profile/cohort",
+      "invariant": "The default encoded Profile remains (17,10000,64,42,269241600); both opt-in retuned profile functions replace only numerator/denominator by (1,577). interface.ordinary forbids a competing profile option. retuned_native.retune checks the unchanged geometry and fresh active-cohort native; its factory reads that cohort's production.PRIME. The full active_sources AST binds its active encoded/ordinary/production references and compare_backend call; execution/cohort identity remains inherited, not activated here."
+    }
+  ],
+  "negative_controls": [
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:select",
+      "name": "first_guard_not_strict",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:select",
+      "name": "depth_from_body",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:select",
+      "name": "omit_row_factor",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:select",
+      "name": "body_threshold_strict",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:select",
+      "name": "strict_row_padding",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:select",
+      "name": "wrong_remaining_width",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:select",
+      "name": "failed_first_guard_body_not_zero",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:atom_width",
+      "name": "root_equality_excluded",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:atom_width",
+      "name": "bisection_stalls",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/ordinary.py:Ordinary.run",
+      "name": "run_uses_other_original",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/ordinary.py:Ordinary.execute_plan",
+      "name": "fallback_branch_inverted",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/retuned-ordinary-coupling/interface.py:profile",
+      "name": "retuned_denominator_changed",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/t74-retuned-physical-layer/retuned_native.py:profile",
+      "name": "active_retuned_geometry_changed",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/t74-retuned-physical-layer/retuned_native.py:build_native",
+      "name": "active_factory_wrong_q",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-complex-controller/production_native.py:build_native",
+      "name": "production_q_range_inclusive",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    },
+    {
+      "byte_pin_gate_used": false,
+      "component": "research/physical-ordinary-interchange/encoded.py:Profile",
+      "name": "profile_default_changed",
+      "reason": "complete-declaration-ast",
+      "rejected": true
+    }
+  ],
+  "physical_admission": false,
+  "production_prime": 257501199577916014212415489,
+  "profile": {
+    "child_rank": 42,
+    "denominator": 577,
+    "dimension": 64,
+    "numerator": 1,
+    "row_factor": 269241600
+  },
+  "scalar_contract": {
+    "body_remainder": "divmod(e-k,w) if first_guard else (0,0)",
+    "borrowed": "min{k>=0 : q^k>=stock}",
+    "depth": "D(e)=0 if e<64 else 1+D(42*floor(e/64))",
+    "first_guard": "2*k<e",
+    "fits": "first_guard and body>=64",
+    "stock": "(269241600*product(q^64-q^i,i=0..63)*q^(4096*(w-1)))^D(e)",
+    "width": "min{w>=1 : w^577>=e}"
+  },
+  "scope": "Complete pinned source syntax/control-flow binding to a conditional scalar projection; no source imports, activation or payload execution.",
+  "status": "PASS_ORDINARY_SELECTOR_SOURCE_BINDING",
+  "syntax": {
+    "declarations": [
+      {
+        "ast_sha256": "a82d9091acfa854da070109a43a72bf926d47eb0f2b8722305c14c122af37f66",
+        "declaration": "atom_width",
+        "path": "research/physical-ordinary-interchange/encoded.py"
+      },
+      {
+        "ast_sha256": "f5bd05706424c943167b91896a38ed5cb05549efc316a06563164b6d22d60795",
+        "declaration": "Profile",
+        "path": "research/physical-ordinary-interchange/encoded.py"
+      },
+      {
+        "ast_sha256": "d9c4d1a586e0b1a8967c5745b0fd84a927084c037a05d70c3e50a7dbbd2a5a8f",
+        "declaration": "select",
+        "path": "research/physical-ordinary-interchange/encoded.py"
+      },
+      {
+        "ast_sha256": "845346ba5f9c524a2d1b1854ca51f917cd246e23ae009a8a03103a708529cff1",
+        "declaration": "Ordinary.execute_plan",
+        "path": "research/physical-ordinary-interchange/ordinary.py"
+      },
+      {
+        "ast_sha256": "f9c9a50620413166b153ed5fe8c7ad38b625e891874d605ed83c09fdcef6982a",
+        "declaration": "Ordinary.run",
+        "path": "research/physical-ordinary-interchange/ordinary.py"
+      },
+      {
+        "ast_sha256": "769738d3f84465d3ab7b8538f1d490211dc38590ec238346b34d628ff183035e",
+        "declaration": "profile",
+        "path": "research/retuned-ordinary-coupling/interface.py"
+      },
+      {
+        "ast_sha256": "8720f162df79144bdc64c6d0c7722482ca4fa910cb72098c73bd60d96e713752",
+        "declaration": "ordinary",
+        "path": "research/retuned-ordinary-coupling/interface.py"
+      },
+      {
+        "ast_sha256": "e5e9ef7ed7b08fb909b5774fb4181abc6727579fa082e92e14dc3546d6217c0e",
+        "declaration": "binary",
+        "path": "research/retuned-ordinary-coupling/interface.py"
+      },
+      {
+        "ast_sha256": "893f53455d86a07e697b6f4482f14684691802ea867ced27ff85d19e07fc37be",
+        "declaration": "profile",
+        "path": "research/t74-retuned-physical-layer/retuned_native.py"
+      },
+      {
+        "ast_sha256": "6e39582921c3d9c96db8040d1f3a02743bb3b051503c2a44bff8ed24d1aee6ee",
+        "declaration": "retune",
+        "path": "research/t74-retuned-physical-layer/retuned_native.py"
+      },
+      {
+        "ast_sha256": "0a402c858c47593e72b83e04cdb359cf5a988c8467fb8605b9cb21c43852f91c",
+        "declaration": "build_native",
+        "path": "research/t74-retuned-physical-layer/retuned_native.py"
+      },
+      {
+        "ast_sha256": "199a21848c139f7c4f4239fdaae0cae716e20bcd70d23563c4eabe7a17bb6c62",
+        "declaration": "build_native",
+        "path": "research/physical-complex-controller/production_native.py"
+      }
+    ],
+    "modules": [
+      {
+        "ast_sha256": "6051d9fa7ad3064d615b299e57e4ec4a465d8334be66def8cf78f21244689d8c",
+        "path": "research/physical-ordinary-interchange/encoded.py"
+      },
+      {
+        "ast_sha256": "d713330bdd0c4fff25cc6692d578be7f3c85a7dd789958cca35f1ad803565a09",
+        "path": "research/physical-ordinary-interchange/ordinary.py"
+      },
+      {
+        "ast_sha256": "879afa146ad5381b3804dff236f2a2223e525148388a83d5a011889296f224bf",
+        "path": "research/physical-complex-controller/production_native.py"
+      },
+      {
+        "ast_sha256": "708324a95141e74746aad0deeb7b0efb73d86c1db52da8f4c932f185ee553989",
+        "path": "research/retuned-ordinary-coupling/interface.py"
+      },
+      {
+        "ast_sha256": "e970e047f36ed55a957f5b586ec432da97f79544dad9b111c7d45b4832208ce9",
+        "path": "research/retuned-ordinary-coupling/check_setup.py"
+      },
+      {
+        "ast_sha256": "36c2c9b17cb24a3fc7d4e0e84d6e10559ad1af49722b06cd75feb3d08e6be06a",
+        "path": "research/t74-retuned-physical-layer/retuned_native.py"
+      },
+      {
+        "ast_sha256": "03bf096b40078b14dc43fd1ef5e85f8e3ef069bf8618e22ee719ea1f2e3202ea",
+        "path": "research/t74-retuned-physical-layer/check_active_contracts.py"
+      },
+      {
+        "ast_sha256": "3ec2b89aab0f0777bb9dee37f5fe500a644f2116aee510ee9c34c3540e7ca693",
+        "path": "research/retuned-ordinary-coupling/predecessor.py"
+      },
+      {
+        "ast_sha256": "21ffd30c446237adf81d3996a14beba5072e98ca44af046ef30a666ae4100bbe",
+        "path": "research/t74-retuned-physical-layer/active_sources.py"
+      }
+    ]
+  }
+}

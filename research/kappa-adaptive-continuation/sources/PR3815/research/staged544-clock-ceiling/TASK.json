@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "task_id": "selected-packing",
+  "priority_revision": 6,
+  "base_commit": "fa041037a3374eaa08feeca0b26a5d6893194147",
+  "original_card": {
+    "id": "selected-packing",
+    "question": "Is there a genuinely unsearched, explicitly bounded improvement to the selected packing?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/heterogeneous-owner-assembly/README.md",
+      "research/complex-local-word-ceiling/README.md"
+    ],
+    "methods": [
+      "Search a named unclaimed canonical candidate domain with a reproducible partition.",
+      "Prove a stronger scoped relaxation or exact optimum for one named residual subproblem."
+    ],
+    "acceptance_gate": "Check live PR overlap first, price both suppliers and distinguish a search best from an optimum. Report the word's packing cap from ceiling.ceiling() and the fraction of it realized; label packing gains as such.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Locate the selected packing source in the review and check live PRs for the same residual problem.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Define an unclaimed canonical domain and a favorable bound before starting a new search.",
+    "bottleneck_link": "An actual paid-profile gain can improve the frontier up to the other supplier cap.",
+    "allowed_variations": [
+      "One bounded residual packing instance or exact relaxation.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Rerunning an existing search with only a different seed as a separate mathematical contribution."
+    ],
+    "overlap_terms": [
+      "T16",
+      "owner exchange",
+      "packing"
+    ],
+    "existing_checks": [
+      {
+        "scope": "Packing-independent ceiling for the selected paid profile under the one-unpaid-coordinate coverage and halving guard.",
+        "evidence": "docs/research/community-efficient1000-review.md",
+        "remaining": "A changed word or model requires new pricing; a local packing search must name uncovered scope.",
+        "status": "reviewed",
+        "source_commit": "836b19bfa309ceafbc8ee32a15e8c4b10dde7e11",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Answer PR3734 open next question 1 and close the packing question for its staged544 supplier: an exact dual certificate that no owner fill of this inventory, under any clock and any replica count, beats the fixed-inventory ideal root; and a literal T360 owner fill on PR3734 own clock changed by one rule (727 of 3240 calls) that attains it. No new kappa: PR3802 reached the same value first.",
+  "scope_change_reason": "The card names the selected packing. This applies the residual-packing question to the strongest comparable open witness, PR3734 (staged544, T360), whose README asks it explicitly. The selected word ceiling.ceiling() does not apply to this changed word; the applicable fully charged replacement bound is the fixed-inventory ideal of PR3734, here certified as a cap for every clock and replica count and realized at 100%.",
+  "bottleneck_link": "Packing headroom of the staged544 supplier: the certificate shows it is exhausted, so further paid-profile gains for this word need a changed inventory, template or word. The attained fill is a packing gain over PR3734 only, equal to PR3802.",
+  "budget_minutes": 240,
+  "stop_rule": "Publish only after the changed clock is regenerated from its rule, PR3734 unmodified owner audit passes on the literal fill, the exact rational root is enclosed, and the complete PR3734 admission (full_replay.py) passes on the changed inputs; otherwise report the owner-level result without a headline kappa.",
+  "outcome": "completed",
+  "evidence": "verify.py: clock regenerated exactly; PR3734 owner_audit.py PASS on 1,321,920 roles with its three mutants rejected; idle histogram {1:84240, 3:23328, 5:4320, 48:137952} equals the fixed-inventory ideal; blocknorm helper/data alias 0; root bracket [0.001730578437266246818740, +1e-24] with rational_price.py; exact dual certificate over 2551 patterns at root_upper (min reduced cost 0, bound on min F positive); six semantic controls rejected. Complete PR3734 admission (full_replay.py --reuse-current-native) on the changed inputs: PASS_STAGED544_COMPLETE_CONDITIONAL_RELEASE, conditional kappa 0.0017305784372662468187399999999999999999999998999999999999999999999999 (evidence/RELEASE.json, bound by verify.py). PR3802 profile is 385/360 times this one.",
+  "author": "Erwan Secousses (ChaloupeMusic), at human direction",
+  "ai_assistance": "Substantial assistance from Claude (Anthropic, Claude Code): diagnosis, LP relaxation, construction and verifier. Human direction and publication decision by the author.",
+  "open_questions": [
+    {
+      "question": "Which changed T360 inventory (idle child ranks or counts) or word raises the staged544 fixed-inventory ceiling while keeping the complete admission?",
+      "why_it_matters": "The certificate shows the packing of this supplier is at its cap; no clock or allocation search can add more.",
+      "first_step": "Price candidate inventories with the fixed-inventory LP (construction/hall_lp.py without Hall rows, or the dual of ceiling_certificate.py), then with a throttled clock.",
+      "blocked_by": "Physical stock, coverage law and template checks of the complete admission must still pass."
+    },
+    {
+      "question": "Do other chronological owner fills of this model (for example the T360 incumbent of PR3682) fall short of their own fixed-inventory ceiling because of the clock, and does a start-of-clock throttle recover it?",
+      "why_it_matters": "Wherever an owner allocation is below its fixed-inventory ideal, a clock-only change may be a free paid-profile gain; PR3694 reports that the T488 allocation of PR3633 already attains its ceiling, so the question is per chain.",
+      "first_step": "Run construction/hall_lp.py on the chain ORDER.json; only if its exact per-tick LP is below the ideal, apply clock.throttle with that template scarce-width ratio and rebuild.",
+      "blocked_by": "The 53/224 ratio is specific to the rank-16 (7, 9) closures of this template; each chain needs its own window template."
+    }
+  ],
+  "final_overlap": {
+    "checked_utc": "2026-10-18T21:35:47Z",
+    "complete_pagination": true,
+    "open_prs": 497,
+    "discussion_records": 2510,
+    "concurrent_work": [
+      "3802@de2cd5c58009205210e3bf328b0ef5cadf3903af",
+      "3795@fcffda7c6c68bcf6e417175c5aaab747341da90b"
+    ],
+    "scope": "PR3802 (hexapode) reaches the same conditional kappa with a T385 combined clock and was published first; its idle histogram is 385/360 times this one. PR3795 reaches 0.001730512921319457636694 - margins at T488. Neither claims packing optimality. No priority claimed on the kappa value.",
+    "warnings": [
+      "Same kappa as PR3802; this package adds the ceiling certificate, the clock diagnosis, the T360 one-rule clock and an end-to-end wrapper run."
+    ]
+  }
+}

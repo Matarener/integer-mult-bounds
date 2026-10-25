@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-physical-caller/PROOF.md",
+    "research/selected-bit-physical-caller/README.md",
+    "research/selected-bit-physical-caller/inputs/pr2753/PROOF.md",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/children.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/directory.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/records.py",
+    "research/selected-bit-physical-caller/inputs/pr2769/PROOF.md",
+    "research/selected-bit-physical-caller/inputs/pr2769/codec.py",
+    "research/selected-bit-physical-caller/inputs/pr2769/vendor/parking_machine.py",
+    "research/selected-bit-physical-caller/inputs/pr2769/vendor/words.py",
+    "research/selected-bit-physical-caller/macro_binding.py",
+    "research/selected-bit-physical-caller/macro_machine.py",
+    "research/selected-bit-physical-caller/role_parking.py",
+    "research/selected-bit-physical-caller/scratch_pool.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact unchanged-codec invoices, weighted lifetime spans, primitive copy/grant/header scans and committed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same mathematical checks remain active under optimization."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_export.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Actual Git-free optimized CLI positive plus every live source corruption and receipt corruption rejects."
+    }
+  ]
+}

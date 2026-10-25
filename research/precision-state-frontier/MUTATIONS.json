@@ -1,0 +1,110 @@
+{
+  "mutants": [
+    {
+      "file": "frontier.py",
+      "modes": [
+        {
+          "exit_code": 1,
+          "optimized": false,
+          "rejection": "ValueError: scalar fiber ceiling"
+        },
+        {
+          "exit_code": 1,
+          "optimized": true,
+          "rejection": "ValueError: scalar fiber ceiling"
+        }
+      ],
+      "name": "half-ties-toward-zero",
+      "original_sha256": "3f623f3e64890905a50c64514bd13e353ed31a26d498f91bb1201a629e6fb8f7",
+      "replacement": {
+        "after": "(abs(value)+25)//52",
+        "before": "(abs(value)+26)//52"
+      }
+    },
+    {
+      "file": "frontier.py",
+      "modes": [
+        {
+          "exit_code": 1,
+          "optimized": false,
+          "rejection": "ValueError: source precision/state ceiling"
+        },
+        {
+          "exit_code": 1,
+          "optimized": true,
+          "rejection": "ValueError: source precision/state ceiling"
+        }
+      ],
+      "name": "ignore-binary-coset",
+      "original_sha256": "3f623f3e64890905a50c64514bd13e353ed31a26d498f91bb1201a629e6fb8f7",
+      "replacement": {
+        "after": "patterns = list(range(256))",
+        "before": "patterns = self.signatures.get(signature, [])"
+      }
+    },
+    {
+      "file": "frontier.py",
+      "modes": [
+        {
+          "exit_code": 1,
+          "optimized": false,
+          "rejection": "ValueError: exact source reconstruction"
+        },
+        {
+          "exit_code": 1,
+          "optimized": true,
+          "rejection": "ValueError: exact source reconstruction"
+        }
+      ],
+      "name": "forget-relative-input-scale",
+      "original_sha256": "3f623f3e64890905a50c64514bd13e353ed31a26d498f91bb1201a629e6fb8f7",
+      "replacement": {
+        "after": "q = [round52(t) for t in self.transpose(x)]",
+        "before": "q = [round52(scale*t) for t in self.transpose(x)]"
+      }
+    },
+    {
+      "file": "frontier.py",
+      "modes": [
+        {
+          "exit_code": 1,
+          "optimized": false,
+          "rejection": "ValueError: source precision/state ceiling"
+        },
+        {
+          "exit_code": 1,
+          "optimized": true,
+          "rejection": "ValueError: source precision/state ceiling"
+        }
+      ],
+      "name": "omit-weight-four-words",
+      "original_sha256": "3f623f3e64890905a50c64514bd13e353ed31a26d498f91bb1201a629e6fb8f7",
+      "replacement": {
+        "after": "for z in self.dual if z.bit_count() != 4)",
+        "before": "for z in self.dual)"
+      }
+    },
+    {
+      "file": "history.py",
+      "modes": [
+        {
+          "exit_code": 1,
+          "optimized": false,
+          "rejection": "ValueError: sharp history alphabet"
+        },
+        {
+          "exit_code": 1,
+          "optimized": true,
+          "rejection": "ValueError: sharp history alphabet"
+        }
+      ],
+      "name": "reuse-history-after-every-round",
+      "original_sha256": "9537b305fe48918e1e1404a3fda6615de8e7456dfb118d37da0a0d14ea749892",
+      "replacement": {
+        "after": "exponent = 8*components",
+        "before": "exponent = 8*rounds*components"
+      }
+    }
+  ],
+  "status": "PASS_SEMANTIC_MUTATION_CONTROLS"
+}

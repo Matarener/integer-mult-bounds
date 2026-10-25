@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Exact ordered-four-plus-three construction, rational fixture, source-authenticated independent oracle, and finite rank-two/repeated-direction/incidence controls. The general result is the analytic proof, not a finite census or formal kernel check."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "-Werror", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeat all exact controls under isolation, optimization and warnings-as-errors; explicit rejection checks remain active without assertions."
+    }
+  ]
+}

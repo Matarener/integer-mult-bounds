@@ -1,0 +1,136 @@
+CompilerAudit.SourceBridge.flatMap_range'_const {β : Type} (f : ℕ → List β) (xs : List β) (s n : ℕ) :
+  (∀ (r : ℕ), s ≤ r → r < s + n → f r = xs) → List.flatMap f (List.range' s n) = CompilerAudit.copies n xs
+'CompilerAudit.SourceBridge.flatMap_range'_const' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.flatMap_range_const {β : Type} (f : ℕ → List β) (xs : List β) (n : ℕ)
+  (h : ∀ r < n, f r = xs) : List.flatMap f (List.range n) = CompilerAudit.copies n xs
+'CompilerAudit.SourceBridge.flatMap_range_const' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.product_map_swap (l₁ l₂ : List ℕ) (c : Bool) :
+  List.map (fun p => (p.2, c, p.1)) (l₁ ×ˢ l₂) = List.flatMap (fun o => List.map (fun i => (i, c, o)) l₂) l₁
+'CompilerAudit.SourceBridge.product_map_swap' depends on axioms: [propext]
+CompilerAudit.SourceBridge.product_map_keep (l₁ l₂ : List ℕ) (c : Bool) :
+  List.map (fun p => (p.1, c, p.2)) (l₁ ×ˢ l₂) = List.flatMap (fun i => List.map (fun o => (i, c, o)) l₂) l₁
+'CompilerAudit.SourceBridge.product_map_keep' depends on axioms: [propext]
+CompilerAudit.SourceBridge.groupWord_low (N : ℕ) (g : CompilerAudit.Group) (hc : g.common = true)
+  (hl : g.lowMajor = true) :
+  CompilerAudit.groupWord N g = List.flatMap (fun o => List.map (fun i => (i, true, o)) g.ids) (List.range N)
+'CompilerAudit.SourceBridge.groupWord_low' depends on axioms: [propext]
+CompilerAudit.SourceBridge.groupWord_idle (N : ℕ) (g : CompilerAudit.Group) (hc : g.common = false)
+  (hl : g.lowMajor = false) :
+  CompilerAudit.groupWord N g = List.flatMap (fun i => List.map (fun o => (i, false, o)) (List.range N)) g.ids
+'CompilerAudit.SourceBridge.groupWord_idle' depends on axioms: [propext]
+CompilerAudit.SourceBridge.map_eq_self_of (f : ℕ → ℕ) (l : List ℕ) : (∀ x ∈ l, f x = x) → List.map f l = l
+'CompilerAudit.SourceBridge.map_eq_self_of' depends on axioms: [propext]
+CompilerAudit.SourceBridge.lows_rank {α : Type} (lows : List α) (rank : α → ℕ) (unrank : ℕ → α) (N : ℕ)
+  (hlows : lows = List.map unrank (List.range N)) (hinv : ∀ o < N, rank (unrank o) = o) :
+  List.map rank lows = List.range N
+'CompilerAudit.SourceBridge.lows_rank' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.rank_injOn {α : Type} (lows : List α) (rank : α → ℕ) (unrank : ℕ → α) (N : ℕ)
+  (hlows : lows = List.map unrank (List.range N)) (hinv : ∀ o < N, rank (unrank o) = o) (x : α) :
+  x ∈ lows → ∀ y ∈ lows, rank x = rank y → x = y
+'CompilerAudit.SourceBridge.rank_injOn' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.lowPass_eq {α : Type} (evs : List CompilerAudit.SourceBridge.LocalEvent) (l : α) :
+  CompilerAudit.SourceBridge.lowPass evs l =
+    List.map (fun i => (i, true, l)) (List.flatMap CompilerAudit.SourceBridge.LocalEvent.emits evs)
+'CompilerAudit.SourceBridge.lowPass_eq' depends on axioms: [propext]
+CompilerAudit.SourceBridge.replicaPass_map {α : Type} (rank : α → ℕ) (evs : List CompilerAudit.SourceBridge.LocalEvent)
+  (lows : List α) :
+  List.map (CompilerAudit.SourceBridge.rename rank) (CompilerAudit.SourceBridge.replicaPass lows evs) =
+    List.flatMap
+      (fun o => List.map (fun i => (i, true, o)) (List.flatMap CompilerAudit.SourceBridge.LocalEvent.emits evs))
+      (List.map rank lows)
+'CompilerAudit.SourceBridge.replicaPass_map' depends on axioms: [propext]
+CompilerAudit.SourceBridge.idlePass_map {α : Type} (rank : α → ℕ) (lows : List α) (ids : List ℕ) :
+  List.map (CompilerAudit.SourceBridge.rename rank) (CompilerAudit.SourceBridge.idlePass lows ids) =
+    List.flatMap (fun i => List.map (fun o => (i, false, o)) (List.map rank lows)) ids
+'CompilerAudit.SourceBridge.idlePass_map' depends on axioms: [propext]
+CompilerAudit.SourceBridge.sweep_transport {α : Type} (lows : List α) (rank : α → ℕ) (N replicas : ℕ)
+  (hlow : List.map rank lows = List.range N) (calls : ℕ → List CompilerAudit.SourceBridge.LocalEvent)
+  (g : CompilerAudit.Group)
+  (hm : CompilerAudit.SourceBridge.Matches replicas (CompilerAudit.SourceBridge.Event.sweep calls) g) :
+  List.map (CompilerAudit.SourceBridge.rename rank)
+      (CompilerAudit.SourceBridge.eventTrace lows replicas (CompilerAudit.SourceBridge.Event.sweep calls)) =
+    CompilerAudit.copies replicas (CompilerAudit.groupWord N g)
+'CompilerAudit.SourceBridge.sweep_transport' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.idle_transport {α : Type} (lows : List α) (rank : α → ℕ) (N replicas : ℕ)
+  (hlow : List.map rank lows = List.range N) (ids : List ℕ) (g : CompilerAudit.Group)
+  (hm : CompilerAudit.SourceBridge.Matches replicas (CompilerAudit.SourceBridge.Event.idle ids) g) :
+  List.map (CompilerAudit.SourceBridge.rename rank)
+      (CompilerAudit.SourceBridge.eventTrace lows replicas (CompilerAudit.SourceBridge.Event.idle ids)) =
+    CompilerAudit.copies replicas (CompilerAudit.groupWord N g)
+'CompilerAudit.SourceBridge.idle_transport' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.sourceTrace_cons {α : Type} (lows : List α) (replicas : ℕ)
+  (e : CompilerAudit.SourceBridge.Event) (es : List CompilerAudit.SourceBridge.Event) :
+  CompilerAudit.SourceBridge.sourceTrace lows replicas (e :: es) =
+    CompilerAudit.SourceBridge.eventTrace lows replicas e ++ CompilerAudit.SourceBridge.sourceTrace lows replicas es
+'CompilerAudit.SourceBridge.sourceTrace_cons' depends on axioms: [propext]
+CompilerAudit.SourceBridge.trace_transport {α : Type} (lows : List α) (rank : α → ℕ) (N replicas : ℕ)
+  (hlow : List.map rank lows = List.range N) (sched : List CompilerAudit.SourceBridge.Event)
+  (groups : List CompilerAudit.Group) :
+  List.Forall₂ (CompilerAudit.SourceBridge.Matches replicas) (CompilerAudit.SourceBridge.residualEvents sched) groups →
+    List.map (CompilerAudit.SourceBridge.rename rank) (CompilerAudit.SourceBridge.sourceTrace lows replicas sched) =
+      CompilerAudit.visitWord groups replicas N
+'CompilerAudit.SourceBridge.trace_transport' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.mem_eventTrace_low {α : Type} (lows : List α) (replicas : ℕ)
+  (e : CompilerAudit.SourceBridge.Event) (k : CompilerAudit.SourceBridge.SKey α)
+  (hk : k ∈ CompilerAudit.SourceBridge.eventTrace lows replicas e) : k.2.2 ∈ lows
+'CompilerAudit.SourceBridge.mem_eventTrace_low' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.mem_sourceTrace_low {α : Type} (lows : List α) (replicas : ℕ)
+  (sched : List CompilerAudit.SourceBridge.Event) (k : CompilerAudit.SourceBridge.SKey α)
+  (hk : k ∈ CompilerAudit.SourceBridge.sourceTrace lows replicas sched) : k.2.2 ∈ lows
+'CompilerAudit.SourceBridge.mem_sourceTrace_low' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.toFinset_map_card {β γ : Type} [DecidableEq β] [DecidableEq γ] (f : β → γ) (l : List β)
+  (hinj : ∀ x ∈ l, ∀ y ∈ l, f x = f y → x = y) : (List.map f l).toFinset.card = l.toFinset.card
+'CompilerAudit.SourceBridge.toFinset_map_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+CompilerAudit.SourceBridge.source_distinct {α : Type} [DecidableEq α] (lows : List α) (rank : α → ℕ) (unrank : ℕ → α)
+  (N replicas : ℕ) (hlows : lows = List.map unrank (List.range N)) (hinv : ∀ o < N, rank (unrank o) = o)
+  (sched : List CompilerAudit.SourceBridge.Event) (groups : List CompilerAudit.Group)
+  (h :
+    List.Forall₂ (CompilerAudit.SourceBridge.Matches replicas) (CompilerAudit.SourceBridge.residualEvents sched)
+      groups) :
+  (CompilerAudit.SourceBridge.sourceTrace lows replicas sched).toFinset.card =
+    (CompilerAudit.visitWord groups replicas N).toFinset.card
+'CompilerAudit.SourceBridge.source_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+CompilerAudit.SourceBridge.fm_other {W : Type} (n : ℕ) :
+  List.filterMap CompilerAudit.SourceBridge.SrcOp.ref (List.replicate n CompilerAudit.SourceBridge.SrcOp.other) = []
+'CompilerAudit.SourceBridge.fm_other' does not depend on any axioms
+CompilerAudit.SourceBridge.fm_block {W : Type} (n : ℕ) (w : W) :
+  List.filterMap CompilerAudit.SourceBridge.SrcOp.ref (List.replicate n (CompilerAudit.SourceBridge.SrcOp.block w)) =
+    List.replicate n w
+'CompilerAudit.SourceBridge.fm_block' does not depend on any axioms
+CompilerAudit.SourceBridge.fm_seg {W : Type} (s : CompilerAudit.SourceBridge.Seg W) :
+  List.filterMap CompilerAudit.SourceBridge.SrcOp.ref (CompilerAudit.SourceBridge.segOps s) =
+    s.wrapper :: (List.replicate s.blocks s.wrapper ++ [s.wrapper])
+'CompilerAudit.SourceBridge.fm_seg' depends on axioms: [propext]
+CompilerAudit.SourceBridge.refs_emit {W : Type} (segs : List (CompilerAudit.SourceBridge.Seg W)) (tail : ℕ) :
+  CompilerAudit.SourceBridge.srcRefs (CompilerAudit.SourceBridge.emitSrc segs tail) =
+    List.flatMap (fun s => s.wrapper :: (List.replicate s.blocks s.wrapper ++ [s.wrapper])) segs
+'CompilerAudit.SourceBridge.refs_emit' depends on axioms: [propext]
+CompilerAudit.SourceBridge.refs_length {W : Type} (segs : List (CompilerAudit.SourceBridge.Seg W)) (tail : ℕ) :
+  (CompilerAudit.SourceBridge.srcRefs (CompilerAudit.SourceBridge.emitSrc segs tail)).length =
+    2 * segs.length + (List.map CompilerAudit.SourceBridge.Seg.blocks segs).sum
+'CompilerAudit.SourceBridge.refs_length' depends on axioms: [propext, Quot.sound]
+CompilerAudit.SourceBridge.retained_emit {W : Type} [DecidableEq W] (segs : List (CompilerAudit.SourceBridge.Seg W))
+  (tail : ℕ) (hfresh : (List.map CompilerAudit.SourceBridge.Seg.wrapper segs).Nodup) :
+  (CompilerAudit.SourceBridge.srcRetained (CompilerAudit.SourceBridge.emitSrc segs tail)).card = segs.length
+'CompilerAudit.SourceBridge.retained_emit' depends on axioms: [propext, Classical.choice, Quot.sound]
+CompilerAudit.SourceBridge.selected_source_transport {α W : Type} [DecidableEq α] [DecidableEq W] (lows : List α)
+  (rank : α → ℕ) (unrank : ℕ → α) (N : ℕ) (hlows : lows = List.map unrank (List.range N))
+  (hinv : ∀ o < N, rank (unrank o) = o) (sched : List CompilerAudit.SourceBridge.Event)
+  (hsched :
+    List.Forall₂ (CompilerAudit.SourceBridge.Matches CompilerAudit.SelectedData.replicaCount)
+      (CompilerAudit.SourceBridge.residualEvents sched) CompilerAudit.Selected.groups)
+  (blocks : CompilerAudit.Key → ℕ) (segs : List (CompilerAudit.SourceBridge.Seg W)) (tail : ℕ)
+  (hbud :
+    List.map CompilerAudit.SourceBridge.Seg.blocks segs =
+      List.map (fun k => blocks (CompilerAudit.SourceBridge.rename rank k))
+        (CompilerAudit.SourceBridge.sourceTrace lows CompilerAudit.SelectedData.replicaCount sched))
+  (hfresh : (List.map CompilerAudit.SourceBridge.Seg.wrapper segs).Nodup) :
+  List.map (CompilerAudit.SourceBridge.rename rank)
+        (CompilerAudit.SourceBridge.sourceTrace lows CompilerAudit.SelectedData.replicaCount sched) =
+      CompilerAudit.Selected.word N ∧
+    (CompilerAudit.SourceBridge.sourceTrace lows CompilerAudit.SelectedData.replicaCount sched).toFinset.card =
+        28278 * N ∧
+      (CompilerAudit.SourceBridge.srcRetained (CompilerAudit.SourceBridge.emitSrc segs tail)).card = 904896 * N ∧
+        (CompilerAudit.SourceBridge.srcRefs (CompilerAudit.SourceBridge.emitSrc segs tail)).length =
+          1809792 * N + CompilerAudit.Result.blockTotal N blocks
+'CompilerAudit.SourceBridge.selected_source_transport' depends on axioms: [propext, Classical.choice, Quot.sound]

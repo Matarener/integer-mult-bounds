@@ -1,0 +1,128 @@
+{
+  "status": "PASS_TERMINAL_T488_FULL_ADMISSION",
+  "authoritative_session": 48234,
+  "exit_code": 0,
+  "source_pins": {
+    "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/RESULT.json": "50698ed610dd4b2ebfab2c9a92b657f16d3e1987da8d564c13a588a25b1437e4",
+    "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/release/RELEASE-RECEIPT.json": "dd5c6eea88986c57ccd9ce76c2702c60817237db1935729568134dbd001007b5",
+    "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/CURRENT-FRONTIER-CHECK.json": "0abf49110acaea4e176abcdc2ccf667852cdcb9137115e14bed8a26c13854861",
+    "/private/tmp/integer-mult-experiments/contract/pr3605-t488-launch.json": "695d1fb0f4c74d5e49d67af05727158b53b972a8ec8f211e5ec50c0d15e8e1ce",
+    "/private/tmp/integer-mult-experiments/contract/pr3605_t488_entry.py": "00cb1277497c053c7ca2b7d58c2a95a14eac22841b3f203f90e5533e3cfd30d3",
+    "/private/tmp/integer-mult-experiments/contract/pr3605-public-full-replay/changed/native/NATIVE-RECEIPT.json": "411b6fc1ac480263a90d36eca58c109687307e9a2d204af3ed4d002f9f8ff629",
+    "/private/tmp/integer-mult-experiments/contract/pr3605-t488-portable-live-equivalence.json": "835e929bf358077efdc3461a02946e19377fff19a1aab3789aeb80b070dad8ab"
+  },
+  "stages": [
+    {
+      "name": "owners",
+      "exit_code": 0,
+      "seconds": 32.97771345899673,
+      "command": [
+        "/private/tmp/integer-mult-experiments/adversarial/cap740-venv/bin/python",
+        "-B",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package/reconstruct.py",
+        "--out",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/owners"
+      ]
+    },
+    {
+      "name": "parent-lift",
+      "exit_code": 0,
+      "seconds": 67.28546375001315,
+      "command": [
+        "/private/tmp/integer-mult-experiments/adversarial/cap740-venv/bin/python",
+        "-B",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package/lift_parent.py",
+        "--package",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package",
+        "--owners",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/owners",
+        "--out",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/parent-data"
+      ]
+    },
+    {
+      "name": "rebind",
+      "exit_code": 0,
+      "seconds": 6.395641707989853,
+      "command": [
+        "/private/tmp/integer-mult-experiments/adversarial/cap740-venv/bin/python",
+        "-B",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package/new/rebind.py",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-public-full-replay/changed/native/native-cache/735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653/local",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-public-full-replay/changed/native/native-cache/886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f/local",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/rebound"
+      ]
+    },
+    {
+      "name": "discovery",
+      "exit_code": 0,
+      "seconds": 588.8035517499957,
+      "command": [
+        "/private/tmp/integer-mult-experiments/adversarial/cap740-venv/bin/python",
+        "-B",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/layout/packing74/replay.py",
+        "--data",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/layout/packing74/candidate",
+        "--work",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/discovery",
+        "--local",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-public-full-replay/changed/native/native-cache/735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653/local",
+        "--discover"
+      ]
+    },
+    {
+      "name": "outer-check_ledger.py",
+      "exit_code": 0,
+      "seconds": 0.08240837501944043,
+      "command": [
+        "/private/tmp/integer-mult-experiments/adversarial/cap740-venv/bin/python",
+        "-B",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package/outer/check_ledger.py"
+      ]
+    },
+    {
+      "name": "outer-independent_check.py",
+      "exit_code": 0,
+      "seconds": 0.03534187498735264,
+      "command": [
+        "/private/tmp/integer-mult-experiments/adversarial/cap740-venv/bin/python",
+        "-B",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package/outer/independent_check.py"
+      ]
+    },
+    {
+      "name": "release",
+      "exit_code": 0,
+      "seconds": 891.9768864999933,
+      "command": [
+        "/private/tmp/integer-mult-experiments/adversarial/cap740-venv/bin/python",
+        "-B",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/package/verify_release.py",
+        "--main",
+        "/private/tmp/integer-mult-experiments/contract",
+        "--work",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-t488-full-admission/release",
+        "--native-cache",
+        "/private/tmp/integer-mult-experiments/contract/pr3605-public-full-replay/changed/native/native-cache",
+        "--jobs",
+        "2"
+      ]
+    }
+  ],
+  "kappa": "17300963635286235342299999999999999999999998999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000",
+  "profile": {
+    "1": 10826280,
+    "2": 3188592,
+    "3": 1015650,
+    "4": 447984,
+    "48": 186782,
+    "5": 94794,
+    "8": 35136
+  },
+  "native_coverage": "Fresh both-current-provider five-stage cache authenticated and reused; retained parent evidence separately authenticated. T488 did not rerun cold native providers.",
+  "portable_coverage": "Exact portable/live source and driver equivalence; no completed T488 portable CLI claimed.",
+  "admission_scope": "Conditional inherited all-size/compiler/precision assumptions remain. Internal supplier endpoint differs from global outer headline.",
+  "scientific_source_mutations_during_run": false,
+  "preflight_note": "One entry-only missing candidate filename rejected before scientific driver launch; corrected exact candidate path and preserved preflight failure log. No scientific rerun."
+}

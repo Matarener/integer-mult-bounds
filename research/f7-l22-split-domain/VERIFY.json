@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/f7-weight-parity-census-correction/math/check_math.py",
+    "research/f7-weight-parity-census-correction/MATH.md",
+    "research/f7-weight-parity-census-correction/README.md",
+    "research/community-efficient1900-audit/originals/2911/research/f7-18point-cover-question-seed6d34356c/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Reconstructs the 01021323 bit-0 versus weight-parity calibration; enumerates every restored word at eight small (n,L) domains and requires the three independently published counts; requires every universal word to satisfy all four derived necessary conditions; recomputes the published length-18 and length-20 domains and budgets; requires the pair identity to be load-bearing; checks the padding lemma; and derives the length-22 domain with named exclusion reasons, the cardinality floor and the (11,11)-only simple-cycle condition. Failure controls are the negated published counts, budgets and domain sizes."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+All-width strict recovery from a weighted infinity transfer certificate
+
+Scope and result.
+This note gives a sufficient all-width exact-recovery theorem in the complete physical transfer contract of PR 5441/5451. Its finite rational certificate uses a weighted induced infinity norm. Unlike an unconditioned Euclidean operator bound, it directly consumes a coordinate bound on integer digits, without multiplying by the square root of the physical dimension. It also supplies a closed-form sufficient bit budget for the shared fixed-point FFT at every power-of-two length. These results do not establish a changed selected paid profile, a selected residual table, or a new kappa.
+
+1. Complete weighted infinity transfer theorem.
+Let T[y,x] be D-by-D real matrices for every local physical input x and output y in {0,...,d-1}, let F be a p-by-D left boundary and B a D-by-q right boundary. For width f define the full physical endpoint
+ E_f[i,y_1...y_f ; j,x_1...x_f]=(F T[y_1,x_1] ... T[y_f,x_f] B)[i,j].
+Supply strictly positive rational virtual weights w_v and nonnegative bounds a,b,rho satisfying
+ (A) for each output role i, sum_v |F[i,v]| w_v <= a;
+ (B) for each virtual v, sum_j |B[v,j]| <= b w_v;
+ (C) for every output letter y and virtual v,
+     sum_(x,u) |T[y,x][v,u]| w_u <= rho w_v.
+Then for every positive integer f,
+                 ||E_f||_infinity <= a b rho^f.
+Here ||M||_infinity is the maximum absolute row sum, the induced norm on coordinatewise bounded input vectors. In particular, for every input with max_j |z_j|<=H, every output coordinate of E_f z has magnitude at most a b rho^f H.
+
+Proof. Give a virtual/physical array the norm max_(v,inputword) |z[v,inputword]|/w_v. Condition B bounds the right-boundary map from input infinity norm by b. Condition C bounds each local map from virtual+input-letter to virtual+output-letter by rho: take absolute values, apply the input bound w_u times the norm, and sum over EVERY input letter x and virtual index u. Identity factors on other physical columns preserve this weighted infinity norm. Compose the maps in column order f,...,1; this produces exactly the displayed matrix product. Condition A bounds the final left boundary by a. Multiplying the bounds proves the theorem. All cross-input contributions and all input/output roles remain in the contract. This is a sufficient contract; cancellation can make an uncertifiable representation stable, so certificate failure is not an instability theorem.
+
+2. Exact lattice recovery.
+Suppose an exact target operator A_f has outputs on h Z, where h>0, and an implemented endpoint is A_f+E_f with E_f represented by the complete table above. If every input coordinate is bounded in absolute value by H and
+                        a b rho^f H < h/2,
+then coordinatewise nearest-h-lattice rounding of the implemented output recovers A_f z exactly. If rho<=1, the width-uniform sufficient condition a b rho H<h/2 covers every f>=1.
+
+Proof. The transfer theorem bounds each coordinate error strictly below h/2. Write the exact output as h m with m an integer. Then |(computed/h)-m|<1/2, which gives m<=computed/h+1/2<m+1. Taking the floor recovers m. Multiplication by h recovers the exact output. The tie convention is immaterial under a strict bound. Equality is insufficient: computed=h/2 with intended target zero rounds up under floor(x/h+1/2).
+
+Connection and distinction. PR 5451 proves a squared Euclidean operator bound a b c^f using a positive definite quadratic metric and full coherent cross-input PSD inequalities. That result is preserved. Applying an l2 bound to digit-bounded inputs ordinarily still requires ||z||_2, which can grow as the square root of the input dimension. The weighted infinity certificate is an alternate sufficient contract matching coordinatewise recovery. It is not claimed stronger for every table or novel as a general induced-norm theorem. It can be more directly useful for bounded digits when its absolute-row inequalities hold.
+
+3. Concrete width-uniform example using the predecessor table.
+Use the parity residual from PR 5451: D=d=2, T[0,0]=I, T[1,1]=diag(1,-1), other blocks zero, F=(epsilon/2,-epsilon/2), B=(1,1)^T. With weights (1,1), bounds a=epsilon,b=1,rho=1 satisfy A-C. Its endpoint is epsilon times the odd-parity projector. Let h=2^-74, epsilon=2^-79 and H=15. Then a b rho H=15*2^-79=(15/32)h<h/2. Thus, for EVERY width, adding this residual to any exact lattice-valued target recovers the target on all coordinate-bounded inputs after nearest-h rounding.
+
+This is a positive instantiated theorem for the actual predecessor example table. It is not a claim that the selected caller has that residual, the required coordinate bound, or an identity decoder. A second certificate conjugates two noncommuting signed virtual rotations by diag(2,3), uses virtual weights (1/2,1/3), and gives the same recovery bound. The exact checker verifies both certificates, 12 literal endpoint matrices (widths 1 through 6), and 12 associated lattice-recovery controls. A coherent row [1,1] is rejected at rho=1 although its individual columns are bounded; this guards the full-input condition.
+
+Relation to PR 5438. Its complete selected-caller exact-grid record gives body ceil(9 lambda/2)+6 and controller 74 extra fractional bits. Exact grid alignment alone is not a stability or sufficient-recovery error bound. Our 74-bit example shows the precise additional residual/H contract that would make such a grid recoverable; it does not import the grid record as proof of that missing contract. Body operations outside the provider are not independently cut in that PR and must not be silently included. The root finding cites a selected grid, not a fixed 74-bit all-size integer multiplication algorithm.
+
+4. Closed-form all-size precision theorem for the shared FFT.
+Let N=2^L, L>=1, and exact input digit magnitudes be at most an integer D>=1. Use fixed-point complex arithmetic with Q=2^b, exact unbounded integer intermediate products and additions, and nearest complex-product component rounding. Suppose the actual twiddle table is independently certified to Euclidean error at most delta=1/Q. For each stage use one shared twiddle product for its two butterfly outputs. Then the uniform sufficient choice
+        Q >= 4 N^2 A,    A=(5D^2+2D)L+8D+8,
+gives final coefficient error at most 1/4, and thus exact integer convolution recovery whenever zero padding removes cyclic wrap.
+
+Proof. Write M_s,E_s for exact magnitudes and approximation errors. A butterfly gives M_(s+1)<=2M_s and
+ E_(s+1)<=(2+delta)E_s+delta M_s+delta.
+The product term includes twiddle/input error interaction delta E_s. Set e_s=E_s/2^s. Since delta L<=1, the amplification (1+delta/2)^L is at most 2. For completeness, expand the binomial and bound binomial(L,k)<=L^k; the result is at most the geometric sum 1/(1-L delta/2)<=2. Starting from M_0=D,E_0=0 and summing the geometric 2^(-s) terms gives
+                  E_forward <= N delta K, K=DL+2.
+Exact forward magnitudes are at most ND. The pointwise product error is at most
+             E_product <= 2ND E_forward+E_forward^2+delta.
+The proposed Q ensures delta K<=1, so
+             E_product <= N^2 delta (2D+1)K+delta.
+For the unnormalized inverse start at magnitude N^2 D^2 and error E_product. The same rescaled recurrence, divided by N at the end, gives
+ final_error <= 2E_product+delta N^2 D^2 L+2delta
+             <= delta N^2 [2(2D+1)K+D^2L+4]
+             = delta N^2 [(5D^2+2D)L+8D+8]
+             <= 1/4.
+The conditions delta L<=1 and delta K<=1 used above follow immediately from Q>=4N^2 A. Strict half-unit recovery then gives exact integer coefficients. This proof uses no empirical error estimate and includes every forward, pointwise and inverse rounding contribution.
+
+For D=15, b=ceil(log2(4 N^2 (1155L+128))) suffices. Examples: L=9 -> b=34, L=16 -> b=49, L=32 -> b=82. The earlier exact finite recurrence can certify 31 bits at N=512; the simpler closed form is intentionally conservative. Fixed 31 bits does NOT cover growing N. The exact checker independently evaluates the unsimplified rational recurrence for 96 choices L=1,...,32 and D=1,15,255 and verifies the 1/4 bound. These controls support the formula; the algebra above proves it universally.
+
+A certified root table remains an explicit premise, obtainable by sufficiently refining exact transcendental interval bounds; the earlier fixed-degree/fixed-pi-precision generator is not claimed to work unchanged at arbitrary N or b. This is a precision theorem, not an all-size complexity theorem: table generation, multiword products, normalization, input/output conversions, storage, and the selected paid-profile interface still require charges. There is no unit-cost 64-bit approximation of unrestricted multiword arithmetic.
+
+5. Consequences for the actual frontier.
+The freshly read PR 5440 at c0f52b5b18bba78a6a5e8057edf9571bade88549 gives a conditional complex supplier near 0.007578535190 but says its admitted BIT saving 17/5000 binds the advertised candidate 951999/280000000. It explicitly records a missing chain-to-event compiler and physical_attachment CONDITIONAL. Our recovery certificate alone changes neither the admitted BIT supplier nor the complete p19 native program. Therefore it cannot be used as an arithmetic excuse to raise that kappa.
+
+Likewise, the selected PR 5413 remains the authoritative conditional record unless its own complete paid profile, physical source binding and outer ledger are improved. Replacing a crude intermediate-height estimate by an exact grid is useful but cannot on its own change a leading tariff; width-independent bit savings can be lower-order. Current autoresearch.md explicitly says more digits of the same root do not count as a hill-climbing step, and requires a changed complete paid profile. No changed selected frontier, selected consumer recovery theorem or project-best claim is made here.
+
+Open next questions.
+1. Extract a complete residual table of one selected native physical consumer, including every return and dirty role, and check A-C with a rational weight vector. First step: preserve its exact table/role source hash and derive the row sums. Blocker: no selected complete residual is present in the cited packages.
+2. Prove the actual input coordinate bound H and decoder infinity norm for that consumer. First step: use the literal source row forms and coefficient ranges, rather than infer H from the exact grid. Blocker: an exact denominator exponent does not bound coordinate magnitudes or conditioning.
+3. If the resulting precision bill is genuinely smaller in its leading term, reprice the complete selected invoice and every outer predicate. First step: expose a before/after precision tariff in the selected source. Blocker: no such invoice replacement is established by the present theorem.
+
+Credit.
+Ali Romman and retained contributors supply PR 5451's complete transfer contract, rational metric checker and parity/noncommuting examples; zxv's PR 5441 supplies the preceding physical-table lifting and approximation handoff. Matarener supplies PR 5438's exact grid, with Clear1nsight (#5413), dillona (#5402), Ali Romman (#5383,#5398), Cao Yifan (#4610), Ross Richardson's Clifford denominator lemma and zxv (#5428) explicitly retained there. The p19 word retains its PR 4940/4929 controller/producer and PR 4470/4610 native lineage. bksaiki/mpfx-lean supplies the strict lattice-recovery precedent; thomasahle/fast-polynomials supplies fixed-syntax sharing. Induced matrix norms, geometric-series FFT inversion and strict-half recovery are classical. This scoped combination and exact checker were prepared with substantial OpenAI Codex assistance; Apache-2.0.

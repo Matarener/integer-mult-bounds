@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/h6-compensation-network/README.md",
+    "research/h6-compensation-network/construction/network.py",
+    "research/h6-compensation-network/contract/THEOREM.md",
+    "research/h6-compensation-network/pricing/verify.py",
+    "research/h6-compensation-network/routes/BUCKETED-SCHEMA.json",
+    "research/niemeier-lattices/code/e8_cubed.py",
+    "research/e8-complex-gauge-kernel/code/emit_gk.py",
+    "research/h6-compensation-network/physical_compiler/universal.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact recursive E8 geometry, all16 factors, complete invoices and forward/dual all-input-column dirty lifecycle fixture; strict typed receipt comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate pattern enumeration and direct E8 cosets, frozen-source coefficient/tariff/helper-term oracles, complete pair counts and determinant ranks; no primary geometry, factor, invoice or word imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "25 expected failures covering matched wrong signs, full-rank compression, missing prefix/K/cleanup, source frame chronology and representatives, DG entries, source reads, typed receipts, sealed live inputs and overwrite refusal."
+    }
+  ]
+}

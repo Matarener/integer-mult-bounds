@@ -1,0 +1,65 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "admit_pairings.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "PASS_FOUR_EXACT_FULL_STOCK_PATH_PAIRING_CERTIFICATES\nREPAIRED q2 floor 72 mass 80 paths [12, 12, 12, 12, 12, 12]\nREPAIRED q3 floor 128 mass 136 paths [16, 16, 16, 16, 16, 16, 16, 16]\nTWO-SITE q2 floor 72 mass 76 paths [12, 12, 12, 12, 12, 12]\nTWO-SITE q3 floor 128 mass 132 paths [16, 16, 16, 16, 16, 16, 16, 16]\n"
+    },
+    {
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "-O",
+        "admit_pairings.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "PASS_FOUR_EXACT_FULL_STOCK_PATH_PAIRING_CERTIFICATES\nREPAIRED q2 floor 72 mass 80 paths [12, 12, 12, 12, 12, 12]\nREPAIRED q3 floor 128 mass 136 paths [16, 16, 16, 16, 16, 16, 16, 16]\nTWO-SITE q2 floor 72 mass 76 paths [12, 12, 12, 12, 12, 12]\nTWO-SITE q3 floor 128 mass 132 paths [16, 16, 16, 16, 16, 16, 16, 16]\n"
+    }
+  ],
+  "coverage": "All four exact circuit/phase path partitions, independent direct crossed replay, native-rank sums, two-sided signed holonomy inverses, all-straight/edge-omission/SWAP controls.",
+  "discovery": "Exact-rank annealed bit-flip proposals stopped at the theoretical n*m objective maximum. Their counts are discovery records, not exhaustive search evidence.",
+  "files": [
+    {
+      "path": "admit_pairings.py",
+      "sha256": "f0ce5196bf3c75ed1ed22a8424e971293f56cf6939be34ccd3f082430440f91c"
+    },
+    {
+      "path": "pairing_search.py",
+      "sha256": "4c1dc5986808c62a2caace8059f5c8a2a6a706b4ad46ed042542b5f63e27c023"
+    },
+    {
+      "path": "FULL-STOCK-CERTIFICATES.json",
+      "sha256": "bf09718bbce18a3d7a0ab26074661d48a2f844a447064eba886bf6ce659b2cb5"
+    },
+    {
+      "path": "PROOF.md",
+      "sha256": "5f9fc20d71ca16d455ab050ac9cb990102e7d10e44c4ab0e1cc23fce1d222673"
+    },
+    {
+      "path": "REPAIRED-Q2-PROPOSAL.json",
+      "sha256": "77d344a5498ae87b4111f623e04e73798252a5ddb61c353e627bc9a3a2162636"
+    },
+    {
+      "path": "REPAIRED-Q3-PROPOSAL.json",
+      "sha256": "c5bdfcf8bcb3cb5f82bf1ad5c3f02e6133b049f460154cf8159b97469510e46a"
+    },
+    {
+      "path": "TWO-SITE-Q2-PROPOSAL.json",
+      "sha256": "53b72d0719e2211ae1f61cd29d3310e41728d66f3b8129616c402d65d6d4edf2"
+    },
+    {
+      "path": "TWO-SITE-Q3-PROPOSAL.json",
+      "sha256": "6e76d41e89491cc2f1a91680eb3858af0484da3f5fddb515f4e71cbc40b6eca0"
+    }
+  ],
+  "no_new_kappa": true,
+  "producer_sha256": "fa1b0928b00678aa1d4e91c0a8572280c07d240be46994ff71c15ecd085b515c",
+  "source_semantics": "Unchanged complete source caller/all-input/inverse/selected recipe evidence is inherited through its frozen pins, not claimed as freshly executed.",
+  "status": "PASS_EXACT_FULL_STOCK_PAIRINGS_NORMAL_AND_OPTIMIZED"
+}

@@ -1,0 +1,135 @@
+{
+  "status": "PASS_SCOPED_LOCAL_CHECKS",
+  "physical_theorem": "Informal constructive proof; no Lean proof of controller, runtime, halt or physical embedding supplied.",
+  "finite_controller": {
+    "cases": 28,
+    "actions": 9137626,
+    "controls": 5,
+    "largest_records": 1344,
+    "source_map_labels": 512,
+    "source_map_uses": 528
+  },
+  "algebraic_core": {
+    "theorem": "QQ16CoverRoute.semidirect_pull_push",
+    "source_sha256": "880744affa329d68511ad86db111fde3296f3d1b9b36ea3141875fc90fb0c903",
+    "lean": "4.34.1",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "fresh_kernel_exit": 0,
+    "independent_transitive_axiom_exit": 0
+  },
+  "lake": {
+    "configurations_byte_equal": true,
+    "commands": [
+      {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "lake",
+          "build"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "Check.lean"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "cache_scope": "Existing exact-revision nine-package cache; network bootstrap not rerun.",
+    "publication_newlines": "LF, including toolchain, as required by current repository .gitattributes; tested again with actual Lake."
+  },
+  "public_precedent_bytes": {
+    "status": "PASS_PUBLIC_BYTE_PINS",
+    "files": [
+      {
+        "path": "research/multitape-proof-toolkit/lean/MultitapeToolkit/Absolute.lean",
+        "head": "e5a5d0651003e8774e98121250203b35c236b02b",
+        "sha256": "db54fb8a563ef6980ecc1b8f2d3324eb19265c4f2588092872bb3e63284318ce",
+        "match": true
+      },
+      {
+        "path": "research/multitape-proof-toolkit/lean/MultitapeToolkit/FrameRule.lean",
+        "head": "e5a5d0651003e8774e98121250203b35c236b02b",
+        "sha256": "3c84a50612cb477e0c17527693920f0be53b4e31b9a0f21a97a8e0a1467a8855",
+        "match": true
+      },
+      {
+        "path": "research/multitape-proof-toolkit/lean/MultitapeToolkit/TapeEmbedding.lean",
+        "head": "e5a5d0651003e8774e98121250203b35c236b02b",
+        "sha256": "4fa29c0f5c7868ef4d9757312b5642f33a794f7ad97c0cfe9aabb9836d6da209",
+        "match": true
+      }
+    ]
+  },
+  "unrun": [
+    "Hosted CI",
+    "Selected full cold replay (selected science unchanged)",
+    "Full QQ16 owner-cover allocation/execution",
+    "Actual caller entry/conversion and paid consumer",
+    "All-size compiler or complete multiplication supplier"
+  ],
+  "registered_python": {
+    "version": "3.12.10",
+    "exit_code": 0,
+    "metadata_and_pins": "PASS",
+    "parent_pythonoptimize": "1",
+    "runtime": "Official Windows embeddable package; isolated local script-path adapter, no global install.",
+    "download": {
+      "url": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip",
+      "bytes": 11133606,
+      "sha256": "4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3",
+      "release_md5": "fe8ef205f2e9c3ba44d0cf9954e1abd3",
+      "source": "https://www.python.org/downloads/release/python-31210/",
+      "scope": "Private portable test runtime only; not published in research package; no global installation."
+    },
+    "final_replay": {
+      "exit_code": 0,
+      "seconds": 35.02,
+      "python": "3.12.10",
+      "parent_pythonoptimize": "1",
+      "source": "Final LF-bound Python files and committed receipt"
+    }
+  },
+  "gitfree_optimized_replay": {
+    "exit_code": 0,
+    "seconds": 34.28,
+    "python": "3.12.10",
+    "optimized": true,
+    "git_directory_present": false,
+    "files_read_only": true,
+    "files_unchanged": true,
+    "files": 22,
+    "source": "Final LF-bound Python files and committed receipt"
+  },
+  "source_pin_tamper_control": {
+    "status": "PASS_SOURCE_TAMPER_REJECTION",
+    "exit_code": 1,
+    "expected_reason": "frozen joint-query bytes",
+    "rejected_before_decompression": true
+  },
+  "publication_source": {
+    "code_sha256": {
+      "router.py": "a5221ec8a3a38b5d0133abc685ec28e392e946ef5b60dec37f69a605a45ba7ce",
+      "oracle.py": "00328380126faa55b9f8027c81872663985610a247d0a61108951b394ad27fff",
+      "verify.py": "05b06299545c7fc74de34d13951e083cc7f8f8ab1e9b9c8eb96df892a430776e"
+    },
+    "result_sha256": "5ce62d06c4bc9f53e08aad121bfa315077b6e6dd926edc9378c66a1df0a29003"
+  },
+  "publication_receipt_format": "LF-serialized JSON; all proof-relevant fields unchanged by newline normalization. Raw code bytes and committed Git blobs must match."
+}

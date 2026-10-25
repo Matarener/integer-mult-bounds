@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bidirectional-connector/COST-RECEIPT.json",
+    "research/bidirectional-connector/README.md",
+    "research/bidirectional-connector/census.cpp",
+    "research/bidirectional-five-source-connector/EVIDENCE.json",
+    "research/universal-connector-boundary/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete two-phase census, both five-source exclusions, every scaled native histogram bin and committed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All unrestricted small port assignments in both root orientations, query sets and exact two/three-read sets."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Actual odd-multiplicity positive words, two credited five-source words, all dirty basis/inverse columns, all single omissions and port/direction flips."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Faulty restoration/query producer rejection, changed input, counterfeit receipt, optimized Git-free relocated dirty controls and unchanged bytes."
+    }
+  ]
+}

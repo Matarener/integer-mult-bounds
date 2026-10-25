@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/connector-delivery-cut-optimum/README.md",
+    "research/mutable-connector-delivery-optimum/README.md",
+    "research/mutable-source-persistent-connector/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact window price, attaining dirty-state words, exhaustive multiset comparison, uniform corollary, matrix controls and source pins"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent unrestricted-query Dijkstra over every declared finite case; exhaustive small dirty inputs and exact rational tariffs"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Git-free optimized read-only replay; actual source, receipt, parity and deadline corruption rejections; exclusive receipt creation"
+    }
+  ]
+}

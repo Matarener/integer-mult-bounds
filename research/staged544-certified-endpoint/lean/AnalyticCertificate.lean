@@ -1,0 +1,117 @@
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import CapCertificate
+import Mathlib.Tactic.Linarith
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.Complex.Exponential
+import Mathlib.Data.Rat.BigOperators
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FinCases
+import Mathlib.Data.Fin.VecNotation
+
+open scoped BigOperators
+namespace Staged544
+
+def taylorQ (x : ℚ) (n : ℕ) : ℚ := ∑ i ∈ Finset.range n, x ^ i / (i.factorial : ℚ)
+
+lemma taylor_cast (x : ℚ) (n : ℕ) :
+    ((taylorQ x n : ℚ) : ℝ) = ∑ i ∈ Finset.range n, (x : ℝ) ^ i / (i.factorial : ℝ) := by
+  simp [taylorQ]
+
+lemma log_upper_of_taylor (y x : ℚ) (n : ℕ) (hy : 0 < y) (hx : 0 ≤ x)
+    (hpoly : y ≤ taylorQ x n) : Real.log (y : ℝ) ≤ (x : ℝ) := by
+  apply (Real.log_le_iff_le_exp (by exact_mod_cast hy)).2
+  have hp : (y : ℝ) ≤ ((taylorQ x n : ℚ) : ℝ) := by exact_mod_cast hpoly
+  rw [taylor_cast] at hp
+  exact hp.trans (Real.sum_le_exp_of_nonneg (by exact_mod_cast hx) n)
+
+lemma exp_upper_of_taylor (x u : ℚ) (n : ℕ) (hn : 0 < n)
+    (hx : 0 ≤ x) (hx1 : x ≤ 1)
+    (hpoly : taylorQ x n + x ^ n * (n + 1) / ((n.factorial : ℚ) * n) ≤ u) :
+    Real.exp (x : ℝ) ≤ (u : ℝ) := by
+  have h := Real.exp_bound' (by exact_mod_cast hx : 0 ≤ (x : ℝ))
+    (by exact_mod_cast hx1 : (x : ℝ) ≤ 1) hn
+  have hp : ((taylorQ x n : ℚ) : ℝ) + (x : ℝ) ^ n * (n + 1) /
+      ((n.factorial : ℝ) * n) ≤ (u : ℝ) := by exact_mod_cast hpoly
+  rw [taylor_cast] at hp
+  exact h.trans hp
+
+def endpoint : ℚ := 54080576164570213085647288064058048642389002311611326041 / 31250000000000000000000000000000000000000000000000000000000
+def rank : Fin 7 → ℚ := ![1, 2, 3, 4, 5, 8, 48]
+def logUpper : Fin 7 → ℚ := ![(42904594411483911290921088574385425709047528448715976645956988571617899759205973 / 10000000000000000000000000000000000000000000000000000000000000000000000000000000), (179865613029422290983743836799018300141462635525567120523750942383419817697545129 / 50000000000000000000000000000000000000000000000000000000000000000000000000000000), (319184715248028143769686362051601686625726228704884821286100452352429568270198833 / 100000000000000000000000000000000000000000000000000000000000000000000000000000000), (290416508002850051025764461452218943475375257615108715635433883817500273198120787 / 100000000000000000000000000000000000000000000000000000000000000000000000000000000), (268102152871429075449134952421235493137915149060307994268305096568761098821293953 / 100000000000000000000000000000000000000000000000000000000000000000000000000000000), (44220357989371104016808249861280257333565048835816638044673176573632182200230263 / 20000000000000000000000000000000000000000000000000000000000000000000000000000000), (41925843024050020002793513468331059395526174960782719637828448555072119482320947 / 100000000000000000000000000000000000000000000000000000000000000000000000000000000)]
+def upper : Fin 7 → ℚ := ![(10074526100838646250973709931264079031031626247958239478098621934435307 / 10000000000000000000000000000000000000000000000000000000000000000000000), (1257806061626040146534168563504486839191574952958750140734168844789103 / 1250000000000000000000000000000000000000000000000000000000000000000000), (10055390258478318702735196789299380974598979106244048870901689416235861 / 10000000000000000000000000000000000000000000000000000000000000000000000), (10050385364133079746285308201955675603189995240534294134445832020584933 / 10000000000000000000000000000000000000000000000000000000000000000000000), (10046504982050684881863576039895641766247087819524559010570511521020683 / 10000000000000000000000000000000000000000000000000000000000000000000000), (10038336696855168412899988593909345131643424182661368231754045234034801 / 10000000000000000000000000000000000000000000000000000000000000000000000), (5003629114405269599670238919302401609024593218073270454000052204158087 / 5000000000000000000000000000000000000000000000000000000000000000000000)]
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 20000000
+
+def rootUpper : Fin 7 → ℚ := ![(1709682071524341872977914446059068945687158662089760087588298513648466431140986964131832379 / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), (78389268609117970295183841420183634117602514499308989820003491013074224898274587103932377 / 50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), (59612205786190783200497858238480871280010105534840193468536084961687039700052165204929563 / 40000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), (718832762584181935863410006114861039343341562058796885073492442373725223855973513855130509 / 500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), (349529725287554381854657482572542092721239471300292172144051890309678870642203459561245573 / 250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), (1318345099355356699940061975994465396292039242917024224119936446107390011400428568787269981 / 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), (3293140230695581904239101463758503566499283368816211814999286028419201556213646303933641 / 3125000000000000000000000000000000000000000000000000000000000000000000000000000000000000)]
+
+
+lemma root_power (i : Fin 7) : 73 / rank i ≤ (rootUpper i) ^ 8 := by
+  fin_cases i <;> norm_num [rank, rootUpper]
+
+lemma log_numeric (i : Fin 7) : rootUpper i ≤ taylorQ (logUpper i / 8) 60 := by
+  fin_cases i <;> norm_num [taylorQ, logUpper, rootUpper, Finset.sum_range_succ]
+
+lemma logUpper_valid (i : Fin 7) :
+    Real.log ((73 / rank i : ℚ) : ℝ) ≤ (logUpper i : ℝ) := by
+  have hroot : (0 : ℚ) < rootUpper i := by fin_cases i <;> norm_num [rootUpper]
+  have hlog : (0 : ℚ) ≤ logUpper i / 8 := by fin_cases i <;> norm_num [logUpper]
+  have hy : (0 : ℚ) < 73 / rank i := by fin_cases i <;> norm_num [rank]
+  have hp : ((73 / rank i : ℚ) : ℝ) ≤ (rootUpper i : ℝ) ^ 8 := by
+    exact_mod_cast root_power i
+  have h := log_upper_of_taylor (rootUpper i) (logUpper i / 8) 60 hroot hlog (log_numeric i)
+  have hl := Real.log_le_log (by exact_mod_cast hy : (0 : ℝ) < ((73 / rank i : ℚ) : ℝ)) hp
+  rw [Real.log_pow] at hl
+  push_cast at h
+  norm_num at hl
+  push_cast
+  linarith
+
+lemma exp_numeric (i : Fin 7) :
+    taylorQ (endpoint * logUpper i) 26 +
+    (endpoint * logUpper i) ^ 26 * (26 + 1) / ((26 : ℕ).factorial * 26 : ℚ) ≤ upper i := by
+  fin_cases i <;> norm_num [taylorQ, endpoint, logUpper, upper, Finset.sum_range_succ]
+
+noncomputable def weight (i : Fin 7) : ℝ :=
+  Real.exp ((endpoint : ℝ) * Real.log ((73 / rank i : ℚ) : ℝ))
+
+lemma weight_le_upper (i : Fin 7) : weight i ≤ (upper i : ℝ) := by
+  have h0 : (0 : ℚ) ≤ endpoint * logUpper i := by fin_cases i <;> norm_num [endpoint, logUpper]
+  have h1 : endpoint * logUpper i ≤ (1 : ℚ) := by fin_cases i <;> norm_num [endpoint, logUpper]
+  have hx : (0 : ℝ) ≤ (endpoint : ℝ) := by norm_num [endpoint]
+  have hm := mul_le_mul_of_nonneg_left (logUpper_valid i) hx
+  have he := Real.exp_le_exp.mpr hm
+  have hb := exp_upper_of_taylor (endpoint * logUpper i) (upper i) 26 (by decide) h0 h1 (exp_numeric i)
+  simpa [weight] using he.trans (by simpa using hb)
+
+def coefficient : Fin 7 → ℚ := ![7989840, 4698000, 2247264, 1321920, 345600, 207360, 6621696]
+
+lemma exact_upper_certificate : (∑ i : Fin 7, coefficient i * upper i) < (73 * (896 * 360) : ℚ) := by
+  norm_num [Fin.sum_univ_succ, coefficient, upper]
+
+/-- The actual real exponential moment at the published 60-digit endpoint is below 1. -/
+theorem actual_moment_lt_one :
+    (∑ i : Fin 7, (coefficient i : ℝ) * weight i) / (73 * (896 * 360)) < 1 := by
+  apply (IntegerMultBounds.MomentTransfer.normalized_admission _ _ (by norm_num)).2
+  have h := IntegerMultBounds.MomentTransfer.rational_upper_certificate Finset.univ coefficient upper weight
+    (73 * (896 * 360)) (by intro i _; fin_cases i <;> norm_num [coefficient])
+    (fun i _ => weight_le_upper i) exact_upper_certificate
+  simpa [IntegerMultBounds.MomentTransfer.weighted] using h
+
+/-- The same certificate in the repository's positive real-power moment notation. -/
+theorem actual_rpow_moment_lt_one :
+    (∑ i : Fin 7, (coefficient i : ℝ) *
+      (((73 / rank i : ℚ) : ℝ) ^ (endpoint : ℝ))) / (73 * (896 * 360)) < 1 := by
+  have h : ∀ i : Fin 7, (((73 / rank i : ℚ) : ℝ) ^ (endpoint : ℝ)) = weight i := by
+    intro i
+    have hp : (0 : ℚ) < 73 / rank i := by fin_cases i <;> norm_num [rank]
+    rw [Real.rpow_def_of_pos (by exact_mod_cast hp : (0 : ℝ) < ((73 / rank i : ℚ) : ℝ))]
+    simp [weight, mul_comm]
+  simp_rw [h]
+  exact actual_moment_lt_one
+
+end Staged544
+
+#print axioms Staged544.actual_moment_lt_one
+
+#print axioms Staged544.actual_rpow_moment_lt_one

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-root-simplex-exclusion/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/construct.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Regenerate the fixed-plane literal witness by a bounded exact section search."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate geometry; check actual cut, ranks and both codeword identities on all 76 retained sites; exact Q matrix ranks 8,3,9."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/crosscheck.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate root/label reconstruction and integer coefficient constraints of rank 6 in 8 variables."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Two valid CLI fixtures, nine rejecting cut/coefficient/rank/type mutants and two geometry-source controls."
+    }
+  ]
+}

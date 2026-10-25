@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Exact one-point partial form of the length-22 pair identity: for every n=7 weight split with parts at most 11 that survives B0+a*b>=need, the maximum pair product after adding one missing parity-legal point is at least need. The strict one-point prune therefore deletes no branch of those splits.",
+  "scope_change_reason": "The card's first experiment, reconstructing 01021323, is already recorded in open PRs #3821 and #3699. This package takes the next uncovered census-pruning obligation from the length-22 handoff: a monotone partial form of the pair identity in MATH.md section 3. The delivered statement is a sharp non-pruning theorem for that one-point form, not another enumeration.",
+  "bottleneck_link": "A corrected length-22 exclusion would pin f(7) to {22,24} in the PR943 word model. This does not decide that exclusion. It shows one proposed partial pair-identity prune cannot delete a branch on any basic-identity survivor, so engine work should not be spent on the coset-wide one-point test.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the one-point floor is proved for every basic-identity survivor and the (9,9) equality witness is recomputed. Do not run a length-22 census.",
+  "outcome": "negative-result",
+  "evidence": "verify.py recomputes every n=7 basic-identity survivor (3820 rows, parts at most 64), checks h(S_min) >= need, checks the ceil-drop lemma for M=2..64, rebuilds the (9,9) witness with outside f identically 5, and checks the f-sum identities on every subset pair in F_2^3 and F_2^4. test_verify.py repeats the (9,9) and (7,11) arithmetic with literals and shows that the floor swap drops (7,11) from 7 to 6.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial AI assistance (Cursor Grok), including the averaging argument, the verifier, and overlap checks. No independent human or formal-kernel review.",
+  "open_questions": [
+    {
+      "question": "Does restricting the same one-point maximum to the n hypercube neighbors of the current prefix vertex strictly prune any open length-22 split?",
+      "why_it_matters": "The coset-wide maximum proved here is at least the walk-legal maximum. A neighbor restriction could still fall below need even though the coset-wide test never does.",
+      "first_step": "On one open split, evaluate S+f(p) only at the neighbors of each vertex of an explicit partial prefix set whose coset-wide ceiling equals need.",
+      "blocked_by": "Legal extensions are walk steps, not arbitrary coset points. This package does not search walks."
+    },
+    {
+      "question": "Does an exact two-point completion ceiling strictly prune the (9,9) split?",
+      "why_it_matters": "One point before the leaf is the strongest exact window that still never prunes. Two points is the next place a partial pair test could delete branches.",
+      "first_step": "Minimize, or lower-bound, the maximum of S+f(p)+f(r)+A_{p xor r} over odd pairs outside an 7-point odd set paired with a 9-point even set.",
+      "blocked_by": "A greedy sample reached 17, above need 9. That sample is not a lower bound."
+    }
+  ]
+}

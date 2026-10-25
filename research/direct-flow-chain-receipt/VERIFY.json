@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Receipt for 6 #4436-chain PRs: base/heads well-formed, nothing retained at base, only #4436 edits docs outside its package, withdrawn #4459 reduction recorded."
+    }
+  ]
+}

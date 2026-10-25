@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Classify all feasible unsigned depth-four dirty-chain call-count vectors and the exact positive unequal-price tariff in characteristics m = 2..5 for every nonzero target residue, for words of any length; record the cited corollary for 6 <= m <= 32.",
+  "scope_change_reason": "The operation alphabet is unchanged. This is a pricing and count-feasibility side result extending PR4257 from depth three to depth four, using the depth-four minima of PR4249, rather than a new supplier operation.",
+  "bottleneck_link": "A completed call can carry a different cost at each chain port. At small characteristic the depth-four premium can only be paid on specific operations (the middle two at m = 2, 3, 4), which unit length alone does not show. No actual supplier consumer is supplied.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop with the count classification for m = 2..5 proved by an unbounded reachability reduction plus bounded corroboration, or report a counterexample; no m >= 33 search, multiplicity census or supplier expansion.",
+  "outcome": "completed",
+  "evidence": "README.md gives the reduction and proofs; verify.py checks witness words (interval counts, UT5 product, literal dirty replay), the outer-free relaxation on every missed middle pair, the exact m = 5 balanced exclusion, a direct interval-state DP against the claimed cone and against the exact reduction engine on boxes, controls and a generated source-hash receipt.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What are the depth-four Pareto count vectors for m >= 33?",
+      "why_it_matters": "The tariff is m times the price sum exactly when the balanced vector is feasible; PR4263 shows this only for 6 <= m <= 32.",
+      "first_step": "Search balanced words at m = 33..40 with PR4263's annealer, or find a parametric family of the three interleaving sequences.",
+      "blocked_by": "No all-m depth-four construction is known."
+    },
+    {
+      "question": "How many words attain each depth-four Pareto vector?",
+      "why_it_matters": "Schedule freedom at the cheapest profile may matter for routing in a caller; PR4257 recorded the analogous depth-three counts.",
+      "first_step": "Run a counting version of the interval-state DP at each Pareto vector; the m = 5 vectors have length 25.",
+      "blocked_by": "A pure-Python count at m = 5 needs a sparser state encoding to stay within the CI time limit."
+    },
+    {
+      "question": "Which operations carry the premium at depth five?",
+      "why_it_matters": "At m = 2, 3, 4 the first and last operations are never doubled at a minimum; at m = 5 every single doubling is minimal. A depth-five analogue would show which ports carry the premium.",
+      "first_step": "Apply the same reduction with the inner letters bounded and the outer letters as prefix/suffix residues.",
+      "blocked_by": "Depth-five minimum lengths are not yet known."
+    }
+  ]
+}

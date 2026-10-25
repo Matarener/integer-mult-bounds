@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+    "research/e8-bit-carrier-skeleton/code/bit/export_records.py",
+    "research/e8-bit-p111/data/bitE8mut-p111.json.gz",
+    "research/e8-bit-p111-tuned/code/gen_p3.py",
+    "research/e8-bit-p111-tuned/code/pwordl.py",
+    "research/e8-bit-p111-tuned/code/xcheck_p.py",
+    "research/e8-bit-p111-tuned/tune/apply.py",
+    "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz",
+    "research/scatter-export-parity-audit/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Selected-word positive control on all 661 columns, multiplicity sweep 0..6 with the archived record-byte receipts, parity-normalisation controls, witness reproduction, producer census, guard battery and typed receipt comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Six behavioral groups: census and guard, exact agreement table, in-process pair mutant reproduction against the archived witness, odd-occurrence rejection, record lifecycle failures, source corruption and tampered-receipt rejection."
+    }
+  ]
+}

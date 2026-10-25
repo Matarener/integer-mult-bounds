@@ -1,0 +1,382 @@
+{
+  "actual_expected_helpers": 408,
+  "comparison_claim_sha256": "c7455323c62a5b1d5c9ceef07a305a5758df6971ac8f88e2be5223eb5f4c7553",
+  "comparison_head": "431e6c6023ef352c41696469de7fb614cd4ded8c",
+  "comparison_kappa": "17304188997660711638039999999999999999999998999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000",
+  "comparison_pr": 3682,
+  "complex_lower": "173082459530318458089/100000000000000000000000",
+  "dispatch_sha256": "5d6fa711d704a1b498e5fe066ea821c4fa0217463702e82a7ce5be9da4023e8a",
+  "external_input_sha256": {
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/extension_blocknorm.py": "6e6b8683cc87a84e5410c399b1128eb68694f852a3927cb124067f503ed7d7c7",
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/helpers/lift_parent.py": "9a1edd7d4ab4a2f2ac8d15b42b7e40f93653d65026bac59e4c1ce80b486bd60e",
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/helpers/reconstruct_replica.py": "5472811c24aef3852dc7e189dff5060076a6c0b25bfde928da50dcfe9b5bdc15",
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/helpers/replica_parent.py": "48bdbf28f59d80edb266803ec61bf5e22e8fb5e5a0e2b88004b6039147589bd4",
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/admission/PR3682-CLAIM.json": "c7455323c62a5b1d5c9ceef07a305a5758df6971ac8f88e2be5223eb5f4c7553",
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/owner/FILL.json.gz": "430233230c9194a52bda171afd21713351fdd02e0054230012109e44047c4c55",
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/owner/inputs/DISPATCH.json": "5d6fa711d704a1b498e5fe066ea821c4fa0217463702e82a7ce5be9da4023e8a",
+    "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/owner/inputs/ORDER.json": "743e74b538432e2b2045e754b0de9c18f36fc5039fdb8eb542177a898ec78e44"
+  },
+  "fill_sha256": "430233230c9194a52bda171afd21713351fdd02e0054230012109e44047c4c55",
+  "gain": "202847768556708543/500000000000000000000000",
+  "kappa": "17308245953031845808899999999999999999999998999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000",
+  "kappa_decimal": "0.0017308245953031845808899999999999999999999998999999999999999999999999",
+  "native_receipt_sha256": "115e38d0254de7bdc7ed37b91be418c4748f0e411a0f4e800cdbd5b10f7e8d44",
+  "order_sha256": "743e74b538432e2b2045e754b0de9c18f36fc5039fdb8eb542177a898ec78e44",
+  "package_manifest_sha256": "1a60a137bf0311fe44672006182a13345c09a3f6b4e891f6c27b8d9b761c8f52",
+  "patches": [
+    {
+      "after_sha256": "52f8b4cec2dab69cbe590e1fd0f7a68e1b35de5a540bd22fd2adfce07a92b46b",
+      "before_sha256": "faf283eb4edd2e6a1ccb40b3cb3ba30ae54338eaf5ea0a10d84d11d7939502af",
+      "path": "new/rebind.py",
+      "replacements": [
+        [
+          "physical=spec['expected']['live'] + 8 + R + 2)",
+          "physical=spec['expected']['live'] + 8 + R + 2 + max(len(rd(d / 'CANONICAL-WORD.json.gz').get('zero_buffers', [])) for d in locs.values()))"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "99bef04f24a99088e5c0c9b8f6bbc8386669d8315b8f572d6bbfb932c5d51145",
+      "before_sha256": "7edb4732b34e5814b27650a55c938626cb50d68f06397744dd4fe451437e90e0",
+      "path": "geometry_controls.py",
+      "replacements": [
+        [
+          " i['complete_invocation_sweeps']=i['bridge_sweeps']=333",
+          " i['complete_invocation_sweeps']-=1;i['bridge_sweeps']-=1"
+        ],
+        [
+          " o,i=copy.deepcopy(owner),copy.deepcopy(invoice);fn(o,i);oh=digest(o);i['owner_audit_sha256']=oh",
+          " o,i=copy.deepcopy(owner),copy.deepcopy(invoice);fn(o,i);assert (o,i)!=(owner,invoice), 'geometry mutant must change actual receipts';oh=digest(o);i['owner_audit_sha256']=oh"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "6cfefe80c02a6c0f243f50ca9e146e1ab1440b84a033d8a71d42be5a5fa27f6b",
+      "before_sha256": "c43680a2da390f79925547a5ee1919d8a76637cccf98e2c8164b6f667fbc3183",
+      "path": "verify_release.py",
+      "replacements": [
+        [
+          "Fraction(1, 10 ** 3046) - Fraction(1, 10 ** 3022)",
+          "Fraction(1, 10 ** (spec['outer_refinement']['endpoint_digits'] + 46)) - Fraction(1, 10 ** (spec['outer_refinement']['endpoint_digits'] + 22))"
+        ],
+        [
+          "epsilon=1-(1025/1024)e-3080",
+          "epsilon=1-(1025/1024)e-{spec['outer_refinement']['endpoint_digits']+80}"
+        ],
+        [
+          "at the one 3000-digit rejection call",
+          "at the one {spec['outer_refinement']['endpoint_digits']}-digit rejection call"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+      "before_sha256": "9e12909c73d3b3a31a45d801ae76c034510d6306400412e474df79bc4f1dc67e",
+      "path": "outer/check_ledger.py",
+      "replacements": [
+        [
+          "assert (m,W)==(73,66304)",
+          "T=spec['geometry']['replicas']\nassert type(T) is int and T>0\nassert m==73 and W==896*T and W==BJ['live']"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "ebaf637f1f818dac9c0fce0ee3f18df300873105818cea29a8ae9e8b737b5c7d",
+      "before_sha256": "08ca58abff11bdfba721dc56ab8acf06ec1b7c48a8699a0955cf35324680aca7",
+      "path": "code/witness.py",
+      "replacements": [
+        [
+          "   with open(os.environ['WITNESS_RECORD'],'a')as f:f.write(json.dumps([key,got],default=str)+chr(10))",
+          "   import time as _wr_time\n   _wr_path=Path(os.environ['WITNESS_RECORD'])\n   _wr_lock=_wr_path.with_name(_wr_path.name+'.append.lock')\n   _wr_deadline=_wr_time.monotonic()+60\n   _wr_fd=None\n   while _wr_fd is None:\n    try:_wr_fd=os.open(_wr_lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY)\n    except FileExistsError:\n     if _wr_time.monotonic()>=_wr_deadline:raise TimeoutError('discovery record lock timeout; existing lock preserved')\n     _wr_time.sleep(.005)\n   try:\n    with _wr_path.open('a',encoding='utf-8',newline='\\n')as _wr_out:\n     _wr_out.write(json.dumps([key,got],default=str)+chr(10))\n     _wr_out.flush()\n   finally:\n    os.close(_wr_fd)\n    _wr_lock.unlink()"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "b9755fad5ffa8d13131771494ae98200ba48387eb8db79580ef86b6edcac7159",
+      "before_sha256": "07b5133cfd4173f34ac85a0229e3401923d201776689aca669dabeebd171e6ec",
+      "path": "verify.py",
+      "replacements": [
+        [
+          "run('lift-parent',P/'lift_parent.py','--owners',work/'rebuilt-owners','--out',work/'rebuilt-parent')",
+          "run('lift-parent',P/'lift_parent.py','--package',P,'--owners',work/'rebuilt-owners','--out',work/'rebuilt-parent')"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "0d8cc021d2401d047aaec79060ec2ea28ba06f12eca8dbf4c60c78bb31975c4e",
+      "before_sha256": "ebaf637f1f818dac9c0fce0ee3f18df300873105818cea29a8ae9e8b737b5c7d",
+      "path": "code/witness.py",
+      "replacements": [
+        [
+          "PAYLOAD==1<<(192+(GEO['dimension']+1)//2+2*CALLS+4).bit_length()",
+          "PAYLOAD==1<<(128+(GEO['dimension']+1)//2+18+1330+1+4).bit_length()"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "c5106e0d7a97382677fa228fbade989262347968a0e54acfcf6712aa37e02f47",
+      "before_sha256": "bb213d0af12218ff7c9c572717e522d8bbeeb2856b87a253f4a7f44e0fd71f15",
+      "path": "code/invoice_allcold.py",
+      "replacements": [
+        [
+          "    required_prefix=localbits+input_l2_bits+call_count+bridge_sweeps+4",
+          "    from blocknorm_certificate import certify\n    blocknorm=certify(template, {pid:base/'providers'/pid for pid in template['local_providers']})\n    assert blocknorm['status'] == 'PASS_TENSOR_BLOCK_NORM_CERTIFICATE'\n    assert localbits <= 128, 'actual native scalar/Horner prefix exceeds charged local reserve'\n    required_prefix=localbits+input_l2_bits+blocknorm['max_active_depth']+blocknorm['stock_l2_bits']+1+4"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "0d522b09c7fe6a5e62fe80c28f3eefe733557a82d77c6212e5d4b91ffb7e3421",
+      "before_sha256": "02502a217fe8c9e10229075b50745518beac512c48db20e64c3e06514a4da5b5",
+      "path": "independent_core.py",
+      "replacements": [
+        [
+          "    payload = 1 << (192 + (M+1)//2 + 2*len(c['order']) + 4).bit_length()",
+          "    require(localbits <= 128, 'measured native prefix exceeds local reserve')\n    payload = 1 << (128 + (M+1)//2 + 18 + 1330 + 1 + 4).bit_length()"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "d598a2ac1e2e8eaee14a8c285e0277a7ae44ca6a15bd2b5cfc67fb40844fb387",
+      "before_sha256": "c5106e0d7a97382677fa228fbade989262347968a0e54acfcf6712aa37e02f47",
+      "path": "code/invoice_allcold.py",
+      "replacements": [
+        [
+          "        complete_invocation_sweeps=call_count,bridge_sweeps=bridge_sweeps,row_prefix_extra=2*payload,",
+          "        complete_invocation_sweeps=call_count,bridge_sweeps=bridge_sweeps,row_prefix_extra=2*payload,blocknorm=blocknorm,"
+        ],
+        [
+          "        primitive_arithmetic_margin_bits=4,controller_audit_sha256=",
+          "        tensor_block_norm=blocknorm,partial_cover_margin_bits=1,physical_stock_l2_bits=blocknorm['stock_l2_bits'],primitive_arithmetic_margin_bits=4,controller_audit_sha256="
+        ],
+        [
+          "Sum every actual invocation and bridge sweep and take the maximum local scalar/Horner prefix over both orientations of the fixed provider.",
+          "All invocations and bridge sweeps remain charged. Bound completed-boundary energy by at most eighteen active steps per owner replica, using exact tensor-isomorphic whole-family helper unitaries. Add the full group-indexed physical-stock sup-to-l2 factor and one partial-cover margin, then the maximum local scalar/Horner prefix."
+        ]
+      ]
+    },
+    {
+      "after_sha256": "e051aaa166e01263780d5ae03699690670b597fed6593af4c37a7e978825eb85",
+      "before_sha256": "0d522b09c7fe6a5e62fe80c28f3eefe733557a82d77c6212e5d4b91ffb7e3421",
+      "path": "independent_core.py",
+      "replacements": [
+        [
+          "    prefix = localbits + (M + 1) // 2 + len(c['order']) + c['bridges'] + 4",
+          "    bn=c['blocknorm']\n    require(bn['status']=='PASS_TENSOR_BLOCK_NORM_CERTIFICATE' and bn['max_active_depth']==18 and bn['stock_l2_bits']<=1330, 'independent tensor block certificate')\n    prefix = localbits + (M + 1) // 2 + bn['max_active_depth'] + bn['stock_l2_bits'] + 1 + 4"
+        ],
+        [
+          "prefix_formula=dict(local_scalar=localbits, input_l2=(M + 1) // 2, invocations=len(c['order']), bridges=c['bridges'], margin=4)",
+          "prefix_formula=dict(local_scalar=localbits, input_l2=(M + 1) // 2, invocations=len(c['order']), bridges=c['bridges'], active_block_depth=18,stock_l2=bn['stock_l2_bits'],partial_cover=1,margin=4),blocknorm=bn"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "393323f150d0bb686419804d51cf43d0f58450d2a1e7929725acdd26fdbb3640",
+      "before_sha256": "2286f00e462ff28abbb3f396095463482a1e063213b9526a7225275980c77eaf",
+      "path": "audit_mixed.py",
+      "replacements": [
+        [
+          "pending=A.check_pending_axes(ctx);receipt=A.check_roles(ctx,roles)",
+          "import blocknorm_certificate as BN;ctx['blocknorm']=BN.certify_context(ctx,roles,dirs,source_parent=parent);pending=A.check_pending_axes(ctx);receipt=A.check_roles(ctx,roles)"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "0542dde915af8902324db2f59136da078d5256bfaa8f1510f3e59336be7e2680",
+      "before_sha256": "f25e1e870df5d5a16a1e367b3df8843cb01644ab4b75895d7939af81e4fcb833",
+      "path": "code/assemble.py",
+      "replacements": [
+        [
+          " assert invoice['global_prefix_bits']==max(z['prefix_bits']for p in invoice['providers'].values()for z in p['local'].values())+37+CALLS+CALLS+4",
+          " bn=invoice['blocknorm']\n assert bn['status']=='PASS_TENSOR_BLOCK_NORM_CERTIFICATE' and bn['replicas']==REPLICAS\n assert bn['max_active_depth']==bn['boundary_depth_bits']==18 and bn['active_calls_per_block']==bn['bridges_per_block']==9\n assert bn['block_width_families']==896 and bn['physical_families']==invoice['physical'] and bn['live_families']==invoice['live']\n assert bn['partial_cover_bits']==1 and bn['input_l2_bits']==37 and bn['local_reserve_bits']==128 and bn['retained_payload_bits']==PAYLOAD\n localbits=max(z['prefix_bits']for p in invoice['providers'].values()for z in p['local'].values())\n assert bn['local_actual_prefix_bits']==localbits and localbits<=128\n assert invoice['global_prefix_bits']==bn['actual_prefix_bits']==localbits+37+18+bn['stock_l2_bits']+1+4\n assert bn['required_reserve_bits']==128+37+18+bn['stock_l2_bits']+1+4<PAYLOAD\n expected_endpoint=dict(all_arbitrary_columns=632,helper_to_data_response_zero=True,centres_first_clear_and_terminal_zero=8,zero_buffers_allocated_and_cleared=91,coefficient_work_contract='unchanged audited clear-before-and-after Horner macro')\n assert bn['endpoint_replay']=={pid:{o:expected_endpoint for o in ('forward','backward')} for pid in invoice['providers']}"
+        ],
+        [
+          " stock=group*invoice['physical'];streamed_mass=group*owner['rank_mass']",
+          " stock=group*invoice['physical'];streamed_mass=group*owner['rank_mass']\n assert bn['physical_stock_bits']==stock.bit_length() and bn['stock_l2_bits']==(stock.bit_length()+1)//2<=1330"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "b7a6a7dbca02aec52d7807ed3104362b0fab1014d2f624b5fe638a3f30f65133",
+      "before_sha256": "d7675ff0b0994b29541d37eaa3010c5f39bb1447700c9f8e750522bf8c951f56",
+      "path": "code/assembly_controls.py",
+      "replacements": [
+        [
+          "        i['global_prefix_bits'] = 1 + 37 + CALLS + CALLS + 4",
+          "        i['global_prefix_bits'] = 1 + 37 + 18 + i['blocknorm']['stock_l2_bits'] + 1 + 4"
+        ],
+        [
+          "        ('wrong_global_prefix_sum', lambda o, i: i.__setitem__('global_prefix_bits', 224)),",
+          "        ('wrong_global_prefix_sum', lambda o, i: i.__setitem__('global_prefix_bits', 224)),\n        ('missing_blocknorm', lambda o,i:i.pop('blocknorm')),\n        ('understated_active_depth',lambda o,i:i['blocknorm'].__setitem__('max_active_depth',17)),\n        ('understated_full_stock_norm',lambda o,i:i['blocknorm'].__setitem__('stock_l2_bits',10)),\n        ('missing_partial_cover_margin',lambda o,i:i['blocknorm'].__setitem__('partial_cover_bits',0)),\n        ('forged_helper_response',lambda o,i:i['blocknorm']['endpoint_replay'][next(iter(i['providers']))]['forward'].__setitem__('helper_to_data_response_zero',False)),"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "9612cc95bfa2a36a9d9cbdcedc557f28f52e83f20f113ab21d0d54cf9c190be2",
+      "before_sha256": "1d965b7a329b98008fcc67e73d03dcf6e75f0f33c2858a39f1182bb3d0ed0ea1",
+      "path": "freeze_spec.py",
+      "replacements": [
+        [
+          "spec['expected']['assembly_controls_rejected'] = 32 + sum(",
+          "spec['expected']['assembly_controls_rejected'] = 37 + sum("
+        ]
+      ]
+    },
+    {
+      "after_sha256": "01da5270d47e9b9932a98c4511c5bd85e25324f64568126792b8c3fdcbb632a4",
+      "before_sha256": "3ec4330ede0db3c6daa453b0366817be9435c85c8c3213a0c35c442c96c1a955",
+      "path": "replay.py",
+      "replacements": [
+        [
+          "len(rd(work/'ADMISSION-CONTROLS.json')['rejected_controls'])==114",
+          "len(rd(work/'ADMISSION-CONTROLS.json')['rejected_controls'])==rd(spec)['expected']['assembly_controls_rejected']"
+        ]
+      ]
+    },
+    {
+      "after_sha256": "3fe36fcdba95cded488dd10edc3354de90e95ae5624c3ffc740e8853c1b224c9",
+      "before_sha256": "b9755fad5ffa8d13131771494ae98200ba48387eb8db79580ef86b6edcac7159",
+      "path": "verify.py",
+      "replacements": [
+        [
+          "['replay.py','freeze_spec.py','audit_mixed.py','independent_core.py','geometry_controls.py','audit_fast.py']",
+          "['replay.py','freeze_spec.py','audit_mixed.py','independent_core.py','geometry_controls.py','audit_fast.py','blocknorm_certificate.py']"
+        ],
+        [
+          "controls=dict(admission=114,bit=12,controller=15,independent_owner=8,geometry=6)",
+          "controls=dict(admission=rd(P/'new/SPEC.json')['expected']['assembly_controls_rejected'],bit=12,controller=15,independent_owner=8,geometry=6)"
+        ]
+      ]
+    }
+  ],
+  "profile": {
+    "1": 8038440,
+    "2": 2303640,
+    "3": 732888,
+    "4": 353160,
+    "48": 137952,
+    "5": 69120,
+    "8": 25920
+  },
+  "release_receipt_sha256": "c8968cb9f4f1c28490b7288b0bb64c75a3c2ba48aa373bf1f0c161b49928d4cb",
+  "replicas": 360,
+  "scope": "Conditional finite construction and modern outer arithmetic. Exact inherited theorem obligations remain. Both native providers explicitly reused from authenticated fresh five-stage runs.",
+  "source_commit": "terminal-width5-and-receiver-share-20261019",
+  "source_file_count": 670,
+  "source_manifest_sha256": "a2c9f3c13d5df173571877e91300298b3bf3961aecb02e6413104aa065d906c2",
+  "source_profile": "staged544",
+  "source_upstream_head": "431e6c6023ef352c41696469de7fb614cd4ded8c",
+  "stages": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package/reconstruct.py",
+        "--out",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/owners"
+      ],
+      "exit_code": 0,
+      "log_sha256": "63a62f04848cd26693d6ac7f8365f85de1dd895fc4818c0fa721438e37a5bf43",
+      "name": "owners",
+      "script_sha256": "5472811c24aef3852dc7e189dff5060076a6c0b25bfde928da50dcfe9b5bdc15",
+      "seconds": 56.094003006001
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package/lift_parent.py",
+        "--package",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package",
+        "--owners",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/owners",
+        "--out",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/parent-data"
+      ],
+      "exit_code": 0,
+      "log_sha256": "2d738a7322c4303d36deb694e6d79b6b51bfe098642bf5cda8abc319f03d66ab",
+      "name": "parent-lift",
+      "script_sha256": "9a1edd7d4ab4a2f2ac8d15b42b7e40f93653d65026bac59e4c1ce80b486bd60e",
+      "seconds": 82.25343873200472
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package/new/rebind.py",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/native-cache/8aac24a3bea1170c4a590b209d3720eec19baa05586f3348ab64c9b788fadf32/local",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/native-cache/a70e3ad0e752069cee603efbdf653770c8226a16dad41bddf095dbf4b818e8eb/local",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/rebound"
+      ],
+      "exit_code": 0,
+      "log_sha256": "4257ac60df4db44a5f47b59fc23c38fcedd572ae0f4dd1d30e2fb0cdb0915cc4",
+      "name": "rebind",
+      "script_sha256": "52f8b4cec2dab69cbe590e1fd0f7a68e1b35de5a540bd22fd2adfce07a92b46b",
+      "seconds": 6.930558643005497
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/layout/packing74/replay.py",
+        "--data",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/layout/packing74/candidate",
+        "--work",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/discovery",
+        "--local",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/native-cache/8aac24a3bea1170c4a590b209d3720eec19baa05586f3348ab64c9b788fadf32/local",
+        "--discover"
+      ],
+      "exit_code": 0,
+      "log_sha256": "c7842fe1025e39d42345cf40334f0b4c5c5c8dd15905fdc222c31c28a5fce95c",
+      "name": "discovery",
+      "script_sha256": "01da5270d47e9b9932a98c4511c5bd85e25324f64568126792b8c3fdcbb632a4",
+      "seconds": 566.8753677490022
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package/outer/check_ledger.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "615c574a13f6d9afe41089c798b906f3bcabf1d0287b1d3e1ddf55753bddbbbc",
+      "name": "outer-check_ledger.py",
+      "script_sha256": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+      "seconds": 0.05630308100080583
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package/outer/independent_check.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "6376e826fc7a035e2abff22590f6afba33eefc003ff084cd784b3c3da5bd0f6e",
+      "name": "outer-independent_check.py",
+      "script_sha256": "a5a0361539ec7cae9eb6c0371f857919335a1720040f22af291aa3e34fc864c7",
+      "seconds": 0.04359488699992653
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/package/verify_release.py",
+        "--main",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work",
+        "--work",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission/release",
+        "--native-cache",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/native-cache",
+        "--jobs",
+        "1"
+      ],
+      "exit_code": 0,
+      "log_sha256": "969d0924c2e1e1793a157c60eb7d8088d2861a16adbf8cbb1d5b068cabb23573",
+      "name": "release",
+      "script_sha256": "6cfefe80c02a6c0f243f50ca9e146e1ab1440b84a033d8a71d42be5a5fa27f6b",
+      "seconds": 1124.8476798529955
+    }
+  ],
+  "status": "PASS_REPLICA_ORDER_FILL_DERIVATIVE_COMPLETE_RELEASE"
+}

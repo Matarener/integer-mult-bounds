@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "In the abelian rank-one model with any number of dirty auxiliary scalar registers, classify eight-call words whose rational paid-frame span has dimension 4 for three invertible 3x3 data targets.",
+  "scope_change_reason": "The card allows a fixed larger register count inside a stated alphabet. This package keeps the abelian rank-one alphabet, adds any number of dirty restored auxiliaries, and narrows the question to frame span exactly 4. It does not repeat the three-register census and it does not introduce a nonabelian alphabet. The narrowing matters because the dirty-auxiliary lemmas already exclude spans at most 3 and at least 7 at eight calls, and the published span-four 2x2 step is stated only for exactly three scalar registers.",
+  "bottleneck_link": "A span-four word with eight calls and a dirty auxiliary would be a completed saving against the nine-call column construction in this bit model. The classification leaves only a five-call 2x2 word of span 3. No such word is constructed here, and the selected frontier is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the span-four classification and its finite identity checks. Do not enumerate 120^5 words, do not rerun the three-register census, and do not treat spans 5 or 6 in this package.",
+  "outcome": "partial",
+  "evidence": "PROOF.md classifies span 4. Full support and the 1+1+1 block partition need at least nine calls. The only remaining eight-call shape is the 1+2 partition with exactly three calls on the 1x1 block and five calls on the 2x2 block, projected span exactly 3. Shorter span-four words are excluded. verify.py prints PASS_SPAN4_AUXILIARY_STRUCTURE after the polynomial, support-pattern, call-budget and nine-call controls. Lemmas 1 and 2 are cited, not re-proved. Spans 5 and 6 stay open. No kappa change.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial drafting of the argument and of the finite checker by Cursor Grok. The cited predecessor lemmas were not re-derived by the assistant.",
+  "open_questions": [
+    {
+      "question": "Does a five-call word exist for three invertible 2x2 targets, rational frame span exactly 3, and at least one dirty auxiliary register?",
+      "why_it_matters": "It is the only remaining route to an eight-call span-four word for three invertible 3x3 targets with dirty auxiliaries.",
+      "first_step": "Write an arbitrary-register disjoint-subset argument at relation rank exactly 2, or run a normal-form scalar search in that relation rank.",
+      "blocked_by": "At four registers there are 120 idempotents, so 120^5 ordered words are infeasible here. A degree-1 tensor balance does not forbid five calls: a cancelling pair multiplies to the identity and preserves that balance."
+    },
+    {
+      "question": "Can three invertible 3x3 targets be reached in eight calls with dirty auxiliaries when the rational frame span has dimension 5 or 6?",
+      "why_it_matters": "Those are the other two dimensions left open by the dirty-auxiliary lemmas at eight calls.",
+      "first_step": "Extend the two-relation disjoint-subset analysis from three registers to an arbitrary register count, then return to span five.",
+      "blocked_by": "The pattern-plane classification and common-J calculation in the three-register proof have not been redone for 120 projectors. This package does not attempt that search."
+    }
+  ]
+}

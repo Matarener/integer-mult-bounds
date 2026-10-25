@@ -1,0 +1,31 @@
+{
+  "actual_semantic_rejections": 22,
+  "all_original_sources_retained": true,
+  "checker_sha256": "dc1d82cb4ebcd529c5d5b8765a962c6ed1bfc941f98f3f6363832f4b1e11fd89",
+  "executed_named_guard_deletions": 22,
+  "existing_output_unchanged": true,
+  "formal_kernel_claim": false,
+  "gzip_receipt_bytes": 6472,
+  "gzip_receipt_sha256": "6517cc63bb80de9ca5ee097f588c598d78e9bd9add239a09b164133e58d81d6c",
+  "normal_command": "python3 -I -B check.py --output /absolute/external/new.json",
+  "normal_optimized_full_bytes_equal": true,
+  "normal_optimized_full_typed_json_equal": true,
+  "optimized_command": "python3 -I -O -B check.py --output /absolute/external/new-optimized.json",
+  "output_guards": [
+    {
+      "guard": "absolute output required",
+      "status": "REJECTED_BEFORE_AUDIT"
+    },
+    {
+      "guard": "external output required",
+      "status": "REJECTED_BEFORE_AUDIT"
+    },
+    {
+      "guard": "new output required",
+      "status": "REJECTED_BEFORE_AUDIT"
+    }
+  ],
+  "raw_receipt_bytes": 135294,
+  "raw_receipt_sha256": "27ac1c19da446b59cfe27a87fdc5838d9e7044d7cfc0f4bf6722ac6c47d45edd",
+  "schema": "c07_counterexample_validation.v1"
+}

@@ -1,0 +1,103 @@
+{
+  "after": {
+    "helper_owner_occurrences": 125856,
+    "idle_profile": {
+      "2": 13792,
+      "4": 14208,
+      "6": 14208,
+      "7": 21312,
+      "26": 32,
+      "42": 384
+    },
+    "slots_per_replica": 3933,
+    "window6": [
+      0,
+      42,
+      [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    ],
+    "window6_remainders_per_replica": {
+      "2": 209,
+      "26": 1,
+      "42": 12
+    }
+  },
+  "before": {
+    "helper_owner_occurrences": 125856,
+    "idle_profile": {
+      "2": 13792,
+      "4": 14208,
+      "6": 14208,
+      "7": 21312,
+      "34": 64,
+      "42": 352
+    },
+    "slots_per_replica": 3933,
+    "window6": [
+      0,
+      42,
+      [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    ],
+    "window6_remainders_per_replica": {
+      "2": 209,
+      "34": 2,
+      "42": 11
+    }
+  },
+  "changed_helper_owners": 32,
+  "child_count_delta": 0,
+  "negative_controls": [
+    {
+      "name": "overlapping helper stripes",
+      "rejected_by": "slot overlap"
+    },
+    {
+      "name": "overfull pending child",
+      "rejected_by": "slot capacity"
+    },
+    {
+      "name": "illegal source window",
+      "rejected_by": "slot chronology"
+    },
+    {
+      "name": "stale owner in last replica",
+      "rejected_by": "helper owner binding"
+    },
+    {
+      "name": "stale residual invoice",
+      "rejected_by": "remainder census"
+    },
+    {
+      "name": "changed local program",
+      "rejected_by": "exact transition"
+    },
+    {
+      "name": "changed cover contract",
+      "rejected_by": "exact transition"
+    }
+  ],
+  "no_full_supplier_or_all_size_admission": true,
+  "paid_profile_delta": {
+    "26": 32,
+    "34": -64,
+    "42": 32
+  },
+  "rank_mass_delta": 0,
+  "semantic_leaf_changes": 69,
+  "status": "PASS_INDEPENDENT_R437_OQ4_TRANSITION",
+  "unchanged_local_programs": true,
+  "unchanged_schedule_and_other_fields": true
+}

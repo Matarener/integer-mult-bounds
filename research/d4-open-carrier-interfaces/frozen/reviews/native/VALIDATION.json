@@ -1,0 +1,26 @@
+{
+  "all_main_and_restored_four_orientations": true,
+  "checker_sha256": "6fbf626bc5712816045249fd4cbafc386949e65580514aa6b1b1b9517b1d03d0",
+  "commands": [
+    "python3 check.py --geometry frozen/D4-BUS-INPUT.json --compiler frozen/clifford_exact.py --output CHECKS.json",
+    "python3 -O check.py --geometry frozen/D4-BUS-INPUT.json --compiler frozen/clifford_exact.py --output validation/CHECKS-optimized.json"
+  ],
+  "compiler_byte_mutation": {
+    "exact_error": "compiler_pin",
+    "no_output_written": true,
+    "return_code": 1
+  },
+  "evidence_boundary": "Local exact replay and cross-review; no hosted CI or publication claim.",
+  "executed_semantic_deletion_cost_controls": 18,
+  "normal_and_optimized_checks_sha256": "25bb13506c7a81f6a42699fb7eba8a256f065495bd373dfbd051163ca438b0be",
+  "normal_optimized_receipts_identical": true,
+  "normalizer_cross_review_sha256": "e1006d6971648c32d38e6e7ee490acdf5bacec073e6148ddebfa2b7b98d2ef0d",
+  "output_guard": {
+    "exact_error": "output_already_exists",
+    "return_code": 1
+  },
+  "proof_sha256": "056d98ec88e732e28e7f316156d9b33a1dac81a67f3e544ff91bda815adfe815",
+  "schema": "fixed_d4_carriers_validation.v1",
+  "source_inventory_sha256": "00386de7d5e996bc89fdc01a248c35d2de3c09bf833ddb387b166551242d7d18",
+  "status": "PASS"
+}

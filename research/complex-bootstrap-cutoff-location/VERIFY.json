@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/selected-bootstrap-stock-audit/RESULT.json",
+    "research/complex-t16-rare-pattern-exchanges/upstream1087.tar.gz",
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "SHA-256 binding of the receipt, the stock-audit reconstruction, the tarball, the selected record and the catalogue; the nine frozen-source location facts with exact line positions; exactly one cuts.append site and one outer_witness definition with exactly two call sites across all retained Python sources; exact complex-side binding of both chains; byte reproduction of all fourteen recorded stage triples with the assembler's inline guard; exact reproduction of both recorded kappas and all fourteen headrooms; the twelve published membership margins and routing rooms from this input path; six mutation controls; all recorded stock coefficients still null."
+    }
+  ]
+}

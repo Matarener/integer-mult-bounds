@@ -1,0 +1,207 @@
+{
+  "controls": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/staged544-neutral-fixed-d2/check_controls.py"
+      ],
+      "elapsed_seconds": 76.36,
+      "exit": 0,
+      "log_sha256": "a37763b856d7368696c3fa86242105bc71489fa08d549e23de31de134b90e4d1",
+      "receipt": {
+        "checks": {
+          "baseline_counterpart_price_comparisons": 99150,
+          "credited_positive_dirty_words": 4,
+          "full_dirty_control_words": 2,
+          "full_interior_gap_scans": 40,
+          "illegal_frame": 2,
+          "incremental_trace_and_geometry": 40,
+          "independent_first_records": 16068,
+          "independent_rejections": 308,
+          "independent_result_signs": 38,
+          "interior_gap_prices_compared": 13404,
+          "noncommuting_barrier": 2,
+          "omitted_cleanup_arbitrary_dirty": 2,
+          "persistent_copy_full_word_equality": 40,
+          "production_second_gap_omission": 2,
+          "scale_three_gate_matrices": 24,
+          "source_bound_census_and_ledger": 1,
+          "source_corruption": 1,
+          "wrong_scalar_fresh_cleanup": 2
+        },
+        "new_supplier": false,
+        "status": "PASS_NEUTRAL_FIXED_D2_CONTROLS"
+      },
+      "timing_context": "Normal and optimized final controls ran concurrently."
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "-B",
+        "research/staged544-neutral-fixed-d2/check_controls.py"
+      ],
+      "elapsed_seconds": 79.87,
+      "exit": 0,
+      "log_sha256": "dede3f0449ef2273c38a79e6a92ac5e28872703fcfde8362fe89d4bc66480118",
+      "receipt": {
+        "checks": {
+          "baseline_counterpart_price_comparisons": 99150,
+          "credited_positive_dirty_words": 4,
+          "full_dirty_control_words": 2,
+          "full_interior_gap_scans": 40,
+          "illegal_frame": 2,
+          "incremental_trace_and_geometry": 40,
+          "independent_first_records": 16068,
+          "independent_rejections": 308,
+          "independent_result_signs": 38,
+          "interior_gap_prices_compared": 13404,
+          "noncommuting_barrier": 2,
+          "omitted_cleanup_arbitrary_dirty": 2,
+          "persistent_copy_full_word_equality": 40,
+          "production_second_gap_omission": 2,
+          "scale_three_gate_matrices": 24,
+          "source_bound_census_and_ledger": 1,
+          "source_corruption": 1,
+          "wrong_scalar_fresh_cleanup": 2
+        },
+        "new_supplier": false,
+        "status": "PASS_NEUTRAL_FIXED_D2_CONTROLS"
+      },
+      "timing_context": "Normal and optimized final controls ran concurrently."
+    }
+  ],
+  "coverage": {
+    "all_first_exact_rational_dirty_blocks": 16068,
+    "arbitrary_dirty_buffers": 91,
+    "baseline_counterpart_price_comparisons": 99150,
+    "baseline_full_free_operator_words": 2,
+    "final_full_free_operator_samples": 18,
+    "first_event_oracle_records": 16068,
+    "first_event_oracle_rejections": 308,
+    "first_full_free_operator_samples": 18,
+    "full_trace_geometry_pattern_controls": 40,
+    "live_inputs": 632,
+    "symbolic_inputs_per_word": 723,
+    "universal_dirty_argument": "Exact local scalar block equality composes with unchanged surrounding operators and fixed legal boundaries. Whole-word edited replays are explicitly sampled.",
+    "unoptimized_interior_gap_prices": 13404
+  },
+  "environment": {
+    "dependencies": "standard library only",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "failed_or_interrupted_attempts": [
+    {
+      "attempt": "Initial deep-copy full generation",
+      "reason": "Full source deep copies dominated runtime; persistent-copy and local exact trace/geometry reindexing introduced with independent full-reconstruction controls.",
+      "status": "Interrupted after profiling; no result claimed"
+    },
+    {
+      "attempt": "First control oracle",
+      "reason": "Control loop included A-prelude ADD absent from allowed scalar corridors; fixed control-domain enumeration.",
+      "status": "Failed; corrected"
+    },
+    {
+      "attempt": "Two initial optimized full generations",
+      "reason": "Independent full-reach controls exposed trusted-target overcount across a native B segment barrier at first978->976, outside ADD989 target977. Fixed clipping to actual scalar segment. Corrected full generations restarted from zero.",
+      "status": "Interrupted before completion; no result claimed"
+    }
+  ],
+  "full_generations": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/staged544-neutral-fixed-d2/verify.py",
+        "--provider",
+        "base",
+        "--emit",
+        "EXTERNAL_RECEIPT"
+      ],
+      "elapsed_seconds": 311.28,
+      "exit": 0,
+      "log_sha256": "8311c3350a70c01194cc9c4b00fef9549d0b92a148ebdecf9497fa26a53cbc17",
+      "provider": "base",
+      "receipt": {
+        "first_counts": {
+          "by_A": 5314,
+          "by_B": 2499,
+          "by_restore": 221,
+          "crossed_AA": 6719,
+          "crossed_AS": 563,
+          "crossed_SA": 564,
+          "crossed_SS": 188,
+          "frame_rejected": 154,
+          "legal_first_records": 8034,
+          "scalar_legal_first_records": 8188
+        },
+        "new_supplier": false,
+        "provider": "base",
+        "result_sha256": "d41439ccbd0beb4c24e6e0d6b809e84f9e3f4b289f61baa7d8cb95f47cf79d68",
+        "status": "PASS_STAGED544_NEUTRAL_FIXED_D2"
+      },
+      "timing_context": "Both provider generations ran concurrently on separately authenticated immutable inputs; elapsed is wall clock."
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/staged544-neutral-fixed-d2/verify.py",
+        "--provider",
+        "extra",
+        "--emit",
+        "EXTERNAL_RECEIPT"
+      ],
+      "elapsed_seconds": 308.28,
+      "exit": 0,
+      "log_sha256": "c1187b50600848a3c477b2dbf52e1fa75d50d8a5a2d613832bc0977bd6de5e3a",
+      "provider": "extra",
+      "receipt": {
+        "first_counts": {
+          "by_A": 5314,
+          "by_B": 2499,
+          "by_restore": 221,
+          "crossed_AA": 6719,
+          "crossed_AS": 563,
+          "crossed_SA": 564,
+          "crossed_SS": 188,
+          "frame_rejected": 154,
+          "legal_first_records": 8034,
+          "scalar_legal_first_records": 8188
+        },
+        "new_supplier": false,
+        "provider": "extra",
+        "result_sha256": "ef45d4b23af99e3996233a7d3fe86532039f6da773c393c8d5f14986f7928ea3",
+        "status": "PASS_STAGED544_NEUTRAL_FIXED_D2"
+      },
+      "timing_context": "Both provider generations ran concurrently on separately authenticated immutable inputs; elapsed is wall clock."
+    }
+  ],
+  "publication_boundary": "This file records pre-publication science. After commit creation the exact public Git object, committed bytes, history gates, full registered replay and Git-free exported controls are checked and reported separately in the PR/handoff. This statement is not a claim those later steps already passed.",
+  "schema_version": 1,
+  "science_code_sha256": {
+    "check_controls.py": "78e2a79e11a47ce0f53ca0b61f0a6a224ed1238092d9f1301d2d752b01ae6d9f",
+    "dirty_blocks.py": "3e418073be52dc48dbf6a03ee7341040cd0b99555fc4002658a85cecd585c54b",
+    "reports.py": "4a184316c7a3d2da7bacd668592199e7b69fbb132d30c83f81f6c3d5af79cb34",
+    "search.py": "dd48b77541e0e7bdea104a33741ee6c65b501f674a5b2a300fadeb29d0368515",
+    "vendor/audit_core.py": "888679ca8502cdcb100420fe5382a052529a494bf76cb332928b86e62612b951",
+    "vendor/audit_verify.py": "99971d3cc143cc894600e08c8cfbad3e8f537a544212f21dfbe4271cfa97354d",
+    "vendor/pr3942_search.py": "94db5a29ed8fed594491b186f4b713213f32526fe67f666412f930cb324f4f51",
+    "vendor/pr3957_search.py": "826b8ec3ba7d478d5c9d328f15a64f68179ea67553716d98e8e01da762e5b398",
+    "vendor/pr3957_verify.py": "f2eb48dd6c0382b3adf53969544bb3ab8ab75e6135febfebd96db6b80a09c1ab",
+    "vendor/retiming.py": "591d7278541ac4de9e9b6fc1e17aba23b205ac4b6c81824a28fc08294658ef0d",
+    "verify.py": "1e599940f66ab935370c9ae5d4553054429e3ead942d82c62b3851ed229484a0"
+  },
+  "selected_frontier_changed": false,
+  "status": "Both complete provider generations and independent normal/optimized controls pass. Exact committed-source and registered-replay status is reported on the publication PR after the GitHub-authored commit exists.",
+  "unrun_obligations": [
+    "Independent human scientific review or formal-kernel proof",
+    "Fresh native Gaussian/Clifford phase reconstruction",
+    "Physical hosting/allocation and complete owner chronology",
+    "Uniform coefficient/precision/stock/tape costs",
+    "All-size compiler and complete outer/supplier admission",
+    "Analytic transfer and BIT"
+  ]
+}

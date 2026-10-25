@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "research/capped-fusion-t74-k554/vendor/pr1786/FINE-PRIME-PADDING.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Across-cell transfer of #4452's delta exponents: split identity (polynomial, grid-proved), global ceiling U under the downward reading, robust lemma (excess <= 1/(32p^3) gives ||H^-1|| < 10p^2, exponents 11/24/26/26/6) exactly for p=2..64 plus all-p inequalities, p=2 tolerance interval; pinned LOG-A/FINE-PRIME/downstream phrases."
+    }
+  ]
+}

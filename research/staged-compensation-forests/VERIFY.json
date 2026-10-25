@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "construction"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Complete deterministic source-matched forest/helper circuit, full output inventory and typed records, literal Horner prices, exact fixed PR1080 comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "forest"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent Fraction graph and basis audit: every signed edge and helper score, class minimum, arbitrary inputs and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "wholeword"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent full raw free-warp words, four orientations, complete emitted scalar projection, literal prices and exact prefix/grid witnesses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Normal/optimized source-byte execution, exact typed receipt coverage, actual semantic defects and check deletion."
+    }
+  ]
+}

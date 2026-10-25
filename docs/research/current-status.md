@@ -1,6 +1,45 @@
 # Current reviewed status
 
-Selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy Kothe's #1087 packing and the cumulative k8/slot/T16 construction. The bit supplier remains #589 on #555.
+Selected conditional κ: **0.003027288235** = 605457647/200000000000,
+Chris R / Clear1nsight's PR5413 complete neutral caller, with the provider audit
+in PR5407 and independent companion PR5414. It uses Dillon Amburgey's PR5402
+coupled provider and Ali Romman's PR5398 direct controller. Cao Yifan's native
+construction, Cinna Davis's helpers/controllers, zxv's compiler/precision work,
+Jacob Alan Sussman's mixed-target recursion and the earlier lineage remain credited.
+
+[Selected record](../../certificates/selected-result.json) ·
+[Proof review](pr-intake-evidence/pr5413/PROOF-REVIEW.md) ·
+[Promotion and scope](pr-intake-evidence/pr5413-promotion/PROMOTION.md) ·
+[Integration receipt](pr-intake-evidence/pr5413-promotion/INTEGRATION.json) ·
+[Contributors](community-neutral5413-contributors.md).
+
+Replay: `make frontier5413-verify`. The provider's five engines, primary eight
+engines and independent companion screen run serially in a closed source export
+under a sampled 1 GiB descendant-memory limit and per-package timeouts.
+Source-bound PR4610/#5241 and earlier foundation coverage is reused, not rerun.
+The local macOS replay uses an explicit RLIMIT_AS compatibility adapter;
+it is not presented as an unmodified Linux run.
+
+Exactly the five preceding assumptions remain: native/all-column realization,
+owned erasure, compiler closure, precision/fixed-tape execution, and analytic
+recovery. No complete Lean or independent human multiplication proof is claimed;
+the enormous uniform word is not materialized. Hosted CI status is separate
+from the successful local replay and recorded in the integration receipt.
+
+The [preceding selected checkpoint](../../certificates/checkpoints/frontier4610.json)
+is 0.0030217758. Its [review](pr-intake-evidence/pr4610/PROOF-REVIEW.md) remains part
+of the inherited foundation. The gain is about 0.182424%; the final +5×10⁻¹² over
+#5398/#5400 is compiler/outer headroom. Equal additional paid/target H8 jobs
+preserve the raw signed moment. Frozen submission and review files retain their
+pre-promotion wording; this status and the integration receipt supersede that
+publication status without rewriting the evidence.
+
+The remaining sections form a **historical snapshot**; their “current” wording
+is local to their checkpoint, not the selected record above.
+
+## Historical status through #1094
+
+Historical selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy Kothe's #1087 packing and the cumulative k8/slot/T16 construction. The bit supplier remains #589 on #555.
 
 [Review and attribution](community-batch1099-review.md) · [Integration/CI receipt](community-batch1099-integration.json) · [Selected record](../../certificates/selected-result.json).
 
@@ -10,11 +49,18 @@ Cold replay: `make frontier1094-verify`. This local review explicitly reuses the
 
 **Reviews since the #1094 selection.** These rounds retain scoped constructions,
 negative results, audits and tooling with individual credit, without changing the
-selected κ. The table records frozen review checkpoints, not live queue counts;
-later rounds can revisit older PRs. Use the [PR ledger](pr-ledger.md) for the
-current disposition of a specific contribution. The latest recorded round is
-the [nineteenth reconciliation](community-efficient1900-review.md); its pending
-follow-ups remain separate from incorporated research and supplier admission.
+selected κ. The table records frozen prose review checkpoints, not live queue
+counts; later rounds can revisit older PRs. Use the [PR ledger](pr-ledger.md)
+for the current disposition of a specific contribution. The last prose review
+in this table is the [nineteenth reconciliation](community-efficient1900-review.md).
+Recorded intake continues through the
+[twenty-sixth reconciliation](../../research/community-efficient2600-audit/README.md);
+rounds [2000](../../research/community-efficient2000-audit/README.md) through
+[2600](../../research/community-efficient2600-audit/README.md) are archive and
+tooling intake, not a selected-frontier update. Round 2200's heading says
+"final unbatched remainder"; rounds 2300 through 2600 are recorded after it.
+Pending obligations in every round stay separate from incorporated research
+and supplier admission.
 
 | Review | Frozen PR selection | Disposition |
 | --- | --- | --- |
@@ -36,7 +82,7 @@ follow-ups remain separate from incorporated research and supplier admission.
 | [efficient1600](community-efficient1600-review.md) | #2592–#2715 | 83 merged; 17 pending |
 | [efficient1700](community-efficient1700-review.md) | #2478, #2716–#2828 | 66 merged; 34 pending |
 | [efficient1800](community-efficient1800-review.md) | 42 new/revised submissions; 58 earlier follow-ups | 42 merged; 58 pending |
-| [efficient1900](community-efficient1900-review.md) | 44 new; four revised; 52 earlier follow-ups | Review in progress; see linked review |
+| [efficient1900](community-efficient1900-review.md) | 44 new; four revised; 52 earlier follow-ups | 63 merged; 1 closed as superseded; 36 pending. |
 
 > **Below this point every section is a historical snapshot.** Inside them, “current,”
 > “selected,” “latest” and “next” refer to that snapshot's own checkpoint. The authoritative

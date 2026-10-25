@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The scalar telescope equals the sum of its axis slices; each slice is at most u^{g-1} times the cap 2 when the factors obey v <= u; a g = 1 difference of 3 exceeds that cap."
+    }
+  ]
+}

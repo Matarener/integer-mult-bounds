@@ -1,0 +1,51 @@
+Independent review — PR4470 compact conditional compiler
+
+Verdict: the corrected sufficient-rank calculation is consistent with the
+retained general logarithmic compiler theorem, and the declared conditional
+κ stays 0.00302015. The new finite template bound is N=2^558100005581.
+It is not a new κ, a full multiplication proof, a practical-runtime claim,
+or an explicit threshold for asymptotic integer input sizes.
+
+The source theorem is higher-moment-strictification/README.md §4, pinned to
+canonical main 2a13eb1827784206202db90e5dc8327cf8a250db. For θ=a/b it requires
+2^(b−a) r_max^b ≤ m^a, θ^p < η=t m^(t−1), and m^(1−t)<2^p.
+Here a=94,b=101,p=143,m=145^682,r_max=17^682, so the first factor is
+2^7=128. The initial draft mistakenly checked 2 instead; that undercheck
+was caught in independent review, corrected by the compiler worker, and
+replayed. The stronger required inequality holds with ample exact slack.
+
+The paid tensor proof uses C=0.00302016, t=1−C, u=1/8≥C, v=682,
+cutoff 17^682 and productive floor 21^682. Both original and completion
+paid tails appear explicitly. The displayed conservative rational bound
+passes at 682 and fails at 681. This is a scoped certificate for the chosen
+ratios; it does not establish global minimum tensor power.
+
+The uniform compiler gap g=1/100000001 is distinct from the outer slack.
+Since C−κ=1/100000000, the leftover positive outer slack is
+(C−κ−g)/6 = 1/60000000600000000. All outer comparisons must use exact
+rationals at this scale; a coarse decimal grid cannot silently replace them.
+The small slack is mathematically positive, but can enlarge the unspecified
+asymptotic input threshold substantially. No final threshold is certified.
+
+The majorant test (100000001 j+1)^143<2^j passes at j=5581 and fails at
+j=5580, giving H=100000001·5581=558100005581. This is the chosen sufficient
+majorant/grid bound, not a minimum native program or universal optimal rank.
+The original compiler's integer batching, ownership, whole-job normalizers,
+complements, exits and finite constant prescriptions remain inherited premises.
+
+Independent checks: source hashes before/after; public PR4470 controller
+byte identity; fresh normal and isolated optimized Python replays; separate
+integer/rational calculations for the decisive tail, exit and height tests.
+The registered read-only gate rejects v=681, p=142 and zero remaining outer
+slack through independent exact numerical controls. Calling the real source
+API with an inconsistent native inventory rejects. A corrupted expected
+source pin rejects. This gate makes no filesystem mutations; its deterministic
+result and all guarded source hashes are in RECEIPT.json.
+
+Credit PR4470 for the actual best-known conditional native/controller word;
+PR4440/4441/4447, zxv's native/higher-moment/logarithmic results, Jacob Alan
+Sussman's mixed-target compiler and the retained BIT/analytic/outer lineage.
+The compiler worker chose and constructed the new parameters. The controller
+worker independently reviewed the proof, caught the factor-128 source
+hypothesis, and replayed the corrected calculation. Substantial OpenAI Codex
+assistance. Apache-2.0; original source notices retained.

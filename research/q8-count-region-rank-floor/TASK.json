@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact admissible label-split region for the inherited mixed-negative Q8 necessary conditions, plus the block rank floor n_g >= t_g and the boundary equality ranks. No word is constructed or excluded.",
+  "scope_change_reason": "The card's three-register obstruction is not changed; this is a necessary-condition refinement inside the same formal register model, chosen because it narrows the label splits of the still-open ten-call four-target questions left by PR3570/PR3578/PR3589. A search for a seven-call word in this model was abandoned after checking that PR3536 with the retained PR3471 exclusion already settles that value at nine; the stale open question in research/q8-min-length-census is recorded instead of re-derived.",
+  "bottleneck_link": "Mathematical side result for the nonabelian bit register model. It bounds formal paid-call splits only; it does not improve the binding complex supplier or the selected kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "One exact region computation with the rank floor, its ten-call consequences for the open t = 4 shapes, and the boundary equality statement. No word search beyond the ten-call split list, no solver, no physical invoice.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, README.md, RESULT.json and verify.py; 90 exactly computed endpoint shapes, the ten-call split lists for every open t = 4 shape, a finite lattice check of the boundary equality ranks and an explicit F2 rank fixture; test_package.py behavioural controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does a ten-call balanced (2,2) word exist at the (2,8) split?",
+      "why_it_matters": "PR3589 leaves the balanced four-target length ten undecided; the split list and the forced injective rank-two minority block are the smallest remaining target.",
+      "first_step": "Search over two independent i-calls and eight j-calls with rank(X_i) = rank(Y_i) = 2, exploiting the forced injectivity.",
+      "blocked_by": "A complete eight-call multiset enumeration at four roles is far beyond the bounded budget used here."
+    },
+    {
+      "question": "Can the two tight orientations be satisfied simultaneously by a word?",
+      "why_it_matters": "At (2,8) the i-label is rank-tight while the j-label is not; a simultaneous tightness statement would exclude the split outright.",
+      "first_step": "Combine the boundary rank identity with PR3589's cubic correction rank X C Y for the same word.",
+      "blocked_by": "No simultaneous criterion was derived here."
+    },
+    {
+      "question": "What is the sharp uniform constant for t >= 3?",
+      "why_it_matters": "The region minimum and the delivered minima already differ at three targets, so no purely rank-based constant is sharp.",
+      "first_step": "Compare the region minimum with the delivered minimum for every shape whose minimum is known.",
+      "blocked_by": "Only t <= 3 minima are delivered; t = 4 remains in {10,12}."
+    },
+    {
+      "question": "Can a formal saving meet an actual caller allowance?",
+      "why_it_matters": "Formal paid labels do not price physical consumption.",
+      "first_step": "Bind an actual word to a physical layout, source ownership and a complete invoice.",
+      "blocked_by": "Scalar, routing, restoration, hosting, precision, recursive and supplier admission costs remain open."
+    }
+  ]
+}

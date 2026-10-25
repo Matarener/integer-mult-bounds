@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.5.4"
+  ],
+  "inputs": [
+    "research/bit-twisted-feedback-four-registers/README.md",
+    "research/bit-zero-frame-feedback-to-8-registers/README.md",
+    "research/r439-twisted-star-absorption-seed02/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Contamination-charge construction (6,628 words, two per element of every P_{H,Y} with n<=4; 8,400 random P-words n<=8; 2,800 free words, per-gate invariant only), stdlib column-major 3+3 MITM decision over 85,504 twisted exits, five negative controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/numpy_crosscheck.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "numpy second method: dense P_{3,3} BFS and row-major B4xB4 MITM; dense five-register census (333,712 exits: 333,552 twisted plus 160 settled T=I shears); construction on one greedy minimum word per five-register exit (35 non-clean 4+1 words with c = f_v + 1); positive control: all 120 non-exit elements of five-register P with a strict feedback gain, 60 in P_{2,3} and 60 in P_{3,2}, with Corollary 2 asserted on a minimum word of each"
+    }
+  ]
+}

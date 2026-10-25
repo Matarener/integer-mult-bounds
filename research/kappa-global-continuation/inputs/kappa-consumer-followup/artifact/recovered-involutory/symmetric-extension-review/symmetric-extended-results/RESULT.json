@@ -1,0 +1,256 @@
+{
+  "status": "PASS_FINITE_SYMMETRIC_128_PORT_COMPONENT",
+  "script_sha256": "15f29c5a84e4b055668ff78bb6ec8c8e2d15aa8064b35832839a27a4ec205323",
+  "component_source_sha256": "f6769f1ecd6b2e582748805b3afcf4c65824ba108ce7f23a4d011c45f8b724de",
+  "claim_scope": "Finite local Gaussian-dyadic component only; zero-label extra ports require a new global geometry and physical allocation",
+  "providers": {
+    "base": {
+      "borrow_word_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "payload_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "source_helper_ports": [
+        224,
+        225,
+        227,
+        229,
+        240,
+        241,
+        256,
+        257,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238
+      ],
+      "target_helper_ports": [
+        239,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        250,
+        252,
+        253,
+        254,
+        255,
+        258,
+        259,
+        260
+      ],
+      "H_support": 106,
+      "normalization_gates": 398,
+      "normalization_is_invertible_dyadic": true,
+      "Q_Q_transpose": "8 I",
+      "D_symmetric": true,
+      "D_squared": "I",
+      "checks": {
+        "forward": {
+          "input_columns": 632,
+          "extended_source": 128,
+          "extended_target": 128,
+          "arbitrary_helpers_restored": 376,
+          "owned_zero_buffers": 91,
+          "rank_mass": 5070,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "scalar_invoice": {
+            "real_primitives_upper": 172250,
+            "new_gaussian_macros": {
+              "scale": 36,
+              "add": 1704,
+              "clear": 16
+            },
+            "imaginary_additions": 32,
+            "lowering": "(a+ib)(u+iv)=(au-bv)+i(bu+av); independent real dyadic additions, swapped source coordinates and sign; no recursive native child"
+          },
+          "scalar_prefix_ceiling_log2": 124,
+          "retained_scalar_cap_192_satisfied": true
+        },
+        "backward": {
+          "input_columns": 632,
+          "extended_source": 128,
+          "extended_target": 128,
+          "arbitrary_helpers_restored": 376,
+          "owned_zero_buffers": 91,
+          "rank_mass": 5070,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "scalar_invoice": {
+            "real_primitives_upper": 181578,
+            "new_gaussian_macros": {
+              "clear": 16,
+              "add": 2616,
+              "scale": 36
+            },
+            "imaginary_additions": 496,
+            "lowering": "(a+ib)(u+iv)=(au-bv)+i(bu+av); independent real dyadic additions, swapped source coordinates and sign; no recursive native child"
+          },
+          "scalar_prefix_ceiling_log2": 128,
+          "retained_scalar_cap_192_satisfied": true
+        }
+      },
+      "extra_port_labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "extra_port_start_rank": 0,
+      "extra_port_final_source_rank": 9,
+      "extra_port_final_target_rank": 9,
+      "native_scope": "All retained core native operations reused; newly added Gaussian scalar gates are only at literal common I or FULL frames"
+    },
+    "extra": {
+      "borrow_word_sha256": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e",
+      "payload_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "source_helper_ports": [
+        224,
+        225,
+        227,
+        229,
+        240,
+        241,
+        256,
+        257,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238
+      ],
+      "target_helper_ports": [
+        239,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        250,
+        252,
+        253,
+        254,
+        255,
+        258,
+        259,
+        260
+      ],
+      "H_support": 106,
+      "normalization_gates": 398,
+      "normalization_is_invertible_dyadic": true,
+      "Q_Q_transpose": "8 I",
+      "D_symmetric": true,
+      "D_squared": "I",
+      "checks": {
+        "forward": {
+          "input_columns": 632,
+          "extended_source": 128,
+          "extended_target": 128,
+          "arbitrary_helpers_restored": 376,
+          "owned_zero_buffers": 91,
+          "rank_mass": 5070,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "scalar_invoice": {
+            "real_primitives_upper": 172250,
+            "new_gaussian_macros": {
+              "scale": 36,
+              "add": 1704,
+              "clear": 16
+            },
+            "imaginary_additions": 32,
+            "lowering": "(a+ib)(u+iv)=(au-bv)+i(bu+av); independent real dyadic additions, swapped source coordinates and sign; no recursive native child"
+          },
+          "scalar_prefix_ceiling_log2": 124,
+          "retained_scalar_cap_192_satisfied": true
+        },
+        "backward": {
+          "input_columns": 632,
+          "extended_source": 128,
+          "extended_target": 128,
+          "arbitrary_helpers_restored": 376,
+          "owned_zero_buffers": 91,
+          "rank_mass": 5070,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "scalar_invoice": {
+            "real_primitives_upper": 181578,
+            "new_gaussian_macros": {
+              "clear": 16,
+              "add": 2616,
+              "scale": 36
+            },
+            "imaginary_additions": 496,
+            "lowering": "(a+ib)(u+iv)=(au-bv)+i(bu+av); independent real dyadic additions, swapped source coordinates and sign; no recursive native child"
+          },
+          "scalar_prefix_ceiling_log2": 128,
+          "retained_scalar_cap_192_satisfied": true
+        }
+      },
+      "extra_port_labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "extra_port_start_rank": 0,
+      "extra_port_final_source_rank": 9,
+      "extra_port_final_target_rank": 9,
+      "native_scope": "All retained core native operations reused; newly added Gaussian scalar gates are only at literal common I or FULL frames"
+    }
+  }
+}

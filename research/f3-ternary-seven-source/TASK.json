@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "A 6600-call upper bound for the seven-source unsigned F3 dirty connector with all 2186 nonzero ternary rows.",
+  "scope_change_reason": "Retains the alphabet and improves a full-demand finite construction, answering PR4256 open question 2 rather than extending the operation alphabet.",
+  "bottleneck_link": "Side result on a recursive connector interface. A concrete full-demand consumer and complete supplier invoice are unknown; no kappa claim.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop research at the first verified upper-bound improvement, then package it. No shorter-word search after the 42-event witness.",
+  "outcome": "completed",
+  "evidence": "All 13244 boundary triples cover all 2187 rows; packed and tuple arithmetic agree. Literal 6600-call replay, eight dense dirty executions and six rejection controls pass.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is the cited lower bound 6588 attained?",
+      "why_it_matters": "Would settle the seven-source full ternary optimum.",
+      "first_step": "Seek a restored 30-event path covering every row by triples, or a legal source/readout tradeoff.",
+      "blocked_by": "No covering shorter word or stronger all-word lower bound is supplied."
+    },
+    {
+      "question": "Can this finite palette reduce the leading constant of an all-n construction?",
+      "why_it_matters": "PR4256 matches the exponent but leaves a constant gap.",
+      "first_step": "Prove a lifting rule preserving triple decompositions and count every positive source step.",
+      "blocked_by": "No such lifting rule is known here."
+    },
+    {
+      "question": "Which concrete caller requires full ternary demand?",
+      "why_it_matters": "A local call saving needs a consumer before it can affect a supplier.",
+      "first_step": "Pin a caller and price maps, dispatch and dirty return.",
+      "blocked_by": "Caller, stock, precision and physical implementation are unknown."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 4256,
+      "head": "6a95ef419f94e7b5c2fff710e34081520cc6aba2",
+      "role": "6603 upper bound and open question 2; citation only"
+    },
+    {
+      "pr": 4244,
+      "head": "f436d2911351e5be2842208fe96b0b66442323a4",
+      "role": "full-demand interface and cited 6588 lower bound; citation only"
+    },
+    {
+      "pr": 4238,
+      "head": "191a905d7adba6695b079f744140a73e832787a8",
+      "role": "full ternary demand predecessor; citation only"
+    }
+  ],
+  "result": "Finite construction certificate: 42 source calls and 6558 readouts, total 6600, three fewer than the cited 6603 upper bound."
+}

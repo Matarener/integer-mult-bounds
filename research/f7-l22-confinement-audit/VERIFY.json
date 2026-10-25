@@ -1,0 +1,24 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [],
+ "inputs": [
+  "research/connector-covering-code/table6.json",
+  "research/connector-covering-code/README.md",
+  "certificates/selected-result.json",
+  "docs/research/agent-task-catalog.json"
+ ],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-I",
+    "-B",
+    "{package}/verify.py"
+   ],
+   "timeout_seconds": 120,
+   "checks": "Rebuilds the five twenty-point covers from table6.json and requires each to satisfy P+P=F2^7; computes the seven largest difference multiplicities and the eighteen-edge bound for a two-component graph on twenty vertices; excludes |P|=20 for every basis in representatives 4 and 5 by arithmetic and records exact and sampled component counts for 1-3; re-derives the two simple-cycle multiplicity patterns at length 22 from the imported f(5) and f(6) values; and verifies the recorded 24-step universal word plus two non-universal 22-step controls with their exact coverage."
+  }
+ ]
+}

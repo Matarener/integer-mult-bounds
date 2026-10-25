@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-character-contact-audit/source/PR4204-GEOMETRY.json.gz",
+    "research/p112-character-contact-audit/source/PR4204-LICENSE.txt",
+    "research/p112-character-contact-audit/source/PR4204-NOTICE.md.txt",
+    "research/p112-character-contact-audit/source/PR4204-PROOF-CONTACTS.md.txt",
+    "research/p112-character-contact-audit/source/PR4204-README.md.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/primary_verify.py",
+        "--expected",
+        "{package}/PHASE-RESULT.json"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All8880 phase operators and all5824contacts x512characters x2signs x3raw columns, actual plus-one typed operations and exact phase controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/primary_verify.py",
+        "--expected",
+        "{package}/PHASE-RESULT.json"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All8880 phase operators and all5824contacts x512characters x2signs x3raw columns, actual plus-one typed operations and exact phase controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate noncommutative free-group identity for arbitrary invertible frame maps, bothsigns; noncommuting numeric controls and direct-case premise."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate noncommutative free-group identity for arbitrary invertible frame maps, bothsigns; noncommuting numeric controls and direct-case premise."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Frozen source/code/receipt bindings, independently counted operation metadata and copied-corruption controls; not another all-character implementation."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Frozen source/code/receipt bindings, independently counted operation metadata and copied-corruption controls; not another all-character implementation."
+    }
+  ]
+}

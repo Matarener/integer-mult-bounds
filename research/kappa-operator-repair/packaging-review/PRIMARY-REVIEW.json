@@ -1,0 +1,167 @@
+{
+  "accepted_comparator_record": {
+    "actual_sha256": "3b14523fc554eacb59ae17892562fdf9c9a4f8955532071d89d4ee657fd55f3f",
+    "comparison_mode": "exact_json_except_top_level_runtime_seconds",
+    "expected": "research/kappa-operator-repair/composed-supplier/native-base/native/local/CLIFFORD-REVIEW.json",
+    "expected_sha256": "ab6a9e1cb56836a694080f3343af2eef23c2a7c1f94f465e05956ae0b4c23d0b",
+    "omitted_top_level_fields": [
+      "seconds"
+    ],
+    "scientific_payload_sha256": "cbbef61e4def401694a78b2ecaf8ab2cdaa55992a6a47271a7021e8f51de0072"
+  },
+  "corrected_concrete_defect": "Optional native/full replay formerly byte-compared top-level CLIFFORD-REVIEW.seconds. The reviewed source omits only that validated runtime field; all other scientific JSON fields and the other five complete files remain exact.",
+  "dependency_coverage": [
+    {
+      "catalogue": "complex-word/AUDIT-INPUTS.json",
+      "catalogue_sha256": "051cc93cdf7c52c592c0d06fd9c077af4e10ced899cbf781ad1f8fb3976dfeaa",
+      "mismatched": [],
+      "missing": [],
+      "required_inputs": 53
+    },
+    {
+      "catalogue": "operator-correction/REPLAY-INPUTS.json",
+      "catalogue_sha256": "fa4fac2449ad382df703abbb773aa7e9606cfa1ed3d80ae612e8f3190769eba6",
+      "mismatched": [],
+      "missing": [],
+      "required_inputs": 111
+    },
+    {
+      "catalogue": "complex-architecture/REPLAY-DEPENDENCIES.json",
+      "catalogue_sha256": "c918bfae41b755b393793e0e7a66a7e4b8797f994bb5c0087411d768d68a64ac",
+      "mismatched": [],
+      "missing": [],
+      "required_inputs": 15
+    },
+    {
+      "catalogue": "operator-correction/PORTABLE-DEPENDENCIES.json",
+      "catalogue_sha256": "5bbfd19d2dba377f403fe8de4a943bfd5ad0abfd022a0a0d4da3c7a29b56b066",
+      "mismatched": [],
+      "missing": [],
+      "required_inputs": 49
+    }
+  ],
+  "focused_comparator_controls": [
+    {
+      "accepted": true,
+      "case": "runtime_only_change",
+      "sha256": "3b14523fc554eacb59ae17892562fdf9c9a4f8955532071d89d4ee657fd55f3f"
+    },
+    {
+      "accepted": false,
+      "case": "changed_word_binding",
+      "sha256": "8a83314d9b132e83e9e0dcc3810e95d8e7880ceebb087d906c9334b0f76e1dc0"
+    },
+    {
+      "accepted": false,
+      "case": "nested_new_field_is_not_ignored",
+      "sha256": "58fd4dd89ab67716296a87cb9ca8b2f1c12268f5dac411fa20f2ebbb0e375497"
+    },
+    {
+      "accepted": false,
+      "case": "nonfinite_runtime",
+      "sha256": "8c8ed94f089af5c862506eec72c10b7fc02ef48cdae117a17a2fa62fa3782870"
+    },
+    {
+      "accepted": false,
+      "case": "boolean_runtime",
+      "sha256": "4b6a4bc4d105a6f5f8d126171f83898c6d005650f522eb2e6879017fef8e868e"
+    },
+    {
+      "accepted": false,
+      "case": "missing_runtime",
+      "sha256": "d3d27004de9569bd4d215a8b72391717a982127defdad5fb37cfd8ead435133d"
+    }
+  ],
+  "limitations": [
+    "No full native replay, full inherited release, or final package was executed by this review.",
+    "The late PR4076 composition and any new selector/collector are outside this primary-script review.",
+    "The manifest and actual final portable replay remain to be produced after release completion; historical files may contain withdrawn claims and are authenticated as history."
+  ],
+  "manual_review": [
+    "Replay authenticates the selected manifest before subprocess execution; every default stage writes to a fresh requested output path.",
+    "Freshly reconstructed words are byte-compared before pricing. The cached native/full receipts used by the default mode are source-bound by the fresh conjunction, and fresh-native/full flags distinguish the optional executions.",
+    "Native replay creates a fresh vendor/input snapshot; full release alters only its explicitly fresh scoped work tree and repeatedly checks scientific source stability.",
+    "Manifest freezing authenticates the prior portable closure, refuses unfinished report markers and incomplete claim status, and includes all four audited dependency inventories with the explicit new PR3220 proof.",
+    "Package preserves the original archive as input, copies it to the new filename, appends only new members, checks old metadata and the entire old compressed-member prefix, and verifies each new member byte. It requires a validation tied to the final manifest before complete delivery.",
+    "Compact --stage proves archive source-byte/CRC integrity and labels itself staging; it does not claim a completed scientific replay."
+  ],
+  "native_receipt_runtime_field_audit": {
+    "research/kappa-operator-repair/composed-supplier/native-base/native/local/CANONICAL-WORD.json.gz": {
+      "runtime_fields": [],
+      "sha256": "3e7b1ad923a65bf277ed70d0b69e9e9131234b4e17a757f22434efd83795c908"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-base/native/local/CLIFFORD-REVIEW.json": {
+      "runtime_fields": [
+        [
+          "seconds"
+        ]
+      ],
+      "sha256": "ab6a9e1cb56836a694080f3343af2eef23c2a7c1f94f465e05956ae0b4c23d0b"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-base/native/local/INDEPENDENT-LOCAL-REPLAY.json": {
+      "runtime_fields": [],
+      "sha256": "beb6941473c67d435e122eecaec86585887e26be393cfea86dc67d875883bf1b"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-base/native/local/LOCAL-CHECKS.json": {
+      "runtime_fields": [],
+      "sha256": "4db469dfb2dbecc08ce07cda03266407a178553085b3f32b8a3c99c689a4ff9e"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-base/native/local/LOCAL-PROGRAMS.json.gz": {
+      "runtime_fields": [],
+      "sha256": "31d7bf854863c26bb4b11a6ac79c8a0b88113627742f4ba1aa8f5ad5e005f6e5"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-base/native/local/RESIDUAL-ADAPTERS.json": {
+      "runtime_fields": [],
+      "sha256": "01157aca63a20a7696629f910f931428810c5b15c5a483fa1aefce9e710333d2"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-extra/native/local/CANONICAL-WORD.json.gz": {
+      "runtime_fields": [],
+      "sha256": "fd065b64c864885aac9293ecb7d9cb9abd3726af867cdc2d1f39d1d50cbc962d"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-extra/native/local/CLIFFORD-REVIEW.json": {
+      "runtime_fields": [
+        [
+          "seconds"
+        ]
+      ],
+      "sha256": "0d9c1286ad92f393b08cd9d51fce4810f11811a4d9af53b193dc98822d0b331b"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-extra/native/local/INDEPENDENT-LOCAL-REPLAY.json": {
+      "runtime_fields": [],
+      "sha256": "819a74bdfa5df545a577059fa33a5a4df2d5e8d808e853edb728aafd631c460b"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-extra/native/local/LOCAL-CHECKS.json": {
+      "runtime_fields": [],
+      "sha256": "4db469dfb2dbecc08ce07cda03266407a178553085b3f32b8a3c99c689a4ff9e"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-extra/native/local/LOCAL-PROGRAMS.json.gz": {
+      "runtime_fields": [],
+      "sha256": "31d7bf854863c26bb4b11a6ac79c8a0b88113627742f4ba1aa8f5ad5e005f6e5"
+    },
+    "research/kappa-operator-repair/composed-supplier/native-extra/native/local/RESIDUAL-ADAPTERS.json": {
+      "runtime_fields": [],
+      "sha256": "40162e8f33a886e5de00a7eac21318ab9910c0bb2636efe7a51b38c49dfc00ee"
+    }
+  },
+  "previous_archive": {
+    "archive_was_only_read": true,
+    "bytes": 531438104,
+    "members": 77785,
+    "new_external_path_already_archived": true,
+    "sha256": "f2406e81f2548873cfe624b316aa2a59f48ada97864e65d51135f40e5751db05"
+  },
+  "remaining_acceptance_defects_found": [],
+  "reviewed_files": {
+    "research/kappa-operator-repair/build_claim.py": "058be93f25859585a24b53c3daf696adc5d91bd164b59b79b20171d015c0eb06",
+    "research/kappa-operator-repair/collect_release.py": "6336405aa229c11ecb86033bbc7c2bfa1911c10f0fc7d1c1c060e8ace478d53d",
+    "research/kappa-operator-repair/composed-supplier/construct.py": "7a78d6555be95a9b28f60d46f2947a704243df07c8fec1b0385c682d2f834887",
+    "research/kappa-operator-repair/composed-supplier/invoice.py": "c44dd67335a3a28e434a7ca08b778bad8af66f545fcc320cb13d669167de5343",
+    "research/kappa-operator-repair/composed-supplier/run_release.py": "d7055785f664228bfb214d7aad5223f21169b6488729c69bdf77f6759856caee",
+    "research/kappa-operator-repair/freeze_manifest.py": "6469093e8d74608106c908a20b935c59631478e349de9ac8d06904e98c27de96",
+    "research/kappa-operator-repair/package.py": "a782ac37198cfca500da413b532bbf700ffd922f60c029945f942b35721a2f9a",
+    "research/kappa-operator-repair/packaging-review/review.py": "d483672f5076fe6134f8b658877253edd4b859124880eb362446bb2bddae26a7",
+    "research/kappa-operator-repair/replay.py": "4ad3fba2da7e27d81c0428962acca25db8dfcbcc9456fd98bf6d07f7e3e786bc",
+    "research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/native/run_native.py": "a7bfe110fe5098f6ef8bde3c43ecf15e8d1e06149abf7321a4c945383dcc2627"
+  },
+  "status": "PASS_SCOPED_INDEPENDENT_PRIMARY_PACKAGING_REVIEW"
+}

@@ -1,0 +1,190 @@
+{
+  "status": "PASS_FINITE_PAID_NATIVE_FUSION",
+  "private_storage_schedule": {
+    "private_real_words_upper_bound": 8,
+    "whole_program_initial_and_final_clears": 16,
+    "schedule_witnesses": 25,
+    "kind": "constructive register schedule; not measured Python memory"
+  },
+  "providers": {
+    "base": {
+      "word_sha256": "08e6c96fbe3dfec96cb8451b3867ef8c1a214109ecd1e5af7fcc28e0f05728d0",
+      "unchanged_local_profile": {
+        "1": 2482,
+        "2": 712,
+        "3": 218,
+        "4": 109,
+        "5": 20,
+        "8": 8
+      },
+      "unchanged_width_inventory": {
+        "5": 28,
+        "6": 18,
+        "7": 53,
+        "8": 96,
+        "9": 213
+      }
+    },
+    "extra": {
+      "word_sha256": "d83c2ec9cecc0ad092d34ea4080b28a4fd7199579356b6d5a8fc6cd53ff93299",
+      "unchanged_local_profile": {
+        "1": 2482,
+        "2": 712,
+        "3": 218,
+        "4": 109,
+        "5": 20,
+        "8": 8
+      },
+      "unchanged_width_inventory": {
+        "5": 28,
+        "6": 18,
+        "7": 53,
+        "8": 96,
+        "9": 213
+      }
+    }
+  },
+  "interfaces": {
+    "warp": {
+      "columns": 512,
+      "nonzero_coefficients": 512,
+      "gaussian_axis_phase_histogram": [
+        128,
+        128,
+        128,
+        128
+      ],
+      "operator_sha256": "35398839f9896ac23fedccbae5ffc00b4cc1c31fef28b97a82bd6a9a4bcef0e2"
+    },
+    "next_climb": {
+      "columns": 512,
+      "nonzero_coefficients": 1024,
+      "gaussian_axis_phase_histogram": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "operator_sha256": "74556c18b0a17cf6d9e5be7cd8c819341f907afe780fa44c9255adc8392c767c"
+    }
+  },
+  "compensated_actual_frames": {
+    "entrance": {
+      "tag": 7,
+      "flipped_coordinate_axes": [
+        0,
+        1,
+        2
+      ],
+      "global_i_power": 3
+    },
+    "exit": {
+      "tag": 14,
+      "flipped_coordinate_axes": [
+        1,
+        2,
+        3
+      ],
+      "global_i_power": 3
+    },
+    "next_frame": {
+      "tag": 31,
+      "flipped_coordinate_axes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "global_i_power": 1
+    }
+  },
+  "physical": {
+    "basis_columns": 2048,
+    "output_complex_coordinates": 2048,
+    "operator_sha256": "5db32f91611f88c3af512462fb2d713bb868d4637a46df242745782ce34ade16",
+    "reference": {
+      "private_real_words": 8,
+      "private_word_clears": 16,
+      "cycle_leader_reads": 88,
+      "routing_entry_reads": 1536,
+      "caller_real_reads": 8190,
+      "real_negations": 3584,
+      "caller_real_writes": 7166,
+      "real_additions": 5120,
+      "exact_halves": 1024
+    },
+    "fused": {
+      "private_real_words": 8,
+      "private_word_clears": 16,
+      "routing_entry_reads": 1536,
+      "caller_real_reads": 7166,
+      "real_negations": 3072,
+      "real_additions": 5120,
+      "caller_real_writes": 6142,
+      "cycle_leader_reads": 28,
+      "exact_halves": 1024
+    },
+    "delta": {
+      "private_real_words": 0,
+      "private_word_clears": 0,
+      "cycle_leader_reads": -60,
+      "routing_entry_reads": 0,
+      "caller_real_reads": -1024,
+      "real_negations": -512,
+      "caller_real_writes": -1024,
+      "real_additions": 0,
+      "exact_halves": 0
+    },
+    "dirty_inverse_roundtrips": 2,
+    "stronger_materialized_baseline": {
+      "private_real_words": 8,
+      "private_word_clears": 16,
+      "cycle_leader_reads": 88,
+      "routing_entry_reads": 1536,
+      "caller_real_reads": 7166,
+      "real_negations": 3072,
+      "caller_real_writes": 7166,
+      "real_additions": 5120,
+      "exact_halves": 1024
+    },
+    "delta_vs_stronger": {
+      "private_real_words": 0,
+      "private_word_clears": 0,
+      "cycle_leader_reads": -60,
+      "routing_entry_reads": 0,
+      "caller_real_reads": 0,
+      "real_negations": 0,
+      "caller_real_writes": -1024,
+      "real_additions": 0,
+      "exact_halves": 0
+    }
+  },
+  "metadata": {
+    "route_table_bits": 16896,
+    "reference_cycle_leader_bits": 792,
+    "fused_cycle_leader_bits": 252,
+    "additional_fusion_preparation": {
+      "table_entry_reads": 1024,
+      "table_entry_writes": 512,
+      "table_entry_bits": 11,
+      "two_bit_mod4_additions": 512,
+      "cycle_decomposition_work": "One new 512-point permutation; cycle metadata is rebound, not free.",
+      "temporary_composition_table_bits": 5632,
+      "visited_bits": 512
+    }
+  },
+  "controls": [
+    "omit actual affine translation",
+    "omit all phase tags",
+    "omit global i cubed",
+    "replace warp by adjoint",
+    "reverse right-monomial composition",
+    "drop actual central compensation",
+    "drop actual compensated global i",
+    "changed source-bound affine recipe"
+  ],
+  "recursive_child_delta": 0,
+  "owner_width_delta": 0,
+  "all_size_supplier_admitted": false
+}

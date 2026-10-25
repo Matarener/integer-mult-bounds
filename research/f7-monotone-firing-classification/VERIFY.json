@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Flat-excess maxima, the 14-point and 16-point caps, published per-mask tables through (5,14), canonical censuses at (4,14), (4,16) and (5,16), firing-set monotonicity failure at n=4, n=5 stability through length 16, the mask-1 witness, and agreement of both excess routes and both n=4 enumerators."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Sharp flat examples, the strict budget gap at excess 29, the 01021323 bit-0 bill, the length-12 witness inside the exact budget, and mask 1 firing at (4,12) but not at (4,14)."
+    }
+  ]
+}

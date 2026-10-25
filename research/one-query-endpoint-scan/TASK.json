@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove two all-size one-query obstructions for the fixed triangular two-carrier map, verify the actual Gaussian native amplitude, retain the precise restored-helper width boundary, and archive the named five-query search results without enlarging their scope.",
+  "scope_change_reason": "Explicit donor-assigned caller investigation and authorized publication of the frozen preceding-run results; this is not a claim to solve the full original card.",
+  "bottleneck_link": "Complete native caller charge and original-input reader/cleanup obligations. No selected result or new kappa.",
+  "budget_minutes": 240,
+  "stop_rule": "Publish only exact complete local identities, scoped proofs or explicitly archived finite screens. Stop favorable-supplier claims at the unresolved full-bill and physical-admission boundaries.",
+  "outcome": "partial",
+  "evidence": "README.md; source proof links; BINDINGS.json; explicit normal/optimized VERIFY.json commands.",
+  "author": "Ross Richardson",
+  "ai_assistance": "Substantial OpenAI Codex assistance across the original construction, separate mathematical checking contexts, and publication packaging. AI review is not independent human or formal-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can an explicit growing paid endpoint word or a multi-query changed-cut word fit a complete caller budget?",
+      "why_it_matters": "This is the remaining constructive gap between the scoped result and a useful complete caller.",
+      "first_step": "Write its physical operands, exact endpoint columns and scan lengths; compare with the 2f lower bound before any all-size pricing claim.",
+      "blocked_by": "The retained fixed alphabets found no favorable word; no general search, physical admission or compatible joint supplier is supplied."
+    }
+  ]
+}

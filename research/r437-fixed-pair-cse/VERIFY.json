@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/words.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/records.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/matrices.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/controller.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/children.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/plan.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/stream.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/trace.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Actual original/CSE serialized coefficients, independent local-ring oracle, full action receipts, branch/error/ownership and mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--quick"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Optimized interpreter: actual serialized coefficient and CSE guard controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--export"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Git-free declared-source export, optimized quick replay and corruption controls."
+    }
+  ]
+}

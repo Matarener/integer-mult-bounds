@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Typed actual-width H0 tensor, one toward-zero Q_p return, and an MSB-first bit bridge on the matched twiddle array, with an exact one-round invoice.",
+  "scope_change_reason": "Handoff 1166#19016699 asks for a typed actual-width physical H and rounded return on the matched array from PR3623. The catalogue card is a general all-size or precision implication. This session takes only that one-round construction. The multi-round allowance is unspecified, so the lifecycle is not started.",
+  "bottleneck_link": "The matched K repair does not move the retained outer movement bottleneck. Pricing this previously unpriced one-round H and Q_p removes an oracle from that interface without a new exponent.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the typed one-round width, return, bridge and invoice. Do not build multi-round stock or a production-size cube while the caller allowance remains an uninstantiated criterion.",
+  "outcome": "partial",
+  "evidence": "PROOF.md and verify.py. Exhaustive g=1, p=3 disk (197 points, 38809 pairs); degree-2 address-2 witness (1,0) versus (0,0); 18 common-round bit identities; exact k=2,3 floors including six-multiple offsets +2 and +5 at k=2. Normal and -O runs both print PASS_TYPED_ACTUAL_WIDTH_H.",
+  "author": "unpaidmoon, with substantial AI assistance",
+  "ai_assistance": "Substantial AI assistance in the proof, the checker, and the write-up. No independent human review or formal-kernel proof is claimed.",
+  "open_questions": [
+    {
+      "question": "Can one fixed cube and packet inventory carry every round under an explicit simultaneous tape count?",
+      "why_it_matters": "The one-round invoice does not discharge the handoff's all-round reuse obligation, and an unknown multi-round charge is not zero.",
+      "first_step": "Write descriptor update, previous-output reset, borrowed restoration and the cube-buffer count for one common round and one prefix round on the 64-address three-short cube.",
+      "blocked_by": "PR3623 states Q<=C M R(rw+A+p^3)+poly(p) only as a sufficient criterion. The operations themselves are not specified."
+    },
+    {
+      "question": "Does this one-round bit invoice plug into PR3617 without charging the producer a second time?",
+      "why_it_matters": "The diagonal pass already has a 38-role tariff. Adding 6N(p+2) bit scans blindly could double-count work the pass already pays.",
+      "first_step": "Identify which PR3617 roles already move component bits, then add only the missing bridge scans once per record.",
+      "blocked_by": "PR3617 is unmerged and its full-array pass was not replayed here."
+    },
+    {
+      "question": "Is the k=2 extent gap visible to any executable outer instance?",
+      "why_it_matters": "The address-extent ratio is 2^(2^500-1), so every feasible cube has K_g=K_d=1 and cannot exhibit the production mismatch.",
+      "first_step": "Keep the exact integer thresholds already checked. Do not allocate the cube.",
+      "blocked_by": "The retained outer band forces ell>=45812984491, above the predecessor executable cap of 32."
+    }
+  ],
+  "handoff": {
+    "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19016699",
+    "predecessor_pr": 3623,
+    "predecessor_heads": [
+      "328c40966b650f60b1d62cfb0b1d67b2b755eb62",
+      "c5ab698bba8b35323e40ae3b132e78f26179d393"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "kappa-research-recovery-source-pins/1",
+  "recorded_date": "2026-10-21",
+  "status": "Historical identities retained from the completed pre-reset checks. These bytes are NOT present in this recovery package.",
+  "incident": {
+    "round_start_utc": "2026-10-21 00:13:31",
+    "environment_offline_window_utc": "approximately 02:25 to 02:43",
+    "observed_failure": "409 Conflict: environment_offline / Environment is not connected",
+    "reconnected_workspace": "The workspace returned with the attached base, prior cumulative archives, and almost all current-round sources absent. Three delayed files initially survived; additional self-contained recovery sources were then written.",
+    "full_current_round_replay_completed": false,
+    "full_current_round_cumulative_package_completed": false
+  },
+  "reattach_to_restore_predecessor": [
+    {
+      "filename": "kappa-evaluation-compact(7).zip",
+      "size_bytes": 413152788,
+      "sha256": "be617301d74b0e586055c9ff702582a4c22c796008db8362781230ed9b453e11",
+      "previous_regular_file_count": 78395,
+      "purpose": "Exact user-supplied base repository. A current public clone does not replace this artifact."
+    },
+    {
+      "filename": "kappa-function-composition-checkpoint-20261020.zip",
+      "size_bytes": 155846068,
+      "sha256": "0ecb9ad58b6fb7f9bc97d47a3c692d3c6fbfb79dec087d6da91debd7973867ba",
+      "purpose": "Last fully packaged cumulative checkpoint; restores predecessor work, not the lost sources first created on October 21."
+    }
+  ],
+  "prior_inner_overlay": {
+    "filename": "kappa-function-composition-cumulative-overlay.zip",
+    "size_bytes": 128696496,
+    "sha256": "253bc0d5833fdd2d143879eb6c505092417ca5ec34373ce3b31d08b148333157",
+    "path_mappings": 3214,
+    "supplemental_mappings": 759,
+    "writes": 3208,
+    "base_identical_mappings": 6,
+    "content_blobs": 2267,
+    "historical_unavailable_entries": 332,
+    "historical_unavailable_dependencies": 34,
+    "selected_binary_omissions": 130,
+    "qualification": "Counts were authenticated before this reset. Historical unavailable entries and binary omissions must remain explicit; do not fabricate their recovery."
+  },
+  "prior_checkpoint_receipts": {
+    "INTEGRITY_sha256": "aa3234229dcd09054354d7f85e68c9f8fb0a361c4d0626c281b7070202871180",
+    "VALIDATION_sha256": "ccf8ce9a5e4e8e9ecd90f4f2b5e3200d573e8299cc4a31396cd4fd5a79952b2c"
+  },
+  "public_baseline_observed": {
+    "checked_utc": "2026-10-21 01:26:40",
+    "main_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "conditional_complex_endpoint_PR4085": "0.001730970419199163702738",
+    "separate_stronger_BIT_checkpoint": "0.001738137188329345368427",
+    "active_outer_BIT_endpoint": "0.001733427039589844234749",
+    "outer_formula": "kappa = C - 10^-46 - 10^-70; BIT premise > C - 1.5*10^-104",
+    "new_kappa_admitted_this_round": false,
+    "public_writes_performed": false
+  },
+  "lost_current_round_pins": {
+    "complex_H112_receipt": "d14edeacd37e526f8723ebdfb22f6b8d470ebf1daa7ef7c87aacfe7bae00484c",
+    "complex_H112_KERNEL_gzip": "12c17f4e14a58a2b202ce21c55458366cbf9f9377b5255ececb087c9c87d5fef",
+    "dirty_log_forward.py": "5c25d9af21c9d1840bb5a3cbb542333211422d8bce603e16abd9c92993af012e",
+    "dirty_log_forward_RESULT": "304ba639ca7627f63a4cfbb8d4b2657b9868b981c78d432976db32af6e73f0e5",
+    "dirty_log_forward_PHASES_gzip": "c1cdb8113eb45183ad3f76ad2a0b69973bd770da4f6420f618a11106d07cb492",
+    "dirty_log_forward_README": "87299e83cfc29f3b53f0e0e0ce680fe95618f526b1bb4e9880c91b348672e002",
+    "dirty_log_forward_REPRODUCE": "deda327c5f2ed62c89564f4488a6b0463a72bb793960fd3d2d702f8954db17f9",
+    "BIT_README": "7fa63351804f367455d87eded9257f7858e6e6730f2dc148c3f1ccd051ea8136",
+    "BIT_PROOF": "57b7593935c930ccff777d56c228b8a44c4666f6b96cf73dc9158f475c9179fe",
+    "BIT_LITERATURE": "8afadda68d1e62048d8d31a9fc424da8fd85afab1cddb650de5ee79cdd2d1a22",
+    "global_BIT_forest_source": "cceb35b6cfa0ff65b24a7d8a0a25e5517e5fc011542b5cb3a1283f51cdf446c7",
+    "global_BIT_forest_RESULT": "b070d4c2c138e0f6be654f0590f0443a038645248c00b82cbf891ace3d18c6e5"
+  },
+  "recovery_rule": "Only claim restoration of an original frozen file if its bytes match its recorded hash. New algebraic reconstructions must use distinct filenames and state their new provenance."
+}

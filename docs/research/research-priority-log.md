@@ -556,3 +556,100 @@ one actionable construction cluster. Add coverage records as actual review
 evidence arrives; expand profile intake only if it reduces repeated review.
 Do not create a survey PR per session or replace missing scientific evidence
 with structured labels.
+
+## Priority revision 7 — 2026-10-20: current admission gaps and changed contracts
+
+**Assessment base:** `9200177938843d92957bbfe6f1fdbe88768d8cc5`.
+The selected #1094 record remains κ = `0.001672660197076918`, SHA256
+`bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129`.
+Its source manifest remains
+`research/community-frontier1094-audit/SELECTED-SOURCE.json`; no scientific
+input, certificate or selected-record binding is changed by this revision.
+
+**Evidence and limits.** Read retained package claims, open questions and exact-head
+intake receipts from the October 20 batches, especially
+[batch d](pr-intake-evidence/queue-oct20d-20261020.json),
+[batch e](pr-intake-evidence/queue-oct20e-20261020.json) and
+[batch f](pr-intake-evidence/queue-oct20f-20261020.json).
+The [revision-7 family table](research-family-status.md#revision-7-evidence-and-assignments)
+and catalogue pin the relevant heads and preserve package attribution.
+This was a guidance assessment, not a scientific replay: newer claims remain
+**author-checked**, including claims whose packages contain their own independent
+checker or worker review. Source retention is not theorem acceptance.
+
+A bounded review of the last four comments in
+[feedback #1200](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200)
+and last six in [handoffs #1166](https://github.com/CrocSwap/integer-mult-bounds/discussions/1166)
+found existing tooling feedback and concrete scoped successors (A1858, P104,
+T488 and rank-8/u2). This is not an exhaustive board census or a measure of donor
+yield. Existing timeout/explain-plan/snapshot/sparse-inventory feedback has
+retained tooling follow-ups; it does not justify another duplicate tool assignment.
+The A1858 and P104 handoffs informed the narrower cards. No measured basis for
+reweighting the portfolio emerged.
+
+**Allocation, old → new:** bit mechanisms 20→20; complex mechanisms 20→20;
+recursive interfaces 20→20; adversarial audit 15→15; independent verification
+10→10; verifier engineering 8→8; consolidation 5→5; incumbent optimization 2→2.
+These are effort weights, not success probabilities. Existing task IDs retain
+their questions' lineage; the distinct R437 caller question gets the new
+`r437-carrier-integration` card within the bit track. This changes its within-track
+mix, not the broad allocation.
+
+**Decisions and next experiments.**
+
+- **Audit #4100's proposed unconditional proof**, selecting one proposition and
+  caller in CRT total repair, native/free-algebra lifting, precision/conditioning
+  or tape costs. Stop with the exact implication established or missing. Finite
+  checks and sharper root digits are not an all-size proof.
+- **Complete #4088 admission coverage**, starting at four-provider registry and
+  dispatch bindings, preserving all ordinary/outer predicates and mutation
+  controls. A full mixed-engine replay is a separately budgeted follow-up;
+  orientation must not launch it. Admission and all-size proof audit are distinct.
+- **Narrow QQ16 to the actual #4166 caller**: compare complete matched parent
+  park/restore and external-call protocols, including all later calls and new
+  service work. Native-component cost loses. Reopen construction with a genuinely
+  cheaper source-compatible demand or consumer, not another isolated inverse.
+- **Integrate R437's #4067 paid exchange** at a compiler/request, physical caller
+  or precision/stock boundary. #4147 already covers the reverse coefficient.
+  Preserve extra ADDs and all helper costs; a local paid gain is not admission.
+- **Refresh P104 to #4133/#4136/#4140/#4153/#4154**. Audit a specific objection
+  or change the source/consumer premise and fully price completion. Stop when the
+  same slot or seam mismatch recurs, or the favorable full allowance fails.
+  These are scoped obstacles, not a universal exclusion.
+- **Narrow fixed-inventory packing and scalar-only scans.** #4091 pins an earlier
+  #4088 revision: first verify words, capacities and stock equivalence before
+  applying its proposed ceiling to the later fill. Its pooled witness does not
+  establish chronology. Residual search is explicitly bounded and optional.
+  #3998/#4019/#4112/#4152 motivate requiring an actual removed paid transition
+  before expanding scalar contraction scans. Reopen with a changed invoice or
+  interface and an applicable full cost model.
+- **Retain independent and formal coverage where missing.** Distinguish ledger
+  audit from dispatch admission and universal proof. #3807/#3857 already supply
+  scoped formal work; target uncovered caller-bound statements rather than extra
+  endpoint digits. Selected stock coefficients remain a separate obligation.
+
+**Next review trigger:** an independently resolved all-size implication, a
+completed mixed-provider admission, a complete-cost decision for QQ16/P104/R437,
+a changed selected supplier, or another substantial intake. Looping agents
+consume revision 7 at their normal upstream checkpoint and preserve frozen work.
+No new reporting artifact or heavy replay is required merely to refresh guidance.
+
+**Validation:** `python3 -B tests/test_research_assignment.py` passed 16 tests;
+`python3 -B tests/test_research_coordination.py` passed 8 tests. Changed cards
+were checked through the task-picker CLI; new coverage pins match exact intake
+receipts. Documentation/source paths were checked against the working tree or
+Git tree for sparse archives. Track weights and selected-record bytes are
+unchanged. No Lean, Docker or scientific replay was run for this guidance patch.
+
+## Selection refresh — 2026-10-22: joint-helper checkpoint
+
+The selected record now resolves to conditional κ = 0.00302015 from #4470.
+The [review](pr-intake-evidence/pr4470/PROOF-REVIEW.md) and
+[integration receipt](pr-intake-evidence/pr4470/INTEGRATION.json) bind the source
+closure, new replay and explicit prior foundation reuse. Orientation now reports
+uniform, covered BIT, admitted BIT and outer budgets separately. This is a
+metadata refresh: revision 7 track weights remain unchanged pending a separate
+strategy review. Historical family diagnoses are labelled rather than rewritten.
+The user has requested a new κ > 0.01 research campaign with firm stopping rules
+for adjacent constructions; that campaign must establish its own changed premise
+and budget before recommending another allocation revision.

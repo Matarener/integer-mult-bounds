@@ -107,6 +107,8 @@ CONFIG['reconciliation92']['additional_inputs'] = [{
     'sha256': 'f046e98e4c296fde954b93b466b7f359be0c05c287d96943e016f0b850587387',
     'accepted_live_sha256': [
         'a49e763573343a6a068b0c48c8ff422756be5a8f55902b2385fa8d13cc951fda',
+        # Direct-script POSIX descendants are stopped after leader completion.
+        '3e27934d4c5185e44bf88e0bc51cdb0af97286e033feb78494f071cd381b1e35',
     ],
 }]
 
@@ -231,7 +233,10 @@ CONFIG['tooling-ledger']['additional_inputs'].extend([{'manifest': 'research/com
   'path': 'docs/ci-verification.md',
   'input': 'ledger-frontier741-ci-verification.md',
   'sha256': 'a854022e0e1d5d4db4d60e586be3ea56005013ef14a1fc06d02bc06e8529c4b0',
-  'accepted_live_sha256': ['ae5bcac684ce2188632f38dee8ed46ebdc9588f490401505aa1cac33c55d84db']},
+  'accepted_live_sha256': [
+      'ae5bcac684ce2188632f38dee8ed46ebdc9588f490401505aa1cac33c55d84db',
+      # Tekalign's PR3139 appends deadline usage; replay still restores PR695 bytes.
+      'a3711fe12d560fac7726c530b9c8c622182f3d4f231a876c163616e49bd911bc']},
  {'manifest': 'research/community-frontier890-audit/CONTENT-COVERAGE.json',
   'field': ['pull_requests', '853', 'files'],
   'path': 'scripts/verify_complex741_parallel.py',
@@ -245,7 +250,9 @@ CONFIG['tooling-ledger']['additional_inputs'].extend([{'manifest': 'research/com
   'sha256': '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
   'accepted_live_sha256': ['fdc022f70e42a9b5a2be8c6c3645cfdc211c6dffdffac68904b2945b1cdc3e5a', 'f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478', '6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88', '2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa', '8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a',
                            # Current-source imports in ordinary and historical test children.
-                           '93e49175a84ebcb3fe5e38503416ffae9c9f44754c3e974bf9c8ffaa6920f1bf']},
+                           '93e49175a84ebcb3fe5e38503416ffae9c9f44754c3e974bf9c8ffaa6920f1bf',
+                           # Inherited cache policy for ordinary Python descendants.
+                           'ef5035e6216d39569da670f32b2717c870b23c418016fd134cc0a72649fb912a']},
  {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
   'field': ['pull_requests', '921', 'files'],
   'path': 'tests/test_isolated_test_runner.py',

@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "status": "PASS_CUMULATIVE_CHANGED_CONSTRUCTION_CONDITIONAL_REVIEW",
+  "observed_at": "2026-10-22T05:13:11.658953+00:00",
+  "base_commit": "f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc",
+  "heads": {
+    "4470": "b9a13c1673e0e9697de410de16e8bbf3207a7363",
+    "4440": "9123d75afea5096d25eb98b2b6080cbbe0d91c01",
+    "4441": "149af87f1101dc7a72f2fe57294f9bacf8d053ba",
+    "4447": "02b51f341013c607dc480248c94c216b8260d8af",
+    "4464": "82c7db427100033aa1275ecdb16ebc2e2ef10b91",
+    "4466": "496a7d6bd053b7019935529ce5b5c3eb3dc664ed",
+    "4478": "4e5072ad3bbdf76f2935f9488207db3969b38c90",
+    "4504": "9ec37a42f6579293f14a2e239209e6d12dbe0f1f"
+  },
+  "kappa": "60403/20000000",
+  "decimal": "0.00302015",
+  "selected_record_changed": false,
+  "environment": {
+    "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "independent_audits_TMPDIR": "/private/tmp/pr4470-review/scratch",
+    "portability_note": "PR4504 requires a canonical temporary root on macOS; source bytes unchanged."
+  },
+  "execution": {
+    "serial": true,
+    "sampled_descendant_memory_limit_kib": 1048576,
+    "lean_or_docker": false
+  },
+  "runs": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/joint-helper-lattice/verify.py",
+        "--part",
+        "dependencies"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 300,
+      "seconds": 10.75,
+      "peak_sampled_rss_kib": 44080,
+      "log": "docs/research/pr-intake-evidence/pr4470/dependencies.log",
+      "log_sha256": "79f62bfcaa7126ab5719f07672f852b1f8ad17e852f751bc6e19ed0e628c77b6",
+      "entry_point": "research/joint-helper-lattice/verify.py",
+      "source_sha256": "8eb13f77a94315f811612cb557a17edeecb6b9d9a75dfa238b112dd6520c336f"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/joint-helper-lattice/verify.py",
+        "--part",
+        "native"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 600,
+      "seconds": 102.12,
+      "peak_sampled_rss_kib": 108192,
+      "log": "docs/research/pr-intake-evidence/pr4470/native.log",
+      "log_sha256": "3c39ac61255c1130667393ff5a9221ceaa6a253bf5e15c7ac9810348c35dad55",
+      "entry_point": "research/joint-helper-lattice/verify.py",
+      "source_sha256": "8eb13f77a94315f811612cb557a17edeecb6b9d9a75dfa238b112dd6520c336f"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/joint-helper-lattice/verify.py",
+        "--part",
+        "arithmetic"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 300,
+      "seconds": 36.9,
+      "peak_sampled_rss_kib": 42368,
+      "log": "docs/research/pr-intake-evidence/pr4470/arithmetic.log",
+      "log_sha256": "1bcd07312b62314ffbcbdf5d6e6848abd2033c29e13bea6e0d269b80ef6383f1",
+      "entry_point": "research/joint-helper-lattice/verify.py",
+      "source_sha256": "8eb13f77a94315f811612cb557a17edeecb6b9d9a75dfa238b112dd6520c336f"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "review-evidence/all_final_transports.py"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 300,
+      "seconds": 95.02,
+      "peak_sampled_rss_kib": 111776,
+      "log": "docs/research/pr-intake-evidence/pr4470/all-final-transports.log",
+      "log_sha256": "1039e3dca5730fadffeafc404105702a9aa54941022e3b7d4e56e2240e09c496",
+      "entry_point": "review-evidence/all_final_transports.py",
+      "source_sha256": "38bfe13911f7bff419c9aeff04b85ada6eb91315ffa2e7f14f59318b90a5bbe7"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/pr4470-frame-audit/verify.py"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 120,
+      "seconds": 15.31,
+      "peak_sampled_rss_kib": 186864,
+      "log": "docs/research/pr-intake-evidence/pr4470/independent-frame.log",
+      "log_sha256": "802500d5dc1a33c5715b24c9a02c45f7102ef0eb744daecad74f4130304618e1",
+      "entry_point": "research/pr4470-frame-audit/verify.py",
+      "source_sha256": "199a3fe9e21732fc01045a3311342461ae6d66f524084cdc6f4b8fb9bb63bf3e"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/pr4470-arithmetic-check/verify.py"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 300,
+      "seconds": 91.07,
+      "peak_sampled_rss_kib": 16912,
+      "log": "docs/research/pr-intake-evidence/pr4470/independent-arithmetic.log",
+      "log_sha256": "f3098231833df39b9f8d8242252338c336efdb973c85fa638722754923478fa7",
+      "entry_point": "research/pr4470-arithmetic-check/verify.py",
+      "source_sha256": "eefdc2a1b6ca98d04ecd543428231d2a6ca48090477068d76d5038ea3bd5a09d"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/stage-zero-commutation-audit/verify.py"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 120,
+      "seconds": 1.06,
+      "peak_sampled_rss_kib": 97296,
+      "log": "docs/research/pr-intake-evidence/pr4470/stage-zero.log",
+      "log_sha256": "820927578c3394f482fd7afbb95f19e9c03496752b686a15040b4865523eced9",
+      "entry_point": "research/stage-zero-commutation-audit/verify.py",
+      "source_sha256": "01f2f9c6a65353b63935faf5f3406c97eee7a656d96ecae0b7355b62710923b2"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/stage-zero-forced-translation/verify.py"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 120,
+      "seconds": 1.06,
+      "peak_sampled_rss_kib": 24272,
+      "log": "docs/research/pr-intake-evidence/pr4470/forced-translation.log",
+      "log_sha256": "fcafe8e3c88f54beede4cec70c8891aef5fa1cc4cc812558cae4a1273cd1257b",
+      "entry_point": "research/stage-zero-forced-translation/verify.py",
+      "source_sha256": "07c612bbd05c646dad61d29aa4926353fc70e14fe1baeec480778257aeac29db"
+    }
+  ],
+  "interrupted_attempts": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "review-evidence/all_final_transports.py"
+      ],
+      "exit": -15,
+      "resource_stop": null,
+      "timeout_seconds": 300,
+      "seconds": 222.12,
+      "peak_sampled_rss_kib": 100784,
+      "log": "docs/research/pr-intake-evidence/pr4470/redundant-full-attempt.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "operator_stop": "Stopped redundant replay of source-identical original transports; replaced by exact-source reuse plus changed-pair replay. No pass claimed for this attempt."
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/pr4470-arithmetic-check/verify.py"
+      ],
+      "exit": -9,
+      "resource_stop": "timeout",
+      "timeout_seconds": 120,
+      "seconds": 120.24,
+      "peak_sampled_rss_kib": 16912,
+      "log": "docs/research/pr-intake-evidence/pr4470/independent-arithmetic-120s.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "initial_environment_failures": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/pr4470-frame-audit/verify.py"
+      ],
+      "exit": 1,
+      "resource_stop": null,
+      "timeout_seconds": 120,
+      "seconds": 2.23,
+      "peak_sampled_rss_kib": 93040,
+      "log": "docs/research/pr-intake-evidence/pr4470/independent-frame-path-attempt.log",
+      "log_sha256": "1b89780b6bc08a41b7f2d9fe33b5a2bf11c8511350513dd5c385a85b8076c286",
+      "explanation": "Source path guard compares resolved target to unresolved TemporaryDirectory root on macOS. Rerun unchanged code with canonical TMPDIR."
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "research/stage-zero-forced-translation/verify.py"
+      ],
+      "exit": 1,
+      "resource_stop": null,
+      "timeout_seconds": 120,
+      "seconds": 0.53,
+      "peak_sampled_rss_kib": 2720,
+      "log": "docs/research/pr-intake-evidence/pr4470/forced-translation-input-attempt.log",
+      "log_sha256": "44a8b7c40e0a30db85c362ab49aa63f3b339bf50e44f290a4c721cbee6054d15",
+      "explanation": "Verifier reads two provenance files omitted from VERIFY.json inputs. Added exact pinned bytes from main; no source edit."
+    }
+  ],
+  "source_bindings": "SOURCE-REUSE.json",
+  "reviewed_source_inventory": "REVIEWED-SOURCES.json",
+  "prior_reviews_reused": [
+    "docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.md",
+    "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md"
+  ],
+  "proof_review_sha256": "5c111dd56beb53dc44ab727d96e1af03aaf50f3023d4342e2b0a89ede6cf585b",
+  "limits": [
+    "AI-assisted conditional review, not formal or independent human verification.",
+    "Inherited all-column/native, owned-erasure, whole-job, analytic, precision, fixed-tape, prime and recovery hypotheses remain.",
+    "Original source-identical native transports reused; 244 additional cumulative retiming pairs freshly lowered in both orientations.",
+    "No optional optimization search, no new compiler-size theorem, no selected-result migration."
+  ]
+}

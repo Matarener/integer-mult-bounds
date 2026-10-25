@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/check_research_commit.py",
+    "scripts/research_package.py",
+    "scripts/run_isolated_tests.py",
+    "tests/test_research_source_history.py",
+    "scripts/replay_historical_check.py",
+    "tests/test_isolated_test_bytecode.py",
+    "tests/test_research_bytecode_isolation.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Sixteen actual source-history test CLI runs: pinned original and current runner, timestamp/unchecked/checked-hash caches, clean/source-only controls, inherited external prefix, source/cache preservation and owned-directory cleanup."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "tests/test_isolated_test_bytecode.py",
+        "-v"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Eleven public-CLI groups covering ordinary children/grandchildren, inherited stale caches, no cache writes, concurrent namespace cleanup, explicit -I limit, original imports and historical routing."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "tests/test_research_bytecode_isolation.py",
+        "-v"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Eight retained registered-interpreter regression groups, including an explicitly unprotected stale-cache control that remains meaningful inside the isolated unittest runner."
+    }
+  ]
+}

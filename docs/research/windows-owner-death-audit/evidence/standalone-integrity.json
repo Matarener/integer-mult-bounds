@@ -1,0 +1,37 @@
+{
+  "status": "PASS_STANDALONE_INTEGRITY_AND_SOURCE_REJECTION",
+  "empty_PATH": true,
+  "git_directory_present": false,
+  "command": [
+    "C:\\Python312\\python.exe",
+    "-I",
+    "-O",
+    "-W",
+    "error",
+    "-B",
+    "C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py",
+    "--output",
+    "C:\\Users\\mihir\\Documents\\Codex\\2026-10-24\\contribute-one-useful-independently-reviewable-result-5\\scoped-repo\\docs\\research\\windows-owner-death-audit\\evidence\\windows-optimized-standalone.json"
+  ],
+  "snapshot_files": {
+    "evidence/windows-normal.json": "15d32888312d80fca678eb819c6a473f27c69fc036c88d353a32e25020d26502",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "NOTICE": "b49022cb4104d90b182e4c335f670faf45529025b15db77bf0291835083c28bd",
+    "probe.py": "afcc16f221ba09d9cfa87d4995f9a807c0f1de786cca2daf0d07a70dc39499a7",
+    "README.md": "bb07c12efabf96cfd81500796d17fea50c9202e1d1cad2e6822bef87364b2965",
+    "sources/owned_pipe.py": "01f597c8ecb955b2ef7faa8f0650e67c0eca5c0d5f6a817a181c536bef9c37aa",
+    "sources/research_package.py": "84a45190a6a96c20993a0d4a1045fbf24de660d2e6fef8f8a447bb3d1aa78db6",
+    "SOURCES.json": "ffa6553eb0e2ce4b0766ae6f0736ace2ab75f70347f57d18bd7c55df381baad0"
+  },
+  "inventory_unchanged_after_replay": true,
+  "returncode": 0,
+  "stdout": "PASS shared before_event_open none\nPASS shared before_assign none\nPASS shared assigned none\nPASS shared released none\nPASS shared resume none\nPASS shared before_assign bypass-gate\nPASS shared released no-kill-on-close\nPASS stream before_event_open none\nPASS stream before_assign none\nPASS stream assigned none\nPASS stream released none\nPASS stream resume none\nPASS stream before_assign bypass-gate\nPASS stream released no-kill-on-close\nCONFIRMED_WINDOWS_OWNER_DEATH_BOUNDARIES cases=14\n",
+  "stderr": "",
+  "source_mutation": {
+    "source": "sources/owned_pipe.py",
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 425, in <module>\n    main()\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 401, in main\n    load_sources()  # Authenticate every executable source before starting fixtures.\n    ^^^^^^^^^^^^^^\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 41, in load_sources\n    require(hashlib.sha256(raw).hexdigest() == expected, \"source drift: \" + name)\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 33, in require\n    raise RuntimeError(message)\nRuntimeError: source drift: owned_pipe.py\n",
+    "receipt_created": false
+  }
+}

@@ -1,0 +1,9 @@
+# Validation and limits
+
+The registered verifier has separate dependency, native and arithmetic gates. They preserve exact source-byte guards. The native gate freshly executes both retained interpreters, both orientations, all 632 arbitrary persistent columns, owned-center cleanup and all 423 transport/helper physical pairs, including absolute phases. The arithmetic gate freshly replays the source controller and source bill before binding the compact result to identical target and paid histograms.
+
+The new exact arithmetic checks both original/completion tails, whole-job splitting, shifted exit and complement capacity, the finite integer majorant, all 54 current strict predicates, four functional guards, all 63 legacy predicates and agreement of all nine cost rows. Controls reject unsupported BIT saving, closed uniform/outer gaps and a false endpoint saving. A separate audit recomputes the displayed rational tail and integer inequalities and checks the actual-native inventory binding. Both normal and optimized isolated Python are used. These are computational exact-arithmetic/operator checks, not proof-assistant or independent human acceptance.
+
+During independent review, the initial compact complement-capacity check used a factor 2 inherited from a different denominator. For θ = 94/101 the sufficient factor is 2^(101 − 94) = 128. The stronger exact inequality passes; the executable condition and proof were corrected before the final replay. The resulting N is unchanged. This correction is included to make the hypothesis audit reviewable.
+
+All inherited conditional physical, analytic, precision, tape, stock, prime and recovery obligations remain. The finite word is specified algorithmically, not materialized. Smaller local template rank is the only new bound claimed; tiny outer slack can worsen the eventual full-algorithm threshold. No improvement to that overall threshold or to κ is claimed.

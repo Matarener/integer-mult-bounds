@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/q8-affine-dirty-compiler/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact lower-bound table, independent all-idempotent BFS through8roles, attaining preparation, full dirty Q8 outputs and inverse, typed receipt and source pins."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Dirty spectator positives, capacity/input rejection, actual schedule/return/pivot mutations, correct-but-nonminimum control and real optimized Git-free CLI receipt/source controls."
+    }
+  ]
+}

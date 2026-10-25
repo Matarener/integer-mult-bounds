@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Extend the exact minimum of the unsigned depth-four dirty chain connector z_l += B_l z_{l-1} (l = 1..4, z_0 = x immutable, z_1..z_3 and y = z_4 dirty) over characteristic m from 6 <= m <= 32 (PR #4263) to 33 <= m <= 64: the per-call floor 4m is attained for every nonzero residue c, by explicit witnesses. Also prove an exact row-model criterion for balanced words (README Lemma 2) and that prime m needs at least three short rows (Lemma 3).",
+  "scope_change_reason": "The card asks about one extension of the connector alphabet. This package keeps the unsigned complete-call alphabet and the one-source depth-four chain of PRs #4249 and #4263, and continues open question 1 of #4263. It does not extend a source-count census or claim a supplier improvement.",
+  "bottleneck_link": "A recursive boundary that routes through three dirty intermediates pays this call count. The small-characteristic premium of #4249 (m <= 5) stays absent through m = 64. Side result: no consumer, paid profile or kappa change is supplied.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after explicit witnesses for every (m, c) in a bounded range with literal dirty replay and source-bound publication checks. A uniform all-m family was searched for part of the session and not found; no all-m theorem is claimed.",
+  "outcome": "completed",
+  "evidence": "witnesses.json stores one row-model record (lambda, rho, beta) for each of the 1,520 pairs (m, c), 33 <= m <= 64, 1 <= c < m. verify.py checks the Lemma 2 sums of each record, builds the word and checks it has exactly m copies of each call, the interval subword counts, the UT5(Z/m) product and one literal dirty replay with random noncommuting 2x2 maps; it spot-checks Lemmas 2 and 3 on random records, runs five rejection controls and prints a receipt with package and input SHA-256 values. The 4m floor is Lemma 1 (from #4249).",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is the depth-four minimum exactly 4m for every m >= 6?",
+      "why_it_matters": "It would make the depth-four premium a small-characteristic effect, m <= 5 only.",
+      "first_step": "In the row model of README Lemma 2, fix one full row and four short rows with lengths that are linear in m, and look for rho and beta profiles linear in c that keep rho(1) <= m and at most m calls 4.",
+      "blocked_by": "The uniform small-constant designs and the three-short-row family tried here fail; the binding constraint is the budget on rho(1) and on the number of calls 4."
+    },
+    {
+      "question": "Are three short rows enough for every prime m >= 7?",
+      "why_it_matters": "Lemma 3 shows two are not; a positive answer would give the smallest row-model witnesses for prime m.",
+      "first_step": "Search the row model with exactly three short rows and general rho and beta for primes 7 to 61.",
+      "blocked_by": "Only the restricted three-row family (rho = 0 on the last short row, calls 4 at one level plus filler) was searched; it is incomplete at m = 7 and 11."
+    },
+    {
+      "question": "Does a row model of the same kind describe depth five and give the floor 5m there?",
+      "why_it_matters": "It would carry the compact witness format to longer dirty chains.",
+      "first_step": "Write the depth-five word as calls 1 and 5 inserted into a 2/3/4 word and express N[1..5] through that word's prefix and suffix counts.",
+      "blocked_by": "No depth-five reduction was attempted here."
+    }
+  ]
+}

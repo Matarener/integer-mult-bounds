@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "scope-navigation",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "scope-navigation",
+    "question": "Can one misleading historical-current claim or missing research cross-reference be corrected?",
+    "starting_points": [
+      "docs/research/current-status.md",
+      "docs/research/pr-ledger.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Trace one confusing path from onboarding to its authoritative source.",
+      "Index one tightly related family of obstructions with explicit excluded and open hypotheses."
+    ],
+    "acceptance_gate": "Produce evidence-backed navigation, preserve historical records and avoid a duplicate global survey.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Follow one link from the selected record to its review and compare a potentially stale historical claim.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Repair one confusing path or produce a scoped map of one related obstruction family.",
+    "bottleneck_link": "Clear navigation lowers entry cost for central research; a global survey without a concrete fix is not required.",
+    "allowed_variations": [
+      "One historical-current ambiguity or one bounded family index."
+    ],
+    "scope_change_triggers": [
+      "Rewriting frozen scientific packages just to change their historical wording."
+    ],
+    "overlap_terms": [
+      "current status",
+      "historical checkpoint",
+      "scope navigation"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "The status page called the nineteenth reconciliation the latest recorded round and left its disposition in progress. Record intake packages 2000-2600 as later rounds, copy the nineteenth review's own merged/pending count, and do not rewrite those audit packages.",
+  "scope_change_reason": "The card allows one historical-current ambiguity. The ambiguity is the status page's latest-round sentence after intake packages 2000-2600 already exist on main.",
+  "bottleneck_link": "Onboarding reads current-status.md before a card. Stopping at the nineteenth round hides later intake records, and round 2200's final heading is not a stop. This does not change a supplier.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the two status sentences and the seven intake headings. Do not write prose reviews for rounds 2000-2600 or edit those audit packages.",
+  "outcome": "completed",
+  "evidence": "PASS_REVIEW_ROUND_NAVIGATION from research/review-round-navigation/verify.py; tests.test_research_current_status still passes.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Cursor Grok 4.7 drafted the status sentence and the checker. The intake headings and counts are the existing README openings.",
+  "open_questions": [
+    {
+      "question": "Should the prose table grow a row for each intake from 2000 through 2600?",
+      "why_it_matters": "Readers who only scan the table still stop at the nineteenth row unless they follow the new sentence.",
+      "first_step": "Decide whether an intake README counts as the review record, then add one row from that README's count line.",
+      "blocked_by": "There is no community-efficient2000-review.md through community-efficient2600-review.md. Inventing those files would be a new review, not this navigation repair."
+    },
+    {
+      "question": "Does research-archive-intake.md still point publication state only at the nineteenth dispositions file?",
+      "why_it_matters": "A second onboarding page can repeat the same stale-round mistake.",
+      "first_step": "Compare one later DISPOSITIONS.json with the ledger row for the same PR.",
+      "blocked_by": "That index was outside the one status-page sentence repaired here."
+    }
+  ]
+}

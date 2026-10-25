@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "scientific_base": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "python": "CPython3.12.3",
+  "status": "PASS_LOCAL_REGISTERED_AND_INTEGRITY_CHECKS",
+  "completed_utc": "2026-10-20T00:42:32Z",
+  "commands": [
+    {
+      "argv": [
+        "python3.12",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/qq16-paid-pair"
+      ],
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE research/qq16-paid-pair outcome=negative-result",
+      "coverage": "registered optimized exact replay; normal/optimized Git-free read-only export; source/vendor/manifest/type/overwrite controls"
+    },
+    {
+      "argv": [
+        "python3.12",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_research_*.py",
+        "-v"
+      ],
+      "result": "270tests PASS,11platformskips",
+      "elapsed_seconds": 103.783
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/research_baseline.py"
+      ],
+      "result": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "scope": "selected source binding and arithmetic; not complete cold replay"
+    },
+    {
+      "check": "retained pending-source provenance",
+      "result": "PASS exact git-show bytes/blob/SHA for3 retained data files",
+      "receipt": "PENDING-SOURCE-HISTORY.json"
+    },
+    {
+      "check": "assisted read-only adversarial review",
+      "result": "no blocking findings on11 exact file hashes",
+      "receipt": "REVIEWS.json"
+    }
+  ],
+  "interruption": "Initial integrated run was interrupted before completion; only the subsequent complete registered run is claimed as PASS.",
+  "source_authentication": "Manifest SHA, runtime SHA/Gitblob and retained predecessor pins authenticated before compiling worker source bytes; no pyc used for those modules.",
+  "publication_and_hosted_ci": "Separate later status; no hosted or published-byte claim in this prepublication record.",
+  "limits": [
+    "No human mathematical review or formal-kernel proof",
+    "No arbitrary-payload native execution or selected complete cold replay",
+    "No outer multiplication reachable-state characterization",
+    "No exclusive output lease, numerical range/error certificate, paid six-tape access or recursive incidence",
+    "No complete supplier, improved kappa or selected-frontier change"
+  ]
+}

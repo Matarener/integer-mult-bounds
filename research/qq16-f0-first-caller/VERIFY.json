@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-query/certificate.json.gz",
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/qq16-native-rounded-components/vendor/native.py",
+    "research/qq16-native-rounded-components/verify.py",
+    "research/qq16-all-depth-producer-grid/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate actual first F0 caller; compare full receipt; exact unchanged-grid obstruction, existing finer-format implication, 1024 native columns and 20 dense metered tape cases."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent signed pair arithmetic and source, prefix, recipe, grid, range, ownership and full-receipt rejection controls."
+    }
+  ]
+}

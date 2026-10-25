@@ -1,0 +1,26 @@
+{
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-I",
+    "-B",
+    "{package}/verify.py"
+   ],
+   "checks": "Coverage identity, paid/idle split and the selected local profile re-derived from the pinned certificate and audit file; for every rank cap 1..51 the joint integer ceiling of the class (paid mass 5586 in integer rank<=cap children, idle remainder 1646 in integer rank<=51 children) is bracketed to a 1e-8 grid with both ends witnessed (an explicit joint packing below one, a certified lower bound of every joint packing above one); both histograms conserve mass and respect their caps; the joint bracket lies at or below the class relaxation and is monotone in the cap; the class relaxation equals the pinned parent ceiling() on the reshaped profile at caps 8, 16 and 51; the live rank-cap column is reproduced at its own grid at caps 44 and 51; the paid dynamic-program optimum equals the largest-first greedy cost and histogram at all 51 caps; the 1/99 crossing cap is 44; 25 sampled joint packings at each of four caps never reach the rejected saving; the 1e-8 bracket contains the 1e-12 bracket at three caps; RESULT.json byte match; the paid-mass-elimination endpoint published by an open peer package equals this class relaxation at the guard cap",
+   "timeout_seconds": 600
+  }
+ ],
+ "inputs": [
+  "certificates/selected-result.json",
+  "research/community-frontier1094-audit/ASSEMBLY.json",
+  "research/community-frontier1094-audit/INDEPENDENT1094.json",
+  "research/complex-local-word-ceiling/ceiling.py",
+  "research/complex-local-word-ceiling/levers.py",
+  "docs/research/agent-task-catalog.json"
+ ],
+ "python": "3.12",
+ "requirements": [],
+ "schema_version": 1,
+ "status": "ready"
+}

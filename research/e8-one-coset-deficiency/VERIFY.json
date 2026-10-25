@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "formal/lean/lean-toolchain",
+    "research/a8-simplex-decoder-floor/PROOF.md",
+    "research/decoder-excess-rank/PROOF.md",
+    "research/nine-term-decoder-normal-form-seed42/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact canonical model, complete 109-minor certificate, separate full E8 reconstruction, actual sharp factorizations, normalization and semantic/integrity controls; read-only receipt comparison. Includes independent sparse-pair ray classifications and filtered-span basis evidence. Includes six sheared normalized rank-(10,8) equality fixtures, six collapsing controls and reader-compensation mutation rejection."
+    }
+  ]
+}

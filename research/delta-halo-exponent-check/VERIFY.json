@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent check of #4451/#4452: delta repair, exact Neumann ceiling identity U, the chain 8p^2<U<V<8p^2+1<=16p^2-1<p^6 and V^2<p^11 for all p>=2 (separate route) and exactly for p=2..64, series error at L=p^24, bandwidth <p^26, and every 'fails' entry at p=2."
+    }
+  ]
+}
