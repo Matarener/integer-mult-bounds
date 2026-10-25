@@ -29,7 +29,7 @@ def attempt(D, s, cross, tries=300):
 # the most degenerate triples: lowest tariff(D, D)
 import json
 reps = {tuple(sorted(c[0])) for c in json.load(open('tri_classes.json'))}
-tri = sorted({(tar(D, D), D) for D in reps} | {(tar(D, D), D) for D in itertools.combinations(range(NP), 3) if tar(D, D) <= 3})
+tri = sorted((tar(D, D), D) for D in reps)   # the 38 equivalence classes cover all 142 candidate triples
 print('triples to test:', len(tri), flush=True)
 import multiprocessing as mp, time
 def run_triple(item):
@@ -43,7 +43,7 @@ def run_triple(item):
                 cost = s_ * tD + sum(ccost[c] for c in cr)
                 if cost >= 12 or s_ + t < 6: continue
                 tried += 1
-                b = attempt(list(D), s_, list(cr), tries=8)
+                b = attempt(list(D), s_, list(cr), tries=4)
                 if b < 1e-8: hits.append((s_, cr, cost, b))
     return D, tD, tried, hits, round(time.time() - t0)
 if __name__ == '__main__':
