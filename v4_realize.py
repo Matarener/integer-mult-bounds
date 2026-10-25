@@ -110,6 +110,8 @@ class CB(cp_model.CpSolverSolutionCallback):
             U = sum(1 << p for p in PA[k] if s.Value(u[k][p])); V = sum(1 << q for q in PR[k] if s.Value(v[k][q]))
             if U and V: terms.append([hex(U), hex(V)])
         json.dump({'objective': val, 'violated': nv, 'terms': terms}, open('v4_realize_best.json', 'w'))
+        s.n = getattr(s, 'n', 0) + 1
+        json.dump({'objective': val, 'violated': nv, 'terms': terms}, open('v4_realize_sol_%03d_obj%d_v%d.json' % (s.n, val, nv), 'w'))
 solver = cp_model.CpSolver(); solver.parameters.max_time_in_seconds = TL; solver.parameters.num_workers = 4
 stt = solver.Solve(md, CB())
 log('status', solver.StatusName(stt), 'objective', solver.ObjectiveValue() if stt in (cp_model.OPTIMAL, cp_model.FEASIBLE) else None,
