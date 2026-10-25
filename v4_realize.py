@@ -9,6 +9,7 @@
 import json, math, os, pickle, sys, time
 import numpy as np, scipy.optimize as so, scipy.sparse as sp
 from v4lib import *
+MODE = os.environ.get('V4_MODE', 'budget')   # budget: min violations s.t. cost<=BUDGET ; repair: min cost + 2*violations
 BUDGET = int(os.environ.get('V4_BUDGET', '163')); TL = float(os.environ.get('V4_TL', '10800')); COPY_CAP = 4
 T0 = time.time()
 def log(*a): print(time.strftime('%H:%M:%S'), '%6.0fs' % (time.time() - T0), *a, flush=True)
@@ -50,7 +51,8 @@ v = [{q: md.NewBoolVar('') for q in PR[k]} for k in range(len(copies))]
 used = [md.NewBoolVar('') for _ in copies]
 for k in range(len(copies)):
     for b in list(u[k].values()) + list(v[k].values()): md.AddImplication(b, used[k])
-md.Add(sum(c['tariff'] * used[k] for k, c in enumerate(copies)) <= BUDGET)
+costexpr = sum(c['tariff'] * used[k] for k, c in enumerate(copies))
+if MODE == 'budget': md.Add(costexpr <= BUDGET)
 fixed = [(p, q, int(p == q)) for p in range(NPORT) for q in range(NPORT) if p == q or E[p] == E[q] or not ORTH[E[p]][E[q]]]
 one = md.NewBoolVar(''); md.Add(one == 1)
 slack = []; nprod = 0
@@ -64,11 +66,22 @@ for (p, q, t) in fixed:
     s = md.NewBoolVar(''); slack.append(s)
     md.AddBoolXOr(prods + [s] + ([] if t else [one]))
 log('model: fixed entries', len(fixed), 'products', nprod)
-md.Minimize(sum(slack))
+if MODE == 'repair':
+    # every violated cell can be fixed by one extra rank-1 term of tariff <= 2 -> objective is an upper bound on an exact decoder
+    md.Add(costexpr + 2 * sum(slack) <= 223)          # only interested in decoders strictly cheaper than the known 224
+    md.Minimize(costexpr + 2 * sum(slack))
+else:
+    md.Minimize(sum(slack))
 class CB(cp_model.CpSolverSolutionCallback):
     def __init__(s): super().__init__(); s.best = None
     def on_solution_callback(s):
-        val = int(s.ObjectiveValue()); log('solution: violated entries %d (bound %d)' % (val, int(s.BestObjectiveBound())))
+        val = int(s.ObjectiveValue()); nv = sum(s.Value(x) for x in slack)
+        log('solution: objective %d (violated cells %d, bound %d)' % (val, nv, int(s.BestObjectiveBound())))
+        terms = []
+        for k in range(len(copies)):
+            U = sum(1 << p for p in PA[k] if s.Value(u[k][p])); V = sum(1 << q for q in PR[k] if s.Value(v[k][q]))
+            if U and V: terms.append([hex(U), hex(V)])
+        json.dump({'objective': val, 'violated': nv, 'terms': terms}, open('v4_realize_best.json', 'w'))
 solver = cp_model.CpSolver(); solver.parameters.max_time_in_seconds = TL; solver.parameters.num_workers = 4
 stt = solver.Solve(md, CB())
 log('status', solver.StatusName(stt), 'objective', solver.ObjectiveValue() if stt in (cp_model.OPTIMAL, cp_model.FEASIBLE) else None,
@@ -92,3 +105,4 @@ if stt in (cp_model.OPTIMAL, cp_model.FEASIBLE):
     log('VERIFIED: violations %d, true cost %d, terms %d' % (viol, cost, len(terms)))
     if viol == 0: log('*** EXACT DECODER WITHIN BUDGET FOUND: cost', cost)
 json.dump(out, open('v4_realize_result.json', 'w'), indent=1)
+print('mode', MODE, flush=True)
