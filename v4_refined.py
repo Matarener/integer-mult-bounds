@@ -21,6 +21,7 @@ if not os.path.exists(TF + '.done'):
     for a0 in range(0, n, B):
         inter = np.bitwise_count(M[a0:a0+B, None, :] & P[None, :, :]).sum(axis=2)
         tarm[a0:a0+B] = (dimA[a0:a0+B, None] - np.round(np.log2(inter)).astype(np.int16)).astype(np.uint8)
+        if (a0 // B) % 50 == 0: log('tariff rows', a0 + B, '/', n)
     tarm.flush(); del tarm; open(TF + '.done', 'w').write('ok')
 tarm = np.memmap(TF, dtype=np.uint8, mode='r', shape=(n, n))
 for a, r in [(0, 0), (5, 77), (n - 1, n - 2), (1234, 30000)]: assert int(tarm[a, r]) == pair_rank(spans[a], spans[r])
@@ -29,12 +30,12 @@ log('tariff matrix ready')
 res_old = json.load(open('v4_pilot_result.json'))
 cliques = [tuple(sorted(c['X'])) for c in res_old['columns'] if c['kind'] == 'clique']
 log('cliques from the old LP active set:', len(cliques), 'old strict LB', res_old['LB_strict'])
-cols = [(Q, i, s) for Q in cliques for i in Q for s in ('R', 'A')]
+cols = [(Q, i, s) for Q in cliques for i in Q for s in ('R', 'A')] + [(Q, -1, 'C') for Q in cliques]   # C = old clique column
 K = len(cols); log('refined columns (clique, plane, side):', K)
 imask = np.array([sum(1 << v for v in ins) for ins in inside], dtype=np.uint64)
 qm = np.array([sum(1 << v for v in Q) for Q, _, _ in cols], dtype=np.uint64)
-im = np.array([1 << i for _, i, _ in cols], dtype=np.uint64)
-isR = np.array([s == 'R' for _, _, s in cols])
+im = np.array([(1 << i) if i >= 0 else 0 for _, i, _ in cols], dtype=np.uint64)
+isR = np.array([s == 'R' for _, _, s in cols]); isA = np.array([s == 'A' for _, _, s in cols]); isC = np.array([s == 'C' for _, _, s in cols])
 # Meet[x, c] = planes(span x) meets Q_c ; Has[x, c] = plane i_c in planes(span x)
 Meet = np.zeros((n, K), dtype=bool); Has = np.zeros((n, K), dtype=bool)
 for a0 in range(0, n, 2000):
@@ -42,11 +43,11 @@ for a0 in range(0, n, 2000):
     Has[a0:a0+2000] = (imask[a0:a0+2000, None] & im[None, :]) != 0
 log('membership matrices ready')
 def touch_row(a, r):   # columns touched by a term of type (W_a source, W_r reader)
-    return np.nonzero(np.where(isR, Has[r] & Meet[a], Has[a] & Meet[r]))[0].astype(np.int32)
+    return np.nonzero((isR & Has[r] & Meet[a]) | (isA & Has[a] & Meet[r]) | (isC & Meet[a] & Meet[r]))[0].astype(np.int32)
 rows = sorted(set(map(tuple, pickle.load(open('v4_pilot_state.pkl', 'rb'))['rows'])))
 full = [i for i in range(n) if len(inside[i]) == NP][0]; rows = sorted(set(rows) | {(full, full)})
 log('initial rows (old LP rows):', len(rows))
-obj = np.full(K, 2.0); hist = []
+obj = np.array([2.0 * len(Q) if sd == 'C' else 2.0 for Q, _, sd in cols]); hist = []
 for it in range(MAX_ROUNDS):
     if time.time() - T0 > TL: log('time limit'); break
     t0 = time.time()
@@ -57,12 +58,12 @@ for it in range(MAX_ROUNDS):
     res = so.linprog(-obj, A_ub=A, b_ub=rhs, bounds=(0, None), method='highs'); assert res.status == 0
     lam = res.x; val = -res.fun; act = np.nonzero(lam > 1e-12)[0]
     # exhaustive separation: V[a, r] = sum_c lam_c * (isR_c Meet[a,c] Has[r,c] + isA_c Has[a,c] Meet[r,c])
-    LR = (lam * isR)[act]; LA = (lam * ~isR)[act]
+    LR = (lam * isR)[act]; LA = (lam * isA)[act]; LC = (lam * isC)[act]
     MeetA = Meet[:, act].astype(np.float32); HasA = Has[:, act].astype(np.float32)
-    RW = (HasA * LR).T.copy(); AW = (MeetA * LA).T.copy()
+    RW = (HasA * LR).T.copy(); AW = (MeetA * LA).T.copy(); CW = (MeetA * LC).T.copy()
     cand = []; nviol = 0; worst = 0.0
     for a0 in range(0, n, B):
-        V = MeetA[a0:a0+B] @ RW + HasA[a0:a0+B] @ AW
+        V = MeetA[a0:a0+B] @ RW + HasA[a0:a0+B] @ AW + MeetA[a0:a0+B] @ CW
         ex = V - tarm[a0:a0+B].astype(np.float32)
         ia, ir = np.nonzero(ex > 1e-6); nviol += len(ia)
         if len(ia):
@@ -73,22 +74,23 @@ for it in range(MAX_ROUNDS):
                 if cnt < 2: cand.append((float(e[k]), a0 + int(ia[k]), int(ir[k]))); cnt += 1
     cand.sort(reverse=True); add = [(a, r) for _, a, r in cand[:1500]]
     rows = sorted(set(rows) | set(add))
-    hist.append({'round': it, 'LB_LP': round(val, 4), 'violations': nviol, 'worst_excess': round(worst, 5), 'added': len(add),
+    kinds = {k: round(float((lam * m) @ obj), 3) for k, m in (('clique', isC), ('plane_R', isR), ('plane_A', isA))}
+    hist.append({'round': it, 'LB_LP': round(val, 4), 'value_by_kind': kinds, 'violations': nviol, 'worst_excess': round(worst, 5), 'added': len(add),
                  'rows': len(rows), 'active_cols': int(len(act)), 'sec': round(time.time() - t0, 1)})
     log(hist[-1]); json.dump(hist, open('v4_refined.progress.json', 'w'))
     last_lam = lam
     if not add: break
 # strict certificate
 lam = np.where(last_lam > 1e-12, last_lam, 0.0); act = np.nonzero(lam > 0)[0]
-LR = (lam * isR)[act]; LA = (lam * ~isR)[act]
+LR = (lam * isR)[act]; LA = (lam * isA)[act]; LC = (lam * isC)[act]
 MeetA = Meet[:, act].astype(np.float64); HasA = Has[:, act].astype(np.float64)
-RW = (HasA * LR).T.copy(); AW = (MeetA * LA).T.copy(); smin = 1.0
+RW = (HasA * LR).T.copy(); AW = (MeetA * LA).T.copy(); CW = (MeetA * LC).T.copy(); smin = 1.0
 for a0 in range(0, n, B):
-    V = MeetA[a0:a0+B] @ RW + HasA[a0:a0+B] @ AW; tar = tarm[a0:a0+B].astype(np.float64)
+    V = MeetA[a0:a0+B] @ RW + HasA[a0:a0+B] @ AW + MeetA[a0:a0+B] @ CW; tar = tarm[a0:a0+B].astype(np.float64)
     assert not ((tar == 0) & (V > 1e-12)).any(), 'tariff-0 pair touched'
     pos = V > 0
     if pos.any(): smin = min(smin, float((tar[pos] / V[pos]).min()))
-s = smin * (1 - 1e-9); LB = float(s * 2 * lam.sum())
+s = smin * (1 - 1e-9); LB = float(s * (lam @ obj))
 json.dump({'LB_strict': LB, 'LB_LP_last': hist[-1]['LB_LP'], 'scale': s, 'rounds': len(hist), 'old_LB_same_cliques': res_old['LB_strict'],
            'columns': [{'Q': list(cols[c][0]), 'i': cols[c][1], 'side': cols[c][2], 'lam': float(lam[c] * s)} for c in act]},
           open('v4_refined_result.json', 'w'), indent=0)
