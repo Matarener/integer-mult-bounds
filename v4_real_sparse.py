@@ -58,7 +58,10 @@ def search(D, starts, seed):
             if sum(cost[k] for k in active) >= (best[0] if best else 1e9): break
             res, Ka = refit(active)
             y0 = np.concatenate([U[active].ravel(), V[active].ravel()])
-            r = so.least_squares(res, y0, method='trf', max_nfev=1500)
+            try:
+                r = so.least_squares(res, y0, method='trf', max_nfev=1500)
+            except (np.linalg.LinAlgError, ValueError) as e:   # e.g. "SVD did not converge" on a degenerate refit
+                L('start %d: refit of %d terms failed (%s), skipping prefix' % (s + 1, Ka, e)); continue
             if np.abs(r.fun).max() < 1e-9:
                 Ua = r.x[:Ka*m].reshape(Ka, m) * MU[active]; Va = r.x[Ka*m:].reshape(Ka, m) * MV[active]
                 true = 0

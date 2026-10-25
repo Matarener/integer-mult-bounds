@@ -20,9 +20,11 @@ if __name__ == '__main__':
         for _ in range(2):
             best = min((x for x in range(NP) if x not in cur), key=lambda x: (tar(cur + [x], cur + [x]), x))
             cur = cur + [best]; groups.append(tuple(cur))
-    print('C5 holes', len(holes), '| groups (5/6/7 planes)', len(groups), '%.0fs' % (time.time() - t0), flush=True)
+    todo = list(range(len(groups)))
+    if len(sys.argv) > 2: todo = [int(x) for x in sys.argv[2].split(',')]   # resume: group indices still to run
+    print('C5 holes', len(holes), '| groups (5/6/7 planes)', len(groups), '| running', len(todo), '%.0fs' % (time.time() - t0), flush=True)
     with mp.get_context('spawn').Pool(4) as pool:
-        for D, best in pool.imap_unordered(_run, [(D, starts, i) for i, D in enumerate(groups)]):
+        for D, best in pool.imap_unordered(_run, [(groups[i], starts, i) for i in todo]):
             base = 4 * len(D); tag = 'ESCAPE' if best and best[0] < base else 'no escape'
             print('group', D, 'size', len(D), 'baseline', base, 'best exact real decoder cost', best[0] if best else None, '->', tag, '%.0fs' % (time.time() - t0), flush=True)
             if best and best[0] < base: print('   terms:', best[1], flush=True)
