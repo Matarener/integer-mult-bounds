@@ -313,7 +313,7 @@ for it in range(len(hist), min(1000, len(hist) + MAX_ITERS)):
         if profit > 1e-6 and add_col(p['X'], p['val'], 'core+K' if len(p['X']) and p['val'] != 2 * len(p['X']) else 'clique'): newc += 1
     tpr = time.time() - t0 - tlp
     farley = None
-    if it == start_it or (it - start_it) % 25 == 0:
+    if (it == start_it and os.environ.get('V4_FARLEY_AT_START', '1') == '1') or (it > start_it and (it - start_it) % 25 == 0):
         farley, theta_f, msg = farley_ceiling(val, yy, rA, rR, Am, Rm, tl_clique=float(os.environ.get('V4_FARLEY_TL', '1800')),
                                               tl_core=float(os.environ.get('V4_FARLEY_CORE_TL', '60')), max_steps=int(os.environ.get('V4_FARLEY_STEPS', '8')))
         log('  FARLEY CEILING: final LP <= %.4f x %.4f = %.4f' % (theta_f, val, farley) if farley else '  Farley ceiling not certified: ' + msg)
