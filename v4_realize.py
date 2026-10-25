@@ -68,7 +68,22 @@ for (p, q, t) in fixed:
 log('model: fixed entries', len(fixed), 'products', nprod)
 if MODE == 'repair':
     # every violated cell can be fixed by one extra rank-1 term of tariff <= 2 -> objective is an upper bound on an exact decoder
-    md.Add(costexpr + 2 * sum(slack) <= 223)          # only interested in decoders strictly cheaper than the known 224
+    CAP = os.environ.get('V4_CAP')
+    if CAP: md.Add(costexpr + 2 * sum(slack) <= int(CAP))
+    HINT = os.environ.get('V4_HINT')
+    if HINT and os.path.exists(HINT):
+        # warm start: map each term of a known solution to a compatible unused copy
+        ht = [(int(a, 16), int(b, 16)) for a, b in json.load(open(HINT))['terms']]
+        free = list(range(len(copies))); hu = {}; nmap = 0
+        for U, V in ht:
+            for k in free:
+                if all(p in u[k] for p in range(NPORT) if U >> p & 1) and all(q in v[k] for q in range(NPORT) if V >> q & 1):
+                    hu[k] = (U, V); free.remove(k); nmap += 1; break
+        for k in range(len(copies)):
+            U, V = hu.get(k, (0, 0))
+            for p_, var in u[k].items(): md.AddHint(var, (U >> p_) & 1)
+            for q_, var in v[k].items(): md.AddHint(var, (V >> q_) & 1)
+        log('hint: mapped %d of %d known terms onto copies' % (nmap, len(ht)))
     md.Minimize(costexpr + 2 * sum(slack))
 else:
     md.Minimize(sum(slack))
