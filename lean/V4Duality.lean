@@ -47,7 +47,7 @@ theorem weak_duality {K X : Type*} [Fintype K] [Fintype X]
     _ ≤ ∑ k, cost k := Finset.sum_le_sum fun k _ => hfeas k
 
 /-- An identity block on a port set `S` needs at least `|S|` rank-one terms touching `S` on both sides. -/
-theorem identity_block_needs_terms {F ι K : Type*} [Field F] [Fintype ι] [DecidableEq ι] [Fintype K] [DecidableEq K]
+theorem identity_block_needs_terms {F ι K : Type*} [Field F] [DecidableEq F] [Fintype ι] [DecidableEq ι] [Fintype K] [DecidableEq K]
     (u v : K → ι → F) (S : Finset ι)
     (hM : ∀ p ∈ S, ∀ q ∈ S, ∑ k, u k p * v k q = if p = q then 1 else 0) :
     S.card ≤ (univ.filter fun k => (∃ p ∈ S, u k p ≠ 0) ∧ (∃ q ∈ S, v k q ≠ 0)).card := by
