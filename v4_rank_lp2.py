@@ -207,12 +207,51 @@ def price(args):
     integ = np.zeros(nv); integ[:na] = 1
     res = so.milp(c, constraints=so.LinearConstraint(A_, lo, hi), integrality=integ, bounds=so.Bounds(0, 1),
                   options={'time_limit': tl, 'disp': False})
-    if res.x is None: return None
+    db = getattr(res, 'mip_dual_bound', None)
+    if res.status == 0 and res.fun is not None: db = res.fun
+    profit_ub = (rS - db) if db is not None and np.isfinite(db) else None   # max profit <= rS - (lower bound of min objective)
+    if res.x is None:
+        return {'X': None, 'val': None, 'optimal': False, 'profit_ub': profit_ub}
     K = [allowed[k] for k in range(na) if res.x[k] > 0.5]
     X = S + K
     val = rS + 2 * len(K)
     return {'X': X, 'val': val, 'profit_est': float(-res.fun + rS) if res.fun is not None else None,
-            'optimal': res.status == 0, 'gap': getattr(res, 'mip_gap', None)}
+            'optimal': res.status == 0, 'profit_ub': profit_ub}
+
+def farley_ceiling(val, yy, rA, rR, Am, Rm, tl_clique=1800, tl_core=120, max_steps=8):
+    """Farley bound: theta*y is dual feasible for ALL columns iff theta >= max_X val(X)/dual(X).
+    Dinkelbach: price with y*theta; if the max of val - theta*dual is proven <= 0 (optimal, or MILP dual bound),
+    then final LP <= theta*val.  Returns (ceiling or None, theta, message)."""
+    def dual_of(X):
+        Xm = sum(1 << v for v in X)
+        return float(yy[((Am & np.uint64(Xm)) != 0) & ((Rm & np.uint64(Xm)) != 0)].sum())
+    theta = 1.0
+    for X, (v_, _) in cols.items():
+        dX = dual_of(X)
+        if dX <= 1e-12: return None, float('inf'), 'a current column has zero dual weight'
+        theta = max(theta, v_ / dX)
+    tf = time.time()
+    for dk in range(max_steps):
+        jobsF = [((), 0, rA, rR, yy * theta, tl_clique)] + [(tuple(x['S']), x['r'], rA, rR, yy * theta, tl_core) for x in gain_cores]
+        worst = None; proven = True; ubs = []
+        for jb in jobsF:
+            pF = price(jb)
+            if pF['X'] is not None:
+                dX = dual_of(pF['X'])
+                if dX <= 1e-12 and pF['val'] > 0: return None, float('inf'), 'new column with zero dual weight'
+                if dX > 1e-12 and pF['val'] / dX > theta * (1 + 1e-9): worst = max(worst or 0.0, pF['val'] / dX)
+            if not pF['optimal']:
+                ub = pF['profit_ub']; ubs.append(ub)
+                if ub is None or ub > 1e-7: proven = False
+        if worst is not None:
+            log('  Farley/Dinkelbach step %d: theta %.6f -> %.6f (better column found, %.0fs)' % (dk, theta, worst, time.time() - tf))
+            theta = worst; continue
+        if proven:
+            log('  Farley/Dinkelbach step %d: theta %.6f PROVEN (%.0fs)' % (dk, theta, time.time() - tf))
+            return theta * val, theta, 'proven'
+        log('  Farley/Dinkelbach step %d: theta %.6f NOT proven: time limit, profit upper bounds %s (%.0fs)' % (dk, theta, ubs, time.time() - tf))
+        return None, theta, 'time limit'
+    return None, theta, 'max steps'
 
 # ---------------- main loop -----------------
 def build(colsL):
@@ -265,7 +304,7 @@ for it in range(len(hist), min(1000, len(hist) + MAX_ITERS)):
         if jj == 0 or (jj + 1) % 5 == 0: log('  pricing %d / %d done' % (jj + 1, len(jobs)))
     newc = hnew; nonopt = 0; best_profit = hbest
     for p in pr:
-        if p is None: nonopt += 1; continue
+        if p is None or p['X'] is None: nonopt += 1; continue
         if not p['optimal']: nonopt += 1
         Xm = sum(1 << v for v in p['X'])
         touch = ((imask[[rowsT[t][0] for t in sup]] & np.uint64(Xm)) != 0) & ((imask[[rowsT[t][1] for t in sup]] & np.uint64(Xm)) != 0)
@@ -273,41 +312,11 @@ for it in range(len(hist), min(1000, len(hist) + MAX_ITERS)):
         best_profit = max(best_profit, profit)
         if profit > 1e-6 and add_col(p['X'], p['val'], 'core+K' if len(p['X']) and p['val'] != 2 * len(p['X']) else 'clique'): newc += 1
     tpr = time.time() - t0 - tlp
-    # ---- Farley ceiling: theta * y is dual-feasible for ALL columns when theta >= max_X val(X) / (y . touch(X)),
-    #      so the final LP value (any rows superset, all columns) is <= theta * LB_LP.  theta by Dinkelbach + exact MILPs.
     farley = None
-    if it == start_it or it % 10 == 0:
-        tf = time.time()
-        def dual_of(X):
-            Xm = sum(1 << v for v in X)
-            return float(yy[((Am & np.uint64(Xm)) != 0) & ((Rm & np.uint64(Xm)) != 0)].sum())
-        theta = 1.0
-        for X, (v_, _) in cols.items():
-            dX = dual_of(X)
-            if dX <= 1e-12: theta = float('inf'); break
-            theta = max(theta, v_ / dX)
-        ok = theta < float("inf"); improved = True
-        for dk in range(8):
-            if not ok: break
-            jobsF = [((), 0, rA, rR, yy * theta, 300)] + [(tuple(x['S']), x['r'], rA, rR, yy * theta, 60) for x in gain_cores]
-            worst = None; improved = False
-            for jb in jobsF:
-                pF = price(jb)
-                if pF is None or not pF['optimal']: ok = False; break
-                dX = dual_of(pF['X'])
-                if dX <= 1e-12:
-                    if pF['val'] > 0: ok = False; break
-                    continue
-                ratio = pF['val'] / dX
-                if ratio > theta * (1 + 1e-9): improved = True; worst = max(worst or 0, ratio)
-            log('  Farley/Dinkelbach step %d: theta %.6f -> %s (%.0fs)' % (dk, theta, ('%.6f' % worst) if improved else 'converged', time.time() - tf))
-            if not ok or not improved: break
-            theta = worst
-        if ok and not improved:
-            farley = theta * val
-            log('  FARLEY CEILING: final LP <= %.4f x %.4f = %.4f' % (theta, val, farley))
-        else:
-            log('  Farley ceiling not certified this round')
+    if it == start_it or (it - start_it) % 25 == 0:
+        farley, theta_f, msg = farley_ceiling(val, yy, rA, rR, Am, Rm, tl_clique=float(os.environ.get('V4_FARLEY_TL', '1800')),
+                                              tl_core=float(os.environ.get('V4_FARLEY_CORE_TL', '60')), max_steps=int(os.environ.get('V4_FARLEY_STEPS', '8')))
+        log('  FARLEY CEILING: final LP <= %.4f x %.4f = %.4f' % (theta_f, val, farley) if farley else '  Farley ceiling not certified: ' + msg)
     # ---- row separation (exhaustive)
     act = np.nonzero(lam > 1e-12)[0]
     TW = (Tm[:, act].astype(np.float32) * lam[act].astype(np.float32)).T.copy(); Ta = Tm[:, act].astype(np.float32)
