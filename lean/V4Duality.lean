@@ -3,7 +3,7 @@ import Mathlib
 /-!
 # V4: the abstract half of the clique-dual lower bound on plane-port decoders
 
-A plane-port decoder is a matrix `M = ∑ₖ uₖ vₖᵀ` over `ZMod 2` on a finite port set `ι`.
+A plane-port decoder is a matrix `M = ∑ₖ uₖ vₖᵀ` over any field `F` (e.g. ℚ with arbitrary, also even, denominators) on a finite port set `ι`.
 
 * `identity_block_needs_terms`: if `M` restricted to a port set `S` is the identity, then at least `|S|`
   terms `k` touch `S` on both sides (`uₖ` nonzero somewhere on `S` and `vₖ` nonzero somewhere on `S`).
@@ -47,18 +47,18 @@ theorem weak_duality {K X : Type*} [Fintype K] [Fintype X]
     _ ≤ ∑ k, cost k := Finset.sum_le_sum fun k _ => hfeas k
 
 /-- An identity block on a port set `S` needs at least `|S|` rank-one terms touching `S` on both sides. -/
-theorem identity_block_needs_terms {ι K : Type*} [Fintype ι] [DecidableEq ι] [Fintype K] [DecidableEq K]
-    (u v : K → ι → ZMod 2) (S : Finset ι)
+theorem identity_block_needs_terms {F ι K : Type*} [Field F] [Fintype ι] [DecidableEq ι] [Fintype K] [DecidableEq K]
+    (u v : K → ι → F) (S : Finset ι)
     (hM : ∀ p ∈ S, ∀ q ∈ S, ∑ k, u k p * v k q = if p = q then 1 else 0) :
     S.card ≤ (univ.filter fun k => (∃ p ∈ S, u k p ≠ 0) ∧ (∃ q ∈ S, v k q ≠ 0)).card := by
   classical
   set T := univ.filter fun k => (∃ p ∈ S, u k p ≠ 0) ∧ (∃ q ∈ S, v k q ≠ 0) with hT
-  let w : K → (S → ZMod 2) := fun k p => u k p
-  let W : Submodule (ZMod 2) (S → ZMod 2) :=
-    Submodule.span (ZMod 2) ((T.image w : Finset (S → ZMod 2)) : Set (S → ZMod 2))
-  have key : ∀ q : S, (Pi.single q 1 : S → ZMod 2) ∈ W := by
+  let w : K → (S → F) := fun k p => u k p
+  let W : Submodule (F) (S → F) :=
+    Submodule.span (F) ((T.image w : Finset (S → F)) : Set (S → F))
+  have key : ∀ q : S, (Pi.single q 1 : S → F) ∈ W := by
     intro q
-    have hsum : (Pi.single q 1 : S → ZMod 2) = ∑ k ∈ T, v k q • w k := by
+    have hsum : (Pi.single q 1 : S → F) = ∑ k ∈ T, v k q • w k := by
       funext p
       simp only [Finset.sum_apply, Pi.smul_apply, smul_eq_mul, w]
       have hz : ∀ k ∈ (univ : Finset K), k ∉ T → v k q * u k p = 0 := by
@@ -85,12 +85,12 @@ theorem identity_block_needs_terms {ι K : Type*} [Fintype ι] [DecidableEq ι] 
     refine Submodule.sum_mem _ fun k hk => Submodule.smul_mem _ _ ?_
     exact Submodule.subset_span (Finset.mem_coe.mpr (Finset.mem_image_of_mem w hk))
   have htop : W = ⊤ := by
-    rw [eq_top_iff, ← (Pi.basisFun (ZMod 2) S).span_eq, Submodule.span_le]
+    rw [eq_top_iff, ← (Pi.basisFun (F) S).span_eq, Submodule.span_le]
     rintro _ ⟨q, rfl⟩
     simpa [Pi.basisFun_apply] using key q
   calc S.card = Fintype.card S := (Fintype.card_coe S).symm
-    _ = Module.finrank (ZMod 2) (S → ZMod 2) := (Module.finrank_fintype_fun_eq_card (ZMod 2)).symm
-    _ = Module.finrank (ZMod 2) W := by rw [htop, finrank_top]
+    _ = Module.finrank (F) (S → F) := (Module.finrank_fintype_fun_eq_card (F)).symm
+    _ = Module.finrank (F) W := by rw [htop, finrank_top]
     _ ≤ (T.image w).card := finrank_span_finset_le_card _
     _ ≤ T.card := Finset.card_image_le
 
