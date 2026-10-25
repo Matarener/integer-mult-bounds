@@ -222,7 +222,8 @@ def build(colsL):
     return out
 lam = None
 start_it = len(hist)
-for it in range(len(hist), 1000):
+MAX_ITERS = int(os.environ.get('V4_MAX_ITERS', '100000'))
+for it in range(len(hist), min(1000, len(hist) + MAX_ITERS)):
     if time.time() - T_START > TIME_LIMIT: log('time limit reached'); break
     t0 = time.time()
     colsL = sorted(cols.items(), key=lambda kv: (len(kv[0]), sorted(kv[0])))
