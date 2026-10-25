@@ -22,7 +22,7 @@ def attempt(D, s, cross, tries=300):
         return M[P, Q] - T
     best = 1e9
     for _ in range(tries):
-        r = so.least_squares(res, rng.normal(size=2*K*m), method='trf', max_nfev=3000)
+        r = so.least_squares(res, rng.normal(size=2*K*m), method='trf', max_nfev=600)
         best = min(best, float(np.abs(r.fun).max()))
         if best < 1e-10: return best
     return best
@@ -31,17 +31,23 @@ import json
 reps = {tuple(sorted(c[0])) for c in json.load(open('tri_classes.json'))}
 tri = sorted({(tar(D, D), D) for D in reps} | {(tar(D, D), D) for D in itertools.combinations(range(NP), 3) if tar(D, D) <= 3})
 print('triples to test:', len(tri), flush=True)
-found = []
-for tD, D in tri:
+import multiprocessing as mp, time
+def run_triple(item):
+    tD, D = item; t0 = time.time()
     g = 3; crossable = [(i, j) for i in range(g) for j in range(g) if i != j]
     ccost = {(i, j): tar([D[i]], [D[j]]) for i, j in crossable}
-    for s in range(2, 6):
+    tried = 0; hits = []
+    for s_ in range(2, 6):
         for t in range(1, 7):
             for cr in itertools.combinations_with_replacement(crossable, t):
-                cost = s * tD + sum(ccost[c] for c in cr)
-                if cost >= 12 or s + t < 6: continue
-                b = attempt(list(D), s, list(cr), tries=60)
-                if b < 1e-8:
-                    print('FOUND real decoder on', D, 'tariff(D,D)', tD, 's', s, 'cross', cr, 'cost', cost, 'residual', b, flush=True); found.append((D, s, cr, cost))
-    print('triple', D, 'tariff(D,D)', tD, 'done', flush=True)
-print('total found', len(found))
+                cost = s_ * tD + sum(ccost[c] for c in cr)
+                if cost >= 12 or s_ + t < 6: continue
+                tried += 1
+                b = attempt(list(D), s_, list(cr), tries=8)
+                if b < 1e-8: hits.append((s_, cr, cost, b))
+    return D, tD, tried, hits, round(time.time() - t0)
+if __name__ == '__main__':
+    with mp.get_context('spawn').Pool(4) as pool:
+        for D, tD, tried, hits, sec in pool.imap_unordered(run_triple, tri):
+            for h in hits: print('FOUND real decoder on', D, 'tariff(D,D)', tD, 's, cross, cost, residual =', h, flush=True)
+            print('triple', D, 'tariff(D,D)', tD, 'patterns tried', tried, 'escapes', len(hits), '%ds' % sec, flush=True)
