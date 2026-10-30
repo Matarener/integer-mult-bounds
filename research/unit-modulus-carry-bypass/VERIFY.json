@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/high-route-setup-invoice/README.md",
+    "research/runtime-quarter-carry/PROOF.md",
+    "research/runtime-quarter-carry/README.md",
+    "research/runtime-quarter-carry/TABLE.json.gz",
+    "research/runtime-quarter-carry/inputs/independent.py",
+    "research/runtime-quarter-carry/inputs/machine.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact wrapper branches and tolls; all relocated fallback rows; 1972 complete unit executions; separate interpreter cases; six full nonunit composition fixtures; six negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same scientific checks with optimization enabled; all need checks remain active."
+    }
+  ]
+}

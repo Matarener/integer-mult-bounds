@@ -1,0 +1,133 @@
+{
+  "derivation_sha256": "70d49ce16f149bc768fa7ea0c964cbefdf9981eb61fc16d40913362d43a27dba",
+  "failed_stage": {
+    "command": [
+      "/private/tmp/three-kappa-env/bin/python",
+      "-B",
+      "/Volumes/FourKappaResearch/admission/package/verify_release.py",
+      "--main",
+      "/private/tmp",
+      "--work",
+      "/Volumes/FourKappaResearch/admission/release",
+      "--native-cache",
+      "/private/tmp/four-kappa-release-inputs/native-cache",
+      "--jobs",
+      "1"
+    ],
+    "exit_code": 1,
+    "log_sha256": "e5279e8fc159147f4b41179973e23630f0dc24c1f92f717673b121128e79662d",
+    "name": "release",
+    "script_sha256": "6cfefe80c02a6c0f243f50ca9e146e1ab1440b84a033d8a71d42be5a5fa27f6b",
+    "seconds": 162.58346916700248
+  },
+  "first_failure_scope": "Declared reconstruction stops at PR3605; actual native endpoint/control checks passed but byte-for-content equality correctly fails.",
+  "fresh_stage": "Entire original verify_release.py with all native binding/rebuild/independent/strict/outer/control stages; retained parent/native evidence remains explicit reuse.",
+  "native_scientific_words_and_engines_unchanged": true,
+  "reused_stages": [
+    {
+      "command": [
+        "/private/tmp/three-kappa-env/bin/python",
+        "-B",
+        "/Volumes/FourKappaResearch/admission/package/reconstruct.py",
+        "--out",
+        "/Volumes/FourKappaResearch/admission/owners"
+      ],
+      "exit_code": 0,
+      "log_sha256": "2eafaebba736752df3817a3863237919141a3445ea221b8a3e8269327a749c6a",
+      "name": "owners",
+      "script_sha256": "5472811c24aef3852dc7e189dff5060076a6c0b25bfde928da50dcfe9b5bdc15",
+      "seconds": 24.788774166998337
+    },
+    {
+      "command": [
+        "/private/tmp/three-kappa-env/bin/python",
+        "-B",
+        "/Volumes/FourKappaResearch/admission/package/lift_parent.py",
+        "--package",
+        "/Volumes/FourKappaResearch/admission/package",
+        "--owners",
+        "/Volumes/FourKappaResearch/admission/owners",
+        "--out",
+        "/Volumes/FourKappaResearch/admission/parent-data"
+      ],
+      "exit_code": 0,
+      "log_sha256": "2d738a7322c4303d36deb694e6d79b6b51bfe098642bf5cda8abc319f03d66ab",
+      "name": "parent-lift",
+      "script_sha256": "9a1edd7d4ab4a2f2ac8d15b42b7e40f93653d65026bac59e4c1ce80b486bd60e",
+      "seconds": 55.73409470799379
+    },
+    {
+      "command": [
+        "/private/tmp/three-kappa-env/bin/python",
+        "-B",
+        "/Volumes/FourKappaResearch/admission/package/new/rebind.py",
+        "/Volumes/FourKappaResearch/admission/package",
+        "/private/tmp/four-kappa-release-inputs/native-cache/0aca7560603d65902a50d68af43f594abd93b09594bac24878b846b1e51475fa/local",
+        "/private/tmp/four-kappa-release-inputs/native-cache/6928ad79dc683e7e7bbf4b5da60f2df91f478c58b797922d6df41d9d43c87048/local",
+        "/Volumes/FourKappaResearch/admission/rebound"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fe69dd9c58e26c0469bc94d92933e7e838df96dbb19873884e6740a8ccc97644",
+      "name": "rebind",
+      "script_sha256": "52f8b4cec2dab69cbe590e1fd0f7a68e1b35de5a540bd22fd2adfce07a92b46b",
+      "seconds": 9.08424162499432
+    },
+    {
+      "command": [
+        "/private/tmp/three-kappa-env/bin/python",
+        "-B",
+        "/Volumes/FourKappaResearch/admission/layout/packing74/replay.py",
+        "--data",
+        "/Volumes/FourKappaResearch/admission/layout/packing74/candidate",
+        "--work",
+        "/Volumes/FourKappaResearch/admission/discovery",
+        "--local",
+        "/private/tmp/four-kappa-release-inputs/native-cache/0aca7560603d65902a50d68af43f594abd93b09594bac24878b846b1e51475fa/local",
+        "--discover"
+      ],
+      "exit_code": 0,
+      "log_sha256": "ece8ce71444db4fea7a2088410cc26d28a1f0bac00d1ddc5865a6ff222143356",
+      "name": "discovery",
+      "script_sha256": "4f5c0926b70edb5aef3af0f8a8d9fa8119fa7af6603df1721c0dc31760b08254",
+      "seconds": 503.7259256249963
+    },
+    {
+      "command": [
+        "/private/tmp/three-kappa-env/bin/python",
+        "-B",
+        "/Volumes/FourKappaResearch/admission/package/outer/check_ledger.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "df4467c4d6987e7fec54d2dd34de0c01c59c7559ddef5d036254fde5b33ec26c",
+      "name": "outer-check_ledger.py",
+      "script_sha256": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+      "seconds": 0.048073540994664654
+    },
+    {
+      "command": [
+        "/private/tmp/three-kappa-env/bin/python",
+        "-B",
+        "/Volumes/FourKappaResearch/admission/package/outer/independent_check.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "7830c005667b42feae2bd6fc96c5555fabb40934b40f37ad6629a618aa5216e2",
+      "name": "outer-independent_check.py",
+      "script_sha256": "a5a0361539ec7cae9eb6c0371f857919335a1720040f22af291aa3e34fc864c7",
+      "seconds": 0.03534425000543706
+    }
+  ],
+  "source_added_files": [
+    "new/borrow/delay_applier.py",
+    "new/borrow/delayed/PR3605-base.json.gz",
+    "new/borrow/delayed/PR3605-extra.json.gz",
+    "new/borrow/review_delayed.py"
+  ],
+  "source_changed_files": [
+    "new/borrow/review_staged3605.py",
+    "new/rebuild_borrow.py",
+    "verify.py"
+  ],
+  "source_manifest_v1": "105d03bbe5e1f9ca0a476043b37c5456bbfc70fac1201dfc3a4084de0b0e7c67",
+  "source_manifest_v2": "a588609ca5e5959364db86cbfd9fd0084a066fcd8d1ab8808cf24293da5e9ea2",
+  "status": "AUTHENTICATED_PREPARATORY_STAGE_REUSE_AFTER_DECLARED_EDIT_BINDING_REPAIR"
+}

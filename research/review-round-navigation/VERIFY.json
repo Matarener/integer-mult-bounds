@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/community-efficient1900-review.md",
+    "research/community-efficient2000-audit/README.md",
+    "research/community-efficient2100-audit/README.md",
+    "research/community-efficient2200-audit/README.md",
+    "research/community-efficient2300-audit/README.md",
+    "research/community-efficient2400-audit/README.md",
+    "research/community-efficient2500-audit/README.md",
+    "research/community-efficient2600-audit/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Status page names the nineteenth prose row and the twenty-sixth intake; the nineteenth count matches its review; seven intake headings and count lines match; four synthetic controls reject a stale latest-round sentence, an in-progress disposition, a changed 2600 heading, and a prose review for round 2600."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+Primary result: completion-free terminal decoding for three actual source queries
+
+Choose global bank queries 0,16,32, whose
+original first-departure arguments are their own independent inputs and whose
+original final frames are all exactly frame 1, the full rank-nine return R.
+The source witnesses are native owners 224,240,256 at events 8148,8366,8584,
+with first frames 2,72,74. No dense helper basis and no return completion is used.
+
+Hoist only those three original H1 children into the entrance prologue. Keep the
+three raw outputs and normalized observations, and perform the same four signed
+feedback shears, preserving current input/raw/observation consistency after every
+shear. For local indices 0,1,2 corresponding to global indices 0,16,32, they are:
+  xi_1 += Q xi_0; xi_2 += Q xi_1;
+  xi_1 -= Q xi_0; xi_2 -= Q xi_1.
+For coefficient a=+1 or -1, a shear xi_k+=a Q xi_h updates all live copies by
+  w_k   += a K_k obs_h;
+  obs_k += a Q^2 K_h^-1 w_h;
+  raw_k += a O_k^-1 Q^2 K_h^-1 w_h.
+The current representations are w_j=K_j xi_j, raw_j=E_j K_j xi_j,
+obs_j=Q xi_j, with the actual pinned O_j E_j K_j=Q. Every update uses two owned
+COPY, three signed ADD, three monomial maps and three CLEAR, and source h is
+unchanged within one update. All right-hand-side maps are monomial because
+Q^2 is the central Pauli. This proves the three representations by induction,
+including the overlapping reuse of coordinate 1. No adaptive query oracle or
+fresh Gaussian evaluation is assumed. In normalized xi coordinates their total change
+is xi_2 += Q^2 xi_0. In actual ground helper coordinates it is
+  w_2 += B w_0, where B=K_32 Q^2 K_0^-1.
+B is a concrete monomial physical map. Here K_32 denotes the pinned global-query
+32 input map, not an index in a newly assumed shared-query oracle.
+
+Clear the three observations and resume the original source on these coupled
+helper inputs. Every omitted original query is replaced by the whole-field and
+frame-tag swap with its matching current raw result. This preserves the actual
+source state at all three cuts, including all earlier reads and later reuse.
+The source identity on arbitrary inputs gives the original main transfer and
+all original helper outputs on the coupled helper vector. In particular output
+2 is R w_2(initial) + R B w_0(initial), and output 0 is R w_0(initial). All other original persistent fields
+have their original outputs. No helper-to-main contamination appears because
+the original FULL identity is checked on every independent source column.
+
+The pinned physical maps satisfy K_j R=R K_j and Q^2 R=R Q^2, with absolute
+phases. Thus B R=R B. At the common full exit chart execute:
+  CLEAR scratch; COPY scratch <- output_0;
+  apply the literal monomial B to scratch;
+  ADD output_2 -= scratch; CLEAR scratch.
+This restores the exact original independent output_2. All original endpoint
+charts and arbitrary persistent input directions are preserved. Every owned
+output is zero. The decoder uses ordinary maps only; it is not a Gaussian child,
+a free retag or an assumed symbolic inverse.
+
+The complete added ordinary invoice, with seven additional owned fields, is:
+  15 COPY, 26 CLEAR, 3 whole-field/chart SWAP,
+  13 signed ADD, 16 monomial field maps.
+Of these 16 maps, three are the actual prologue observation normalizers, twelve
+are the four feedback updates' maps, and one is the terminal decoder B. There
+are zero new basis ADD/SCALE and zero return-completion calls. Original source
+ordinary work remains additional. Field-volume, precision and compiler tariffs
+must be paid before this can support a full multiplication caller.
+
+The complete original Gaussian paid profile remains
+  2201 H1 + 412 H2 + 510 H3 + 127 H4 + 40 H5 + 8 H8,
+and the original independent helper-target profile remains
+  28 H4 + 7 H7 + 47 H8 + 326 H9.
+Every rank-moment invoice is therefore unchanged, not improved. The three source
+queries were relocated rather than duplicated. The mechanism supplies adaptive
+intermediate observations and an ordinary terminal decoder without losing or
+recoding the independent helper targets; no actual original paid child is removed.
+The next profitable-caller question is to use those intermediate observations to
+replace an existing caller request with a complete ordinary/precision bill.
+
+Run python3 -B verify_terminal.py using Python 3.12 or newer. It authenticates
+the retained source inputs, checks the exact singleton rows and source events,
+checks the three physical query identities and decoder maps, verifies B's full-
+return commutator including absolute phase, and replays every original event on
+all 632 persistent and eight arbitrary owned input columns. Omitting the terminal
+decoder or chart transport must be rejected. The saved receipt is
+three-query-terminal-result.json. The identities hold for arbitrary vector inputs and every allowed spectator
+multiplicity by composition of the same lifted monomial/source operators.
+The scalar owner program is evaluated directly in that operator algebra; no
+sum is tensor-powered. Native all-width implementation and ordinary/compiler
+funding assumptions remain inherited. This is not Lean kernel verification.
+
+Credit remains with PR 5457's overlapping-feedback invariant, PR 5388's source
+query bank, and the full retained native/Clifford/helper lineage in ATTRIBUTION.md.
+The classical commutator algebra is not claimed new. The source-specific identity
+row/full-exit selection and completion-free actual decoder are this extension.
+Prepared for Dugongue with substantial OpenAI Codex assistance; Apache-2.0.

@@ -1,0 +1,291 @@
+{
+  "base_census": {
+    "first_repeat_row": null,
+    "max_multiplicity": 1,
+    "rows_with_repeats": 0,
+    "terms": 527,
+    "v": 111
+  },
+  "checker_baseline": {
+    "columns": 661,
+    "v": 111
+  },
+  "columns": 661,
+  "decision": {
+    "archived_mutant_records": 27235,
+    "archived_mutant_records_sha256": "5629b522bb0381127e3514396f034f308e0aa797f134f833e4d8feb678dce744",
+    "baseline": {
+      "records": 27234,
+      "records_sha256": "ea44aa047a2a9cf034de8b56b2166c49cf2dbdf9cd9ed6a20299a4f2b05ef09a"
+    },
+    "hazard_class": [
+      2,
+      4,
+      6
+    ],
+    "table": [
+      {
+        "appended_occurrences": 0,
+        "checker": "accept",
+        "checker_accepts": true,
+        "checker_message": null,
+        "difference_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "difference_registers": 0,
+        "export_delta": 0,
+        "export_records": 27234,
+        "normalised_export_matches_mutant_export": true,
+        "operator_agrees": true,
+        "operator_membership": 0,
+        "operator_parity": 0
+      },
+      {
+        "appended_occurrences": 1,
+        "checker": "reject",
+        "checker_accepts": false,
+        "checker_message": "REJECT targets not y + x: [0]",
+        "difference_digest": "a6d49e031fe51d3fed9f97a730027309f036f88293eb91e7853090e2a103cc3b",
+        "difference_registers": 1,
+        "export_delta": 1,
+        "export_records": 27235,
+        "normalised_export_matches_mutant_export": true,
+        "operator_agrees": true,
+        "operator_membership": 1,
+        "operator_parity": 1
+      },
+      {
+        "appended_occurrences": 2,
+        "checker": "accept",
+        "checker_accepts": true,
+        "checker_message": null,
+        "difference_digest": "a6d49e031fe51d3fed9f97a730027309f036f88293eb91e7853090e2a103cc3b",
+        "difference_registers": 1,
+        "export_delta": 1,
+        "export_records": 27235,
+        "normalised_export_matches_mutant_export": false,
+        "operator_agrees": false,
+        "operator_membership": 1,
+        "operator_parity": 0
+      },
+      {
+        "appended_occurrences": 3,
+        "checker": "reject",
+        "checker_accepts": false,
+        "checker_message": "REJECT targets not y + x: [0]",
+        "difference_digest": "a6d49e031fe51d3fed9f97a730027309f036f88293eb91e7853090e2a103cc3b",
+        "difference_registers": 1,
+        "export_delta": 1,
+        "export_records": 27235,
+        "normalised_export_matches_mutant_export": true,
+        "operator_agrees": true,
+        "operator_membership": 1,
+        "operator_parity": 1
+      },
+      {
+        "appended_occurrences": 4,
+        "checker": "accept",
+        "checker_accepts": true,
+        "checker_message": null,
+        "difference_digest": "a6d49e031fe51d3fed9f97a730027309f036f88293eb91e7853090e2a103cc3b",
+        "difference_registers": 1,
+        "export_delta": 1,
+        "export_records": 27235,
+        "normalised_export_matches_mutant_export": false,
+        "operator_agrees": false,
+        "operator_membership": 1,
+        "operator_parity": 0
+      },
+      {
+        "appended_occurrences": 5,
+        "checker": "reject",
+        "checker_accepts": false,
+        "checker_message": "REJECT targets not y + x: [0]",
+        "difference_digest": "a6d49e031fe51d3fed9f97a730027309f036f88293eb91e7853090e2a103cc3b",
+        "difference_registers": 1,
+        "export_delta": 1,
+        "export_records": 27235,
+        "normalised_export_matches_mutant_export": true,
+        "operator_agrees": true,
+        "operator_membership": 1,
+        "operator_parity": 1
+      },
+      {
+        "appended_occurrences": 6,
+        "checker": "accept",
+        "checker_accepts": true,
+        "checker_message": null,
+        "difference_digest": "a6d49e031fe51d3fed9f97a730027309f036f88293eb91e7853090e2a103cc3b",
+        "difference_registers": 1,
+        "export_delta": 1,
+        "export_records": 27235,
+        "normalised_export_matches_mutant_export": false,
+        "operator_agrees": false,
+        "operator_membership": 1,
+        "operator_parity": 0
+      }
+    ],
+    "witness_input_column": 472,
+    "witness_present": true,
+    "witness_support_matches_archive": true,
+    "witness_support_size": 98
+  },
+  "exact_condition": {
+    "agreeing_words": "every positive multiplicity is odd",
+    "checker_semantics": "XOR once per occurrence (multiplicity parity)",
+    "exporter_semantics": "one ADD when the index occurs (membership)",
+    "hazard_from_checker_accepted_words": "some positive multiplicity is even"
+  },
+  "guard_battery": [
+    {
+      "case": "pinned row 0",
+      "expected": true,
+      "guard_accepts": true,
+      "row": [
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "case": "duplicate pair",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "4",
+        "4"
+      ]
+    },
+    {
+      "case": "duplicate with odd count",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "4",
+        "4",
+        "4"
+      ]
+    },
+    {
+      "case": "bool",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "True"
+      ]
+    },
+    {
+      "case": "negative",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "-1"
+      ]
+    },
+    {
+      "case": "out of range",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "9"
+      ]
+    },
+    {
+      "case": "float",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "1.0"
+      ]
+    },
+    {
+      "case": "string",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "'1'"
+      ]
+    },
+    {
+      "case": "full range row",
+      "expected": false,
+      "guard_accepts": false,
+      "row": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "case": "empty row",
+      "expected": true,
+      "guard_accepts": true,
+      "row": []
+    }
+  ],
+  "producer": {
+    "combinations_are_simple_supports": true,
+    "decoder_rows_uses_itertools_combinations": true,
+    "pwordl_build_copies_rows": true,
+    "tune_apply_mentions_scatter": false
+  },
+  "recommendation": "successor exporter: enforce simple supports (reject duplicates) while the retained generator is the only producer, because decoder_rows emits strictly increasing combinations; if multiplicity is ever meaningful, canonicalise rows to parity in the exporter instead of lowering by membership; additionally declare index types and range explicitly, because bool is accepted as int by both stages while float and string behave differently (float crashes the checker; string never matches the exporter)",
+  "status": "PASS_SCATTER_BOUNDARY_DECISION",
+  "tuned_census": {
+    "first_repeat_row": null,
+    "max_multiplicity": 1,
+    "rows_with_repeats": 0,
+    "terms": 527,
+    "v": 111
+  },
+  "tuned_rows_equal_base_rows": true,
+  "type_probes": [
+    {
+      "appended": [
+        "1.0"
+      ],
+      "checker": "error",
+      "checker_message": "TypeError: list indices must be integers or slices, not float",
+      "export_changed": true,
+      "export_delta": 1,
+      "probe": "float_one"
+    },
+    {
+      "appended": [
+        "True"
+      ],
+      "checker": "reject",
+      "checker_message": "REJECT targets not y + x: [0]",
+      "export_changed": true,
+      "export_delta": 1,
+      "probe": "bool_true"
+    },
+    {
+      "appended": [
+        "'1'"
+      ],
+      "checker": "error",
+      "checker_message": "TypeError: '<=' not supported between instances of 'int' and 'str'",
+      "export_changed": false,
+      "export_delta": 0,
+      "probe": "string_one"
+    },
+    {
+      "appended": [
+        "9"
+      ],
+      "checker": "reject",
+      "checker_message": "REJECT scatter index out of range",
+      "export_changed": false,
+      "export_delta": 0,
+      "probe": "out_of_range"
+    }
+  ]
+}

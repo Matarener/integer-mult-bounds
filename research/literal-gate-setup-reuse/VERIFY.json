@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/literal-gate-setup-reuse/inputs/PR5818.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/setup_checks.py"
+      ],
+      "timeout_seconds": 45,
+      "checks": "1522 exact original-versus-derived dense states, 22700 amplitudes, four width-nine cases and 23 complete-key/boundary/eviction/mutation/corruption controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/inherited_controls.py"
+      ],
+      "timeout_seconds": 45,
+      "checks": "All 13 unchanged PR5818 stage/exception/contamination controls and seven source-custody controls, plus top-level retained-bundle byte corruption rejection before scientific imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Fresh full source/native/caller/invoice/compiler/outer and original adapter/omission checks, complete RESULT/CROSS, all 17651 actual states and 9037312 amplitudes per literal interpreter; exact stdout and unchanged read-only exports."
+    }
+  ]
+}

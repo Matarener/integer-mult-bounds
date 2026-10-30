@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/kappa-rebuild/complex/rebuild_native.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated actual native source windows in both orientations, integer/dyadic factors, independent ranks, all 160 local input/owned columns, complete source pricing, 200 matrix controls and invalid alternatives."
+    }
+  ]
+}

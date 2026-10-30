@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/eisenstein-clique-copy-bound/geometry.py",
+    "research/eisenstein-integer-rank/integer_rank.py",
+    "research/eisenstein-reduction-copy-floor/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "All 209 actual Q-rank calls, unchanged full stdout and seven original controls, 1798 independent minor cases and eight arithmetic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same checks with optimized Python and explicit invariant failures."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/integrity.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Both complete modes in a Git-free copy, unchanged input hashes and three source corruptions rejected before import."
+    }
+  ]
+}

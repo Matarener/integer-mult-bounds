@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "review_kind": "source-only",
+  "scientific_execution_by_reviewer": false,
+  "P1": {
+    "status": "ADMIT_COMPLETE_PILOT_AFTER_PARENT_REPORTED_REVISION_3_FINITE_PASSES",
+    "files": {
+      "priorities/set-reuse/set_reuse.py": "d375bb352ddff7a922bf1413d2911935b977d3bcce670db4954f6939afa15f29",
+      "priorities/set-reuse/finite_set_controls.py": "9fbe76c6d5ce123d12fc3c231786a9a85996fad41102835e08112768dd75738d"
+    },
+    "control_repair": "Mode-aware assertion-only callback expectations; initial failure retained",
+    "complete_pilot_condition": "Both finite modes pass"
+  },
+  "P2": {
+    "status": "ADMIT_COMPLETE_PILOT_AFTER_PARENT_REPORTED_NORMAL_AND_OPTIMIZED_PASSES",
+    "files": {
+      "priorities/runtime-guards/guard_candidate.py": "320435ec4125544f2b2aedf74f21469b232d08683fe76f0913607516254bbd29",
+      "priorities/runtime-guards/guard_controls.py": "514e3d08793323cf216c7a1f76cafdc8dbba4ab4656e64167c788985f9e63291"
+    },
+    "source_blockers": [],
+    "controls_source_loads": 4,
+    "controls_mutation_pairs": 237,
+    "controls_actions_per_mutation_pair": 7,
+    "controls_stable_action_pairs": 14,
+    "pilot_condition": "Parent finite normal/O controls and all original controls pass first",
+    "limits": "No execution or performance evidence; combined entry coverage remains separate"
+  },
+  "P3": {
+    "status": "ADMIT_COMPLETE_PILOT_AFTER_PARENT_REPORTED_NORMAL_AND_OPTIMIZED_PASSES",
+    "files": {
+      "priorities/trace-encoding/trace_encoder.c": "57d6f0f71d5bfd2145397ac0159837d32990b276fead2ec1b1d6854d8913bd7e",
+      "priorities/trace-encoding/trace_adapter.py": "4bdb401271ffd049c52eff0edc28d8d604a11faf66fec419555a82cbd3b32d60",
+      "priorities/trace-encoding/trace_controls.py": "527bb08e870dc2ee19bebf101e7353c6db8422a5702a80bca231b54d2a4af447"
+    },
+    "source_blockers_in_reviewed_files": [],
+    "pending": [
+      "Combined stage and finite union"
+    ]
+  },
+  "integration": {
+    "status": "ADMIT_SERIAL_COMBINED_FINITE_UNION_ON_REVIEWED_SOURCES",
+    "driver_approach": "Explicit fork with own digest, pinned original driver digest and inverse source transformation evidence; unchanged scientific anchor",
+    "observer_independence": "Parent agreed to leave backend.ComplementTrace original and construct candidate full trace explicitly; old finite controls keep original observer; new controls compare original and candidate",
+    "not_yet_admitted": [
+      "Combined full qualification pending finite union",
+      "Any changed Fraction-portability implementation"
+    ]
+  },
+  "latest_review": "IMPLEMENTATION-REVIEW.json"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged544-a2-composition-audit/inputs/BORROW-WORD-base.json.gz",
+    "research/staged544-a2-composition-audit/inputs/BORROW-WORD-extra.json.gz",
+    "research/staged544-a2-composition-audit/inputs/data.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact endpoint formulas, both provider words, eight site classifications, projected-cleanup record split, and three rejection controls"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Clear eight labels in eight paying calls, leave a ninth, and compare 1792 with the replica cap 896."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Clear two labels and leave a third."
+    }
+  ]
+}

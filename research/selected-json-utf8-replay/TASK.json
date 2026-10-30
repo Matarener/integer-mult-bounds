@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Reproduce the three locale-dependent selected-checker JSON reads, verify a source-preserving UTF-8 invocation, and test an explicit-encoding candidate in private temporary copies.",
+  "scope_change_reason": "The portable-replay card permits one interpreter/environment mismatch. The selected checker is itself pinned in frontier6030-source.json, so this result preserves its bytes and supplies a tested invocation plus a candidate patch for future maintainer integration.",
+  "bottleneck_link": "Exact source-binding checks should accept valid UTF-8 metadata and exact Unicode input names on a native cp1252 host without relaxing byte hashes or repinning scientific sources.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after all three JSON boundaries, exact Unicode path spelling, malformed-encoding rejection, source corruption and byte-hash controls pass for the workaround and candidate. No scientific cold replay or wider codec sweep.",
+  "outcome": "completed",
+  "evidence": "verify.py: eight test methods exercise the real pinned CLI in temporary closures. Native Windows cp1252 corroborates the portable codec model. UTF8-READS.patch is tested only in temporary copies.",
+  "author": "josecarlosgonzalezroque-design",
+  "ai_assistance": "Substantial OpenAI Codex assistance for investigation, implementation, testing and writing; one agent, no subagents.",
+  "open_questions": [
+    {
+      "question": "Can the explicit UTF-8 read patch be integrated through a successor checker without invalidating frozen selected and historical source closures?",
+      "why_it_matters": "Callers should not need to remember an interpreter flag; direct edits to the pinned checker invalidate selected source hashes.",
+      "first_step": "Inventory live and historical consumers of scripts/verify_selected_result.py, then propose a versioned entry point or explicit maintainer source transition using the tested three-line patch.",
+      "blocked_by": "Maintainer choice of source-transition policy; this contribution does not alter the selected manifest."
+    },
+    {
+      "question": "Do the same exact fixtures pass on a native UTF-8 POSIX host and another supported Windows Python version?",
+      "why_it_matters": "The portable cp1252 model and native CPython 3.12.10 run cover different parts of the portability claim.",
+      "first_step": "Run the registered replay unchanged and report the interpreter, native locale, passed tests and native-only skip.",
+      "blocked_by": "Those environments were not available in this session."
+    }
+  ],
+  "assignment": {
+    "seed": "269949e813c9ca9d693f6a23b2d0d0c2",
+    "track": "verifier-engineering",
+    "scope_key": "831cc1a3c8f9ff01b197",
+    "selection": "Expertise-based track selection after reading newest handoffs; no suitable bounded request taken."
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "arithmetic": {
+    "Phi": "99827519/100000000",
+    "alpha": "99827/100000",
+    "beta": "41544341/41616125",
+    "complex_rate_lower": "865490127994518479981/500000000000000000000000",
+    "controls": [
+      "sigma_without_router_slack",
+      "old_root_target_kappa",
+      "omitted_inverse_normalization",
+      "axes_dimensions_off_by_one"
+    ],
+    "encoded_recovery_gate_cases_not_production_plans": [
+      {
+        "H": 256,
+        "b": 32,
+        "ceil_log2_H": 8,
+        "coarse_recovery_upper": "1/1024",
+        "gamma": 8
+      },
+      {
+        "H": 4096,
+        "b": 48,
+        "ceil_log2_H": 12,
+        "coarse_recovery_upper": "1/16384",
+        "gamma": 16
+      },
+      {
+        "H": 1048575,
+        "b": 64,
+        "ceil_log2_H": 20,
+        "coarse_recovery_upper": "1048575/17179869184",
+        "gamma": 24
+      }
+    ],
+    "eta": "1/1000000",
+    "gamma_ratio_upper_for_p_ge_2_pow_7000": "40775/2097152",
+    "internal": "6647060323670676329/6658580000000000000",
+    "kappa": "1/580",
+    "leaf": "19965399034601/20000000000000",
+    "router_gap": "3273151/33292900000000",
+    "saving_gap": "1949/2900000000",
+    "sigma": "19965399/20000000",
+    "sufficient_margin_base_cases_not_production_plans": [
+      {
+        "E_upper": "7/22300745198530623141535718272648361505980416",
+        "b": 32,
+        "gamma_cap": 16,
+        "scaled_error_upper": "234157824584571701442450070391482982900695089/1461501637330902918203684832716283019655932542976",
+        "third_input_norm_upper": "31082702275611665134711390509176302506278587477442427197368450255864951507735694802993/497323236409786642155382248146820840100456150797347717440463976893159497012533375533056"
+      },
+      {
+        "E_upper": "7/713623846352979940529142984724747568191373312",
+        "b": 33,
+        "gamma_cap": 16,
+        "scaled_error_upper": "2497683462235430636952400598689550819805276859/33157818396944859956746099642250671008443969568768",
+        "third_input_norm_upper": "31828687130226345097944463881396533766429196148713716151622021674363110804221618110332977/509258994083621521567111422102344540262867098416484062659035112338595324940834176545849344"
+      }
+    ],
+    "tau": "332353/332929"
+  },
+  "checker_sha256": "45c3f1255e58ab8ed37c9c1c14defa0f2d59a3ffc57c4823bb80d06bf9b73002",
+  "controls": [
+    "omitted_final_R",
+    "wrong_final_Fourier_sign",
+    "S_instead_of_S_squared",
+    "sigma_without_router_slack",
+    "old_root_target_kappa",
+    "omitted_inverse_normalization",
+    "axes_dimensions_off_by_one",
+    "disk_width_after_scaling",
+    "cyclic_alias_without_padding",
+    "non_strict_half_unit_margin",
+    "duplicate_CRT_prime",
+    "omitted_source_manifest_row",
+    "changed_source_bytes"
+  ],
+  "immutable_source_references": {
+    "archive_sha256": "a93f3e4df06a8ee18c69f68697cec463bbb86ddff642cc1df652d87ba642f046",
+    "controls": [
+      "omitted_source_manifest_row",
+      "changed_source_bytes"
+    ],
+    "manifest_sha256": "cc5c879b5c28c9d2d4191c1ac2c5563213c1b58ffd1e4d25a3e6c0a6a6dbeb18",
+    "reference_files": 35,
+    "scope": "Exact proof/constructor references; no source imports or physical execution",
+    "source_contract_checks": [
+      "TensorPlan_dimensions_and_gamma",
+      "CRT_explicit_record_width",
+      "normalized_Fourier_pair",
+      "scalar_Karatsuba_continuation",
+      "BHP_21_over_40"
+    ]
+  },
+  "normalization": [
+    {
+      "S": 3,
+      "bilinear_coefficients": 27,
+      "cyclotomic_polynomial": [
+        1,
+        1,
+        1
+      ],
+      "mutation_witnesses": {
+        "S_instead_of_S_squared": true,
+        "omitted_final_R": false,
+        "wrong_final_Fourier_sign": true
+      },
+      "source_axes": [
+        3
+      ],
+      "target_axes": [
+        4
+      ]
+    },
+    {
+      "S": 5,
+      "bilinear_coefficients": 125,
+      "cyclotomic_polynomial": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mutation_witnesses": {
+        "S_instead_of_S_squared": true,
+        "omitted_final_R": true,
+        "wrong_final_Fourier_sign": true
+      },
+      "source_axes": [
+        5
+      ],
+      "target_axes": [
+        8
+      ]
+    },
+    {
+      "S": 15,
+      "bilinear_coefficients": 3375,
+      "cyclotomic_polynomial": [
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "mutation_witnesses": {
+        "S_instead_of_S_squared": true,
+        "omitted_final_R": true,
+        "wrong_final_Fourier_sign": true
+      },
+      "source_axes": [
+        3,
+        5
+      ],
+      "target_axes": [
+        4,
+        8
+      ]
+    },
+    {
+      "S": 21,
+      "bilinear_coefficients": 9261,
+      "cyclotomic_polynomial": [
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "mutation_witnesses": {
+        "S_instead_of_S_squared": true,
+        "omitted_final_R": false,
+        "wrong_final_Fourier_sign": true
+      },
+      "source_axes": [
+        3,
+        7
+      ],
+      "target_axes": [
+        4,
+        8
+      ]
+    }
+  ],
+  "normalization_controls": {
+    "S_instead_of_S_squared": true,
+    "omitted_final_R": true,
+    "wrong_final_Fourier_sign": true
+  },
+  "prime_interval_fixture": {
+    "d": 5,
+    "dimensions": 4,
+    "scope": "finite interval and ratio fixture, not a production TensorPlan",
+    "source_axes": [
+      1847,
+      1861,
+      3691,
+      3697
+    ],
+    "target_axes": [
+      2048,
+      2048,
+      4096,
+      4096
+    ]
+  },
+  "recovery": {
+    "complete_round_scale_CRT_carry_cases": 27,
+    "controls": [
+      "disk_width_after_scaling",
+      "cyclic_alias_without_padding",
+      "non_strict_half_unit_margin",
+      "duplicate_CRT_prime"
+    ]
+  },
+  "scope": "Complete bilinear coefficient checks only on four stated finite groups; exact rational exponent and sufficient-margin certificates. Written eventual prime supply, Gaussian/CRT/Fourier source contracts, replacement-root binding, tape execution and all-size restoration are not proved by this checker.",
+  "source_blob_checks": [
+    {
+      "commit": "f687fa171ef760fa98a4be1289717b47dd4ee0b3",
+      "path": "research/physical-gaussian-tensor/PROOF.md",
+      "sha256": "1e3450344552e744e0187cf1115c7b470bbe1babc9a2414586ff8ffc8f84476e"
+    },
+    {
+      "commit": "f687fa171ef760fa98a4be1289717b47dd4ee0b3",
+      "path": "research/physical-gaussian-tensor/tensor_plan.py",
+      "sha256": "474730f42fcd2bd24720af4e08c71fb51cc374c3e16b8b6d7e565900f1a9e7c3"
+    },
+    {
+      "commit": "f687fa171ef760fa98a4be1289717b47dd4ee0b3",
+      "path": "research/physical-gaussian-tensor/tensor_engine.py",
+      "sha256": "1a5a766426b16718e168619d5988cc18711b4574f0041ec7f3877c1024de59d1"
+    },
+    {
+      "commit": "f687fa171ef760fa98a4be1289717b47dd4ee0b3",
+      "path": "research/physical-gaussian-tensor/tensor_word.py",
+      "sha256": "6ad8a2b9c9661ac42c727caefd8b4c4acf9f8bffedb5fe5f8a6e74675e85aa26"
+    },
+    {
+      "commit": "f687fa171ef760fa98a4be1289717b47dd4ee0b3",
+      "path": "research/physical-gaussian-tensor/ARITHMETIC.md",
+      "sha256": "bf809380781faf39227b363aa1abd388694a4c26cac48548a3595d1aa0673440"
+    },
+    {
+      "commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+      "path": "research/crt-address-streams/PROOF.md",
+      "sha256": "7b141475955cc372c5936118ff16e8748b589b93de2d26b76da28feec9b45de4"
+    },
+    {
+      "commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+      "path": "research/crt-address-streams/crt_converter.py",
+      "sha256": "b81fe8b266af59f5c5354cf53276c36a16b3a4e5a2ec015e8c8969ee22a17fea"
+    },
+    {
+      "commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+      "path": "research/physical-synthetic-fourier/PROOF.md",
+      "sha256": "b2a6da7501a04848d0a42930da91f15b6653fccf42ed7a018cf602fc12a1d4f7"
+    },
+    {
+      "commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+      "path": "research/physical-synthetic-fourier/fourier_engine.py",
+      "sha256": "7ef404f4a758a67d9ebe111bbedf501aa8bab223c54d61704cdec629c1f07ad9"
+    }
+  ],
+  "source_blob_checks_performed": true,
+  "source_pins": {
+    "12fa8c5c844be21bfefb38a19503fbd867a11244": {
+      "research/crt-address-streams/PROOF.md": "7b141475955cc372c5936118ff16e8748b589b93de2d26b76da28feec9b45de4",
+      "research/crt-address-streams/crt_converter.py": "b81fe8b266af59f5c5354cf53276c36a16b3a4e5a2ec015e8c8969ee22a17fea",
+      "research/physical-synthetic-fourier/PROOF.md": "b2a6da7501a04848d0a42930da91f15b6653fccf42ed7a018cf602fc12a1d4f7",
+      "research/physical-synthetic-fourier/fourier_engine.py": "7ef404f4a758a67d9ebe111bbedf501aa8bab223c54d61704cdec629c1f07ad9"
+    },
+    "f687fa171ef760fa98a4be1289717b47dd4ee0b3": {
+      "research/physical-gaussian-tensor/ARITHMETIC.md": "bf809380781faf39227b363aa1abd388694a4c26cac48548a3595d1aa0673440",
+      "research/physical-gaussian-tensor/PROOF.md": "1e3450344552e744e0187cf1115c7b470bbe1babc9a2414586ff8ffc8f84476e",
+      "research/physical-gaussian-tensor/tensor_engine.py": "1a5a766426b16718e168619d5988cc18711b4574f0041ec7f3877c1024de59d1",
+      "research/physical-gaussian-tensor/tensor_plan.py": "474730f42fcd2bd24720af4e08c71fb51cc374c3e16b8b6d7e565900f1a9e7c3",
+      "research/physical-gaussian-tensor/tensor_word.py": "6ad8a2b9c9661ac42c727caefd8b4c4acf9f8bffedb5fe5f8a6e74675e85aa26"
+    }
+  },
+  "status": "PASS_EXACT_OUTER_ALGEBRA_AND_ARITHMETIC_NOT_PHYSICAL_EXECUTION"
+}

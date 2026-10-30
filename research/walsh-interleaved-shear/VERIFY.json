@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent integer and Fraction/dense-matrix engines compare every output on all 196608 input/coefficient residue cases; authenticate pinned context; verify 24 affine witnesses, signed rounding, period and axis controls, 16 mathematical/domain/certificate rejection controls, and exact typed RESULT.json receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the same complete mathematical and failure-detection coverage under optimized Python; all guards use explicit exceptions, not disabled assertions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/check_artifacts.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Relocated Git-free optimized CLI replay with empty PATH preserves every package byte/mode; damaged/missing context, truncated witness certificate and Boolean-as-integer result receipt fail through the actual CLI with targeted errors."
+    }
+  ]
+}

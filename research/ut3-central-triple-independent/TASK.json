@@ -1,0 +1,88 @@
+{
+ "schema_version": 1,
+ "task_id": "bit-new-register-model",
+ "priority_revision": 6,
+ "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+ "original_card": {
+  "id": "bit-new-register-model",
+  "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+  "starting_points": [
+   "docs/research/research-family-status.md",
+   "research/bit-three-register-lower-bound/README.md",
+   "certificates/selected-result.json",
+   "research/bit-gl3-mixed-targets-length10/README.md",
+   "docs/research/community-efficient1000-review.md"
+  ],
+  "methods": [
+   "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+   "Derive a target-specific relaxation bound for that same explicit alphabet."
+  ],
+  "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+  "first_step": {
+   "command": [
+    "python3",
+    "-B",
+    "scripts/research_baseline.py"
+   ],
+   "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+   "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+   "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+  },
+  "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+  "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+  "allowed_variations": [
+   "Choose a fixed larger register count or a specified nonabelian operation family."
+  ],
+  "scope_change_triggers": [
+   "Remaining inside the already-excluded three-register abelian model.",
+   "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+  ],
+  "overlap_terms": [
+   "three-register",
+   "nonabelian",
+   "group algebra"
+  ]
+ },
+ "scope_status": "changed",
+ "actual_scope": "Independent verification of one specified nonabelian register model: the F_2[UT_3(F_4)] paid-call word problem with six paid involutions, rank-one idempotent calls and a three-register central-triple target, as stated in the open results PR #3774 and PR #3788. The package independently rebuilds the model, checks the two twelve-call witnesses, all single-deletion controls, the matrix-ring censuses recorded by #3785 and #3784, and the block collapse the lower-bound arguments use, then runs a bounded falsification search for a realizing word of length at most eleven.",
+ "scope_change_reason": "The card asks whether a larger or nonabelian register model can escape the scoped three-register obstruction, and names no single explicit alphabet. The UT3(F4) central-triple alphabet is one such explicit model and currently carries an unreviewed minimum-length claim in two open pull requests, so the same question is answered here for that one pinned model by independent reproduction and bounded search rather than by another mechanism search.",
+ "bottleneck_link": "The central-triple call count is a formal per-call price in this alphabet. A reproduced witness and a reproduced finite certificate decide whether the open minimum-12 claim can be relied on as a scoped input; they do not change the selected kappa, and the twelve calls are not a supplier or a physical price.",
+ "budget_minutes": 60,
+ "stop_rule": "Stop once the model, the witnesses, the deletion controls, the two matrix-ring censuses and the collapse identity are reproduced and the bounded search finishes. Do not claim a machine-verified all-r lower bound, do not attempt a physical realisation, and do not change any selected result.",
+ "outcome": "completed",
+ "evidence": "With an independently written model: the group has order 64 and is associative with the six paid labels involutions and the nine commutators equal to the three Z labels; the three-bit matrix ring has 49 rank-one matrices, 28 rank-one idempotents and 21 rank-one trace-zero matrices, matching the counts recorded in #3785; both published twelve-call words realize the target on three, four and five registers with every extra register fixed; all 24 single deletions fail; the block collapse equals the direct matrix product on 40 random words; the stacked corner has rank 6 with rank-two blocks. The bounded search tested 20000 uniform random words of length 6 to 11 and 18734 words drawn from the class-sum-feasible family that every realizing word must belong to (all eight feasible call-count shapes from 4+4 to 6+5, at least 1150 draws each) and found no word of length at most eleven that realizes the target.",
+ "author": "Nick Petalas",
+ "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+ "overlap": {
+  "checked_at": "2026-10-18",
+  "coverage": "Open pull requests and discussions were read through the repository API before starting; find_overlap was run for the register-model card and the two open UT3 central-triple pull requests were read directly. This is an overlap check, not a novelty certificate.",
+  "checked_paths": [
+   "PR #3774 research/ut3-f4-dependent-central-triple",
+   "PR #3788 research/ut3-f4-w2-lift-obstruction",
+   "PR #3784 research/central-triple-rank-floor",
+   "PR #3785 research/rank-one-idempotent-count",
+   "PR #3786 research/six-label-central-floor",
+   "PR #3783 research/twelve-call-central-triple"
+  ]
+ },
+ "open_questions": [
+  {
+   "question": "Can the all-r step of the two lower-bound arguments be machine-verified rather than inspected?",
+   "why_it_matters": "The finite certificates reproduce, but the passage from the corner, row-space and diagonal-lift inequalities to every r >= 3 is a written proof step in this package's evidence and the only part that a formal kernel could still reject.",
+   "first_step": "Encode the corner and row-space inequalities as a finite linear-algebra statement over symbolic r and check it with a proof assistant, or bound the residual by hand and record the bound in the package.",
+   "blocked_by": "No formal kernel run is part of this session; the statement is quantified over r, not over a finite domain."
+  },
+  {
+   "question": "Is the minimum-length question decided when w^2 is excluded and X_{w^2} alone is adjoined, i.e. does the four-label complementary split ever admit an eleven-call word?",
+   "why_it_matters": "The two open results use different arguments for the four-label and six-label cases; a word that needs only the weaker split would show the two hypotheses are not interchangeable.",
+   "first_step": "Extend the class-sum-feasible family here to the remaining even call counts with a nonzero common value, which the cancellation-pair construction does not reach.",
+   "blocked_by": "Even call counts with a nonzero class sum were not constructed in this session; the family sampled is a strict subfamily of the shapes the block equations allow."
+  },
+  {
+   "question": "Can any of the twelve formal calls be embedded in a pinned bit supplier below the complete price of a rank-one factor?",
+   "why_it_matters": "Without an embedding the twelve calls carry no physical saving and cannot move the selected kappa.",
+   "first_step": "Price one legal physical realisation of a single commutator pair including frames, hosting and restoration.",
+   "blocked_by": "No physical realisation, supplier admission or complete invoice is supplied here or in the checked results."
+  }
+ ]
+}

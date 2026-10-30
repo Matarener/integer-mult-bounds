@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the scatter identity on an invertible example and add the invoices."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the two operation totals and the sign-scale factors."
+    }
+  ]
+}

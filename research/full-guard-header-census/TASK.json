@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently count complete headers passing the canonical families of #4259, #4261, #4273, #4274 and #4275 by literal enumeration, beyond the authors' own complete-header sizes, and compare with their closed forms, transfer law and laminar product.",
+  "scope_change_reason": "These five counting proofs carry only their authors' finite corroboration up to GL_4(F2) and GL_3(F3); a separate literal census at larger and non-prime sizes is the missing coverage.",
+  "bottleneck_link": "Exact header laws price the good/bad packet split that #4100's BIT obligation uses; their formulas must hold before callers rely on them.",
+  "budget_minutes": 30,
+  "stop_rule": "Stop once every census size agrees or a formula fails.",
+  "outcome": "completed",
+  "evidence": "verify.py and recorded headers.c runs: 35,962,194 complete headers over F2 (m<=5), F3 (m<=4), F4 and F5 (m<=3); every count equals #4261's transfer law and binary form, #4273's ternary form (1727/21060 at m=4 from complete headers), #4274's one-way form, #4275's k=3 form and threshold (48 four-request headers at GL_5(F2), 0 at m=4), and #4259's laminar product and binary obstruction; Python and C agree on all small cases.",
+  "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
+  "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, verifier implementation and writing; no independent human or proof-kernel review.",
+  "open_questions": [],
+  "no_open_questions_reason": "Every census agrees; all-m statements rest on the PRs' proofs."
+}

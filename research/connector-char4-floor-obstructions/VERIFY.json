@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Translated-cube arithmetic and small/exploratory controls; full sharp depth-two censuses, catalog, inventory lemma and unpruned calibration; eighteen-source triple classes, all residual branches and axis replacements; strengthened cube/slab/union, graph/rank and incidence controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Translated-cube arithmetic and small/exploratory controls; full sharp depth-two censuses, catalog, inventory lemma and unpruned calibration; optimized Python; eighteen-source triple classes, all residual branches and axis replacements; strengthened cube/slab/union, graph/rank and incidence controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent literal outside-component charges, arithmetic and maximizer coverage; independently recomputed eighteen-source arithmetic"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent literal outside-component charges, arithmetic and maximizer coverage; optimized Python; independently recomputed eighteen-source arithmetic"
+    }
+  ]
+}

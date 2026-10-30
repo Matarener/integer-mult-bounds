@@ -15,10 +15,29 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / 'docs/research/construction-profiles.json'
+MAX_COUNT_TEXT = 60
+MAX_COUNT_EXPONENT = 60
+MAX_COUNT_COMPONENT = 10 ** 60
 
 
 def fingerprint(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+
+
+def bounded_count(count):
+    if (isinstance(count, bool) or not isinstance(count, (str, int))
+            or len(str(count)) > MAX_COUNT_TEXT):
+        raise ValueError('count must be a bounded exact rational')
+    if isinstance(count, str):
+        # Fraction accepts scientific notation and digit separators. Bound the
+        # exponent before it can expand a short string into an enormous integer.
+        exponent = re.search(r'[eE]([+-]?\d+)\s*\Z', count.replace('_', ''))
+        if exponent and abs(int(exponent.group(1))) > MAX_COUNT_EXPONENT:
+            raise ValueError(f'count decimal exponent must be within +/-{MAX_COUNT_EXPONENT}')
+    value = Fraction(count)
+    if abs(value.numerator) > MAX_COUNT_COMPONENT or value.denominator > MAX_COUNT_COMPONENT:
+        raise ValueError('count numerator and denominator must be at most 10^60 in magnitude')
+    return value
 
 
 def model_inputs(profile):
@@ -40,9 +59,7 @@ def model_inputs(profile):
     for rank, count in local.items():
         if not re.fullmatch(r'[1-9][0-9]*', rank) or not 0 < int(rank) < profile['m']:
             raise ValueError('invalid rank')
-        if isinstance(count, bool) or not isinstance(count, (str, int)) or len(str(count)) > 60:
-            raise ValueError('count must be a bounded exact rational')
-        counts[int(rank)] = Fraction(count)
+        counts[int(rank)] = bounded_count(count)
         if counts[int(rank)] < 0 or counts[int(rank)] > 10**9:
             raise ValueError('invalid count')
     return counts

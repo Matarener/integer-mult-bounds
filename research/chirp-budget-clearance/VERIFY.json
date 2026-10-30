@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the 7910 phase rows and compare the online power with the Fourier power."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the phase-row sum and that 8/5 minus 997/1000 is 603/1000."
+    }
+  ]
+}

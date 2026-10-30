@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "All 244 exact slides, two independent update routes, residuals, explicit recovery premises, polynomial height guard and field operation counts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_cache.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate cofactor/permutation, malformed source/alias/residual, semantic diagonal/model, port word/frame, correlated energy, strict-boundary and actual CLI controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_cache.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same safeguards and controls with Python assertions disabled."
+    }
+  ]
+}

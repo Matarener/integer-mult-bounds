@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact hybrid, all arbitrary inputs, native maps and phases, full caller, complete price, fixed-grid maximum and controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "The same complete checks with Python assertions disabled."
+    }
+  ]
+}

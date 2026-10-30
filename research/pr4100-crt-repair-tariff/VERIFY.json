@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-complex-compact-adapters/PROOF.md",
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Source pins and 9 phrases (CRT.md, PR2250 PROOF.md); repair on tapes around #4100's compact/good fixture against the ideal switch; dense/sparse/counter moves against the written bounds; exact density and absorption at #4100's parameters; controls for a full-input sort, keys without T, and no repair; exact r-target density formula on one-target fixtures and on all 2^20 two-target addresses; sweep-level repair cross-checked against the per-cell repair; two-target premise control."
+    }
+  ]
+}

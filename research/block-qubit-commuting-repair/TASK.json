@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 8,
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove the sharp dimension-uniform normalized-Hilbert-Schmidt commuting-repair bound for Hermitian contraction triples with a given common decomposition into scalar and two-dimensional blocks, including unrestricted sharpness witnesses.",
+  "scope_change_reason": "Original mathematics is the donor assignment. The picker suggested verifier engineering; this explicit common-block question from merged PR5245 extends David Ganz's atlas B099. It is an algebraic side result, not a formal kernel proof or supplier audit.",
+  "bottleneck_link": "A structured quantitative operator-repair lemma for the atlas. No paid supplier or changed multiplication bound follows without physical and caller contracts.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first verified weighted bound and sharpness result; leave approximate decompositions and general global optimization open.",
+  "outcome": "completed",
+  "evidence": "PROOF.md derives the exact nonnegative weighted gap and a global common-eigenbasis lower bound. verify.py enumerates 23404 weighted profiles, 60 literal direct sums, 27 sharp witnesses, 657 bases and eight rejection controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can mixing blocks strictly lower the global optimum for an anisotropic decomposable triple?",
+      "why_it_matters": "The upper construction is block preserving; exact global optimality is known here only for the sharp witness family.",
+      "first_step": "Supply two anisotropic blocks and an exact mixed common eigenbasis whose diagonal capture beats the block optimum.",
+      "blocked_by": "No general unrestricted optimization formula is provided."
+    },
+    {
+      "question": "Can an approximate common small-block decomposition yield an explicit repair bound?",
+      "why_it_matters": "The present theorem requires exact reducing subspaces.",
+      "first_step": "Specify normalized-Hilbert-Schmidt errors and a contraction-preserving truncation before applying the weighted bound.",
+      "blocked_by": "No quantitative common-decomposition theorem is supplied."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19213498",
+  "playbook": "Investigation",
+  "claim_type": "scoped written mathematical proof with exact finite corroboration",
+  "result": {
+    "dimension": "d=2m+s>0",
+    "active_weight": "w=2m/d",
+    "bound": "E <= E_dec <= (w/3)^(1/4) sqrt(delta)",
+    "sharp_witness_error_squared": "2wr^2",
+    "sharp_witness_delta_squared": "12wr^4",
+    "unrestricted_minimum_scope": "Exact for repeated Pauli triples with zero scalar padding; only an upper bound for arbitrary decomposable triples."
+  },
+  "preserved_checkout": {
+    "branch": null,
+    "state": "detached HEAD, clean including ignored files",
+    "head": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+    "preceding_commits": [
+      "c297a40e7732bc9452bbf745f9aad43455b1e330",
+      "553d26d796fde9871ff2661a49ac7732e945410f",
+      "f9a3bc99b186b2e08a855e260f2f904ef33821c9",
+      "7c58c57143cc322eb0d578162e6df87ac0f4cd1f"
+    ]
+  },
+  "overlap": {
+    "coverage": {
+      "open_prs": {
+        "fetched_at": "2026-10-27T09:02:27.113040+00:00",
+        "complete_pagination": true,
+        "records": 405
+      },
+      "discussions": {
+        "fetched_at": "2026-10-27T09:03:29.831832+00:00",
+        "complete_pagination": true,
+        "records": 5284
+      }
+    },
+    "main_readme_terms": [
+      "qubit",
+      "commuting repair",
+      "common invariant blocks",
+      "blocks of dimension at most two",
+      "B099"
+    ],
+    "merged_searches": [
+      "qubit commuting repair",
+      "B099",
+      "block Hermitian"
+    ],
+    "direct_predecessors": [
+      2849,
+      5245
+    ],
+    "same_account_last_24_hours_exclusion": "No qualifying same-account PR at initial inspection. Read latest posts and local locks immediately before CLAIM.",
+    "related_open_same_object": [],
+    "limitations": "Sparse local notes, arbitrary PR code diffs and unpublished work are not exhaustively searched. No matches is not proof of novelty.",
+    "final_checkpoint": {
+      "canonical_main": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+      "guidance_changes": false,
+      "related_new_claims": "Read every post after CLAIM through 2026-10-27T09:10:16Z; none targets Hermitian repair. Ten distinct local reservation locks inspected.",
+      "new_account_prs_same_quantity": [],
+      "merged_key_search": "Only the cited qubit predecessor supplies a repair result. Other search hits concern unrelated quantities."
+    }
+  },
+  "verification": {
+    "python": "3.12.15",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "selected_baseline": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+    "predecessor_executables_run": false,
+    "independent_human_or_kernel_review": "unclaimed",
+    "direct_seconds": [
+      2.495197666925378,
+      2.5392749999882653
+    ],
+    "largest_function_lines": 29,
+    "available_diagnostics": "AST parsing, source compilation, warning-strict normal and optimized execution; no external static analyzer installed"
+  }
+}

@@ -1,11 +1,13 @@
 """Git input spelling is exact, independent of filesystem alias resolution."""
 import importlib.util
 import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -44,25 +46,32 @@ class GitInputSpellingTests(unittest.TestCase):
         self.git("-c", "maintenance.auto=false", "-c", "gc.auto=0", "commit", "-qm", "fixture")
         return self.git("rev-parse", "HEAD").decode().strip()
 
-    def cli(self, base):
+    def cli(self, base, encoding="utf-8"):
         self.output.write_text("existing-output\n", encoding="utf-8")
+        # Match the child's writer to our decoder, independently of the parent
+        # console's codec. Arham Tahir's PR3007 Windows audit identified this gap.
+        env = dict(os.environ, PYTHONIOENCODING=encoding + ":strict")
         return subprocess.run(
             [sys.executable, "-B", str(self.root / "scripts/research_package.py"),
              "--changed-since", base, "--github-output", str(self.output)],
-            cwd=self.root, capture_output=True, text=True, encoding="utf-8", timeout=15, check=False)
+            cwd=self.root, env=env, capture_output=True, text=True,
+            encoding=encoding, timeout=15, check=False)
 
-    def selected(self, base):
-        result = self.cli(base)
+    def selected(self, base, encoding="utf-8"):
+        result = self.cli(base, encoding)
         self.assertEqual(result.returncode, 0, result.stderr)
         matrix = json.loads(result.stdout)
         self.assertIn("matrix=" + json.dumps(matrix), self.output.read_text(encoding="utf-8"))
         return [entry["package"] for entry in matrix["include"]]
 
-    def rejected(self, base, name):
-        result = self.cli(base)
+    def rejected(self, base, name, encoding="utf-8"):
+        result = self.cli(base, encoding)
         self.assertEqual(result.returncode, 1, result.stdout)
         self.assertIn("exact Git-tracked input", result.stderr)
-        self.assertIn(name, result.stderr)
+        # Python stderr escapes only characters the requested codec cannot
+        # represent. This is display handling; the declared Git name stays exact.
+        displayed = name.encode(encoding, errors="backslashreplace").decode(encoding)
+        self.assertIn(displayed, result.stderr)
         self.assertEqual(result.stdout, "")
         self.assertEqual(self.output.read_text(encoding="utf-8"), "existing-output\n")
 
@@ -123,9 +132,31 @@ class GitInputSpellingTests(unittest.TestCase):
         self.write(exact, b"changed unicode\n")
         self.commit()
         self.assertIn(exact.encode() + b"\0", self.git("diff", "--name-only", "-z", base, "HEAD"))
-        self.rejected(base, alias)
-        self.manifest("alpha", [exact])
-        self.assertEqual(self.selected(base), ["research/alpha"])
+        for inherited in ("ascii", "cp1252", "utf-8"):
+            with self.subTest(inherited=inherited), mock.patch.dict(
+                    os.environ, PYTHONUTF8="0", PYTHONIOENCODING=inherited + ":strict"):
+                self.manifest("alpha", [alias])
+                self.rejected(base, alias)
+                self.manifest("alpha", [exact])
+                self.assertEqual(self.selected(base), ["research/alpha"])
+                self.assertEqual(os.environ["PYTHONIOENCODING"], inherited + ":strict")
+
+    def test_unicode_diagnostics_under_explicit_output_encodings(self):
+        # Include both a CP1252-representable character and a supplementary one:
+        # decoding a CP1252 writer as UTF-8 must not be masked by ASCII escapes.
+        alias = "src/caf\u00e9-\U0001f680.json"
+        self.manifest("alpha", [alias])
+        base = self.commit()
+        self.write("src/dep.json", b"changed\n")
+        self.commit()
+        for encoding in ("ascii", "cp1252", "utf-8"):
+            with self.subTest(encoding=encoding):
+                self.manifest("alpha", [alias])
+                self.rejected(base, alias, encoding)
+                # Correcting only the declaration still selects the exact
+                # consumer for the same target-only Git change.
+                self.manifest("alpha", ["src/dep.json"])
+                self.assertEqual(self.selected(base, encoding), ["research/alpha"])
 
     @unittest.skipIf(sys.platform == "win32", "Windows forbids control characters in filenames")
     def test_nul_framing_preserves_spaces_tabs_and_newlines(self):

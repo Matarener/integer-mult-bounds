@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "overlap-receipt",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "overlap-receipt",
+    "question": "What exact content and credit of a small named PR set has already been retained?",
+    "starting_points": [
+      "docs/research/pr-ledger.md",
+      "CONTRIBUTORS.md"
+    ],
+    "methods": [
+      "Compare exact heads and retained artifacts to write a source-bound disposition receipt.",
+      "Audit an existing receipt for missing content or predecessor attribution."
+    ],
+    "acceptance_gate": "Separate complete integration, partial retention and changed heads; make no autonomous closures.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read one small PR set in the ledger and identify exact reviewed heads and unresolved content.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Compare that set to retained artifacts; produce a complete or explicitly partial disposition receipt.",
+    "bottleneck_link": "Reliable overlap evidence preserves credit and prevents repeated review of already-retained material.",
+    "allowed_variations": [
+      "One small related PR family or one existing integration receipt."
+    ],
+    "scope_change_triggers": [
+      "Treating matching titles or one shared blob as proof of full incorporation."
+    ],
+    "overlap_terms": [
+      "overlap receipt",
+      "partial integration",
+      "attribution"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For the eight pull requests named first in certificates/selected-result.json source_prs, separate byte retention of each ledger integration path from the ledger disposition and from the selected-record role. Do not change any disposition.",
+  "scope_change_reason": "The overlap-receipt card asks for one small named PR set. This set is the selected frontier's own source_prs prefix at base 32890bc5de034ab8fc93ac88ead7279a6a416d04: 5413, 5414, 5402, 5407, 5398, 5400, 4610 and 5241. The question is retention versus disposition, not a new supplier.",
+  "bottleneck_link": "The selected conditional kappa cites these eight pulls. A later reader who trusts only the partially_reviewed rows would drop predecessors the selected record still names, and a reader who treats source_prs as a replay would over-claim 5398 and 5400.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the eight-row retention table. Do not edit the ledger, do not replay the frontier, and do not promote a partially_reviewed row.",
+  "outcome": "partial",
+  "evidence": "verify.py checks ancestry, byte-identical research trees, the 1245-file frontier manifest, ledger dispositions, and the promotion and contributor sentences. It rejects a forged incorporated label on 5398 and a forged manifest mismatch.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Prepared by unpaidmoon with substantial Cursor Grok assistance.",
+  "open_questions": [
+    {
+      "question": "Should a maintainer leave 5398 and 5400 partially_reviewed after the 5413 promotion, or record a narrower successor disposition that still does not claim their author evidence was replayed?",
+      "why_it_matters": "Their ledger rows still say archival publication does not admit an improved kappa, while the selected record lists them as sources of kappa 0.003027288235.",
+      "first_step": "Quote the 5398 unresolved_question beside the promotion sentence that the final 5e-12 over 5398/5400 is compiler/outer headroom, and decide which sentence remains the disposition.",
+      "blocked_by": "This package is forbidden from editing the ledger or closing a review."
+    },
+    {
+      "question": "Which bytes of the previous 4610 certificate does the current selected-result.json replace, beyond the kappa fraction?",
+      "why_it_matters": "The 4610 and 5241 research trees match their heads, but certificates/selected-result.json does not. The difference is a successor record, not a silent edit of those packages.",
+      "first_step": "Diff selected-result.json at 20bb93cd990d2ff683e4d0fc56b87a42cd5d3296 against the pinned current file and list changed keys.",
+      "blocked_by": "The receipt only proves the files differ. It does not interpret every changed field."
+    }
+  ]
+}

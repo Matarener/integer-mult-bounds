@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/copied-centers-complex.tex",
+    "research/p104-native-channel/PROOF.md",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source authentication, root isometry, literal 280-input reader, physical conjugation, all fiber phases, normalization and complete conditional gate."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate noncommutative physical endpoint/correction proof, 240-root/rational ranks, literal translation witness, phase and owner-set cost recount."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Eight behavioral groups including actual optimized read-only Git-free export, altered/missing input, typed receipt and false bill CLI rejection."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/check_research_commit.py",
+    "scripts/research_package.py",
+    "scripts/export_research_package.py",
+    "scripts/new_research_package.py",
+    "tests/test_research_publication_metadata_reuse.py",
+    "tests/test_research_source_history.py",
+    "tests/test_research_commit_bytes.py",
+    "tests/test_research_commit_modes.py",
+    "tests/test_research_git_replacements.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Run new immutable-metadata handoff controls and retained history, byte, mode and replacement tests; emit a hash-bound coverage receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat all same controls under optimized Python; explicit validation must remain active."
+    }
+  ]
+}

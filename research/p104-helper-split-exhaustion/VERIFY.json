@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper-subspace-splits/SPLITS.json",
+    "research/p104-helper-subspace-splits/inputs/PR5565-WORD.json.gz",
+    "research/p104-helper468-rung-removal/RESULT.json",
+    "research/p104-helper468-rung-removal/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticate pinned inputs and the PR5907 local paid/helper profiles; exact rational census of PR5599-type split cuts over all 69 helper groups, all intermediate charts and all cuts of the PR5907 word under the group contract (0 witnesses) and under the boundary relaxation (0 witnesses, every two-sided class is an orthogonality failure); positive control on the PR5565 source word rediscovers the first PR5599 split at cut 13775/chart 120 and passes both the own and the authors' witness through an independent exact check; corrupted-witness, wrong-cut and three synthetic decision controls; RESULT.json compared in full."
+    }
+  ]
+}

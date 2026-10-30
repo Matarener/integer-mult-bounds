@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-coupled-helper-bases/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pinned causal interface, exhaustive Smith certificates, all determinantal divisors, constructive unit blocks, causal and false-certificate controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pinned causal interface, exhaustive Smith certificates, all determinantal divisors, constructive unit blocks, causal and false-certificate controls."
+    }
+  ]
+}

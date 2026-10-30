@@ -1,0 +1,249 @@
+{
+ "schema": "tk-profile/1",
+ "name": "5644",
+ "alias": "5644",
+ "pr": 5644,
+ "head": "c5871955d89bf73506fd68b0a5bf1cf2b3153c02",
+ "ref": "refs/pr/5644",
+ "package": "research/p104-neutral-helper-cleanup",
+ "public": 743,
+ "owned_fields": 9,
+ "lifetimes": 11,
+ "peak": 2,
+ "family": {
+  "public": 743,
+  "owned_fields": 9,
+  "retired_public": [],
+  "schema": "p104-helper-subspace-prepared/1",
+  "has_owned_fields_key": true
+ },
+ "interface": {
+  "retired_public": [],
+  "owned_roles": null,
+  "fields": null,
+  "independent_public": null,
+  "schema": "p104-helper-subspace-prepared/1",
+  "peak_rule": "le2",
+  "owned_count": 9,
+  "lifetimes_pin": null,
+  "owned_bound": [
+   8,
+   9
+  ],
+  "public_bound": [
+   735,
+   750
+  ]
+ },
+ "compiler": {
+  "decay": "39/40",
+  "decay_f": 0.975,
+  "power": 1024,
+  "reserve": "1/10^12",
+  "reserve_f": 1e-12,
+  "theta": "63/64",
+  "tail": {
+   "u": "1/5",
+   "v": 1024,
+   "c": 17,
+   "b": 18
+  },
+  "event_cap": 26000,
+  "scalar_cap": 10000000,
+  "routes": "(sum(local['paid'].values())+native['helper_normalizers']+native['main_adapters']+4*104+4*local['owned_lifetimes'])*1000",
+  "outer": [
+   54,
+   4
+  ]
+ },
+ "census": {
+  "paid": {
+   "1": 41106,
+   "16": 416,
+   "2": 8208,
+   "24": 416,
+   "3": 8892,
+   "32": 416,
+   "4": 1638,
+   "40": 416,
+   "48": 416,
+   "5": 2880,
+   "56": 416,
+   "6": 378,
+   "64": 416,
+   "7": 270,
+   "72": 208
+  },
+  "targets": {
+   "1": 36,
+   "145": 208,
+   "17": 416,
+   "2": 72,
+   "25": 416,
+   "33": 416,
+   "4": 1638,
+   "41": 416,
+   "49": 416,
+   "5": 108,
+   "57": 416,
+   "65": 416,
+   "7": 90,
+   "73": 208,
+   "8": 288,
+   "9": 7398
+  },
+  "helpers": {
+   "1": 2,
+   "2": 4,
+   "4": 91,
+   "5": 6,
+   "7": 5,
+   "8": 16,
+   "9": 411
+  },
+  "paid_calls": 66492,
+  "productive_fields": 12958,
+  "rank_mass_surplus": 760,
+  "owned_lifetimes": 11,
+  "peak_owned_fields": 2,
+  "public_inputs": 743,
+  "main_adapters": 208,
+  "helper_normalizers": 1070,
+  "distinct_maps": 2916,
+  "events": 25448,
+  "local_routes": 5172000,
+  "real_scalar_allowance": 220208
+ },
+ "expect": {
+  "kappa_decimal": ".00310626335",
+  "interval": [
+   "0.00310626336369",
+   "0.00310626336370"
+  ],
+  "raw_root_interval": [
+   "310626336369/100000000000000",
+   "31062633637/10000000000000"
+  ],
+  "word_sha256": "3f2563d3c98f9d1170a583ba78bf171d5eb24e21976ddb026216bc637fc8a2ad",
+  "result_file": "RESULT.json"
+ },
+ "stack": {
+  "base": {
+   "file": "base_local.py"
+  },
+  "replay": {
+   "file": "base_local.py"
+  },
+  "native": {
+   "edits": [],
+   "mode": "light"
+  },
+  "pricing": {
+   "file": "pricing.py",
+   "patch": [
+    [
+     "KAPPA_TESTED",
+     "KAPPA, TESTED = Q\\('[^']*'\\), Q\\('[^']*'\\)",
+     "KAPPA, TESTED = Q('{KAPPA}'), Q('{TESTED}')"
+    ],
+    [
+     "COUNTS",
+     "sum\\(targets.values\\(\\)\\) == \\d+ and sum\\(paid.values\\(\\)\\) == \\d+",
+     "sum(targets.values()) == {sumT} and sum(paid.values()) == {sumP}"
+    ],
+    [
+     "SURPLUS",
+     "== 760,",
+     "== {surplus},"
+    ],
+    [
+     "PREV_PREVIOUS",
+     "PREVIOUS = Q\\('[^']*'\\)",
+     "PREVIOUS = Q('{PREV_0}')"
+    ]
+   ]
+  },
+  "files": {
+   "base_local.py": {
+    "sha256": "716d01a342467f87b14d67853d8de30740f9f2fa881afe271db0df5ef8b19697",
+    "git_blob": "e72cb02dba9b68d3bd5934371b5d25a44589c482",
+    "origin": "archive p104-neutral-helper-cleanup/inputs/pr5627-source.tar :: research/p104-helper-subspace-splits/local.py"
+   },
+   "pricing.py": {
+    "sha256": "1ceef843721af011c3af32b95e20486c3f53ef937489d559bec721c250499801",
+    "git_blob": "dc7f71a7814213d847c13460f8194e9e2f319de1",
+    "origin": "package pricing.py"
+   }
+  },
+  "root": "closure",
+  "caller_root": "closure"
+ },
+ "fast": {},
+ "provenance": {
+  "date": "2026-10-26",
+  "upstream": "https://github.com/CrocSwap/integer-mult-bounds.git",
+  "note": "derived by tk adopt; no hand-typed constants",
+  "blobs": {
+   "RESULT.json": "2908bf95db749ecb34b14e59e8d6bf3e2f200eea",
+   "WORD.json.gz": "0bd3cff77581895917206a410b685ce4959e3e3e",
+   "pricing.py": "dc7f71a7814213d847c13460f8194e9e2f319de1",
+   "verify.py": "b8763f22ea159a3c504952830387b4e8a622394d"
+  }
+ },
+ "validation": {
+  "date": "2026-10-26",
+  "ok": true,
+  "steps": {
+   "price": {
+    "ok": true,
+    "got": [
+     "0.00310626336369",
+     "0.00310626336370"
+    ],
+    "expect": [
+     "0.00310626336369",
+     "0.00310626336370"
+    ],
+    "legal": true,
+    "side_ok": true,
+    "seconds": 0.5
+   },
+   "check_native": {
+    "ok": true,
+    "legal": true,
+    "pairs": 2916,
+    "bad": 0,
+    "seconds": 11.2
+   },
+   "accept_unpatched": {
+    "ok": true,
+    "got": [
+     "0.00310626336369",
+     "0.00310626336370"
+    ],
+    "outer": [
+     54,
+     4
+    ],
+    "paid_calls": 66492,
+    "fields": 12958,
+    "seconds": 13.2
+   },
+   "accept_patched": {
+    "ok": true,
+    "got": [
+     "0.00310626336369",
+     "0.00310626336370"
+    ],
+    "outer": [
+     54,
+     4
+    ],
+    "paid_calls": 66492,
+    "fields": 12958,
+    "seconds": 13.2
+   }
+  }
+ },
+ "auto": false
+}

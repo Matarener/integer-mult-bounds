@@ -1,0 +1,64 @@
+Actual producer inverse recoding: shared rounded quotients and counted Word RAM
+
+This component binds directly to the selected source's scalar owner code, rather than a hypothetical residual. It supplies a local sufficient realization and precision theorem for the code A^-1=I-MM^T/52 in canonical research/coded-native-caller/PHYSICAL.md. It does not replace the missing complete p19 native event compiler or establish a new multiplier kappa.
+
+1. Authenticated actual matrix and universal operator norms.
+CODE.json is retained byte-for-byte from canonical main 32890bc5de034ab8fc93ac88ead7279a6a416d04, SHA-256 8be7f3f073b7981ec91c6af43edff0ac8a89f4824ef6026ae758c287dd6c03d0. The eight 112-entry signed columns M are extracted from that snapshot's NORMALIZERS.json (SHA-256 ae8aad06aa5d1811d725895b3ab5a4f4daa9dcdd88294aa0d5f723e78bb1e0da). The verifier checks every one of the 12,544 entries of A=I-MM^T/4 against the actual CODE.json. Each M column has 56 nonzeros, each row has four, and M^T M=56 I_8, checked exactly.
+
+Putting X=MM^T gives X^2=56X. Consequently
+ (I-X/4)(I-X/52)=I,
+so A^-1=I-X/52=(A+12I)/13, without a numerical inverse or new hypothesis. The exact absolute row sums of A are all 26; its diagonal is zero. Thus the exact absolute row sums of A^-1 are (26+12)/13=38/13. The checker validates all rows independently. These are exact induced infinity norms, stronger output bounds than the source's conservative 57/56/69-over-13 prefix bounds. Prefix bounds still matter for intermediate overflow.
+
+The physical owner recodings are C_f=diag(K_i,f^-1) A diag(K_i,f), and similarly for their inverses, where each K_i,f is a real signed permutation. Such operators are exact infinity-norm isometries. Hence for EVERY positive physical field width f,
+                     ||C_f||_infinity=26,
+                     ||C_f^-1||_infinity=38/13.
+No square root of the physical payload dimension is present. This uses the actual source's signed-permutation wrappers, not a claim that tensor powers preserve sums of owner matrices.
+
+2. Hoisted quotient program and precision theorem.
+For every coordinate of arbitrary independent owner fields, form t=M^T x exactly. Replace each of the eight t_j in its owned buffer by RN_h(t_j/52), then compute y=x-M t. Here RN_h rounds to the h lattice with ties to even. Entry/exit clearing owns the eight mode buffers. Only eight divisions/roundings are performed, compared with repeating the same quotient in each of 448 nonzero output updates. The 448 mode signed additions and 448 output signed additions remain explicit.
+
+For nearest ties to even, RN_h(-z)=-RN_h(z), including ties. Therefore this hoisting produces exactly the same rounded output as 448 independently rounded signed quotients. It is not valid to make this same-output claim for every tie convention: floor(z/h+1/2) is not odd at z=h/2; the executable rejection control demonstrates this distinction.
+
+Each mode quotient rounding has absolute error at most h/2. Each output row uses four signed modes. Therefore
+                  ||y-A^-1 x||_infinity <= 2h.
+For approximate input x_tilde with ||x_tilde-x||_infinity<=E,
+       ||computed(x_tilde)-A^-1 x||_infinity <= (38/13)E+2h.
+The corresponding forward program has <=26E+2h if it also rounds the eight divided modes. For forward division by four, two additional fractional bits make this division exact on dyadic inputs, eliminating that local rounding term.
+
+Signed-permutation wrapper composition preserves these error bounds. This closes a concrete local scalar precision interface, uniformly in physical field width, given the actual source's exact wrappers. It does not by itself allocate the error of a whole caller containing Gaussians, every intermediate cut and every decoder.
+
+3. Literal finite-word implementation with no division instruction.
+The actual interpreter admits only one, add, sub, bltz and accept, with 64-bit modular words, signed comparisons and charged halting. No high-level division, multiplication, nearest function or arbitrary-precision arithmetic is an interpreted instruction. Fractions appear only in the independent mathematical oracle.
+
+Fix an integer numerator bound |n_i|<=2^k, with 1<=k<=56, for x_i=h n_i. Each mode numerator t_j is an exact signed integer with |t_j|<=56*2^k<2^62. Its absolute value is obtained by a signed branch. Unsigned division by 52 is implemented by descending greedy tests/subtractions of 52*2^j for j=k,...,0, accumulating quotient bits. Since |t_j|<52*2^(k+1), this yields the exact quotient and a remainder in [0,51]. At each step, the invariant is 0<=remainder<52*2^(j+1); after conditional subtraction it is <52*2^j. The last quotient bit records its parity. Compare the final remainder with 26: increment when it exceeds 26 or equals 26 with an odd quotient. Finally restore the sign. This is exactly nearest ties to even and uses only the admitted instructions.
+
+Every threshold and tentative signed difference has magnitude below 2^62, so the signed comparisons are correct under modular 64-bit semantics. Mode accumulation is bounded by 56*2^k. Output-update prefixes are bounded by (69/13)*2^k+2, below 2^63 throughout the admitted range. Thus there is no hidden signed overflow. Constants are constructed at runtime using one/add instructions, never inserted for free.
+
+The shared program computes all eight modes before changing any owner output, so it preserves the source's read-before-write requirement. The source-ABI variant updates the 112 owners in place. A fresh-output variant additionally preserves all 112 inputs at a charge of exactly 112 copying instructions. Both variants have the same explicit owned scratch region as their duplicate-quotient control. No meaningful read depends on dirty owned entry data; final self-subtractions also zero any unused scratch, and every owned scratch/constant word is cleared at exit; arbitrary exterior memory remains unchanged. The final accept is charged.
+
+4. Fully charged same-output savings.
+A division block has exactly 4k+24 static instructions and between 2k+12 and 4k+24 executed instructions. The lower bound counts the unavoidable absolute/sign setup, two instructions per quotient bit, final remainder comparison and sign output; optional updates and tie handling can only add instructions. The upper bound is the static block length because every branch is forward.
+
+The duplicate program divides each of the eight identical mode numerators once per nonzero contact, 56 times per mode. The shared program divides it once. All other setup, signed additions, output copies, owned clearing and halt instructions are identical. Thus the exact dynamic saving is
+                         55 sum_(j=1)^8 D_j,
+where D_j is the literal execution length for dividing that mode numerator. In particular the savings lie between
+                  440(2k+12) and 440(4k+24).
+The exact static saving is 440(4k+24). This is a same-source, same-rounded-output, same-scratch-ABI comparison against the stated repeated-quotient control; it is not a comparison with every existing optimized compiler.
+
+At k=4 (|integer numerators|<=16), the input-preserving program has 1,441 static instructions versus 19,041 for its duplicate control; the source in-place variant has 1,329 versus 18,929. Both own 29 scratch/constant words. The 136 primary tests include every one of the 112 independent owner basis columns, all-zero, all-positive/negative, alternating sign and 20 deterministic random inputs. Shared execution ranges from 1,285 to 1,318 instructions and saves 9,020 to 10,835 on these controls. Eight additional boundary cases exercise k=1,8,31,56 and both signs against exact rational quotient oracles. Four in-place controls match the input-preserving output exactly. An isolated literal division program is also checked exhaustively on all 1,793 signed numerators from -896 through 896, including every nearest-even tie in that range. These finite checks support, and do not replace, the universal proofs above.
+
+For V physical coordinates the coordinatewise scalar work repeats V times. The exact wrapper movements K_i,f and the outer memory traversal must still be implemented and charged; they are not free instructions here. If dyadic numerators exceed the stated word bound, charged multiword arithmetic is required. The local all-width norm theorem does not assert that an arbitrarily large physical address space fits a fixed 64-bit machine.
+
+5. Consequence for the p19 proof obligation.
+The p19 macro source records 77 recodings and 68,992 scalar additions. This concrete quotient-hoisting implementation changes the realization of scalar scaling and supplies its sufficient uniform local error bound. It leaves those scalar-add counts, recursive ranks, native producer/helper profile and target histogram unchanged. It does not serialize the 259 p19 macros into the retained native event language, settle every wrapper frame or global erasure schedule, or supply the complete ordinary compiler/precision tariff. Consequently there is no justified substitution into the outer kappa equation yet. This closes one local constructive interface rather than relabeling all remaining native hypotheses as inherited.
+
+Independent model review. The joint p19/#5421 supplier arithmetic verifier was independently rerun successfully. Its exact model endpoint is 4821763/1400000000, and it correctly preserves FINDING_PRECOMPILATION_CONTRACT_MISSING. The present local result does not discharge that finding. In particular it supplies neither full native Gaussian event chronology nor a global output recovery/ordinary supplier theorem.
+
+Reproduce:
+  python -B native_recoding.py
+
+Credit. The actual code and eight-mode decomposition come from Dugongue's PR4929 producer and the retained coded-native-caller work, with Cinna Davis's PR4694/4698/cache-helper, Cao Yifan's PR4610 native word, and zxv/Jacob Alan Sussman/compiler lineage retained. Their source already supplies the scalar factorization, constructive modes and conservative prefix bounds; no novelty is claimed for those facts. The prior Word RAM kernel supplies the explicit ISA/interpreter discipline based on tcslib and Anthropic/formal-math attribution retained there. mpfx supplies strict nearest-lattice recovery and FastPoly the fixed-syntax sharing precedent. The exact row-norm calculation, quotient-hoisting realization, tie-aware same-output comparison and literal greedy-division program are this scoped extension, prepared with substantial OpenAI Codex assistance. Original work is Apache-2.0; original source notices remain applicable.
+
+
+Selected-profile boundary. PR 5438's actual selected #5413 body/#5402 provider grid check reports no odd denominators, whereas this local implementation specifically consumes the older coded-native-caller inverse denominator 52 used by the p19 source. The quotient-hoisting result therefore must not be presented as removal of an existing selected #5413 division-by-52 charge. Its current applicable producer is the authenticated coded owner recoding. A selected paid-profile change needs its own literal packet/census rewrite or an independently proved replacement of its actual ordinary-cost majorant; changing these finite instruction counts does not automatically change the recursive rank moment.
+

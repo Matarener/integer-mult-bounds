@@ -1,0 +1,68 @@
+## test_isolated_test_bytecode.log
+test_checked_hash_cache_already_invalidates (test_isolated_test_bytecode.IsolatedBytecodeTests.test_checked_hash_cache_already_invalidates) ... ok
+test_concurrent_namespaces_are_private_and_removed_on_success (test_isolated_test_bytecode.IsolatedBytecodeTests.test_concurrent_namespaces_are_private_and_removed_on_success) ... ok
+test_concurrent_namespaces_are_removed_after_suite_failure (test_isolated_test_bytecode.IsolatedBytecodeTests.test_concurrent_namespaces_are_removed_after_suite_failure) ... ok
+test_descendant_current_source_passes_without_writing_cache (test_isolated_test_bytecode.IsolatedBytecodeTests.test_descendant_current_source_passes_without_writing_cache) ... ok
+test_descendant_ignores_inherited_stale_prefix (test_isolated_test_bytecode.IsolatedBytecodeTests.test_descendant_ignores_inherited_stale_prefix) ... ok
+test_descendants_and_grandchildren_reject_stale_numeric_cache (test_isolated_test_bytecode.IsolatedBytecodeTests.test_descendants_and_grandchildren_reject_stale_numeric_cache) ... ok
+test_explicit_isolated_descendant_retains_its_own_policy (test_isolated_test_bytecode.IsolatedBytecodeTests.test_explicit_isolated_descendant_retains_its_own_policy) ... ok
+test_historical_wrapper_and_unittest_child_read_current_source (test_isolated_test_bytecode.IsolatedBytecodeTests.test_historical_wrapper_and_unittest_child_read_current_source) ... ok
+test_inherited_external_cache_cannot_hide_current_failure (test_isolated_test_bytecode.IsolatedBytecodeTests.test_inherited_external_cache_cannot_hide_current_failure) ... ok
+test_timestamp_cache_cannot_hide_current_failure (test_isolated_test_bytecode.IsolatedBytecodeTests.test_timestamp_cache_cannot_hide_current_failure) ... ok
+test_unchecked_hash_cache_cannot_hide_current_failure (test_isolated_test_bytecode.IsolatedBytecodeTests.test_unchecked_hash_cache_cannot_hide_current_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 5.646s
+
+OK
+
+## test_research_bytecode_isolation.log
+test_checked_hash_mismatch_is_already_rejected_by_python (test_research_bytecode_isolation.BytecodeIsolationTests.test_checked_hash_mismatch_is_already_rejected_by_python) ... ok
+test_command_module_and_attached_command_entry_points (test_research_bytecode_isolation.BytecodeIsolationTests.test_command_module_and_attached_command_entry_points) ... ok
+test_environment_prefix_is_overridden_without_changing_parent (test_research_bytecode_isolation.BytecodeIsolationTests.test_environment_prefix_is_overridden_without_changing_parent) ... ok
+test_existing_prefix_options_are_overridden_before_entry_point (test_research_bytecode_isolation.BytecodeIsolationTests.test_existing_prefix_options_are_overridden_before_entry_point) ... ok
+test_non_python_commands_and_missing_option_values_are_refused (test_research_bytecode_isolation.BytecodeIsolationTests.test_non_python_commands_and_missing_option_values_are_refused) ... ok
+test_private_namespace_cleanup_on_failure_and_timeout (test_research_bytecode_isolation.BytecodeIsolationTests.test_private_namespace_cleanup_on_failure_and_timeout) ... ok
+test_source_drift_still_fails_with_a_private_cache (test_research_bytecode_isolation.BytecodeIsolationTests.test_source_drift_still_fails_with_a_private_cache) ... Traceback (most recent call last):
+  File "/var/folders/sd/yrr853rn73qdgdgdmps82gfh0000gn/T/research-cache-test-qins1hua/fixture.py", line 4, in <module>
+    if hashlib.sha256(source.read_bytes()).hexdigest() != '6b220954716cb46a989b81ba8d6538a4ff10d048402939f3a854a03189979197': raise ValueError('source drift')
+                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: source drift
+ok
+test_timestamp_and_unchecked_hash_caches_cannot_replace_source (test_research_bytecode_isolation.BytecodeIsolationTests.test_timestamp_and_unchecked_hash_caches_cannot_replace_source) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 5.389s
+
+OK
+
+## test_isolated_test_runner.log
+test_abrupt_zero_exit_during_execution_is_not_completion (test_isolated_test_runner.IsolatedRunnerTest.test_abrupt_zero_exit_during_execution_is_not_completion) ... ok
+test_child_keeps_unittest_discovery_argv (test_isolated_test_runner.IsolatedRunnerTest.test_child_keeps_unittest_discovery_argv) ... ok
+test_completed_empty_and_skipped_suites_remain_valid (test_isolated_test_runner.IsolatedRunnerTest.test_completed_empty_and_skipped_suites_remain_valid) ... ok
+test_default_invocation_keeps_receipt_and_summary (test_isolated_test_runner.IsolatedRunnerTest.test_default_invocation_keeps_receipt_and_summary) ... ok
+test_every_module_runs_and_every_failure_is_reported (test_isolated_test_runner.IsolatedRunnerTest.test_every_module_runs_and_every_failure_is_reported) ... ok
+test_frozen_family_routing_preserves_failure_reporting (test_isolated_test_runner.IsolatedRunnerTest.test_frozen_family_routing_preserves_failure_reporting) ... ok
+test_inherited_optimization_cannot_hide_verifier_assertions (test_isolated_test_runner.IsolatedRunnerTest.test_inherited_optimization_cannot_hide_verifier_assertions) ... ok
+test_modules_are_scheduled_concurrently (test_isolated_test_runner.IsolatedRunnerTest.test_modules_are_scheduled_concurrently) ... ok
+test_same_named_synthetic_clone_test_still_fails (test_isolated_test_runner.IsolatedRunnerTest.test_same_named_synthetic_clone_test_still_fails) ... ok
+test_successful_exit_during_load_tests_is_not_completion (test_isolated_test_runner.IsolatedRunnerTest.test_successful_exit_during_load_tests_is_not_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.871s
+
+OK
+
+## test_isolated_test_deadlines.log
+test_cli_reports_timeout_and_nonzero_exit (test_isolated_test_deadlines.DeadlineTests.test_cli_reports_timeout_and_nonzero_exit) ... ok
+test_completed_receipt_with_open_child_pipe_still_times_out (test_isolated_test_deadlines.DeadlineTests.test_completed_receipt_with_open_child_pipe_still_times_out) ... ok
+test_hung_module_fails_and_other_module_finishes_with_output (test_isolated_test_deadlines.DeadlineTests.test_hung_module_fails_and_other_module_finishes_with_output) ... ok
+test_invalid_budgets_rejected_before_launch (test_isolated_test_deadlines.DeadlineTests.test_invalid_budgets_rejected_before_launch) ... ok
+test_ordinary_child_is_stopped_on_timeout (test_isolated_test_deadlines.DeadlineTests.test_ordinary_child_is_stopped_on_timeout) ... skipped 'Linux process state observation'
+test_queue_wait_does_not_consume_next_modules_budget (test_isolated_test_deadlines.DeadlineTests.test_queue_wait_does_not_consume_next_modules_budget) ... ok
+test_success_failure_and_early_exit_keep_their_meaning (test_isolated_test_deadlines.DeadlineTests.test_success_failure_and_early_exit_keep_their_meaning) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.877s
+
+OK (skipped=1)

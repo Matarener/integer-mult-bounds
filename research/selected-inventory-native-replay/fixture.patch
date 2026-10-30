@@ -1,0 +1,11 @@
+--- a/research/selected-inventory-fail-closed/test_inventory.py
++++ b/research/selected-inventory-fail-closed/test_inventory.py
+@@ -162,7 +162,7 @@
+ 
+     def test_complete_inventory_and_entry_budget(self):
+         with tempfile.TemporaryDirectory() as td:
+-            root = Path(td)
++            root = Path(td).resolve()
+             (root / 'nested').mkdir()
+             (root / 'nested/proof.txt').write_bytes(b'proof\n')
+             (root / 'data.bin').write_bytes(b'\xff')

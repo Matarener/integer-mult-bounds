@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-s3-two-target-census-seed36501/CERTIFICATE.json",
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Read-only MITM through length 5 over 56 paid factors in M3(F2[S3]); compares committed CERTIFICATE.json; source pins; need() admission; temp corruption reject."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same verify under -O -Werror; need() still enforces admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent frozenset atom engine; separate digests; no primary packed-int import."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Direct-word, omission, involution, dirty-toggle, duplicate-JSON, corruption and verify-subprocess controls."
+    }
+  ]
+}

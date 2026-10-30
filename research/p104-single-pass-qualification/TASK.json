@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Explicit donor request to profile shared helper tests/full qualification, gate finite feasibility before construction, retain every check and require at least15% wall and CPU saving. Shared fixture setup screened out; only repeated same-input qualification passes removed.",
+  "actual_scope": "PR5831/frozen-7c5eb98/complete-single-pass-qualification",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Source, observation, complete receipt, stderr or resource failure stops. No automatic retries. 180 seconds/command,1GiB sampled group RSS,1500 seconds shared cumulative; first pair then all six in B,C,C,B,B,C order must save15% wall and CPU.",
+  "time_budget_minutes": 90,
+  "outcome": "completed",
+  "evidence": "PROOF.md, COVERAGE.md, PROFILE.md, BENCHMARK.json, VALIDATION.json and evidence/ preserve 15 bounded passing commands, full raw scientific receipts and the metadata preflight rejection. Normal/O/sealed coverage agrees; exact-head hosted CI remains separate.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex assistance for source review, execution, tooling and report; no subagents, independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Does another host reproduce the complete-qualification gain?",
+      "why_it_matters": "Three samples per arm on one unreserved host are not universal performance.",
+      "first_step": "Authenticate exact export; run full normal and optimized qualification, then the six fresh bounded measurements.",
+      "blocked_by": "Separately authorized host time."
+    },
+    {
+      "question": "Should the source qualifier expose explicit observation outputs?",
+      "why_it_matters": "A source-owned return interface could remove the scoped factory wrapper while retaining every oracle.",
+      "first_step": "Review this coverage map and source-bound observation lifetime; preserve failures before changing the source.",
+      "blocked_by": "Source-author coordination and a new source pin; no automatic transfer."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

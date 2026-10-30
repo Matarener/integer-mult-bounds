@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/kport-group-scalar-endpoint-audit/fixtures/PR2297-CANDIDATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated PR2297 cover; two flat enumerations (107); two pairing-rank methods; exact dual certificate over all 11449 flat pairs, value 553996479/1000000 > 553 so C >= 554; direct decoder 554; 2000 random non-closed supports; exact rational decoder instance; six negative controls rejected."
+    }
+  ]
+}

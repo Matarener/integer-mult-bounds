@@ -1,0 +1,113 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/replay_group.py",
+        "forward"
+      ],
+      "checks": "All2744 cube geometry then exact normalized forward program, serialized.",
+      "timeout_seconds": 150
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/replay_group.py",
+        "forward"
+      ],
+      "checks": "All2744 cube geometry then exact normalized forward program, serialized.",
+      "timeout_seconds": 150
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_review.py"
+      ],
+      "checks": "Independent emitted512x512K,1024columns, charts/counts and phase/Lagrangian corroboration.",
+      "timeout_seconds": 150
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_review.py"
+      ],
+      "checks": "Independent emitted512x512K,1024columns, charts/counts and phase/Lagrangian corroboration.",
+      "timeout_seconds": 150
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/backward.py"
+      ],
+      "checks": "Literal inverse-transpose, boundary factors, actual coefficient/chart/source/phase mutants and invoice.",
+      "timeout_seconds": 150
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/backward.py"
+      ],
+      "checks": "Literal inverse-transpose, boundary factors, actual coefficient/chart/source/phase mutants and invoice.",
+      "timeout_seconds": 150
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/replay_group.py",
+        "terminal"
+      ],
+      "checks": "Terminal proper-K proof corroboration, all38912 published edges,1344 new paths, then independent672 old-gauge paths and exact phase/once-only coefficient controls, serialized.",
+      "timeout_seconds": 150
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/replay_group.py",
+        "terminal"
+      ],
+      "checks": "Terminal proper-K proof corroboration, all38912 published edges,1344 new paths, then independent672 old-gauge paths and exact phase/once-only coefficient controls, serialized.",
+      "timeout_seconds": 150
+    }
+  ],
+  "inputs": [],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

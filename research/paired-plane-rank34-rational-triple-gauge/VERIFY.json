@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-rank34-copy-invoice/predecessor/PR3335-CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Authenticate sources; classify every rational 3x3 matrix/inverse support pair with explicit witnesses; price every map on every channel triple; compare exact receipts."
+    },
+    {
+      "argv": ["{python}", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeat the rational support classification and complete invoice census under optimized Python."
+    },
+    {
+      "argv": ["{python}", "-B", "-m", "unittest", "discover", "-s", "{package}", "-p", "test_verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Run focused exact-witness, signed-ternary inclusion, rational-matrix, mutation and scalar-identity controls."
+    }
+  ]
+}

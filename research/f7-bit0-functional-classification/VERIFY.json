@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Nine exhaustive (n,L) domains, all 2^n-1 nonzero linear functionals per domain, the 01021323 fixture reconstruction, the machine-checked alternation lemma, the separately written brute-force cross-check at three domains, and byte equality of the fresh receipt with the committed RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Eighteen behavioural groups: restoration, universality, closing-state deduplication, the published fixture numbers, budget arithmetic, the alternation lemma and its failure case for a non-parity functional, functional-count closure, the bit-0 counterexample count, cross-enumerator agreement, canonical-form filter, domain-bound rejection and receipt self-consistency."
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "For the frozen symbolic checker and record exporter, exactly which gate operand lists (d, srcs) make the checker's accumulate-then-write operator and the exporter's sequential per-source ADD agree, which export-time guards separate divergent from agreeing lists, and what the selected tuned word's 5,472-gate blast radius is under each sound guard.",
+  "scope_change_reason": "The card's scatter-side first experiment is settled on main: research/scatter-parity-contract-audit (with PR2992/#3273/#3346 successors) derived the exact scatter agreement contract (all positive multiplicities odd) and measured the simple-support guard as sound but strictly stronger, and PR3696 answered PR3004's gate-operand question by showing destination-free gates always agree and naming divergent destination-in witnesses. The remaining stated open question in this cascade is PR3696's own open question 1: whether a simple-support (or other) guard on gate operands rejects all divergent dest-in-sources cases without rejecting agreeing dest-free lists. This package takes exactly that question and derives the gate-operand analog of the scatter contract decision.",
+  "bottleneck_link": "The checker/exporter operand contract is a selected source-bound acceptance condition: symbolic acceptance must imply agreement of the exported record operator for every accepted word. Settling the gate-operand schema keeps the accepted-word and exported-record semantics aligned without touching any supplier cost or the selected result.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the source-line and hash bindings, the exhaustive domain classification with the independent algebraic cross-check, the guard comparison, the selected-word gate census and the scatter-row control. Do not run the native backend, do not adopt any production schema, do not rebuild the selected chain and do not search for more counterexample classes.",
+  "outcome": "completed",
+  "evidence": "On all 9330 (d, srcs) pairs with 6 registers and source lists of length 0..4, and on the 55986-pair length<=5 extension, the direct basis simulation and an independent coefficient-level prediction agree on 100% of pairs. The measured contract: destination-free gates always agree (4686, matching the published PR3696 census); destination-in gates agree iff the destination multiplicity is odd and every register occurring before the destination's last occurrence occurs an even number of times there (3492 divergent, 1152 agreeing on the main domain). Guard census: the checker's own contract (nonempty, all of [d]+srcs distinct) is sound and rejects 4608 agreeing gates, the smallest being the empty source list and the smallest nonempty destination-free one being [a,a]; distinct-only is sound with 4602 over-rejections; dest-free-only is sound with 1152 over-rejections (exactly the agreeing destination-in residue); the transplanted scatter simple-support guard is UNSOUND, admitting 1350 divergent gates (destination in sources but not first, e.g. [a,d]); the exact minimal guard is sound with zero over-rejections. The pinned selected tuned word (SHA-256 e3e301e6...) has 5472 D/A/B/C gates, every one with distinct nonempty operands, and 111 simple scatter rows over nine retained totals with 527 terms, so every sound guard preserves each selected gate's export. Both operators' decisive source lines are hash-bound: checker operand contract and accumulate-then-write lines; exporter per-source ADD emission.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Which of the three sound guards should a successor gate schema adopt: the checker's own contract, dest-free-only, or the exact minimal divergence guard?",
+      "why_it_matters": "The checker's contract is the minimal change (boundaries align exactly; no checker-accepted word is affected), dest-free-only additionally accepts agreeing duplicate-source gates the checker still rejects, and the exact guard additionally accepts agreeing destination-in gates. Adopting a guard weaker than the checker's requires loosening the checker contract in the same change, or the two boundaries diverge again.",
+      "first_step": "Compose the chosen gate guard with the existing opt-in scatter boundaries (simple-scatter-v1 / integer-xor-scatter-v1) in a successor checker/exporter pair, and record which of the 9330 domain points each boundary accepts.",
+      "blocked_by": "The schema decision and adoption review of the PR2977/#2992/#3004 cascade, not any missing arithmetic."
+    },
+    {
+      "question": "Does the native formal-column checker independently reject a divergent self-operand gate export?",
+      "why_it_matters": "It decides whether the export-time guard is the only barrier for divergent destination-in gates or whether a later native check also rejects them, mirroring the scatter case where the native checker rejected the exported mutant.",
+      "first_step": "Feed the [d,d]-mutant export into the native column checker with a C++17 toolchain, as the scatter-export-parity-audit native.py path does.",
+      "blocked_by": "A C++17 toolchain and the synthetic word being outside the selected producer; this audit does not run the native backend."
+    },
+    {
+      "question": "Is the exact agreement condition invariant when a gate's sources are read in a different emission order (e.g. sorted or reversed srcs)?",
+      "why_it_matters": "The divergence class depends on list order through the last self-occurrence; a successor schema that reorders sources for record efficiency would move the boundary, and the condition above would need re-derivation for that lowering.",
+      "first_step": "Re-run the census comparing Sym against a reversed-order Exp lowering and record the new agreement condition.",
+      "blocked_by": "No current exporter reorders sources; this is a successor-schema design question only."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  [
+    "def build_program(modules, inverse=False):",
+    "def build_program(modules, inverse=False, *, inplace=False):"
+  ],
+  [
+    "    if type(inverse) is not bool:\n",
+    "    if type(inverse) is not bool or type(inplace) is not bool:\n"
+  ],
+  [
+    "    work = b.SCRATCH_TAPES + EXTRA_WORK\n",
+    "    work = b.SCRATCH_TAPES + EXTRA_WORK\n    output = b.SOURCE if inplace else b.OUTPUT\n"
+  ],
+  [
+    "    for tape in (b.OUTPUT,) + work:\n",
+    "    for tape in (() if inplace else (b.OUTPUT,)) + work:\n"
+  ],
+  [
+    "    emit = ((b.RIGHT_LENGTH, b.SPLIT_B, b.OUTPUT, True),\n            (b.LEFT_LENGTH, b.SPLIT_A, b.OUTPUT, True))",
+    "    emit = ((b.RIGHT_LENGTH, b.SPLIT_B, output, True),\n            (b.LEFT_LENGTH, b.SPLIT_A, output, True))"
+  ],
+  [
+    "    phase(emit, 'emit')\n",
+    "    if inplace:\n        c.emit_rewind(a, b.SOURCE, 'original_owner_before_emit')\n    phase(emit, 'emit')\n"
+  ],
+  [
+    "    a.write(b.OUTPUT, m.RIGHT)\n    c.emit_rewind(a, b.SOURCE, 'source_return')\n    c.emit_rewind(a, b.OUTPUT, 'output_return')",
+    "    a.write(output, m.RIGHT)\n    if not inplace:\n        c.emit_rewind(a, b.SOURCE, 'source_return')\n    c.emit_rewind(a, output, 'output_return')"
+  ],
+  [
+    "def half_program(modules, inverse=False):",
+    "def half_program(modules, inverse=False, *, inplace=False):"
+  ],
+  [
+    "    before, body = half_descriptor(modules), build_program(modules, inverse)",
+    "    before, body = half_descriptor(modules), build_program(modules, inverse, inplace=inplace)"
+  ]
+]

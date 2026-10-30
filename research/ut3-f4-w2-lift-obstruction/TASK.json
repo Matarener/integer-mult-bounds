@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 3,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove that adjoining the axis involutions X_{w^2} and Y_{w^2} does not reduce the paid-call length of diag([Z_1],[Z_w],[Z_{w^2}]) below 12 in F2[UT3(F4)].",
+  "scope_change_reason": "The catalogue card asks for a selected-interface formal lemma. The operative gap is the six-label question left by the four-label UT3(F4) triple: w^2=(1,1) mixes the two F2 summands, so that split no longer applies. This package proves the diagonal-lift obstruction on the enlarged alphabet. It is a side result and kappa is unchanged. Donor priority revision 6 binds the same selected decimal; the pinned catalogue object is historical revision 3.",
+  "bottleneck_link": "Side result. The complex supplier remains binding. The enlarged formal alphabet does not undercut the twelve-call bill, and kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the diagonal-lift inequality, both twelve-call words, and the r=3 pure-column census are checked. Do not search non-idempotent factors or physical embeddings.",
+  "outcome": "completed",
+  "evidence": "PASS_UT3_F4_W2_LIFT six_label_minimum=12 labels=6 mixed_word=12 both_new_labels=12 blind_span=2 lift_rank=3 shadow_subsets=82160.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for the diagonal-lift argument, independent replay, and write-up.",
+  "open_questions": [
+    {
+      "question": "Can rank-one calls that are not idempotent reduce this six-label triple below 12?",
+      "why_it_matters": "The lift inequality uses v·u=1 only to stay inside the paid idempotent model. A nilpotent rank-one factor is a different alphabet.",
+      "first_step": "Keep the six axis labels and replace N^2=N by rank(N)=1 with N^2=0, then test whether the corner image can meet dimension 3 with fewer than six calls on one side.",
+      "blocked_by": "The expansion scalar v_X·u_Y vanishes on every purely nilpotent pair, so a new normal form is required before any shorter word is legal."
+    },
+    {
+      "question": "Does one of these twelve formal calls embed in a pinned bit supplier below one rank-one complete price?",
+      "why_it_matters": "Only a legal physical realization can move a supplier bill. The six-label count is still formal.",
+      "first_step": "Charge frame changes, hosting, restoration, and dispatch for either twelve-call word at the w=3,k=1 boundary.",
+      "blocked_by": "No legal physical realization is supplied. The lift inequality does not provide one."
+    }
+  ]
+}

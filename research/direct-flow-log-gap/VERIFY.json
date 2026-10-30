@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "#4436 direct p7 flow, 5% grid 1000..5e5: t*-potential balance (1e-9), first-order kappa ~ exp(-(z0-t*)g) within 3e-5, per-level minima of the log-gap g increase with G (levels 2..5), saving 0.0008 passes and 0.001 fails at N>=3e5. Leaf-only growth: boundary/source log-depths stable within 0.1, leaf log-depth increasing; tilted P-step mean > ln 5."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "notes/paired-cube-assembly.tex",
+    "notes/structured-bulk-assembly.tex",
+    "notes/three-stage-cover-assembly.tex",
+    "notes/three-stage-cover-rows.tex",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/community-frontier1094-audit/INDEPENDENT1094.json",
+    "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-sw4-frame8/code/assemble.py",
+    "research/complex-sw4-frame8/code/invoice_allcold.py",
+    "research/contextual-provider-pooling/docs/PRIOR-TN27-README.md",
+    "research/contextual-provider-pooling/engines/outer.py",
+    "research/direct-delivery504-global/code/assemble.py",
+    "research/five-stage-gen4-banks/inputs/complex/retained/FINITE_BRIDGE.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "41 source bindings (selected complex-sw4-frame8 assembler hashed against SELECTED-SOURCE.json; lineage FINITE_BRIDGE section 4 and direct-delivery504-global bridge row); selected invoice member hash and recomputed S/row/router/literal/C0/logical/primitive bounds; guard thresholds by power search plus an implementation cross-check; exact t_max per reading/prefix; (R,S) region; ceilings R=51..72 by own decimal intervals cross-checked with unmodified child_cost and ceiling.ceiling at R=51; conditional sharp-depth-coefficient and #3667 lean-row what-ifs under A; RESULT.json byte match; 11 negative controls with expected failure reasons"
+    }
+  ]
+}

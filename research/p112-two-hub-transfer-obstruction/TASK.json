@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "No characteristic-two marked support transfer exists for the two-hub K3,2 attachment at marks E,F and ports E+G,F+G, even with arbitrary graph-dependent images in arbitrary dimension. A 42-port exact rational rank-(5,6) factorization has no termwise scalar-support-shrinking characteristic-two completion.",
+  "scope_change_reason": "Take the released PR3573 exceptional-graph handoff in Discussion1166. The card physical acceptance gate is not met. This closes one sufficient support-transfer route beyond its coherent-map obstruction; it does not construct unpaid coordinates or prove a universal tariff floor.",
+  "bottleneck_link": "The pair-reader tariff proof uses characteristic-two support transfer. This explicit cyclic attachment defeats that sufficient method even when all query images may depend on the graph, so another proof method is needed before excluding this family as a route to unpaid coordinates.",
+  "budget_minutes": 60,
+  "stop_rule": "One six-edge graph obstruction, a literal exact witness and two bounded checks, then one focused contribution PR. No graph census, dependent construction round or physical synthesis.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md; CONFIG.json; WITNESS.json; RESULT.json; verify.py; independent.py; test_controls.py.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the minimum literal complete-plane tariff for an exact pair factorization using this K3,2 query configuration?",
+      "why_it_matters": "The support-transfer obstruction removes a sufficient floor proof but supplies no tariff improvement or floor counterexample.",
+      "first_step": "Start with the committed 42-port rank-(5,6) witness and ask whether its losing bill54 can be reduced below baseline42 under an explicitly fixed query and group contract.",
+      "blocked_by": "No cheaper bill, optimality certificate or physical implementation is supplied."
+    },
+    {
+      "question": "Which other exceptional terminal graphs admit graph-dependent support transfers?",
+      "why_it_matters": "The single star transfers while K3,2 does not. This is not a classification by cycles or minors.",
+      "first_step": "Give one exact transfer for a graph outside this six-edge obstruction, or a separate finite predicate contradiction. Preserve the difference between arbitrary maps and coherent fresh-boundary maps.",
+      "blocked_by": "No general graph classification, subdivision result or edge-minimality proof is claimed."
+    }
+  ],
+  "hypothesis_history": [
+    {
+      "utc": "2026-10-18T06:42:51Z",
+      "status": "original hypothesis, preserved",
+      "text": "The exceptional placement admits graph-dependent characteristic-two maps beyond a single star, or a small cyclic attachment gives a provable obstruction."
+    },
+    {
+      "utc": "2026-10-18T06:50:01.463866+00:00",
+      "status": "author-written obstruction proof, exact finite premises checked",
+      "text": "Two complete hubs already force a contradiction. No hub-to-hub edge is needed. The result excludes arbitrary graph-dependent support transfers and one literal support-shrinking completion; it proves neither a cheaper tariff nor a universal floor."
+    }
+  ]
+}

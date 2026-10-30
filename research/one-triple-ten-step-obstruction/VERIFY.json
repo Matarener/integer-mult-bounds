@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete lexicographic and independent position-placement censuses, sharp witnesses, rotation, positive coverage and invalid-word controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat all finite proof obligations with optimization enabled; checks use explicit exceptions."
+    }
+  ]
+}

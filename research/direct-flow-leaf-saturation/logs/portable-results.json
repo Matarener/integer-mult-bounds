@@ -1,0 +1,40 @@
+{
+  "export_commit": "9465f263a673d2d86e7262523cbeb0e796f486cf",
+  "export_files": 26,
+  "git_available": false,
+  "path": "empty directory",
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/direct-flow-leaf-saturation/verify.py",
+        "--expect",
+        "research/direct-flow-leaf-saturation/RESULT.json"
+      ],
+      "exit_code": 0,
+      "seconds": 14.383,
+      "log": "logs/portable-0.log"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/direct-flow-leaf-saturation/independent_source.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094,
+      "log": "logs/portable-1.log"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "exit_code": 0,
+      "seconds": 28.189,
+      "log": "logs/portable-2.log"
+    }
+  ]
+}

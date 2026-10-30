@@ -1,0 +1,159 @@
+{
+  "schema": "portable5713-explicit-synthetic-control-fixtures/v2",
+  "label": "SYNTHETIC_CONTROL_ONLY",
+  "status": "IMPLEMENTED_UNRUN",
+  "original_file_mutation": false,
+  "verifier_sha256": "bce6cdf82cb1492d209c241670df894548a485b89622a39851f26352f61e999b",
+  "event_mutants": [
+    {
+      "id": "HIDDEN715_READ",
+      "index": 823,
+      "original_expected": [
+        "ADD",
+        207,
+        720,
+        "-2",
+        3
+      ],
+      "replacement": [
+        "ADD",
+        207,
+        715,
+        "1",
+        3
+      ],
+      "expected_kind": "fixed_premise",
+      "expected_predicate": "715_NO_OUTWARD_OBSERVER_OR_FORBIDDEN_CHANGE",
+      "prerequisite": "CUT823_715_FRAME3"
+    },
+    {
+      "id": "CHANGED747_VALUE_WRITE",
+      "index": 13574,
+      "original_expected": [
+        "ADD",
+        713,
+        747,
+        "1",
+        598
+      ],
+      "replacement": [
+        "ADD",
+        747,
+        713,
+        "1",
+        598
+      ],
+      "expected_kind": "fixed_premise",
+      "expected_predicate": "747_NO_INTERVENING_WRITE_OR_LIFECYCLE",
+      "prerequisite": "747_LIVE_598"
+    },
+    {
+      "id": "CHANGED747_LIFETIME",
+      "index": 13574,
+      "original_expected": [
+        "ADD",
+        713,
+        747,
+        "1",
+        598
+      ],
+      "replacement": [
+        "CLEAR",
+        747,
+        598
+      ],
+      "expected_kind": "fixed_premise",
+      "expected_predicate": "747_NO_INTERVENING_WRITE_OR_LIFECYCLE",
+      "prerequisite": "747_LIVE_598"
+    },
+    {
+      "id": "PROSPECTIVE_ONLY_715_CONTACT",
+      "index": 13579,
+      "original_expected": [
+        "CLEAR",
+        747,
+        598
+      ],
+      "replacement": [
+        "ADD",
+        715,
+        747,
+        "1",
+        598
+      ],
+      "expected_kind": "fixed_premise",
+      "expected_predicate": "PROSPECTIVE715_RETAINED_SCALAR_CONTACT",
+      "expected_frame": 598,
+      "expected_actual": 3,
+      "prerequisite": "715_AND747_LIVE_598_AFTER13578"
+    },
+    {
+      "id": "UNKNOWN_SEMANTICS",
+      "index": 823,
+      "original_expected": [
+        "ADD",
+        207,
+        720,
+        "-2",
+        3
+      ],
+      "replacement": [
+        "QUERY",
+        715
+      ],
+      "expected_kind": "unresolved",
+      "expected_reason": "Unknown opcode/arity",
+      "prerequisite": "CUT823_715_FRAME3"
+    },
+    {
+      "id": "NONBLOCKING11202_WRITE",
+      "index": 11202,
+      "original_expected": [
+        "ADD",
+        340,
+        337,
+        "1",
+        396
+      ],
+      "replacement": [
+        "ADD",
+        340,
+        337,
+        "2",
+        396
+      ],
+      "expected_kind": "pass",
+      "prerequisite": "340_FRAME396_AT11202"
+    },
+    {
+      "id": "MINIMAL340_INTERVAL_WRITE",
+      "index": 14655,
+      "original_expected": [
+        "MOVE",
+        712,
+        598,
+        397,
+        false
+      ],
+      "replacement": [
+        "ADD",
+        340,
+        525,
+        "1",
+        396
+      ],
+      "expected_kind": "fixed_premise",
+      "expected_predicate": "340_MINIMAL_READ_TO_CUT_STABILITY",
+      "prerequisite": "340_AND525_FRAME396_AFTER14654"
+    }
+  ],
+  "other_controls": [
+    "ORIGINAL_BASELINE_ENVELOPE_AND_FULL_PROJECTION",
+    "SOURCE_BYTE_MISMATCH_PREDECODE",
+    "BAD_ENVELOPE_HASH",
+    "UNSCOPED_PASS_STATUS",
+    "MISSING_SCIENTIFIC_PROJECTION_FIELD"
+  ],
+  "meaning": "Every derivative is synthetic. A rejected sufficient premise is not an identity counterexample or author defect. No fixture is source evidence.",
+  "execution": "Future separately registered controls only; no automatic invocation, retries, source writes or unregistered grant."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/batched-bit-rows.tex",
+    "upstream/build/sections/03-motifs.tex"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Rebuild the complex deficit from N and L_c/N = 101/539 and compare 2^{50} eta with the harmonic bound on ln(10^6)."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the complex deficit clears the logarithm bound and a one-unit deficit does not."
+    }
+  ]
+}

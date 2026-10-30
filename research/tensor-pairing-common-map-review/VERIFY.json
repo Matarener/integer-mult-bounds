@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Kronecker Gram, F2 square identity, all 65536 principal ranks, E8 112-line witness, nine labels, size-12 row obstruction and noninjective control"
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/independent.py"],
+      "timeout_seconds": 60,
+      "checks": "Separate square identity, witness Gram and frozen nine-label pairing"
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Three rejecting controls: broken complement, nonzero cross Gram entry, altered label"
+    }
+  ]
+}

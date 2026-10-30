@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove that a paid-frame span of dimension at most m+1 forces at least mW calls for W invertible lower-triangular targets in the abelian scalar-idempotent register model, in every address dimension m; the triangular hypothesis is needed only when the normalized extra frame uv^T has |supp u ∩ supp v| = 2.",
+  "scope_change_reason": "The card asks for a changed register model. This changes the address dimension, a hypothesis fixed at m=3 in PR #468's span-four lemma, whose all-nonzero and size-two-component steps do not extend directly. It is a lower-bound lemma, not a construction or a native conversion.",
+  "bottleneck_link": "Any m-dimensional bit-model escape must use frame span at least m+2; span m+1 cannot save a call over the direct mW word.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first complete general-m proof of the span-(m+1) case. Do not extend to span m+2 or extra registers.",
+  "outcome": "completed",
+  "evidence": "Written proof in PROOF.md; verify.py checks the support classification for all nonempty support pairs with m<=7, the 2x2 minor identity as a polynomial identity, an exact rank-one grid at m=3,4,5 with zero off-line rank-one elements, and two controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the |K|=2 case of span m+1 still force mW calls for arbitrary invertible, non-triangular targets?",
+      "why_it_matters": "It would remove the last use of the lower-triangular hypothesis at span m+1.",
+      "first_step": "Treat m=2 with S = diag + t uv^T and u, v of full support, where off-line rank-one frames exist.",
+      "blocked_by": "The block flag bound uses a common flag of the targets; Lemma C fails at |K|=2."
+    },
+    {
+      "question": "Does span m+2 force mW calls for m>=4?",
+      "why_it_matters": "At m=3 span five is still open outside known classes; a general-m reduction would locate the first dimension where a saving could exist.",
+      "first_step": "Normalize S = diag + span{B, B'} and classify the joint support graph of the two extra frames.",
+      "blocked_by": "Two extra frames can create rank-one combinations off every line even with large supports."
+    },
+    {
+      "question": "Do clean or dirty extra registers change the span-(m+1) bound in dimension m?",
+      "why_it_matters": "Existing helper-register results are at m=3.",
+      "first_step": "Check that Lemma A's line projection stays valid when helper diagonal targets are the identity.",
+      "blocked_by": "Not attempted here."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19226223",
+  "question_source": {
+    "pr": null,
+    "author": "original",
+    "question": "Original extension of PR #468's span-four lemma to every address dimension"
+  },
+  "environment": {
+    "python": "3.12.15 (main, Oct 14 2026, 00:55:37) [Clang 23.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "dependencies": "Python standard library only",
+    "receipt": "Generated on stdout from a fresh complete computation; no stored receipt accepted."
+  }
+}

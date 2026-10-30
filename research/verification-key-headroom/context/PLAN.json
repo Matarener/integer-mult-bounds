@@ -1,0 +1,51 @@
+{
+  "status": "ACTIVE_AUTHORIZED_ALL_FOUR",
+  "created_utc": "2026-10-27T12:01:43.486342+00:00",
+  "base_main": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "performance_baseline": "PR5864 3f15c943e4ad6479f03e674c80fff1269a16ccfe",
+  "target": "At least 15% further complete wall AND CPU reduction over frozen PR5864, with a full assessment of all four opportunities. Positive smaller independent increments may be retained; goal remains unfulfilled until target/all-assessments/publication are complete.",
+  "opportunities": {
+    "1": "bulk exact rational batching",
+    "2": "native arbitrary-width integer sparse/reverse loops",
+    "3": "exact matrix and finite-field kernels, separate workload",
+    "4": "canonical dyadic witness formatting"
+  },
+  "coverage": "All original and PR5864 checks retained and charged; independent Python Fraction oracle unchanged, exact output types/witnesses/hash bytes and all inputs preserved.",
+  "measurement_rule": {
+    "order": [
+      "B1",
+      "C1",
+      "C2",
+      "B2",
+      "B3",
+      "C3"
+    ],
+    "baseline": "fresh cold complete PR5864",
+    "candidate": "same workload plus every new finite/native/binding check and cold compiler/link/load",
+    "preliminary_pair_gate": "both wall/CPU positive, greater than declared 0.50 sec absolute conservative noise allowance, with optimistic route to 15% cumulative. No dropped samples or automatic retries.",
+    "final_gate": "both median wall and CPU improvement >=15%, absolute saving >0.50 sec and > observed complete repeat spread, exact scientific receipts all equal",
+    "platform": "frozen Linux CPython 3.12",
+    "profiling": "diagnostic only; never convert nested totals to complete speed claims"
+  },
+  "caps": {
+    "serial_numerical_runner": true,
+    "command_seconds": 180,
+    "sampled_process_group_rss_bytes": 1073741824,
+    "initial_feasibility_seconds": 600,
+    "shared_round_seconds": 1500,
+    "automatic_retries": 0
+  },
+  "roles": {
+    "parent": "sole numerical runner, integration, matrix assessment, Chrome publication",
+    "astra_rational_design": "static creative design/source rational/ only",
+    "astra_integer_format": "static source integer-format/ only"
+  },
+  "publication": "fresh upstream main/overlap checks, isolated scoped worktree, source pins/credit, upstream PR template, normal/O/readonly export/committed-byte checks, exact-head CI and seven-field handoff readback; Chrome for GitHub writes; nonforce SSH fork push",
+  "paused": [
+    "kappa research",
+    "Work1/Work2 mathematics",
+    "unrelated feeds",
+    "automations"
+  ],
+  "preservation": "No modification of synced sources/, old checkpoints, old evidence or original thread"
+}

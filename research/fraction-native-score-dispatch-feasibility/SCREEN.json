@@ -1,0 +1,138 @@
+{
+  "decision": "STOP_NATIVE_DIRECT_ADD_BEFORE_ACTUAL_OR_COMPLETE_CONSTRUCTION",
+  "micro": {
+    "additions_per_arm": 98304,
+    "build": {
+      "SOABI": "cpython-312-x86_64-linux-gnu",
+      "binary_sha256": "2539108f782328dcf75f477e6fa085235fa42a327743c97c1c16a4397c67ec95",
+      "cold_build_load_wall_seconds": 0.1481919409998227,
+      "compiler": "/usr/bin/cc",
+      "compiler_cpu_accounting": "outer GNU time user+system includes compiler children",
+      "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "extension_suffix": ".cpython-312-x86_64-linux-gnu.so",
+      "flags": [
+        "-O2",
+        "-shared",
+        "-fPIC",
+        "-std=c11",
+        "-Wall",
+        "-Werror",
+        "-I/usr/include/python3.12"
+      ],
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "source_sha256": "ac5d282405e74f1f8cc4cddb768485709057d249dae370a16c063ab45327c2ea"
+    },
+    "control_count": 10,
+    "controls": [
+      "all-33-prefix-values-types-and-branches",
+      "nonexact-custom-score-generic-iadd",
+      "Fraction-subtype-generic-iadd",
+      "nonexact-increment-generic",
+      "direct-error-no-retry-partial-update-order",
+      "callback-score-list-mutation-safe",
+      "nonfunction-kernel-packet-rejected",
+      "kernel-binding-drift",
+      "present-none-iadd-drift",
+      "runtime-restored-before-timing"
+    ],
+    "fixed_order": "BCCB",
+    "groups_per_arm": 32768,
+    "illustrative_gross_only": {
+      "cpu_seconds": 0.18722751338958643,
+      "wall_seconds": 0.18722097821499695
+    },
+    "no_actual_or_complete_construction": true,
+    "not_a_full_trace_projection_or_improvement": true,
+    "observations": [
+      {
+        "counts": [
+          0,
+          98304
+        ],
+        "cpu_seconds": 0.08278898000000001,
+        "label": "B",
+        "terminal_scores": [
+          "2/3",
+          "-5/7",
+          "11/13"
+        ],
+        "wall_seconds": 0.08336172500276007
+      },
+      {
+        "counts": [
+          98304,
+          0
+        ],
+        "cpu_seconds": 0.06712270600000003,
+        "label": "C",
+        "terminal_scores": [
+          "2/3",
+          "-5/7",
+          "11/13"
+        ],
+        "wall_seconds": 0.06712531601078808
+      },
+      {
+        "counts": [
+          98304,
+          0
+        ],
+        "cpu_seconds": 0.06753953200000001,
+        "label": "C",
+        "terminal_scores": [
+          "2/3",
+          "-5/7",
+          "11/13"
+        ],
+        "wall_seconds": 0.06753551599103957
+      },
+      {
+        "counts": [
+          0,
+          98304
+        ],
+        "cpu_seconds": 0.069917697,
+        "label": "B",
+        "terminal_scores": [
+          "2/3",
+          "-5/7",
+          "11/13"
+        ],
+        "wall_seconds": 0.06991359798121266
+      }
+    ],
+    "paired_differences": {
+      "cpu_seconds": [
+        0.01566627399999998,
+        0.0023781649999999876
+      ],
+      "wall_seconds": [
+        0.016236408991971985,
+        0.0023780819901730865
+      ]
+    },
+    "runtime_current": true,
+    "status": "MICRO_PASS_REQUIRES_FULL_INCREMENTAL_COST_BILL"
+  },
+  "comparison_model": {
+    "gross": "Conservative smaller paired micro difference, illustratively scaled to source score count; not a bound on true actual saving.",
+    "additional_cost_assumed_seconds": 0,
+    "additional_cost_scope": "Optimistically zero to reject further expansion without building/measuring the full additional control union.",
+    "parent_complete_C_spread": {
+      "wall_seconds": 0.4605684790003579,
+      "cpu_seconds": 0.45000000000000284
+    },
+    "modeled_margin_before_any_new_cost": {
+      "wall_seconds": -0.27334750078536096,
+      "cpu_seconds": -0.2627724866104164
+    }
+  },
+  "why": "Even zero-cost illustrative saving fails the prespecified observed full-parent spread in wall and CPU. Both micro pairs improve but evidence does not justify further expansion. No timing reroll or sample omission.",
+  "not_a_universal_obstruction": true,
+  "not_a_complete_measurement": true,
+  "no_new_kappa": true,
+  "actual_audits": 0,
+  "complete_candidates": 0,
+  "scientific_command_count": 1,
+  "guarded_wall_seconds": 0.709715356992092
+}

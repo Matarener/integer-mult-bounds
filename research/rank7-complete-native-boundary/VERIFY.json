@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.3.5"
+  ],
+  "inputs": [
+    "research/frontier1094-recipes-exact-seed76/clifford.py",
+    "research/rank7-joint-endframes/data/WORD-base.json.gz",
+    "research/rank7-joint-endframes/data/WORD-extra.json.gz",
+    "research/rank7-joint-endframes/evidence/FULL-NATIVE-RECEIPT.json",
+    "research/rank7-peer-private-free-audit/RESULT-base.json",
+    "research/rank7-peer-private-free-audit/RESULT-extra.json",
+    "research/rank7-peer-private-free-audit/lifetimes.py",
+    "research/rank7-v45-native-cone-seed78/RESULT-base.json",
+    "research/rank7-v45-native-cone-seed78/RESULT-extra.json",
+    "research/rank7-v45-native-cone-seed78/audit.py",
+    "research/rank7-v45-native-cone-seed78/native.py",
+    "research/rank7-v45-native-cone-seed78/source.py",
+    "research/rank7-v45-native-cone-seed78/support.py",
+    "research/rank7-v45-native-endpoint/endpoints.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_adapters.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_emit.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_gauss.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_phases.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/bw_transport.py",
+    "research/two-sided-helper-extraction/vendor/fastnative/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Eight behavioral groups, including actual source helper observations, missing restoration, COPY/CLEAR, warp orientation, lifetime/zero faults and source authentication before code execution."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Complete source-bound native stream and all dirty-helper output identities, exact coverage delta and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Complete source-bound native stream and all dirty-helper output identities, exact coverage delta and semantic controls."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/INVERSE-CONDITIONING.md",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned notes and phrases; alpha = 3; exact original-form/gauge-form agreement; certified pi and exp enclosures; exact midpoint inverse with perturbation bound; quotient-identity Schur inverse; #4319 infinity-norm bracket; 1-norm and 2-norm enclosures against #4317's ceilings; full-path comparison; principal-restriction control."
+    }
+  ]
+}

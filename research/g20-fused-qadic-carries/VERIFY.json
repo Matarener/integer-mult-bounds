@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-fused-qadic-carries/inputs/source-RESULT.json",
+    "research/g20-fused-qadic-carries/inputs/PORTS.json",
+    "research/g20-fused-qadic-carries/inputs/CALLS.json",
+    "research/g20-fused-qadic-carries/inputs/GLOBAL.jsonl.gz",
+    "research/g20-fused-qadic-carries/inputs/NOTICE"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete444 route products, all-width carry binding, actual7548 marker incidence, dense modular oracle, elementary comparison, inverse, cocycle, full embedding and controls"
+    }
+  ]
+}

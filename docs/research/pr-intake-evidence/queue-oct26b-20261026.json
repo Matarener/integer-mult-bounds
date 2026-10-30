@@ -1,0 +1,1604 @@
+{
+  "schema_version": 1,
+  "baseline": "553d26d796fde9871ff2661a49ac7732e945410f",
+  "scope": "13 exact heads; source/integrity intake only, with separately reviewed shared-tooling changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 5732,
+      "head": "75aaaa5b0c6c7ebd5a0c8c61222208787fe076b4",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Certify recursive invoice comparisons at exact rational powers",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "docs/research/recursive-invoice-preflight.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0f982f9ebf6c826e3855e1b23ac025d385663e31"
+          },
+          "old_oid": "d55f6c136cc8e96e14679d4ed52c02fc7d98a267",
+          "change": "M"
+        },
+        {
+          "path": "docs/research/recursive-power-comparison.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "63615e23e6f09e592232ca13340b1057b4094c21"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "scripts/evaluate_recursive_power.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ca50f8021fc3238a58fd420383f4619a8d008ace"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "tests/test_recursive_power.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5d35eb31e9fc11c2de771967c680d8a53c11466b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "docs/research/recursive-invoice-preflight.md",
+        "docs/research/recursive-power-comparison.md",
+        "scripts/evaluate_recursive_power.py",
+        "tests/test_recursive_power.py"
+      ],
+      "conflicts": [
+        "docs/research/recursive-invoice-preflight.md"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "Concave order can be inconclusive even when a proposed power tariff has a strict sign. Add a separate bounded comparator for `r^t`, where t is an exact fraction or decimal. Integer square roots and directed integer products produce rational cost bounds; an interval containing zero stays unresolved. Equal rank terms cancel before interval work.\n\nUse `python3 -B scripts/evaluate_recursive_power.py OLD.json NEW.json --exponent 0.9969`. The linked guide gives the full rounding argument, parameter limits and omitted construction/\u03ba obligations. Existing comparator bytes are unchanged; this PR does not depend on PR5731.\n\nValidation: 8 tests pass normally and under `-O`. Independent integer-power inequalities check 216 rank/exponent cases; controls cover exact roots, signed target debits, large-denominator decimals, resource limits after cancellation, 512 ranks at maximum counts/precision, and the real `-I -O` CLI. `git diff --check` passes.\n\nCurrent main/priorities and live PR/Discussion overlap checked. The guide link is in a separate section from PR5731. This certifies declared invoice arithmetic at one exponent, not a complete \u03ba. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `75aaaa5b0c6c7ebd5a0c8c61222208787fe076b4`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "docs/research/recursive-invoice-preflight.md",
+        "docs/research/recursive-power-comparison.md",
+        "scripts/evaluate_recursive_power.py",
+        "tests/test_recursive_power.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "docs/research/recursive-invoice-preflight.md": {
+          "mode": "100644",
+          "oid": "b84d50f53d6d9ab008c7021515a9330fac89fe19",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5733,
+      "head": "470df91df2ab6e4ada410f6635e7159bf076a5e5",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Combine recursive invoices with exact multiplicities and source receipts",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "docs/research/recursive-invoice-composition.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4610bdf6849524ce90408e99863df00c2b2ae0f9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "docs/research/recursive-invoice-preflight.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "468934f00227306f4e8499cd9d760f28a11d548c"
+          },
+          "old_oid": "d55f6c136cc8e96e14679d4ed52c02fc7d98a267",
+          "change": "M"
+        },
+        {
+          "path": "scripts/combine_recursive_invoices.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a841e6c5a446d2c7d288f58f7cb2f1d02322f6c2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "tests/test_recursive_invoice_composition.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7b21682c11729ce3e0504a291dde63fdc33b89ca"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "docs/research/recursive-invoice-composition.md",
+        "docs/research/recursive-invoice-preflight.md",
+        "scripts/combine_recursive_invoices.py",
+        "tests/test_recursive_invoice_composition.py"
+      ],
+      "conflicts": [
+        "docs/research/recursive-invoice-preflight.md"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "Repeated components currently require manual paid/target histogram edits before comparison. Add `combine_recursive_invoices.py` to sum both sides with positive integer multiplicities under one matching declared contract. It writes a normal comparator-compatible invoice to stdout and an exact input/output hash receipt to stderr. No output is emitted until all terms and aggregate limits pass.\n\nUse `python3 -B scripts/combine_recursive_invoices.py --term 3 A.json --term 2 B.json > combined.json 2> receipt.json`. The guide states the independent physical-composition and target-ownership obligations. \u03ba values must not be added. Existing comparator bytes are unchanged.\n\nValidation: 15 invoice/comparator tests pass on Python 3.12; the 5 new tests also pass under `-O`. Controls replay costs under independent tariffs, preserve input data, check duplicate terms, reject overflow/contract changes and bind real isolated optimized CLI output bytes to its receipt. A late invalid term emits no partial invoice. `git diff --check` passes.\n\nFresh main, priority revision 7, live PR paths and Discussions checked. Guide additions occupy a separate section from PR5731/5732; there is no dependency on them. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `470df91df2ab6e4ada410f6635e7159bf076a5e5`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "docs/research/recursive-invoice-composition.md",
+        "docs/research/recursive-invoice-preflight.md",
+        "scripts/combine_recursive_invoices.py",
+        "tests/test_recursive_invoice_composition.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "docs/research/recursive-invoice-preflight.md": {
+          "mode": "100644",
+          "oid": "b84d50f53d6d9ab008c7021515a9330fac89fe19",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5734,
+      "head": "9a49794b08658da52f83b3a3b214366136808740",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Reject linked output paths before creating research drafts",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "scripts/new_research_package.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1bd348ad3c27a8d0addac6156171e589edf4ff08"
+          },
+          "old_oid": "eb1bdf8ff46b9ad2de1f85aa058a028735800395",
+          "change": "M"
+        },
+        {
+          "path": "tests/test_research_scaffold_aliases.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2a72d9c4ba8510300dcb2fab726fd05195ad2b2e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "scripts/new_research_package.py",
+        "tests/test_research_scaffold_aliases.py"
+      ],
+      "conflicts": [
+        "scripts/new_research_package.py"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "The draft generator validates source paths but can create its output through a symlinked research directory. Check the output path with the existing repository symlink/junction validator before any Git reads or staging writes. A checkout root alias remains allowed; a linked component below that root is rejected.\n\nValidation: 6 scaffold tests and all onboarding tests pass on Python 3.12; the 3 new alias tests pass under `-O`. Tests preserve an external sentinel file, reject a dangling package alias without staging, and retain normal validation through a linked checkout root. Existing exact-pin and no-overwrite controls pass. `git diff --check` passes. Native Windows junction handling uses the existing validator; no native Windows run was made.\n\nFresh canonical main/priorities and live PR/Discussion overlap checked. No other active PR touches this generator. This changes draft creation only, with no selected-frontier effect. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `9a49794b08658da52f83b3a3b214366136808740`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "scripts/new_research_package.py",
+        "tests/test_research_scaffold_aliases.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5735,
+      "head": "4ecfa15596c47d243f86bedd7e3d353dd909d086",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Export the selected P104 recursive invoice from authenticated source",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "docs/research/recursive-invoice-preflight.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0df27930cad7ba1c328559e2dc976fb44b19e0af"
+          },
+          "old_oid": "d55f6c136cc8e96e14679d4ed52c02fc7d98a267",
+          "change": "M"
+        },
+        {
+          "path": "scripts/export_selected_invoice.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "00224b1bc549b0bab3f87d62cf739e907f04bfe3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "tests/test_research_selected_invoice.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "50b8c3598a6f9d65ffe584789512da53cc1be26a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "docs/research/recursive-invoice-preflight.md",
+        "scripts/export_selected_invoice.py",
+        "tests/test_research_selected_invoice.py"
+      ],
+      "conflicts": [
+        "docs/research/recursive-invoice-preflight.md"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "The invoice comparator accepts declared histograms, so a missing target debit or a transcription error can distort a proposed kappa improvement. This adds an opt-in exporter for the selected P104 source. It authenticates the selected closure, reconstructs all local, query, idle and main charges, and requires agreement with the reviewed component and complete receipts before it emits the common invoice schema.\n\nThe result is **66,726 paid calls, 13,048 productive fields and rank surplus 760**. The evidence output binds the exact invoice bytes and each source input. The current selected result and frozen sources are unchanged. This addresses the exporter request in [owned-relation-exhaustion](https://github.com/CrocSwap/integer-mult-bounds/blob/df0137efd35e11b4445734bf612bdd4c7ebc330c/research/owned-relation-exhaustion/README.md).\n\n```sh\npython3 -B scripts/export_selected_invoice.py --evidence /tmp/invoice-evidence.json > /tmp/invoice.json\npython3 -B scripts/compare_recursive_invoices.py /tmp/invoice.json CANDIDATE.json\npython3 -B -m unittest discover -s tests -p 'test_research_selected_invoice.py' -v\n```\n\nVerification: seven focused tests pass on Python3.14.7 and registered Python3.12.14, also with `-I -O -B`. They use an independent two-path formula, remove each physical charge class and each paid/target rank entry, test ownership and opcode failures, corrupt each actual source file, remove an input from the authenticated inventory, and exercise the CLI-to-comparator path. All ten existing comparator tests, selected baseline binding and `git diff --check` pass. New tests jo",
+      "roots": [],
+      "installed": [
+        "docs/research/recursive-invoice-preflight.md",
+        "scripts/export_selected_invoice.py",
+        "tests/test_research_selected_invoice.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "docs/research/recursive-invoice-preflight.md": {
+          "mode": "100644",
+          "oid": "b84d50f53d6d9ab008c7021515a9330fac89fe19",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5736,
+      "head": "63f441c3a98e994dd99e1f1ca31199f3ef032df1",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Keep Unicode overlap excerpts centered on the actual match",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "scripts/find_overlap.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c1f4a538f94a91ed5a0143829ac2541e475db918"
+          },
+          "old_oid": "c8155a90b00cd22e738d04a10edfc086e90f1846",
+          "change": "M"
+        },
+        {
+          "path": "tests/test_research_unicode_excerpt.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5ab9c710d5af4d935ca45a9094cc059f89552a5b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "scripts/find_overlap.py",
+        "tests/test_research_unicode_excerpt.py"
+      ],
+      "conflicts": [
+        "scripts/find_overlap.py"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "Unicode lowercase can expand one source character into two. The overlap search used an index in the expanded text to slice the original body, so a reported hit could have an excerpt that omitted the hit entirely. Map that index back to the original text before taking the excerpt. Matching and ranking semantics stay unchanged.\n\nValidation: reproduced the omitted-match excerpt on main. All 100 overlap-consumer tests pass on Python 3.12; the 5 new regressions also pass under `-O`. Cases cover long expanding prefixes, a match within an expanded character, numeric card references, multiple terms, ASCII output and title-only matches. `git diff --check` passes.\n\nFresh main/priorities and live PR/Discussion overlap checked. Other open fixes to this tool are this sequence\u2019s separate cache, pagination and path-reading scopes; this PR changes only excerpt positioning. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `63f441c3a98e994dd99e1f1ca31199f3ef032df1`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "scripts/find_overlap.py",
+        "tests/test_research_unicode_excerpt.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "scripts/find_overlap.py": {
+          "mode": "100644",
+          "oid": "b9269aadda13bcd081ef0cabe1e3a44d19ad73c2",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5739,
+      "head": "b93d749a0a895d260e87887170af5162bda461a4",
+      "merge_base": "a5348f7143f95fe0046b92b96172e30763c7d731",
+      "title": "Conditional \u03ba .00310927386 (+1.216e-7 over #5713): move a 96-op block from a dim-8 to a new dim-4 chart",
+      "author": {
+        "id": "U_kgDOCiU1ug",
+        "is_bot": false,
+        "login": "GamingPuzzled",
+        "name": "Joel Pulikkan"
+      },
+      "files": [
+        {
+          "path": "research/p104-block-reframe-r22/EDITS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "54f7b233d7bf97df2ac8a6167348db0f04ad0ab2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-block-reframe-r22/NOTICE",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "36c1b859be8f5c1325811e633ac51149e1cd7bc0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-block-reframe-r22/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a05f31f7935be93d062868186414c969ac7325fe"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-block-reframe-r22/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "02fe0978d02f46ccfd26ed0a0563eea9eec34b61"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-block-reframe-r22/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4c7fb353c686fbf14ccd332ba398168573f0fdfa"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-block-reframe-r22/construct.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ca59c61f8a1d25f490675cfc3c7faf343c26d159"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-block-reframe-r22/pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9f233cf78ec515f7a1e8f934dd987804e5efa12b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-block-reframe-r22/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b214cdd26b939ca6d48d7bea8a8835d6e54be005"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 3,
+        "json": 2
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "Conditional \u03ba **.00310927386** (tested .003109273865; exact raw crossing in (0.00310927387521, 0.00310927387522)), **+1.216e-7** over #5713 (Ali Romman, .00310915222). Package: `research/p104-block-reframe-r22/`, stacked on #5713 head `a5348f714`.\n\n**Conditional on** exactly #5713's assumptions and its P104 line, including free helper endpoints (#5561, audited in #5567). The word changes one helper start and one helper final.\n\n### Change\nThis is a large-neighbourhood step of the R22 exact reorder+re-frame MIP. All operations outside one ~1,000-op window are pinned. Inside the window, every chart within dim gap 4 of an op's bounds is allowed. The whole-word gap-4 model does not solve in 2h. The windowed model solves in about 100s.\n- **Block move:** one 96-op block on registers 41, 42, 106, 400, 401, 403, 405, 410 and 741 leaves chart 477 (dim 8). 88 of its ops now run on a new chart span[265,194,164,75] (dim 4), and 8 run on chart 127.\n- **Helper endpoints:** helper 741 now starts on the new chart, and helper 405 now ends there.\n- **Unchanged:** no instruction, coefficient, order, owned lifetime, main endpoint or port changes.\n\nPer local call: paid H1 +1, H4 +1, H5 \u22121 (66348 \u2192 66366 paid calls). Helpers H1 \u22121, H4 +1, H5 +1, H8 \u22121. The gain comes from the helper credits. Surplus 760 and fields 12958 are unchanged.\n\n### Verification\n`python3 -W error -B research/p104-block-reframe-r22/verify.py` passes and reproduces `RESULT.json` exactly. It checks:\n- the source pin, and regeneration from `EDITS.json` (unique, disjoint event-run hunks, one appended chart, two helper endpoints",
+      "roots": [
+        "research/p104-block-reframe-r22"
+      ],
+      "installed": [
+        "research/p104-block-reframe-r22/EDITS.json",
+        "research/p104-block-reframe-r22/NOTICE",
+        "research/p104-block-reframe-r22/README.md",
+        "research/p104-block-reframe-r22/RESULT.json",
+        "research/p104-block-reframe-r22/WORD.json.gz",
+        "research/p104-block-reframe-r22/construct.py",
+        "research/p104-block-reframe-r22/pricing.py",
+        "research/p104-block-reframe-r22/verify.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5740,
+      "head": "0c084e2d1ff26ce3f0098b4867f8d5427a47e052",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Preserve exact Git-path query case and whitespace across hosts",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "scripts/find_overlap.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "71121adf76fe289b21f113cb01d8df8e353bd8a1"
+          },
+          "old_oid": "c8155a90b00cd22e738d04a10edfc086e90f1846",
+          "change": "M"
+        },
+        {
+          "path": "tests/test_research_path_queries.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bcc9d8790361bc19b04a2bdb5a8831563e97aacc"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "scripts/find_overlap.py",
+        "tests/test_research_path_queries.py"
+      ],
+      "conflicts": [
+        "scripts/find_overlap.py"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "Path overlap queries currently use host-dependent fnmatch case rules and strip query whitespace. On Windows, a glob can match a different Git path case; a space-only query silently disappears. Use case-sensitive fnmatchcase and retain literal query spaces. Reject a truly empty pattern before any search. The CLI help states these rules.\n\nValidation: all 100 overlap-consumer tests pass on Python 3.12; the 5 new tests pass under `-O`. Cases cover Windows-style normalization, leading/trailing and space-only queries, multiple glob/substring patterns and early rejection without local or remote calls. Native Windows execution was not run. `git diff --check` passes.\n\nFresh main/priorities and live PR/Discussion overlap checked. Other PRs in this sequence edit distinct parts of the overlap tool; this change is independent. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `0c084e2d1ff26ce3f0098b4867f8d5427a47e052`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "scripts/find_overlap.py",
+        "tests/test_research_path_queries.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "scripts/find_overlap.py": {
+          "mode": "100644",
+          "oid": "b9269aadda13bcd081ef0cabe1e3a44d19ad73c2",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5742,
+      "head": "79789e1fae2d1c478ec98902eda11916006655b9",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Preserve overlap evidence when cache publication fails",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "scripts/find_overlap.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "044a1edd0781c82a0a9b02399972d993588baf50"
+          },
+          "old_oid": "c8155a90b00cd22e738d04a10edfc086e90f1846",
+          "change": "M"
+        },
+        {
+          "path": "tests/test_research_cache_publication.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bb778e3b87f075be1d0f734384a0d925c7a9c288"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "scripts/find_overlap.py",
+        "tests/test_research_cache_publication.py"
+      ],
+      "conflicts": [
+        "scripts/find_overlap.py"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "A serialization or write failure can leave a partial temporary cache file. A failed cache replacement can also return newly fetched data while warning that the old source was retained. Clean up staging across the whole write operation, and publish a source into the in-memory snapshot only after its atomic file write succeeds.\n\nValidation: all 100 overlap-consumer tests pass on Python 3.12; the 5 new tests pass under `-O`. Injected partial serialization, disk-full and replace failures preserve the destination and close/remove staging files. A failed refresh retains the same old evidence in memory and on disk; an initial failure reports no usable snapshot. `git diff --check` passes.\n\nFresh main/priorities and live PR/Discussion overlap checked. This is a separate persistence scope from PR5723 cache parsing; it starts from main and does not depend on that PR. No interprocess cache-locking claim is made. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `79789e1fae2d1c478ec98902eda11916006655b9`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "scripts/find_overlap.py",
+        "tests/test_research_cache_publication.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "scripts/find_overlap.py": {
+          "mode": "100644",
+          "oid": "b9269aadda13bcd081ef0cabe1e3a44d19ad73c2",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5743,
+      "head": "0740911040bf30ab00a28c5ab38734aeb4f855bc",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Keep option-like paths literal in sparse materialization commands",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "scripts/research_baseline_sparse.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "548e7d417b11abec38c648928f0610f4a104bbd6"
+          },
+          "old_oid": "8e39e5ed74afa22dfc5527fbeb03009759ca43ea",
+          "change": "M"
+        },
+        {
+          "path": "tests/test_research_baseline_sparse.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e4806e0cff9c28c7ae6f23246fa854997ce18c59"
+          },
+          "old_oid": "cfb433e8bfd41eb9faed0064c14a2f65827b4807",
+          "change": "M"
+        },
+        {
+          "path": "tests/test_research_sparse_option_paths.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e33e0bd17aa1ededdf001611d1254378843d1279"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 3,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "scripts/research_baseline_sparse.py",
+        "tests/test_research_baseline_sparse.py",
+        "tests/test_research_sparse_option_paths.py"
+      ],
+      "conflicts": [
+        "scripts/research_baseline_sparse.py",
+        "tests/test_research_baseline_sparse.py"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "An omitted directory named `--no-cone` currently produces `git sparse-checkout add --no-cone`, which treats the directory as an option. Insert the standard `--` argument boundary before generated paths/patterns. Update the existing command-shape assertion.\n\nValidation: all 16 sparse-baseline tests pass. Two new tests pass normally and under `-O`; real Git fixtures materialize `--no-cone`, `--stdin` and `-q` directories while preserving cone mode and leaving other directories omitted. Existing non-cone and large-inventory materialization tests pass. `git diff --check` passes.\n\nFresh main, priorities, live PR paths and Discussion activity checked; no active PR touches this script. The selected inputs and scientific baseline are unchanged. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `0740911040bf30ab00a28c5ab38734aeb4f855bc`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "scripts/research_baseline_sparse.py",
+        "tests/test_research_baseline_sparse.py",
+        "tests/test_research_sparse_option_paths.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5744,
+      "head": "5e8f76a5e26da67bf8ad7468d2331523793452ad",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Check declared replay inputs in offline research exports",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "docs/research/export-input-coverage.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aafad3e770678f7469453a7c6c97b6bb4403723a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "scripts/export_research_package.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "19befa0584e2bdac18ed689ce5231a4cf81fa19a"
+          },
+          "old_oid": "8166dba88e2723a21d4db8d701808c07a28835e0",
+          "change": "M"
+        },
+        {
+          "path": "tests/test_research_export_input_coverage.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6a7e5e08a4337cb644ba53a4446f0073cc60d1f0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "docs/research/export-input-coverage.md",
+        "scripts/export_research_package.py",
+        "tests/test_research_export_input_coverage.py"
+      ],
+      "conflicts": [
+        "scripts/export_research_package.py"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "A self-consistent bundle receipt can still omit a file declared by its bundled VERIFY.json. Add optional `check --check-inputs` validation for declared input presence, duplicate/canonical paths and undeclared external files. The manifest reread must match the checked payload hash. The command performs no extraction, execution or Git call; default integrity checking remains unchanged.\n\nUse `python3 -B scripts/export_research_package.py check bundle.tar --check-inputs`. The CLI links a guide with the limits and the distinction between declared coverage and full runtime dependency discovery. This PR starts from main and does not depend on PR5728.\n\nValidation: all 32 export tests pass on Python 3.12; the 6 new tests pass under `-O`. Independently constructed coherent archives test missing inputs, extra files, invalid/duplicate declarations, resource bounds and changed manifest bytes. The real optimized CLI passes with Git absent from PATH. `git diff --check` passes.\n\nFresh main/priorities and live PR/Discussion overlap checked. PR5728 edits separate receipt-type validation. No scientific replay, commit authentication or new \u03ba is claimed. Hosted CI is pending.\n\nBase: `df0137efd35e11b4445734bf612bdd4c7ebc330c`. Verified head: `5e8f76a5e26da67bf8ad7468d2331523793452ad`.\n\nPrepared for aliromman with OpenAI Codex assistance. Existing tool and predecessor credits remain in place. No selected-frontier change.\n",
+      "roots": [],
+      "installed": [
+        "docs/research/export-input-coverage.md",
+        "scripts/export_research_package.py",
+        "tests/test_research_export_input_coverage.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "scripts/export_research_package.py": {
+          "mode": "100644",
+          "oid": "4674fb4eccfa3827c4c95f2f12b91fca3b123f8b",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5745,
+      "head": "e82b64e91e57c838ff2028bcf2219203966bf9ed",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Prove sharp 8H8 active-mode delivery cost with temporal reuse",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "research/active-mode-delivery-frontier/.gitattributes",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7467454cb83554c273efe0077b14ed8c969a5042"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/CUTS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5a0cec5fb6726b4f7890e70df0d023522ff95e29"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/INPUTS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aa45c333069279b3cee6b473a1215300c1aaac02"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "54ce2c79bbcfbe722d15c87bc2634e582284903d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8e465b440ed52622435a91586458ff23127d6a3e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bc7cfde45c33a0b8972df8cd2a131f53d2acf4bc"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cc87c53b5df397618e7503694bdb9642c8750406"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "37a2dce6e89b9d100a80defc7f800b0c67e761ac"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/TEMPORAL.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2ec391929000d98d8577c88b574c51de4b127465"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b8754ae117d6298ccae77adee4fa304a981c6da0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/WORD.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "35746dc2e8c3fadd2d944b5bc564aa454ab2e8d5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/cuts.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "081af43146d000e311f5dd5b207aff18ff114634"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/delivery.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "276ddafb83b2b5d1f912d490a248d84711984204"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/inputs.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "65085d98b58cefe22db009f27aa31bba8af60e90"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/source/PR5704-NOTICE.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b96b400e5ca04b3a9003a8b2c70a2461972d39d7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/source/PR5720-PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "97f9eded0c5909b12806b20f244159f7e0cc6de3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/source/PR5720-README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aad5e2eb82b0a5f29bacde6b5de5512dd4ea4d42"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/source/quadratic.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ce3c86ec07fd5767741e02ff0c88b93ba9164fb4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/active-mode-delivery-frontier/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "101e0103c22ba0e44dfbf684f3757c319eeedf57"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 5,
+        "json": 8
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/active-mode-delivery-frontier/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "df0137efd35e11b4445734bf612bdd4c7ebc330c:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/active-mode-delivery-frontier/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "df0137efd35e11b4445734bf612bdd4c7ebc330c:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/active-mode-delivery-frontier/SOURCES.json",
+          "path": "research/active-mode-restoration/PROOF.md",
+          "source_spec": "ec327e35a1fb065ae53b6ec61bb3159e1a474371:research/active-mode-restoration/PROOF.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/active-mode-delivery-frontier/SOURCES.json",
+          "path": "research/active-mode-restoration/README.md",
+          "source_spec": "ec327e35a1fb065ae53b6ec61bb3159e1a474371:research/active-mode-restoration/README.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/active-mode-delivery-frontier/SOURCES.json",
+          "path": "research/exact-clifford-quadratic-replay/quadratic.py",
+          "source_spec": "daa4d9dbd102d2a3677afc5614c56466bd2cf3a2:research/exact-clifford-quadratic-replay/quadratic.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/active-mode-delivery-frontier/SOURCES.json",
+          "path": "research/exact-clifford-quadratic-replay/NOTICE.md",
+          "source_spec": "daa4d9dbd102d2a3677afc5614c56466bd2cf3a2:research/exact-clifford-quadratic-replay/NOTICE.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/active-mode-delivery-frontier/SOURCES.json",
+          "path": "research/filtered-native-kappa004/inputs/original-packet.tar.gz",
+          "source_spec": "df0137efd35e11b4445734bf612bdd4c7ebc330c:research/filtered-native-kappa004/inputs/original-packet.tar.gz",
+          "result": "match"
+        }
+      ],
+      "declared_input_checks": [
+        {
+          "manifest": "research/active-mode-delivery-frontier/VERIFY.json",
+          "path": "research/filtered-native-kappa004/inputs/original-packet.tar.gz",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "The released PR5720 repair grants a payload at frame280 but does not supply its transport. This result resolves the fixed source's complete eight-mode **canonical delivery allowance**: the sharp minimum is **8H8**, even with arbitrary reuse of each payload at different times in its one frame. That equals the eight removed center jobs. The theorem covers any number of clean channels, and at most eight channels even if nuisance outputs may cancel jointly. It is a scoped paid-cost result, **not a new kappa or general feedback barrier**.\n\n[Scope](https://github.com/aliromman/integer-mult-bounds/blob/e82b64e91e57c838ff2028bcf2219203966bf9ed/research/active-mode-delivery-frontier/README.md), [proof and exact contract](https://github.com/aliromman/integer-mult-bounds/blob/e82b64e91e57c838ff2028bcf2219203966bf9ed/research/active-mode-delivery-frontier/PROOF.md), [full evidence](https://github.com/aliromman/integer-mult-bounds/blob/e82b64e91e57c838ff2028bcf2219203966bf9ed/research/active-mode-delivery-frontier/RESULT.json), [temporal witnesses](https://github.com/aliromman/integer-mult-bounds/blob/e82b64e91e57c838ff2028bcf2219203966bf9ed/research/active-mode-delivery-frontier/TEMPORAL.json), [complete emitted word](https://github.com/aliromman/integer-mult-bounds/blob/e82b64e91e57c838ff2028bcf2219203966bf9ed/research/active-mode-delivery-frontier/WORD.json), [source pins](https://github.com/aliromman/integer-mult-bounds/blob/e82b64e91e57c838ff2028bcf2219203966bf9ed/research/active-mode-delivery-frontier/SOURCES.json), [registered replay](https://github.com/aliromman/integer-mult-bou",
+      "roots": [
+        "research/active-mode-delivery-frontier"
+      ],
+      "installed": [
+        "research/active-mode-delivery-frontier/.gitattributes",
+        "research/active-mode-delivery-frontier/CUTS.json",
+        "research/active-mode-delivery-frontier/INPUTS.json",
+        "research/active-mode-delivery-frontier/PROOF.md",
+        "research/active-mode-delivery-frontier/README.md",
+        "research/active-mode-delivery-frontier/RESULT.json",
+        "research/active-mode-delivery-frontier/SOURCES.json",
+        "research/active-mode-delivery-frontier/TASK.json",
+        "research/active-mode-delivery-frontier/TEMPORAL.json",
+        "research/active-mode-delivery-frontier/VERIFY.json",
+        "research/active-mode-delivery-frontier/WORD.json",
+        "research/active-mode-delivery-frontier/cuts.py",
+        "research/active-mode-delivery-frontier/delivery.py",
+        "research/active-mode-delivery-frontier/inputs.py",
+        "research/active-mode-delivery-frontier/source/PR5704-NOTICE.md",
+        "research/active-mode-delivery-frontier/source/PR5720-PROOF.md",
+        "research/active-mode-delivery-frontier/source/PR5720-README.md",
+        "research/active-mode-delivery-frontier/source/quadratic.py",
+        "research/active-mode-delivery-frontier/verify.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5746,
+      "head": "7c58c57143cc322eb0d578162e6df87ac0f4cd1f",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Certify common-base invoice order over every power exponent",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "docs/research/power-polynomial-comparison.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "77820c52f4692601cf27f65042cdc30dfea5a0ef"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "docs/research/recursive-invoice-preflight.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "66c191936cc6ec34d70d27c6faeff1bd3463cddd"
+          },
+          "old_oid": "d55f6c136cc8e96e14679d4ed52c02fc7d98a267",
+          "change": "M"
+        },
+        {
+          "path": "scripts/compare_power_polynomial.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "54689dede444db01aa28d37fae02e212101658e9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "tests/test_research_power_polynomial.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0adf7d398055484dbff862d916afcf01d21d25db"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 0
+      },
+      "pin_checks": [],
+      "declared_input_checks": [],
+      "shared": [
+        "docs/research/power-polynomial-comparison.md",
+        "docs/research/recursive-invoice-preflight.md",
+        "scripts/compare_power_polynomial.py",
+        "tests/test_research_power_polynomial.py"
+      ],
+      "conflicts": [
+        "docs/research/recursive-invoice-preflight.md"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "A concave-order screen can be inconclusive even when a proposed invoice is worse for every power tariff. This adds an exact comparator for differences whose uncancelled ranks are powers of one integer. With x=b^t, it classifies the signed polynomial over the whole open interval1<x<b. It distinguishes strict order, isolated equality and actual crossings, including repeated and endpoint roots.\n\nThis completes the supported all-exponent question; it does not sample t. For example, the inconclusive difference1+4^t-2*2^t is strictly positive for every0<t<1. The related difference9+4*4^t-12*2^t has one interior equality, while2*2^t-3 crosses zero. Paid terms and target debits use the existing strict invoice schema, with exact input-byte hashes.\n\n```sh\npython3 -B scripts/compare_power_polynomial.py OLD.json NEW.json\npython3 -B -m unittest discover -s tests -p 'test_research_power_polynomial.py' -v\n```\n\n[Implementation](https://github.com/aliromman/integer-mult-bounds/blob/7c58c57143cc322eb0d578162e6df87ac0f4cd1f/scripts/compare_power_polynomial.py), [proof and limits](https://github.com/aliromman/integer-mult-bounds/blob/7c58c57143cc322eb0d578162e6df87ac0f4cd1f/docs/research/power-polynomial-comparison.md), [independent tests](https://github.com/aliromman/integer-mult-bounds/blob/7c58c57143cc322eb0d578162e6df87ac0f4cd1f/tests/test_research_power_polynomial.py).\n\nValidation: all343 quadratics with coefficients-3..3 agree with an independent extrema/monotone-interval oracle;288 factored polynomials check known multiplicities and endpoints. Further controls cover irrational roots, de",
+      "roots": [],
+      "installed": [
+        "docs/research/power-polynomial-comparison.md",
+        "docs/research/recursive-invoice-preflight.md",
+        "scripts/compare_power_polynomial.py",
+        "tests/test_research_power_polynomial.py"
+      ],
+      "deleted": [],
+      "resolutions": {
+        "docs/research/recursive-invoice-preflight.md": {
+          "mode": "100644",
+          "oid": "b84d50f53d6d9ab008c7021515a9330fac89fe19",
+          "reason": "Reviewed resolution preserves current content and contribution-specific changes; exact resolved blob recorded."
+        }
+      },
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed shared-tool implementation, declared arithmetic scope and affected consumers; combined tests recorded separately. No supplier or theorem admission.",
+      "historical_only": false
+    },
+    {
+      "number": 5747,
+      "head": "f9a3bc99b186b2e08a855e260f2f904ef33821c9",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Exclude the 31-leaf target with a chronological connector rank bound",
+      "author": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "files": [
+        {
+          "path": "research/coupled31-chronology/COMMUTING.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6b97f3f02e502a8af8f685295d14d6f72778906d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/COST.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d8fe10ffedf7d3104ee2df20a22243a38a975f9b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/DISCOVERY.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a21c6dae35c8fbe354271f39aab58a49b0b65d6f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4233ec223795666704b94b9f69e4bd04eec64d24"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6ee114965acd018148e3f03718140a064e8d2dee"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0c866aa06a0c772476e7c9db0fecc77cea02f69f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dabab9c90e18bed1acc23f6ad387df42ac7ff028"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "001d33d03d6087da74613448f85c0dae42fb2b7d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/VALIDATION.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "574968ee87ccd990e592fc159ae55cc621a828cb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c960064c3c585e56254282527c16b0ab15e178a6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/WORD31.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a57608244a3b57563f7c442499c24476ef86fe53"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5d1bee4ffc8faf236db0c3f9e6684d103efbf5d2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/discovery/coupled_seed.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fca9f75e3371110d38d491de05d8757f8586c51e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/discovery/one-row-three-stage.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dfd4f261879a9d4a7b15686184328417d9d7e406"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/discovery/pair-search.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bb6040788c1b9ed9a81467029a3050fab99bcf99"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/discovery/row_signature_census.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9d8752b684271bee570e270dbdf5530b2374b0e7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/discovery/triangle-search.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "56c85a4e8a7bd7a6d9e7aae0782835c50a416934"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e988294d07883e78a5cb205594c5ed81c31172ee"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/sources/escape-word.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aae71c6ad294d6bc9ca5e2216a7785b9e6611afd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/sources/old-word-replay.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "037ed3f765822341156e059c306218504ac37e1b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/sources/p104-result.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "35f75c8555193c6e845cd52cc562ca23fd5924cb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/sources/pr5673-proof.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e3800fbcf1c5f5633e14d9856ca1400985292a0d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/sources/pr5681-proof.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e3be1bb272f3a73a8c6cd248fec69dec498e401d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/test_verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a55359596ba912b8f7d4617931d5707e7704ff0c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coupled31-chronology/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2f7dc23f25cdb57df283e85c9c21981f90ba125b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 7,
+        "json": 11
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "df0137efd35e11b4445734bf612bdd4c7ebc330c:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "df0137efd35e11b4445734bf612bdd4c7ebc330c:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/crossed-connector-caller/PROOF.md",
+          "source_spec": "c10f75f09e41803ae8efe478331a7509b7379b2f:research/crossed-connector-caller/PROOF.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/coupled31-chronology/sources/pr5673-proof.md",
+          "source_spec": "c951dc916aadc7d8af5b126360558f7664b08a4f:research/coupled31-chronology/sources/pr5673-proof.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/crossed-connector-caller/ESCAPE-WORD.json",
+          "source_spec": "c10f75f09e41803ae8efe478331a7509b7379b2f:research/crossed-connector-caller/ESCAPE-WORD.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/coupled31-chronology/sources/escape-word.json",
+          "source_spec": "c951dc916aadc7d8af5b126360558f7664b08a4f:research/coupled31-chronology/sources/escape-word.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/crossed-connector-caller/word_replay.py",
+          "source_spec": "c10f75f09e41803ae8efe478331a7509b7379b2f:research/crossed-connector-caller/word_replay.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/coupled31-chronology/sources/old-word-replay.py",
+          "source_spec": "c951dc916aadc7d8af5b126360558f7664b08a4f:research/coupled31-chronology/sources/old-word-replay.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/one-sided-connector-audit/PROOF.md",
+          "source_spec": "67f07448eec5ad8d84bdf96b46981ac0b893592f:research/one-sided-connector-audit/PROOF.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/coupled31-chronology/sources/pr5681-proof.md",
+          "source_spec": "c951dc916aadc7d8af5b126360558f7664b08a4f:research/coupled31-chronology/sources/pr5681-proof.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/p104-helper-subspace-splits/RESULT.json",
+          "source_spec": "09dd0965711ca7eeb169057a420abab1c9052137:research/p104-helper-subspace-splits/RESULT.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/SOURCES.json",
+          "path": "research/coupled31-chronology/sources/p104-result.json",
+          "source_spec": "c951dc916aadc7d8af5b126360558f7664b08a4f:research/coupled31-chronology/sources/p104-result.json",
+          "result": "match"
+        }
+      ],
+      "declared_input_checks": [
+        {
+          "manifest": "research/coupled31-chronology/VERIFY.json",
+          "path": "research/coupled31-chronology/sources/pr5673-proof.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/VERIFY.json",
+          "path": "research/coupled31-chronology/sources/escape-word.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/VERIFY.json",
+          "path": "research/coupled31-chronology/sources/old-word-replay.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/VERIFY.json",
+          "path": "research/coupled31-chronology/sources/pr5681-proof.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coupled31-chronology/VERIFY.json",
+          "path": "research/coupled31-chronology/sources/p104-result.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "The proposed **31-leaf caller with five rank-two connectors is impossible under the requested two-port full star contract**. Paired rank-two full queries need total thin rank at least **28**, rather than ten. Even arbitrarily fine nonzero full-stage splits at this dimension need rank at least **20**. **No kappa increase is claimed.**\n\n[Proof](https://github.com/aliromman/integer-mult-bounds/blob/f9a3bc99b186b2e08a855e260f2f904ef33821c9/research/coupled31-chronology/PROOF.md), [complete tariff and obligation ledger](https://github.com/aliromman/integer-mult-bounds/blob/f9a3bc99b186b2e08a855e260f2f904ef33821c9/research/coupled31-chronology/COST.md), [exact evidence](https://github.com/aliromman/integer-mult-bounds/blob/f9a3bc99b186b2e08a855e260f2f904ef33821c9/research/coupled31-chronology/RESULT.json), [source pins](https://github.com/aliromman/integer-mult-bounds/blob/f9a3bc99b186b2e08a855e260f2f904ef33821c9/research/coupled31-chronology/SOURCES.json).\n\nThe new theorem applies over every characteristic-two field and every finite dimension. If the core dimension is d, every nonzero full query has rank at least r, and b is the extra thin row dimension, then `g <= (floor(d/r)+1)b+2`. The image-space version is the same. For paired stages this gives `R >= 4q+2 ceil((g-2)/3)`. A prefix determinant contradiction forces a dimension drop on untouched leaves; iteration proves the bound. This uses chronology, beyond the static cut in [PR5673](https://github.com/CrocSwap/integer-mult-bounds/pull/5673) and its sharp witnesses in [PR5681](https://github.com/CrocSwap/integer-mult-bounds/p",
+      "roots": [
+        "research/coupled31-chronology"
+      ],
+      "installed": [
+        "research/coupled31-chronology/COMMUTING.md",
+        "research/coupled31-chronology/COST.md",
+        "research/coupled31-chronology/DISCOVERY.md",
+        "research/coupled31-chronology/PROOF.md",
+        "research/coupled31-chronology/README.md",
+        "research/coupled31-chronology/RESULT.json",
+        "research/coupled31-chronology/SOURCES.json",
+        "research/coupled31-chronology/TASK.json",
+        "research/coupled31-chronology/VALIDATION.json",
+        "research/coupled31-chronology/VERIFY.json",
+        "research/coupled31-chronology/WORD31.json",
+        "research/coupled31-chronology/check.py",
+        "research/coupled31-chronology/discovery/coupled_seed.py",
+        "research/coupled31-chronology/discovery/one-row-three-stage.json",
+        "research/coupled31-chronology/discovery/pair-search.json",
+        "research/coupled31-chronology/discovery/row_signature_census.py",
+        "research/coupled31-chronology/discovery/triangle-search.json",
+        "research/coupled31-chronology/pricing.py",
+        "research/coupled31-chronology/sources/escape-word.json",
+        "research/coupled31-chronology/sources/old-word-replay.py",
+        "research/coupled31-chronology/sources/p104-result.json",
+        "research/coupled31-chronology/sources/pr5673-proof.md",
+        "research/coupled31-chronology/sources/pr5681-proof.md",
+        "research/coupled31-chronology/test_verify.py",
+        "research/coupled31-chronology/verify.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct26b-20261026-checks.txt",
+  "selected_frontier_changed": false
+}

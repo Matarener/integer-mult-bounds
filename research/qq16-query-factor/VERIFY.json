@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r715-eleven-stage-whole/code/global_k.py",
+    "research/joint-query/certificate.json.gz",
+    "research/joint-query/evidence/BRIDGE-REVIEW.md",
+    "research/joint-query/evidence/QQ16-COVER-ACTION-ADDENDUM.md",
+    "research/joint-query/evidence/CONSERVED-QQ16.md",
+    "research/joint-query/evidence/NATIVE-REVIEW.md",
+    "research/joint-query/evidence/SCALAR-REVIEW.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticated full-owner/current-input factor, literal dirty-owned restoration, independent query/cost audit, native signed recipes and phase/route rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Normal/optimized Git-free read-only exports; source, candidate, typed receipt, manifest and overwrite rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/removals.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual proposed16H8 event removal/32H1 insertion plus528owner-map record, without accepted deletion claim."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/native_probe.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent actual first-gate and two-source fixed-carrier parity witnesses, legal future/X alignment controls, exact retained probe receipt."
+    }
+  ]
+}

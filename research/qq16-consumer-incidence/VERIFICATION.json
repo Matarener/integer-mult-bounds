@@ -1,0 +1,37 @@
+{
+  "status": "author_checked_and_independent_AI_cross_checked",
+  "utc": "2026-10-19T07:46:00Z",
+  "python": "3.12.3",
+  "canonical_main_checkpoint": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "priority_revision": 6,
+  "checks": [
+    {
+      "command": "python3 -I -Werror -B research/qq16-consumer-incidence/verify.py",
+      "result": "PASS complete typed RESULT"
+    },
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-consumer-incidence/verify.py",
+      "result": "PASS complete typed RESULT"
+    },
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-consumer-incidence/test_verify.py",
+      "result": "PASS 7 groups; normal and optimized minimal Git-free read-only export; source/retained/manifest/RESULT negative controls"
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-consumer-incidence --check-only",
+      "result": "PASS_PACKAGE_METADATA_AND_PINS"
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-consumer-incidence",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed"
+    }
+  ],
+  "unrun": [
+    "No complete selected-supplier cold replay",
+    "No physical QQ16 provider/consumer execution",
+    "No all-depth precision or dirty-range proof",
+    "No global family-coverage or displaced-idle certificate",
+    "No new kappa or frontier change"
+  ],
+  "publication": "Final commit-byte/source-history preflight is reported externally in the PR, avoiding a self-referential committed head."
+}

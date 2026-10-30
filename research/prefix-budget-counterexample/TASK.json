@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "The length-8 word 01021323 is universal in dimension 4, its bit-0 collision excess is 8, and that excess passes the actual class budget 9 while failing the balanced budget 5.",
+  "scope_change_reason": "The length-22 split list is a different question. This package reconstructs the published dimension-4 counterexample. It does not run a seven-label census.",
+  "bottleneck_link": "A balanced budget can reject a universal word, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record this counterexample. Do not run a seven-label census.",
+  "outcome": "partial",
+  "evidence": "The prefix set is {0,1,2,3,4,6,8,12}, it covers all 16 masks, the bit-0 excess is 8, and 8 is above 5 and at most 9.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The eight prefix states and both budgets are finite. A seven-label census would leave this package."
+}

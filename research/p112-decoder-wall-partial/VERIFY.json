@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--only",
+        "ct8",
+        "--no-ct8-dfs",
+        "--out",
+        "-"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Stdlib replay of the exact rational LP-dual certificates for CT8 orbits 2 and 5 (maximal rectangles, exact ranks, dual feasibility, objective > 7). The full replay (numpy, pynauty, kissat, drat-trim, scipy) is a dedicated workflow: see README, about 25 minutes with 4 jobs."
+    }
+  ]
+}

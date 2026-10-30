@@ -1,9 +1,13 @@
 """Do not confuse paid-profile equality, word identity, and scientific review."""
 import copy
+from fractions import Fraction
 import json
 from pathlib import Path
+import subprocess
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
@@ -93,6 +97,66 @@ class QueueGroupTests(unittest.TestCase):
         out=groups.price(PROFILE)
         self.assertEqual(out['primitive_upper'],'1690054109089/1000000000000000')
         self.assertEqual(out['status'],'conditional_relaxation')
+
+    def test_large_exponents_reject_before_fraction_expansion(self):
+        for count in ('1e10000', '1e-10000', '0e10000', '0e-10000',
+                      '1e+1_0_0_0_0', '1e-1_0_0_0_0', '1e-١٠٠٠٠',
+                      '1e9999999999999999999999999999999999999999'):
+            with self.subTest(count=count):
+                profile = dict(PROFILE, local_profile_per_call={'1': count})
+                with patch.object(groups, 'Fraction', side_effect=AssertionError(
+                        'must reject before allocating the expanded rational')):
+                    with self.assertRaisesRegex(ValueError, 'decimal exponent'):
+                        groups.model_inputs(profile)
+
+    def test_bounded_count_spellings_and_boundary_remain_exact(self):
+        cases = [(0, Fraction(0)), (10**9, Fraction(10**9)),
+                 ('1/3', Fraction(1, 3)), ('0.125', Fraction(1, 8)),
+                 ('.5', Fraction(1, 2)), ('3.125e-2', Fraction(1, 32)),
+                 ('1E+3', Fraction(1000)), ('1_0e-2', Fraction(1, 10)),
+                 (' 1e-3\n', Fraction(1, 1000)), ('0e60', Fraction(0)),
+                 ('0e-60', Fraction(0)), ('1e-60', Fraction(1, 10**60))]
+        for count, expected in cases:
+            with self.subTest(count=count):
+                profile = dict(PROFILE, local_profile_per_call={'1': count})
+                self.assertEqual(groups.model_inputs(profile), {1: expected})
+
+    def test_expanded_component_budget_and_count_range(self):
+        profile = dict(PROFILE, local_profile_per_call={
+            '1': '1.000000000000000000000000000000000000001e-60'})
+        with self.assertRaisesRegex(ValueError, 'numerator and denominator'):
+            groups.model_inputs(profile)
+        for count in ('1e10', '-1e-3'):
+            with self.subTest(count=count):
+                profile = dict(PROFILE, local_profile_per_call={'1': count})
+                with self.assertRaisesRegex(ValueError, 'invalid count'):
+                    groups.model_inputs(profile)
+
+    def test_cli_reports_over_budget_profile_and_prices_healthy_neighbor(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            plan_path, inventory_path, output = [root/name for name in ('plan.json', 'inventory.json', 'output.json')]
+            plan_path.write_text(json.dumps(plan(1, 2)), encoding='utf-8')
+            for count in ('1e-10000', '1e10000', '0e-10000',
+                          '1.000000000000000000000000000000000000001e-60'):
+                with self.subTest(count=count):
+                    bad = row(1)
+                    bad['profile']['local_profile_per_call']['1'] = count
+                    inventory_path.write_text(json.dumps(inventory(bad, row(2))), encoding='utf-8')
+                    run = subprocess.run(
+                        [sys.executable, '-B', str(ROOT/'scripts/pr_queue_groups.py'),
+                         '--plan', str(plan_path), '--inventory', str(inventory_path),
+                         '--output', str(output)], capture_output=True, text=True, timeout=15)
+                    self.assertEqual(run.returncode, 0, run.stderr)
+                    result = json.loads(output.read_text(encoding='utf-8'))
+                    self.assertEqual(result['counts']['classified_prs'], 2)
+                    ceilings = {cluster['inputs']['local_profile_per_call']['1']: cluster['ceiling']
+                                for cluster in result['profile_clusters']}
+                    self.assertEqual(ceilings[count]['status'], 'unknown_or_outside_model')
+                    self.assertIn('count ', ceilings[count]['reason'])
+                    healthy = ceilings[PROFILE['local_profile_per_call']['1']]
+                    self.assertEqual(healthy['status'], 'conditional_relaxation')
+                    self.assertEqual(healthy['primitive_upper'], '1690054109089/1000000000000000')
 
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,28 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Authenticate all 49 original pins and 42 inputs; replay unchanged v2 reconstruction and one fixed E6 capacity certificate; require complete original bytes, capacity one, zero residual, five rejecting and one positive saturation control; no new channel or kappa.",
+      "timeout_seconds": 70
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Authenticate all 49 original pins and 42 inputs; replay unchanged v2 reconstruction and one fixed E6 capacity certificate; require complete original bytes, capacity one, zero residual, five rejecting and one positive saturation control; no new channel or kappa.",
+      "timeout_seconds": 70
+    }
+  ],
+  "inputs": [],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

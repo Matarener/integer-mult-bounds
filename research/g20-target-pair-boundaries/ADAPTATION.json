@@ -1,0 +1,14 @@
+{
+  "source": "compile.py",
+  "source_sha256": "36a63cac5d368ecb51420f2ba06f52f857dfaf2bdeb5a67c55b1d2778b6e99e0",
+  "changes": [
+    [
+      "def compile_global(L, local, output):",
+      "def compile_global(L, local, output, controller):"
+    ],
+    [
+      " controller=read(S/'inputs/CONTROLLER.json');base,frames,_=L.source();",
+      " base,frames,_=L.source();"
+    ]
+  ]
+}

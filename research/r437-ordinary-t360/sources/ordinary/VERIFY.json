@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/retuned-ordinary-coupling/inputs/pr2899-export.tar.gz",
+    "research/rank7-selected-transfer-budget/intervals.py",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/rank7-joint-endframes/CLAIM.json"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","certificate"],"timeout_seconds":120,"checks":"Two exact engines for the full surcharged BIT moment, new/old margin separation, reciprocal-rate boundaries, fit and complete-wrapper proof constants."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","setup"],"timeout_seconds":120,"checks":"Actual compiled profile, literal Count roots and large power seams, exact reduced original-width stock plans, strict fit and ownership under constructor/decoding guards."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","runtime"],"timeout_seconds":120,"checks":"Actual profile dispatch through ordinary and binary calls; reduced complete-column endpoints and two declared padded C0 returns; borrowed input, cleanup, reuse and profile-override rejection."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","controls"],"timeout_seconds":120,"checks":"Actual optimized source CLI accepts pinned export and rejects altered bytes, symlink and missing archive before backend import."}
+  ]
+}

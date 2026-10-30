@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "formal/lean/lean-toolchain",
+    "research/biframe-decoder-ladder/README.md",
+    "research/decoder-certificate-ceilings/README.md",
+    "research/e8-d0-root-swaps/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Source authentication; 109 unit minors; root/parabolic and Fourier inputs; two relative-deletion algorithms; exact product/rank/normalization fixtures over Q,F3,F5,F7; actual equality-basis cuts; strict dimension DP by two implementations; semantic failure and classification-boundary controls. Lean is an explicit separate check."
+    }
+  ]
+}

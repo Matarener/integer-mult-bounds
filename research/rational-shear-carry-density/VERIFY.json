@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-X",
+        "dev",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact scalar carry counts, independent full-width translations, complete small GL matrix enumeration, arbitrary-high identity, asymptotic fixtures and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same finite coverage with optimization and isolated imports; all acceptance checks use explicit exceptions."
+    }
+  ]
+}

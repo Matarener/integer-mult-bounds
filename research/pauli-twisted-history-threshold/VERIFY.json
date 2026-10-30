@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact Gaussian-rational literal tensor, phase, owner-history and boundary controls with committed receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact Gaussian-rational literal tensor, phase, owner-history and boundary controls with committed receipt; optimized explicit checks"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/check_modular.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent modular arithmetic and bit-index tensor oracle, without primary-engine imports"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_modular.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent modular arithmetic and bit-index tensor oracle, without primary-engine imports; optimized explicit checks"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_mutations.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Six optimized semantic mutants must reject at named active predicates without comparing the stored receipt"
+    }
+  ]
+}

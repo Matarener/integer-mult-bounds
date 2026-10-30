@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/pr-ledger.json",
+    "docs/research/pr-ledger.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Compare every Markdown row with the JSON ledger."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the four dispositions add to 3028."
+    }
+  ]
+}

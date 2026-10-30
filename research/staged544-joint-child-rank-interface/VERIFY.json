@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Both source groups, exact all-column residual, support obstruction, rational budget and controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Same production verification with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Source corruption and stale retained rank reject through actual normal and optimized CLI."
+    }
+  ]
+}

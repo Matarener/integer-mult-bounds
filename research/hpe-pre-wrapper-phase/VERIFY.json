@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/hyperplane-end-lean/HyperplaneEnd/Exact.lean",
+    "research/hyperplane-end-lean/HyperplaneEnd/Labels.lean"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Equational replay of the phase-sharp pre-wrapper lemma and exact Z[i] binding on the three certified pairs, including phase, reject and width controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--self-test"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Failure control: a phase-shifted shipped pre-wrapper, with ports kept consistent, must fail the lambda=1 clause."
+    }
+  ]
+}

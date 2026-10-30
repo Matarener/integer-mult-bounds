@@ -1,0 +1,30 @@
+[
+  [
+    "Exact input and completed-error transfer for one frozen P104 word.",
+    "Exact transfer with additive COPY and bounded reset residuals.\n\nAdapted from PR #5819. See PRECISION-EDITS.json and inputs/prior-NOTICE."
+  ],
+  [
+    "                    rows[r] = dict(rows[s])",
+    "                    a, c = abs(q)*norms[s], 1 + abs(q)\n                    rows[r] = dict(rows[s])"
+  ],
+  [
+    "        elif op == 'COPY':\n            rows[r] = dict(rows[event[2]])\n            scores[r] = list(scores[event[2]])\n",
+    ""
+  ],
+  [
+    "        elif op == 'ADD':\n            q = F(event[-2])",
+    "        elif op in ('ADD', 'COPY'):\n            q = F(event[-2])"
+  ],
+  [
+    "            if op == 'COPY':\n                columns[r] = {}\n",
+    ""
+  ],
+  [
+    "            if op == 'COPY':\n                row.pop(r,None)\n",
+    ""
+  ],
+  [
+    "            values[r] = values[event[2]]",
+    "            values[r] += F(event[-2])*values[event[2]]"
+  ]
+]

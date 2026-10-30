@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove that for every finite register width r>=2, the target diag([xy],[yx],e,...,e) in M_r(F2[A5]) with paid labels {x,y} and every binary rank-one idempotent has exact paid-call minimum 4. Support filter reduces length<=3 to patterns xyx/yxy; each forces the middle projector to the rank-two matrix E00+E11. Answers #2246 / a5-conjugate-5cycle-seedd316f8 algebraic-invariant OQ.",
+  "scope_change_reason": "Preferred #2687 admitted BIT-supplier bill remains ungrounded without a non-cancellable physical source-return invoice (prior thin tariff/run retargets deferred). Preferred #2888 non-toy fitted-k/GL64 Incoming remains blocked (GL2(F3) toys deferred). The #2246 deferral note prefers an algebraic any-register invariant over further A5 role-count BFS; this package supplies that invariant and stays outside the dirty-role-minimum leave-alone cascade.",
+  "bottleneck_link": "An all-roles formal floor closes the A5 conjugate spectator question without another width census; a native BIT realization remains a separate obligation before any kappa consequence.",
+  "budget_minutes": 60,
+  "stop_rule": "Write the support filter and both coefficient obstructions, replay the direct four-call word at several widths with omission controls, independent even-permutation rebuild, and package tests. Do not run another fixed-width BFS census.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json: support_patterns=['xyx','yxy']; forced_B_rank=2 on both patterns for roles {2,3,4,5,8}; direct word at roles 2..5; 16 omission rejects; idempotent counts 6/28/120; independent even-permutation closure.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
+  "open_questions": [
+    {
+      "question": "Is there a priced native address-operation realization of this A5 (2,3,5) alphabet inside an admitted BIT supplier?",
+      "why_it_matters": "The formal minimum alone does not change kappa.",
+      "first_step": "Map one paid D_N(g) factor to a pinned BIT boundary and charge source access, hosting and restoration.",
+      "blocked_by": "No such implementation or recursive profile is supplied here."
+    },
+    {
+      "question": "Does the same support-plus-middle-projector pattern give any-register floors for other perfect-group conjugate-pair alphabets?",
+      "why_it_matters": "A reusable lemma would avoid further finite searches on related simple groups.",
+      "first_step": "Identify another (2,3,5) or conjugate-pair presentation whose length-3 support filter isolates two patterns with a rank clash.",
+      "blocked_by": "Only the A5 alphabet of #2246 is treated here."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 2246,
+      "credit": "a5-conjugate-5cycle-seedd316f8; two-/three-role minimum 4; algebraic any-register OQ answered here"
+    },
+    {
+      "pr": 840,
+      "credit": "dyadic-query-pair / #840-style exact construction+invoice pattern"
+    },
+    {
+      "ref": "research/q8-central-minus-one-any-registers-seed0332f4",
+      "credit": "methodological credit for any-register coefficient-style floors on perfect/near-perfect alphabets"
+    }
+  ]
+}

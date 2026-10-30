@@ -1,0 +1,28 @@
+{
+  "scope": "Static native-helper API/refcount/FIFO feasibility review only; no compiler, native import, arithmetic or replay run",
+  "target": "CPython 3.12 full C API; exact ABI and build to be recorded by parent",
+  "preferred": "Vectorcall Event plus authenticated member-descriptor tp_descr_get; Python Fraction callback on misses",
+  "performance_admission": false,
+  "numerical_runs": 0,
+  "compiler_runs": 0,
+  "local_headers_read": [
+    "/usr/include/python3.12/abstract.h",
+    "/usr/include/python3.12/cpython/abstract.h",
+    "/usr/include/python3.12/cpython/object.h",
+    "/usr/include/python3.12/dictobject.h",
+    "/usr/include/python3.12/objimpl.h",
+    "/usr/include/python3.12/object.h"
+  ],
+  "primary_references": [
+    "https://docs.python.org/3.12/c-api/call.html",
+    "https://docs.python.org/3.12/c-api/dict.html",
+    "https://docs.python.org/3.12/c-api/typeobj.html",
+    "https://docs.python.org/3.12/c-api/structures.html",
+    "https://docs.python.org/3.12/c-api/gcsupport.html",
+    "https://docs.python.org/3.12/c-api/refcounting.html",
+    "https://docs.python.org/3.12/c-api/tuple.html",
+    "https://github.com/python/cpython/blob/3.12/Objects/descrobject.c",
+    "https://github.com/python/cpython/blob/3.12/Python/structmember.c"
+  ],
+  "source_limit": "Documentation and 3.12 branch source explain API contracts; they are not a source pin for the installed CPython binary."
+}

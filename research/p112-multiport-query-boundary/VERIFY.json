@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-query-series-transfer/PREDECESSOR-PROOF.md",
+    "research/p112-query-series-transfer/PREDECESSOR-TEMPLATES.json",
+    "research/p112-query-series-transfer/PROOF.md",
+    "research/p112-query-series-transfer/SOURCE-CLOSURE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact star/partition criterion, literal bill and projection ranks."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent rational minors, GF4 annihilators and graph path/cut certificates."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Four mutated private fixtures rejected by both actual optimized CLIs; positive restoration controls."
+    }
+  ]
+}

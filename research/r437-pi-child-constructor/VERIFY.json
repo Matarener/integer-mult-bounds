@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/children.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/records.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/words.py",
+    "research/selected-bit-physical-caller/macro_binding.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Forty rewound fixtures match the program-tape formulas; empty stock gate; no prefix name; shifted head and one-read invoice fail"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same invoice under PYTHONOPTIMIZE; checks use need(), not assert"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate length arithmetic and three executions, without importing verify.py"
+    }
+  ]
+}

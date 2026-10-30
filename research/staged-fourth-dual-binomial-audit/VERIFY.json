@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged-fourth-mixture-ceiling/PROOF.md",
+    "research/staged-fourth-mixture-ceiling/RESULT.json",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/FOUR-base.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/FOUR-extra.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/THREE-base.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/THREE-extra.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/owner/ORDER.json",
+    "research/staged-fourth-mixture-ceiling/source4088/owner/TEMPLATE.json.gz"
+  ],
+  "commands": [
+    {
+      "name": "normal-verify",
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact binomial interval certificate, all 841 patterns and three duals; complete saved JSON equality"
+    },
+    {
+      "name": "normal-test_verify",
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "21 positive arithmetic fixtures and semantic rejection tests; assertions remain active via unittest"
+    },
+    {
+      "name": "optimized-verify",
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact binomial interval certificate, all 841 patterns and three duals; complete saved JSON equality"
+    },
+    {
+      "name": "optimized-test_verify",
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "21 positive arithmetic fixtures and semantic rejection tests; assertions remain active via unittest"
+    }
+  ]
+}

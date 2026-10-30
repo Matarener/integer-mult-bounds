@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Integer two-prefix template identity for all 31 masks; expanded five-source depth-two blocks for every 5<=c<=64, directly and through the lifted readouts; literal floor words on 12, 15 and 17 sources for c=5,6,7 with generic coefficients; five rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat every check under optimized Python; checks use explicit exceptions."
+    }
+  ]
+}

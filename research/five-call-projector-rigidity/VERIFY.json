@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Rebuild all 84 scalar and 84 free-associative domains, the characteristic-not-two identity, the six-call signed control, complete alternating endpoints and semantic failure controls. Check literal noncommuting matrix evaluations, block corner Schur complements, finite-period determinant controls and the literal native stage phase and character Gram matrix."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Repeat the exact check with optimization; no assertion carries a proof obligation."
+    }
+  ]
+}

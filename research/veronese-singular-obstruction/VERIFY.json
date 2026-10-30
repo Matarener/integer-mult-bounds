@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact new singular-factor extraction and full wrapped endpoints; complete Veronese factor searches; symbolic larger-ring, determinant and omission controls; source-bound generated receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same complete finite coverage with explicit checks retained under optimization."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Screen the selected complex source for direct fusion of successive rank-one frame climbs into an available rank-two endpoint recipe, including exact scalar-interference windows in both orientations.",
+  "scope_change_reason": "The task card asks for a new block decoder and fully charged profile. This experiment screens a sequential same-register macro contract from the attachment: two rank-one climbs separated by scalar work. PR #1836 and complex-heterogeneous-child-interface instead study simultaneous unequal-rank climbs and reciprocal one-child encodings; this screen complements that work without repeating its census or claiming a profile improvement.",
+  "bottleneck_link": "The selected complex word contains 2,412 rank-one children, and the recursive cost is concave in child rank when a > 0. An exact two-rank-one to one-rank-two replacement would lower that pair's recursive charge by a factor 2^-a, but only if the composed operator and all intervening work are preserved.",
+  "budget_minutes": 60,
+  "stop_rule": "For the selected direct single-output rank-two contract, stop after the 512-column exact operator composition and the complete ADD tap are checked. Do not count the equality of the child product as a replacement of the full two-register map. Reopen only for a changed multi-output/tap provider with a complete interface and cost below the two rank-one calls.",
+  "outcome": "negative-result",
+  "evidence": "Both orientations contain 2,412 rank-one climbs, 1,441 successive rank-one climb links per register history, and 35 pairs with an available rank-two recipe on the combined endpoint frames. Every candidate is interrupted by same-register scalar work (histogram: 10 with one touch, 5 with two, and 20 with five); there are zero direct schedule-preserving substitutions. For the concrete L195 path 0->2->252, exact Gaussian-dyadic matrices verify on all 512 basis columns that the two rank-one child maps compose to the pinned rank-two recipe. The 597-event window contains 139 climbs and 458 scalar events; its ADD requires a nonzero cross-register block in the forward orientation and a nonzero intermediate A*x tap in the backward orientation. The single-output rank-two recipe emits neither. A separate rank-one-equivalent tap makes the ideal profile [2,1], whose charge 2^(1-a)+1 exceeds the original [1,1] charge 2 for 0<a<1. Across 100 candidate/add-operand instances, no same-key rank-one call can absorb the moved work. This is a scoped negative result for the selected direct-replacement contract, with an exact positive composition identity; no new supplier or kappa improvement is claimed.",
+  "author": "Gonzalo Mier",
+  "ai_assistance": "Substantial OpenAI Codex assistance in deriving and running the source-bound schedule screen, implementing the exact verifier and controls, and documenting scope and limits.",
+  "open_questions": [
+    {
+      "question": "Can a changed-basis multi-output rank-two provider emit the direct composition and the ADD-consumed intermediate tap for less than two rank-one calls after all interfaces and restoration are charged?",
+      "why_it_matters": "The pinned rank-two operator is exactly the product of the two rank-one maps, but the existing ADD observes or injects an intermediate value. One-output fusion therefore loses part of the full two-register linear map; a cheap tap would be the only path past this witness's wall.",
+      "first_step": "Use the forward/backward L195 witness and the exact matrices in RESULT.json. Form the complete block maps (x,y)->(D*x+(1/2)*B*y,y) and (x,y)->(D*x,y-(1/2)*A*x); search for an explicit output encoding whose rank-two child returns the required pair of outputs, then compute the full copy, frame, precision, restoration and recursion invoice.",
+      "blocked_by": "The pinned CLIFFORD-RECIPES provide one 512-vector output per child. No multi-output rank-two contract, emitted tap, or physical input/output ownership for such a provider is present. A separated rank-two plus rank-one implementation is already more expensive in the recursive profile. This changed-contract question overlaps the vector-decoder proposal and is not an extension of the closed direct-replacement screen."
+    }
+  ]
+}

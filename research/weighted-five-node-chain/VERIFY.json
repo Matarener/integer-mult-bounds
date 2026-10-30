@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Universal-threshold finite corroboration over 16807 tuples, attaining schedules, full-state oracle, strict-capacity exclusion and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same complete verification with optimization enabled; all proof checks use explicit exceptions."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact paid-call minimum for diag([st],[ts],[e]) in M3(F2[D_{2p}]) for every odd prime p in {5,7,11,13,17,19,23,29,31}, with paid labels {s,t} and all 28 rank-one idempotents; answers #1953 / d10-reflection-sharing OQ1 on this certified range (p=5 cross-checks the D10 certificate digests).",
+  "scope_change_reason": "The drawn bit-new-register-model card is redirected to the unpaid odd-prime inverse-rotation question left by PR #1953 (research/d10-reflection-sharing-seeda3def8), which is a disjoint #840-style finite construction clear of leave-alone odd-kernel / PR2298 / precision-blind / UT4 cascades. Preferred #2687 BIT-supplier and #2888 F_I GL64 paths remain blocked without a grounded non-cancellable bill.",
+  "bottleneck_link": "Tests whether larger odd torsion enables a three-call sharing of the inverse-rotation pair that D10 forbids; a positive local word would still need a supplier/compiler map before any kappa consequence.",
+  "budget_minutes": 60,
+  "stop_rule": "Exhaust all rank-one idempotent choices and all paid-label words of lengths 0..3 on each certified D_{2p}; check the four-call direct endpoint, p=5 digest cross-check against D10, independent permutation replay, and mutation controls. Do not claim a uniform all-odd-prime invariant or a native supplier map.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json: nine primes, 1,609,281 words, zero hits through length 3, direct four-call exact on each; p=5 primary digests byte-equal to pinned D10 certificate; independent permutation digests recorded.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
+  "open_questions": [
+    {
+      "question": "Does a torsion-aware invariant prove the four-call floor for every odd prime p, without a separate census?",
+      "why_it_matters": "Would replace the finite certified range with a mechanism-level bound.",
+      "first_step": "Identify a coefficient-ring or regular-action invariant that simultaneously routes st and ts under length <=3.",
+      "blocked_by": "No such uniform invariant is established here."
+    },
+    {
+      "question": "Does any odd prime p>31 admit a three-call inverse-rotation share?",
+      "why_it_matters": "Extends the certified range or finds the first sharing torsion.",
+      "first_step": "Run the same exhaustive length-3 search at the next primes, or derive a p-independent obstruction.",
+      "blocked_by": "Larger primes are outside this package's stop rule."
+    },
+    {
+      "question": "Is there a justified native supplier/compiler for a paid two-reflection alphabet realizing this endpoint?",
+      "why_it_matters": "Without it the finite group-algebra cost is not a bit-supplier cost.",
+      "first_step": "State an admitted bit primitive realizing exactly s and t and invoice its full interface and restoration.",
+      "blocked_by": "No physical supplier mapping is included here."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 1953,
+      "credit": "D10 inverse-rotation four-call minimum; OQ1 answered here on the certified odd-prime range"
+    },
+    {
+      "pr": 1881,
+      "credit": "D8 rotation/inverse four-call floor (even rotation order; different group)"
+    },
+    {
+      "pr": 1966,
+      "credit": "Odd-dihedral joint reflection tariffs; reflection targets, not inverse-rotation pairs"
+    },
+    {
+      "pr": 1941,
+      "credit": "Even finite-dihedral tariffs; explicitly leaves odd periods out"
+    }
+  ]
+}

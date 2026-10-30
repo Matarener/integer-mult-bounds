@@ -1,0 +1,15 @@
+{
+ "_doc": "Per-word rebuild manifest. Ids are #6030's (frames, registers, roots); a word with the same frame/register numbering (the octet class around #6030) can use it as is. Order of 'plan' is the verified chain: sfinal (skeleton 12 octets, 10 public hubs) then FULLWORD (tie octets, 13 more hubs, 14 markets, 8 signal roots).",
+ "plan": [
+  {"side": "skeleton", "script": "skeleton.py", "kind": "octets", "items": [0,1,2,3,4,6,7,8,9,10,11,13]},
+  {"side": "hubs", "script": "hubs.py", "kind": "hub", "items": [232,234,235,237,242,244,516,306,424,602], "flags": ["--quiet"]},
+  {"side": "skeleton", "script": "skeleton.py", "kind": "octets", "items": [5,12]},
+  {"side": "hubs", "script": "hubs_owned.py", "kind": "hub", "items": [233,238,241,246,252,391,462,742,925], "flags": ["--quiet","--tries","1"]},
+  {"side": "hubs", "script": "hubs_owned.py", "kind": "hub", "items": [240,243,1090,1091], "flags": ["--quiet","--tries","1","--owned","--budget","6000"]},
+  {"side": "markets", "script": "markets.py", "kind": "dual", "items": [118,1050,116,1048,114,1052,1049,1051,1053,120], "flags": []},
+  {"side": "markets", "script": "markets_full.py", "kind": "dual", "items": [1027,115], "flags": []},
+  {"side": "markets", "script": "markets_full.py", "kind": "dual", "items": [1031], "flags": ["--core","--k","3","--f9relax","--gate","--proxies","695,697,699"]},
+  {"side": "markets", "script": "markets_full.py", "kind": "dual", "items": [117], "flags": ["--core","--k","3","--f9relax","--gate","--gaterelays","732","--proxies","624,625,627"]},
+  {"side": "signal", "script": "sigside.py", "kind": "root", "items": [1,2,4,5,6,7,8,9], "regs": {"6": "773"}, "modes": ["feeds","reads"]}
+ ]
+}

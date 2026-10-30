@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-gaussian-expansion/inputs/core-export.tar.gz",
+    "research/physical-gaussian-expansion/inputs/rounding-source.tar",
+    "references/semantic-bulk/rad20/code/downstream_blocked_gaussian.py",
+    "references/semantic-bulk/rad20/reports/downstream-microbox-resampling.md",
+    "references/semantic-bulk/rad20/reports/bulk-resampling-tape-transfer.md",
+    "references/semantic-bulk/rad20/reports/review-bulk-resampling.md",
+    "references/semantic-bulk/rad20/LICENSE",
+    "references/semantic-bulk/rad20/NOTICE",
+    "references/semantic-bulk/rad20/SOURCE.json",
+    "upstream/build/sections/07-resampling.tex",
+    "upstream/build/sections/08-assembly.tex",
+    "notes/chirp-scaling-correction.tex",
+    "research/chirp-packed-correlation-audit/README.md",
+    "research/chirp-packed-correlation-audit/TASK.json"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","sources"],"timeout_seconds":15,"checks":"Complete source exports, live analytic and license pins, shared physical types, actual acyclic owners and four source-binding controls."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","budget"],"timeout_seconds":15,"checks":"Exact stencil, factor-growth, precision, tail and complete arithmetic-budget controls bound to the retained full Fourier power."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","geometry"],"timeout_seconds":20,"checks":"Signed origins, exact factor/crop identities, low u*theta, equal right endpoints and encoded production short-block metadata."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","production"],"timeout_seconds":30,"checks":"Encoded complete production tile metadata at both seams and an interior ceiling transition, paired compression halo and ten domain controls; no production-sized payload."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","block"],"timeout_seconds":230,"checks":"Actual coefficient producer and two complete nonzero normalized blocks against separate staged and periodic Gaussian models, premature-extraction controls and complete word invoices."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","tile_overlap"],"timeout_seconds":240,"checks":"Whole producer/tile join with an unchanged source start, retained overlap, exact outputs, separate periodic reference and complete stream/word invoices."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","tile_wrap"],"timeout_seconds":450,"checks":"Whole periodic-crossing tile, clipped final block, source padding, actual convolution and normalization, exact outputs and full stream/word invoices."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","ownership"],"timeout_seconds":180,"checks":"Complete public producer/consumer ownership with nineteen malformed-boundary, protected-output and allocation controls, failed-call restoration and deterministic positive reuse."}
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/complex-local-word-ceiling/ceiling.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete arbitrary-plane census, exact cost comparisons, full-frame profile witnesses and exhaustive small-schedule plus rejecting controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same complete coverage under optimized Python; no proof checks depend on assertions."
+    }
+  ]
+}

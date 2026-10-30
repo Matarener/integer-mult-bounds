@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/qq16-controller-scope-map.md",
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/complex-local-word-ceiling/verify.py",
+    "research/joint-query/certificate.json.gz",
+    "research/joint-query/evidence/CLEAN-J-CHECKS.json",
+    "research/joint-query/evidence/CONSERVED-QQ16.md",
+    "research/joint-query/source_data.py",
+    "research/qq16-line-normalized-decoder/PROOF.md",
+    "research/qq16-line-normalized-decoder/RESULT.json",
+    "research/qq16-line-normalized-decoder/WORD.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact source-bound centre lifetimes and existing scalar/frame replacement, actual outer integer collisions, full recovery boundary/cost and independent rational screen."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Normal/optimized source/export/receipt boundary controls and read-only Git-free replay."
+    }
+  ]
+}

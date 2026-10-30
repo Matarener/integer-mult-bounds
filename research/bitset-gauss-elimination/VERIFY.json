@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/clifford-exact-contractions/.gitattributes",
+    "research/clifford-exact-contractions/INPUTS.json",
+    "research/clifford-exact-contractions/PROOF.md",
+    "research/clifford-exact-contractions/README.md",
+    "research/clifford-exact-contractions/RESULT.json",
+    "research/clifford-exact-contractions/SOURCES.json",
+    "research/clifford-exact-contractions/TASK.json",
+    "research/clifford-exact-contractions/VERIFY.json",
+    "research/clifford-exact-contractions/contractions.py",
+    "research/clifford-exact-contractions/source/CONSTRUCTION.json.gz",
+    "research/clifford-exact-contractions/source/LICENSE",
+    "research/clifford-exact-contractions/source/PHYSICAL.json",
+    "research/clifford-exact-contractions/source/PR5526-PROOF.md",
+    "research/clifford-exact-contractions/source/PR5698-NOTICE.md",
+    "research/clifford-exact-contractions/source/PR5704-NOTICE.md",
+    "research/clifford-exact-contractions/source/PR5704-PROOF.md",
+    "research/clifford-exact-contractions/source/PR5704-quadratic.py",
+    "research/clifford-exact-contractions/source/clifford_exact.py",
+    "research/clifford-exact-contractions/source/prune_native.py",
+    "research/clifford-exact-contractions/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent literal and binomial Gauss-sum oracles, invalid-input controls, all-call complete consumer differential, complete 64-axis projection and benchmark-source binding."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent literal and binomial Gauss-sum oracles, invalid-input controls, all-call complete consumer differential, complete 64-axis projection and benchmark-source binding."
+    }
+  ]
+}

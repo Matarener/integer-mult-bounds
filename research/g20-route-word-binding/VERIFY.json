@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source marker-to-word binding and conditional cover-model ledger with explicit semantic controls and strict canonical receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source marker-to-word binding and conditional cover-model ledger with explicit semantic controls and strict canonical receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent event join, cover roundtrip and physical reflected-pair identities; strict canonical oracle receipt."
+    }
+  ]
+}

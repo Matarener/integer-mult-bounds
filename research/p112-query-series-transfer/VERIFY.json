@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 255 exact rational/GF4 marked-transfer cases, literal rank-(4,4) witness and tariff."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate minor/collapse proof premises and exhaustive GF4 functional membership, plus rectangular Gram witness."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fourteen optimized actual scientific CLI runs: ten deliberate data/implementation corruptions and four positive before/after controls on private owned regular copies."
+    }
+  ]
+}

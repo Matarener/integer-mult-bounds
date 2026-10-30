@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/flagless-kernel-obstruction/PROOF.md",
+    "research/auxiliary-span-six-flag/README.md",
+    "research/three-register-no-target-flag/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "All 24 pools, exact formal block restrictions, inverse and model-boundary controls, and nine-call span-six positive control; authenticate the declared predecessor inputs."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "All 24 pools, exact formal block restrictions, inverse and model-boundary controls, and nine-call span-six positive control; authenticate the declared predecessor inputs."
+    }
+  ]
+}

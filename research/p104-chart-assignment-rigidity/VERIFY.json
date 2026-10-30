@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper468-rung-removal/WORD.json.gz",
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz",
+    "research/p104-unread-path-resynthesis/WORD.json.gz",
+    "research/p104-unread-path-resynthesis/local.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Classes A-E on the PR6030, PR5907 and PR5827 words find no positive chart/MOVE/timing edit; three synthetic PR6030 controls are found; class A and positive class B proposals are replayed by PR5827 local.py; RESULT.json regenerates exactly."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "research/capped-phase-fusion/CAPPED-GAUGE-AUDIT.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/gaussian-column-gap/README.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Kernel factorization, the 1/(16p^2) budget, and the failure of epsilon 1/2 and of C=2."
+    }
+  ]
+}

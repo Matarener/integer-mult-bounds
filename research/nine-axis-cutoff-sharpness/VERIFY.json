@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/shorter-native-phase-witness/README.md",
+    "research/shorter-native-phase-witness/verify.py",
+    "research/three-axis-sharp-cutoff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code tuples through 129 axes, exact Gauss sums, all GL3/GL4 hyperplane cosets, retained upper witnesses and four controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code tuples through 129 axes, exact Gauss sums, all GL3/GL4 hyperplane cosets, retained upper witnesses and four controls."
+    }
+  ]
+}

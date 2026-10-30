@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Regenerate the first trajectory; check the new exact matrix and every Boolean input/inverse; reject 29 gate deletions, 29 direction flips, two endpoint corruptions and eleven malformed programs."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Regenerate the first trajectory; check the new exact matrix and every Boolean input/inverse; reject 29 gate deletions, 29 direction flips, two endpoint corruptions and eleven malformed programs."
+    }
+  ]
+}

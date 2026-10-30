@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 360,
+      "checks": "Actualcompact658native/SOURCE/operators/owners/ROW/caller, independentprice and live negativecontrols."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 360,
+      "checks": "Same complete release with explicitguards under Python optimization."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Determine the exact paid_children count and total child width of the retained fallback program for every rank-r projector header, prove that the head-bank elimination makes exactly r opposite-bank swaps, and give the sharp maximum with an explicit rank-one witness.",
+  "scope_change_reason": "PR4215 open question 2 and PR4228's package open question ask for the fallback child count after accounting for swap orientations. FALLBACK.md's 49911 bound charges three children per swap. This is a sharp count for that one tape-cost term, not an audit of the rest of PR4100.",
+  "bottleneck_link": "FALLBACK.md's child count enters the auxiliary BIT recurrence's fallback toll. A sharp count tightens that term; it cannot move kappa by itself.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the written count, the m<=64 witness family, small complete idempotent censuses and controls; no physical fallback execution or recurrence retuning.",
+  "outcome": "completed",
+  "evidence": "README.md proves the rank law and closed forms. verify.py checks them through the unchanged prepare/paid_children path on a rank-one witness for every 2<=m<=64, an integer replay valid for every odd modulus, complete idempotent censuses (332 idempotents) and 24 seeded m=64 headers.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is the same-bank elimination swap count at most 2(m-r) for every rank-r header?",
+      "why_it_matters": "It would give the exact rank-dependent maximum 8m^2+8m-6-5r; the proved ceiling 2m-1-r is attained only at r=1 in the censuses.",
+      "first_step": "Track which original rows occupy tail positions at the start of the tail phase and bound swaps there by m-r.",
+      "blocked_by": "Nothing; it is a linear-algebra question."
+    },
+    {
+      "question": "Which headers actually reach the fallback in the auxiliary BIT recurrence, and with what rank distribution?",
+      "why_it_matters": "The sharp maximum is attained only by rank-one headers; a caller that sends only higher ranks pays less.",
+      "first_step": "Bind the recurrence's fallback branch in BIT.md to its header ranks.",
+      "blocked_by": "Complete-packet and physical caller admission."
+    }
+  ]
+}

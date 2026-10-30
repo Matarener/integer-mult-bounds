@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Continuous user goal allowed a bounded further improvement nomination after the15% minimum. One fixed native score-loop probe passes finite checks but fails its conservative complete-cost/spread screen; no integration follows.",
+  "actual_scope": "PR5864/native-score-dispatch-micro-only",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Stop before full-control union, actual audit or complete construction. No reroll; preserve every sample. Same180s/1GiB/600sinitial1500sshared/serial/no-auto-retry contract.",
+  "time_budget_minutes": 60,
+  "outcome": "negative-result",
+  "evidence": "SCREEN.json, raw BCCB probe and source inventories;33 prefix comparisons/10 controls; no actual or complete candidate.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex implementation/execution assistance and GPT-6-astra xhigh static nomination/stop review. Single parent numerical runner; no independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can a separately justified mechanism pay its complete additional verification bill?",
+      "why_it_matters": "This fixed conservative probe screen lacks margin despite positive micro pairs; prior PR5864 minimum remains achieved.",
+      "first_step": "New exact source/coverage/resource contract and fixed small feasibility test; keep PR5864 frozen.",
+      "blocked_by": "No further measured continuation is justified by this round; deferred ideas carry unpriced obligations."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

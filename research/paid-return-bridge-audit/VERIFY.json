@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/clifford-pointwise-faithfulness/APPLICATION.md",
+    "research/clifford-pointwise-faithfulness/PROOF.md",
+    "research/clifford-pointwise-faithfulness/REPAIR-INVOICE.json",
+    "research/clifford-pointwise-faithfulness/REPAIR-RESULT.json",
+    "research/clifford-pointwise-faithfulness/REPAIR.md",
+    "research/passive-saved-query-ceiling/evidence/INDEPENDENT.json",
+    "research/passive-saved-query-ceiling/evidence/frozen/pr4948-mixed-thin-gate/check.py",
+    "research/passive-saved-query-ceiling/evidence/frozen/pr4948-saved-query-macro-gate/GRADE-GATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hashes; conditional module/approximation fixtures; exhaustive small domain; seven semantic controls; independent source-declared invoice and rational interval."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hashes; conditional module/approximation fixtures; exhaustive small domain; seven semantic controls; independent source-declared invoice and rational interval."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/mutations.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Four deliberate mathematical/accounting defects must fail their specific diagnostics."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/mutations.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Four deliberate mathematical/accounting defects must fail their specific diagnostics."
+    }
+  ]
+}

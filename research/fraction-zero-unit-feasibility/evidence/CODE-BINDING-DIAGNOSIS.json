@@ -1,0 +1,12 @@
+{
+  "failed_label": "finite",
+  "stage": "derive(): code authentication before any arithmetic differential",
+  "cause": "Direct equality of nested code objects in co_consts compares source locations as well as executable structure. Standalone compilation relocates comprehensions.",
+  "correction": "Recursively compare bytecode, normalized constants, names, args, flags, free/cell vars, stack/locals and exception table; exclude only source location metadata. Exact module and function source hashes still mandatory.",
+  "old_sha256": "dc3510e7e24b9505a9f96e7d854da6c516cafbfa192c5480b0a8ba8b558a489c",
+  "corrected_sha256": "a178989906b401f5f922f35a48484b6cae65e191336e17ebf7f61de2601238d2",
+  "arithmetic_logic_changed": false,
+  "failed_receipt_preserved": true,
+  "cost_charged": true,
+  "new_label": "finite-code-binding-fixed"
+}

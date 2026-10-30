@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/native-tensor-cutoff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact group/coset/phase and full-span certificates with semantic controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact group/coset/phase and full-span certificates with semantic controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/audit.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate permutation/rational solve/base-four/ordered-word enumeration"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/audit.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate permutation/rational solve/base-four/ordered-word enumeration"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/qq16-all-depth-producer-grid/PROOF.md",
+    "research/qq16-producer-defect-transfer/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Complete arithmetic DAG/occurrence mapping, output/checkpoint/borrowed state, access and zero-return discipline, adversarial signed format controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Normal/optimized read-only, Git-free read-only, all retained/canonical source authentication, full mapping/typed receipt and overwrite controls."
+    }
+  ]
+}

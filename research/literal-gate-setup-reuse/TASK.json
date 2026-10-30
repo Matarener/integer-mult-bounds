@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Profiling rejects whole-circuit tableau reuse (zero repeated circuits); optimize the measured dense literal pure P/D address/phase setup instead, retaining the second interpreter and all amplitude comparisons.",
+  "actual_scope": "PR5818/frozen-a0171b8/literal-only-P-D-gate-setup-tables/all-input-full-qualification",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Stop without retry on source/coverage/receipt/mode drift, unexpected stderr or resource failure. One serial profile plus first pair: 900 seconds aggregate, 600 seconds per command, 1 GiB sampled group RSS; require >=15% wall and CPU saving before expanding to separately gated qualification under 1500 seconds cumulative.",
+  "time_budget_minutes": 90,
+  "outcome": "completed",
+  "evidence": "PROFILE.json, BENCHMARK.json, PROOF.md, VALIDATION.json and evidence/ retain source-bound profiling, complete stdout equivalence, finite controls and guarded full runs; exact-head hosted CI is separate.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex assistance for source review, execution, tooling and report; no subagents, independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Does this exact source-bound speedup hold on a second host?",
+      "why_it_matters": "One baseline observation and shared host load limit the performance conclusion.",
+      "first_step": "Repeat the bounded pair in a fresh work directory, retaining every sample and complete outputs.",
+      "blocked_by": "Separate authorized measurement; no new source or kappa transfer."
+    },
+    {
+      "question": "Can this setup reuse be transferred to a changed literal compiler?",
+      "why_it_matters": "The method and AST sites are pinned to one original implementation.",
+      "first_step": "Authenticate the changed source and prove every substituted scalar lookup before any full run.",
+      "blocked_by": "New coverage, overlap and feasibility gates; no automatic successor admission."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

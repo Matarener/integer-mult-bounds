@@ -1,0 +1,32 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [
+  "numpy==2.2.6",
+  "scipy==1.14.1",
+  "sympy==1.13.3"
+ ],
+ "inputs": [],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/tests/regress.py",
+    "--fast"
+   ],
+   "timeout_seconds": 600,
+   "checks": "Fast suite: exact kappa of PR5545/5551/5553/5561/5561s/5907/5827, native replay equality, screens executed on #5660, legality check with localised mutants, shipcheck, surgery round trip on #6030, rebuild mini chain (skeleton + hubs) at exact kappa .003125811557911897."
+  },
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/tests/retain_test.py"
+   ],
+   "timeout_seconds": 180,
+   "checks": "R-RETAIN: #6144 -> #6167 bit-identical and 0 sites on #6167."
+  }
+ ]
+}

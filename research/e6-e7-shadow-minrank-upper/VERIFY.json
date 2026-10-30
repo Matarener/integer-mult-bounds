@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e6-e7-shadow-minrank-upper/WITNESSES.json",
+    "research/overcomplete-and-realisation-floors/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Rebuild the E6/E7 line sets from E8; check unit diagonal and every orthogonal-pair zero of N = U V^T; exact F2 ranks 8 and 11; diagonal and orthogonal-entry mutation controls rejected."
+    }
+  ]
+}

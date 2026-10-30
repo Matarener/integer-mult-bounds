@@ -1,0 +1,68 @@
+{
+  "after_sha256": "04e194b14a1f4157be5be83e8c13995d69c3efe8996773d918acba6bfcabb471",
+  "argv": [
+    "--seed",
+    "00000000000000000000000000000000",
+    "--task",
+    "replay-runtime"
+  ],
+  "before_sha256": "51b9b217cf662557a8303136208ebd1625770dc8f4c8f5141a1fb849282825d4",
+  "benchmark_sha256": "19223030956bd2e8f01886d13e2ad11f9db56bd5b043f0e9b78d26508b1d424b",
+  "cpu_count": 18,
+  "direct_cli_controls": 1,
+  "errors": 0,
+  "fraction_less_wall_time": 0.04655790582170749,
+  "launcher": "import pathlib,sys; p=sys.argv.pop(1); f=sys.argv[0]=str(pathlib.Path.cwd()/'scripts/choose_current_research_task.py'); exec(compile(pathlib.Path(p).read_bytes(),f,'exec'),{'__name__':'__main__','__file__':f})",
+  "load_average": [
+    2.93798828125,
+    2.8505859375,
+    2.7275390625
+  ],
+  "machine": "arm64",
+  "medians_seconds": {
+    "after": 0.09959755828604103,
+    "before": 0.10446104581933469
+  },
+  "pairs": 9,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.15 (main, Oct 14 2026, 00:55:37) [Clang 23.1.3 ]",
+  "ranges_seconds": {
+    "after": [
+      0.09396249998826534,
+      0.10557451250497252
+    ],
+    "before": [
+      0.10343423748854548,
+      0.11021292919758707
+    ]
+  },
+  "repetitions_per_batch": 10,
+  "samples_seconds_per_command": {
+    "after": [
+      0.09959755828604103,
+      0.10118455418851227,
+      0.09396249998826534,
+      0.099184066709131,
+      0.10007922500371932,
+      0.09903859999030828,
+      0.09966542089823634,
+      0.09871085421182216,
+      0.10557451250497252
+    ],
+    "before": [
+      0.10914635420776904,
+      0.10519179170951247,
+      0.10352727079298348,
+      0.10446104581933469,
+      0.10507754581049085,
+      0.1042379666119814,
+      0.10343423748854548,
+      0.10353437920566648,
+      0.11021292919758707
+    ]
+  },
+  "schema": "current-picker-complete-timing/1",
+  "scope": "Complete source-executed CLI, fresh interpreter per command; same launcher on both sides. Timing includes JSON decoding and output equality checks. No speed guarantee on other hosts or mapped historical routes.",
+  "stdout_sha256": "de87d316bc9eac6279769b9d6d42adcb001f49f90cff87ad404b9a61a33d125b",
+  "successful_timed_commands": 180
+}

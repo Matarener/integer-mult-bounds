@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/disjoint-tensor-frame-unions/README.md",
+    "scripts/binary_phase_frames.py",
+    "scripts/certify.py",
+    "scripts/exclusion_circuit.py",
+    "scripts/experiments/disjoint_tensor.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact canonical JSON bytes on 1623 schemas and six circuits through h=26; identical complete receipts; unchanged nondigest checker AST; malformed input, changed-source, omitted-statement and circuit-corruption rejection."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same complete coverage and rejection controls with assertions disabled."
+    }
+  ]
+}

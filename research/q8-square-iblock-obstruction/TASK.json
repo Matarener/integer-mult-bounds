@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Inside the existing F2[Q8] dirty-register model, a square i-call block n_i=t_i forces n_j>=2 t_i, up to trace parity. The inherited bound 5n>=11t is therefore never attained on the rays t_i=4 t_j and t_j=4 t_i: shape (4k,k) has no exact word of length 11k, so n>=11k+2, while the direct word costs 15k. At shape (7,1) the lemma excludes the relaxation witness (7,13); the 20-call splits (9,11), (11,9) and (13,7) remain open. No new alphabet and no new kappa.",
+  "scope_change_reason": "The catalogue question asks whether a newly specified alphabet escapes the three-register obstruction. This package does not change the operation alphabet. It proves a square-block obstruction inside the already specified F2[Q8] model, aimed at the equality case and the (7,1) count witness left open by the shape-sensitive mixed-target bound. A local negative result may be retained without a supplier; no construction round is started.",
+  "bottleneck_link": "Side result in the nonabelian register model. Removing unrealizable equality cases does not raise the selected conditional kappa 0.001672660197076918, and no physical caller or supplier admission is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the square-block image obstruction, the ray non-attainment n>=11k+2, and the (7,1) split list are proved and checked. Do not search the remaining 20-call splits and do not start a construction round.",
+  "outcome": "partial",
+  "evidence": "PROOF.md, README.md and verify.py. Direct words for (4,1) and (7,1) with one dirty role; Sylvester through dimension 3; a non-identity unitriangular image fixture; the unique 11k split rejected for k=1..32; (7,13) rejected while three 20-call splits remain.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Prepared by unpaidmoon with substantial Cursor Grok assistance. Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does shape (7,1) have an exact 20-call word on one of (9,11), (11,9) or (13,7)?",
+      "why_it_matters": "The count relaxation still has minimum 20 after (7,13) is removed, and the direct word costs 24, so the exact minimum stays in {20,22,24}.",
+      "first_step": "Test the cubic-tight split (13,7), where rank(X_j)=rank(Y_j)=4, against the eight-coefficient endpoint.",
+      "blocked_by": "No endpoint search of these three splits is included. A timeout from a solver is not an exclusion."
+    },
+    {
+      "question": "Is the exact minimum for shape (4,1) equal to 13 or to the direct length 15?",
+      "why_it_matters": "This is the smallest case of the new ray bound n>=11k+2. Length 11 is excluded; length 13 is not.",
+      "first_step": "Decide the four count-legal splits that survive the square lemma at 13 calls: (4,9), (6,7), (8,5) and (10,3).",
+      "blocked_by": "No exhaustive endpoint search at 13 calls is included."
+    },
+    {
+      "question": "Can a formal saving on these shapes be matched to a physical caller and a complete invoice?",
+      "why_it_matters": "A call-count obstruction does not price scalar routing, restoration, hosting, precision or a recursive supplier, so it cannot move the selected frontier.",
+      "first_step": "Bind one concrete word to a physical layout and a full paid invoice before any supplier claim.",
+      "blocked_by": "No physical caller is identified here."
+    }
+  ]
+}

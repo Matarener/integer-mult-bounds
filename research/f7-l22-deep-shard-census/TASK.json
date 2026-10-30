@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "census-pruning-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "census-pruning-audit",
+    "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+    "starting_points": [
+      "research/f7-weight-parity-census-correction/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+      "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+    ],
+    "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+      "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+    },
+    "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+    "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+    "allowed_variations": [
+      "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+    ],
+    "scope_change_triggers": [
+      "Launching a larger census before validating the prune and explaining which active decision it changes.",
+      "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+    ],
+    "overlap_terms": [
+      "2973",
+      "2542",
+      "2634",
+      "2691",
+      "weight parity",
+      "bit-0",
+      "01021323",
+      "census pruning"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Finish the length-22 seven-label split census that research/f7-l22-union-census (#3818) left capped. The five capped splits (10,9), (10,10), (11,9), (11,10), (11,11), and the two 17-point splits (11,6), (10,7) that #3708 removed only by importing #2773/#2870, are run with the unchanged merged union-budget engine on a 251-entry prefix-free cover (the 203 depth-six restricted-growth prefixes, with 012345 replaced by its 49 depth-eight extensions), with no node cap. A split is a finite exclusion only if all 251 shards exit complete with zero hits. A small-domain partition control compares sharded and unsharded hit sets where universal words exist.",
+  "scope_change_reason": "The card asks which census exclusions are sound and which bounded repair is justified. #3818 already ported a proved, mutant-tested prune into the corrected engine and left an explicit resource-limited open question (OQ1): five length-22 splits capped. The named decision is f(7) in {22, 24} inside PR943's prefix-walk model (#2973). This package changes no pruning rule; it only removes the cap by finer sharding and records the receipts.",
+  "bottleneck_link": "Side result in the word-census line. It settles the length-22 question that #2973, #3708, #3731 and #3818 left open, inside the stated finite model. It changes no supplier, tariff, kappa or selected record.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after each target split has been run on all 251 cover shards or the session budget is exhausted. Any hit word is reported verbatim and the exclusion withdrawn. A split with any incomplete shard is not an exclusion.",
+  "outcome": "completed",
+  "evidence": "RESULT.json: all seven target splits complete on all 251 cover shards with zero hits ((11,11) 55,385,607,437 nodes; (11,10) 52,957,641,635; (10,10) 44,378,511,529; (11,9) 14,058,107,415; (10,9) 7,027,617,655; (10,7) 700,909; (11,6) 2,247). With #3731/#3818's four exclusions they close all eleven rows of #3708's length-22 table, so no restored universal length-22 seven-label word exists in PR943's prefix-walk model, and with #2973's bounds f(7) = 24 in that model. verify.py checks the engine pin, the cover partition, the receipt and the domain closure, runs a sharded-versus-unsharded control on small domains with real universal words, and replays registered cover slices with exact per-shard node equality.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does a separately implemented census (for example #3005's C++ engine) reproduce the seven length-22 split exclusions?",
+      "why_it_matters": "The f(7) = 24 conclusion in the prefix-walk model rests on one C engine and its written pruning proofs.",
+      "first_step": "Lift #3005's L <= 20 gate to 22, run (10,9) on the same 251-entry cover, and compare zero-hit completion shard by shard.",
+      "blocked_by": "The #3005 engine's throughput at length 22 is unmeasured; the largest splits need about 5e10 nodes each."
+    },
+    {
+      "question": "Can verify.py re-derive #3708's eleven-row length-22 domain from the four necessary conditions instead of taking the table as given?",
+      "why_it_matters": "It would make the domain-closure check self-contained.",
+      "first_step": "Port #3708's arithmetic checks (time bound, odd budget, even budget, pair identity) into verify.py and compare the row set.",
+      "blocked_by": "Nothing structural."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the digit ring, the coefficient headroom and the absorbed power at every listed width."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that 8/5 minus 1/500 is 799/500 and that the Fourier gap is 17619697/100000000000."
+    }
+  ]
+}

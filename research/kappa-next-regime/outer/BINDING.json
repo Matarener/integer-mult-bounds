@@ -1,0 +1,62 @@
+{
+  "check_ledger.py": {
+    "added_assertions_enabled_guard": false,
+    "bound_sha256": "7c92439c935fa4b8e6b795e71b54921fcf3becedbaa9d658b44170b008be5aee",
+    "original": "research/kappa-adaptive-continuation/evidence/full-release/admission/package/outer/check_ledger.py",
+    "original_sha256": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+    "source_replacements": [
+      {
+        "from": "bit=Q('0.001733427039589844234749')",
+        "to": "bit=Q(spec['expected']['bit_lower'])\ncertified_endpoint=min(certified_complex,bit)"
+      },
+      {
+        "from": "b=certified_complex-B_GAP",
+        "to": "b=certified_endpoint-B_GAP"
+      },
+      {
+        "from": "assert b<certified_complex<bit",
+        "to": "assert b<certified_endpoint<=certified_complex and b<bit"
+      },
+      {
+        "from": "assert (certified_complex*FLOOR).denominator==1 and 0<certified_complex-EPS*q<Q(1,FLOOR)",
+        "to": "assert (certified_endpoint*FLOOR).denominator==1 and 0<certified_endpoint-EPS*q<Q(1,FLOOR)"
+      },
+      {
+        "from": "assert row['kappa']==certified_complex-Q(1,FLOOR)-BACKOFF",
+        "to": "assert row['kappa']==certified_endpoint-Q(1,FLOOR)-BACKOFF"
+      },
+      {
+        "from": "'halo_umbrella':HALO_UMBRELLA,'complex_lower_short':b,'complex_lower_pinned':certified_complex,",
+        "to": "'halo_umbrella':HALO_UMBRELLA,'effective_common_lower':b,'complex_lower_pinned':certified_complex,\n     'bit_lower_pinned':bit,'binding_endpoint':certified_endpoint,"
+      },
+      {
+        "from": "Conditional fine-prime padding composition. Fresh native admission is required by verify.py. The cited prime theorem, written gauge-free theorem and inherited all-size interfaces are not proved by this arithmetic. No independent human review is claimed.",
+        "to": "Conditional fine-prime padding composition at the minimum of the certified bit and complex endpoints. This arithmetic does not admit either supplier or prove the cited prime theorem, written gauge-free theorem, or inherited physical and all-size interfaces. No independent human review is claimed."
+      }
+    ]
+  },
+  "independent_check.py": {
+    "added_assertions_enabled_guard": true,
+    "bound_sha256": "e3f04d240292959e0ee4bf7518ddffbebdc286cfad6bdf2f8808920eac8c211a",
+    "original": "research/kappa-adaptive-continuation/evidence/full-release/admission/package/outer/independent_check.py",
+    "original_sha256": "a5a0361539ec7cae9eb6c0371f857919335a1720040f22af291aa3e34fc864c7",
+    "source_replacements": [
+      {
+        "from": "spec=json.loads(src.read_text());pinned=F(spec['expected']['complex_lower'])",
+        "to": "spec=json.loads(src.read_text());actual_bit=F(spec['expected']['bit_lower']);complex_pinned=F(spec['expected']['complex_lower']);pinned=min(actual_bit,complex_pinned)"
+      },
+      {
+        "from": "b=F(BJ['b']);q=b-F(1,T);eff=(q+b)/2;actual_bit=F('0.001733427039589844234749')",
+        "to": "b=F(BJ['b']);q=b-F(1,T);eff=(q+b)/2"
+      },
+      {
+        "from": "assert 0<q<eff<b<pinned<actual_bit",
+        "to": "assert 0<q<eff<b<pinned<=actual_bit and pinned<=complex_pinned"
+      },
+      {
+        "from": "the supplier native admission is bound by verify_release.py; inherited all-size assumptions remain.",
+        "to": "both supplier native admissions remain explicit hypotheses; this script proves only the exact finite balance equations."
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+ "adapter_control": "PR5830 word, every physical MOVE/ADD/SCALE a site: 20-bit causal case equals PR5838 RESULT.json causal_cases[guard=20] in every final coefficient, the peak value, its field and the 26271 defect sites. Only the peak instruction index differs, because PR5838 also numbers exact virtual identities.",
+ "claim": "Finite certificate: under PR5838's completed-operation relative-error contract and causal bound, both PR5833 words accept a 20-bit guard; intermediate error stays below 0.978B and field norm plus error below 97B (budget word) and 3B (minimum word).",
+ "rejected_controls": [
+  "drop the last instruction of the budget word",
+  "double one SCALE coefficient of the budget word",
+  "accept guard 19 on the budget word",
+  "omit the last 1000 defect sites without changing the bound"
+ ],
+ "schema_version": 1,
+ "source_hashes": {
+  "research/p104-gauge-error-covariance/RESULT.json": "b8967e8aeca1d59addc8094526232bda4b144b8a85df319a043e82536d07be03",
+  "research/p104-gauge-error-covariance/causal.py": "779fc064fc26ecd2091552eb23761ffecaf8a689f8ff027853bc3e88d90e6256",
+  "research/p104-gauge-error-covariance/inputs/WORD.json.gz": "6a7467851c2a3bc8aee3a7018bcf15290848f040484cfbff5a97ca0773207e0a",
+  "research/p104-gauge-error-covariance/transfer.py": "618231ab4e144999a71622511bbd41c6a0fb32351c12340e65311084f4cf0a18",
+  "research/p104-priced-amplification/BUDGET-WORD.json.gz": "2d707ffa13d95182aa799097b2ef0a6a8bdad29814976c4e52f66af8d2e517ff",
+  "research/p104-priced-amplification/MINIMUM-WORD.json.gz": "5ecbb6533ea43dbbb4865d61d6953e4180c4ac796ee9a620c0f11f85cc82d549"
+ },
+ "unit": "B, the bound on every initial field Hilbert norm; u = 2^-guard",
+ "words": {
+  "pr5830_gauge_word": {
+   "defect_sites": 26271,
+   "field_norm_plus_error_bound": "20778030171283507118687820528136407/316912650057057350374175801344",
+   "final_public_bound": "1268907899307767744718911294017839/1298074214633706907132624082305024",
+   "ideal_peak": "65537",
+   "identity_scale_sites": 0,
+   "instructions": 26351,
+   "intermediate_error_at": [
+    24580,
+    349
+   ],
+   "intermediate_error_bound": "8525824494139547215461035454679/316912650057057350374175801344",
+   "least_causal_guard": 20,
+   "operation_counts": {
+    "ADD": 21685,
+    "CLEAR": 29,
+    "COPY": 22,
+    "INIT": 29,
+    "MOVE": 3457,
+    "SCALE": 1129
+   },
+   "owned_fields": 12,
+   "public_fields": 770,
+   "rejected_final_public_bound": "317361194300804062733789640958015/162259276829213363391578010288128",
+   "rejected_guard": 19,
+   "scan": [
+    {
+     "final_public_bound": "1268505349529775942440067171376851/5192296858534827628530496329220096",
+     "guard": 22,
+     "intermediate_error_bound": "4262490850044930134848577591973/633825300114114700748351602688"
+    },
+    {
+     "final_public_bound": "2537279044886802426282421954976059/5192296858534827628530496329220096",
+     "guard": 21,
+     "intermediate_error_bound": "8525262622353040458504352712329/633825300114114700748351602688"
+    },
+    {
+     "final_public_bound": "1268907899307767744718911294017839/1298074214633706907132624082305024",
+     "guard": 20,
+     "intermediate_error_bound": "8525824494139547215461035454679/316912650057057350374175801344"
+    },
+    {
+     "final_public_bound": "317361194300804062733789640958015/162259276829213363391578010288128",
+     "guard": 19,
+     "intermediate_error_bound": "17053896693521503963650793986429/316912650057057350374175801344"
+    }
+   ]
+  },
+  "pr5833_budget_word": {
+   "defect_sites": 27022,
+   "field_norm_plus_error_bound": "491734110945483183559404247863187/5070602400912917605986812821504",
+   "final_public_bound": "4956280457843093384670216998803/5070602400912917605986812821504",
+   "ideal_peak": "96",
+   "identity_scale_sites": 0,
+   "instructions": 27102,
+   "intermediate_error_at": [
+    26539,
+    205
+   ],
+   "intermediate_error_bound": "4956280457843093384670216998803/5070602400912917605986812821504",
+   "least_causal_guard": 20,
+   "operation_counts": {
+    "ADD": 21685,
+    "CLEAR": 29,
+    "COPY": 22,
+    "INIT": 29,
+    "MOVE": 3457,
+    "SCALE": 1880
+   },
+   "owned_fields": 12,
+   "public_fields": 770,
+   "rejected_final_public_bound": "9916780791124075418200791780253/5070602400912917605986812821504",
+   "rejected_guard": 19,
+   "scan": [
+    {
+     "final_public_bound": "309668651851752592698620988495/1267650600228229401496703205376",
+     "guard": 22,
+     "intermediate_error_bound": "309668651851752592698620988495/1267650600228229401496703205376"
+    },
+    {
+     "final_public_bound": "619403216486029567696652192465/1267650600228229401496703205376",
+     "guard": 21,
+     "intermediate_error_bound": "619403216486029567696652192465/1267650600228229401496703205376"
+    },
+    {
+     "final_public_bound": "4956280457843093384670216998803/5070602400912917605986812821504",
+     "guard": 20,
+     "intermediate_error_bound": "4956280457843093384670216998803/5070602400912917605986812821504"
+    },
+    {
+     "final_public_bound": "9916780791124075418200791780253/5070602400912917605986812821504",
+     "guard": 19,
+     "intermediate_error_bound": "9916780791124075418200791780253/5070602400912917605986812821504"
+    }
+   ]
+  },
+  "pr5833_minimum_word": {
+   "defect_sites": 27027,
+   "field_norm_plus_error_bound": "117949169803671572367362214249/39614081257132168796771975168",
+   "final_public_bound": "38721007289407234773818263913/39614081257132168796771975168",
+   "ideal_peak": "2",
+   "identity_scale_sites": 0,
+   "instructions": 27107,
+   "intermediate_error_at": [
+    26540,
+    205
+   ],
+   "intermediate_error_bound": "38721007289407234773818263913/39614081257132168796771975168",
+   "least_causal_guard": 20,
+   "operation_counts": {
+    "ADD": 21685,
+    "CLEAR": 29,
+    "COPY": 22,
+    "INIT": 29,
+    "MOVE": 3457,
+    "SCALE": 1885
+   },
+   "owned_fields": 12,
+   "public_fields": 770,
+   "rejected_final_public_bound": "309899930218753983333898480473/158456325028528675187087900672",
+   "rejected_guard": 19,
+   "scan": [
+    {
+     "final_public_bound": "38708647619431921159920415107/158456325028528675187087900672",
+     "guard": 22,
+     "intermediate_error_bound": "38708647619431921159920415107/158456325028528675187087900672"
+    },
+    {
+     "final_public_bound": "77425534386359887694650009247/158456325028528675187087900672",
+     "guard": 21,
+     "intermediate_error_bound": "77425534386359887694650009247/158456325028528675187087900672"
+    },
+    {
+     "final_public_bound": "38721007289407234773818263913/39614081257132168796771975168",
+     "guard": 20,
+     "intermediate_error_bound": "38721007289407234773818263913/39614081257132168796771975168"
+    },
+    {
+     "final_public_bound": "309899930218753983333898480473/158456325028528675187087900672",
+     "guard": 19,
+     "intermediate_error_bound": "309899930218753983333898480473/158456325028528675187087900672"
+    }
+   ]
+  }
+ }
+}

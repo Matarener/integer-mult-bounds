@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-rank8-rigidity-p105/verify.py",
+    "research/complex-rank8-rigidity-p105/UNITS.json.gz",
+    "research/complex-rank8-rigidity-p105/COVER.bin.gz",
+    "research/complex-rank8-rigidity-p105/README.md",
+    "research/e7-quadratic-support/verify.py",
+    "research/e7-quadratic-support/README.md",
+    "research/full-family-g-without-d/verify.py",
+    "research/full-family-g-without-d/README.md",
+    "research/frame-incidence-zero-exclusion/proof.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--cover"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete source orbit cover, uniform geometry, separate dense rank controls and exact eight-deletion boundary."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--part",
+        "1/2",
+        "--jobs",
+        "4"
+      ],
+      "timeout_seconds": 450,
+      "checks": "Every global incidence rank in exhaustive deletion-unit part 1/2."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--part",
+        "2/2",
+        "--jobs",
+        "4"
+      ],
+      "timeout_seconds": 450,
+      "checks": "Every global incidence rank in exhaustive deletion-unit part 2/2."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--e7"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete retained E7 binary support census and all92 controls."
+    }
+  ]
+}

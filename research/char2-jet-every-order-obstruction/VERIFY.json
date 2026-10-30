@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/char2-jets/data/jf0.json",
+    "research/char2-jets/data/jf1.json",
+    "research/char2-jets/data/jf2.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Recompute immovable lines and Z_(2) lifts from the pinned jf0..2, compare with CERTIFICATE.json, check exact exponent identities; rational, F2[[eps]] valuation and single-edge mutation controls."
+    }
+  ]
+}

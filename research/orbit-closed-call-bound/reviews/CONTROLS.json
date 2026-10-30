@@ -1,0 +1,647 @@
+{
+  "control_source_sha256": "fca42a2da26c110ecf2ece5dee9bcdf49b225e83722ced29deb34a5414406671",
+  "executed_check_deletions_per_mode": 14,
+  "full_scientific_receipts_compared": 2,
+  "full_scientific_stages_replayed": false,
+  "intended_rejections_per_mode": 58,
+  "no_new_kappa": true,
+  "normal_and_optimized_receipts_equal_except_mode": true,
+  "runs": [
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "coverage": {
+        "actual_dispatch_tested_with_tiny_receipts": true,
+        "executed_check_deletions": 1,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "orbit_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "orbit_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "orbit_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "omitted_actual_compare"
+          }
+        ],
+        "stage_counts": {
+          "independent": 1,
+          "orbit": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "output": {
+        "early_output_guards": true,
+        "exclusive_output_creation_exercised": true,
+        "rejections": [
+          {
+            "intended_gate": "output must be absolute",
+            "name": "relative_output"
+          },
+          {
+            "intended_gate": "output already exists",
+            "name": "existing_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "internal_output"
+          },
+          {
+            "intended_gate": "exclusive output creation FileExistsError",
+            "name": "output created during replay"
+          }
+        ]
+      },
+      "parent_optimization": 0,
+      "real_records": [
+        {
+          "nested_path": [
+            "cases",
+            0,
+            "events",
+            0,
+            "local_diagonal",
+            0
+          ],
+          "record": "independent/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "226dc4c62b00d3bedbcd72e4763275b49223704bb25e68ff44cd3681d9e1c884"
+        },
+        {
+          "nested_path": [
+            "finite_cases",
+            0,
+            "F2_all_8_coefficient_matrices",
+            0,
+            0,
+            0
+          ],
+          "record": "orbit/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: orbit/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: orbit/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "b719b88739795f625b7722f0621612b816267b23cf5d9325c9799a7baac161bf"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "scientific": {
+        "actual_mathematical_mutations_after_authentication": true,
+        "deletion_scope": "the same named production predicate",
+        "executed_check_deletions": 12,
+        "full_scientific_stages_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "complete regular-action endpoint",
+            "name": "omitted local call"
+          },
+          {
+            "intended_gate": "complete regular-action endpoint",
+            "name": "wrong cyclic port conjugation"
+          },
+          {
+            "intended_gate": "all public and arbitrary dirty spectator columns",
+            "name": "dirty spectator leaks into public output"
+          },
+          {
+            "intended_gate": "all public and arbitrary dirty spectator columns",
+            "name": "spectator not returned literally"
+          },
+          {
+            "intended_gate": "charged local derivative rank at most two",
+            "name": "paid full common transform mislabeled one local call"
+          },
+          {
+            "intended_gate": "complete regular-action endpoint",
+            "name": "BIT inverse coincidence does not transfer to C4"
+          },
+          {
+            "intended_gate": "free bridge is parameter independent",
+            "name": "parameter dependent transform mislabeled free bridge"
+          },
+          {
+            "intended_gate": "exact C3 source covariance",
+            "name": "source rotation with the one-character y specialization"
+          },
+          {
+            "intended_gate": "exact C3 source covariance",
+            "name": "inverse cover rotation has wrong source covariance"
+          },
+          {
+            "intended_gate": "public every-coefficient endpoint",
+            "name": "actual orbit query omitted"
+          },
+          {
+            "intended_gate": "dirty spectator every-coefficient endpoint",
+            "name": "actual borrowed spectator return omitted"
+          },
+          {
+            "intended_gate": "local first-order capacity",
+            "name": "full common transform violates actual local alphabet"
+          }
+        ]
+      },
+      "sources": {
+        "all_mutations_in_disposable_bytes_or_directory": true,
+        "full_scientific_stages_replayed": false,
+        "historical_assertions_execute_with_optimization_zero": true,
+        "no_path_import_or_pyc_execution": true,
+        "rejections": [
+          {
+            "intended_gate": "HISTORICAL_NESTED_ASSERT",
+            "name": "captured_historical_nested_assertion"
+          },
+          {
+            "intended_gate": "unique historical adaptation",
+            "name": "duplicate_historical_adapter"
+          },
+          {
+            "intended_gate": "unique historical adaptation",
+            "name": "missing_historical_adapter"
+          },
+          {
+            "intended_gate": "captured root read count",
+            "name": "undeclared_additional_source_read"
+          },
+          {
+            "intended_gate": "authenticated input: frozen/source/bitE8-r865.json.gz",
+            "name": "changed_actual_root_source"
+          }
+        ]
+      }
+    },
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "coverage": {
+        "actual_dispatch_tested_with_tiny_receipts": true,
+        "executed_check_deletions": 1,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "orbit_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "orbit_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "orbit_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: orbit",
+            "name": "omitted_actual_compare"
+          }
+        ],
+        "stage_counts": {
+          "independent": 1,
+          "orbit": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "output": {
+        "early_output_guards": true,
+        "exclusive_output_creation_exercised": true,
+        "rejections": [
+          {
+            "intended_gate": "output must be absolute",
+            "name": "relative_output"
+          },
+          {
+            "intended_gate": "output already exists",
+            "name": "existing_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "internal_output"
+          },
+          {
+            "intended_gate": "exclusive output creation FileExistsError",
+            "name": "output created during replay"
+          }
+        ]
+      },
+      "parent_optimization": 1,
+      "real_records": [
+        {
+          "nested_path": [
+            "cases",
+            0,
+            "events",
+            0,
+            "local_diagonal",
+            0
+          ],
+          "record": "independent/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "226dc4c62b00d3bedbcd72e4763275b49223704bb25e68ff44cd3681d9e1c884"
+        },
+        {
+          "nested_path": [
+            "finite_cases",
+            0,
+            "F2_all_8_coefficient_matrices",
+            0,
+            0,
+            0
+          ],
+          "record": "orbit/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: orbit/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: orbit/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "b719b88739795f625b7722f0621612b816267b23cf5d9325c9799a7baac161bf"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "scientific": {
+        "actual_mathematical_mutations_after_authentication": true,
+        "deletion_scope": "the same named production predicate",
+        "executed_check_deletions": 12,
+        "full_scientific_stages_replayed": false,
+        "rejections": [
+          {
+            "intended_gate": "complete regular-action endpoint",
+            "name": "omitted local call"
+          },
+          {
+            "intended_gate": "complete regular-action endpoint",
+            "name": "wrong cyclic port conjugation"
+          },
+          {
+            "intended_gate": "all public and arbitrary dirty spectator columns",
+            "name": "dirty spectator leaks into public output"
+          },
+          {
+            "intended_gate": "all public and arbitrary dirty spectator columns",
+            "name": "spectator not returned literally"
+          },
+          {
+            "intended_gate": "charged local derivative rank at most two",
+            "name": "paid full common transform mislabeled one local call"
+          },
+          {
+            "intended_gate": "complete regular-action endpoint",
+            "name": "BIT inverse coincidence does not transfer to C4"
+          },
+          {
+            "intended_gate": "free bridge is parameter independent",
+            "name": "parameter dependent transform mislabeled free bridge"
+          },
+          {
+            "intended_gate": "exact C3 source covariance",
+            "name": "source rotation with the one-character y specialization"
+          },
+          {
+            "intended_gate": "exact C3 source covariance",
+            "name": "inverse cover rotation has wrong source covariance"
+          },
+          {
+            "intended_gate": "public every-coefficient endpoint",
+            "name": "actual orbit query omitted"
+          },
+          {
+            "intended_gate": "dirty spectator every-coefficient endpoint",
+            "name": "actual borrowed spectator return omitted"
+          },
+          {
+            "intended_gate": "local first-order capacity",
+            "name": "full common transform violates actual local alphabet"
+          }
+        ]
+      },
+      "sources": {
+        "all_mutations_in_disposable_bytes_or_directory": true,
+        "full_scientific_stages_replayed": false,
+        "historical_assertions_execute_with_optimization_zero": true,
+        "no_path_import_or_pyc_execution": true,
+        "rejections": [
+          {
+            "intended_gate": "HISTORICAL_NESTED_ASSERT",
+            "name": "captured_historical_nested_assertion"
+          },
+          {
+            "intended_gate": "unique historical adaptation",
+            "name": "duplicate_historical_adapter"
+          },
+          {
+            "intended_gate": "unique historical adaptation",
+            "name": "missing_historical_adapter"
+          },
+          {
+            "intended_gate": "captured root read count",
+            "name": "undeclared_additional_source_read"
+          },
+          {
+            "intended_gate": "authenticated input: frozen/source/bitE8-r865.json.gz",
+            "name": "changed_actual_root_source"
+          }
+        ]
+      }
+    }
+  ],
+  "source_hashes": {
+    "FROZEN-SHA256.json": "02f29358ac08aeaa969d82ba1967c25c9a28b536a6393e7bf44b6f3e6a2264ec",
+    "ORIGINS.json": "f741f1faef3c0e55a23623b12ce1d9bc6905e947dadefd26c3665dd8bf397f1d",
+    "independent/check.py": "c19dabdb8a6f84a44a2a3acbe86d9e2c380100c6217a3f89028742c15b423826",
+    "orbit/check.py": "75ed569703eec067756efebc8067517ef77d771d2df95d39084482726ec3e3e3",
+    "verify.py": "9566d768b7929e25e8ad62b96f27986827c7ae4d94a5faa25d296f58391d9a3e"
+  },
+  "status": "PASS_C09_ORBIT_COMPACT_SOURCE_RECORD_AND_SEMANTIC_CONTROLS"
+}

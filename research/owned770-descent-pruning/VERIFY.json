@@ -1,0 +1,38 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Exact coalesced-word endpoints/ownership, all 798 transpose columns, literal prices, unchanged native boundary list and nine rejection controls.",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Exact coalesced-word endpoints/ownership, all 798 transpose columns, literal prices, unchanged native boundary list and nine rejection controls.",
+      "timeout_seconds": 120
+    }
+  ],
+  "inputs": [
+    "research/p104-unread-path-resynthesis/local.py",
+    "research/owned770-descent-pruning/inputs/pr6144-WORD.json.gz",
+    "research/owned770-descent-pruning/PREDECESSOR.json"
+  ],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

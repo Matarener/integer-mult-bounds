@@ -1,29 +1,60 @@
 # Research family status and expansion decisions
 
-Revision 6, assessed 2026-10-16 against main
-`b3f3ee0392b71b118fd086a6eaf6b4cab54ef455`.
+Revision 7, assessed 2026-10-20 against main
+`9200177938843d92957bbfe6f1fdbe88768d8cc5`.
 This is a navigation and decision record, not supplier admission or a complete
-survey. The selected conditional kappa is still **0.001672660197076918**.
-Resolve its evidence and assumptions through
-[selected-result.json](../../certificates/selected-result.json).
+survey. **Selection refresh (October 22): κ = 0.00302015 (#4470).** The family survey below is historical; resolve current
+sources and assumptions through [selected-result.json](../../certificates/selected-result.json).
 
-Check live heads and claims before choosing a task. The revision-6 package claims
-and intake records were read for this update; their newer mathematical
-claims were **not independently replayed in this guidance pass**. Pin any pending
-dependency and validate the part your work relies on. A pending claim can guide
-an audit without being treated as an established theorem or a reservation.
+The newer package claims and intake receipts were read for this guidance update.
+Their mathematics was **not independently replayed in this pass**. Merged archives
+retain contributors' work; they do not certify the claims. Pin and validate any
+pending dependency your work uses. Check live heads and handoffs before assignment.
 
 ## Current leads
 
-| Family / decision | Established starting point | Newer evidence status | Next useful decision |
-|---|---|---|---|
-| P104 completion / narrow to chronological realization | [Reviewed #1991 channel](../../research/p104-native-channel/README.md), [review](community-efficient1000-review.md) | [#2981 static joint flags](../../research/p104-joint-unit-flags/README.md), author-checked source archive | Attach acquisition/delivery times, dependencies and coefficients to one named collection; test restoration and the complete bill. Static nesting is not a correction program. |
-| QQ16 controller / narrow to actual producer and consumer | [Reviewed local words and scoped witness](../../research/joint-query/README.md), [review](community-efficient1000-review.md) | [#2965 defect transfer](../../research/qq16-producer-defect-transfer/README.md), author-checked source archive | Derive actual producer-output defects and dirty-helper ranges, then price physical consumption. Another local inverse or isolated precision constant is not the missing implementation. |
-| Selected stock / retain targeted audit | [Stock audit](../../research/selected-bootstrap-stock-audit/README.md), [review](community-efficient1000-review.md) | [#2972 cutoff chain](../../research/stock-margin-chain/README.md), author-checked source archive; actual coefficients remain unresolved | Derive one actual selected stage reserve/depth coefficient from its producer. Cutoff arithmetic does not supply it. |
-| Joint frame/circuit changes / audit before expansion | Selected supplier and complete paid-profile obligations | [#2979 coordinated lowerings and extractions](../../research/rank7-joint-endframes/README.md), author-checked source archive | Independently check a joint group against a single-change control and trace its entire cost delta; stop at unresolved admission dependencies before searching more groups. |
-| Semantic acceptance and census reliability / bounded audits | Existing selected-source and export checks | [#2977 scatter/export mismatch](../../research/scatter-export-parity-audit/README.md) and [#2973 pruning correction](../../research/f7-weight-parity-census-correction/README.md), author-checked source archives | Validate tiny counterexamples, then map precisely affected acceptance conditions or exclusions. Neither report automatically invalidates the selected construction. |
-| New coding, geometry and recursive boundaries / retain exploration | Existing scope-specific barriers and [budget tool](../../research/complex-local-word-ceiling/README.md) | No new general mechanism admitted by this update | Specify which obligation disappears and why a complete consumer does not repay it. Choose a genuinely different contract or mechanism, not another seed. |
-| Product preparation / pause the maintainer's fixed recipe | Local checkpoint described below; not integrated scientific evidence | Maintainer-local checked packages, not independently reviewed or available from this main checkout | Audit the exact source when published, or change production **and** its consumer, the two-pass interface, or the central/side construction together. Do not interpret the local stop as a universal product obstruction. |
+| Family | Decision and next useful work | Stop / reopening condition |
+|---|---|---|
+| Proposed all-size proof #4100 | **Audit**, partitioned into CRT repair, native/free-algebra lift, precision/conditioning and tape costs. Name one proposition and actual caller. | Stop at a precise missing implication or proved scoped result. Finite checks do not discharge universal premises. Broaden only after that dependency is resolved. |
+| Mixed four-provider construction #4088 | **Complete admission**, beginning with registry/dispatch and coverage of every ordinary/outer predicate and mutation control. | No frontier promotion from a local/root pass. Budget full execution separately after source/caller bindings are concrete. |
+| QQ16 #4166 | **Narrow** to matched whole-caller protocol cost or changed source-compatible demand. Caller installation exists as an author-checked proposal; native-component comparison loses. | Stop if the full necessary inequality fails or remains unpriced. Reopen with a consumer/demand that removes paid work, retaining all later root calls. |
+| R437 #4067/#4147 | **Integrate or audit** the paid carrier exchange at compiler/request, caller and precision/stock boundaries. | Reverse coefficient is already covered. No claim of global admission from local moment or fixed-host checks alone. |
+| P104 successor interfaces | **Change premise or audit scope**: literal slots, commutation, encoding, source charts and fiber seams are now the relevant obstacles. | Stop repeated static counts or the same mismatched seam. Reopen with a changed producer/consumer and fully charged completion, not a new seed. |
+| Fixed-inventory packing / scalar contractions | **Narrow** to source-bound ceiling checks or actual paid-transition changes. | No default fixed-invoice repacking or scalar-only scan. Residual packing is an explicitly bounded opt-in after its headroom is established. |
+| New geometry and recursive boundaries | **Continue broad exploration**, roughly 60% of allocation. | Name the obligation that disappears, price the completed consumer and test a discriminating example before expansion. No universal exclusion follows from these families. |
+| Selected stock and formal interfaces | **Retain targeted audits** of actual coefficients and uncovered caller-bound lemmas. | Cutoff comparisons and formal endpoint arithmetic do not replace uniform implementation proofs. |
+
+## Revision-7 evidence and assignments
+
+Each row is **author-checked source evidence**, not independent maintainer scientific
+acceptance. Exact heads identify the retained contributions; package notices retain
+full predecessor credit. The catalogue carries the same pins and selected-record hash.
+
+| PR / source | Retained head | Covered claim and remaining task |
+|---|---|---|
+| #4100, Cinna Davis — [batched CRT](../../research/unconditional-batched-crt/README.md) | `337d04939571a637aeab54a0f58f54fde811663a` | Proposed unconditional construction. Start independent audit at CRT.md total repair or COMPLEX.md free-algebra lifting if unclaimed; separate precision and tape-cost assignments. |
+| #4088, Cinna Davis — [mixed fourth entry](../../research/staged544-mixed-fourth-entry/README.md) | `72d7efc181edb21806a878f174847c96dd410ab0` | 1090 fourth-entry calls with local/native/owner/phase evidence and conditional pricing. Full ordinary/outer four-provider admission remains open. |
+| #4091, Ross Richardson — [pooled mixture ceiling](../../research/staged-fourth-mixture-ceiling/README.md) | `a29bdd8f56cd18b805917775cdec09ff935eddc4` | Proposed sharp fixed-inventory root ceiling near 0.001730980256. Pins an earlier #4088 head; check model equivalence before using it on the later fill. No chronological fill follows from its pooled witness. |
+| #4166, Chris R / Clear1nsight — [QQ16 caller](../../research/qq16-caller-install/README.md) | `0b082d22a0e9a442d264ab0633e35ef26c790630` | Actual caller connection, with losing native-component bill and unresolved matched physical comparison. Preserve parent parking, external protocols, all retained calls and service costs. |
+| #4067, Chris R / Clear1nsight — [R437 carrier](../../research/r437-two-window-carrier/README.md) | `a95f11c52e3ca1e4c5171b3c20d8f4b0815aee2e` | Paid (2,2)→(1,3) exchange, three added ADDs per call and fixed OQ4 host. Pooled compiler/request, physical caller, precision and stock remain. |
+| #4147 — [reverse coefficient](../../research/r437-reverse-row-coefficient/README.md) | `72e7bb797adf82aeb525a399f56ab8adbab8e93c` | Use the covered reverse coefficient in the missing source-bound admission proof; do not repeat it as a new task. |
+| #4133 — [literal slot](../../research/p104-literal-slot-defect/README.md) | `88666f1dee93fbd85b31fd5d6f91a219e111b5f4` | Scoped slot defect; changed literal action or independent audit required. |
+| #4136 — [commutation](../../research/p104-uniform-commutation-gap/README.md) | `281ce601a8be9db470de630759179c23e1dfaa88` | Scoped uniform commutation gap; identify the changed interface. |
+| #4140 — [encoding](../../research/p104-uniform-encoding-gap/README.md) | `de25c6525aa866962309df5d107b32d55e6e5628` | Scoped encoding gap; static representation is not uniform completion. |
+| #4153 — [source chart](../../research/p104-source-chart-shortcut/README.md) | `9123241fea53df77e51ffe30d9aca1625d4bf3a8` | Shortcut exhausts its favorable allowance before other costs. Change the source/consumer premise to reopen. |
+| #4154 — [fiber seam](../../research/p104-fiber-tag-seam/README.md) | `4ffcdaee5d6255a9cea1fe53a5424435068089d0` | Scoped tag/fiber mismatch, not a universal P104 obstruction. |
+| #3998 — [A2 rewrite](../../research/staged544-a2-graph-rewrite/README.md); #4019 — [separated A2](../../research/staged544-separated-a2/README.md) | `389268a6b5e0373a3125d5c6fcd6995f4ea324f5`; `f408e09df300b575235f7f77f81948071397e16d` | Scalar contraction is not a paid-profile gain. Next work must remove an actual paid transition. |
+| #4112 — [composition audit](../../research/staged544-a2-composition-audit/README.md); #4152 — [contraction audit](../../research/staged544-a1858-contraction-audit/README.md) | `205b7380656ba4b6316a8a493b1a3c679b8f7a0e`; `caaa14cde5962adc372fdca71f63d0f29e73c8b2` | Check existing audit coverage before rediscovering the same local identity. |
+| #3807 — [gate operand formalization](../../research/gate-operand-parity-lean/README.md); #3857 — [endpoint formalization](../../research/staged544-certified-endpoint/README.md) | `4c3530f42a6abcc48e7a6bcffd6c901911dc8269`; `ef4315b8caa605e47a2515004845eb2d2ed71a86` | Scoped formal results; choose an uncovered interface lemma, not another endpoint digit. |
+| #3801 — [scatter decision](../../research/scatter-boundary-decision/README.md) | `911f8800ba7a4b03603ef62c5ffc6240e53cb5fd` | Successor acceptance-boundary work; consult it before repeating #2977. |
+
+**Assignment separation.** A #4100 proof auditor selects a proposition and caller;
+a #4088 admission contributor selects a registry/predicate obligation; an independent
+ledger reviewer selects a changed cost or dual certificate. These are distinct even
+when they share a package. Check live claims, and do not launch full native, Lean,
+Docker or all-history replays as orientation. Source-binding commands are not
+scientific validation. Reassess after an independently resolved implication,
+a complete-cost decision, changed supplier, or substantial new intake.
 
 Historical revision-5 inspected heads (preserved as predecessor context, not a
 fresh statement of their GitHub status):
@@ -51,7 +82,7 @@ the same question. Neither thread is evidence of a stronger selected result.
 
 ## Revision-6 handoffs: source archives awaiting independent validation
 
-The following exact heads are retained on the assessed main. Their intake
+Historical revision-6 assignments below are retained for provenance; the revision-7 table supersedes their default next tasks. The following exact heads are retained on the assessed main. Their intake
 records certify source retention, not their mathematics. Credit stays with the
 named contributors and all predecessor attribution in their packages.
 
@@ -164,3 +195,53 @@ Preserve historical pins and attributions; update the task catalogue, guide and
 priority log together when assignments change. Current weights are allocation
 choices, not estimates of success probabilities or proof that the portfolio is
 optimal.
+
+
+## Revision 8 evidence and assignments
+
+Assessed October 26, 2026 against selected #5599
+`09dd0965711ca7eeb169057a420abab1c9052137`; see the
+[completed review](pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md).
+Earlier sections retain their original scope and evidence status. Active tasks
+are in [revision-8 priorities](current-priorities.md), not the historical tables.
+
+- **Expand legal helper/target experiments, bounded by complete invoices.**
+  Ali Romman's #5599, composing Pierre-Loic Doulcet's #5565 contacts and the
+  credited P104 lineage, is the reviewed positive control. Pending #5718 uses
+  distinct boundary bases; #5611/#5615 propose exact dyadic completion/capacity
+  tools. Partition by exact word, helper group and cut. Require dirty-state
+  independence, legal physical endpoints, target debits and complete charges.
+  Stop at an unpaid delivery; a matrix rank or hypothetical split count is not
+  enough. The frozen #5702 expansion bound is not a universal target-split cap.
+- **Continue BIT in parallel with complex.** #5679
+  `715dda75fc4cefb1e492349fa0e331d5f15d0f53` and #5708
+  `829d01fc031f7323ffcfa423fdfd1f24dcbe3190` are archived component proposals,
+  not newly admitted budgets. Check their audits before duplicating work.
+  Reopen the #5609 frozen common-frame exclusion only with a changed premise.
+- **Narrow successor admission to changed coverage.** #5717 explicitly changes
+  the caller's owned-lifetime schedule; #5719
+  `7f94d31659b6ccbbdd302588f5bddc94e0f01941` checks exact #5713 temporal premises,
+  not the changed #5718 word. Source identity, positive control and rejection
+  controls must survive adaptation. #5599's completed replay is no longer an
+  open assignment. Scientific admission of successors remains separate from
+  their source/integrity archive receipt.
+- **Continue different interfaces; pause rediscovery inside closed models.**
+  #5617/#5631/#5649 concern specific stage/caller models; #5698 optimizes a stated
+  binary coframe class. #5720 grants an active injection but identifies missing
+  helper restoration. The newer #5745 claims a sharp 8H8 canonical delivery tariff,
+  repaying the eight removed centre jobs; #5747 adds a chronological exclusion
+  for the proposed 31-leaf caller. These are newly archived scoped claims, not
+  independently replayed theorems. Audit their exact models or name the channel,
+  feedback or caller hypothesis changed before reopening construction. Do not reinterpret
+  any of these as exclusion of arbitrary finite networks. Reopen with a named
+  changed hypothesis and favorable complete budget, not more seeds.
+- **Replace obsolete audit tasks.** Select one of the five current assumption
+  IDs and an actual caller. #5625 and #5707 offer partial source-relative
+  interfaces; neither closes all-size theorem obligations. Formal and numerical
+  coverage must state what is still missing.
+
+These successor claims were read and retained through archive intake, not
+independently mathematically replayed for this strategy update. Exact heads,
+remaining scope and attribution are in the queue-oct26 receipts. The complete
+expansion gate above still applies; improving raw moment is necessary evidence,
+not full construction acceptance.

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/t74-pivot566-kernel/PINS.json",
+    "research/t74-pivot566-kernel/inputs/gauge44-word-566.json.gz",
+    "research/t74-pivot566-kernel/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "The pinned corrupt() container digest rejects the unmutated gauge44 payload and the one-byte mutant. Payload equality accepts the original, a level-1 recompression, and rejects the mutant."
+    }
+  ]
+}

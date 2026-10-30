@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "notes/partial-gauge-assembly.tex",
+    "research/selected-complex-layer-closure/PROOF.md",
+    "research/selected-stock-envelope-m73/README.md",
+    "research/complex-t16-rare-pattern-exchanges/upstream1087.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Parse the two row readings and compare them with the constant degrees."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that 2*2642+11185 is 16469 and that the 43/26 ceiling gives 15555."
+    }
+  ]
+}

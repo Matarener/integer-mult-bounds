@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "python": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "runs": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/temp/.codex/worktrees/helper680-three-meeting/integer-mult-bounds/research/p104-three-meeting-controllability/verify.py"
+      ],
+      "seconds": 12.629082917002961,
+      "result": {
+        "constructive_positive": true,
+        "exact_obstructions": 6,
+        "new_kappa": false,
+        "paid_jobs": 66348,
+        "productive_fields": 12976,
+        "rejection_controls": true,
+        "relaxation_cases": 6,
+        "semantic_sha256": "50db363dbaca657f2e43f4f00edd6ef10d667769da9b92bbad30d24d414a955c",
+        "source_columns": 753,
+        "source_corruption_rejected": true,
+        "status": "PASS"
+      }
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-O",
+        "-B",
+        "/Users/temp/.codex/worktrees/helper680-three-meeting/integer-mult-bounds/research/p104-three-meeting-controllability/verify.py"
+      ],
+      "seconds": 13.481343541992828,
+      "result": {
+        "constructive_positive": true,
+        "exact_obstructions": 6,
+        "new_kappa": false,
+        "paid_jobs": 66348,
+        "productive_fields": 12976,
+        "rejection_controls": true,
+        "relaxation_cases": 6,
+        "semantic_sha256": "50db363dbaca657f2e43f4f00edd6ef10d667769da9b92bbad30d24d414a955c",
+        "source_columns": 753,
+        "source_corruption_rejected": true,
+        "status": "PASS"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "-B",
+        "<Git-free copy>/verify.py"
+      ],
+      "seconds": 13.034390249988064,
+      "result": {
+        "constructive_positive": true,
+        "exact_obstructions": 6,
+        "new_kappa": false,
+        "paid_jobs": 66348,
+        "productive_fields": 12976,
+        "rejection_controls": true,
+        "relaxation_cases": 6,
+        "semantic_sha256": "50db363dbaca657f2e43f4f00edd6ef10d667769da9b92bbad30d24d414a955c",
+        "source_columns": 753,
+        "source_corruption_rejected": true,
+        "status": "PASS"
+      }
+    }
+  ],
+  "scope": "Exact scalar/source-bound obstruction; inherited native assumptions remain; no native/caller/compiler/outer/Lean/Docker replay",
+  "framework_assumptions": [
+    "native_all_columns",
+    "owned_erasure",
+    "compiler",
+    "precision_tape",
+    "analytic_recovery"
+  ]
+}

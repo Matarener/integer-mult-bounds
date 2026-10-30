@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Prove the unit scalar output row at register450 for the complete existing K8.Forward.events, using its two inverse ADDs and kernel-checked target-avoidance premises over all1024 typed coordinates.",
+  "scope_change_reason": "The card permits one theorem-to-certificate binding. PR2944 already supplies the typed word and labels, and PR3331 supplies append/update lemmas; the concrete forward hS premise remains to be discharged.",
+  "bottleneck_link": "Supplies one actual unit-row premise of the hyperplane-ended helper interface; column isolation, physical recipe correctness and supplier hypotheses remain separate.",
+  "budget_minutes": 60,
+  "stop_rule": "Publish only after the unchanged generated word, four avoidance predicates and concrete unit-row roots pass the Lean kernel, with audited axioms and negative controls; otherwise report the precise unresolved proof obligation.",
+  "outcome": "completed",
+  "evidence": "Helper450Row.lean, Helper450Concrete.lean, source.py, test_source.py, and fresh-kernel replay check_lean.py; KERNEL.json and RESULT.json retained after successful replay.",
+  "author": "Sagar Thakrar, with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance for scoped research, implementation, Lean proofs, independent review, tests and documentation; GitHub CLI used for source and overlap checks.",
+  "open_questions": [
+    {
+      "question": "Can the backward typed word discharge the same hS premise?",
+      "why_it_matters": "This contribution covers only the selected forward stream.",
+      "first_step": "Reuse the unchanged PR2944 Backward modules and locate its helper-target writes.",
+      "blocked_by": "A separate concrete kernel proof and overlap check."
+    },
+    {
+      "question": "Can helper dirt-column isolation and the physical recipe obligations be kernel-bound to the selected stream?",
+      "why_it_matters": "A unit output row alone does not prove isolation of an input dirt column or physical restoration.",
+      "first_step": "Keep the column and RecipesExact propositions explicit, with the existing finite binding as orientation only.",
+      "blocked_by": "Additional formal source binding and proofs outside this row-only package."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-designer-toolkit/words/5561.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete repair sets versus independent scalar-basis perturbation replay; singular, ambiguous, invisible, malformed and resource-bound controls; one source-bound full P104 localization and repaired endpoint."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete repair sets versus independent scalar-basis perturbation replay; singular, ambiguous, invisible, malformed and resource-bound controls; one source-bound full P104 localization and repaired endpoint."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/direct-flow-leaf-walk/README.md",
+    "research/direct-flow-leaf-walk/diagnostics/overlap_flow.py",
+    "research/direct-flow-leaf-walk/verify.py",
+    "research/direct-mixed-flow/flow.py",
+    "research/direct-mixed-flow/vendor/p7-RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--expect",
+        "{package}/RESULT.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact rational root/drift/tilt/limit enclosures, eight whole-flow fixtures, lattice and domain failure controls; classical LLT proof is written, not machine-checked."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent_source.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Ten independent ordered-word fixtures compare complete #4436 and #4467 leaf histograms after authenticating every input; terminal-cut fields describe fixture sensitivity."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Reject altered bytes in both standalone entry points; re-pinned empty/truncated #4467 branches and altered #4436 returned histogram rejected by their comparisons in normal and optimized modes; fixed-bracket and receipt regressions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_enclosures.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent exact rational bounds at every executed log/exp argument; reject zero logarithm/exponential tails and invalid exponential remainder majorant."
+    }
+  ]
+}

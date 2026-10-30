@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-clean-ancilla-registers/README.md",
+    "research/bit-clean-workspace-compression/README.md",
+    "research/e8-bit-p111-tuned/code/xcheck_p.py",
+    "research/e8-bit-p111-tuned/data/bitE8mut-p111.json.gz",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r715-eleven-stage-whole/code/global_k.py",
+    "research/native-source-codes/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact 222-column maps, source inversion, local frame profiles, pinned complete idle bill, and omitted-gate/dirty-helper/omitted-idle controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "All semantic and budget guards remain active with optimized Python."
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/polarized_cross_cube.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact 262144 scalar block entries,295936 literal orthogonality pairings,64 exact dyadic factors and their actual spans."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/polarized_cross_cube.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact 262144 scalar block entries,295936 literal orthogonality pairings,64 exact dyadic factors and their actual spans."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/module.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete emitted25D native H_ab paths, absolute phases, all1024 independent columns, owned scratch restoration, actual paid/ordinary profile and semantic mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/module.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete emitted25D native H_ab paths, absolute phases, all1024 independent columns, owned scratch restoration, actual paid/ordinary profile and semantic mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_review.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent emitted-word interpreter, exact source/reader gauges and full anchor proof; all-original endpoint, same-frame reads and intermediate coefficient growth."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_review.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent emitted-word interpreter, exact source/reader gauges and full anchor proof; all-original endpoint, same-frame reads and intermediate coefficient growth."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/embed.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Injective minimal I20 embedding, all1048576 ordered Gram comparisons, common8-space interfaces, and explicit256-clique minimum-rank witness."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/anchor_audit.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent unpatched dense Clifford verification of275 native K anchors in dimensions1..8 and all phase-polynomial points in each case; written proof supplies arbitrary dimension."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "attempt": "runtime/runs/packaged-score-finite",
+  "failure": "Isolated function recompilation changed compiler call opcodes for an imported-module attribute, so live-code shape authentication rejected before any native compilation or correctness controls.",
+  "diagnostic": "Only co_code differed; recompiling the complete original module preserves its import binding compilation context.",
+  "manual_fix": "Authenticate the entire measured module plus function source; compile that complete module for live shape equality and preserve its module context when truncating only after every correctness control.",
+  "science_unchanged": true,
+  "timing_reruns": 0,
+  "automatic_retries": 0
+}

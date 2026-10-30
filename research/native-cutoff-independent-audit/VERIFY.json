@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/native-tensor-cutoff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Exact n<=3 phase-character minima and affine separation; literal one-axis ranks and hypothesis controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "The same complete audit with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/audit_mutations.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Five mathematical code mutations and a proof-byte mutation rejected in both modes."
+    }
+  ]
+}

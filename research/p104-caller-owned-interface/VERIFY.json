@@ -1,0 +1,49 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Source custody; untouched original complete-output positive control; current PR5713 independent caller/normalizer/inventory/schedule/recount; sixteen fault controls. No frontier admission.",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Source custody; untouched original complete-output positive control; current PR5713 independent caller/normalizer/inventory/schedule/recount; sixteen fault controls. No frontier admission.",
+      "timeout_seconds": 300
+    }
+  ],
+  "inputs": [
+    "docs/research/pr-intake-evidence/pr5599/caller-check.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-20261025/CLOSEOUT.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-20261025/check.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/INPUTS.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/check.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/sources/DATA-PHASES.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/sources/native_inventory.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/RESULT-normal.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/RESULT.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/WORD.json.gz",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/CONTROLLER.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/caller.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/local.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/RESULT-normal.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/clifford_exact.py",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/native_verify.py",
+    "research/p104-caller-independent-audit/capsule/swarm-price-plane-20261023T112711Z/coordination/run_guarded.py",
+    "research/p104-caller-independent-audit/expected/caller.json.gz"
+  ],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

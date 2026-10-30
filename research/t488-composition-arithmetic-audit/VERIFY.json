@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Published aggregate identities (rank mass, calls, live/physical families, roles); moment root bracket re-derived with a 80-digit Decimal engine and cross-checked with a float engine; strict straddle at the two published adjacent decimal endpoints; margin one digit outside the bracket; positive derivative at the bracket midpoint for local uniqueness; released-string reconstruction with the two inherited strict margins; exact endpoint delta against pinned PR #3642; four rejection controls (one-unit profile shift, wrong live count, wrong width, degenerate bracket); RESULT.json byte match in read mode"
+    }
+  ]
+}

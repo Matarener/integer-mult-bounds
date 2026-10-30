@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py",
+    "research/p104-helper468-rung-removal/EDIT.json.gz",
+    "research/p104-helper468-rung-removal/RESULT.json",
+    "research/p104-helper468-rung-removal/SOURCES.json",
+    "research/p104-helper468-rung-removal/WORD.json.gz",
+    "research/p104-helper468-rung-removal/construct.py",
+    "research/p104-helper468-rung-removal/inputs/pr5827-source.tar",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-productive-controller/CONTROLLER.json",
+    "research/p104-unread-path-resynthesis/RESULT.json",
+    "research/p104-unread-path-resynthesis/WORD.json.gz",
+    "research/p104-unread-path-resynthesis/inputs/pr5811-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Serial bounded replay: authenticated live inputs; PR5827 archive in PR5907 equals the canonical package and the regenerated PR5907 word equals the shipped payload; own exact replay of the PR5811, PR5827 and PR5907 words with all 799 endpoint rows, helper nesting and both deltas; own invoice recount from the physical caller and the closed formula equals both complete_cost entries; own decimal crossings equal both author intervals, with tail ratios and uniqueness; dense all-column absolute-phase check of a fixed subset of the 3,163 native operators equal to FULL-CHECK.json, with phase-only and sign fault controls; result equals RESULT.json."
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "actual_checks": [
+    {
+      "Gaussian_scalar_normalization_to_minus_I": false,
+      "f": 1,
+      "native_arity": 1,
+      "square_of_iH_as_i_exponent": 1,
+      "type": "Hp"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": false,
+      "f": 1,
+      "native_arity": 1,
+      "square_of_iH_as_i_exponent": 3,
+      "type": "Hq"
+    },
+    {
+      "extra_ADDRESS_bit": 1,
+      "f": 1,
+      "native_arity": 1,
+      "selected_native_recipe": {
+        "left": {
+          "linear_Z4": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "matrix_rows": [
+            1,
+            2,
+            4,
+            8
+          ],
+          "offset": 0,
+          "phase": 0,
+          "quadratic_rows": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rank": 1,
+        "right": {
+          "linear_Z4": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "matrix_rows": [
+            1,
+            2,
+            4,
+            8
+          ],
+          "offset": 3,
+          "phase": 3,
+          "quadratic_rows": [
+            0,
+            2,
+            0,
+            0
+          ]
+        }
+      },
+      "square": "-I",
+      "tag_diagonal_phase_exponent": 3,
+      "type": "Hp_with_separate_tag_bit"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": true,
+      "f": 2,
+      "native_arity": 2,
+      "square_of_iH_as_i_exponent": 0,
+      "type": "Hp"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": true,
+      "f": 2,
+      "native_arity": 2,
+      "square_of_iH_as_i_exponent": 0,
+      "type": "Hq"
+    },
+    {
+      "extra_ADDRESS_bit": 2,
+      "f": 2,
+      "native_arity": 2,
+      "selected_native_recipe": null,
+      "square": "-I",
+      "tag_diagonal_phase_exponent": 0,
+      "type": "Hp_with_separate_tag_bit"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": false,
+      "f": 3,
+      "native_arity": 3,
+      "square_of_iH_as_i_exponent": 3,
+      "type": "Hp"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": false,
+      "f": 3,
+      "native_arity": 3,
+      "square_of_iH_as_i_exponent": 1,
+      "type": "Hq"
+    },
+    {
+      "extra_ADDRESS_bit": 3,
+      "f": 3,
+      "native_arity": 3,
+      "selected_native_recipe": null,
+      "square": "-I",
+      "tag_diagonal_phase_exponent": 1,
+      "type": "Hp_with_separate_tag_bit"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": true,
+      "f": 4,
+      "native_arity": 4,
+      "square_of_iH_as_i_exponent": 2,
+      "type": "Hp"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": true,
+      "f": 4,
+      "native_arity": 4,
+      "square_of_iH_as_i_exponent": 2,
+      "type": "Hq"
+    },
+    {
+      "extra_ADDRESS_bit": 4,
+      "f": 4,
+      "native_arity": 4,
+      "selected_native_recipe": null,
+      "square": "-I",
+      "tag_diagonal_phase_exponent": 2,
+      "type": "Hp_with_separate_tag_bit"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": false,
+      "f": 5,
+      "native_arity": 5,
+      "square_of_iH_as_i_exponent": 1,
+      "type": "Hp"
+    },
+    {
+      "Gaussian_scalar_normalization_to_minus_I": false,
+      "f": 5,
+      "native_arity": 5,
+      "square_of_iH_as_i_exponent": 3,
+      "type": "Hq"
+    },
+    {
+      "extra_ADDRESS_bit": 5,
+      "f": 5,
+      "native_arity": 5,
+      "selected_native_recipe": null,
+      "square": "-I",
+      "tag_diagonal_phase_exponent": 3,
+      "type": "Hp_with_separate_tag_bit"
+    }
+  ],
+  "all_f_identity": "Hp_f^2=(-i)^f I and Hq_f^2=i^f I, so (i Hp_f)^2=-(-i)^f I and (i Hq_f)^2=-i^f I. Literal iH squares to-I only when f=0 mod4.",
+  "even_f_normalization": "For even f, gamma_p=i^(f/2+1), gamma_q=i^(1-f/2) are Gaussian units and (gamma_p Hp_f)^2=(gamma_q Hq_f)^2=-I.",
+  "evidence_domain": "Written all-f scalar/flat-unitary proofs; actual exact Gaussian phase and arity checks for f1..5; one-bit selected-native lowering plus the explicit Hp tensor/native query and monomial tag implementation. No tableau-only extrapolation. Higher-f dense recipe expansion is unnecessary and is not claimed.",
+  "flat_unitary_obstruction_scope": "More generally, a unitary B acting fully and flatly on exactly f address bits with B^2=-I is skew-Hermitian. Every diagonal is nonzero pure imaginary of magnitude2^(-f/2). Gaussian-dyadic entries cannot have that imaginary value for odd f. This covers unitary monomial left/right gauges of a full one-chunk native Fourier operator; it does not cover an enlarged ambient operator with zero diagonal, nonunitary gauges, arbitrary operators of rankf acting on more thanf bits, or a changed recursive datatype.",
+  "native_model_sha256": "6397a86bd3d1461be182fcfa8602b0c70c489964a8c14f12436ba2506e11d9e3",
+  "no_new_kappa": true,
+  "odd_f_scalar_obstruction": "For odd f a scalar normalization requires gamma^2=+i or-i. If gamma=a+bi is Gaussian rational then a^2=b^2 and2ab=+1 or-1, forcing a^2=1/2, impossible rational. Thus no Gaussian-dyadic scalar, unit or nonunit, normalizes the odd-f typed chunk to square-I.",
+  "producer_sha256": "d1490bed667bcae939bdb74002471bfa221c22df5a527d3726ec2bf038ee17a0",
+  "scientific_pin": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "status": "PASS_ONE_CHUNK_PHASE_DOMAIN_AND_SEPARATE_TAG_RESOURCE",
+  "tag_invoice": {
+    "extra_address_coordinates": 1,
+    "native_arity": "f",
+    "native_monomial_adapter_scans_at_most": 2,
+    "ordinary_helpers": 0,
+    "private_fields": 0,
+    "tag_ADDRESS_X_scans": 1,
+    "tag_phase_scans": 1
+  },
+  "tag_resource": "A separate tag bit admits M_f=[[0,1],[-i^f,0]], an actual ADDRESS X plus Gaussian-unit phase, with M_f^2=-i^f I. Since it is disjoint from Hp_f, B_f=Hp_f tensor M_f has B_f^2=-I and exact nativearityf for every f. This is a changed f+1-bit domain, not a scalar normalization onf bits.",
+  "tag_terminal_obligation": "The extra tag bit remains monomial under this resource. A supplier requiring full native rank on its entire ambient address space must supply its missing tag Fourier progress, or prove a separately charged sector/dispatcher contract. That cost is not waived here. Sharing the tag among planes also changes their product and must be checked literally."
+}

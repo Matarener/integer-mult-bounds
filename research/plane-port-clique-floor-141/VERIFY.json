@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.2.6"
+  ],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json",
+    "research/plane-port-global-rank-dual/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 400,
+      "checks": "independent closure census (39,087 spans), tariff vs Gaussian elimination on 4,000 pairs, clique columns, exact feasibility on all 39,087^2 ordered pairs, bound 36732955/262144 > 140, four rejecting controls"
+    }
+  ]
+}

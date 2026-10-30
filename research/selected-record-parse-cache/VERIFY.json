@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "scripts/verify_replay_coverage.py",
+    "scripts/verify_frontier1094.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Time 4000 cold parses of the selected record against one hash-checked cache, then change one decimal digit."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that a repeated payload reuses the same object and a changed payload misses."
+    }
+  ]
+}

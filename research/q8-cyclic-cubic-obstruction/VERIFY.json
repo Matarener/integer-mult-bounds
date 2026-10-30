@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact small invertible-block lemma, retained saturated false positive and compressed defect, independent formal action and direct sharp endpoints with restored dirt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual arithmetic/action/rank faults, critical hypothesis controls, input/capacity errors, source and receipt corruption, exclusive output under optimized Python."
+    }
+  ]
+}

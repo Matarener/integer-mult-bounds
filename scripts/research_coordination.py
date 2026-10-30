@@ -39,6 +39,22 @@ def validate_message(value):
     return value
 
 
+def parse_message(raw):
+    """Read one unambiguous JSON object before validating its fields."""
+    def unique(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError('duplicate coordination JSON key: ' + key)
+            result[key] = value
+        return result
+
+    def finite(token):
+        raise ValueError('nonfinite coordination JSON number: ' + token)
+
+    return validate_message(json.loads(raw, object_pairs_hook=unique, parse_constant=finite))
+
+
 def messages(body):
     result, warnings = [], []
     for block in re.findall(r'^```json\s*\n(.*?)^```\s*$', body, re.M | re.S):
@@ -47,7 +63,7 @@ def messages(body):
         try:
             if len(block) > 16384:
                 raise ValueError('coordination block exceeds 16 KiB')
-            result.append(validate_message(json.loads(block)))
+            result.append(parse_message(block))
         except (ValueError, TypeError, AttributeError) as exc:
             warnings.append(str(exc))
     if len(result) > 1:

@@ -1,0 +1,240 @@
+{
+ "schema": "tk-profile/1",
+ "name": "5565",
+ "alias": "5565",
+ "pr": 5565,
+ "head": "d4761dbe8338980be62f1f48e6bd370d07625202",
+ "ref": "refs/heads/pr5565",
+ "package": "research/p104-commuting-contact",
+ "public": 735,
+ "owned_fields": 8,
+ "lifetimes": 8,
+ "peak": 1,
+ "family": {
+  "public": 735,
+  "owned_fields": 8,
+  "retired_public": [],
+  "schema": "p104-productive-source/1",
+  "has_owned_fields_key": false
+ },
+ "interface": {
+  "retired_public": [],
+  "owned_roles": null,
+  "fields": null,
+  "independent_public": null,
+  "schema": "p104-productive-source/1",
+  "peak_rule": "eq1",
+  "owned_count": 8,
+  "lifetimes_pin": null,
+  "owned_bound": null,
+  "public_bound": null
+ },
+ "compiler": {
+  "decay": "97/100",
+  "decay_f": 0.97,
+  "power": 1000,
+  "reserve": "1/10^10",
+  "reserve_f": 1e-10,
+  "theta": "63/64",
+  "tail": null,
+  "event_cap": 26000,
+  "scalar_cap": null,
+  "routes": null,
+  "outer": [
+   54,
+   4
+  ]
+ },
+ "census": {
+  "paid": {
+   "1": 45282,
+   "16": 416,
+   "2": 9954,
+   "24": 416,
+   "3": 7038,
+   "32": 416,
+   "4": 1998,
+   "40": 416,
+   "48": 416,
+   "5": 1944,
+   "56": 416,
+   "6": 306,
+   "64": 416,
+   "7": 234,
+   "72": 208,
+   "9": 18
+  },
+  "targets": {
+   "145": 208,
+   "17": 416,
+   "25": 416,
+   "33": 416,
+   "4": 918,
+   "41": 416,
+   "49": 416,
+   "5": 648,
+   "57": 416,
+   "65": 416,
+   "7": 432,
+   "73": 208,
+   "8": 2196,
+   "9": 5292
+  },
+  "helpers": {
+   "4": 51,
+   "5": 36,
+   "7": 24,
+   "8": 122,
+   "9": 294
+  },
+  "paid_calls": 69894,
+  "productive_fields": 12814,
+  "rank_mass_surplus": 760,
+  "owned_lifetimes": 8,
+  "peak_owned_fields": 1,
+  "public_inputs": 735,
+  "main_adapters": 208,
+  "helper_normalizers": 1054,
+  "distinct_maps": 2978,
+  "events": 25309,
+  "local_routes": 5333000,
+  "real_scalar_allowance": 217428
+ },
+ "expect": {
+  "kappa_decimal": ".00304195",
+  "interval": [
+   "0.00304195140018",
+   "0.00304195140019"
+  ],
+  "raw_root_interval": [
+   "152097570009/50000000000000",
+   "304195140019/100000000000000"
+  ],
+  "word_sha256": "e229669f52e7586ab6a4df3bad38b89ce8dd12f4e1f637ed70b5c0b4d1765747",
+  "result_file": "RESULT.json"
+ },
+ "stack": {
+  "base": {
+   "file": "base_local.py"
+  },
+  "replay": {
+   "file": "base_local.py"
+  },
+  "native": {
+   "edits": [],
+   "mode": "light"
+  },
+  "pricing": {
+   "file": "pricing.py",
+   "patch": [
+    [
+     "KAPPA_TESTED",
+     "KAPPA, TESTED = Q\\('[^']*'\\), Q\\('[^']*'\\)",
+     "KAPPA, TESTED = Q('{KAPPA}'), Q('{TESTED}')"
+    ],
+    [
+     "COUNTS",
+     "sum\\(targets.values\\(\\)\\) == \\d+ and sum\\(paid.values\\(\\)\\) == \\d+",
+     "sum(targets.values()) == {sumT} and sum(paid.values()) == {sumP}"
+    ],
+    [
+     "SURPLUS",
+     "== 760,",
+     "== {surplus},"
+    ],
+    [
+     "PREV_PREVIOUS_PR5545",
+     "PREVIOUS_PR5545 = Q\\('[^']*'\\)",
+     "PREVIOUS_PR5545 = Q('{PREV_0}')"
+    ],
+    [
+     "PREV_PREVIOUS",
+     "PREVIOUS = Q\\('[^']*'\\)",
+     "PREVIOUS = Q('{PREV_1}')"
+    ]
+   ]
+  },
+  "files": {
+   "base_local.py": {
+    "sha256": "878734dfd64c4b9d362d0ae476cc5c2a19fe93e48b7378763b23f3e0dd0a5a71",
+    "git_blob": "dbb3d56a4f5b733bb0c32a91249d1f6a7e1ab5d2",
+    "origin": "archive p104-joint-contact/inputs/pr5545-source-closure.tar.gz :: research/p104-productive-controller/local.py"
+   },
+   "pricing.py": {
+    "sha256": "4f27bae38f55996a01277206e4c78fd8c210e4e8b381652a9744c734d794339c",
+    "git_blob": "f492c238d29cd87a2d000c7951c1b818c44549ec",
+    "origin": "package pricing.py"
+   }
+  },
+  "root": "closure",
+  "caller_root": "closure"
+ },
+ "fast": {},
+ "provenance": {
+  "date": "2026-10-26",
+  "upstream": "https://github.com/CrocSwap/integer-mult-bounds.git",
+  "note": "derived by tk adopt; no hand-typed constants",
+  "blobs": {
+   "RESULT.json": "d92294700d4ba45b44de0105074c7d5806e10415",
+   "WORD.json.gz": "cffefccec6b925a0b31afaa907ffdc6282c88fa6",
+   "pricing.py": "f492c238d29cd87a2d000c7951c1b818c44549ec",
+   "verify.py": "291dd75a218a00aea392930718ca4f74467d70c9"
+  }
+ },
+ "validation": {
+  "date": "2026-10-26",
+  "ok": true,
+  "steps": {
+   "price": {
+    "ok": true,
+    "got": [
+     "0.00304195140018",
+     "0.00304195140019"
+    ],
+    "expect": [
+     "0.00304195140018",
+     "0.00304195140019"
+    ],
+    "legal": true,
+    "side_ok": true,
+    "seconds": 0.6
+   },
+   "check_native": {
+    "ok": true,
+    "legal": true,
+    "pairs": 2978,
+    "bad": 0,
+    "seconds": 12.5
+   },
+   "accept_unpatched": {
+    "ok": true,
+    "got": [
+     "0.00304195140018",
+     "0.00304195140019"
+    ],
+    "outer": [
+     54,
+     4
+    ],
+    "paid_calls": 69894,
+    "fields": 12814,
+    "seconds": 15.6
+   },
+   "accept_patched": {
+    "ok": true,
+    "got": [
+     "0.00304195140018",
+     "0.00304195140019"
+    ],
+    "outer": [
+     54,
+     4
+    ],
+    "paid_calls": 69894,
+    "fields": 12814,
+    "seconds": 13.0
+   }
+  }
+ },
+ "auto": false
+}

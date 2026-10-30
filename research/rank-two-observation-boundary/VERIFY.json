@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/four-call-productive-observations/README.md",
+    "research/partial-observation-boundaries/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact positive words, full coefficient/literal agreement for 571 shorter schedules and all dirty inputs, rank-two endpoint, discovery coverage, source pins and generated receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same scientific obligations with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_faults.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Eighteen real private-copy fault rejections in normal/optimized modes, read-only positives and overwrite refusal."
+    }
+  ]
+}

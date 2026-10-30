@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "U < 10 p^2 is equivalent to D > 160 p^2 - 16, which holds because 160 p^2 < 2^{2p+8} < 2^{32760 p}; the coefficient 8 fails because 32 p^2 > 4."
+    }
+  ]
+}

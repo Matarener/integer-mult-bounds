@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/complex-t16-rare-pattern-exchanges/data/SPEC.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Selected source binding, 1163 exact patterns, 49 path candidates, 56987 continuum edge obligations, all nine equations for both integer witnesses, exact phase signs and whole receipt equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Seven behavioral groups: separate frontier enumeration, both witness mutations, path/dual rejection, discrete identity, exact integer-power and separate square-root oracles, analytic sign rejection and actual optimized source-corruption CLI."
+    }
+  ]
+}

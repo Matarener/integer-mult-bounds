@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/signed-dyadic-scaling/PROOF.md",
+    "research/signed-dyadic-scaling/README.md",
+    "research/fixed-tape-ordered-shear/README.md",
+    "research/fixed-tape-affine-shear/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Word digests, rational restoration, modular witness, histogram partition, conditional coefficient 2080768, pinned contract sentences, and three mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same primary receipt under optimized bytecode."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/oracle.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent rational product, witness, family totals and receipt comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/oracle.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same independent oracle under optimized bytecode."
+    }
+  ]
+}

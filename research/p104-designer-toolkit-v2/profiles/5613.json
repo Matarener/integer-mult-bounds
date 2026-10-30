@@ -1,0 +1,264 @@
+{
+ "schema": "tk-profile/1",
+ "name": "5613",
+ "alias": "5613",
+ "pr": 5613,
+ "head": "32f23af8790cc3c435bb1f495d861332b4f000e3",
+ "ref": "refs/pr/5613",
+ "package": "research/p104-delayed-basis",
+ "public": 748,
+ "owned_fields": 8,
+ "lifetimes": 11,
+ "peak": 2,
+ "family": {
+  "public": 748,
+  "owned_fields": 8,
+  "retired_public": [
+   573
+  ],
+  "schema": "p104-composed-prepared-reuse/1",
+  "has_owned_fields_key": false
+ },
+ "interface": {
+  "retired_public": [
+   573
+  ],
+  "owned_roles": [
+   573,
+   748,
+   749,
+   750,
+   751,
+   752,
+   753,
+   754,
+   755
+  ],
+  "fields": 756,
+  "independent_public": 747,
+  "schema": "p104-composed-prepared-reuse/1",
+  "peak_rule": "eq2",
+  "owned_count": 9,
+  "lifetimes_pin": 11,
+  "owned_bound": null,
+  "public_bound": null
+ },
+ "compiler": {
+  "decay": "39/40",
+  "decay_f": 0.975,
+  "power": 1024,
+  "reserve": "1/10^10",
+  "reserve_f": 1e-10,
+  "theta": "63/64",
+  "tail": {
+   "u": "1/5",
+   "v": 1024,
+   "c": 17,
+   "b": 18
+  },
+  "event_cap": 26000,
+  "scalar_cap": 10000000,
+  "routes": "(sum(local['paid'].values())+native['helper_normalizers']+native['main_adapters']+4*104+4*local['owned_lifetimes'])*1000",
+  "outer": [
+   54,
+   4
+  ]
+ },
+ "census": {
+  "paid": {
+   "1": 41160,
+   "16": 416,
+   "2": 8208,
+   "24": 416,
+   "3": 8892,
+   "32": 416,
+   "4": 1638,
+   "40": 416,
+   "48": 416,
+   "5": 3006,
+   "56": 416,
+   "6": 324,
+   "64": 416,
+   "7": 270,
+   "72": 208
+  },
+  "targets": {
+   "1": 36,
+   "145": 208,
+   "17": 416,
+   "2": 72,
+   "25": 416,
+   "33": 416,
+   "4": 1638,
+   "41": 416,
+   "49": 416,
+   "5": 180,
+   "57": 416,
+   "65": 416,
+   "7": 90,
+   "73": 208,
+   "8": 288,
+   "9": 7398
+  },
+  "helpers": {
+   "1": 2,
+   "2": 4,
+   "4": 91,
+   "5": 10,
+   "7": 5,
+   "8": 16,
+   "9": 411
+  },
+  "paid_calls": 66618,
+  "productive_fields": 13030,
+  "rank_mass_surplus": 760,
+  "owned_lifetimes": 11,
+  "peak_owned_fields": 2,
+  "public_inputs": 747,
+  "main_adapters": 208,
+  "helper_normalizers": 1078,
+  "distinct_maps": 2917,
+  "events": 25525,
+  "local_routes": 5187000,
+  "real_scalar_allowance": 220712
+ },
+ "expect": {
+  "kappa_decimal": ".00310440",
+  "interval": [
+   "0.00310440547057",
+   "0.00310440547058"
+  ],
+  "raw_root_interval": [
+   "310440547057/100000000000000",
+   "155220273529/50000000000000"
+  ],
+  "word_sha256": "192a405e14c15c6b48907e4e762e62bc42c0622397d9493bda0c32764bf981ed",
+  "result_file": "RESULT.json"
+ },
+ "stack": {
+  "base": {
+   "file": "base_local.py"
+  },
+  "replay": {
+   "file": "replay_local.py"
+  },
+  "native": {
+   "edits": [
+    "retired_helper"
+   ],
+   "mode": "light"
+  },
+  "pricing": {
+   "file": "pricing.py",
+   "patch": [
+    [
+     "KAPPA_TESTED",
+     "KAPPA, TESTED = Q\\('[^']*'\\), Q\\('[^']*'\\)",
+     "KAPPA, TESTED = Q('{KAPPA}'), Q('{TESTED}')"
+    ],
+    [
+     "COUNTS",
+     "sum\\(targets.values\\(\\)\\) == \\d+ and sum\\(paid.values\\(\\)\\) == \\d+",
+     "sum(targets.values()) == {sumT} and sum(paid.values()) == {sumP}"
+    ],
+    [
+     "SURPLUS",
+     "== 760,",
+     "== {surplus},"
+    ],
+    [
+     "PREV_PREVIOUS",
+     "PREVIOUS = Q\\('[^']*'\\)",
+     "PREVIOUS = Q('{PREV_0}')"
+    ]
+   ]
+  },
+  "files": {
+   "base_local.py": {
+    "sha256": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad",
+    "git_blob": "e6e28bacdad7cb51400d827b9a6e02f2b605d357",
+    "origin": "archive p104-delayed-basis/inputs/pr5612-source.tar.gz :: research/p104-delayed-shared-relay/inputs/pr5608-source.tar.gz.x/research/p104-relay-split-composition/inputs/pr5599-local.py"
+   },
+   "replay_local.py": {
+    "sha256": "17c41be8d49db557a4c7dd1a4cd9bdd3972a6d6847eddf4dff7c888c476b37b3",
+    "git_blob": "dae6715aa6a70ef1699710563c56287654e0b20d",
+    "origin": "archive p104-delayed-basis/inputs/pr5612-source.tar.gz :: research/p104-delayed-shared-relay/prepared573_local.py"
+   },
+   "pricing.py": {
+    "sha256": "d6d9b3c3f3663b1db45f26abb406c8e135c62dbd843c0d8ac3d958ebdec658fc",
+    "git_blob": "462831f853e9a4d54e3edbdcc7c44c0547003787",
+    "origin": "package pricing.py"
+   }
+  },
+  "root": "closure",
+  "caller_root": "closure"
+ },
+ "fast": {},
+ "provenance": {
+  "date": "2026-10-26",
+  "upstream": "https://github.com/CrocSwap/integer-mult-bounds.git",
+  "note": "derived by tk adopt; no hand-typed constants",
+  "blobs": {
+   "RESULT.json": "56ebe5ea4f0337069524f3ae1b2baba5f6a349f6",
+   "WORD.json.gz": "cf731bf8c428b5dbd31683e5a497e5f0475c129a",
+   "pricing.py": "462831f853e9a4d54e3edbdcc7c44c0547003787",
+   "verify.py": "57b7c7877032d036be6530cbeb4720bf644cdcb1"
+  }
+ },
+ "validation": {
+  "date": "2026-10-26",
+  "ok": true,
+  "steps": {
+   "price": {
+    "ok": true,
+    "got": [
+     "0.00310440547057",
+     "0.00310440547058"
+    ],
+    "expect": [
+     "0.00310440547057",
+     "0.00310440547058"
+    ],
+    "legal": true,
+    "side_ok": true,
+    "seconds": 0.5
+   },
+   "check_native": {
+    "ok": true,
+    "legal": true,
+    "pairs": 2917,
+    "bad": 0,
+    "seconds": 11.3
+   },
+   "accept_unpatched": {
+    "ok": true,
+    "got": [
+     "0.00310440547057",
+     "0.00310440547058"
+    ],
+    "outer": [
+     54,
+     4
+    ],
+    "paid_calls": 66618,
+    "fields": 13030,
+    "seconds": 13.8
+   },
+   "accept_patched": {
+    "ok": true,
+    "got": [
+     "0.00310440547057",
+     "0.00310440547058"
+    ],
+    "outer": [
+     54,
+     4
+    ],
+    "paid_calls": 66618,
+    "fields": 13030,
+    "seconds": 13.9
+   }
+  }
+ },
+ "auto": false
+}

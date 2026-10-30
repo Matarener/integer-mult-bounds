@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 5,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently audit PR2809 NumericLease/SharedFrame interrupt-abort recovery: preparing-phase entry-set rollback, child-phase nonstrict close, return-versus-interrupt strictness gate, and the explicit parking mid-command out-of-contract boundary, with three semantic mutants.",
+  "scope_change_reason": "The catalogue supplier-boundary card is refined to the physical-contract-map / PR2899 named interrupted-macro recovery gap remaining after opcode/source, residual/CALL, and the separate lease-end/CALL-empty successful-path scratch audit. Historical owner/scatter diagnostics are orientation only.",
+  "bottleneck_link": "Downstream PR2899/PR2915 incorporation covers successful admitted execution only; interrupt/abort recovery remains a named missing check on the physical-caller dependency.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the NumericLease/SharedFrame interrupt-abort obligation with independent algebra and mutants; do not expand to lease-end/CALL reprint, GL64, H2, stock-envelope, or route-cube.",
+  "outcome": "completed",
+  "evidence": "Pin-authenticated numerical_frame/PROOF/contract-map/ordinary bytes; independent live-slot phase algebra; three mutants (preparing without rollback; strict dirty interrupt; always-strict frame); CERTIFICATE.json matched read-only.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance in mathematics, implementation, checks and writing; no independent human or proof-assistant review.",
+  "open_questions": [
+    {
+      "question": "Can Callback.abort residue/index/stack rollback be bound to the same interrupt invoice as NumericLease?",
+      "why_it_matters": "Nested coefficient evaluation can abort while a numerical child is parked; one fixture should connect both cleanup paths.",
+      "first_step": "Pin Callback.abort in the PR2753 predecessor controller retained by PR2809 and construct one failing offset inside a SharedFrame.",
+      "blocked_by": "No Callback.abort algebra is audited here."
+    },
+    {
+      "question": "How do interrupt cleanup, lease-end/CALL-empty, and residual/CALL compose into one ownership theorem?",
+      "why_it_matters": "Recursive closure needs a single statement of which paths remain successful-only.",
+      "first_step": "Identify the exact NODE/peel/MERGE boundaries still treated as hypotheses in residual-call-refinement.",
+      "blocked_by": "No enclosing-node correspondence is supplied here."
+    },
+    {
+      "question": "What is the machine-step charge for park/restore on the interrupt path?",
+      "why_it_matters": "Nonstrict close restores the parent but does not price failed construction versus successful return.",
+      "first_step": "Start from PR2809's parking-table cost discussion and separate returned-output disposal from failed-construction cleanup.",
+      "blocked_by": "No priced interrupt invoice is claimed here."
+    }
+  ],
+  "track": "adversarial-audit",
+  "predecessor": {
+    "package": "research/selected-bit-physical-caller",
+    "author": "Jose Manuel / jmbarrancoml",
+    "delta": "Supplies NumericLease/SharedFrame abort paths and the parking mid-command out-of-contract comment; this package independently audits them with mutants."
+  },
+  "related": [
+    {
+      "package": "research/physical-ordinary-interchange",
+      "delta": "PR2899 ordinary backend disclaims interrupted-macro recovery; complementary interface boundary, not repeated."
+    },
+    {
+      "package": "research/physical-compiler-correspondence",
+      "delta": "Opcode/source correspondence and compiler/Driver admission mutants; complementary, not repeated."
+    },
+    {
+      "package": "research/residual-call-refinement",
+      "delta": "Residual block and CALL/RETURN packet preservation; leaves interruption recovery open."
+    }
+  ],
+  "validation": {
+    "not_claimed": [
+      "selected GL64 cold replay",
+      "full physical-caller formal refinement",
+      "lease-end / CALL-empty scratch cut",
+      "H2 time improvement",
+      "stock-envelope A/B/rho",
+      "route-cube fibre/key invoice",
+      "new kappa",
+      "independent human review"
+    ]
+  }
+}

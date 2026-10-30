@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Upper bound on bounded-depth blocks of the unchanged unsigned dirty connector (PR4231/PR4248 interface): a depth-d block on k sources at characteristic c has 2^k-1 <= k*min(k,c)*binom(kc+d-2,d-1); depth-two blocks have at most log2 c + O(log log c) sources; concatenations of depth<=2 blocks have sharp leading constant 1/2 (matched by PR6071), and depth<=D concatenations are capped at (1-1/D+o(1)) c log2 c.",
+  "scope_change_reason": "The alphabet stays fixed. This follows the released general-family handoff, PR6071 open question 1 (sharp leading constant of N(c)/(c log2 c)), and settles its depth-two part: it shows that the suggested search for depth-two blocks near 2 log2 c cannot succeed for large c.",
+  "bottleneck_link": "Side result on recursive-interface capacity. It changes no supplier or kappa; it redirects further N(c) constructions from depth-two blocks to depth>=3 or non-block words.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the proved cap plus a literal-word verifier; do not start a depth-three construction search in this session.",
+  "outcome": "completed",
+  "evidence": "README proof (weight identity); verify.py: exhaustive census of 39,288 small floor words with 1,031,591 identity checks, 21 rebuilt Gray blocks, exact capacity table to c=2^4096, four rejected controls. Standard library only.",
+  "author": "JosieElliston (Claude Code session 40)",
+  "ai_assistance": "Substantial: Anthropic Claude (Claude Code session 40) derived the proof, wrote the verifier and README; optional OpenAI Codex read-only review.",
+  "open_questions": [
+    {
+      "question": "Is there a depth-three block family with k ~ 2 log2 c (lower constant 2/3)?",
+      "why_it_matters": "Depth<=2 concatenations are capped at constant 1/2; depth three is the cheapest route to a larger lower constant.",
+      "first_step": "Search small c (8..32) for depth-three blocks with k > 2 + 2 log2 c; by the theorem most first-read pairs must extend to a mask.",
+      "blocked_by": "No construction known."
+    },
+    {
+      "question": "Is the general constant of N(c)/(c log2 c) above 1/2, and is it 1?",
+      "why_it_matters": "Fixed-depth block concatenations are capped at 1-1/D; the counting constant 1 needs unbounded depth or cross-block reads.",
+      "first_step": "Sharpen the global count using the coordinate structure of each read, not only its weight.",
+      "blocked_by": "Global counting gains nothing from the weight identity when n >= 2."
+    },
+    {
+      "question": "What is the exact largest depth-two block at small c?",
+      "why_it_matters": "The cap is loose at practical c (21 against Gray 9 at c=2^8).",
+      "first_step": "Exact search at c=8..16; balanced Gray codes suggest about log2 c + log2 log2 c is reachable.",
+      "blocked_by": "Search size."
+    }
+  ]
+}

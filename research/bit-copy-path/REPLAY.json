@@ -1,0 +1,86 @@
+{
+  "format": "bit-copy-path-replay-v1",
+  "python": "CPython 3.12 or later; standard library only",
+  "modes": [
+    "ordinary",
+    "optimized"
+  ],
+  "checks": [
+    {
+      "name": "walk",
+      "script": "construction/walk_certificate.py",
+      "expected": "construction/WALK-CERTIFICATE.json",
+      "arguments": [],
+      "output_flag": "--out"
+    },
+    {
+      "name": "acquisition",
+      "script": "construction/acquisition_screen.py",
+      "expected": "construction/ACQUISITION-RELAXED.json",
+      "arguments": [
+        "--all",
+        "--allow-partial"
+      ],
+      "output_flag": "--out"
+    },
+    {
+      "name": "late-factory",
+      "script": "construction/late_factory_screen.py",
+      "expected": "construction/LATE-FACTORY-SCREEN.json",
+      "arguments": [],
+      "output_flag": "--out"
+    },
+    {
+      "name": "postscatter-cuts",
+      "script": "construction/newcut_screen.py",
+      "expected": "construction/NEWCUT-SCREEN.json",
+      "arguments": [],
+      "output_flag": "--out"
+    },
+    {
+      "name": "prior-direct-floor",
+      "script": "construction/direct_scatter.py",
+      "expected": "construction/DIRECT-SCATTER.json",
+      "arguments": [],
+      "output_flag": "--out"
+    },
+    {
+      "name": "coded-caller",
+      "script": "composition/check_composition.py",
+      "expected": "composition/RESULT.json",
+      "arguments": [],
+      "output_flag": "--output"
+    },
+    {
+      "name": "private-transport",
+      "script": "composition/PRIVATE-MOVE-CHECK.py",
+      "expected": "composition/PRIVATE-MOVE-RESULT.json",
+      "arguments": [],
+      "output_flag": "--output"
+    },
+    {
+      "name": "budgets",
+      "script": "bounds/check_budget.py",
+      "expected": "bounds/BUDGET.json",
+      "arguments": [],
+      "output_flag": "--output"
+    },
+    {
+      "name": "binomial",
+      "script": "bounds/check_independent.py",
+      "expected": "bounds/INDEPENDENT.json",
+      "arguments": [],
+      "output_flag": "--output"
+    },
+    {
+      "name": "independent-review",
+      "script": "independent/review_check.py",
+      "expected": "independent/review-result.json",
+      "arguments": [],
+      "output_flag": "--output"
+    }
+  ],
+  "comparison": "Exact receipt bytes in both modes; source inventory before and after every package replay.",
+  "predecessor_full_suite_reexecuted": false,
+  "scope": "Finite source-bound checks plus mathematical proof documents; not a formal kernel, physical supplier admission or joint exponent theorem."
+}

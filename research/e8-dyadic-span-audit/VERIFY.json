@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-rank9-realisations/README.md",
+    "research/e8-rank9-realisations/checks/e8lib.py",
+    "research/e8-rank9-realisations/checks/spans.py",
+    "research/e8-rank9-realisations/checks/spans3.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "All 6595 exact splitting identities, 120 transports, 13 negative controls and characteristic-three boundary."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Identical mathematical coverage with Python assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete positive replay, complete decompressed regeneration equality, four certificate-corruption and five source-corruption executions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same whole-command regeneration and corruption tests under optimization."
+    }
+  ]
+}

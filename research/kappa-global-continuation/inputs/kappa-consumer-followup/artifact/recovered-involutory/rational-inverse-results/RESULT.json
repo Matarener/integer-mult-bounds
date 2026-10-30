@@ -1,0 +1,338 @@
+{
+  "status": "PASS_EXACT_RATIONAL_COMPONENT_NOT_SUPPLIER",
+  "transducer": {
+    "remainder_states": 13,
+    "binary_transitions": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        2
+      ],
+      [
+        1,
+        1,
+        0,
+        3
+      ],
+      [
+        2,
+        0,
+        0,
+        4
+      ],
+      [
+        2,
+        1,
+        0,
+        5
+      ],
+      [
+        3,
+        0,
+        0,
+        6
+      ],
+      [
+        3,
+        1,
+        0,
+        7
+      ],
+      [
+        4,
+        0,
+        0,
+        8
+      ],
+      [
+        4,
+        1,
+        0,
+        9
+      ],
+      [
+        5,
+        0,
+        0,
+        10
+      ],
+      [
+        5,
+        1,
+        0,
+        11
+      ],
+      [
+        6,
+        0,
+        0,
+        12
+      ],
+      [
+        6,
+        1,
+        1,
+        0
+      ],
+      [
+        7,
+        0,
+        1,
+        1
+      ],
+      [
+        7,
+        1,
+        1,
+        2
+      ],
+      [
+        8,
+        0,
+        1,
+        3
+      ],
+      [
+        8,
+        1,
+        1,
+        4
+      ],
+      [
+        9,
+        0,
+        1,
+        5
+      ],
+      [
+        9,
+        1,
+        1,
+        6
+      ],
+      [
+        10,
+        0,
+        1,
+        7
+      ],
+      [
+        10,
+        1,
+        1,
+        8
+      ],
+      [
+        11,
+        0,
+        1,
+        9
+      ],
+      [
+        11,
+        1,
+        1,
+        10
+      ],
+      [
+        12,
+        0,
+        1,
+        11
+      ],
+      [
+        12,
+        1,
+        1,
+        12
+      ]
+    ],
+    "exact_integer_fixtures": 73,
+    "signed_rule": "Divide absolute value and restore sign; truncation error is strictly below one output-grid unit.",
+    "scan_cost": "One finite-state step per input bit, plus constant sign/output handling; optional guard precision appends a fixed number of zero bits.",
+    "compiler_scope": "A concrete finite-state constant-divisor algorithm is supplied. Integration as a pointwise multitape scalar primitive is not yet a retained compiler certificate."
+  },
+  "providers": {
+    "base": {
+      "source_word_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "columns": 632,
+      "arbitrary_helpers_restored": 408,
+      "exact_norms": {
+        "R": "56",
+        "K": "1",
+        "J": "26",
+        "J_inverse": "38/13"
+      },
+      "query_prefix": {
+        "query_prefix_input_l1": "56",
+        "query_prefix_error_l1": "9/2",
+        "source_prefix_input_l1": "77/26",
+        "source_prefix_error_l1": "1",
+        "interpretation": "For input radius B and individual division error <delta, every query prefix has magnitude <=56 B+(9/2)delta and every source prefix <=(77/26)B+delta. Six query integer guard bits suffice when B>=delta."
+      },
+      "local_bills": {
+        "forward": {
+          "retained_dyadic_scalar_bill": {
+            "real_primitives": 173532,
+            "macros": {
+              "add": 17801,
+              "clear": 32,
+              "scale": 1162
+            }
+          },
+          "complex_divisions_by_13": 0,
+          "real_divisions_by_13": 0,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "rank_mass": 5070,
+          "extra_native_lines": 0,
+          "exact_rational_scalar_prefix": {
+            "l1_upper": "202390250292205836324353781643/512",
+            "ceiling_log2": 89,
+            "retained_cap_bits": 192,
+            "scope": "Scalar/free-monomial triangle bound; complete recursive native precision/tape theorem remains inherited."
+          }
+        },
+        "backward": {
+          "retained_dyadic_scalar_bill": {
+            "real_primitives": 173532,
+            "macros": {
+              "add": 17801,
+              "clear": 32,
+              "scale": 1162
+            }
+          },
+          "complex_divisions_by_13": 8,
+          "real_divisions_by_13": 16,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "rank_mass": 5070,
+          "extra_native_lines": 0,
+          "exact_rational_scalar_prefix": {
+            "l1_upper": "132513248980784812140387767324737565725249/104413532288",
+            "ceiling_log2": 101,
+            "retained_cap_bits": 192,
+            "scope": "Scalar/free-monomial triangle bound; complete recursive native precision/tape theorem remains inherited."
+          }
+        }
+      }
+    },
+    "extra": {
+      "source_word_sha256": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e",
+      "columns": 632,
+      "arbitrary_helpers_restored": 408,
+      "exact_norms": {
+        "R": "56",
+        "K": "1",
+        "J": "26",
+        "J_inverse": "38/13"
+      },
+      "query_prefix": {
+        "query_prefix_input_l1": "56",
+        "query_prefix_error_l1": "9/2",
+        "source_prefix_input_l1": "77/26",
+        "source_prefix_error_l1": "1",
+        "interpretation": "For input radius B and individual division error <delta, every query prefix has magnitude <=56 B+(9/2)delta and every source prefix <=(77/26)B+delta. Six query integer guard bits suffice when B>=delta."
+      },
+      "local_bills": {
+        "forward": {
+          "retained_dyadic_scalar_bill": {
+            "real_primitives": 173532,
+            "macros": {
+              "add": 17801,
+              "clear": 32,
+              "scale": 1162
+            }
+          },
+          "complex_divisions_by_13": 0,
+          "real_divisions_by_13": 0,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "rank_mass": 5070,
+          "extra_native_lines": 0,
+          "exact_rational_scalar_prefix": {
+            "l1_upper": "202390250292205836324353781643/512",
+            "ceiling_log2": 89,
+            "retained_cap_bits": 192,
+            "scope": "Scalar/free-monomial triangle bound; complete recursive native precision/tape theorem remains inherited."
+          }
+        },
+        "backward": {
+          "retained_dyadic_scalar_bill": {
+            "real_primitives": 173532,
+            "macros": {
+              "add": 17801,
+              "clear": 32,
+              "scale": 1162
+            }
+          },
+          "complex_divisions_by_13": 8,
+          "real_divisions_by_13": 16,
+          "profile": {
+            "1": 2440,
+            "2": 725,
+            "3": 224,
+            "4": 102,
+            "5": 20
+          },
+          "rank_mass": 5070,
+          "extra_native_lines": 0,
+          "exact_rational_scalar_prefix": {
+            "l1_upper": "132513248980784812140387767324737565725249/104413532288",
+            "ceiling_log2": 101,
+            "retained_cap_bits": 192,
+            "scope": "Scalar/free-monomial triangle bound; complete recursive native precision/tape theorem remains inherited."
+          }
+        }
+      }
+    }
+  },
+  "rounding_theorem": {
+    "domain": "Per-real-component sup norm; all dyadic query/scatter operations considered exact for this incremental bound.",
+    "division_error": "Each of the eight query divisions has additive error e_k with |e_k|<delta for truncation to output grid delta.",
+    "source_error": "-K e, componentwise absolute error < delta because ||K||_infty=1.",
+    "target_error": "J K e=-13 K e, componentwise absolute error <13 delta.",
+    "noninterference": "R_i K_j=0 for i!=j, so earlier exact dyadic scatters, including division error, do not change later source query rows.",
+    "four_extra_fraction_bits": "delta=2^(-p-4) implies added target error <(13/16)*2^-p; source error <(1/16)*2^-p.",
+    "input_accumulator_bound": "Every completed query is bounded by 56B; every accumulator prefix including earlier division errors is bounded by 56B+(9/2)delta. Six integer guard bits suffice when B>=delta.",
+    "scope_limit": "Rounding in other arithmetic and inherited recursive native calls is additional and must enter a complete precision recurrence."
+  },
+  "full_field_consumer_screen": {
+    "changed_local_calls": 9,
+    "removed_H8_calls": 72,
+    "deleted_rank_mass": 576,
+    "literal_terminal_full_queries": 72,
+    "assumed_H8_tariff_rank_mass": 576,
+    "net_rank_mass_saving": 0,
+    "conclusion": "The literal 72-query H8 terminal implementation exactly spends the centre deletion allowance before any extra scalar, storage, division, routing or precision costs. This implementation yields no kappa gain.",
+    "unresolved": "A different complete terminal implementation or a cheaper observation tariff has not been excluded; no upper bound below72 H8 is constructed here."
+  }
+}

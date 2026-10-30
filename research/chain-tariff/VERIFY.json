@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/universal-connector-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact count cone, independent exceptional multiplicity censuses, priced witnesses, dirty basis replay, padding and negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "The same scientific checks with Python assertions disabled."
+    }
+  ]
+}

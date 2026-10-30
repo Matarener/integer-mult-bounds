@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Vendored RECORD.json hash; profile aggregates; certified moment bracket; 200C and 10^7C conditions; PR4183 gain; selected BIT comparison; private-credit control."
+    }
+  ]
+}

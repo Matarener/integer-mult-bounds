@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/minimum-root-row-prefix/vendor/ADDRESS-PROOF.md",
+    "research/minimum-root-row-prefix/vendor/PR5515-PROOF.md",
+    "research/minimum-root-row-prefix/vendor/PR5515-README.md",
+    "research/minimum-root-row-prefix/vendor/ROOT-PROOF.md",
+    "research/minimum-root-row-prefix/vendor/machine.py",
+    "research/minimum-root-row-prefix/vendor/root_layer.py",
+    "research/minimum-root-row-prefix/vendor/root_plan.py",
+    "research/minimum-root-row-prefix/vendor/root_streams.py",
+    "research/physical-complex-controller/bank_packets.py",
+    "research/physical-complex-controller/check_bank.py",
+    "research/physical-complex-controller/check_bounds.py",
+    "research/physical-complex-controller/check_cover.py",
+    "research/physical-complex-controller/check_failures.py",
+    "research/physical-complex-controller/check_grid.py",
+    "research/physical-complex-controller/check_machine.py",
+    "research/physical-complex-controller/check_monomial.py",
+    "research/physical-complex-controller/check_parking.py",
+    "research/physical-complex-controller/check_prime.py",
+    "research/physical-complex-controller/check_root.py",
+    "research/physical-complex-controller/check_root_plan.py",
+    "research/physical-complex-controller/check_root_streams.py",
+    "research/physical-complex-controller/check_scalar.py",
+    "research/physical-complex-controller/check_selected.py",
+    "research/physical-complex-controller/cohort.py",
+    "research/physical-complex-controller/cover.py",
+    "research/physical-complex-controller/fixture_binding.py",
+    "research/physical-complex-controller/grid_boundary.py",
+    "research/physical-complex-controller/machine.py",
+    "research/physical-complex-controller/monomial_packets.py",
+    "research/physical-complex-controller/native_program.py",
+    "research/physical-complex-controller/parking.py",
+    "research/physical-complex-controller/production_native.py",
+    "research/physical-complex-controller/root_layer.py",
+    "research/physical-complex-controller/root_plan.py",
+    "research/physical-complex-controller/root_streams.py",
+    "research/physical-complex-controller/scalar_packets.py",
+    "research/physical-complex-controller/scalar_program.py",
+    "research/physical-complex-controller/selected_binding.py",
+    "research/physical-complex-controller/selected_source.py",
+    "research/physical-complex-controller/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact minimum, complete finite dirty-row endpoints, full source-consumer audit, production geometry and one-axis tail certificate."
+    }
+  ]
+}

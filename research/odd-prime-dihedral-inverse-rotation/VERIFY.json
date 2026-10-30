@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/d10-reflection-sharing-seeda3def8/CERTIFICATE.json",
+    "research/d10-reflection-sharing-seeda3def8/README.md",
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Read-only rebuild of nine odd-prime D_{2p} inverse-rotation censuses through length 3; compares committed CERTIFICATE.json; source pins; need() admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same verify under -O -Werror; need() still enforces admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Independent permutation-built D_{2p} engines; separate digests; no primary import."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Direct-word, deletion, mutation, even-order rejection, duplicate-JSON and corruption controls."
+    }
+  ]
+}

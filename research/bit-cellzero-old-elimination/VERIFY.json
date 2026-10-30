@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-low-carry-lowering/PROOF.md",
+    "research/bit-row-route-generator/PROGRAM.json.gz",
+    "research/fixed-tape-ordered-shear/counters.py",
+    "research/fixed-tape-ordered-shear/machine.py",
+    "research/fixed-tape-ordered-shear/shear.py",
+    "research/high-carry-streams/PROOF.md",
+    "research/high-carry-streams/rotation.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual source columns, fixed tables,40 whole-array fixtures in2 interpreters,3 actual-T initializers, source and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Same source/endpoint/resource checks with assertions disabled."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/connector-single-burst/CERTIFICATES.json",
+    "research/connector-single-burst/README.md",
+    "research/connector-single-burst/SOURCE-WORD.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All 16777216 binary aggregate pairs, all endpoint coefficients, rank lower bound, cited attaining word and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same complete finite domain and contracts with assertions disabled."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "status": "PASS_Q8_HOMOGENEOUS_MIXED_FLOOR",
+  "source_sha256": {
+    "model.py": "50022927b416a927f3e80fd6c14e000ce4261c18c740dcf58e6f3ea94b3c8a24",
+    "oracle.py": "b6afaaf4d31581a46689df60ce417acfc8a028d4e94b939a5ebf34acea25bf37",
+    "verify.py": "d9a1fa93c63ec9cb6e0fae46f786aa65135a43f701d44e266148ae18cf313bcf",
+    "test_package.py": "25afac867760284c107e4e2a0c76c6cbffad798a30bd36d621082f921905f061",
+    "PROOF.md": "472ba6f092199d6d10450cfd38c126268aee4d071004acaabaf6b9d551ad340d",
+    "inputs/RETENTION.json": "61680684fd7f96ff0096c0adaa94d1c48beba4099dad54577dc0dc3d4e826b0b",
+    "inputs/pr3570-PROOF.md": "0dc823baa3ac6a3209452deda6145aaa2196c61f3fc98803fa0c708e33e7cf12",
+    "inputs/pr3536-PROOF.md": "d62d68eb4dafdcc6d85bb93626684e44a637ac020bf0fa8a7d1a8fc4f65d576e",
+    "inputs/pr3558-PROOF.md": "79f4e73015c64360fcf635ce0b4288738f73a46bd95178dde3d26807d6de294e"
+  },
+  "arithmetic": {
+    "group_products": 64,
+    "basis_values": 256,
+    "cubic": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "fourth": [
+      0,
+      255,
+      255,
+      0,
+      255,
+      255,
+      0,
+      255,
+      255,
+      0,
+      255,
+      255,
+      0,
+      255,
+      255,
+      0
+    ]
+  },
+  "generic": {
+    "words": 390,
+    "dirty_columns": 9360,
+    "seed": 1904
+  },
+  "direct": {
+    "endpoints": 36,
+    "dirty_columns": 1296,
+    "omissions": 378
+  },
+  "rank_fixtures": {
+    "triangular_sylvester": 1593,
+    "sharp": 399,
+    "zero_product_pairs": 186
+  },
+  "count_controls": {
+    "accepted_count_pairs": 14368,
+    "target_counts": 32,
+    "homogeneous_four_minimum": [
+      10,
+      12
+    ],
+    "ten_call_counts": [
+      6,
+      4
+    ]
+  },
+  "claim": "2ni+nj>=4t; 2ni+3nj>=6t; 2n>=5t; homogeneous only",
+  "independent_acceptance": false,
+  "new_kappa": false
+}

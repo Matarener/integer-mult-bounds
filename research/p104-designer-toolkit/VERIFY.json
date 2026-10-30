@@ -1,0 +1,35 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [],
+ "inputs": [
+  "research/native-transpose-owned/RESULT.json"
+ ],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/tests/regress.py",
+    "--quick",
+    "--pricer",
+    "--real",
+    "5553"
+   ],
+   "timeout_seconds": 600,
+   "checks": "Fast suite (exact kappa of PR5545/5551/5553/5561 and the starts-only word, check with three localised mutants, diff 5551 -> 5561, hops 916 / 2797, sens table), the rank-r pricer (PR5392 RESULT and the rank-8 synthetic) and the real PR5545 verifier stack on PR5553's word with its exact crossing."
+  },
+  {
+   "argv": [
+    "{python}",
+    "-B",
+    "{package}/tests/regress.py",
+    "--real",
+    "5551,5561"
+   ],
+   "timeout_seconds": 600,
+   "checks": "The unmodified real verifier stack (replay, transposed columns, native maps, physical caller, PR5551 pricing with literal-only changes) on PR5551 and PR5561, with exact crossings .00304153116714 and .00308142433380."
+  }
+ ]
+}

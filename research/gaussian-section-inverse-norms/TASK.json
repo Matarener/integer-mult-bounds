@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Answer #4319's open question: certify the induced 1-norm (and recheck the infinity norm) of the inverse of the normalized p=19 Gaussian Schur section on survivors 0,1,2,7,8,9, by a different route.",
+  "scope_change_reason": "The card asks for one quantified #4100 implication at its caller; the precision/conditioning obligation's 2-norm bound rests on the 1-norm ceiling, which no check had compared with a true value.",
+  "bottleneck_link": "INVERSE-CONDITIONING.md bounds ||H^-1||_2 by sqrt(||.||_1 ||.||_inf); the 1-norm ceiling 1/delta + 2b rho/delta^2 dominates it.",
+  "budget_minutes": 30,
+  "stop_rule": "Stop once both norms of this one section are certified.",
+  "outcome": "completed",
+  "evidence": "verify.py: ||N^-1||_inf = 3.6006354043 (row 0) inside #4319's (18/5, 361/100); ||N^-1||_1 = 2.8138216884 (column 2), about 1/1400 of #4317's 3938; 2-norm in [1.6265, 3.1830]; full 10-vertex path 1-norm 4.3868 < inf 6.0623; rigorous error 7e-87; principal-restriction control misses the bracket.",
+  "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
+  "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, verifier implementation and writing; no independent human or proof-kernel review.",
+  "open_questions": [
+    {
+      "question": "Does the inverse 1-norm stay below the infinity norm on longer paths and sections?",
+      "why_it_matters": "Then the lemma's 1-norm ceiling is uniformly loose and the 2-norm bound could drop to about 1/delta.",
+      "first_step": "Run the quotient-identity computation for path lengths 11 to 40.",
+      "blocked_by": "None; a proof needs a column analogue of the row gap."
+    }
+  ]
+}

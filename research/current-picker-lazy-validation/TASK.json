@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "3f0152a32eeebac0df11946dbd50cabe5a7f7839",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Defer unused parent-side legacy validation loading in the current task-picker CLI, preserving exact complete outputs, source freshness and historical-route rejection.",
+  "scope_change_reason": "The first BIT suggestion was not assigned by the donor. Live and recent-account overlap excluded the mathematical tour candidate before research. This uses the current verifier-engineering priority for a distinct original onboarding bottleneck rather than auditing a predecessor.",
+  "bottleneck_link": "Repeated coordination commands load the same frozen picker twice even when no historical first-step rewrite is needed. Removing the unused load reduces this bounded startup cost; it changes no supplier or scientific replay.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first measured complete-command improvement after exact conformance and retained rejection checks. Do not expand the optimization.",
+  "outcome": "completed",
+  "evidence": "The exact-source conformance checker passes all 22 live cards, two historical route shapes and seven source/route rejection controls. The existing 12 routing tests pass. Generated BENCHMARK.json supplies alternating complete-command wall times, every successful command and source hashes. The recorded nine paired batches of ten fresh commands each have medians 104.461 ms before and 99.598 ms after, 4.66% less wall time, with all nine paired decreases positive and zero errors. The ratio is empirical and host-specific.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does startup loading remain a material bottleneck for historical mapped routes?",
+      "why_it_matters": "Those routes still require the legacy validation load, so this optimization does not accelerate that branch.",
+      "first_step": "Profile complete historical mapped CLI commands before changing execution boundaries.",
+      "blocked_by": "Any replacement must preserve source freshness, exact error propagation and sparse-reference rejection."
+    }
+  ]
+}

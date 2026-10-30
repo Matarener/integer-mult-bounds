@@ -1,0 +1,303 @@
+{
+  "authenticated_inputs": 6,
+  "checks": {
+    "branches": {
+      "all_permutations": 120,
+      "branch_pairs": 14400,
+      "constant_endpoints": 120,
+      "literal_branch_endpoints": 28800,
+      "maximum_emitted_instructions": 24
+    },
+    "conjugation": {
+      "complete_dirty_endpoints": 96,
+      "target_five_cycles": 24
+    },
+    "formula_truth": {
+      "assignment_checks": 14456,
+      "canonical_clauses": 42,
+      "clause_lengths_0_to_3": [
+        0,
+        1,
+        9,
+        25
+      ],
+      "formulas": 1807
+    },
+    "invalid_inputs": {
+      "rejected_inputs": 7
+    },
+    "local_controls": {
+      "Boolean_boundary_controls": 4,
+      "complete_five_column_endpoints": 120,
+      "opaque_generator_name_control": true,
+      "ordered_role_pairs": 20,
+      "tensor_tuples_per_pair": 6,
+      "tensor_widths": [
+        1,
+        2,
+        3
+      ]
+    },
+    "mutations": {
+      "constant_phase_even_width_control_passes": true,
+      "semantic_rejections": 8,
+      "witnesses": [
+        {
+          "differing_entry": {
+            "actual": "0",
+            "dirty_input_role": 0,
+            "output_role": 0,
+            "required": "1"
+          },
+          "mutation": "omit inverse-word reversal",
+          "tensor_addresses": [
+            0
+          ]
+        },
+        {
+          "differing_entry": {
+            "actual": "0",
+            "dirty_input_role": 2,
+            "output_role": 0,
+            "required": "1"
+          },
+          "mutation": "reverse relative permutation product",
+          "tensor_addresses": [
+            1
+          ]
+        },
+        {
+          "differing_entry": {
+            "actual": "1",
+            "dirty_input_role": 1,
+            "output_role": 0,
+            "required": "0"
+          },
+          "mutation": "reverse cycle swap chronology",
+          "tensor_addresses": [
+            0
+          ]
+        },
+        {
+          "differing_entry": {
+            "actual": "1",
+            "dirty_input_role": 0,
+            "output_role": 0,
+            "required": "0"
+          },
+          "mutation": "empty conjunction made false",
+          "tensor_addresses": [
+            0
+          ]
+        },
+        {
+          "differing_entry": {
+            "actual": "2",
+            "dirty_input_role": 0,
+            "output_role": 0,
+            "required": "1"
+          },
+          "mutation": "flip controlled-query sign",
+          "tensor_addresses": [
+            0
+          ]
+        },
+        {
+          "differing_entry": {
+            "actual": "-1",
+            "dirty_input_role": 1,
+            "output_role": 0,
+            "required": "0"
+          },
+          "mutation": "omit final controlled-swap ADD",
+          "tensor_addresses": [
+            0
+          ]
+        },
+        {
+          "differing_entry": {
+            "actual": "1",
+            "dirty_input_role": 0,
+            "output_role": 0,
+            "required": "0"
+          },
+          "mutation": "erase variable sign",
+          "tensor_addresses": [
+            1
+          ]
+        },
+        {
+          "differing_entry": {
+            "actual": "1",
+            "dirty_input_role": 0,
+            "output_role": 0,
+            "required": "0"
+          },
+          "mutation": "extra constant phase hidden at even widths",
+          "tensor_addresses": [
+            1
+          ]
+        }
+      ]
+    },
+    "native_cnf": {
+      "dirty_input_columns_per_block": 5,
+      "fixtures": {
+        "contradiction": 14,
+        "empty-clause": 14,
+        "empty-conjunction": 14,
+        "mixed-three-axis": 584,
+        "mixed-two-axis": 84,
+        "sparse-label": 96,
+        "tautology": 14
+      },
+      "literal_tensor_blocks": 820,
+      "max_program_instructions": 768,
+      "oracle_assignment": "XOR of every tensor column address",
+      "tensor_widths": [
+        1,
+        2,
+        3
+      ]
+    },
+    "sizes": {
+      "bit_encoding_qualification": "generator-table O(n^3) bits; renumber used variables before reduction",
+      "cases": 24,
+      "native_bound": "24 per branch; at most 1200*max(1,m)^2 instructions",
+      "rows": [
+        {
+          "branch_instructions": 1,
+          "clauses": 0,
+          "proved_upper": 1
+        },
+        {
+          "branch_instructions": 25,
+          "clauses": 1,
+          "proved_upper": 25
+        },
+        {
+          "branch_instructions": 100,
+          "clauses": 2,
+          "proved_upper": 100
+        },
+        {
+          "branch_instructions": 250,
+          "clauses": 3,
+          "proved_upper": 300
+        },
+        {
+          "branch_instructions": 400,
+          "clauses": 4,
+          "proved_upper": 400
+        },
+        {
+          "branch_instructions": 850,
+          "clauses": 5,
+          "proved_upper": 1000
+        },
+        {
+          "branch_instructions": 1000,
+          "clauses": 6,
+          "proved_upper": 1200
+        },
+        {
+          "branch_instructions": 1300,
+          "clauses": 7,
+          "proved_upper": 1400
+        },
+        {
+          "branch_instructions": 1600,
+          "clauses": 8,
+          "proved_upper": 1600
+        },
+        {
+          "branch_instructions": 3250,
+          "clauses": 9,
+          "proved_upper": 3600
+        },
+        {
+          "branch_instructions": 3400,
+          "clauses": 10,
+          "proved_upper": 4000
+        },
+        {
+          "branch_instructions": 3700,
+          "clauses": 11,
+          "proved_upper": 4400
+        },
+        {
+          "branch_instructions": 4000,
+          "clauses": 12,
+          "proved_upper": 4800
+        },
+        {
+          "branch_instructions": 4900,
+          "clauses": 13,
+          "proved_upper": 5200
+        },
+        {
+          "branch_instructions": 5200,
+          "clauses": 14,
+          "proved_upper": 5600
+        },
+        {
+          "branch_instructions": 5800,
+          "clauses": 15,
+          "proved_upper": 6000
+        },
+        {
+          "branch_instructions": 6400,
+          "clauses": 16,
+          "proved_upper": 6400
+        },
+        {
+          "branch_instructions": 12850,
+          "clauses": 17,
+          "proved_upper": 13600
+        },
+        {
+          "branch_instructions": 24400,
+          "clauses": 31,
+          "proved_upper": 24800
+        },
+        {
+          "branch_instructions": 25600,
+          "clauses": 32,
+          "proved_upper": 25600
+        },
+        {
+          "branch_instructions": 51250,
+          "clauses": 33,
+          "proved_upper": 52800
+        },
+        {
+          "branch_instructions": 100000,
+          "clauses": 63,
+          "proved_upper": 100800
+        },
+        {
+          "branch_instructions": 102400,
+          "clauses": 64,
+          "proved_upper": 102400
+        },
+        {
+          "branch_instructions": 204850,
+          "clauses": 65,
+          "proved_upper": 208000
+        }
+      ]
+    },
+    "variable_renaming": {
+      "clauses": 3,
+      "compact_axes": 3,
+      "complete_dirty_endpoints": 8,
+      "largest_original_variable_bits": 201,
+      "source_compiler_auto_renaming_claimed": false
+    }
+  },
+  "new_hardness_theorem_or_kappa": false,
+  "reviewed_source_head": "18354f41de4dc7bfda4692e814cf1d91a6d619ef",
+  "source_compiler_executed": true,
+  "source_evaluator_or_verifier_used": false,
+  "status": "PASS_REVERSIBLE_CNF_INDEPENDENT_AUDIT"
+}

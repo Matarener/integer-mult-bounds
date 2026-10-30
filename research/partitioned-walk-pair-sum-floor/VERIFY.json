@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/independent-walks-7q-obstruction/model.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Table lemma on all walks of length 2-5, Q=7 rank census, seeded random duals against the PR #2779 two-port dual, floor witnesses at Q=8 and Q=9, tariff floors."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/crt-reservoir-placement/allocator.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact universal axis-capacity arithmetic; finite width-count and precision boxes; attaining threshold witnesses; four actual source Layout fixtures; all controls; full generated receipt bound to package and live-input SHA256 hashes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact universal axis-capacity arithmetic; finite width-count and precision boxes; attaining threshold witnesses; four actual source Layout fixtures; all controls; full generated receipt bound to package and live-input SHA256 hashes."
+    }
+  ]
+}

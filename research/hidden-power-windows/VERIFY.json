@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/recursive-power-variation.md",
+    "research/rational-threshold-rank-exchange/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact polynomial identities, endpoint multiplicities, hidden windows and every sample in grids through denominator 24, narrow current-saving fixtures, rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Identical checks with assertions disabled."
+    }
+  ]
+}

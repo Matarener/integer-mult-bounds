@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Compile the 63 pinned R437 pooled moves into the retained absolute-owner IR emitter, exhibit the first actual rejection by the compressed physical catalogue, and specify the replica-indexed refinement boundary.",
+  "scope_change_reason": "Explicit donor assignment targets the unresolved cross-replica native join after PR3959; the existing unpooled PR3967 adapter enforces replica symmetry.",
+  "bottleneck_link": "The proposed bit endpoint in PR3959 binds its paired conditional kappa, but this package advances only its owner-to-emitted-IR obligation. Physical compilation and full supplier admission are unresolved.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at a source-bound first-move mismatch and a bounded complete IR emission; do not infer physical CALL/RETURN or a new kappa from static ownership.",
+  "outcome": "partial",
+  "evidence": "RESULT.json, PROOF.md, the exact retained guard and two retained stream encoders, six rejected ownership mutations.",
+  "author": "Chris R / Clear1nsight with OpenAI Codex",
+  "ai_assistance": "Substantial OpenAI Codex assistance for analysis, code, proofs, tests and writing.",
+  "open_questions": [
+    {
+      "question": "Can the production physical catalogue and topology accept replica-indexed owner and idle requests?",
+      "why_it_matters": "The present compressed catalogue rejects the first cross-replica move; source-code identity and native returns must use the new complete request domain.",
+      "first_step": "Build the stage6 replica1 helper421 native request at family209 offset16 and bind its actual source code, chart, return capsule and consumers.",
+      "blocked_by": "Complete replica-aware production source identity, address routing, preparation, restoration and cost/visited-cell contracts."
+    },
+    {
+      "question": "Can the full pooled R437 supplier retain its advertised endpoint after native costs?",
+      "why_it_matters": "No numerical kappa improvement is admitted from this finite IR certificate.",
+      "first_step": "Compose the completed physical refinement with the complete dual-supplier budget using exact source heads.",
+      "blocked_by": "All inherited R437 all-size, SOURCE, correlated hosting, common field/cover, stock, precision and physical consumer obligations."
+    }
+  ]
+}

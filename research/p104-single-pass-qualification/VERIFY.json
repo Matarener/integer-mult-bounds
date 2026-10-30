@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-single-pass-qualification/inputs/PR5831.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh full source-pinned Fraction and integer qualification with all 25984 events/799 coordinates, complete first-pass ideal/weights and actual trace/witness equality, unchanged 120-program/4240-event finite differential, six original plus three integer rejections, four inherited custody and 27 new finite observation controls. No coverage sampling or cross-run cache."
+    }
+  ]
+}

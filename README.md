@@ -13,48 +13,76 @@ starting with [the coordination guide](https://github.com/CrocSwap/integer-mult-
 New to the construction? Read [the bottleneck brief](docs/research/bottleneck-brief.md).
 Workflow feedback is welcome in [discussion #1200](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200).
 
-## Current reviewed result: rare-pattern T16 owner exchanges
+## Current reviewed result: P104 twin-rung removal
 
-**Rohan Arun's [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)** gives
+**DreamingOfClouds' [#6030](https://github.com/CrocSwap/integer-mult-bounds/pull/6030)**,
+building on Ali Romman's construction/verification chain and the community P104 work, gives
 
 $$
 T(n)=O\!\left(n(\log n)^{1-\kappa}\right),\qquad
-\kappa=\frac{836330098538459}{500000000000000000}=0.001672660197076918.
+\kappa=\frac{781451}{250000000}=0.003125804>2^{-9}.
 $$
 
-This is about **0.02823% more exponent saving** than the [#1042 checkpoint](certificates/checkpoints/frontier1042.json), not measured runtime. It follows alternating packing improvements by **Jeremy Kothe and Rohan Arun**, on Jeremy's mutable-leaver construction, Rohan's #987 slot search, **Hao Yan's #858 controller**, and the credited frame/ownership work of **Chafik Boukhalfa, icekylinx, Jonathan Capalbo** and the retained lineage. The bit supplier remains **DreamingOfClouds' #589 on eumemic's #555**.
+A helper-rung removal and rerouted scalar program improve the fully charged
+invoice. The complete caller has **13,444 productive fields and 66,834 paid
+calls**. The exponent saving is about **0.81775% larger** than the preceding
+selected 0.00310045; this is not a practical runtime comparison.
 
-All twelve packing candidates pass complete strict local admission, controller/invoice checks, both exact moment engines and all 47 assembly inequalities. Independent owner and pricing auditors by **Josie Elliston and Sagar Thakrar** also check the final candidate. Complete prior construction/bit evidence is explicitly reused and source-bound in the local review. All-size/compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery and analytic obligations remain conditional. This is **not a complete Lean multiplication theorem**. Hosted Linux CI is separate.
+Full primary replays pass on macOS and Linux after a gzip-portability repair.
+The independent audit checks the complete word, invoice, all seven new native
+maps, and the physical caller. Its adapted caller reproduces the original
+positive control byte for byte; optimized and normal primary outputs agree.
+Local audit jobs ran serially with sampled 1 GiB descendant-memory limits.
 
-[Forty-PR review and attribution](docs/research/community-batch1099-review.md) ·
+**The same five conditional framework assumptions remain.** The enormous
+uniform word and rounded multiplier are not materialized. This is not a
+complete Lean theorem or independent human proof of integer multiplication.
+
+Credit includes **DreamingOfClouds, Ali Romman, Mason Hale, Pierre-Loic Doulcet,
+Matarener and Chris R / Clear1nsight**, alongside the cumulative construction,
+BIT, compiler, native and analytic lineage. [Detailed contributor map](docs/research/community-p1046030-contributors.md).
+
 [Selected record](certificates/selected-result.json) ·
-[Exact assembly](research/community-frontier1094-audit/ASSEMBLY.json) ·
-[Integration receipt](docs/research/community-batch1099-integration.json) ·
-[PR ledger](docs/research/pr-ledger.md) · [Contributors](CONTRIBUTORS.md)
-
-Post-selection research and verification rounds are indexed in
-[current status](docs/research/current-status.md). Use the
-[PR ledger](docs/research/pr-ledger.md) for each contribution's reviewed head,
-integration status and remaining obligations.
+[Application review](docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md) ·
+[Validation](docs/research/pr-intake-evidence/pr6030-audit/VALIDATION.json) ·
+[Integration](docs/research/pr-intake-evidence/pr6030-audit/INTEGRATION.json) ·
+[Contributors](CONTRIBUTORS.md) · [PR ledger](docs/research/pr-ledger.md)
 
 ```sh
-# Also requires a C++17 compiler and Boost headers.
-python3 -m pip install numpy sympy scipy
-make frontier1094-verify
+# Fast source/metadata check; no operator replay.
+python3 -B scripts/research_selected_baseline.py
+# Full serial finite replay and independent controls.
+make frontier6030-verify
 ```
 
-The batch includes separate U10, rank-seven-end and E4 gap-filling constructions, finite bit circuits, exact decoder bounds, independent numerical and SAT-proof audits, and verification tools. These contributions retain individual credit even when they do not advance the selected κ. #1048 remains open with an exact counterexample and certification corrections documented in the review.
+The [PR5599 checkpoint](certificates/checkpoints/frontier5599.json) and its
+[review](docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md)
+remain preserved. Frozen submissions keep their historical status; the selected
+record identifies the reviewed claim.
 
-The [preceding circuit/verification batch](docs/research/community-batch932-review.md)
-and [U8/T21 review](docs/research/community-frontier890-review.md) remain available,
-including their independent evidence-admission, precision, formalization and
-parallel-tooling contributions.
+## Historical checkpoint: productive helper jobs
 
-The previous [fifteen-PR review](docs/research/community-frontier799-review.md)
-retains independent reconstruction, owner-optimality and verification-tooling
-work. [Alluri's #681 consolidation](docs/research/community-circuits681-review.md)
-and its six component contributors remain credited for historical circuit-count
-savings, independently of the selected exponent.
+**zxv's #4359** reached κ = 0.0023 using Jacob Alan Sussman's mixed-target
+recursion and the cumulative native/outer lineage. Its 23-stage, 59-artifact
+replay, proof review and credits remain preserved in the
+[frozen checkpoint](certificates/checkpoints/frontier4359.json),
+[review](docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.md) and
+[contributor map](docs/research/community-productive4359-contributors.md).
+`make frontier4359-verify` remains the historical replay. Cinna Davis's #4416
+and zxv's #4433 subsequently supported the reviewed 0.00268647 intermediate
+checkpoint; their [review](docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md)
+remains part of the current source-bound foundation.
+
+## Historical checkpoint: rare-pattern T16 owner exchanges
+
+**Rohan Arun's #1094** reached κ = 0.001672660197076918, following alternating
+packing improvements by **Jeremy Kothe and Rohan Arun**, **Hao Yan's controller**,
+and the retained frame/ownership and binary lineage. Independent owner/pricing
+audits by **Josie Elliston and Sagar Thakrar** are preserved in the
+[review](docs/research/community-batch1099-review.md) and
+[frozen checkpoint](certificates/checkpoints/frontier1094.json).
+Subsequent research, negative results and verification work remain indexed in
+[current status](docs/research/current-status.md) and the [PR ledger](docs/research/pr-ledger.md).
 
 ## Historical checkpoint: K-triangle helpers and owner repair
 

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Regular defect ranks over five fields, 206 random-circuit rank cuts, exact cover costs and attaining words, five controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the full corroboration with Python assertions disabled; all checks use explicit need() calls."
+    }
+  ]
+}

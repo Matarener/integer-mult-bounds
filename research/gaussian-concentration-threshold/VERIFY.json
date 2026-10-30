@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/evidence/gaussian_fast_ultra/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/physical-gaussian-core/gaussian_axis.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact upper/lower concentration certificates, full finite band rows, half-up tie geometry and rejected arithmetic domains."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same complete scope with every runtime contract retained under optimization."
+    }
+  ]
+}

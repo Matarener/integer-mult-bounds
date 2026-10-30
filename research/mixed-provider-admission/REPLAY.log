@@ -1,0 +1,84 @@
+Executed stdout excerpts from the isolated committed export.
+Only work/source/interpreter paths are normalized; these are local logs, not hosted CI or formal proof.
+
+== default full driver ==
+PASS pr4088-verify
+PASS pr4088-owner_verify
+PASS pr4088-operator_verify
+PASS predecessor-preflight
+PASS native-four-base
+PASS native-four-extra
+PASS inherited-admission
+PASS_REPLICA_ORDER_FILL_DERIVATIVE_COMPLETE_RELEASE
+
+== fresh FOUR base ==
+PASS native
+PASS ledgers
+PASS local-replay
+PASS wrappers
+PASS phases
+PASS_COMPLETE_T74_NATIVE_REPLAY sparse 74.377
+
+== fresh FOUR extra ==
+PASS native
+PASS ledgers
+PASS local-replay
+PASS wrappers
+PASS phases
+PASS_COMPLETE_T74_NATIVE_REPLAY sparse 65.274
+
+== inherited admission ==
+PASS owners
+PASS parent-lift
+PASS rebind
+PASS discovery
+PASS outer-check_ledger.py
+PASS outer-independent_check.py
+PASS release
+PASS_REPLICA_ORDER_FILL_DERIVATIVE_COMPLETE_RELEASE 0.0017309791156707924727599999999999999999999998999999999999999999999999
+
+== ordinary verification ==
+PASS fine-engine-oracle
+PASS retained-provider-and-parent-admission (hash-checked receipt)
+PASS rebuild-words-566
+PASS reconstruct-owners
+PASS lift-parent
+PASS rebuild-borrow-words
+PASS shared-kernel-independent-review
+PASS preload-move-independent-review
+PASS two-sided-helper408-review
+PASS paired-extension-review
+PASS declared-edit-review
+PASS staged3605-review
+PASS delayed-release-independent-review
+PASS staged544-independent-word-review
+PASS terminal-width5-independent-word-review
+PASS staged-entries-independent-word-review
+PASS receiver-sharing-independent-word-review
+PASS audit-local-566-base
+PASS audit-local-566-extra
+PASS rebind-566
+PASS lemmag-labels
+PASS strict-t74
+PASS geometry-controls
+PASS_T74_EXACT_FILL_COMPLETE_FINITE_ADMISSION 0.001727988004522833
+
+== strict replay ==
+PASS bind
+PASS emit
+PASS audit
+PASS invoice
+PASS assembly
+PASS admission
+PASS bit
+PASS independent
+PASS_STRICT_MIXED_T74_EXACT_FILL 0.001727988004522833
+
+== outer execution ==
+case g=5 L=7: exact tensor product reproduced; sum|F|=28812 = sum|U_i|; g|U|=74035 (x2.57); moves=336140 <= 950796; rounds=5
+case g=4 L=6: exact tensor product reproduced; sum|F|=1944 = sum|U_i|; g|U|=4416 (x2.27); moves=18360 <= 58320; rounds=4
+case g=6 L=5: exact tensor product reproduced; sum|F|=40625 = sum|U_i|; g|U|=90834 (x2.24); moves=459375 <= 1340625; rounds=6
+case g=3 L=8: exact tensor product reproduced; sum|F|=512 = sum|U_i|; g|U|=1086 (x2.12); moves=5120 <= 15360; rounds=3
+PASS_UNION_SCHEDULE
+PASS_EXACT_REPLAY 19
+PASS_OUTER

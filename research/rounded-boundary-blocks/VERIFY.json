@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/INVERSE-CONDITIONING.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/capped-phase-fusion/README.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/capped-phase-fusion/CAPPED-GAUGE-AUDIT.md",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/README.md",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/check_constructions.py",
+    "research/capped-phase-fusion/evidence/matrix_boundary_ultra/ALGEBRAIC-STABILITY-INDEPENDENT.md",
+    "research/capped-phase-fusion/review20261014/independent/ORIGINAL-OUTER-PROOF-REVIEW.md",
+    "research/physical-gaussian-core/PROOF.md",
+    "research/physical-gaussian-core/README.md",
+    "research/boundary-half-bandwidth/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the retained block program, execute rounded two-pass solves with exact Strassen products, compare independent endpoints/residuals, bound temporaries and reject page/geometry/precision controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete rounded-boundary audit with optimized audit code and explicit acceptance checks; preserve source assertions in the authenticated subject."
+    }
+  ]
+}

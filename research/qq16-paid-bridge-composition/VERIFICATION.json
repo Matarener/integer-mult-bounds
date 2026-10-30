@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "verification_time_utc": "2026-10-19T07:48:28Z",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "requirements": "Python standard library only"
+  },
+  "scientific_artifact_sha256": {
+    "verify.py": "5c26438418e13834e05764efda783dbbd560881bd70a7a73997725b6dbf142cb",
+    "test_verify.py": "d9fd532e1c246e07fc78d5e64eda055ab2753d911296f8933130759aaec21beb",
+    "PROOF.md": "aeeb36050e7b8300de12bde14b11a9b43613470fe63ac789b44f5ad185369260",
+    "RESULT.json": "7897a9517b66fefb1cf0be19b7cc839a3348f0ff368341fd434681b302471e02",
+    "WORDS.json": "19383d203ee1e515c96226afda5437aee464993fb74ec632db515275c6575a04",
+    "SOURCES.json": "809d7dce984fc2cc901867c58420f69b75600f833673e363a8104504d1b9bd09",
+    "PREDECESSORS.json": "fe60aa114487c918c2fa90809975c84d320197cb6c2157dc779bebaeed52afad"
+  },
+  "observed_checks": [
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-paid-bridge-composition/verify.py",
+      "result": "PASS_QQ16_PAID_BRIDGE_COMPOSITION no_new_kappa"
+    },
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-paid-bridge-composition/test_verify.py",
+      "result": "Seven tests PASS; includes normal and optimized replay, unchanged file snapshots, read-only Git-free export with PATH=/nonexistent, canonical SHA/Git-blob corruption, pending data corruption, full-word/typed-receipt mutation, regeneration overwrite refusal."
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-paid-bridge-composition --check-only",
+      "result": "PASS_PACKAGE_METADATA_AND_PINS"
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-paid-bridge-composition",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE; optimized verifier and all seven boundary tests passed."
+    },
+    {
+      "command": "python3 -B scripts/research_baseline.py",
+      "result": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY; not selected supplier replay or mathematical acceptance."
+    }
+  ],
+  "semantic_controls": [
+    "Wrong query sign changes the exact routed bridge result.",
+    "Omitted affine shift fails complete phase equality.",
+    "Omitted inverse C_q fails target frame equality.",
+    "Omitted final Q clear leaves nonzero owned output.",
+    "Missing inverse native translation fails exact signed Gaussian kernel."
+  ],
+  "unrun_or_unproved": [
+    "Full selected cold replay, Lean or other proof assistant, human review.",
+    "Physical six-tape placement, movement, full-cover workspace hosting and inter-pair QQ16 native alignment.",
+    "Rounded precision, intermediate magnitude/error bounds, global invocation coverage and recursive supplier admission."
+  ],
+  "publication_preflight": "Final committed byte/source-history and repository bundle checks are reported against the publication head in the PR; they are not self-referential claims about this file."
+}

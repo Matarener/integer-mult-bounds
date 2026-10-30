@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/batched-bit-rows.tex",
+    "upstream/build/sections/04-swap.tex",
+    "upstream/build/sections/03-motifs.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "SHA-256 authentication of the three pinned inputs; re-derivation of m, s_b, s_c, eta_b, eta_c from the displayed source forms; integrality of both role counts and of both deficits; rigorous rational brackets for ln m, -ln(1-eta) and exp(2^-50 ln m); exact checks that Psi(1-2^-50) < 1 on both nodes and that the manuscript exponent exceeds the joint threshold; the manuscript's own eta > 20*2^-50 and log m < 20 comparisons; full RESULT.json receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate integer-only route sharing no series and no logarithm: 2 < e < 2.72 from the factorial series, m < 2^20, e^13 < m, eta > 20*2^-50 by integer cross-multiplication, and e^x <= 1/(1-x) to conclude Psi(1-2^-50) < 1 on both nodes; also a coarse threshold bracket from log m in (13,20)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Twelve mutation groups: eight rejections of altered deficits, exponents and child counts; the sharp boundary pair 1-2^-38 rejected and 1-2^-42 accepted; two positive runs; and the recorded demonstration that 1-2^-42 fails the manuscript's displayed comparison while passing the exact decision. Parser agreement between the two programs. Production checks stay enabled under -O."
+    }
+  ],
+  "expected_outputs": [
+    "PASS_PARKING_PSI_EXPONENT_THRESHOLD",
+    "PASS_PARKING_PSI_EXPONENT_THRESHOLD_INDEPENDENT",
+    "PASS_PARKING_PSI_EXPONENT_THRESHOLD_CONTROLS"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "orbit"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned complete E8 orbit census, exact sharp formal query word, distinct BIT/C4/regular-cover hypotheses and actual semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "independent"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate exact group-ring and variation-rank checks, all declared dirty input columns, and model-sensitive semantic defects."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Captured-source authentication, complete typed record equality, exact stage coverage and output-path behavior with check deletion sensitivity."
+    }
+  ]
+}

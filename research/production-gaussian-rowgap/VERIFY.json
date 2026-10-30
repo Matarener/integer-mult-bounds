@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/physical-gaussian-core/PROOF.md",
+    "research/physical-gaussian-core/gaussian_axis.py",
+    "research/physical-gaussian-core/gaussian_check_production.py",
+    "research/physical-gaussian-core/gaussian_prepare.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "New exact rational gap inequalities; finite tie/seam geometry; rounding exponent; rejected domains; removed-similarity counterexample."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same complete scoped check with Python assertions disabled."
+    }
+  ]
+}

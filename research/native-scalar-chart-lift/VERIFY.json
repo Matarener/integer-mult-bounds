@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper-subspace-splits/WORD.json.gz",
+    "research/p104-helper-subspace-splits/inputs/PR5565-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Selected-word common-chart census, PR5565 scalar split delta, phase-chart width trap, and synthetic cross-chart rejection."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same certificate with assert stripping; the checker uses explicit exceptions rather than assert."
+    }
+  ]
+}

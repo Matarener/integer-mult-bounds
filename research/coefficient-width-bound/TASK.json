@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Prove the published coefficient-width inequalities for every positive precision and frequency bound, and check them on the 40 by 40 box.",
+  "scope_change_reason": "The source-window index is a different question. This package checks the coefficient widths. It does not run the Gaussian core.",
+  "bottleneck_link": "The derived working precision stays below five times the initial precision, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record these bounds. Do not run the Gaussian core or the word multiplier.",
+  "outcome": "partial",
+  "evidence": "At precision and frequency 1 the initial height is 27 and the working precision is 115. The same inequalities hold for every larger positive pair, and for all 1600 pairs through 40.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The inequalities are settled for every positive pair. The Gaussian core would leave this package."
+}

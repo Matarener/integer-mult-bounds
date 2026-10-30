@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e7-bitsliced-exhaustion/source/PROOF.md",
+    "research/e7-bitsliced-exhaustion/source/README.md",
+    "research/e7-bitsliced-exhaustion/source/RESULT.json",
+    "research/e7-bitsliced-exhaustion/source/SOURCES.json",
+    "research/e7-bitsliced-exhaustion/source/TASK.json",
+    "research/e7-bitsliced-exhaustion/source/VALIDATION.md",
+    "research/e7-bitsliced-exhaustion/source/VERIFY.json",
+    "research/e7-bitsliced-exhaustion/source/vendor/PR5238.md",
+    "research/e7-bitsliced-exhaustion/source/vendor/PR5238.py",
+    "research/e7-bitsliced-exhaustion/source/verify.py",
+    "research/e7-bitsliced-exhaustion/SOURCE-ORIGIN.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 34525 four-coordinate code comparisons, wide and malformed controls, exact source authentication, complete E7 classification and basis change."
+    }
+  ]
+}

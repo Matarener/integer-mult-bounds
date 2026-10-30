@@ -1,0 +1,969 @@
+{
+  "schema": 1,
+  "status": "CONFIRMED_WINDOWS_OWNER_DEATH_BOUNDARIES",
+  "started_utc": "2026-10-25T06:25:58.692866+00:00",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "optimized": 1,
+  "probe_sha256": "afcc16f221ba09d9cfa87d4995f9a807c0f1de786cca2daf0d07a70dc39499a7",
+  "source_sha256": {
+    "research_package.py": "84a45190a6a96c20993a0d4a1045fbf24de660d2e6fef8f8a447bb3d1aa78db6",
+    "owned_pipe.py": "01f597c8ecb955b2ef7faa8f0650e67c0eca5c0d5f6a817a181c536bef9c37aa"
+  },
+  "windows_observations_executed": true,
+  "cases": [
+    {
+      "target": "shared",
+      "phase": "before_event_open",
+      "mutation": "none",
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 53308,
+        "gate": 41072
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138168.281,
+      "event_open_after_owner_death": false,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false
+      },
+      "observation_seconds_after_owner_death": 0.031000000017229468,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "Traceback (most recent call last):\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 425, in <module>\n    main()\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 391, in main\n    gate_worker(args)\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 142, in gate_worker\n    exec(compile(code, \"<pinned-or-labelled-mutant-gate>\", \"exec\"), {\"__name__\": \"__main__\"})\n  File \"<pinned-or-labelled-mutant-gate>\", line 16, in <module>\nFileNotFoundError: [WinError 2] The system cannot find the file specified.\n",
+      "events": {
+        "checkpoint": {
+          "pid": 53308,
+          "time": 138168.046,
+          "phase": "before_event_open"
+        },
+        "gate-before-open": {
+          "pid": 41072,
+          "time": 138168.25
+        },
+        "gate-open": {
+          "pid": 41072,
+          "time": 138168.281,
+          "succeeded": false
+        },
+        "gate-process": {
+          "pid": 53308,
+          "time": 138168.046,
+          "process_pid": 41072,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "owner-ready": {
+          "pid": 53308,
+          "time": 138168.015,
+          "target": "shared",
+          "phase": "before_event_open",
+          "mutation": "none"
+        }
+      }
+    },
+    {
+      "target": "shared",
+      "phase": "before_assign",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138169.109,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 34788,
+        "gate": 38100
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138169.156,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": true
+      },
+      "observation_seconds_after_owner_death": 0.5,
+      "gate_exit_seconds_from_native_wait": 30.046999999991385,
+      "gate_exit_code": 1,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "Traceback (most recent call last):\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 425, in <module>\n    main()\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 391, in main\n    gate_worker(args)\n  File \"C:\\Users\\mihir\\AppData\\Local\\Temp\\owner-death-standalone-mggaikep\\audit\\probe.py\", line 142, in gate_worker\n    exec(compile(code, \"<pinned-or-labelled-mutant-gate>\", \"exec\"), {\"__name__\": \"__main__\"})\n  File \"<pinned-or-labelled-mutant-gate>\", line 19, in <module>\nRuntimeError: replay ownership gate was not released\n",
+      "events": {
+        "checkpoint": {
+          "pid": 34788,
+          "time": 138168.921,
+          "phase": "before_assign"
+        },
+        "gate-open": {
+          "pid": 38100,
+          "time": 138169.109,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 34788,
+          "time": 138168.921,
+          "process_pid": 38100,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-wait": {
+          "pid": 38100,
+          "time": 138169.109,
+          "timeout_ms": 30000
+        },
+        "owner-ready": {
+          "pid": 34788,
+          "time": 138168.906,
+          "target": "shared",
+          "phase": "before_assign",
+          "mutation": "none"
+        }
+      }
+    },
+    {
+      "target": "shared",
+      "phase": "assigned",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138200.015,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 61184,
+        "gate": 46396
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138200.046,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false
+      },
+      "observation_seconds_after_owner_death": 0.0,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 61184,
+          "time": 138199.828,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 61184,
+          "time": 138199.828,
+          "phase": "assigned"
+        },
+        "gate-open": {
+          "pid": 46396,
+          "time": 138200.015,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 61184,
+          "time": 138199.828,
+          "process_pid": 46396,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-wait": {
+          "pid": 46396,
+          "time": 138200.015,
+          "timeout_ms": 30000
+        },
+        "owner-ready": {
+          "pid": 61184,
+          "time": 138199.812,
+          "target": "shared",
+          "phase": "assigned",
+          "mutation": "none"
+        }
+      }
+    },
+    {
+      "target": "shared",
+      "phase": "released",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138200.812,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 38896,
+        "gate": 52796,
+        "workload": 32000,
+        "leaf": 41872
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138201.312,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false,
+        "workload": false,
+        "leaf": false
+      },
+      "observation_seconds_after_owner_death": 0.0,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 38896,
+          "time": 138200.609,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 38896,
+          "time": 138200.609,
+          "phase": "released"
+        },
+        "gate-open": {
+          "pid": 52796,
+          "time": 138200.812,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 38896,
+          "time": 138200.609,
+          "process_pid": 52796,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-release": {
+          "pid": 38896,
+          "time": 138200.609,
+          "succeeded": true
+        },
+        "gate-wait": {
+          "pid": 52796,
+          "time": 138200.812,
+          "timeout_ms": 30000
+        },
+        "leaf-ready": {
+          "pid": 41872,
+          "time": 138201.281
+        },
+        "owner-ready": {
+          "pid": 38896,
+          "time": 138200.593,
+          "target": "shared",
+          "phase": "released",
+          "mutation": "none"
+        },
+        "workload-ready": {
+          "pid": 32000,
+          "time": 138201.296,
+          "leaf_pid": 41872
+        },
+        "workload-start": {
+          "pid": 32000,
+          "time": 138201.031
+        }
+      }
+    },
+    {
+      "target": "shared",
+      "phase": "resume",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138202.125,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 7752,
+        "gate": 4164,
+        "workload": 34360,
+        "leaf": 46400
+      },
+      "joined_return": 0,
+      "observation_boundary": "joined_owner_return",
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false,
+        "workload": false,
+        "leaf": false
+      },
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 7752,
+          "time": 138202.14,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 7752,
+          "time": 138201.953,
+          "phase": "resume"
+        },
+        "gate-open": {
+          "pid": 4164,
+          "time": 138202.125,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 7752,
+          "time": 138201.937,
+          "process_pid": 4164,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-release": {
+          "pid": 7752,
+          "time": 138202.156,
+          "succeeded": true
+        },
+        "gate-wait": {
+          "pid": 4164,
+          "time": 138202.125,
+          "timeout_ms": 30000
+        },
+        "leaf-ready": {
+          "pid": 46400,
+          "time": 138202.531
+        },
+        "owner-finished": {
+          "pid": 7752,
+          "time": 138202.609,
+          "returncode": 0
+        },
+        "owner-ready": {
+          "pid": 7752,
+          "time": 138201.921,
+          "target": "shared",
+          "phase": "resume",
+          "mutation": "none"
+        },
+        "workload-ready": {
+          "pid": 34360,
+          "time": 138202.562,
+          "leaf_pid": 46400
+        },
+        "workload-start": {
+          "pid": 34360,
+          "time": 138202.343
+        }
+      }
+    },
+    {
+      "target": "shared",
+      "phase": "before_assign",
+      "mutation": "bypass-gate",
+      "workload_before_release": true,
+      "observed_pids": {
+        "owner": 61404,
+        "gate": 35488,
+        "workload": 51004,
+        "leaf": 35636
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138204.14,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": true,
+        "workload": true,
+        "leaf": true
+      },
+      "observation_seconds_after_owner_death": 0.5,
+      "rejected_rule": "workload_crossed_unreleased_gate",
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "checkpoint": {
+          "pid": 61404,
+          "time": 138203.328,
+          "phase": "before_assign"
+        },
+        "gate-open": {
+          "pid": 35488,
+          "time": 138203.64,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 61404,
+          "time": 138203.328,
+          "process_pid": 35488,
+          "gate_sha256": "7ac91dc15d521c87b26d2c69d0e338681744455e2cfe9bcff30dae8e3aa27a44"
+        },
+        "leaf-ready": {
+          "pid": 35636,
+          "time": 138204.093
+        },
+        "owner-ready": {
+          "pid": 61404,
+          "time": 138203.312,
+          "target": "shared",
+          "phase": "before_assign",
+          "mutation": "bypass-gate"
+        },
+        "workload-ready": {
+          "pid": 51004,
+          "time": 138204.109,
+          "leaf_pid": 35636
+        },
+        "workload-start": {
+          "pid": 51004,
+          "time": 138203.875
+        }
+      }
+    },
+    {
+      "target": "shared",
+      "phase": "released",
+      "mutation": "no-kill-on-close",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138205.453,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 58604,
+        "gate": 57828,
+        "workload": 43880,
+        "leaf": 38792
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138205.906,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": true,
+        "workload": true,
+        "leaf": true
+      },
+      "observation_seconds_after_owner_death": 0.5,
+      "rejected_rule": "assigned_process_survived_owner_death",
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 58604,
+          "time": 138205.25,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 58604,
+          "time": 138205.25,
+          "phase": "released"
+        },
+        "gate-open": {
+          "pid": 57828,
+          "time": 138205.453,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 58604,
+          "time": 138205.25,
+          "process_pid": 57828,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-release": {
+          "pid": 58604,
+          "time": 138205.25,
+          "succeeded": true
+        },
+        "gate-wait": {
+          "pid": 57828,
+          "time": 138205.453,
+          "timeout_ms": 30000
+        },
+        "leaf-ready": {
+          "pid": 38792,
+          "time": 138205.859
+        },
+        "mutated-limit": {
+          "pid": 58604,
+          "time": 138205.234,
+          "flags": 0
+        },
+        "owner-ready": {
+          "pid": 58604,
+          "time": 138205.218,
+          "target": "shared",
+          "phase": "released",
+          "mutation": "no-kill-on-close"
+        },
+        "workload-ready": {
+          "pid": 43880,
+          "time": 138205.875,
+          "leaf_pid": 38792
+        },
+        "workload-start": {
+          "pid": 43880,
+          "time": 138205.656
+        }
+      }
+    },
+    {
+      "target": "stream",
+      "phase": "before_event_open",
+      "mutation": "none",
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 59092,
+        "gate": 49616
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138207.375,
+      "event_open_after_owner_death": false,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false
+      },
+      "observation_seconds_after_owner_death": 0.030999999988125637,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "checkpoint": {
+          "pid": 59092,
+          "time": 138207.156,
+          "phase": "before_event_open"
+        },
+        "gate-before-open": {
+          "pid": 49616,
+          "time": 138207.359
+        },
+        "gate-open": {
+          "pid": 49616,
+          "time": 138207.375,
+          "succeeded": false
+        },
+        "gate-process": {
+          "pid": 59092,
+          "time": 138207.156,
+          "process_pid": 49616,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "owner-ready": {
+          "pid": 59092,
+          "time": 138207.14,
+          "target": "stream",
+          "phase": "before_event_open",
+          "mutation": "none"
+        }
+      }
+    },
+    {
+      "target": "stream",
+      "phase": "before_assign",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138208.312,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 59672,
+        "gate": 32692
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138208.343,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": true
+      },
+      "observation_seconds_after_owner_death": 0.5,
+      "gate_exit_seconds_from_native_wait": 30.046999999991385,
+      "gate_exit_code": 1,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "checkpoint": {
+          "pid": 59672,
+          "time": 138208.109,
+          "phase": "before_assign"
+        },
+        "gate-open": {
+          "pid": 32692,
+          "time": 138208.312,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 59672,
+          "time": 138208.109,
+          "process_pid": 32692,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-wait": {
+          "pid": 32692,
+          "time": 138208.312,
+          "timeout_ms": 30000
+        },
+        "owner-ready": {
+          "pid": 59672,
+          "time": 138208.093,
+          "target": "stream",
+          "phase": "before_assign",
+          "mutation": "none"
+        }
+      }
+    },
+    {
+      "target": "stream",
+      "phase": "assigned",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138239.437,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 43956,
+        "gate": 60448
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138239.453,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false
+      },
+      "observation_seconds_after_owner_death": 0.0,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 43956,
+          "time": 138239.187,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 43956,
+          "time": 138239.187,
+          "phase": "assigned"
+        },
+        "gate-open": {
+          "pid": 60448,
+          "time": 138239.437,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 43956,
+          "time": 138239.171,
+          "process_pid": 60448,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-wait": {
+          "pid": 60448,
+          "time": 138239.437,
+          "timeout_ms": 30000
+        },
+        "owner-ready": {
+          "pid": 43956,
+          "time": 138239.156,
+          "target": "stream",
+          "phase": "assigned",
+          "mutation": "none"
+        }
+      }
+    },
+    {
+      "target": "stream",
+      "phase": "released",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138240.343,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 46724,
+        "gate": 19272,
+        "workload": 39184,
+        "leaf": 61336
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138240.937,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false,
+        "workload": false,
+        "leaf": false
+      },
+      "observation_seconds_after_owner_death": 0.0,
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 46724,
+          "time": 138240.14,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 46724,
+          "time": 138240.14,
+          "phase": "released"
+        },
+        "gate-open": {
+          "pid": 19272,
+          "time": 138240.328,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 46724,
+          "time": 138240.14,
+          "process_pid": 19272,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-release": {
+          "pid": 46724,
+          "time": 138240.14,
+          "succeeded": true
+        },
+        "gate-wait": {
+          "pid": 19272,
+          "time": 138240.343,
+          "timeout_ms": 30000
+        },
+        "leaf-ready": {
+          "pid": 61336,
+          "time": 138240.89
+        },
+        "owner-ready": {
+          "pid": 46724,
+          "time": 138240.109,
+          "target": "stream",
+          "phase": "released",
+          "mutation": "none"
+        },
+        "workload-ready": {
+          "pid": 39184,
+          "time": 138240.921,
+          "leaf_pid": 61336
+        },
+        "workload-start": {
+          "pid": 39184,
+          "time": 138240.609
+        }
+      }
+    },
+    {
+      "target": "stream",
+      "phase": "resume",
+      "mutation": "none",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138241.89,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 33472,
+        "gate": 54428,
+        "workload": 60080,
+        "leaf": 30976
+      },
+      "joined_return": 0,
+      "observation_boundary": "joined_owner_return",
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": false,
+        "workload": false,
+        "leaf": false
+      },
+      "rejected_rule": null,
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 33472,
+          "time": 138241.906,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 33472,
+          "time": 138241.687,
+          "phase": "resume"
+        },
+        "gate-open": {
+          "pid": 54428,
+          "time": 138241.875,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 33472,
+          "time": 138241.671,
+          "process_pid": 54428,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-release": {
+          "pid": 33472,
+          "time": 138241.906,
+          "succeeded": true
+        },
+        "gate-wait": {
+          "pid": 54428,
+          "time": 138241.89,
+          "timeout_ms": 30000
+        },
+        "leaf-ready": {
+          "pid": 30976,
+          "time": 138242.328
+        },
+        "owner-finished": {
+          "pid": 33472,
+          "time": 138242.421,
+          "returncode": 0
+        },
+        "owner-ready": {
+          "pid": 33472,
+          "time": 138241.656,
+          "target": "stream",
+          "phase": "resume",
+          "mutation": "none"
+        },
+        "workload-ready": {
+          "pid": 60080,
+          "time": 138242.359,
+          "leaf_pid": 30976
+        },
+        "workload-start": {
+          "pid": 60080,
+          "time": 138242.109
+        }
+      }
+    },
+    {
+      "target": "stream",
+      "phase": "before_assign",
+      "mutation": "bypass-gate",
+      "workload_before_release": true,
+      "observed_pids": {
+        "owner": 31412,
+        "gate": 57772,
+        "workload": 44620,
+        "leaf": 57868
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138244.125,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": true,
+        "workload": true,
+        "leaf": true
+      },
+      "observation_seconds_after_owner_death": 0.5,
+      "rejected_rule": "workload_crossed_unreleased_gate",
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "checkpoint": {
+          "pid": 31412,
+          "time": 138243.406,
+          "phase": "before_assign"
+        },
+        "gate-open": {
+          "pid": 57772,
+          "time": 138243.64,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 31412,
+          "time": 138243.39,
+          "process_pid": 57772,
+          "gate_sha256": "7ac91dc15d521c87b26d2c69d0e338681744455e2cfe9bcff30dae8e3aa27a44"
+        },
+        "leaf-ready": {
+          "pid": 57868,
+          "time": 138244.062
+        },
+        "owner-ready": {
+          "pid": 31412,
+          "time": 138243.375,
+          "target": "stream",
+          "phase": "before_assign",
+          "mutation": "bypass-gate"
+        },
+        "workload-ready": {
+          "pid": 44620,
+          "time": 138244.078,
+          "leaf_pid": 57868
+        },
+        "workload-start": {
+          "pid": 44620,
+          "time": 138243.875
+        }
+      }
+    },
+    {
+      "target": "stream",
+      "phase": "released",
+      "mutation": "no-kill-on-close",
+      "native_wait_ms": 30000,
+      "gate_wait_started": 138245.515,
+      "workload_before_release": false,
+      "observed_pids": {
+        "owner": 61408,
+        "gate": 38660,
+        "workload": 23292,
+        "leaf": 22200
+      },
+      "observation_boundary": "forced_owner_termination",
+      "owner_terminated_at": 138246.093,
+      "alive_after_owner_death": {
+        "owner": false,
+        "gate": true,
+        "workload": true,
+        "leaf": true
+      },
+      "observation_seconds_after_owner_death": 0.5,
+      "rejected_rule": "assigned_process_survived_owner_death",
+      "observed_before_outer_cleanup": true,
+      "all_stopped_after_outer_cleanup": true,
+      "owner_output": "",
+      "events": {
+        "assignment": {
+          "pid": 61408,
+          "time": 138245.312,
+          "succeeded": true
+        },
+        "checkpoint": {
+          "pid": 61408,
+          "time": 138245.312,
+          "phase": "released"
+        },
+        "gate-open": {
+          "pid": 38660,
+          "time": 138245.515,
+          "succeeded": true
+        },
+        "gate-process": {
+          "pid": 61408,
+          "time": 138245.312,
+          "process_pid": 38660,
+          "gate_sha256": "8d158579544d53a3adcfa30210ce1693831653df5b8fbad0767ad0c5bf9085db"
+        },
+        "gate-release": {
+          "pid": 61408,
+          "time": 138245.312,
+          "succeeded": true
+        },
+        "gate-wait": {
+          "pid": 38660,
+          "time": 138245.515,
+          "timeout_ms": 30000
+        },
+        "leaf-ready": {
+          "pid": 22200,
+          "time": 138246.046
+        },
+        "mutated-limit": {
+          "pid": 61408,
+          "time": 138245.296,
+          "flags": 0
+        },
+        "owner-ready": {
+          "pid": 61408,
+          "time": 138245.296,
+          "target": "stream",
+          "phase": "released",
+          "mutation": "no-kill-on-close"
+        },
+        "workload-ready": {
+          "pid": 23292,
+          "time": 138246.078,
+          "leaf_pid": 22200
+        },
+        "workload-start": {
+          "pid": 23292,
+          "time": 138245.812
+        }
+      }
+    }
+  ],
+  "completed_utc": "2026-10-25T06:27:18.584357+00:00"
+}

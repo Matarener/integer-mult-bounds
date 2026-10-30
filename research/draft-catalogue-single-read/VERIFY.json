@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/new_research_package.py",
+    "scripts/research_package.py",
+    "tests/test_research_scaffold_batch.py",
+    "tests/test_research_scaffold_aliases.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete baseline/candidate draft bytes and modes, recorded timing/hash arithmetic, source and output rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same evidence and rejecting controls with assertions disabled."
+    }
+  ]
+}

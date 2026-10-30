@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-stochastic-prefix/PROOF.md",
+    "research/physical-inverse-pair/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 144 joint laws and 312-state tables, complete prefix counts over two periods, exact expected-bit bounds, literal tapes and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same exact checks with assertions disabled."
+    }
+  ]
+}

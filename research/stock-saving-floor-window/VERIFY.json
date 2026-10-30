@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bootstrap-stock-audit/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Receipt hash, common_saving identity, published floors at k=0, slack window equals outward search, every interior shift, adjacent stage-7 failures, and a cross-branch saving rejection."
+    }
+  ]
+}

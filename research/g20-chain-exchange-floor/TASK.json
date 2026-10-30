@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-helper-contract",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "bit-helper-contract",
+    "question": "Can a changed G20 helper path or independent-target split improve the complete BIT moment without losing its physical endpoint?",
+    "starting_points": [
+      "docs/research/current-priorities.md",
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+      "research/g20-helper-split/README.md",
+      "research/g20-conjugation-admission/README.md"
+    ],
+    "methods": [
+      "Construct and independently check one source-bound instance of the stated first experiment.",
+      "Seek an exact counterexample or target-specific complete-budget obstruction to that same proposed change."
+    ],
+    "acceptance_gate": "A full boundary contract and paid profile; unchanged scalar counts alone are insufficient. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read revision 8, the selected review and live exact-source handoffs. Then follow this card's bounded first_experiment.",
+      "scope": "Source-bound orientation only, not a supplier replay or theorem proof."
+    },
+    "first_experiment": "First read #5679/#5708 and their audits as pending component proposals. Choose one uncovered helper group/cut on an exact word; compare arbitrary-input native action, targets, owned storage, both orientations and full signed bill. Stop if the gain is only a scalar count or repaid by lost targets. Do not rerun the frozen #5609 common-frame domain without changing its hypothesis.",
+    "bottleneck_link": "Judge the actual current supplier contract and complete signed target/paid bill; frozen-profile ceilings require an applicability proof.",
+    "allowed_variations": [
+      "One exact source head, helper/cut region or quantified proposition and changed hypothesis; check live handoffs first. Different seeds are not different scopes."
+    ],
+    "scope_change_triggers": [
+      "Changing source head, helper/cut domain, operation alphabet or caller boundary without recording the new scope.",
+      "Treating an archived proposal or local numerical pass as complete supplier admission."
+    ],
+    "overlap_terms": [
+      "G20",
+      "helper split",
+      "5679",
+      "5708",
+      "independent target"
+    ],
+    "existing_checks": [
+      {
+        "scope": "Selected PR5599: complete helper-subspace construction and independent caller replay; five framework assumptions remain.",
+        "evidence": "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+        "remaining": "The next experiment must identify uncovered source-specific work. Successor archive intake does not transfer this admission.",
+        "status": "reviewed",
+        "source_commit": "09dd0965711ca7eeb169057a420abab1c9052137",
+        "selected_record_sha256": "2a0220e866417774606e0f991e41b9c1d26b1f43b97857238cf478dbc7d330b5"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact scratch-free unit-ADD minimum of the 18-register chain/exchange component (wires 0-15, 30, 31) of the PR5840 G20 boundary: 20 per side, with both closed 9-wire parts exactly 10. Gates may cross between the parts but stay on the 18 wires.",
+  "scope_change_reason": "The card asks for a changed helper path or independent-target split with a complete BIT moment. This side result instead answers the boundary-synthesis question PR5850 leaves open for the remaining 18-register component, without changing helpers, targets or the recursive profile.",
+  "bottleneck_link": "Closes one proposed scalar route to a cheaper G20 boundary: joint chain/exchange resynthesis on the component wires cannot beat the source. Remaining scalar routes must use gates leaving the component, scratch, GL2 pair bases or a changed controller.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the exact minimum for the 18-wire component (or a shorter witness). Do not enlarge to the full 32-wire boundary.",
+  "outcome": "negative-result",
+  "evidence": "verify.py: exhaustive budgeted search with admissible row/column bounds, witness replay on all Boolean inputs, four controls; PROOF.md gives the model and a hand proof of the even 9-wire bound.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does any scratch-free ADD word on all 32 boundary wires implement a PR5840 boundary side in fewer than 38 ADDs?",
+      "why_it_matters": "This result and PR5850/PR5851 are component-local; gates linking the chain component to the exchange or untouched wires are not covered.",
+      "first_step": "Extend the same budgeted search to the chain component plus one four-wire exchange (22 wires, budget 25) before attempting all 32 wires.",
+      "blocked_by": "Search cost grows quickly with wires and slack; a stronger admissible bound or a written argument is needed."
+    },
+    {
+      "question": "Do general GL2 bases inside the equal-target pairs (2k, 2k+1) of the chain component lower its 20-ADD cost?",
+      "why_it_matters": "Pair bases mix the even and odd 9-wire parts and change the target map, so this exact minimum does not cover them.",
+      "first_step": "Enumerate the pair-basis orbit of the 18-wire target modulo the bases that leave the cost unchanged and search the cheapest representatives.",
+      "blocked_by": "Each basis change must also be priced at the caller and checked against the target diagonal."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 5850,
+      "author": "Charan .",
+      "path": "research/g20-gl2-tail-floor",
+      "relationship": "Poses the open 18-register component question; its four-wire exchange floor is cited for the 38-per-side total."
+    },
+    {
+      "pr": 5851,
+      "author": "Charan .",
+      "path": "research/g20-isolated-exchange-floor",
+      "relationship": "Its vendored PR5840 controller is the live input; its isolated-exchange floor is cited, not replayed."
+    },
+    {
+      "pr": 5840,
+      "author": "Ali Romman",
+      "relationship": "G20 target-pair boundary construction whose left/right programs are the object studied."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19219123"
+}

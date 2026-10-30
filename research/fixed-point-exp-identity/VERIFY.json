@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/ceiling-exp-fixed-point/fast_exp.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Three exact witnesses (lower one step below, upper one step above, upper one step below the pinned series); theorem items, stopping-index relations and independent 2^-420 soundness at 987 general and 391 stopping-threshold arguments; exact loop replicas matched to both unchanged engines; 13 rejected controls; source-bound stdout receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same complete checks with Python assertions disabled; every check uses explicit failure exits."
+    }
+  ]
+}

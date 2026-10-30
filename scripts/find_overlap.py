@@ -18,6 +18,13 @@ import sys
 import tempfile
 import time
 
+# Retain direct script execution under -I; the shared helper uses stdlib only.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from research_package import git_source_env, relative_file
+finally:
+    sys.path.pop(0)
+
 ROOT = Path(__file__).resolve().parents[1]
 REPO = "CrocSwap/integer-mult-bounds"
 
@@ -95,6 +102,15 @@ def pull_file_record(pull):
             "truncated": connection is None or len(paths) != pull["changedFiles"]}
 
 
+def next_cursor(page_info, seen, label):
+    """Require progress within one GraphQL connection."""
+    cursor = page_info.get("endCursor")
+    if not isinstance(cursor, str) or not cursor or cursor in seen:
+        raise ValueError(label + " pagination did not advance")
+    seen.add(cursor)
+    return cursor
+
+
 def fetch_pr_files():
     """Changed file paths per open PR, so overlap can be searched by path.
 
@@ -103,6 +119,7 @@ def fetch_pr_files():
     """
     rows = []
     cursor = None
+    cursors = set()
     while True:
         # ponytail: 10 PRs per page (25x100-node pages exceed GitHub's ~10 s
         # gateway limit and 502; 10x100 stays under it). A full index refresh is
@@ -132,7 +149,7 @@ def fetch_pr_files():
             rows.append(pull_file_record(pull))
         if not result["pageInfo"]["hasNextPage"]:
             return sorted(rows, key=lambda row: row["number"])
-        cursor = result["pageInfo"]["endCursor"]
+        cursor = next_cursor(result["pageInfo"], cursors, "connection")
 
 
 def path_report(pr_records, file_rows, patterns):
@@ -141,7 +158,7 @@ def path_report(pr_records, file_rows, patterns):
     matches = []
     for row in sorted(file_rows, key=lambda item: -item["number"]):
         matched = [path for path in row["paths"]
-                   if any(fnmatch.fnmatch(path, pattern) or pattern in path for pattern in patterns)]
+                   if any(fnmatch.fnmatchcase(path, pattern) or pattern in path for pattern in patterns)]
         if not matched:
             continue
         pull = pulls.get(row["number"], {})
@@ -160,6 +177,7 @@ def path_report(pr_records, file_rows, patterns):
 def fetch_discussions():
     records = []
     cursor = None
+    cursors = set()
     while True:
         result = graphql('''query($cursor:String) {
           repository(owner:"CrocSwap",name:"integer-mult-bounds") {
@@ -182,11 +200,13 @@ def fetch_discussions():
             # every discussion. The worst-case nested node count is only
             # 10 + 10*25 + 10*25*10 = 2760; busy threads still page fully.
             connection = discussion["comments"]
+            comment_cursors = set()
             while True:
                 for comment in connection["nodes"]:
                     records.append({**common, "kind": "discussion-comment", "body": comment["body"],
                                     "url": comment["url"], "updated_at": comment["updatedAt"]})
                     replies = comment["replies"]
+                    reply_cursors = set()
                     while True:
                         for reply in replies["nodes"]:
                             records.append({**common, "kind": "discussion-reply", "body": reply["body"],
@@ -199,7 +219,7 @@ def fetch_discussions():
                               pageInfo {hasNextPage endCursor} nodes {body url updatedAt}
                             }
                           }}
-                        }''', {"id": comment["id"], "cursor": replies["pageInfo"]["endCursor"]})["node"]["replies"]
+                        }''', {"id": comment["id"], "cursor": next_cursor(replies["pageInfo"], reply_cursors, "replies")})["node"]["replies"]
                 if not connection["pageInfo"]["hasNextPage"]:
                     break
                 connection = graphql('''query($id:ID!, $cursor:String) {
@@ -212,22 +232,24 @@ def fetch_discussions():
                     }
                   }}
                 }''', {"id": discussion["id"],
-                       "cursor": connection["pageInfo"]["endCursor"]})["node"]["comments"]
+                       "cursor": next_cursor(connection["pageInfo"], comment_cursors, "comments")})["node"]["comments"]
         if not result["pageInfo"]["hasNextPage"]:
             return records
-        cursor = result["pageInfo"]["endCursor"]
+        cursor = next_cursor(result["pageInfo"], cursors, "connection")
 
 
 def atomic_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent, delete=False) as out:
-        tmp = Path(out.name)
-        json.dump(data, out)
-        out.write("\n")
+    tmp = None
     try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent, delete=False) as out:
+            tmp = Path(out.name)
+            json.dump(data, out)
+            out.write("\n")
         os.replace(tmp, path)
     finally:
-        tmp.unlink(missing_ok=True)
+        if tmp is not None:
+            tmp.unlink(missing_ok=True)
 
 
 def error_summary(exc):
@@ -236,14 +258,39 @@ def error_summary(exc):
     return str(exc)[:700]
 
 
+def validate_cached_source(source, name):
+    """Check cached containers before search code uses their fields."""
+    if not isinstance(source, dict) or not isinstance(source.get("records"), list):
+        raise ValueError("source must contain a records list")
+    if type(source.get("complete_pagination")) is not bool:
+        raise ValueError("source must declare pagination coverage")
+    stamp = datetime.fromisoformat(source["fetched_at"])
+    if stamp.tzinfo is None:
+        raise ValueError("source timestamp needs a UTC offset")
+    for row in source["records"]:
+        if not isinstance(row, dict) or type(row.get("number")) is not int:
+            raise ValueError("record needs an integer number")
+        if name == "pr_files":
+            if not isinstance(row.get("paths"), list) or not all(isinstance(p, str) for p in row["paths"]):
+                raise ValueError("file record needs a list of paths")
+        elif (not all(isinstance(row.get(key), str) for key in ("kind", "title"))
+              or not all(isinstance(row[key], str) for key in ("body", "url", "updated_at", "state") if key in row)):
+            raise ValueError("record text fields must be strings")
+    return stamp
+
+
 def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files=False,
                     include_closed=False):
     warnings = []
     try:
         snapshot = json.loads(cache.read_text(encoding="utf-8"))
-        if snapshot.get("schema_version") != 1 or snapshot.get("repository") != REPO:
+        if (not isinstance(snapshot, dict) or snapshot.get("schema_version") != 1
+                or snapshot.get("repository") != REPO or not isinstance(snapshot.get("sources"), dict)):
             raise ValueError("cache schema or repository mismatch")
-    except (OSError, ValueError):
+    except FileNotFoundError:
+        snapshot = {"schema_version": 1, "repository": REPO, "sources": {}}
+    except (OSError, ValueError) as exc:
+        warnings.append("cache: unusable snapshot: " + error_summary(exc))
         snapshot = {"schema_version": 1, "repository": REPO, "sources": {}}
     sources = snapshot.setdefault("sources", {})
     fetches = [("open_prs", lambda: pull_records(gh_json([
@@ -260,10 +307,13 @@ def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files
     for name, fetch in fetches:
         cached = sources.get(name)
         age = None
-        if cached:
+        if cached is not None:
             try:
-                age = (datetime.now(timezone.utc) - datetime.fromisoformat(cached["fetched_at"])).total_seconds()
-            except (KeyError, ValueError, TypeError):
+                stamp = validate_cached_source(cached, name)
+                age = (datetime.now(timezone.utc) - stamp).total_seconds()
+            except (KeyError, ValueError, TypeError) as exc:
+                warnings.append(f"{name}: unusable cached source: {error_summary(exc)}")
+                sources.pop(name, None)
                 cached = None
         fresh = cached is not None and age is not None and 0 <= age <= max_age
         if need_files and name in ("pr_files", "open_prs") and cached:
@@ -276,9 +326,11 @@ def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files
             try:
                 # Replace each source only after every page succeeds.
                 records = fetch()
-                sources[name] = {"fetched_at": now(), "records": records, "complete_pagination": True}
-                atomic_json(cache, snapshot)
-                cached = sources[name]
+                replacement = {"fetched_at": now(), "records": records, "complete_pagination": True}
+                pending = {**snapshot, "sources": {**sources, name: replacement}}
+                atomic_json(cache, pending)
+                sources[name] = replacement
+                cached = replacement
             except (OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as exc:
                 warnings.append(f"{name}: refresh failed; using old data if available: {error_summary(exc)}")
         if not cached:
@@ -311,7 +363,10 @@ def local_records(root):
     if ledger.is_file():
         paths.append(ledger)
     for path in paths:
-        if path.is_symlink():
+        try:
+            path = relative_file(root, path.relative_to(root).as_posix())
+        except ValueError:
+            # Aliases and non-files do not count as searched local notes.
             continue
         data = path.read_bytes()
         body = data.decode("utf-8", errors="replace")
@@ -323,11 +378,67 @@ def local_records(root):
     return records
 
 
+def local_coverage(root, records):
+    """Compare searched working-tree notes with the regular note paths at HEAD."""
+    coverage = {"head": None, "records": len(records), "head_records": None,
+                "complete_head_inventory": None, "unsearched_head_paths": None}
+    try:
+        def git(*args):
+            return subprocess.run(
+                ["git", "--no-replace-objects", *args], cwd=root, check=True,
+                capture_output=True, encoding="utf-8", errors="surrogateescape", timeout=15,
+                env={**git_source_env(), "GIT_NO_LAZY_FETCH": "1"},
+            ).stdout
+
+        # Pin the tree once; only metadata is read, never omitted note blobs.
+        coverage["head"] = git("rev-parse", "--verify", "HEAD^{commit}").strip()
+        tree = git("ls-tree", "-r", "-z", "--full-tree", coverage["head"], "--",
+                   "research", "docs/research/pr-ledger.md")
+        expected = set()
+        for entry in tree.split("\0"):
+            if not entry:
+                continue
+            metadata, path = entry.split("\t", 1)
+            mode, kind, _ = metadata.split()
+            parts = PurePosixPath(path).parts
+            in_scope = (path == "docs/research/pr-ledger.md"
+                        or (len(parts) == 3 and parts[0] == "research"
+                            and parts[2] in ("README.md", "TASK.json")))
+            if in_scope and kind == "blob" and mode in ("100644", "100755"):
+                expected.add(path)
+    except (OSError, subprocess.SubprocessError, ValueError) as exc:
+        return coverage, ["local: HEAD note inventory unavailable; local coverage is unknown. "
+                          + error_summary(exc)]
+    missing = sorted(expected - {record["path"] for record in records})
+    coverage.update(head_records=len(expected), complete_head_inventory=not missing,
+                    unsearched_head_paths=missing)
+    warnings = ([f"local: {len(missing)} HEAD note paths were not searched; "
+                 "inspect coverage.local.unsearched_head_paths in --json output and materialize relevant notes "
+                 "before treating a lack of matches as evidence."] if missing else [])
+    return coverage, warnings
+
+
 def match_position(text, term, pattern):
     if pattern is None:
         return text.find(term)
+    # Numeric-reference patterns contain the complete literal term. Avoid a
+    # boundary-aware regex scan when that mandatory substring is absent.
+    if term not in text:
+        return -1
     match = pattern.search(text)
     return match.start() if match else -1
+
+
+def original_offset(text, lowered_offset):
+    """Map a lowercase search offset back to the unchanged source text."""
+    if text.isascii():
+        return lowered_offset
+    for index, char in enumerate(text):
+        width = len(char.lower())
+        if lowered_offset < width:
+            return index
+        lowered_offset -= width
+    return len(text)
 
 
 def search(records, terms, all_terms=False, reference_terms=()):
@@ -348,7 +459,7 @@ def search(records, terms, all_terms=False, reference_terms=()):
         if not found or (all_terms and len(found) != len(terms)):
             continue
         positions = [body_positions[t] for t in found if body_positions[t] >= 0]
-        start = max(0, min(positions) - 100) if positions else 0
+        start = max(0, original_offset(record.get("body", ""), min(positions)) - 100) if positions else 0
         matches.append({**{k: v for k, v in record.items() if k != "body"},
                         "matched_terms": found,
                         "score": sum(3 if title_positions[t] >= 0 else 1 for t in found),
@@ -361,7 +472,7 @@ def main():
     ap.add_argument("terms", nargs="*", help="literal case-insensitive terms; quote multiword phrases")
     ap.add_argument("--task", help="add the named catalogue card's overlap terms")
     ap.add_argument("--path", action="append", default=[], metavar="PATTERN",
-                    help="match open PRs by changed file path (fnmatch pattern or substring); repeatable")
+                    help="match open PRs by case-sensitive Git path glob or substring; spaces are literal; repeatable")
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--refresh", action="store_true")
     ap.add_argument("--include-closed", action="store_true",
@@ -401,12 +512,16 @@ def main():
                 terms.append(parts[1])
     if not any(t.strip() for t in terms) and not args.path:
         ap.error("provide terms, --task or --path")
-    patterns = [p.strip() for p in args.path if p.strip()]
+    patterns = list(args.path)
+    if any(not p for p in patterns):
+        ap.error("--path must not be empty")
     local = local_records(ROOT)
+    local_status, local_warnings = local_coverage(ROOT, local)
     snapshot, warnings = remote_snapshot(args.cache, args.offline, args.refresh, args.max_age,
                                          need_files=bool(patterns), include_closed=args.include_closed)
+    warnings = local_warnings + warnings
     records = list(local) + pull_corpus(snapshot, args.include_closed)
-    coverage = {}
+    coverage = {"local": local_status}
     corpus_names = ("open_prs", "discussions", "closed_prs") if args.include_closed else ("open_prs", "discussions")
     for name in corpus_names:
         source = snapshot["sources"].get(name)
@@ -421,6 +536,11 @@ def main():
         coverage["pr_files"] = {k: source[k] for k in ("fetched_at", "complete_pagination")} if source else None
         if source:
             coverage["pr_files"]["records"] = len(source["records"])
+            truncated = sorted({row["number"] for row in source["records"] if row.get("truncated", False)})
+            coverage["pr_files"]["truncated_prs"] = truncated
+            if truncated:
+                warnings.append(f"pr_files: incomplete file inventories for {len(truncated)} PRs; "
+                                "paths may be missing. Check truncated_prs in coverage, even when no path matches.")
             pulls = snapshot["sources"].get("open_prs", {"records": []})["records"]
             heads = {pull["number"]: pull.get("head") for pull in pulls}
             file_heads = {row["number"]: row.get("head") for row in source["records"]}
@@ -445,7 +565,7 @@ def main():
         hits = {m["number"]: m for m in path_matches}
         matches = [dict(m, **{key: hits[m["number"]][key]
                              for key in ("matched_paths", "head", "body_head", "head_matches",
-                                         "base", "body_base", "base_matches")}) for m in matches
+                                         "base", "body_base", "base_matches", "truncated")}) for m in matches
                    if m.get("kind") == "pr" and m.get("number") in hits]
     if patterns and not any(t.strip() for t in terms):
         matches = []
@@ -456,13 +576,17 @@ def main():
                           "State changes are deduplicated by latest PR update; snapshots are not atomic. "
                           if args.include_closed else
                           "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. ")
-                         + "No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."),
+                         + "Local coverage compares searched working-tree notes with regular note paths at coverage.local.head; "
+                         "it does not certify HEAD contents or historical coverage. "
+                         "No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."),
               "matches_total": len(matches), "matches": matches[:args.limit]}
     if patterns:
         report["path_patterns"] = patterns
         report["path_limits"] = ("Path matching covers the changed file paths GitHub reports for open PRs, "
                                  "not diff contents; all available file pages are followed. Missing lists or "
-                                 "advertised-count shortfalls are flagged truncated. Head/base identify the file "
+                                 "advertised-count shortfalls are flagged truncated and listed in coverage.pr_files.truncated_prs "
+                                 "independently of matches or --limit. complete_pagination describes list paging, "
+                                 "not completeness of each PR's file inventory. Head/base identify the file "
                                  "snapshot; body_head/body_base identify PR metadata. Both endpoints must match. "
                                  "This is not an atomic server snapshot. Unverified joins are flagged, "
                                  "including inventories with no matching path.")
@@ -475,7 +599,12 @@ def main():
         if hasattr(sys.stdout, "reconfigure"):
             sys.stdout.reconfigure(errors="backslashreplace")
         print(report["status"])
-        print("Coverage: " + json.dumps(coverage))
+        # A sparse checkout can omit thousands of notes. Keep the complete
+        # path list in JSON; the text report surfaces the count and warning.
+        local_summary = {k: v for k, v in local_status.items() if k != "unsearched_head_paths"}
+        omitted = local_status.get("unsearched_head_paths")
+        local_summary["unsearched_head_paths_count"] = None if omitted is None else len(omitted)
+        print("Coverage: " + json.dumps({**coverage, "local": local_summary}))
         if reference_terms:
             print("Task references (identifier matching): " + ", ".join(reference_terms))
         print(report["limits"])
@@ -485,7 +614,8 @@ def main():
             print("WARNING: " + warning)
         print(f"{len(matches)} possible matches; showing {min(args.limit, len(matches))}")
         for match in matches[:args.limit]:
-            print(f"\n[{match['kind']}] {match['title']}\n{match.get('url', match.get('path'))}")
+            flags = " (file list truncated)" if match.get("truncated") else ""
+            print(f"\n[{match['kind']}] {match['title']}{flags}\n{match.get('url', match.get('path'))}")
             if match.get("head"):
                 print("Head: " + match["head"])
             if match.get("head_matches") is False:

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Gate-form identity for all 24 legal factors; complete ordered-subproduct census of all 87,381 shear words of length 0..8 (no length<=7 word covers B and B^-1; 124 length-8 covers, 54 with overlapping masks); exact eight-call identity in M2(F2[G]) with dirty columns; deletion, reorder, sharing and support-lemma controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same checks under optimized Python; the verifier uses explicit checks, not assert."
+    }
+  ]
+}

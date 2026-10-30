@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "96 exact rational literal P112 operators, support-dominated binary replacements, actual-reader tariffs and source authentication."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate F2,F3,F5,F7 pointwise support census, all expanded I224 entries and abstract four-direction binary-map limitation."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Five behavioral groups including five actual optimized CLI corruptions and restored positive run."
+    }
+  ]
+}

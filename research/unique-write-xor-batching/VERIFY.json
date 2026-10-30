@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete Boolean-operator census, unsafe basis witnesses, independent graph-cycle oracle, dirty payloads, invalid inputs and capacity/cancellation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete Boolean-operator census, unsafe basis witnesses, independent graph-cycle oracle, dirty payloads, invalid inputs and capacity/cancellation controls."
+    }
+  ]
+}

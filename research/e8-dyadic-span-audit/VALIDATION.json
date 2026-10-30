@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-30T01:59:21.057034+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "base_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "audited_predecessor": "2a804fcb32f46d66018185194b55f1f2b217523d",
+  "result_status": "PASS_E8_DYADIC_SPAN_AUDIT",
+  "certificate_payload_sha256": "3cb55e6121cf4db6589ff825c23b9b50ee3599fdc2348d42e22336100b94f9ce",
+  "tested_implementation_sha256": {
+    "geometry.py": "36510d86ee2a7a5fa532def6ada0622431b43d0fe45357fead8330d73342914a",
+    "build_certificate.py": "de0e7b4aa6660428e7fd93af20e18a59f8836b528a7648fdc4439d4bd0b5e557",
+    "verify.py": "2784ea772adfbd82f615913fdb45d3c18924866bc78498817f0d5257cf7ae67c",
+    "test_verify.py": "c942bfcad64c06fe19b3c5ee7fe32c045fd21d91cb27363257dc70d81b035c01"
+  },
+  "checks": [
+    {
+      "command": "python3.12 -I -W error -B research/e8-dyadic-span-audit/verify.py",
+      "result": "PASS_E8_DYADIC_SPAN_AUDIT; 6595 splittings; 120 transports; 28800 images; 13 rejecting controls; characteristic-three boundary"
+    },
+    {
+      "command": "python3.12 -I -W error -B research/e8-dyadic-span-audit/test_verify.py",
+      "result": "4 tests passed; exact full decompressed regeneration; four actual certificate mutations and all five source mutations reject"
+    },
+    {
+      "command": "python3.12 -B scripts/research_package.py --package research/e8-dyadic-span-audit --check-only",
+      "result": "PASS_PACKAGE_METADATA_AND_PINS"
+    },
+    {
+      "command": "python3.12 -B scripts/research_package.py --package research/e8-dyadic-span-audit",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed; all four registered commands pass, including full normal and optimized verification and tests",
+      "log_sha256": "25d5f88d387aeeb1c1f16a010ea223d6d3205b7cad29d75c194e15a2dab88f1e"
+    },
+    {
+      "command": "python3 -B scripts/research_selected_baseline.py",
+      "result": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY; orientation only, not a scientific replay"
+    }
+  ],
+  "limitations": [
+    "No selected scientific cold replay or predecessor executable run.",
+    "No Lean, independent human review, hosted CI pass, physical supplier or full classification claim.",
+    "Committed-byte/export/remote publication checks occur after this non-self-referential validation record is frozen and are reported in the public handoff."
+  ]
+}

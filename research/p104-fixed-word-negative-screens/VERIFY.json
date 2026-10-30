@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All4033 leaking unit-injection classes,764 joint endpoint intervals,five output seams,baseline premises,positive/negative controls and independent terminal certificate."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same exact semantic receipt with optimization; explicit checks remain active."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/package_controls.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Cold self-contained exported-package replay plus rejection of changed word, changed frozen vendor and forged semantic receipt, all child runs under optimization."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/centre-block-repair-information/independent.py",
+    "research/community-frontier1094-audit/selected-replay.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_sheaf.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Eight generic full-matrix, proper-subblock and integer-fibre controls; not native semantics."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-O",
+        "{package}/test_sheaf.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Eight generic full-matrix, proper-subblock and integer-fibre controls; not native semantics."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/receipt_check.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Both independently parsed source certificates, typed committed-result equality and eight JSON/receipt rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-O",
+        "{package}/receipt_check.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Both independently parsed source certificates, typed committed-result equality and eight JSON/receipt rejection controls."
+    }
+  ]
+}

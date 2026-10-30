@@ -1,0 +1,6 @@
+import guard,sys
+label=sys.argv[1]
+script='../feasibility/finite.py' if label.startswith('finite') else '../feasibility/actual_audit.py' if label=='actual-audit' else 'profile.py'
+with (guard.HERE/'execution.lock').open('a') as lock:
+ guard.fcntl.flock(lock,guard.fcntl.LOCK_EX|guard.fcntl.LOCK_NB)
+ guard.run(label,script,optimized=label.endswith('-O'))

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove, for every address dimension n >= 3, that diag([c],[c]) for a coordinate 3-cycle c in M_2(F2[GL_n(F2)]) has no word of length at most 9, and reduce lengths 10 and 11 in every dimension to one five-coordinate case with explicit write/read profiles (Open next question 1 of PR #5379, research/spectator-three-cycle-additivity).",
+  "scope_change_reason": "PR #5005 (n = 3) and PR #5379 (n = 4) settle the smallest cases by search; #5379 asks for every n >= 4 and names the missing written two-target argument as the blocker. A whole-word projection lemma supplies that argument for all but one residual case.",
+  "bottleneck_link": "In this formal register model, extra address spectators cannot bring two 3-cycles below ten calls in any dimension; any further saving needs the residual five-coordinate word or a changed operation/tariff. No native implementation or kappa change follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the written all-dimension reduction with lemma checks. Do not search the residual n = 5 case in this package.",
+  "outcome": "completed",
+  "evidence": "python3.12 -B scripts/research_package.py --package research/two-three-cycles-every-dimension",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Do lengths 10 and 11 fail at n = 5 under the residual write profiles (6,4), (6,5), (7,4)?",
+      "why_it_matters": "Excluding them gives exact cost 12 for two 3-cycles in every address dimension.",
+      "first_step": "Restrict a meet-in-the-middle search to words whose two spectators are each written and read at least twice.",
+      "blocked_by": "The unrestricted n = 5 ball over 120 paid letters is large; the profile restriction has not been implemented."
+    },
+    {
+      "question": "Does the same reduction close a dirty third register with spectators, diag([c],[c],[e])?",
+      "why_it_matters": "Lemma 1 holds for any register count; combining it with R = 3 base cases would extend #5292 to every n.",
+      "first_step": "Recompute the write-count bound with the R = 3 rank condition.",
+      "blocked_by": "The R = 3, n = 3 length-11 case (#5292) is open and no R = 3 spectator base case exists."
+    },
+    {
+      "question": "Does a two-write analogue of Lemma 1 force three writes per live spectator?",
+      "why_it_matters": "It would remove the residual case without search.",
+      "first_step": "Classify when two writes to one row return it to the unit row inside the projected support.",
+      "blocked_by": "Two writes can cancel on the row, so the single-write projection no longer isolates one factor."
+    }
+  ]
+}

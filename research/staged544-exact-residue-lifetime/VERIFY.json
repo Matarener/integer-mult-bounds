@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Exact49+49 helper lifecycle, five rank-one source climbs and512 terminal columns; total Mersenne Boolean circuits including unused codes; exact endpoint decode, cost and source/phase/cleanup mutations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Exact49+49 helper lifecycle, five rank-one source climbs and512 terminal columns; total Mersenne Boolean circuits including unused codes; exact endpoint decode, cost and source/phase/cleanup mutations."
+    }
+  ]
+}

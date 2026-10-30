@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/reciprocal-directed-guards/README.md",
+    "research/reciprocal-seeded-guard-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 32896 real-input prefix cells, two arithmetic representations, exact nearest-grid oracle, 95 high-precision cases and 12 rejecting controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same semantic coverage with assertions disabled."
+    }
+  ]
+}

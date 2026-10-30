@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-dirty-auxiliary-registers/README.md",
+    "research/bit-span4-auxiliary-structure/PROOF.md",
+    "research/three-register-no-target-flag/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Conic incidence, all matching triples, two formal endpoint engines, deletion/dirty/singular-target controls and source/proof/receipt hashes"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Conic incidence, all matching triples, two formal endpoint engines, deletion/dirty/singular-target controls and source/proof/receipt hashes"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Git-free relocation and normal/optimized source, proof, receipt and code corruption rejection"
+    }
+  ]
+}

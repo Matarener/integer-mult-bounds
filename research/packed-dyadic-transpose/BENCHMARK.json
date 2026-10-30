@@ -1,0 +1,356 @@
+{
+  "code_sha256": {
+    "PROOF.md": "6542e8f305ab7f65b429a6de819df3ccf822a393d94314986f53b4aac48ef0ff",
+    "benchmark.py": "6590c8c851cbd9f1bb2b5f04aff81a46ae1cbbe80d106bc13238a523dc541dec",
+    "packed.py": "d725ca8b349959d6961911b85dd5e35e6cb9823d94c97c49ec5c391449a75cf5",
+    "verify.py": "669802f0521c7ed8d1781c6302502e576ebbb6c0cbdc99b6240e12b7c3618c20"
+  },
+  "cpu_count": 18,
+  "errors": 0,
+  "inputs": {
+    "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+    "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+  },
+  "load_after": [
+    5.84326171875,
+    4.2919921875,
+    3.3154296875
+  ],
+  "load_before": [
+    5.56884765625,
+    4.212890625,
+    3.2822265625
+  ],
+  "order": "dense,packed repeated five times",
+  "pairs": 5,
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "profile": {
+    "dense": {
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "top": [
+        {
+          "calls": 1,
+          "function": "reverse_columns",
+          "inclusive_seconds": 0.84525275,
+          "self_seconds": 0.42496577700000004
+        },
+        {
+          "calls": 20650,
+          "function": "<built-in method builtins.any>",
+          "inclusive_seconds": 0.344353854,
+          "self_seconds": 0.18178822900000002
+        },
+        {
+          "calls": 5492230,
+          "function": "<genexpr>",
+          "inclusive_seconds": 0.16418927400000002,
+          "self_seconds": 0.16418927400000002
+        },
+        {
+          "calls": 22012,
+          "function": "__new__",
+          "inclusive_seconds": 0.055230937,
+          "self_seconds": 0.027610093000000002
+        },
+        {
+          "calls": 593547,
+          "function": "numerator",
+          "inclusive_seconds": 0.014518976000000001,
+          "self_seconds": 0.014518976000000001
+        },
+        {
+          "calls": 86084,
+          "function": "<method 'group' of 're.Match' objects>",
+          "inclusive_seconds": 0.007125123000000001,
+          "self_seconds": 0.007125123000000001
+        },
+        {
+          "calls": 22012,
+          "function": "<method 'match' of 're.Pattern' objects>",
+          "inclusive_seconds": 0.006653436,
+          "self_seconds": 0.006653436
+        },
+        {
+          "calls": 66036,
+          "function": "<built-in method builtins.isinstance>",
+          "inclusive_seconds": 0.010518061,
+          "self_seconds": 0.006153055
+        }
+      ]
+    },
+    "packed": {
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "top": [
+        {
+          "calls": 44056,
+          "function": "step",
+          "inclusive_seconds": 0.11199083400000001,
+          "self_seconds": 0.106570706
+        },
+        {
+          "calls": 1,
+          "function": "source_events",
+          "inclusive_seconds": 0.105190875,
+          "self_seconds": 0.038724854
+        },
+        {
+          "calls": 24568,
+          "function": "__new__",
+          "inclusive_seconds": 0.051632917,
+          "self_seconds": 0.025851281
+        },
+        {
+          "calls": 1,
+          "function": "validate",
+          "inclusive_seconds": 0.021268917000000002,
+          "self_seconds": 0.016149868
+        },
+        {
+          "calls": 342148,
+          "function": "require",
+          "inclusive_seconds": 0.009716851,
+          "self_seconds": 0.009716851
+        },
+        {
+          "calls": 1,
+          "function": "plan",
+          "inclusive_seconds": 0.045311500000000005,
+          "self_seconds": 0.0071546100000000005
+        },
+        {
+          "calls": 86084,
+          "function": "<method 'group' of 're.Match' objects>",
+          "inclusive_seconds": 0.006753558000000001,
+          "self_seconds": 0.006753558000000001
+        },
+        {
+          "calls": 92270,
+          "function": "<built-in method builtins.isinstance>",
+          "inclusive_seconds": 0.010953938,
+          "self_seconds": 0.006717996
+        }
+      ]
+    }
+  },
+  "python": "3.12.15 (main, Oct 14 2026, 00:55:37) [Clang 23.1.3 ]",
+  "samples": [
+    {
+      "checkpoint_seconds": 0.4840470829512924,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 41369600,
+      "process_wall_seconds": 0.5316805420443416,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "dense"
+    },
+    {
+      "checkpoint_seconds": 0.13006100000347942,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 46350336,
+      "process_wall_seconds": 0.17765537498053163,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "packed"
+    },
+    {
+      "checkpoint_seconds": 0.4846877920208499,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 41009152,
+      "process_wall_seconds": 0.5281897919485345,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "dense"
+    },
+    {
+      "checkpoint_seconds": 0.12933166697621346,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 46563328,
+      "process_wall_seconds": 0.1717405419331044,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "packed"
+    },
+    {
+      "checkpoint_seconds": 0.48029700003098696,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 41402368,
+      "process_wall_seconds": 0.52419662498869,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "dense"
+    },
+    {
+      "checkpoint_seconds": 0.13182870810851455,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 46448640,
+      "process_wall_seconds": 0.17697791696991771,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "packed"
+    },
+    {
+      "checkpoint_seconds": 0.48608795809559524,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 41222144,
+      "process_wall_seconds": 0.5310359169961885,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "dense"
+    },
+    {
+      "checkpoint_seconds": 0.13196008396334946,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 46465024,
+      "process_wall_seconds": 0.17785158299375325,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "packed"
+    },
+    {
+      "checkpoint_seconds": 0.4790517500368878,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 41025536,
+      "process_wall_seconds": 0.5266580830793828,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "dense"
+    },
+    {
+      "checkpoint_seconds": 0.12288341706153005,
+      "errors": 0,
+      "events": 25475,
+      "inputs": {
+        "research/p104-helper-subspace-splits/WORD.json.gz": "bbb072bced5824a8d9094c49be2fc51fbfdd05fb2b7dab8106e1275053075099",
+        "research/p104-helper-subspace-splits/local.py": "ef430511ce36fc658ab711bd84cd2d7b484b8af173238ff89cbfec6139fefbad"
+      },
+      "peak_rss_bytes": 46579712,
+      "process_wall_seconds": 0.1656619580462575,
+      "result": {
+        "arithmetic": "Dense integer rows with binary denominators; reverse chronology",
+        "coefficients": 571536,
+        "columns": 756
+      },
+      "side": "packed"
+    }
+  ],
+  "scope": "complete transpose checkpoint, not the complete supplier replay",
+  "status": "PASS_PACKED_TRANSPOSE_BENCHMARK",
+  "summary": {
+    "checkpoint_seconds_speedup": 3.721692766765926,
+    "dense": {
+      "checkpoint_seconds": {
+        "max": 0.48608795809559524,
+        "median": 0.4840470829512924,
+        "min": 0.4790517500368878
+      },
+      "peak_rss_bytes": {
+        "max": 41402368,
+        "median": 41222144,
+        "min": 41009152
+      },
+      "process_wall_seconds": {
+        "max": 0.5316805420443416,
+        "median": 0.5281897919485345,
+        "min": 0.52419662498869
+      }
+    },
+    "packed": {
+      "checkpoint_seconds": {
+        "max": 0.13196008396334946,
+        "median": 0.13006100000347942,
+        "min": 0.12288341706153005
+      },
+      "peak_rss_bytes": {
+        "max": 46579712,
+        "median": 46465024,
+        "min": 46350336
+      },
+      "process_wall_seconds": {
+        "max": 0.17785158299375325,
+        "median": 0.17697791696991771,
+        "min": 0.1656619580462575
+      }
+    },
+    "process_wall_seconds_speedup": 2.9844954726092463
+  }
+}

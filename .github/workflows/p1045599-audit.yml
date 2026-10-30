@@ -1,0 +1,53 @@
+name: P104 helper-split source-bound audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: research-archive-replay
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 190
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts
+            docs/research/pr-intake-evidence/pr5599
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Materialize only the frozen review inputs
+        run: |
+          python3 -I -B - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          base = pathlib.Path('docs/research/pr-intake-evidence/pr5599')
+          files = json.loads((base/'EXPORT.json').read_bytes())['files']
+          for name, digest in json.loads((base/'CALLER-ORIGINAL.json').read_bytes()).items():
+              if files.setdefault(name, digest) != digest:
+                  raise ValueError('Conflicting input: '+name)
+          for name, digest in files.items():
+              path = pathlib.PurePosixPath(name)
+              if path.is_absolute() or '..' in path.parts or str(path) != name:
+                  raise ValueError('Unsafe path')
+              raw = subprocess.check_output(['git', 'show', 'HEAD:'+name])
+              if hashlib.sha256(raw).hexdigest() != digest:
+                  raise ValueError('Changed source: '+name)
+              dest = pathlib.Path(name)
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              dest.write_bytes(raw)
+          PY
+      - run: python3 -I -B scripts/audit_p1045599.py --work "$RUNNER_TEMP/p1045599"
+      - run: git diff --exit-code
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: p1045599-audit
+          path: |
+            ${{ runner.temp }}/p1045599/VALIDATION.json
+            ${{ runner.temp }}/p1045599/review-evidence/
+            ${{ runner.temp }}/p1045599/caller-*.jsonl

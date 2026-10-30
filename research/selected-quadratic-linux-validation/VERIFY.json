@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-quadratic-linux-validation/inputs/PR5757.tar",
+    "research/selected-quadratic-linux-validation/INPUT-MANIFEST.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate the exact 54-file original source export and all recorded Linux outputs, resource receipts and statistics. Recorded evidence only; no fresh scientific replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Synthetic rejection controls for omitted evidence, type aliases, source/runtime drift, incomplete oracle output and resource failures. No scientific replay."
+    }
+  ]
+}

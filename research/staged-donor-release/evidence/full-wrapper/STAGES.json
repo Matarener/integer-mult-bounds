@@ -1,0 +1,64 @@
+[
+  {
+    "command": [
+      "/private/tmp/three-kappa-env/bin/python",
+      "-B",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/source/new/fastnative/run_native.py",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/source/new/borrow/words/BORROW-WORD-43base.json.gz",
+      "/private/tmp/staged-release-pr-ready-20261018/native-base"
+    ],
+    "exit_code": 0,
+    "log_sha256": "8aa18b1f489b661af8e82cfa0c3cc866876bc96440ec3c38efea6d91d3527175",
+    "name": "fresh-native-base"
+  },
+  {
+    "command": [
+      "/private/tmp/three-kappa-env/bin/python",
+      "-B",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/source/new/fastnative/run_native.py",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/source/new/borrow/words/BORROW-WORD-43extra.json.gz",
+      "/private/tmp/staged-release-pr-ready-20261018/native-extra"
+    ],
+    "exit_code": 0,
+    "log_sha256": "a31d87e4e906ddd5812da5a16c60d293fa2fe34aa8af97e17240b46b3c398a96",
+    "name": "fresh-native-extra"
+  },
+  {
+    "command": [
+      "/private/tmp/three-kappa-env/bin/python",
+      "-B",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/admit.py",
+      "--source",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/source",
+      "--fill",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/FILL.json.gz",
+      "--order",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/ORDER.json",
+      "--dispatch",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/DISPATCH.json",
+      "--native-cache",
+      "/private/tmp/staged-release-pr-ready-20261018/native-cache",
+      "--native-receipt",
+      "/private/tmp/staged-release-pr-ready-20261018/NATIVE-RECEIPT.json",
+      "--work",
+      "/private/tmp/staged-release-pr-ready-20261018/admission",
+      "--replica-helper-dir",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/helpers",
+      "--reconstructor",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/helpers/reconstruct_replica.py",
+      "--comparison-claim",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/PR2969-CLAIM.json",
+      "--blocknorm-checker",
+      "/private/tmp/staged-release-pr-ready-20261018/inputs/extension_blocknorm.py",
+      "--source-profile",
+      "staged3605",
+      "--comparison-profile",
+      "pr2969",
+      "--jobs",
+      "1"
+    ],
+    "exit_code": 0,
+    "log_sha256": "81ad8b61d626314627922171fc55e43562c171a2650adfb15c463b858c7f49c9",
+    "name": "complete-admission"
+  }
+]

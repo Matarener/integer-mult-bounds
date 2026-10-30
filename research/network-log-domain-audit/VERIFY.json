@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/ternary-side.json",
+    "research/rational-containment-performance/SOURCES.json",
+    "research/rational-containment-performance/VERIFY.json",
+    "scripts/certify.py",
+    "scripts/make_patch.py",
+    "upstream/LICENSE",
+    "upstream/README.md",
+    "upstream/build/figures/multiplication-flow.tex",
+    "upstream/build/figures/proof-map.tex",
+    "upstream/build/main.tex",
+    "upstream/build/references.bib",
+    "upstream/build/sections/00-introduction.tex",
+    "upstream/build/sections/01-history.tex",
+    "upstream/build/sections/02-streams.tex",
+    "upstream/build/sections/03-motifs.tex",
+    "upstream/build/sections/04-swap.tex",
+    "upstream/build/sections/05-layers.tex",
+    "upstream/build/sections/06-transforms.tex",
+    "upstream/build/sections/07-resampling.tex",
+    "upstream/build/sections/08-assembly.tex",
+    "upstream/build/sections/09-exact-arithmetic.tex",
+    "upstream/build/sections/10-transposition.tex",
+    "upstream/build/sections/11-grouped-rectangles.tex",
+    "upstream/formalization.yaml",
+    "upstream/manifest.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual negative-log helper and six-file proof producer; exact sign contradiction, tested guard, three unchanged positive pairs, five rejected domains, retained pin boundaries and receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Four cold Git-free CLI groups: unchanged normal/optimized replay, source corruption before execution, forged adoption receipt and weakened proposed patch."
+    }
+  ]
+}

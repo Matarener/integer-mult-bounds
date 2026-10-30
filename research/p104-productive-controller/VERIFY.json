@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-coalesced-private-reuse/compose.py",
+    "research/p104-coalesced-private-reuse/predecessor2152.tar.gz",
+    "research/complex-block-rank-optimum/inputs/selected.json.gz",
+    "research/frame-sa504/inputs/hamming/PROTOTYPE.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+    "research/joint-helper-lattice/CONTROLLER.json",
+    "research/higher-moment-strictification/verify.py",
+    "research/kappa-rebuild/architecture/mixed_target_probe.py",
+    "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+    "research/query-thinned-controllers/RESULT.json",
+    "research/pr4359-p7-padding/native_inventory.py",
+    "research/p104-coalesced-private-reuse/RESULT.json",
+    "research/p104-coalesced-private-reuse/SOURCES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Rebuild the exact P104 source; check all framed rows and reverse integer columns; certify all native calls and productive outputs; replay the physical forward caller, full invoice, two exact moment engines, compiler, ordinary BIT and all outer predicates; reject semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Rebuild the exact P104 source; check all framed rows and reverse integer columns; certify all native calls and productive outputs; replay the physical forward caller, full invoice, two exact moment engines, compiler, ordinary BIT and all outer predicates; reject semantic controls with assertions disabled."
+    }
+  ]
+}

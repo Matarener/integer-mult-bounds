@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticated full source boundary, signed q19 recipe, exact physical bit/shuttle invoices, source/tag/exterior/head preservation and rejecting controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Normal/optimized read-only Git-free replay; source/manifest/typed-receipt mutation and overwrite rejection."
+    }
+  ]
+}

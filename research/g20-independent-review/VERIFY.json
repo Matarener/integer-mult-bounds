@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-conjugation-admission/CALLS.json",
+    "research/g20-conjugation-admission/GLOBAL.jsonl.gz",
+    "research/g20-conjugation-admission/INVOICE.json",
+    "research/g20-conjugation-admission/ORDINARY-RESULT.json",
+    "research/g20-conjugation-admission/TARGET-OWNERS.json",
+    "research/g20-conjugation-admission/WORD.json.gz",
+    "research/g20-conjugation-admission/prior/prior/prior/source/vendor/g20/inputs/FRAMES.json",
+    "research/g20-helper-split/CALLS.json",
+    "research/g20-helper-split/GLOBAL.jsonl.gz",
+    "research/g20-helper-split/INVOICE.json",
+    "research/g20-helper-split/ORDINARY-RESULT.json",
+    "research/g20-helper-split/TARGET-OWNERS.json",
+    "research/g20-helper-split/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 570,
+      "checks": "Authenticate inputs; from-scratch exact local word and operator endpoint, global stream and bill, targets, admission arithmetic and reseeded levels for PR5679 and PR5708; twelve negative controls; compare with RESULT.json."
+    }
+  ]
+}

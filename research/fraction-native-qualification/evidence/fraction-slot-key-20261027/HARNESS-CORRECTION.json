@@ -1,0 +1,8 @@
+{
+  "failed_label": "finite-slot-key",
+  "inherited": "All964/54+9 checks passed",
+  "cause": "The post-derive drift fixture changed Fraction.numerator values, poisoning Fraction equality itself; comparing two otherwise identical original outputs with == therefore fails.",
+  "repair": "Use an observable value-preserving getter replacement, compare getter-call counts before output equality, require original literal fallback. Preserve draft/receipt.",
+  "production_tightening": "Unsafe or overflowed weight-token metadata now uses literal original rather than cached generic; add unused corrupt-slot data fallback control.",
+  "automatic_retry": false
+}

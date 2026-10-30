@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate source; all4500 exact relaxed systems and duals; forward/reverse equality; four independent literal all-column executions; z-only false positive and solver controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate source; all4500 exact relaxed systems and duals; forward/reverse equality; four independent literal all-column executions; z-only false positive and solver controls."
+    }
+  ]
+}

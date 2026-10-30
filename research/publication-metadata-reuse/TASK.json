@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Reuse the committed SOURCES.json payload already authenticated by the complete publication byte/history check, without changing ancestry operations.",
+  "scope_change_reason": "The replay-runtime card is narrowed to duplicate publication metadata reads; it is a tooling improvement, not a mathematical replay.",
+  "bottleneck_link": "Publication preflight is required before research submission; avoiding duplicate immutable-source reads reduces that wait while preserving its evidence contract.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first reproducible complete-check improvement with identical receipts and passing rejection controls; otherwise publish a bounded negative finding.",
+  "outcome": "completed",
+  "evidence": "Nine alternating runs per arm on each of two real packages; all 36 complete receipts match within package. Median reductions 18.33% and 15.66%. Hash-bound controls and optional benchmark emit stdout receipts.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the same complete-check improvement remain measurable on a second operating system and Git implementation?",
+      "why_it_matters": "The local improvement does not establish cross-host timing behavior.",
+      "first_step": "Run benchmark.py on the same two unchanged package inventories, with nine alternating samples and complete receipt equality.",
+      "blocked_by": "A second host and matching materialized fixtures."
+    }
+  ]
+}

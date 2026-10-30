@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coupled31-chronology/sources/pr5673-proof.md",
+    "research/coupled31-chronology/sources/escape-word.json",
+    "research/coupled31-chronology/sources/old-word-replay.py",
+    "research/coupled31-chronology/sources/pr5681-proof.md",
+    "research/coupled31-chronology/sources/p104-result.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate source copies; prefix determinants and dimension drop; static target; full Laurent and interpolation endpoints; exact complete tariff bounds."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Reject changed input, endpoint, order, written proof or result receipt."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-owned-cleanup-obstruction/inputs/pr5569-WORD.json.gz",
+    "research/p104-owned-cleanup-obstruction/inputs/pr5561-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact 743-row source transfer, 5252 public-only window obstructions, positive cleanup fixture, eight local boundary maps, seven tight star tariffs, producer loss-space bindings and semantic corruption controls. Also joint rank-eight crossing witness and 29688 exceptional-block multipartner windows with four controls."
+    }
+  ]
+}

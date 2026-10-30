@@ -1,0 +1,13 @@
+    ws=[(F(1),F(1))]*256;ts=list(range(256));fired=[];thresholds=gc.get_threshold();gc.collect()
+    def on_gc(phase,info):
+        if phase=='start' and ts:ts.clear();fired.append(True)
+    gc.callbacks.append(on_gc)
+    try:
+        gc.set_threshold(1,1,1)
+        try:make(ws=ws,ts=ts)
+        except (IndexError,ValueError):pass
+        else:raise ValueError('constructor mutation was not rejected')
+    finally:
+        gc.callbacks.remove(on_gc);gc.set_threshold(*thresholds)
+    require(fired,'constructor GC mutation fixture exercised')
+    controls.append('GC-mutated-token-packet-safe')

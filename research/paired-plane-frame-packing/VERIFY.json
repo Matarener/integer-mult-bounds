@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticated labels, 13 disjoint Gram-I8 frames, full strict plane scalar mask, 16-plane clique and six rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate explicit nine-coordinate Gram products, dense 112-square fit, every required entry, and ranks modulo 2, 3 and 1000003."
+    }
+  ]
+}

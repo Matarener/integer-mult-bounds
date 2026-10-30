@@ -1,0 +1,105 @@
+{
+  "actual_audit": {
+    "all_values_types_and_inputs_preserved": true,
+    "baseline_trace_seconds": 20.17961209200439,
+    "coordinates": 799,
+    "derived_trace_seconds": 19.942737821984338,
+    "events": 25984,
+    "full_output_sha256": "954c7448ff74d78753828e9623ad44c46da9e5ce459420b6e50a5d47294250b9",
+    "observed_seconds_removed": 0.2368742700200528,
+    "profile_whole_qualifier_seconds": 38.31372155799181,
+    "status": "PASS_FULL_ACTUAL_FRACTION_TRACE_EQUIVALENCE",
+    "weights_sha256": "cf98bf5da5df28ec1ca3ca7e8723d740b98e142f31e94ff7ec36815cc387c373"
+  },
+  "decision": "The observed trace difference of 0.237 seconds is insufficient to justify constructing a complete qualifier for a 15% whole-stage target. This is a scoped observation, not a universal obstruction.",
+  "finite": {
+    "all_complete_values_and_types_equal": true,
+    "cases": 241,
+    "controls": [
+      "returned-mutation-isolated",
+      "source-drift",
+      "Fraction-type-drift",
+      "module-byte-drift",
+      "live-code-drift",
+      "nested-live-code-drift",
+      "wrong-signed-update",
+      "omitted-witness",
+      "omitted-rounded-sites",
+      "wrong-zero-delta",
+      "bad-role",
+      "bad-scalar",
+      "missing-weight",
+      "restore-success",
+      "restore-exception",
+      "fresh-derivation"
+    ],
+    "events": 10164,
+    "status": "PASS_FINITE_FRACTION_FEASIBILITY"
+  },
+  "full_BC_benchmark_run": false,
+  "full_candidate_constructed": false,
+  "performance_claim": null,
+  "profile": {
+    "inclusive_profiles": {
+      "Fraction.calculate.inclusive": [
+        1,
+        29.56573735800339
+      ],
+      "Fraction.error_trace": [
+        1,
+        20.052949415985495
+      ],
+      "Fraction.execute": [
+        6,
+        0.5582490059896372
+      ],
+      "Fraction.ideal": [
+        4,
+        4.049590509006521
+      ],
+      "Fraction.reverse_all": [
+        1,
+        2.8532538060098886
+      ],
+      "Fraction.reverse_cut": [
+        4,
+        0.07846067700302228
+      ],
+      "integer.calculate.inclusive": [
+        1,
+        7.428388572006952
+      ],
+      "integer.error_trace": [
+        121,
+        3.0883288670156617
+      ],
+      "integer.ideal": [
+        4,
+        0.8438016349391546
+      ],
+      "integer.reverse_all": [
+        121,
+        1.0509023397462443
+      ],
+      "observation.calls.inclusive": [
+        35,
+        30.843270772049436
+      ],
+      "observation.deepcopy": [
+        16,
+        0.11094509204849601
+      ],
+      "observation.take": [
+        18,
+        0.30852267597219907
+      ],
+      "reference.digest": [
+        44,
+        3.5292127177817747
+      ]
+    },
+    "seconds": 38.02564648500993,
+    "status": "PASS_FULL_QUALIFIER_PROFILE"
+  },
+  "status": "NEGATIVE_COMPLETE_COST_FEASIBILITY"
+}

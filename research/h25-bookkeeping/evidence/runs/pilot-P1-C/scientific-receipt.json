@@ -1,0 +1,675 @@
+{
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "bookkeeping": {
+    "encoder_build": null,
+    "lanes": [
+      "sets"
+    ],
+    "new_controls": {
+      "sets": {
+        "cases": 23,
+        "optimize": 0,
+        "rows": [
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 1,
+            "name": "all-intersection-sizes",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 1,
+            "name": "duplicate-positional-triples",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 1,
+            "name": "reordered-triples",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 1,
+            "name": "negative-and-wide-integers",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 1,
+            "name": "empty-triples",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "no-allowance-prefix-once",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "wrong-checks-identity",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "wrong-circuit-link",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 1,
+            "name": "prefix-reentry-single-reservation",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 1,
+            "name": "post-prefix-mutated-values",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 0,
+            "name": "failing-prefix-no-eager-cache",
+            "outcome": "error"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "tuple-subclass-callback-fallback",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "integer-subclass-hash-fallback",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "bool-member-exact-type-fallback",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "got-collision-key-fallback",
+            "outcome": "error"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "live-source-set-resolution",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "live-Fraction-global-resolution",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "changed-Fraction-hash",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 1,
+            "name": "used-capability-changed-later-input",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "known-hook-trace",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "known-hook-profile",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 1,
+            "fast_admissions": 0,
+            "name": "known-hook-gc-callback",
+            "outcome": "value"
+          },
+          {
+            "fallback_calls": 0,
+            "fast_admissions": 1,
+            "name": "traceback-cleanup",
+            "outcome": "error"
+          }
+        ],
+        "scope": "Bounded finite semantics and negative controls; not full-caller ownership or performance evidence",
+        "status": "P1_FINITE_SET_CONTROLS_PASS"
+      }
+    },
+    "original_observer_retained_for_old_controls": true,
+    "set_reuse": {
+      "allowances_armed": 1,
+      "checks_captured": 1,
+      "circuits_captured": 1,
+      "entries": 1,
+      "fallback_calls": 0,
+      "fast_admissions": 1,
+      "fraction_sha256": "cf33568f7b767f66896995a7a81cc662e8be226f2e58efb61d2028f64eb5d231",
+      "private_operand_sets_constructed": 2300,
+      "reservations": 1,
+      "reservations_expired": 1,
+      "schema": "h25-private-set-reuse-v1",
+      "source_sha256": "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1"
+    }
+  },
+  "build": {
+    "c_source_sha256": "e9c3c9194a08718bd1575c1cf08c6c6772d3b644c2e274c25a84a1f9249d06cc",
+    "command": [
+      "x86_64-linux-gnu-gcc",
+      "-shared",
+      "-fPIC",
+      "-O3",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/usr/include/python3.12",
+      "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/engine/native_gf2.c",
+      "-o",
+      "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/cold-build/_packed_gf2.cpython-312-x86_64-linux-gnu.so"
+    ],
+    "extension_sha256": "d990705af645971612df802a427642bdb4cd79de0bb028a2f8ed3667bcf44c04",
+    "no_cached_binary": true,
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "compiler_tmpdir": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/compiler-tmp",
+  "driver_sha256": "5b963a5f108b334a627e68001c80b9843fb300c7394693e72f34ce0a6050e6f1",
+  "engine_custody": {
+    "compare_side_verifier.py": {
+      "bytes": 10571,
+      "mode": 292,
+      "sha256": "6e507bb0c7e00d090a60289fddb6c55e90c946d0850c42c3c5e3e15c27604a68"
+    },
+    "finite_controls.py": {
+      "bytes": 23815,
+      "mode": 292,
+      "sha256": "df989a831aac43cc1af95169dad8c64a7548760e6e1f96976da996703f2c8f7a"
+    },
+    "native_backend.py": {
+      "bytes": 20334,
+      "mode": 292,
+      "sha256": "e473c38245c3668715b5a78dfe980b2fe3ed0d0c9b8c97c666fbae6ecf1fffd5"
+    },
+    "native_gf2.c": {
+      "bytes": 7425,
+      "mode": 292,
+      "sha256": "e9c3c9194a08718bd1575c1cf08c6c6772d3b644c2e274c25a84a1f9249d06cc"
+    },
+    "profile_side_verifier.py": {
+      "bytes": 8959,
+      "mode": 292,
+      "sha256": "9c994378171c20a91539418d93cb8387e1daa93465d6862beefea90e12999c2a"
+    },
+    "source/complex_circuit.py": {
+      "bytes": 19732,
+      "mode": 292,
+      "sha256": "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1"
+    },
+    "source/complex_network.py": {
+      "bytes": 6105,
+      "mode": 292,
+      "sha256": "0da395e67ac04fa213494e71012c1b19b544596d34cdce5a3b172b1fb6af5f1b"
+    }
+  },
+  "environment": {
+    "executable": "/usr/bin/python3.12",
+    "platform": "linux",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "finite_controls": {
+    "counts": {
+      "binding_rejections": 3,
+      "boundary_cases": 17,
+      "fallback_cases": 38,
+      "gram_cases": 621,
+      "oracle_negative_controls": 2,
+      "ordered_complements": 5344,
+      "real_label_permutations": 24
+    },
+    "fixture_sha256": "fbf7cb44bb99c96ee7d393eb91f2ebfbfb94375917c78a902d547320afd75d84",
+    "independent_oracle": "Dense binary lists, descending pivots, addition modulo 2; no packed/source/native helpers",
+    "micro": {
+      "native_with_conversion": {
+        "cpu_seconds": 0.026414943000000024,
+        "wall_seconds": 0.02641219599172473
+      },
+      "unchanged_python": {
+        "cpu_seconds": 0.1465022589999999,
+        "wall_seconds": 0.1482576910057105
+      }
+    },
+    "micro_fixtures": 4,
+    "micro_repetitions": 128,
+    "micro_scope": "Fixed h25 label families with conversion; diagnostic only, not complete side speed",
+    "native_and_fallback_calls": {
+      "complement_fallback": 30,
+      "complement_native": 5875,
+      "gram_fallback": 20,
+      "gram_native": 1638
+    },
+    "status": "FINITE_NATIVE_GF2_CONTROLS_PASS",
+    "v2_controls": {
+      "complement_fixture_stream": {
+        "calls": 7,
+        "canonical_stream_bytes": 597,
+        "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+        "sha256": "ed44b2291db9f1bafc9bdb02e6d3b53e1926b01e549ef8bdccc1991922a6345d"
+      },
+      "counts": {
+        "class_dispatch_rejections": 2,
+        "effective_builtins_rejections": 2,
+        "native_proxy_rejections": 1,
+        "postbind_drift_rejections": 25,
+        "prebind_shadow_rejections": 10,
+        "real_builtin_drift_rejections": 2,
+        "trace_negative_controls": 4,
+        "trace_pairs": 7
+      },
+      "modified_helper_invocations": 0,
+      "runtime_policy": "Reject before native/fallback on source helper, effective builtins, class, function, closure or native dispatch drift",
+      "status": "V2_RUNTIME_AND_COMPLEMENT_STREAM_PASS"
+    }
+  },
+  "frozen_custody": {
+    "scripts/audit_short_guards.py": {
+      "bytes": 7956,
+      "mode": 292,
+      "sha256": "c2c929c956e617bee739963b517b9069e0d067cfebc6820f401a4e90a1769eb1"
+    },
+    "scripts/certify.py": {
+      "bytes": 11276,
+      "mode": 292,
+      "sha256": "2348d95008276c5d5764f7e028c3918e484582cd589bd4d9b82919161745e53e"
+    },
+    "scripts/compact_control_layer.py": {
+      "bytes": 7892,
+      "mode": 292,
+      "sha256": "e814c9f8d84f2e5d3aa2e06c36697f27f110218addc40ff8df2801fde861ff9f"
+    },
+    "scripts/complex_circuit.py": {
+      "bytes": 19732,
+      "mode": 292,
+      "sha256": "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1"
+    },
+    "scripts/complex_network.py": {
+      "bytes": 6105,
+      "mode": 292,
+      "sha256": "0da395e67ac04fa213494e71012c1b19b544596d34cdce5a3b172b1fb6af5f1b"
+    },
+    "scripts/exclusion_circuit.py": {
+      "bytes": 9450,
+      "mode": 292,
+      "sha256": "f9fbcd6e85e442cbd0926ac0887414e20735b2dc923d2d5822c803ceb46726d3"
+    },
+    "scripts/paired_exclusion_circuit.py": {
+      "bytes": 2289,
+      "mode": 292,
+      "sha256": "8f05f04cf06217befd6d0ee0f2d7d0c5c5eb32cfab8c9a8ca7917fd6d620b7d2"
+    },
+    "scripts/paired_network.py": {
+      "bytes": 4933,
+      "mode": 292,
+      "sha256": "991223dc3c1374284c361ed017e42bf732dd971fa0bea2be2282cfb18257b3f7"
+    },
+    "scripts/prepare_layers.py": {
+      "bytes": 8196,
+      "mode": 292,
+      "sha256": "a6e2adc612f264b1c0e51d18ce6315de9ae5e2ae2420aa22e99a22d8bf304947"
+    },
+    "scripts/search_network.py": {
+      "bytes": 4314,
+      "mode": 292,
+      "sha256": "3a4faa5037d9b8e7ca5828afac193a96b6966a8b114f14937921795b24ec4f6a"
+    },
+    "scripts/shared_point_circuit.py": {
+      "bytes": 13167,
+      "mode": 292,
+      "sha256": "360d9bffc0f55315fe294789b72c71c79e0991524555b3a5f42a2ca504d7da95"
+    },
+    "scripts/shared_point_network.py": {
+      "bytes": 3119,
+      "mode": 292,
+      "sha256": "a85e7f0d8c42d6a27e3846308571ca324a1824ac5c2d59e4daa5c7673c33c697"
+    },
+    "upstream/LICENSE": {
+      "bytes": 11357,
+      "mode": 292,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "upstream/README.md": {
+      "bytes": 541,
+      "mode": 292,
+      "sha256": "8d1ceff898a4e0e681679f91c4def485820be9e99f04e4861f2ce601a364723e"
+    },
+    "upstream/build/figures/multiplication-flow.tex": {
+      "bytes": 847,
+      "mode": 292,
+      "sha256": "3654d2728b0c98919d61760e1802804ed616546a747f9167a93e17bb8697f320"
+    },
+    "upstream/build/figures/proof-map.tex": {
+      "bytes": 524,
+      "mode": 292,
+      "sha256": "76d4deacf07bea355412abcfd798c7cbe6dcccef29a4a420a9e2a7b158f23848"
+    },
+    "upstream/build/main.tex": {
+      "bytes": 1882,
+      "mode": 292,
+      "sha256": "42f0f506976bc2084374a71e97edc1549689a7accf35dda4db2a18af4f13c1aa"
+    },
+    "upstream/build/references.bib": {
+      "bytes": 9790,
+      "mode": 292,
+      "sha256": "33cc2df13ccf85330849e8fb34d4ac7613b23f625787457a5b7b9aa6d7369476"
+    },
+    "upstream/build/sections/00-introduction.tex": {
+      "bytes": 11515,
+      "mode": 292,
+      "sha256": "98721f03682ccf1cc7d0850b07adabaa2d8f3afe552e3861753eba9d284d0da0"
+    },
+    "upstream/build/sections/01-history.tex": {
+      "bytes": 9689,
+      "mode": 292,
+      "sha256": "798956c8150c31e3e2f5f29c47110d25ce619faad1374f4d3a0f15fa3ee33ead"
+    },
+    "upstream/build/sections/02-streams.tex": {
+      "bytes": 11311,
+      "mode": 292,
+      "sha256": "606c80db61cad13aa0c3b6060dc4b88dbbe7ac60cdd831aa93f28d908fd09dab"
+    },
+    "upstream/build/sections/03-motifs.tex": {
+      "bytes": 31874,
+      "mode": 292,
+      "sha256": "ed76761194988a01af77ead0ea6469cb5dcd29690ab985a0b5a4006b0f2b69bb"
+    },
+    "upstream/build/sections/04-swap.tex": {
+      "bytes": 19884,
+      "mode": 292,
+      "sha256": "412b170ccaab38dba96e95e3cbfae09f4876a9818f8d278776a746b0f8044906"
+    },
+    "upstream/build/sections/05-layers.tex": {
+      "bytes": 46811,
+      "mode": 292,
+      "sha256": "20cfc8d12099d4e4ed9e3e7eeb6162edd9b6e0e076f24693364cd24377252594"
+    },
+    "upstream/build/sections/06-transforms.tex": {
+      "bytes": 33854,
+      "mode": 292,
+      "sha256": "924316e4bc905066281d8f9e8746a49d8829aeb393688608deb1e61c3c87853c"
+    },
+    "upstream/build/sections/07-resampling.tex": {
+      "bytes": 22053,
+      "mode": 292,
+      "sha256": "8a6b91670f9163afb54892489fa2210c77fe1b058f0325ec7d18b44b94be6e2c"
+    },
+    "upstream/build/sections/08-assembly.tex": {
+      "bytes": 46444,
+      "mode": 292,
+      "sha256": "763d7945b1e1ec4ebae9b799bcefcc45fa9bae6e2ffad799868a9c3d513dbd4a"
+    },
+    "upstream/build/sections/09-exact-arithmetic.tex": {
+      "bytes": 6950,
+      "mode": 292,
+      "sha256": "5714e5d0656c78c6a1fde8d01fd11f1ba856a7ea94149b283bd9a50fdbf516c3"
+    },
+    "upstream/build/sections/10-transposition.tex": {
+      "bytes": 2398,
+      "mode": 292,
+      "sha256": "c14ad8d56112f6578678a58211bc8d63c3a4b60e55078ac73bc38f7348e713cb"
+    },
+    "upstream/build/sections/11-grouped-rectangles.tex": {
+      "bytes": 7405,
+      "mode": 292,
+      "sha256": "6525cd0a01980e56accfeaf06e9d875bc699197ba42c6e22b69435e352275174"
+    },
+    "upstream/formalization.yaml": {
+      "bytes": 73925,
+      "mode": 292,
+      "sha256": "2dcbd0d6e6a22475f53d49bfdfcac9b6d2b470653c332a9f56522f5be166edb9"
+    },
+    "upstream/manifest.json": {
+      "bytes": 6217,
+      "mode": 292,
+      "sha256": "16ab13971694cabab09440c47ebf2fc0496a9d35fc3af33950fda3498f8e2392"
+    }
+  },
+  "lanes": "sets",
+  "measurement": "Parent outer guard is authoritative. Phases are nested observations, not additive costs. Profile is excluded from performance selection. Every timed arm includes copies, source checks, original CLI and retained full witnesses/transcripts; candidate additionally pays cold build/load/all finite controls.",
+  "mode": "candidate",
+  "native_calls": {
+    "complement_fallback": 0,
+    "complement_native": 238685,
+    "gram_fallback": 0,
+    "gram_native": 59959
+  },
+  "native_predecessor_pr": 5995,
+  "new_source_custody": {
+    "PLAN.json": {
+      "mode": 292,
+      "sha256": "8cf40547e843a7a8cee37f9605a477e8c48561f9cb66c55c587f3dcc2df9fe63"
+    },
+    "PLAN.md": {
+      "mode": 292,
+      "sha256": "afead2d57340b6acd90eda53cb3e2847d2607cc2bd0d51c8495e738fe34c7106"
+    },
+    "integration/DERIVATION.json": {
+      "mode": 292,
+      "sha256": "6a1b9148c48fe9016a3dc98c1aec339fba3efe73f421ecac2d3cb12d87c53256"
+    },
+    "integration/adapters.py": {
+      "mode": 292,
+      "sha256": "f7ca7f4f03ac63c1a95ba42f06149543211566de5e29f487a3dc4d08c5ee9b94"
+    },
+    "integration/derive_driver.py": {
+      "mode": 292,
+      "sha256": "a18d312e6992786fa7b2cf8a613eea068e0ad282ff684d03781a5928bde2692a"
+    },
+    "integration/full_driver.py": {
+      "mode": 292,
+      "sha256": "5b963a5f108b334a627e68001c80b9843fb300c7394693e72f34ce0a6050e6f1"
+    },
+    "priorities/set-reuse/finite_set_controls.py": {
+      "mode": 292,
+      "sha256": "9fbe76c6d5ce123d12fc3c231786a9a85996fad41102835e08112768dd75738d"
+    },
+    "priorities/set-reuse/set_reuse.py": {
+      "mode": 292,
+      "sha256": "d375bb352ddff7a922bf1413d2911935b977d3bcce670db4954f6939afa15f29"
+    }
+  },
+  "phases": {
+    "all_native_finite_independent_controls": {
+      "calls": 1,
+      "cpu_seconds_with_children": 1.257701,
+      "wall_seconds": 1.259587112988811
+    },
+    "all_new_controls": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.6242570000000005,
+      "wall_seconds": 0.6243691379786469
+    },
+    "checks_initialization": {
+      "calls": 1,
+      "cpu_seconds_with_children": 7.49999999998252e-05,
+      "wall_seconds": 7.504498353227973e-05
+    },
+    "cold_certify_import": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.00418099999999999,
+      "wall_seconds": 0.004180816002190113
+    },
+    "cold_compile_link_load": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.18872499999999998,
+      "wall_seconds": 0.18851520703174174
+    },
+    "cold_complex_module_load": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.009848999999999997,
+      "wall_seconds": 0.00984711799537763
+    },
+    "cold_engine_import": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.005606999999999987,
+      "wall_seconds": 0.005607002996839583
+    },
+    "cold_prepare_import": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0033639999999999226,
+      "wall_seconds": 0.003362049988936633
+    },
+    "compile_roles": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.47609499999999993,
+      "wall_seconds": 0.4760942800203338
+    },
+    "complete_original_cli": {
+      "calls": 1,
+      "cpu_seconds_with_children": 20.802455000000002,
+      "wall_seconds": 20.802733752992935
+    },
+    "engine_custody": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0014500000000000068,
+      "wall_seconds": 0.0014482350088655949
+    },
+    "fresh_engine_copy": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0010729999999999906,
+      "wall_seconds": 0.0010727880289778113
+    },
+    "fresh_root_copy": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0053440000000000015,
+      "wall_seconds": 0.005343747965525836
+    },
+    "full_log_integer_bounds": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.000460000000000349,
+      "wall_seconds": 0.000458956987131387
+    },
+    "identical_lossless_side_serialization": {
+      "calls": 1,
+      "cpu_seconds_with_children": 1.2083970000000015,
+      "wall_seconds": 1.2099500700132921
+    },
+    "input_custody": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.006277999999999999,
+      "wall_seconds": 0.006277505948673934
+    },
+    "new_adapter_preparation": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.010259000000000018,
+      "wall_seconds": 0.01027884503128007
+    },
+    "new_private_set_controls": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.6242410000000003,
+      "wall_seconds": 0.6243495260132477
+    },
+    "original_serializable": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0001430000000013365,
+      "wall_seconds": 0.0001450799754820764
+    },
+    "original_upstream_verify_sources": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0023890000000008627,
+      "wall_seconds": 0.0023877189960330725
+    },
+    "private_set_adapter_installation": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.020347000000000115,
+      "wall_seconds": 0.020343167008832097
+    },
+    "private_set_lease_sealing": {
+      "calls": 1,
+      "cpu_seconds_with_children": 6.4000000000064e-05,
+      "wall_seconds": 6.412900984287262e-05
+    },
+    "side_construction": {
+      "calls": 1,
+      "cpu_seconds_with_children": 1.862507,
+      "wall_seconds": 1.862620803003665
+    },
+    "verify_labels": {
+      "calls": 1,
+      "cpu_seconds_with_children": 14.688652999999999,
+      "wall_seconds": 14.688761650002562
+    },
+    "verify_map": {
+      "calls": 1,
+      "cpu_seconds_with_children": 2.462987,
+      "wall_seconds": 2.4630331629887223
+    },
+    "verify_role_frames": {
+      "calls": 1,
+      "cpu_seconds_with_children": 1.277984,
+      "wall_seconds": 1.277979990991298
+    }
+  },
+  "private_root_permission": "runtime-root is0755; copied input file modes are retained and checked; immutable stages are never chmodded",
+  "process_and_compiler_cpu_seconds_before_receipt": 24.684104,
+  "process_wall_seconds_before_receipt": 24.664720783999655,
+  "reference_driver_sha256": "0d976d2eb6b845f20d4a3396591a806f966688b88693cd6a5f8a0c9e48925e36",
+  "science": {
+    "full_cli_certificate_sha256": "1f763d95c7ff163aa71d13cd82784f16665be8afb21f75e76941e2119562098f",
+    "full_cli_stdout_sha256": "8f77b724810ec05fb19b35d75d8002d31a6e22ed342a36ee28a5caef8d643015",
+    "full_return_lossless_sha256": "542e4fd73d38b88122d1bf0fffa5f3b092cc4681a14012162daef47e89363cfd",
+    "ordered_complements": {
+      "calls": 238685,
+      "canonical_stream_bytes": 55839507,
+      "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+      "sha256": "7dec2bf33303c37e1c699609e83768d61df7e19104d34a26a148f66d5ccc4838"
+    },
+    "side": {
+      "exact_witness_sha256": "4b170c1dbfc33c7cb141a2284c6fd69eac7b6d100971d3e9ee625502b5893f82",
+      "rank_call_count": 59959,
+      "rank_distinct_matrix_count": 252,
+      "rank_trace_sha256": "85006ca332bbc57c2ba9fd06f61a0281d4cee600c9f3b449342379bf2aedec8f",
+      "result_sha256": "342e99212b12e518902ae9598613f5484113bacee8747c27a13b58a4b1d3986c",
+      "serialized_bytes": {
+        "rank_trace": 2674272,
+        "result": 527,
+        "witness": 58143622
+      }
+    },
+    "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+  },
+  "scientific_imports": {
+    "audit_short_guards": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/audit_short_guards.py",
+    "certify": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/certify.py",
+    "compact_control_layer": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/compact_control_layer.py",
+    "complex_circuit": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/engine/source/complex_circuit.py",
+    "exclusion_circuit": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/exclusion_circuit.py",
+    "paired_exclusion_circuit": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/paired_exclusion_circuit.py",
+    "paired_network": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/paired_network.py",
+    "prepare_layers": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/prepare_layers.py",
+    "search_network": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/search_network.py",
+    "shared_point_circuit": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/shared_point_circuit.py",
+    "shared_point_network": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/runtime/runs/pilot-P1-C/science/runtime-root/scripts/shared_point_network.py"
+  },
+  "scope": "Complete frozen historical complex-network CLI with retained observations; conditional certificate only. No bare-CLI factor, selected-frontier, new kappa or PR5864 speed claim.",
+  "source_pin_sha256": "88bba3caf5975f30fa7abceaea9454110cf3b069233e8241a2ca13d1dff171a7",
+  "status": "FULL_NETWORK_COMPLETE_PASS"
+}

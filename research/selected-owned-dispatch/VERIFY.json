@@ -1,0 +1,64 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Read-only source authentication, actual query/stack composition, all receipts, exact physical bills, complex/BIT ownership and rejecting controls.",
+      "timeout_seconds": 240
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Identical scientific checks with optimization and isolated imports.",
+      "timeout_seconds": 240
+    }
+  ],
+  "inputs": [
+    "LICENSE",
+    "NOTICE",
+    "research/delimited-continuation-stack/stack.py",
+    "research/delimited-continuation-stack/PROOF.md",
+    "research/continuation-output-return/return_output.py",
+    "research/continuation-output-return/PROOF.md",
+    "research/continuation-retained-backing/PROOF.md",
+    "research/selected-owned-query-private-stream/query_machine.py",
+    "research/selected-owned-query-private-stream/PROOF.md",
+    "research/fixed-tape-ordered-shear/machine.py",
+    "research/fixed-tape-ordered-shear/counters.py",
+    "research/p104-productive-controller/CONTROLLER.json",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/WORD.json.gz",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/records/frames.json",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/records/249-records.bin",
+    "research/query-thinned-controllers/BIT-CONTROLLER.json",
+    "research/query-thinned-controllers/PROOF.md",
+    "research/kappa-rebuild/architecture/FINITE-PRECOMPILATION.md",
+    "research/higher-moment-strictification/vendor/p7-TENSOR.md",
+    "research/lockstep-completion-pass/PROOF.md",
+    "notes/batched-complex-rows.tex",
+    "notes/batched-bit-rows.tex",
+    "notes/compact-control-movement.tex",
+    "notes/stopped-product-interface.tex",
+    "research/kappa-rebuild/bit/DELAYED-COVER-BRIDGE.md",
+    "upstream/build/sections/02-streams.tex",
+    "upstream/build/sections/04-swap.tex",
+    "notes/copied-centers-bit.tex",
+    "notes/copied-centers-lemma.tex",
+    "research/final4610-independent-admission/SPECIALIZATION.md"
+  ],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

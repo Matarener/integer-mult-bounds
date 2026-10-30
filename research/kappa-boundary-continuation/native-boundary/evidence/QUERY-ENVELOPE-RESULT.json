@@ -1,0 +1,188 @@
+{
+  "envelope_identity": "For each source p choose k with R[k,p] != 0. The signed sum (512 R[k,p])^-1 sum_xi (-1)^(q_p.xi) R[k,:] diag((-1)^(q_t.xi)) equals e_p exactly.",
+  "kernel_witness": {
+    "Fourier_index": 1,
+    "all512_payload_coordinates_checked": true,
+    "coefficients": [
+      "-1/2",
+      "1/2",
+      "-1/2",
+      "-1/2",
+      "1"
+    ],
+    "native_R_Cq_output_at_address_zero": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "-1"
+      ],
+      [
+        "1",
+        "-1"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "ports": [
+      0,
+      7,
+      27,
+      57,
+      76
+    ]
+  },
+  "minimum_scalar_pregather_envelope": 112,
+  "outside_scope": [
+    "routed or native operations inside the pregather",
+    "source-dependent query charts",
+    "shared interstage circuits and producer retiming",
+    "general native-child lower bounds",
+    "new kappa"
+  ],
+  "positive_control": "If all source labels are equal, the 8-dimensional R row space is invariant and the common C_q can be applied after gathering.",
+  "query_support_annihilator_gram_mod2": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "query_support_annihilator_normals": [
+    42,
+    7,
+    25,
+    52,
+    82,
+    127,
+    97,
+    76
+  ],
+  "query_support_annihilators_are_orthogonal": false,
+  "query_support_binary_ranks": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "query_support_sizes": [
+    56,
+    56,
+    56,
+    56,
+    56,
+    56,
+    56,
+    56
+  ],
+  "scalar_query_rank": 8,
+  "scoped_conclusion": "A source-independent scalar gather into the 8 R-queries (or any fixed scalar envelope smaller than 112) cannot precede all source-dependent C_q lines and retain this native V boundary, even if the later operation on those queries is arbitrary. This rejects gather-first/transform-later pricing for this interface.",
+  "source_ir_payload_sha256": "6d6818a0694987878a4e54c4a5dc7125b38e1d3fe8d94578593044c8172c4cf8",
+  "source_phase_sha256": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa",
+  "status": "PASS_SCALAR_QUERY_ENVELOPE_AND_LITERAL_NATIVE_COUNTEREXAMPLE",
+  "tensor_control": {
+    "layers": 2,
+    "native_off_diagonal_amplitude": "1/2",
+    "proposed_rank_zero_amplitude": "0",
+    "rejected": true
+  }
+}

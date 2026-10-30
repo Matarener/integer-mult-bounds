@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual rounded Gaussian calls, complete forward/reverse source ports, internal word checks and deterministic ties against authenticated exact matrix oracle."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual rounded Gaussian calls, complete forward/reverse source ports, internal word checks and deterministic ties against authenticated exact matrix oracle."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized Git-free positive replay, then actual damaged source, receipt and scientific code rejection controls."
+    }
+  ]
+}

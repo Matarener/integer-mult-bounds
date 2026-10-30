@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-pooled-cut-independent/verify.py",
+    "research/p104-pooled-cut-independent/SOURCES.json",
+    "research/p104-pooled-cut-independent/RESULT.json",
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/NATIVE-RECIPES.json.gz",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-native-channel/check_native.py",
+    "research/p104-memory-relaxation-soundness/memory.py",
+    "research/p104-memory-relaxation-soundness/PROOF.md",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/community-frontier1094-audit/ASSEMBLY.json"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py"],"timeout_seconds":120,"checks":"Pooled receipt, conditional algebra, 280-input literal channel, native bridge and four rejection controls"},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/support.py"],"timeout_seconds":120,"checks":"Virtual-helper and retained-memory agreement on 416 entries; forbidden minor and two determinant calculations"},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/pricing.py"],"timeout_seconds":60,"checks":"Pinned selected saving and outward rational intervals for zero through four separately charged H2 shears"}
+  ]
+}

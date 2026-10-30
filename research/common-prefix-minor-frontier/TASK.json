@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Sharp adaptive failure probability for fixed rank-k determinant tests sharing k-1 source columns under uniform GL_m(F_q).",
+  "scope_change_reason": "The assignment requires an original result. Extend PR2601 open question 2 by reducing a concrete higher-rank family to its common-deficiency event and quotient pencil; this is an algebraic side result, not a replay-runtime optimization or an audit.",
+  "bottleneck_link": "Bounded current-field choice requires family-specific bad-variety counting. This supplies one exact higher-rank contract; the actual selected candidate adapter and complete physical bill remain missing.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first independently enumerable sharp formula and package it; do not extend to two-dimensional quotients or a new construction.",
+  "outcome": "completed",
+  "evidence": "PROOF.md all-finite-field argument; verify.py exhaustive five-domain matrix/family census and literal binary/ternary GL_3 completion checks.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does a selected caller have this shared-column candidate form?",
+      "why_it_matters": "Only then can this counting law replace its candidate-union estimate.",
+      "first_step": "Export fixed charts, exact fresh-field distribution and complete transcript for one actual caller.",
+      "blocked_by": "No selected adapter, eligible-prime proof or complete physical selector bill is supplied."
+    },
+    {
+      "question": "What is the sharp bound when k-2 columns are shared?",
+      "why_it_matters": "A two-dimensional quotient would cover a larger class of minor families.",
+      "first_step": "Specify one two-plane candidate family over F_2 and enumerate its literal GL distribution.",
+      "blocked_by": "The determinant intersection geometry is no longer a hyperplane pencil."
+    }
+  ],
+  "question_source": {
+    "pr": 2601,
+    "author": "ywz65",
+    "question": "Open next question 2: higher-rank bad-minor intersections",
+    "head": "9839b45aec3233b6214e01209a2001b514ed4838"
+  },
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19221368",
+  "orientation": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY; no selected scientific cold replay",
+  "overlap": {
+    "canonical_main": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+    "open_prs": 341,
+    "open_prs_fetched_at": "2026-10-27T16:02:48.832900+00:00",
+    "discussion_records": 5519,
+    "discussions_fetched_at": "2026-10-27T16:03:58.384020+00:00",
+    "remote_complete_pagination": true,
+    "local_sparse_incomplete": true,
+    "checks": "Live account PR titles/bodies; latest handoff comments and active discussions; main README grep; distinctive merged-PR searches; local batch reservation. No same-question prior work found.",
+    "limitations": "No unpublished work or arbitrary historical diffs. Sparse notes supplemented by tracked-main searches."
+  },
+  "validation": {
+    "interpreter": "CPython 3.12.15, macOS arm64",
+    "direct_warning_strict": "normal and optimized passed",
+    "registered_replay": "both 60-second commands passed locally",
+    "direct_seconds": [
+      0.29,
+      0.3
+    ],
+    "registered_total_seconds": 0.91,
+    "mutation_controls": "wrong q exponent, missing common-failure contribution and Z/4 in place of F_4 rejected in disposable optimized CLI copies",
+    "scope": "Local checks only; hosted CI and independent human/formal review not claimed."
+  },
+  "final_overlap_checkpoint": {
+    "utc": "2026-10-27T16:09:58.482916+00:00",
+    "origin_main": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+    "priority_revision": 8,
+    "result": "No overlapping open PR or peer claim; merged candidates #1920/#2021/#3230/#3689 concern different objects. Source #2601 is retained unchanged."
+  }
+}

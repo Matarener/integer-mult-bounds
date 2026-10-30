@@ -1,0 +1,803 @@
+{
+  "control_source_sha256": "b7430ed6716b7d9cc3a0b340b6a9234e091c7a53df3c58379989ca6e627bc0de",
+  "executed_check_deletions_per_mode": 16,
+  "full_scientific_receipts_compared": 3,
+  "full_scientific_stages_replayed": false,
+  "intended_rejections_per_mode": 67,
+  "no_new_kappa": true,
+  "normal_and_optimized_receipts_equal_except_mode": true,
+  "runs": [
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "contracts": {
+        "authenticated_original_contract": {
+          "frame_cases": 2400,
+          "frame_cases_sha256": "90b0a4049066b6eb08ab223ba03d8f9af95bbe688a09c4ee5c7f586ad1fdd46b"
+        },
+        "executed_check_deletions": 9,
+        "mutations_after_authentication": true,
+        "rejections": [
+          {
+            "intended_gate": "complete tiling frame arrays differ",
+            "name": "frame_array_changed"
+          },
+          {
+            "intended_gate": "complete tiling frame arrays differ",
+            "name": "frame_scalar_type_changed"
+          },
+          {
+            "intended_gate": "complete tiling frame arrays differ",
+            "name": "frame_order_changed"
+          },
+          {
+            "intended_gate": "complete tiling frame count",
+            "name": "frame_count_both_truncated"
+          },
+          {
+            "intended_gate": "complete tiling frame digest mismatch",
+            "name": "declared_digest_changed"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: canonical_roots",
+            "name": "shared_canonical_roots"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: a_triples",
+            "name": "shared_a_triples"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: b_orthogonal_involution_pairs",
+            "name": "shared_b_orthogonal_involution_pairs"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: triple_gauge_signs",
+            "name": "shared_triple_gauge_signs"
+          }
+        ]
+      },
+      "coverage": {
+        "executed_check_deletions": 1,
+        "real_dispatch_covered_with_tiny_receipts": true,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: cyclic",
+            "name": "cyclic_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cyclic",
+            "name": "cyclic_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cyclic",
+            "name": "cyclic_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "pauli_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "pauli_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "pauli_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "omitted_actual_compare"
+          }
+        ],
+        "stage_counts": {
+          "cyclic": 1,
+          "independent": 1,
+          "pauli": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "nested_sources": {
+        "actual_captured_loader_survives_disposable_source_change": true,
+        "full_science_stages_replayed": false,
+        "no_path_import_or_pyc_execution_used": true,
+        "rejections": [
+          {
+            "intended_gate": "GEOMETRY_NESTED_ASSERT",
+            "name": "nested_geometry_assertion"
+          },
+          {
+            "intended_gate": "source manifest SHA256",
+            "name": "changed_nested_manifest"
+          },
+          {
+            "intended_gate": "authenticated source bytes: invoice.py",
+            "name": "changed_retained_executable"
+          },
+          {
+            "intended_gate": "RETAINED_NESTED_ASSERT",
+            "name": "retained_nested_assertion_with_disposable_pin"
+          },
+          {
+            "intended_gate": "unique source adaptation",
+            "name": "duplicate_literal_adapter_match"
+          },
+          {
+            "intended_gate": "authenticated source bytes",
+            "name": "changed_selected_literal_source"
+          },
+          {
+            "intended_gate": "unique frozen TRIPLES assignment",
+            "name": "duplicate_selected_TRIPLES"
+          },
+          {
+            "intended_gate": "unique frozen TRIPLES assignment",
+            "name": "missing_selected_TRIPLES"
+          }
+        ],
+        "retained_compile_optimization": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_module_count": 6
+      },
+      "output": {
+        "guards_precede_scientific_replay": true,
+        "rejections": [
+          {
+            "intended_gate": "output must be absolute",
+            "name": "relative_wrapper_output"
+          },
+          {
+            "intended_gate": "output already exists",
+            "name": "existing_wrapper_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "internal_wrapper_output"
+          }
+        ]
+      },
+      "parent_optimization": 0,
+      "real_records": [
+        {
+          "nested_path": [
+            "reports",
+            "CYCLIC-MIXED-RESULT.json",
+            "cases",
+            0,
+            "fixture",
+            "events",
+            48,
+            "targets",
+            0,
+            0
+          ],
+          "record": "cyclic/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: cyclic/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: cyclic/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "d3d514082425e82c8d133921b78b1ae62c158cb963f7059e93df3bd2106255e4"
+        },
+        {
+          "nested_path": [
+            "pauli",
+            "cases",
+            0,
+            "orientations",
+            0,
+            "invoice",
+            "paths",
+            "c0",
+            0
+          ],
+          "record": "independent/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "40fe76390c36d4c9692f964804359aecfa3ce039b74ef77c909ffbf8a2011ddc"
+        },
+        {
+          "nested_path": [
+            "cases",
+            0,
+            "fixture",
+            "events",
+            165,
+            "targets",
+            0,
+            0
+          ],
+          "record": "pauli/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: pauli/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: pauli/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "8e87b99cbab046151357691f7b891f25daf4aba5f2ad6c6bedda3342d003bce4"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "scientific_gates": {
+        "executed_check_deletions": 5,
+        "full_science_stages_replayed": false,
+        "one_r3_and_one_radical_diagnostic_only": true,
+        "ordinary_corruption_tests_after_source_authentication": true,
+        "rejections": [
+          {
+            "intended_gate": "all-column exact identity with arbitrary dirt",
+            "name": "cyclic_actual_dirty_helper_cleanup"
+          },
+          {
+            "intended_gate": "equal current frames",
+            "name": "cyclic_actual_source_frame"
+          },
+          {
+            "intended_gate": "complete scalar invoice",
+            "name": "cyclic_actual_paid_cancelling_pair"
+          },
+          {
+            "intended_gate": "all arbitrary input and dirty centre columns",
+            "name": "pauli_actual_cleanup"
+          },
+          {
+            "intended_gate": "literal equal common frame",
+            "name": "pauli_actual_target_W"
+          }
+        ]
+      }
+    },
+    {
+      "compression": {
+        "equivalent_recompression_accepted": true,
+        "rejections": [
+          {
+            "intended_gate": "changed frozen input: original.json.gz",
+            "name": "changed_compressed_input"
+          },
+          {
+            "intended_gate": "origin digest mismatch: original.json.gz",
+            "name": "changed_container_origin"
+          },
+          {
+            "intended_gate": "original decoded bytes changed: original.json.gz",
+            "name": "changed_original_after_transport_rebinding"
+          },
+          {
+            "intended_gate": "frozen/origin inventory mismatch",
+            "name": "omitted_origin"
+          }
+        ]
+      },
+      "contracts": {
+        "authenticated_original_contract": {
+          "frame_cases": 2400,
+          "frame_cases_sha256": "90b0a4049066b6eb08ab223ba03d8f9af95bbe688a09c4ee5c7f586ad1fdd46b"
+        },
+        "executed_check_deletions": 9,
+        "mutations_after_authentication": true,
+        "rejections": [
+          {
+            "intended_gate": "complete tiling frame arrays differ",
+            "name": "frame_array_changed"
+          },
+          {
+            "intended_gate": "complete tiling frame arrays differ",
+            "name": "frame_scalar_type_changed"
+          },
+          {
+            "intended_gate": "complete tiling frame arrays differ",
+            "name": "frame_order_changed"
+          },
+          {
+            "intended_gate": "complete tiling frame count",
+            "name": "frame_count_both_truncated"
+          },
+          {
+            "intended_gate": "complete tiling frame digest mismatch",
+            "name": "declared_digest_changed"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: canonical_roots",
+            "name": "shared_canonical_roots"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: a_triples",
+            "name": "shared_a_triples"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: b_orthogonal_involution_pairs",
+            "name": "shared_b_orthogonal_involution_pairs"
+          },
+          {
+            "intended_gate": "complete shared geometry differs: triple_gauge_signs",
+            "name": "shared_triple_gauge_signs"
+          }
+        ]
+      },
+      "coverage": {
+        "executed_check_deletions": 1,
+        "real_dispatch_covered_with_tiny_receipts": true,
+        "rejections": [
+          {
+            "intended_gate": "complete stage record coverage changed: cyclic",
+            "name": "cyclic_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cyclic",
+            "name": "cyclic_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: cyclic",
+            "name": "cyclic_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "pauli_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "pauli_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "pauli_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_omitted"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_duplicated"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: independent",
+            "name": "independent_extra"
+          },
+          {
+            "intended_gate": "complete stage record coverage changed: pauli",
+            "name": "omitted_actual_compare"
+          }
+        ],
+        "stage_counts": {
+          "cyclic": 1,
+          "independent": 1,
+          "pauli": 1
+        }
+      },
+      "loader": {
+        "captured_source_survives_disposable_path_change": true,
+        "child_assertions_enabled": true,
+        "file_and_argument_semantics_preserved": true,
+        "rejections": [
+          {
+            "intended_gate": "AssertionError: DIRECT_ASSERT",
+            "name": "direct.py"
+          },
+          {
+            "intended_gate": "AssertionError: NESTED_ASSERT",
+            "name": "nested.py"
+          },
+          {
+            "intended_gate": "changed frozen input: direct.py",
+            "name": "changed_executable_source"
+          },
+          {
+            "intended_gate": "missing regular input: direct.py",
+            "name": "missing_executable_source"
+          },
+          {
+            "intended_gate": "unregistered input: absent.py",
+            "name": "unregistered_source"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "absolute_path"
+          },
+          {
+            "intended_gate": "unsafe package path",
+            "name": "parent_escape"
+          },
+          {
+            "intended_gate": "missing regular input: link.py",
+            "name": "symlink_input"
+          },
+          {
+            "intended_gate": "input escapes package",
+            "name": "ancestor_symlink_escape"
+          },
+          {
+            "intended_gate": "DIRECT_RUNTIME_GATE",
+            "name": "direct_runtime_requirement"
+          }
+        ]
+      },
+      "nested_sources": {
+        "actual_captured_loader_survives_disposable_source_change": true,
+        "full_science_stages_replayed": false,
+        "no_path_import_or_pyc_execution_used": true,
+        "rejections": [
+          {
+            "intended_gate": "GEOMETRY_NESTED_ASSERT",
+            "name": "nested_geometry_assertion"
+          },
+          {
+            "intended_gate": "source manifest SHA256",
+            "name": "changed_nested_manifest"
+          },
+          {
+            "intended_gate": "authenticated source bytes: invoice.py",
+            "name": "changed_retained_executable"
+          },
+          {
+            "intended_gate": "RETAINED_NESTED_ASSERT",
+            "name": "retained_nested_assertion_with_disposable_pin"
+          },
+          {
+            "intended_gate": "unique source adaptation",
+            "name": "duplicate_literal_adapter_match"
+          },
+          {
+            "intended_gate": "authenticated source bytes",
+            "name": "changed_selected_literal_source"
+          },
+          {
+            "intended_gate": "unique frozen TRIPLES assignment",
+            "name": "duplicate_selected_TRIPLES"
+          },
+          {
+            "intended_gate": "unique frozen TRIPLES assignment",
+            "name": "missing_selected_TRIPLES"
+          }
+        ],
+        "retained_compile_optimization": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_module_count": 6
+      },
+      "output": {
+        "guards_precede_scientific_replay": true,
+        "rejections": [
+          {
+            "intended_gate": "output must be absolute",
+            "name": "relative_wrapper_output"
+          },
+          {
+            "intended_gate": "output already exists",
+            "name": "existing_wrapper_output"
+          },
+          {
+            "intended_gate": "output must be external",
+            "name": "internal_wrapper_output"
+          }
+        ]
+      },
+      "parent_optimization": 1,
+      "real_records": [
+        {
+          "nested_path": [
+            "reports",
+            "CYCLIC-MIXED-RESULT.json",
+            "cases",
+            0,
+            "fixture",
+            "events",
+            48,
+            "targets",
+            0,
+            0
+          ],
+          "record": "cyclic/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: cyclic/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: cyclic/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "d3d514082425e82c8d133921b78b1ae62c158cb963f7059e93df3bd2106255e4"
+        },
+        {
+          "nested_path": [
+            "pauli",
+            "cases",
+            0,
+            "orientations",
+            0,
+            "invoice",
+            "paths",
+            "c0",
+            0
+          ],
+          "record": "independent/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: independent/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "40fe76390c36d4c9692f964804359aecfa3ce039b74ef77c909ffbf8a2011ddc"
+        },
+        {
+          "nested_path": [
+            "cases",
+            0,
+            "fixture",
+            "events",
+            165,
+            "targets",
+            0,
+            0
+          ],
+          "record": "pauli/CHECKS.json.gz",
+          "rejections": [
+            {
+              "intended_gate": "complete typed record mismatch: pauli/CHECKS.json.gz",
+              "name": "deep_field_changed"
+            },
+            {
+              "intended_gate": "complete typed record mismatch: pauli/CHECKS.json.gz",
+              "name": "deep_field_omitted"
+            }
+          ],
+          "sha256": "8e87b99cbab046151357691f7b891f25daf4aba5f2ad6c6bedda3342d003bce4"
+        }
+      ],
+      "record_gate": {
+        "named_record_gate_deletion_detected": true,
+        "rejections": [
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "boolean_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "float_for_integer"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "integer_for_boolean"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "nested_omission"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_reorder"
+          },
+          {
+            "intended_gate": "complete typed record mismatch: expected.json",
+            "name": "ordered_list_truncate"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "duplicate_json_key"
+          },
+          {
+            "intended_gate": "duplicate JSON key: a",
+            "name": "nested_duplicate_json_key"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: NaN",
+            "name": "nonfinite_NaN"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: Infinity",
+            "name": "nonfinite_Infinity"
+          },
+          {
+            "intended_gate": "nonfinite JSON constant: -Infinity",
+            "name": "nonfinite_-Infinity"
+          },
+          {
+            "intended_gate": "missing regular input: expected.json",
+            "name": "missing_expected_record"
+          }
+        ]
+      },
+      "scientific_gates": {
+        "executed_check_deletions": 5,
+        "full_science_stages_replayed": false,
+        "one_r3_and_one_radical_diagnostic_only": true,
+        "ordinary_corruption_tests_after_source_authentication": true,
+        "rejections": [
+          {
+            "intended_gate": "all-column exact identity with arbitrary dirt",
+            "name": "cyclic_actual_dirty_helper_cleanup"
+          },
+          {
+            "intended_gate": "equal current frames",
+            "name": "cyclic_actual_source_frame"
+          },
+          {
+            "intended_gate": "complete scalar invoice",
+            "name": "cyclic_actual_paid_cancelling_pair"
+          },
+          {
+            "intended_gate": "all arbitrary input and dirty centre columns",
+            "name": "pauli_actual_cleanup"
+          },
+          {
+            "intended_gate": "literal equal common frame",
+            "name": "pauli_actual_target_W"
+          }
+        ]
+      }
+    }
+  ],
+  "source_hashes": {
+    "FROZEN-SHA256.json": "73c279f7f25a1e707fe1e3cd42e7d945c6c077d61dd252d54b70a5674361494c",
+    "ORIGINS.json": "9b2de4b3353bc6bba6e336301b93034d6d935f3e769967f2b96932279e0d9126",
+    "cyclic/check.py": "0a4d71209788476bc6ca8dfda051d2913adcd5fe584ea03be90e04e80123578e",
+    "independent/independent_operator.py": "744271322bd42775571f462fefe9a8b6cf40a8600a2dbcbfaef27a7b69bc7382",
+    "pauli/check.py": "97b97531bd312ccae4da4ce2e7a767f32c749db2eb7408eb38b517699f970a66",
+    "pauli/geometry.py": "05d23eeb09cd04785b28d5337f0c2e19de3bf1cd7e54a26c219cb10c9a3daf25",
+    "verify.py": "db07043a36beac98813b35a9380cb2799dd0507348ab4aa62200ce65f9513c1b"
+  },
+  "status": "PASS_C03_COMPACT_SOURCE_RECORD_AND_SEMANTIC_CONTROLS"
+}

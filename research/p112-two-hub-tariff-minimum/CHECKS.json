@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "kind": "local replay run receipt",
+  "scope": "Records that these exact package bytes passed these exact commands on this machine. It is not a mathematical result, not a CI-equivalence claim and not an acceptance decision. RESULT.json remains the mathematical receipt.",
+  "package": "research/p112-two-hub-tariff-minimum",
+  "repository_root": "/Users/nick/git/imb-research-2",
+  "replay_commit": "2e8a065703702fa66aeaa32faedd9b0fe5010bbd",
+  "worktree_state_at_run": "git status --porcelain --ignored was empty",
+  "generated_utc": "2026-10-18T17:16:45Z",
+  "environment": {
+    "interpreter_path": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12",
+    "interpreter_version_banner": "Python 3.12.15 (main, Oct 14 2026, 00:55:37) [Clang 23.1.3 ]",
+    "interpreter": {
+      "base_prefix": "/Users/nick/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none",
+      "compiler": "Clang 23.1.3 ",
+      "executable": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12",
+      "implementation": "CPython",
+      "machine": "arm64",
+      "max_int_digits": 4300,
+      "platform": "macOS-27.0.1-arm64-arm-64bit",
+      "prefix": "/Users/nick/git/integer-mult-bounds/.venv",
+      "version": "3.12.15 (main, Oct 14 2026, 00:55:37) [Clang 23.1.3 ]"
+    },
+    "uname": "Darwin Nicks-MacBook-Pro.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050 arm64",
+    "git_version": "git version 2.54.0 (Apple Git-157)",
+    "uvx_version": "uvx 0.13.1 (Homebrew 2026-10-14 aarch64-apple-darwin)",
+    "host_interpreter_platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "package_files_sha256": {
+    "research/p112-two-hub-tariff-minimum/ORIGINS.json": "710d9fb2b2e6b19e55b7e7c65894f9c4695cd03141e1b646c3051ddcf1ea8896",
+    "research/p112-two-hub-tariff-minimum/PROOF.md": "f82ced8fb446e219cb27d9facb4980baff94c77bfa039409e6660ab9de7280f6",
+    "research/p112-two-hub-tariff-minimum/README.md": "dce38f938506a8f2e8992081cae0e67256c141793d87908584c0d6d29d1166b6",
+    "research/p112-two-hub-tariff-minimum/RESULT.json": "4572bc27aadc393f6efafc35ea721cc65983c701edb23f9821e6bdddc46fc879",
+    "research/p112-two-hub-tariff-minimum/SOURCES.json": "1f71f63cb04caaae056e9ae8d90686b992dc7e53560144f5f1b1076bbf9ccdf6",
+    "research/p112-two-hub-tariff-minimum/TASK.json": "6a2be366867cec7c5416279e92a25840530dd45651a646b6f0e0fdefa4032162",
+    "research/p112-two-hub-tariff-minimum/VERIFY.json": "eb9b9e76e10fc5bf6aa7e70d8d7501690e2861ddef08a8b50750d8faf0e70e19",
+    "research/p112-two-hub-tariff-minimum/independent.py": "84fdf179216a59caeb08b5b0211f598ae69339d46314336761036921cc93f6ab",
+    "research/p112-two-hub-tariff-minimum/predecessor/CONFIG.json": "37736c141cacd901de435dda72b26204edfaca35a6179fd856ab74b0d65054e5",
+    "research/p112-two-hub-tariff-minimum/predecessor/PROOF.md": "f9758a0d400df37af7cbec30e0dda0f0ef08e03b9953f995dbbe4dd512787271",
+    "research/p112-two-hub-tariff-minimum/predecessor/WITNESS.json": "556172923c7572e6734a6dacaa96831cd1973b03cde6fd625445bd25e974d85c",
+    "research/p112-two-hub-tariff-minimum/test_controls.py": "03aff03bb00b8f9690d354ea529ba8fca31be455d21bcd81c2ff917ce8a8ea83",
+    "research/p112-two-hub-tariff-minimum/verify.py": "936ece5ac435f276490ae78a66384ca8c332a2a8f393e415db73e3ba0812befd"
+  },
+  "receipt_binding": "The hashes above cover every file in this package directory at replay_commit. CHECKS.json's own bytes are deliberately excluded, so committing this receipt does not invalidate it.",
+  "commands": [
+    {
+      "purpose": "registered full replay of the package under CPython 3.12",
+      "argv": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -B scripts/research_package.py --package research/p112-two-hub-tariff-minimum",
+      "cwd": "/Users/nick/git/imb-research-2",
+      "env_overrides": {
+        "TMPDIR": "<session run directory>/tmp"
+      },
+      "exit_status": 0,
+      "wall_clock_seconds": {
+        "real": 1.11,
+        "user": 0.8,
+        "sys": 0.19
+      },
+      "stdout": [
+        "CHECK Retained predecessor SHA256 pins; replay of the seven source exclusions and fourteen reader containments over Q; exhaustive per-row minimum search by exact rational linear feasibility under a conservative relaxation of the reader-row evaluator; row-by-row check of the retained witness; all 1764 entries of aa^T + bb^T = sum_i u_i q_i^T over the 42 ports; the nine measured plane charges; the full RESULT.json receipt.",
+        "PASS_TWO_HUB_TARIFF_MINIMUM {\"attained_by_retained_witness\": true, \"baseline_charge\": 42, \"minimum_charge\": 54, \"no_new_kappa\": true, \"ports\": 42, \"row_units\": 27, \"rows\": 21}",
+        "CHECK Separate integer-only implementation sharing no code: the universal one-unit row bound, the seven default readers, exact integer span table over all admissible supports of the fourteen reader rows, and an independent recomputation of the nine witness charges. No fractions.Fraction is imported.",
+        "PASS_TWO_HUB_TARIFF_MINIMUM_INDEPENDENT {\"forced_reader_rows\": [\"dxy\", \"dzw\", \"gtxy\"], \"minimum_charge\": 54, \"no_new_kappa\": true, \"reader_rows\": 14, \"row_units\": 27, \"source_rows\": 7, \"witness_charge_total\": 54}",
+        "CHECK Ten actual mutation groups rejected by both scientific programs in isolated owned byte copies, three positive runs, and receipt bytes unchanged across them. Production checks remain enabled under -O.",
+        "PASS_TWO_HUB_TARIFF_MINIMUM_CONTROLS {\"mutation_groups\": 10, \"positive_runs\": 3, \"rejecting_runs\": 20}",
+        "PASS_REGISTERED_RESEARCH_PACKAGE research/p112-two-hub-tariff-minimum outcome=completed"
+      ]
+    },
+    {
+      "purpose": "publication byte and declared source-history preflight",
+      "argv": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -B scripts/check_research_commit.py --package research/p112-two-hub-tariff-minimum --check-source-history",
+      "cwd": "/Users/nick/git/imb-research-2",
+      "exit_status": 0,
+      "stdout": [
+        "PASS_RESEARCH_COMMIT_BYTES {\"commit\": \"2e8a065703702fa66aeaa32faedd9b0fe5010bbd\", \"files\": 13, \"package\": \"research/p112-two-hub-tariff-minimum\", \"source_history_commits\": [\"20ecf2891d80b5acf18d980b2164fb44ea7faa90\"]}"
+      ]
+    },
+    {
+      "purpose": "Ruff lint over the package",
+      "argv": "uvx ruff@0.14.5 check --no-cache --isolated research/p112-two-hub-tariff-minimum",
+      "cwd": "/Users/nick/git/imb-research-2",
+      "exit_status": 0,
+      "stdout": [
+        "All checks passed!"
+      ]
+    },
+    {
+      "purpose": "Ruff format check over the package; differences recorded, not applied",
+      "argv": "uvx ruff@0.14.5 format --no-cache --isolated --check research/p112-two-hub-tariff-minimum",
+      "cwd": "/Users/nick/git/imb-research-2",
+      "exit_status": 1,
+      "stdout": [
+        "Would reformat: research/p112-two-hub-tariff-minimum/test_controls.py",
+        "Would reformat: research/p112-two-hub-tariff-minimum/verify.py",
+        "2 files would be reformatted, 1 file already formatted"
+      ]
+    },
+    {
+      "purpose": "Ruff format check over shared scripts, showing this is not a repository convention",
+      "argv": "uvx ruff@0.14.5 format --no-cache --isolated --check scripts/research_package.py scripts/check_research_commit.py scripts/new_research_package.py",
+      "cwd": "/Users/nick/git/imb-research-2",
+      "exit_status": 1,
+      "stdout": [
+        "Would reformat: scripts/check_research_commit.py",
+        "Would reformat: scripts/new_research_package.py",
+        "Would reformat: scripts/research_package.py",
+        "3 files would be reformatted"
+      ]
+    },
+    {
+      "purpose": "probe for Ruff inside the main checkout virtualenv",
+      "argv": [
+        "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12",
+        "-m",
+        "ruff",
+        "--version"
+      ],
+      "exit_status": 1,
+      "stderr": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12: No module named ruff"
+    }
+  ],
+  "not_run": [
+    "The selected full cold replay.",
+    "Lean.",
+    "Docker.",
+    "Independent human review.",
+    "Formal proof-kernel review."
+  ]
+}

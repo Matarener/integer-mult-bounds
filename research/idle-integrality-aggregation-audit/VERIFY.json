@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/community-frontier1094-audit/INDEPENDENT1094.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/idle-packing-stability/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate selected and retained audited source; exact aggregate-model counterexample, restricted positive control, corrected bracket, independent binomial signs, averaging/replication controls and semantic rejections."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same scientific checks with assertions disabled; verifier uses explicit exceptions."
+    }
+  ]
+}

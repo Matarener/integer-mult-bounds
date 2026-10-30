@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Compare one and two expansion-axis norms with the chirp input cap of 3/5, and check the exact 3/80 error allowance.",
+  "scope_change_reason": "The minor bit budget is a different question. This package checks the two-axis margin. It does not run the Gaussian core or the chirp consumer.",
+  "bottleneck_link": "The two-axis product plus any error below 3/80 stays inside the chirp cap, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record this margin. Do not run the Gaussian core or the chirp consumer.",
+  "outcome": "partial",
+  "evidence": "One axis bounded by 3/4 exceeds 3/5. The square 9/16 is exactly 3/80 below 3/5. All 270000 grid sums with both factors below 3/4 and error below 3/80 stay below 3/5.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The rational margin is exact. The Gaussian core and the chirp consumer would leave this package."
+}

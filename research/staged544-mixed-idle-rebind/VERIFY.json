@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged544-mixed-idle-rebind/inputs/DISPATCH.json",
+    "research/staged544-mixed-idle-rebind/inputs/FILL.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/FOUR-base.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/FOUR-extra.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/MIXED-DISPATCH.json",
+    "research/staged544-mixed-idle-rebind/inputs/NATIVE-base.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/NATIVE-extra.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/ORDER.json",
+    "research/staged544-mixed-idle-rebind/inputs/PLAN.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/PR4085-PROFILE.json",
+    "research/staged544-mixed-idle-rebind/inputs/TEMPLATE.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/THREE-base.json.gz",
+    "research/staged544-mixed-idle-rebind/inputs/THREE-extra.json.gz",
+    "research/staged544-mixed-idle-rebind/vendor/rebind.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "SHA-256 pins, literal idle scan, two-provider width and divisibility obstruction, scanned and frozen-idle moment signs, and five rejection controls."
+    }
+  ]
+}

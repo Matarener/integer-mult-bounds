@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Literal generic noncommuting simulation of the 795-call eight-source and 1572-call nine-source words; the excess lower-bound table for n=7..64 from the deletion step and the counting bound; the deletion map applied to every source of both words and of PR4232's 405-call seven-source word, with each result simulated; mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same checks under -O. The verifier uses explicit checks, not assert."
+    }
+  ],
+  "notes": "Standard library only. About 2 s per command locally."
+}

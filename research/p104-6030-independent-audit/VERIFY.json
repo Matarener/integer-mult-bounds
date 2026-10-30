@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper468-rung-removal/WORD.json.gz",
+    "research/p104-helper468-rung-removal/RESULT.json",
+    "research/p104-helper468-rung-removal/inputs/pr5827-source.tar",
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz",
+    "research/p104-helper470-twin-rung-removal/RESULT.json",
+    "research/p104-helper470-twin-rung-removal/EDIT.json.gz",
+    "research/p104-helper470-twin-rung-removal/EXPECT.json",
+    "research/p104-helper470-twin-rung-removal/construct.py",
+    "research/p104-helper470-twin-rung-removal/sources.py",
+    "research/p104-helper470-twin-rung-removal/SOURCES.json",
+    "research/p104-helper470-twin-rung-removal/inputs/pr5907-WORD.json.gz",
+    "research/p104-helper470-twin-rung-removal/inputs/pr5827-source.tar",
+    "research/p104-unread-rung-independent-audit/FULL-CHECK.json",
+    "research/p104-unread-rung-independent-audit/verify.py",
+    "research/p104-productive-controller/CONTROLLER.json",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Serial bounded replay: authenticated inputs; PR6030 pinned PR5907 word and PR5827 archive equal canonical main/PR5907 pins and the regenerated PR6030 word equals the shipped payload; own exact replay of the PR5907 and PR6030 words with all 799 endpoint rows and helper nesting; exact PR5907->PR6030 delta (three boundary charts, six itineraries, INIT/CLEAR/COPY and other MOVE multisets, paid and helper rank deltas); own invoice recount equals both complete_cost entries; own decimal crossings equal both author intervals with tail ratios and uniqueness; dense all-column absolute-phase check of every native map new in PR6030 plus a fixed subset of old maps against the predecessor FULL-CHECK, with phase-only and sign fault controls; result equals RESULT.json."
+    }
+  ]
+}

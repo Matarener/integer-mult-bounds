@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "16x16 Gaussian commutators: E0 commutes, L and Pi L fail for Z_e1, translation and even-direction controls commute."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Vector replay with no import of verify.py; same witness column and basis miss counts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Rejects the even-direction chart as an obstruction and accepts the odd-direction witness."
+    }
+  ]
+}

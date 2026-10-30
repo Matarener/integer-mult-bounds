@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-29",
+  "python": "3.12.15",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "upstream_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "checks": [
+    {
+      "command": "python3.12 -I -B research/p104-helper470-twin-rung-removal/verify.py",
+      "cwd": "/tmp/integer-mult-frontier-research",
+      "exit_code": 0,
+      "scope": "Fresh full unchanged source chain: word, all 799 columns, native maps/phases, adapters, physical caller, invoice, original arithmetic and rejection controls",
+      "result": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "command": "python3.12 -B research/pr6030-parameter-refinement/verify.py --write",
+      "exit_code": 0,
+      "result": "PASS_CONDITIONAL_PARAMETER_REFINEMENT"
+    },
+    {
+      "command": "python3.12 -B -m unittest discover -s research/pr6030-parameter-refinement -p test_verify.py -v",
+      "exit_code": 0,
+      "tests": 7
+    },
+    {
+      "command": "python3.12 -O -B -m unittest discover -s research/pr6030-parameter-refinement -p test_verify.py -v",
+      "exit_code": 0,
+      "tests": 7
+    },
+    {
+      "command": "PYTHONPATH=/tmp/frontier-check-tools python3.12 -m ruff check research/pr6030-parameter-refinement/verify.py research/pr6030-parameter-refinement/test_verify.py",
+      "exit_code": 0,
+      "tool_version": "0.17.3"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/frontier-check-tools python3.12 -m mypy --strict --cache-dir /tmp/frontier-mypy-cache research/pr6030-parameter-refinement/verify.py research/pr6030-parameter-refinement/test_verify.py",
+      "exit_code": 0,
+      "tool_version": "2.4.1"
+    },
+    {
+      "command": "graphify update .",
+      "exit_code": 0,
+      "scope": "AST graph refresh only"
+    }
+  ],
+  "environment_correction": "Initial source replay with the system python3 stopped because int.bit_count was unavailable; rerun under Python 3.12.15 passed.",
+  "limits": [
+    "Five framework assumptions remain.",
+    "No new physical profile.",
+    "No independent human review or formal proof of the full multiplier.",
+    "No comprehensive live-PR overlap search or novelty claim."
+  ],
+  "sha256": {
+    "verify.py": "e198d54ac7c3a9c50d8012aff4a3deeb60684b27009090576619cb1d1e1d03dc",
+    "test_verify.py": "55377eb8138813c111a8103e563a313727c378dd9cf54ee91d94743c475d6aea",
+    "PROOF.md": "4b0eedef390d69c00a0c99e9c6401aa6bc53511c1fb3da42dfb116a6c41733b2",
+    "CERTIFICATE.json": "8ec7eac47037b99cce3fc0f33e5b6134c1df146d6e2d1a9923afd9c9b48f435f",
+    "SOURCES.json": "bc7b5773eb99db133499254b775d24f5a8952c360e22c6b8935dd9c820347112",
+    "README.md": "86ae306b1440e8fb0029a697cb50b1000147b87f3c6522fd4a87c4d3cc7350dd"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "For p >= 64, p^6 exp(-p^2) < 1/2, so 9 p^2 + p^6 exp(-p^2) < 9 p^2 + 1 < 16 p^2; under the same gate the approximant monomial stays below 2^{-C p} with exponent at most -C p - 4."
+    }
+  ]
+}

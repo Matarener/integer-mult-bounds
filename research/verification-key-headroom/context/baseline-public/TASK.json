@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Donor requested C and at least15% complete wall AND CPU savings. Finite/native gate, actual audit and complete cold-build BCCBBC gate passed.",
+  "actual_scope": "PR5848/frozen66fb6c6/native-cache-complete-qualification",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Publish verified measured scope, then reassess before further optimization. Preserve coverage, cold build and180s/1GiB/600sinitial1500shared/serial/no-auto-retry contract.",
+  "time_budget_minutes": 60,
+  "outcome": "completed",
+  "evidence": "PROOF.md, RESULT.json and evidence/runtime/GATE-6.json; full normal/O and source custody; publication controls separate.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex implementation and user-requested GPT-6-astra xhigh static API/source review. One parent numerical runner; no independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can one further source-bound native bookkeeping reduction pay its additional verification bill?",
+      "why_it_matters": "The minimum15% complete gate passes, but the user requests further justified improvements.",
+      "first_step": "Profile/census the new candidate, freeze one costed feasibility nomination, refresh overlap and run the smallest discriminating test before construction.",
+      "blocked_by": "Do not change this measured candidate or its scientific coverage during publication."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

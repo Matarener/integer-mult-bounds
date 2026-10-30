@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/weighted-wrapper-contract/TASK.json",
+    "research/weighted-wrapper-contract/README.md",
+    "research/weighted-wrapper-contract/algebra.py",
+    "research/weighted-wrapper-contract/runtime_check.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Dual-scale existence grid, single-factor obstruction, square classification, certificate match, source pins"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same admission under PYTHONOPTIMIZE via need(); -Werror clean"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate closed-form dual-scale and square-class replay"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Corruption rejection, duplicate JSON keys, read-only default verify"
+    }
+  ]
+}

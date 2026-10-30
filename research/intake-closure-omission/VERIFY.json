@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/pr-ledger.json",
+    "research/community-family533-audit/DISPOSITIONS.json",
+    "research/community-family588-audit/DISPOSITIONS.json",
+    "research/community-hyperplane599-audit/DISPOSITIONS.json",
+    "research/community-cold617-audit/DISPOSITIONS.json",
+    "research/community-k492-audit/DISPOSITIONS.json",
+    "research/community-frontier741-audit/DISPOSITIONS.json",
+    "research/community-frontier799-audit/DISPOSITIONS.json",
+    "research/community-frontier890-audit/DISPOSITIONS.json",
+    "research/community-batch932-audit/DISPOSITIONS.json",
+    "research/community-batch952-audit/DISPOSITIONS.json",
+    "research/community-batch970-audit/DISPOSITIONS.json",
+    "research/community-batch1047-audit/DISPOSITIONS.json",
+    "research/community-batch1099-audit/DISPOSITIONS.json",
+    "research/pr-reconciliation100-20261013/DISPOSITIONS.json",
+    "research/community-historical-five-audit/DISPOSITIONS.json",
+    "research/community-reconciliation92-audit/DISPOSITIONS.json",
+    "research/community-reconciliation-next100-audit/DISPOSITIONS.json",
+    "research/community-reconciliation-third100-audit/DISPOSITIONS.json",
+    "research/community-reconciliation-fourth100-audit/DISPOSITIONS.json",
+    "research/community-pilot20-audit/DISPOSITIONS.json",
+    "research/community-efficient100-audit/DISPOSITIONS.json",
+    "research/community-efficient200-audit/DISPOSITIONS.json",
+    "research/community-efficient300-audit/DISPOSITIONS.json",
+    "research/community-efficient400-audit/DISPOSITIONS.json",
+    "research/community-efficient500-audit/DISPOSITIONS.json",
+    "research/community-efficient600-audit/DISPOSITIONS.json",
+    "research/community-efficient700-audit/DISPOSITIONS.json",
+    "research/community-efficient800-audit/DISPOSITIONS.json",
+    "research/community-efficient900-audit/DISPOSITIONS.json",
+    "research/community-efficient1000-audit/DISPOSITIONS.json",
+    "research/community-efficient1100-audit/DISPOSITIONS.json",
+    "research/community-efficient1200-audit/DISPOSITIONS.json",
+    "research/community-efficient1300-audit/DISPOSITIONS.json",
+    "research/community-efficient1400-audit/DISPOSITIONS.json",
+    "research/community-efficient1500-audit/DISPOSITIONS.json",
+    "research/community-efficient1600-audit/DISPOSITIONS.json",
+    "research/community-efficient1700-audit/DISPOSITIONS.json",
+    "research/community-efficient1800-audit/DISPOSITIONS.json",
+    "research/community-efficient1900-audit/DISPOSITIONS.json",
+    "research/community-efficient2000-audit/DISPOSITIONS.json",
+    "research/community-efficient2100-audit/DISPOSITIONS.json",
+    "research/community-efficient2200-audit/DISPOSITIONS.json",
+    "research/community-efficient2300-audit/DISPOSITIONS.json",
+    "research/community-efficient2400-audit/DISPOSITIONS.json",
+    "research/community-efficient2500-audit/DISPOSITIONS.json",
+    "research/community-efficient2600-audit/DISPOSITIONS.json",
+    "docs/research/pr-intake-decisions.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Walk the family order and partition the omitted closures."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Check that the partition sums to 24."
+    }
+  ]
+}

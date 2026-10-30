@@ -1,0 +1,55 @@
+{
+  "card_positive_control": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+  "controls": "two valid CLI fixtures, nine rejecting CLI mutants, two geometry-source controls",
+  "limitations": "No independent human/proof-kernel review, hosted CI result, cut35 heavy proof replay, supplier/selected cold replay or new kappa.",
+  "optimized_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "optimized_mutant_children": "test_controls.py propagates -O to the actual verifier subprocesses",
+  "optimized_scripts": [
+    "construct.py",
+    "verify.py",
+    "crosscheck.py",
+    "test_controls.py"
+  ],
+  "platform": "Darwin Nicks-MacBook-Pro.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050 arm64",
+  "primary": {
+    "binary_support_ranks": [
+      5,
+      6,
+      6
+    ],
+    "code_piece_joint_ranks": [
+      8,
+      3,
+      9
+    ],
+    "cut_size": 36,
+    "intersection_dimension": 2,
+    "live_union_size": 78,
+    "retained_coordinates": 76,
+    "retained_nonzero_union": 42,
+    "status": "PASS_P112_MIXED566_CUT36_COUNTEREXAMPLE",
+    "support_sizes": [
+      10,
+      16,
+      16
+    ]
+  },
+  "python": "Python 3.12.15",
+  "registered": "python3.12 -W error -B scripts/research_package.py --package research/p112-mixed566-cut36-witness",
+  "registered_exit_code": 0,
+  "ruff": "check and format check passed",
+  "separate": {
+    "constraint_rank": 6,
+    "constraint_rows": 73,
+    "intersection_dimension": 2,
+    "status": "PASS_SEPARATE_COEFFICIENT_CONSTRAINT_CHECK",
+    "witness_sha256": "950703a1bec7779f1245e5f81954182cd2ef2dad58716f6bfd013645da935c6c"
+  },
+  "status": "author-checked on working source",
+  "utc": "2026-10-17T23:54:34.363677+00:00"
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-recursive-closure/vendor/controlled_normalizer.py",
+    "research/unconditional-batched-crt/BIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete literal GL and normalized-pair censuses, transfer law, binary closed form, correlation, source hashes and five controls; read-only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same mathematical and source checks under optimized Python, with explicit need() checks."
+    }
+  ]
+}

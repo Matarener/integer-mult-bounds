@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coded-native-caller/PHYSICAL.md",
+    "research/coded-native-caller/clifford_exact.py",
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+    "research/native-center-free-code/CODED-PROOF.md",
+    "research/native-center-free-code/native_core.py",
+    "research/native-helper-query-bank/ATTRIBUTION.md",
+    "research/native-helper-query-bank/BANK.json",
+    "research/native-helper-query-bank/PROOF.md",
+    "scripts/compare_recursive_invoices.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate all live inputs; replay all original fields, helper feedback, original centers, replacement cuts and owned returns; check exact phases and charged completions; reject seven semantic mutations; compare typed receipts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat all checks with optimization enabled for the wrapper; imported scientific source is explicitly compiled with assertions active."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "status": "PASS_BOUNDED_NATIVE_PHASE_AUDIT",
+  "scientific_generation": {
+    "command": "python3 -B research/staged544-native-quadratic-audit/generate.py /external/recipes.json",
+    "result": "byte-identical to retained RECIPES.json"
+  },
+  "registered_replay": {
+    "command": "python3 scripts/research_package.py --package research/staged544-native-quadratic-audit",
+    "result": "PASS_REGISTERED_RESEARCH_PACKAGE",
+    "normal_seconds": 16.143,
+    "optimized_seconds": 15.333
+  },
+  "isolated_interpreter": {
+    "command": "python3 -I -B -X pycache_prefix=/external/cache research/staged544-native-quadratic-audit/verify.py",
+    "result": "PASS",
+    "seconds": 20.703
+  },
+  "source_binding": "All17retainednative/word/receipt blobs matched exact public PR3945 file inventory; source SHA256 checked on every run. Both source-main metadata pins passed.",
+  "prepublication_checkpoint": {
+    "utc": "2026-10-19 07:58 UTC",
+    "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "pr3945": "91f81d131252db704f945891da1ea54e29d46b8b"
+  },
+  "review": "Root bounded mathematical/code review: no phase-order/cocycle issue found. Added explicit frame independence and isolated-script import support. This is collaborator review, not maintainer acceptance.",
+  "limitations": [
+    "Full native recipe payload, emitted program and release were not replayed.",
+    "Hosted CI status and exact public commit are reported in PR/session handoff after publication.",
+    "All-size, uniform precision/stock/tape, physical and supplier obligations remain inherited or unknown."
+  ],
+  "python_source_sha256": {
+    "verify.py": "a99c1313816b5d37e98d2d6a50b13a43f62f6ad5b0254ced3b6b1373947af2f8",
+    "generate.py": "0d06322361482723753651d3d92415c5253d477977e22f963fc83ffbfa94fa72",
+    "exact_phase.py": "e3d76b3373ff40a83a4b212b3fe1c0b431b3cfdc807da601d6e7f273c02c6d30"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/selected-bit-recursive-caller/PROOF.md",
+    "research/selected-bit-recursive-caller/node.py",
+    "research/selected-lcm-stock-wrapper-fit/README.md",
+    "research/selected-runtime-guard-stock/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Source hashes, exact rational upper bound, all-child finite staircase, full typed receipt and exact 6740 counterexample."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Same public acceptance with optimization enabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Separate no-import integer inequalities and large threshold/forward reconstruction."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual Git-free optimized positive CLI and source, receipt, too-small coefficient and wrong-ceiling mutations."
+    }
+  ]
+}

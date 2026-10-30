@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-physical-caller/scratch_pool.py",
+    "research/selected-bit-physical-caller/macro_machine.py",
+    "research/selected-bit-physical-caller/PROOF.md",
+    "docs/research/selected-bit-physical-contract-map.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pin PR2809 scratch/CALL sources, independent lease-end algebra, three semantic mutants, match CERTIFICATE.json"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same admission under PYTHONOPTIMIZE via need()"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate algebra and mutants without importing verify.py"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Duplicate JSON keys, temporary certificate corruption, -O admission, scanner agreement, read-only package hash"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-physical-caller/inputs/pr2753/layout.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/cardinal_counts.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/cardinality.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/counts.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/numeric.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/records.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/stream.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/vendor/words.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All15 identical-input original/shared geometry intervals, exact output bytes, all source actions including counter overhead, independent delta, borrowed heads/ownership and erased backing."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "No primary/runtime imports: direct integer geometry and marginal decoding plus individual trailing-zero-class counter accounting; all15 complete invoice differences."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual source Counter tariff calibrations; six source geometry guards in both variants; incomplete-adapter, non-prime-power, alias/reentrancy, typed/source/inventory/overwrite rejections; same-output exponent-one losing control."
+    }
+  ]
+}

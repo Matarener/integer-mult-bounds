@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact admissible region for 90 endpoint shapes with t <= 12; the rank floor never weakens a region and the region minimum never beats the published parity-rounded 11t/5 value; the ten-call split lists and the splits removed by the floor for every open t = 4 shape; a finite lattice check that boundary equality forces rank(X_g) = rank(Y_g) = r; an explicit F2 rank fixture for the (2,8) profile."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same receipt with assertions disabled; no check may depend on assert."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Behavioural controls: positive fixtures for the unmodified region and fixture; pinned receipt values; real rejections for a region without the rank floor, a region without the parity classes, a constant-zero F2 rank routine, a corrupted fixture block, an out-of-range F2 row and an invalid endpoint shape; JSON receipt round trip."
+    }
+  ]
+}

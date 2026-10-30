@@ -1,0 +1,104 @@
+COMMAND ['/opt/homebrew/opt/python@3.14/bin/python3.14', '-B', '-W', 'error', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_research_scaffold*.py', '-v']
+test_dangling_package_alias_is_rejected_before_staging (test_research_scaffold_aliases.ScaffoldAliasTests.test_dangling_package_alias_is_rejected_before_staging) ... ok
+test_linked_research_directory_is_rejected_before_git_or_writes (test_research_scaffold_aliases.ScaffoldAliasTests.test_linked_research_directory_is_rejected_before_git_or_writes) ... ok
+test_ordinary_new_output_and_linked_checkout_root_reach_normal_validation (test_research_scaffold_aliases.ScaffoldAliasTests.test_ordinary_new_output_and_linked_checkout_root_reach_normal_validation) ... ok
+test_catalogue_is_requested_once_even_when_explicitly_duplicated (test_research_scaffold_batch.ScaffoldBatchTests.test_catalogue_is_requested_once_even_when_explicitly_duplicated) ... ok
+test_exact_pins_binary_names_deduplication_and_constant_process_count (test_research_scaffold_batch.ScaffoldBatchTests.test_exact_pins_binary_names_deduplication_and_constant_process_count) ... ok
+test_live_catalogue_drift_rejects_without_publishing (test_research_scaffold_batch.ScaffoldBatchTests.test_live_catalogue_drift_rejects_without_publishing) ... ok
+test_live_drift_rejects_first_and_last_inputs_without_draft_or_child_leak (test_research_scaffold_batch.ScaffoldBatchTests.test_live_drift_rejects_first_and_last_inputs_without_draft_or_child_leak) ... ok
+test_unknown_task_closes_reader_without_publishing (test_research_scaffold_batch.ScaffoldBatchTests.test_unknown_task_closes_reader_without_publishing) ... ok
+test_untracked_source_and_late_reader_failure_do_not_publish (test_research_scaffold_batch.ScaffoldBatchTests.test_untracked_source_and_late_reader_failure_do_not_publish) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 6.961s
+
+OK
+COMMAND ['/opt/homebrew/opt/python@3.14/bin/python3.14', '-B', '-W', 'error', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_research_export*.py', '-v']
+test_bad_declarations_rejected (test_research_export.ExportTests.test_bad_declarations_rejected) ... ok
+test_direct_replay_in_git_free_directory (test_research_export.ExportTests.test_direct_replay_in_git_free_directory) ... ok
+test_exec_mode_retained (test_research_export.ExportTests.test_exec_mode_retained) ... ok
+test_existing_output_never_overwritten (test_research_export.ExportTests.test_existing_output_never_overwritten) ... ok
+test_failed_git_stream_leaves_no_output (test_research_export.ExportTests.test_failed_git_stream_leaves_no_output) ... ok
+test_git_only_newline_unicode_wildcard_path_preserves_bytes (test_research_export.ExportTests.test_git_only_newline_unicode_wildcard_path_preserves_bytes) ... ok
+test_missing_input_and_directory_are_rejected (test_research_export.ExportTests.test_missing_input_and_directory_are_rejected) ... ok
+test_payload_mode_inventory_and_duplicate_controls (test_research_export.ExportTests.test_payload_mode_inventory_and_duplicate_controls) ... ERROR
+test_repeatable_committed_bytes_ignore_worktree_and_attributes (test_research_export.ExportTests.test_repeatable_committed_bytes_ignore_worktree_and_attributes) ... ok
+test_symlink_rejected (test_research_export.ExportTests.test_symlink_rejected) ... ok
+test_cli_preserves_colons_that_are_not_drive_prefixes (test_research_export_drive_paths.ExportDrivePathTests.test_cli_preserves_colons_that_are_not_drive_prefixes) ... ok
+test_cli_rejects_absolute_and_relative_drive_members (test_research_export_drive_paths.ExportDrivePathTests.test_cli_rejects_absolute_and_relative_drive_members) ... ok
+test_cli_rejects_drive_paths_in_receipts (test_research_export_drive_paths.ExportDrivePathTests.test_cli_rejects_drive_paths_in_receipts) ... ok
+test_real_git_export_preserves_nondrive_colons_and_bytes (test_research_export_drive_paths.ExportDrivePathTests.test_real_git_export_preserves_nondrive_colons_and_bytes) ... ok
+test_real_git_export_rejects_drive_paths_before_publishing (test_research_export_drive_paths.ExportDrivePathTests.test_real_git_export_rejects_drive_paths_before_publishing) ... ok
+test_ambiguous_invalid_or_excessive_declarations_fail (test_research_export_input_coverage.ExportInputCoverageTests.test_ambiguous_invalid_or_excessive_declarations_fail) ... ok
+test_borrowed_handle_stays_open_on_success_and_failure (test_research_export_input_coverage.ExportInputCoverageTests.test_borrowed_handle_stays_open_on_success_and_failure) ... ok
+test_complete_check_borrows_one_archive_and_closes_it (test_research_export_input_coverage.ExportInputCoverageTests.test_complete_check_borrows_one_archive_and_closes_it) ... ok
+test_declaration_failure_closes_the_single_archive (test_research_export_input_coverage.ExportInputCoverageTests.test_declaration_failure_closes_the_single_archive) ... ok
+test_missing_declared_file_is_detected_after_integrity_passes (test_research_export_input_coverage.ExportInputCoverageTests.test_missing_declared_file_is_detected_after_integrity_passes) ... ok
+test_real_optimized_cli_checks_declarations_without_git (test_research_export_input_coverage.ExportInputCoverageTests.test_real_optimized_cli_checks_declarations_without_git) ... ok
+test_same_handle_reread_still_rejects_changed_manifest_bytes (test_research_export_input_coverage.ExportInputCoverageTests.test_same_handle_reread_still_rejects_changed_manifest_bytes) ... FAIL
+test_second_read_is_bound_to_the_checked_manifest_bytes (test_research_export_input_coverage.ExportInputCoverageTests.test_second_read_is_bound_to_the_checked_manifest_bytes) ... ok
+test_undeclared_external_file_is_rejected_but_package_files_are_allowed (test_research_export_input_coverage.ExportInputCoverageTests.test_undeclared_external_file_is_rejected_but_package_files_are_allowed) ... ok
+test_valid_package_and_literal_external_inputs_pass (test_research_export_input_coverage.ExportInputCoverageTests.test_valid_package_and_literal_external_inputs_pass) ... ok
+test_bad_input_commit_label_is_rejected_offline (test_research_export_input_ref.HistoricalInputExportTests.test_bad_input_commit_label_is_rejected_offline) ... ok
+test_bad_ref_or_package_local_input_creates_no_archive (test_research_export_input_ref.HistoricalInputExportTests.test_bad_ref_or_package_local_input_creates_no_archive) ... ok
+test_default_keeps_publication_input_and_no_extra_label (test_research_export_input_ref.HistoricalInputExportTests.test_default_keeps_publication_input_and_no_extra_label) ... ok
+test_explicit_input_commit_replays_original_and_is_repeatable (test_research_export_input_ref.HistoricalInputExportTests.test_explicit_input_commit_replays_original_and_is_repeatable) ... ok
+test_input_deleted_at_publication_can_be_exported_from_history (test_research_export_input_ref.HistoricalInputExportTests.test_input_deleted_at_publication_can_be_exported_from_history) ... ok
+test_replacement_ref_cannot_change_historical_input (test_research_export_input_ref.HistoricalInputExportTests.test_replacement_ref_cannot_change_historical_input) ... ok
+test_boolean_and_float_sizes_are_not_integer_receipts (test_research_export_metadata.ReceiptMetadataTests.test_boolean_and_float_sizes_are_not_integer_receipts) ... ok
+test_duplicate_top_level_and_nested_keys_are_rejected (test_research_export_metadata.ReceiptMetadataTests.test_duplicate_top_level_and_nested_keys_are_rejected) ... ok
+test_float_mode_is_not_an_integer_mode (test_research_export_metadata.ReceiptMetadataTests.test_float_mode_is_not_an_integer_mode) ... ok
+test_invalid_committed_manifest_fails_before_tree_inventory (test_research_export_metadata.ReceiptMetadataTests.test_invalid_committed_manifest_fails_before_tree_inventory) ... ok
+test_only_actual_git_object_id_lengths_are_accepted (test_research_export_metadata.ReceiptMetadataTests.test_only_actual_git_object_id_lengths_are_accepted) ... ok
+test_archive_close_failure_never_publishes (test_research_export_publication.ExportPublicationTests.test_archive_close_failure_never_publishes) ... ok
+test_export_succeeds_when_hard_links_are_unavailable (test_research_export_publication.ExportPublicationTests.test_export_succeeds_when_hard_links_are_unavailable) ... skipped 'native Windows rename contract'
+test_late_file_or_directory_is_not_overwritten (test_research_export_publication.ExportPublicationTests.test_late_file_or_directory_is_not_overwritten) ... ok
+test_publication_failure_propagates_and_removes_staging (test_research_export_publication.ExportPublicationTests.test_publication_failure_propagates_and_removes_staging) ... ok
+test_publication_sees_complete_closed_archive (test_research_export_publication.ExportPublicationTests.test_publication_sees_complete_closed_archive) ... ok
+test_checker_rejects_file_ancestors_in_both_member_orders (test_research_export_topology.ExportFileTreeTests.test_checker_rejects_file_ancestors_in_both_member_orders) ... ok
+test_checker_rejects_receipt_ancestors_in_both_member_orders (test_research_export_topology.ExportFileTreeTests.test_checker_rejects_receipt_ancestors_in_both_member_orders) ... ok
+test_export_rejects_receipt_descendants_before_publication (test_research_export_topology.ExportFileTreeTests.test_export_rejects_receipt_descendants_before_publication) ... ok
+test_valid_bundle_does_not_require_sorted_members_or_last_receipt (test_research_export_topology.ExportFileTreeTests.test_valid_bundle_does_not_require_sorted_members_or_last_receipt) ... ok
+test_valid_git_export_with_siblings_and_lexical_prefixes_extracts (test_research_export_topology.ExportFileTreeTests.test_valid_git_export_with_siblings_and_lexical_prefixes_extracts) ... ok
+
+======================================================================
+ERROR: test_payload_mode_inventory_and_duplicate_controls (test_research_export.ExportTests.test_payload_mode_inventory_and_duplicate_controls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/tests/test_research_export.py", line 184, in test_payload_mode_inventory_and_duplicate_controls
+    self.export()
+    ~~~~~~~~~~~^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/tests/test_research_export.py", line 55, in export
+    return exporter.export(self.root, self.package, self.commit, self.output)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/scripts/export_research_package.py", line 109, in export
+    commit, entries = inventory(root, package, ref, input_commit)
+                      ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/scripts/export_research_package.py", line 48, in inventory
+    values = list(rows)
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/scripts/research_package.py", line 296, in git_blobs
+    yield from rows
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/scripts/research_package.py", line 265, in _git_blob_batch
+    stop()
+    ~~~~^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/scripts/research_package.py", line 227, in stop
+    _stop_git_blob_process(process)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/scripts/research_package.py", line 183, in _stop_git_blob_process
+    os.killpg(process.pid, signal.SIGKILL)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+FAIL: test_same_handle_reread_still_rejects_changed_manifest_bytes (test_research_export_input_coverage.ExportInputCoverageTests.test_same_handle_reread_still_rejects_changed_manifest_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue20261030/tests/test_research_export_input_coverage.py", line 141, in test_same_handle_reread_still_rejects_changed_manifest_bytes
+    with self.assertRaisesRegex(ValueError, 'manifest changed during declaration check'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 46 tests in 53.553s
+
+FAILED (failures=1, errors=1, skipped=1)

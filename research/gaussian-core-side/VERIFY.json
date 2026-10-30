@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "With A = p^{26} both sparse powers are negative for every group exponent below 1 precisely when the core side exponent is at least 80; 79 fails at 3/4 and the written 400 is larger."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Published T488 histogram equals the predecessor owner profile plus 4392 times the local delta; both helper output-width lists match the provider widths; one-width and one-count controls fail closed."
+    }
+  ]
+}

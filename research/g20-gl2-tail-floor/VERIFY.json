@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Every GL4 matrix, every directed edge, all 36 minima/witnesses, exact source components and 10 semantic/integrity rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate full 16-input truth-table BFS, independent column-domain enumeration, all-state distances, all candidate forward/inverse inputs, actual source words and three controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized Python: Every GL4 matrix, every directed edge, all 36 minima/witnesses, exact source components and 10 semantic/integrity rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized Python: Separate full 16-input truth-table BFS, independent column-domain enumeration, all-state distances, all candidate forward/inverse inputs, actual source words and three controls."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete small prime-cover/gcd/Bezout/weighted-optimum domain, sharp family through twelve, literal scalar replay and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same complete domain with interpreter assertions disabled; explicit invariant and failure checks remain active."
+    }
+  ]
+}

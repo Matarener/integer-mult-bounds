@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "requirements": [],
+  "inputs": [
+    "research/staged-fourth-mixture-ceiling/SOURCE-EXPORT.json",
+    "research/staged-fourth-mixture-ceiling/source4088/INPUTS.json",
+    "research/staged-fourth-mixture-ceiling/source4088/NOTICE.md",
+    "research/staged-fourth-mixture-ceiling/source4088/PROOF.md",
+    "research/staged-fourth-mixture-ceiling/source4088/RESULT.json",
+    "research/staged-fourth-mixture-ceiling/source4088/checks/inherited_frames.py",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/THREE-base.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/THREE-extra.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/FOUR-base.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/inputs/FOUR-extra.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/owner/TEMPLATE.json.gz",
+    "research/staged-fourth-mixture-ceiling/source4088/owner/PR4085-PROFILE.json",
+    "research/staged-fourth-mixture-ceiling/source4088/owner/ORDER.json",
+    "research/staged-fourth-mixture-ceiling/source4088/vendor/exact_root.py",
+    "research/staged-fourth-mixture-ceiling/source4088/price.py"
+  ],
+  "commands": [
+    {
+      "name": "source-costs",
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/source_binding.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact predecessor byte pins, all four local binary-frame costs, current 360-replica capacity extraction, and source-corruption/history/duplicate-port controls"
+    },
+    {
+      "name": "pooled-pattern-bound",
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--source",
+        "{package}/source4088",
+        "--controls"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All 841 whole-helper patterns, exact piecewise-mixture primal/dual, unique 1080 optimum, sharp complete-moment root and meaningful rejecting controls"
+    },
+    {
+      "name": "independent-rational-check",
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent/check.py",
+        "--source",
+        "{package}/source4088",
+        "--target-k",
+        "0.001730980255989036959963",
+        "--controls"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Separately implemented fixed-point rational powers, all-pattern dual, pooled primal, literal-root comparison and defect controls"
+    },
+    {
+      "name": "independent-broad-interval",
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent/review_broad.py",
+        "--source",
+        "{package}/source4088"
+      ],
+      "checks": "Separately implemented exact broad-interval duals and affine primal balances, nonnegativity and complementary slackness for every real staging count",
+      "timeout_seconds": 300
+    }
+  ],
+  "python": "3.12"
+}

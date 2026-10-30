@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper-subspace-splits/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact full outputwise influence agreement, stochastic distribution enumeration, source authentication, semantic controls and rational tail certificate."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact full outputwise influence agreement, stochastic distribution enumeration, source authentication, semantic controls and rational tail certificate."
+    }
+  ]
+}

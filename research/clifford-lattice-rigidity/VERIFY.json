@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "New integral-order rigidity: generated matrix units/products, tensor units through rank seven, all 67 additive subgroups modulo two, scalar ideals and universal quarter witnesses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same rigidity and boundary corroboration under optimization, with explicit exceptions active."
+    }
+  ]
+}

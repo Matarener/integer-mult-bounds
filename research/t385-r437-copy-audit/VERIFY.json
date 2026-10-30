@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Reconstruct exact physical address pullbacks on all 659 arbitrary input functions in both R437 programs; changed capture dirt, complete finite invoice arithmetic, owner/private separation and seven semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Repeat exact physical replay and semantic controls with assertions disabled; no author executable imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Run the actual optimized CLI from an export without Git; reject changed source bytes, missing input, symlinked input and a falsified disposal receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_execution.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate the recorded complete T385 conditional replay and reject missing release, prepared admission and altered exact endpoint. Does not rerun the long wrapper."
+    }
+  ]
+}

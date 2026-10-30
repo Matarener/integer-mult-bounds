@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper470-twin-rung-removal/RESULT.json",
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz",
+    "research/p104-unread-path-resynthesis/local.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned inputs; deterministic synthesis; all arbitrary-entry prefix coefficients; source and candidate whole-word rows; all 799 transpose columns; exact full scalar tariff; meaningful invalid-source, arithmetic and chart controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the same proof-relevant coverage and rejection controls with Python assertions disabled."
+    }
+  ]
+}

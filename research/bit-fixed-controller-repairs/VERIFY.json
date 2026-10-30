@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "historical"
+      ],
+      "timeout_seconds": 90,
+      "checks": "All three complete original receipts, unchanged mathematical functions and explicit authenticated source-read closure."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "recipe"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent dual-number recipe, all-B rank/trace and attaining-projector formula fixtures, arbitrary-input N/spectator instantiations and intended controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "hybrid"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent ordered free-group-ring all-input words, two-code correction, both inverses/dual, restricted determinant count, selected actual ADDRESS witness and invoice controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Normal and optimized source/AST/path bindings, complete typed receipt comparisons, actual semantic defects and deliberate check deletion."
+    }
+  ]
+}

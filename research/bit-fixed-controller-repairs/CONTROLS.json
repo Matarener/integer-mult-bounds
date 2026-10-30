@@ -1,0 +1,605 @@
+{
+  "no_new_kappa": true,
+  "route_census_or_general_B_replayed": false,
+  "runs": [
+    {
+      "complete_real_receipts": [
+        {
+          "mutated_nested_path": [
+            "controls",
+            0,
+            "defect",
+            0,
+            2,
+            0,
+            0
+          ],
+          "receipt": "frozen/hybrid/CLOSED-HYBRID.json",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/hybrid/CLOSED-HYBRID.json"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/hybrid/CLOSED-HYBRID.json"
+            }
+          ],
+          "sha256": "f12bf6aabe9ea0cb058eab5d68f10886cddff6200f7e00b40c048f4cf01689b7"
+        },
+        {
+          "mutated_nested_path": [
+            "code_offdiagonal",
+            "coefficient"
+          ],
+          "receipt": "frozen/hybrid/EARLY-PROMOTION.json",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/hybrid/EARLY-PROMOTION.json"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/hybrid/EARLY-PROMOTION.json"
+            }
+          ],
+          "sha256": "c278d5bd9cca084cbeae5212b73afa5f03461ecb4af9e18608bda0c54c89a2d6"
+        },
+        {
+          "mutated_nested_path": [
+            "cases",
+            0,
+            "epsilon_matrix_A",
+            0,
+            0
+          ],
+          "receipt": "frozen/recipe/BIT-NILPOTENT-RECIPE.json",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/recipe/BIT-NILPOTENT-RECIPE.json"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/recipe/BIT-NILPOTENT-RECIPE.json"
+            }
+          ],
+          "sha256": "ef97f43313ccffb7a8ea5965d37b37452b70cf4ccfbafe81e9e92e46d0f1a14a"
+        },
+        {
+          "mutated_nested_path": [
+            "cases",
+            0,
+            "instantiations",
+            0,
+            "N_rows",
+            0
+          ],
+          "receipt": "frozen/reviews/recipe/CHECKS.json.gz",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/reviews/recipe/CHECKS.json.gz"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/reviews/recipe/CHECKS.json.gz"
+            }
+          ],
+          "sha256": "cff40bd8d82e7919b9a1a76c03389bc0a82c9156d162198faf6132eac4691359"
+        },
+        {
+          "mutated_nested_path": [
+            "cases",
+            0,
+            "preterminal",
+            0,
+            0,
+            1,
+            0
+          ],
+          "receipt": "frozen/reviews/hybrid/CHECKS.json.gz",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/reviews/hybrid/CHECKS.json.gz"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/reviews/hybrid/CHECKS.json.gz"
+            }
+          ],
+          "sha256": "8a76a7141b4851084923e87c8f17bc8c02db6543d7614bc2c911e45e43a0ef8f"
+        }
+      ],
+      "compressed_original_binding": {
+        "equivalent_storage_with_same_original_accepted": true,
+        "rejections": [
+          {
+            "name": "changed_compressed_bytes",
+            "reason": "frozen input changed: frozen/original.json.gz"
+          },
+          {
+            "name": "origin_container_hash_mismatch",
+            "reason": "origin container binding differs"
+          },
+          {
+            "name": "changed_decompressed_original",
+            "reason": "compressed original bytes changed: frozen/original.json.gz"
+          },
+          {
+            "name": "origin_inventory_omission",
+            "reason": "origin and frozen inventories differ"
+          }
+        ]
+      },
+      "literal_source_pin": {
+        "actual_original_pin_matches": true,
+        "rejections": [
+          {
+            "name": "missing_literal_pin",
+            "reason": "original RAW_SHA binding must be unique"
+          },
+          {
+            "name": "duplicate_literal_pin",
+            "reason": "original RAW_SHA binding must be unique"
+          },
+          {
+            "name": "wrong_literal_pin_type",
+            "reason": "original RAW_SHA is not a digest"
+          },
+          {
+            "name": "executable_pin_expression",
+            "reason": "malformed node or string on line 1: <ast.Call object at 0x10804ff10>"
+          }
+        ]
+      },
+      "mathematical_controls": {
+        "actual_authenticated_function": "closed_hybrid.receipt",
+        "coefficient_ring": "Z[free group(a0,...,a8)]",
+        "deleted_named_check_detected": true,
+        "formal_input_rows": 8,
+        "one_literal_inverse_code_direction_changed_after_authentication": true,
+        "rejections": [
+          {
+            "name": "one_actual_inverse_code_runs_forward",
+            "reason": "literal reverse-inverse cleanup"
+          },
+          {
+            "name": "independent_control_rejects_unrelated_error",
+            "reason": "wrong rejection for unrelated_fixture"
+          }
+        ]
+      },
+      "nested_sources": {
+        "only_authenticated_mapped_reads": true,
+        "original_imports_and_top_level_excluded": true,
+        "rejections": [
+          {
+            "name": "undeclared_logical_read",
+            "reason": "undeclared historical source read: missing"
+          },
+          {
+            "name": "absolute_path_escape",
+            "reason": "undeclared historical source read: /etc/passwd"
+          },
+          {
+            "name": "relative_path_escape",
+            "reason": "undeclared historical source read: ../outside"
+          },
+          {
+            "name": "mapped_unregistered_input",
+            "reason": "unregistered frozen input: frozen/unregistered.py"
+          },
+          {
+            "name": "nested_recipe_assert_under_parent_flags",
+            "reason": "NESTED_RECIPE_ASSERT"
+          },
+          {
+            "name": "duplicate_nested_recipe",
+            "reason": "recipe definition must be unique"
+          },
+          {
+            "name": "missing_nested_recipe",
+            "reason": "recipe definition must be unique"
+          },
+          {
+            "name": "mapped_changed_bytes",
+            "reason": "frozen input changed: frozen/recipe.py"
+          },
+          {
+            "name": "mapped_missing_file",
+            "reason": "[Errno 2] No such file or directory: '/private/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/b07-controls-07cy0gl3/nested/frozen/recipe.py'"
+          }
+        ]
+      },
+      "parent_optimization": 0,
+      "receipt_contract": {
+        "deleted_named_check_detected": true,
+        "rejections": [
+          {
+            "name": "boolean_for_integer",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "float_for_integer",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "integer_for_boolean",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "nested_omission",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "list_reordering",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "list_truncation",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "missing_fixed_receipt",
+            "reason": "[Errno 2] No such file or directory: '/private/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/b07-controls-07cy0gl3/receipt/frozen/receipt.json'"
+          }
+        ]
+      },
+      "source_selection": {
+        "imports_top_level_and_main_excluded": true,
+        "rejections": [
+          {
+            "name": "direct_runtime_gate_under_parent_flags",
+            "reason": "DIRECT_RUNTIME_GATE"
+          },
+          {
+            "name": "extracted_assert_under_parent_flags",
+            "reason": "EXTRACTED_ASSERT"
+          },
+          {
+            "name": "nested_assert_under_parent_flags",
+            "reason": "NESTED_ASSERT"
+          },
+          {
+            "name": "authenticated_module_assert_under_parent_flags",
+            "reason": "MODULE_ASSERT"
+          },
+          {
+            "name": "changed_authenticated_module",
+            "reason": "frozen input changed: frozen/module.py"
+          },
+          {
+            "name": "missing_named_definition",
+            "reason": "function selection changed"
+          },
+          {
+            "name": "duplicate_source_definition",
+            "reason": "function selection changed"
+          },
+          {
+            "name": "duplicate_requested_name",
+            "reason": "function selection changed"
+          },
+          {
+            "name": "unregistered_source",
+            "reason": "unregistered frozen input: frozen/unknown.py"
+          },
+          {
+            "name": "changed_authenticated_source",
+            "reason": "frozen input changed: frozen/source.py"
+          },
+          {
+            "name": "missing_registered_source",
+            "reason": "[Errno 2] No such file or directory: '/private/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/b07-controls-07cy0gl3/source/frozen/source.py'"
+          }
+        ]
+      },
+      "verifier_sha256": "f8954d6b6c8b5ad0a9b228adac60cbd6f798a1f8958a669877e149f8a48dff9b"
+    },
+    {
+      "complete_real_receipts": [
+        {
+          "mutated_nested_path": [
+            "controls",
+            0,
+            "defect",
+            0,
+            2,
+            0,
+            0
+          ],
+          "receipt": "frozen/hybrid/CLOSED-HYBRID.json",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/hybrid/CLOSED-HYBRID.json"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/hybrid/CLOSED-HYBRID.json"
+            }
+          ],
+          "sha256": "f12bf6aabe9ea0cb058eab5d68f10886cddff6200f7e00b40c048f4cf01689b7"
+        },
+        {
+          "mutated_nested_path": [
+            "code_offdiagonal",
+            "coefficient"
+          ],
+          "receipt": "frozen/hybrid/EARLY-PROMOTION.json",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/hybrid/EARLY-PROMOTION.json"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/hybrid/EARLY-PROMOTION.json"
+            }
+          ],
+          "sha256": "c278d5bd9cca084cbeae5212b73afa5f03461ecb4af9e18608bda0c54c89a2d6"
+        },
+        {
+          "mutated_nested_path": [
+            "cases",
+            0,
+            "epsilon_matrix_A",
+            0,
+            0
+          ],
+          "receipt": "frozen/recipe/BIT-NILPOTENT-RECIPE.json",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/recipe/BIT-NILPOTENT-RECIPE.json"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/recipe/BIT-NILPOTENT-RECIPE.json"
+            }
+          ],
+          "sha256": "ef97f43313ccffb7a8ea5965d37b37452b70cf4ccfbafe81e9e92e46d0f1a14a"
+        },
+        {
+          "mutated_nested_path": [
+            "cases",
+            0,
+            "instantiations",
+            0,
+            "N_rows",
+            0
+          ],
+          "receipt": "frozen/reviews/recipe/CHECKS.json.gz",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/reviews/recipe/CHECKS.json.gz"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/reviews/recipe/CHECKS.json.gz"
+            }
+          ],
+          "sha256": "cff40bd8d82e7919b9a1a76c03389bc0a82c9156d162198faf6132eac4691359"
+        },
+        {
+          "mutated_nested_path": [
+            "cases",
+            0,
+            "preterminal",
+            0,
+            0,
+            1,
+            0
+          ],
+          "receipt": "frozen/reviews/hybrid/CHECKS.json.gz",
+          "rejections": [
+            {
+              "name": "real_nested_field_mutation",
+              "reason": "complete receipt mismatch: frozen/reviews/hybrid/CHECKS.json.gz"
+            },
+            {
+              "name": "real_nested_field_omission",
+              "reason": "complete receipt mismatch: frozen/reviews/hybrid/CHECKS.json.gz"
+            }
+          ],
+          "sha256": "8a76a7141b4851084923e87c8f17bc8c02db6543d7614bc2c911e45e43a0ef8f"
+        }
+      ],
+      "compressed_original_binding": {
+        "equivalent_storage_with_same_original_accepted": true,
+        "rejections": [
+          {
+            "name": "changed_compressed_bytes",
+            "reason": "frozen input changed: frozen/original.json.gz"
+          },
+          {
+            "name": "origin_container_hash_mismatch",
+            "reason": "origin container binding differs"
+          },
+          {
+            "name": "changed_decompressed_original",
+            "reason": "compressed original bytes changed: frozen/original.json.gz"
+          },
+          {
+            "name": "origin_inventory_omission",
+            "reason": "origin and frozen inventories differ"
+          }
+        ]
+      },
+      "literal_source_pin": {
+        "actual_original_pin_matches": true,
+        "rejections": [
+          {
+            "name": "missing_literal_pin",
+            "reason": "original RAW_SHA binding must be unique"
+          },
+          {
+            "name": "duplicate_literal_pin",
+            "reason": "original RAW_SHA binding must be unique"
+          },
+          {
+            "name": "wrong_literal_pin_type",
+            "reason": "original RAW_SHA is not a digest"
+          },
+          {
+            "name": "executable_pin_expression",
+            "reason": "malformed node or string on line 1: <ast.Call object at 0x10a2416d0>"
+          }
+        ]
+      },
+      "mathematical_controls": {
+        "actual_authenticated_function": "closed_hybrid.receipt",
+        "coefficient_ring": "Z[free group(a0,...,a8)]",
+        "deleted_named_check_detected": true,
+        "formal_input_rows": 8,
+        "one_literal_inverse_code_direction_changed_after_authentication": true,
+        "rejections": [
+          {
+            "name": "one_actual_inverse_code_runs_forward",
+            "reason": "literal reverse-inverse cleanup"
+          },
+          {
+            "name": "independent_control_rejects_unrelated_error",
+            "reason": "wrong rejection for unrelated_fixture"
+          }
+        ]
+      },
+      "nested_sources": {
+        "only_authenticated_mapped_reads": true,
+        "original_imports_and_top_level_excluded": true,
+        "rejections": [
+          {
+            "name": "undeclared_logical_read",
+            "reason": "undeclared historical source read: missing"
+          },
+          {
+            "name": "absolute_path_escape",
+            "reason": "undeclared historical source read: /etc/passwd"
+          },
+          {
+            "name": "relative_path_escape",
+            "reason": "undeclared historical source read: ../outside"
+          },
+          {
+            "name": "mapped_unregistered_input",
+            "reason": "unregistered frozen input: frozen/unregistered.py"
+          },
+          {
+            "name": "nested_recipe_assert_under_parent_flags",
+            "reason": "NESTED_RECIPE_ASSERT"
+          },
+          {
+            "name": "duplicate_nested_recipe",
+            "reason": "recipe definition must be unique"
+          },
+          {
+            "name": "missing_nested_recipe",
+            "reason": "recipe definition must be unique"
+          },
+          {
+            "name": "mapped_changed_bytes",
+            "reason": "frozen input changed: frozen/recipe.py"
+          },
+          {
+            "name": "mapped_missing_file",
+            "reason": "[Errno 2] No such file or directory: '/private/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/b07-controls-dpr7hs5w/nested/frozen/recipe.py'"
+          }
+        ]
+      },
+      "parent_optimization": 1,
+      "receipt_contract": {
+        "deleted_named_check_detected": true,
+        "rejections": [
+          {
+            "name": "boolean_for_integer",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "float_for_integer",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "integer_for_boolean",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "nested_omission",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "list_reordering",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "list_truncation",
+            "reason": "complete receipt mismatch: frozen/receipt.json"
+          },
+          {
+            "name": "missing_fixed_receipt",
+            "reason": "[Errno 2] No such file or directory: '/private/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/b07-controls-dpr7hs5w/receipt/frozen/receipt.json'"
+          }
+        ]
+      },
+      "source_selection": {
+        "imports_top_level_and_main_excluded": true,
+        "rejections": [
+          {
+            "name": "direct_runtime_gate_under_parent_flags",
+            "reason": "DIRECT_RUNTIME_GATE"
+          },
+          {
+            "name": "extracted_assert_under_parent_flags",
+            "reason": "EXTRACTED_ASSERT"
+          },
+          {
+            "name": "nested_assert_under_parent_flags",
+            "reason": "NESTED_ASSERT"
+          },
+          {
+            "name": "authenticated_module_assert_under_parent_flags",
+            "reason": "MODULE_ASSERT"
+          },
+          {
+            "name": "changed_authenticated_module",
+            "reason": "frozen input changed: frozen/module.py"
+          },
+          {
+            "name": "missing_named_definition",
+            "reason": "function selection changed"
+          },
+          {
+            "name": "duplicate_source_definition",
+            "reason": "function selection changed"
+          },
+          {
+            "name": "duplicate_requested_name",
+            "reason": "function selection changed"
+          },
+          {
+            "name": "unregistered_source",
+            "reason": "unregistered frozen input: frozen/unknown.py"
+          },
+          {
+            "name": "changed_authenticated_source",
+            "reason": "frozen input changed: frozen/source.py"
+          },
+          {
+            "name": "missing_registered_source",
+            "reason": "[Errno 2] No such file or directory: '/private/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/b07-controls-dpr7hs5w/source/frozen/source.py'"
+          }
+        ]
+      },
+      "verifier_sha256": "f8954d6b6c8b5ad0a9b228adac60cbd6f798a1f8958a669877e149f8a48dff9b"
+    }
+  ],
+  "small_fixed_hybrid_word_replayed": true,
+  "source_hashes": {
+    "FROZEN-SHA256.json": "fcd33e728f973cca005a80d385952fc823340d2144a3dfc1e565d2af299937ce",
+    "ORIGINS.json": "f8097548bee9a85d78344cfabc495f0e3e1d0b4f5093ae3e54bc34dafe560d10",
+    "verify.py": "f8954d6b6c8b5ad0a9b228adac60cbd6f798a1f8958a669877e149f8a48dff9b"
+  },
+  "status": "PASS_B07_COMPACT_SOURCE_AND_MATHEMATICAL_GATES"
+}

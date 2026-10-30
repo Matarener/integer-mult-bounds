@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Rational census for h=1,2,3 matches the predicted extremal table, charges 48, 128 and 256, and the 21-premise K3,2 charge is 54."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "The same census and charges, recomputed with integer cross-multiplication and no import of verify.py."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "The two rank methods agree on every two-hub mask; the one-hub triple is minimal of cost 2; charge 128 is not charge 54; dropping one forced row breaks the census; the written minors equal -2."
+    }
+  ]
+}

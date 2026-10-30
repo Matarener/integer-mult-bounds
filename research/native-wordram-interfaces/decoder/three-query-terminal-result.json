@@ -1,0 +1,74 @@
+{
+  "status": "PASS_THREE_QUERY_TERMINAL_DECODER",
+  "original_inputs": 632,
+  "arbitrary_owned_inputs": 8,
+  "additional_owned_fields": 7,
+  "replacement_cuts": 3,
+  "paid": {
+    "1": 2201,
+    "2": 412,
+    "3": 510,
+    "4": 127,
+    "5": 40,
+    "8": 8
+  },
+  "ordinary": {
+    "owned_clear": 26,
+    "owned_copy": 15,
+    "monomial_map": 13,
+    "scalar_add": 13,
+    "physical_field_swap": 3
+  },
+  "basis_adds": 0,
+  "basis_scales": 0,
+  "observation_normalizers": 3,
+  "completion_calls": 0,
+  "target_abi": "exact original independent helper/main ABI",
+  "new_kappa": false,
+  "feedbacks": [
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      0,
+      1,
+      -1
+    ],
+    [
+      1,
+      2,
+      -1
+    ]
+  ],
+  "source_query_indices": [
+    0,
+    16,
+    32
+  ],
+  "first_departures_checked": 358,
+  "physical_checks": {
+    "query_identities": 3,
+    "completion_identities": 0
+  },
+  "decoder_monomial_maps_checked": 3,
+  "decoder_commutes_full_return": true,
+  "rejected_controls": [
+    {
+      "mutation": "omit_terminal_decode",
+      "result": "REJECT",
+      "reason": "Original independent terminal endpoint"
+    },
+    {
+      "mutation": "chart_swap",
+      "result": "REJECT",
+      "reason": "Replacement chart transport"
+    }
+  ]
+}

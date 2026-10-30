@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/rank7-joint-endframes/allocation/ORDER.json",
+    "research/rank7-joint-endframes/allocation/PROFILE.json",
+    "research/rank7-selected-transfer-budget/intervals.py",
+    "research/t74-physical-layer/PROOF.md",
+    "research/t74-physical-layer/binding.py",
+    "research/t74-physical-layer/bundles.py",
+    "research/t74-physical-layer/check_root_runtime.py",
+    "research/t74-physical-layer/check_runtime.py",
+    "research/t74-physical-layer/compile_word.py",
+    "research/t74-physical-layer/inputs/pr3385-controller.tar",
+    "research/t74-physical-layer/inputs/t74-native-controller.tar",
+    "research/t74-physical-layer/predecessor.py",
+    "research/t74-physical-layer/t74_machine.py",
+    "research/t74-physical-layer/t74_root.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "rate"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Retained pending-proof bytes and complete 35-file backend identity; two exact full-moment engines, complete leaf/reservation margins, seven rate rejection controls, and separately enumerated exact toy-tree controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "factory"
+      ],
+      "timeout_seconds": 360,
+      "checks": "Authenticated ordinary/T74 cohort, whole production-native constructor AST comparison, public constructor recorders with wrong-profile/capacity/native controls, and actual reduced direct/fast root returns."
+    }
+  ]
+}

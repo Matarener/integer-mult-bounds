@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "command": "python3 -B research/bit-copy-path/bounds/check_budget.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -O -B research/bit-copy-path/bounds/check_budget.py --output /tmp/copy-budget-opt.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B research/bit-copy-path/bounds/check_independent.py",
+      "exit_code": 0
+    }
+  ],
+  "documentation_only_adjustment": {
+    "change": "Removed one trailing LaTeX spacing escape flagged by git diff --check. No mathematical value, executable source or receipt changed.",
+    "final_export_replay_required": true,
+    "prior_proof_sha256": "41d868b71560c809af5a380e0b3457adff51439e2f08e3b7cc5dca2a763d2249"
+  },
+  "head": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "independent_negative_controls": 3,
+  "independent_target_and_root_rows": 16,
+  "no_new_kappa": true,
+  "optimized_receipt_byte_identical": true,
+  "primary_negative_controls": 6,
+  "python": "3.14.6",
+  "scope": "Exact arithmetic and complete inventory specialization only; no new operator, chronological allocation, native compiler, or joint outer admission.",
+  "sha256": {
+    "BUDGET.json": "68a44707fdd2e66476119680ff7d3291643548b835f44f6384e9441591dac775",
+    "INDEPENDENT.json": "f926f2fdd5839430f853d83fb677345055382c41aff9fea80c2056e87bf786ae",
+    "PROOF.md": "ab6b6c95c57b3a677f6285e888082dc0b92d8a48aa29a10328f88333adfabfa4",
+    "README.md": "87277e435b6787c29bae3d7a672d5e37f5d95628f508c17636ce458145a35b16",
+    "check_budget.py": "740337b2e73319a62500854a175417b067ad2898b8c576083b452b7eed2d01ad",
+    "check_independent.py": "9a8b5f4ab1ff6daa2cde7197372c0a66ca64cc0722d802c7248ded88572ea843"
+  },
+  "status": "PASS_COPY_BUDGET_VALIDATION",
+  "utc": "2026-10-20T12:31:26Z"
+}

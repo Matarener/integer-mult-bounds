@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-three-term-twist-rigidity/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pinned PR5490 proof bytes; exhaustive m=2 four-term census (46,656 normalized transport triples, all frames); unnormalized spot checks; three-term positive control; rank-2 field witnesses for m=3..6 evaluated directly in Sym^2(V); random m=3 controls and a negative control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same checks with assertions disabled (the verifier does not use assert)."
+    }
+  ]
+}

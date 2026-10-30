@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Decide the open length-7 slice of PR #2116's formal F2[A4] four-role target diag([a],[b],[c],[d]) (240 rank-one paid factors D_N(g), g in {a,b}, four roles, no workspace, every formal coefficient): exact minimum 7 or 8.",
+  "scope_change_reason": "The card asks broadly whether a nonabelian register model escapes the three-register obstruction; PR #2116 instantiated it as this A4 four-role target and left length 7 open. This package closes that one named slice (no other groups, targets, role counts or census extension), because a 7-word would have been the first sub-direct cross-role saving in the formal four-role finite-group family and an exact 8 closes the model on four roles.",
+  "bottleneck_link": "Side result for the bit-mechanisms track: it decides that this nonabelian formal register endpoint has no paid-call saving (exact minimum equals the direct 8), so it gives no reason to price a native conversion of A4 group-algebra calls toward the bit primitive. It changes no selected supplier or kappa.",
+  "budget_minutes": 90,
+  "stop_rule": "Submission rule committed before searching: a verified 7-word is submitted; an exact 8 is submitted only with a written structural lemma beyond the C3 determinant screen, otherwise nothing is posted. Stop with no PR if the primary join exceeds ~15 min wall or 1.5 GB RSS, or if the two joins disagree unresolved by the experiment deadline.",
+  "outcome": "negative-result",
+  "evidence": "Written proof: C3 determinant (n_a = n_b mod 3) plus a radical-rank lemma (n_a >= 3 and n_b >= 3) exclude length 7 and lengths <= 5. Two exhaustive C joins, separately implemented in the same AI-assisted session (different state representation, multiplication side, enumerated end and hash) each expand all 6,655,830 minimal-length-3 classes against all 6,697,991 distinct products of length <= 3 (1,597,399,200 lookups each) and find no word of length <= 7, which also excludes length 6. The direct 8-word replays exactly on all 48 basis inputs. Controls: omissions, label mutation, three-output 6-words, planted 7-words, numeric checks of every lemma step. Verifier: research/a4-seven-call-radical-rank/verify.py, PASS_A4_FOUR_ROLE_EXACT_MINIMUM_EIGHT.",
+  "author": "Sagar Thakrar (thakrarsagar)",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) in derivation, both C joins, the Python verifier and writing; reviewed by four independent AI review passes in the same loop; no independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can the length-6 case (n_a,n_b)=(3,3) be excluded by a written argument rather than exhaustive search?",
+      "why_it_matters": "It would make the exact minimum a fully written theorem, reusable for role counts or targets where exhaustive search is infeasible.",
+      "first_step": "At (3,3) both step-5 identities are tight rank-3 decompositions with F2-rational columns aug(C_k)^-1 x_k; look for an incompatibility between the a-base and b-base decompositions or at the J^2 layer.",
+      "blocked_by": "Nothing beyond the bookkeeping."
+    },
+    {
+      "question": "Does the radical-rank label-count bound extend to G = P x| H with P a normal 2-group and H of odd order (for example SL2(F3) = Q8 x| C3)?",
+      "why_it_matters": "It would replace finite censuses by uniform per-label floors for nonabelian register models.",
+      "first_step": "State the lemma with S = F2[H] and an H-equivariant functional mu on the Frattini quotient of P, then test it against the existing SL2(F3) census of PR #2010 (research/sl2f3-conjugate-triple-seed592f).",
+      "blocked_by": "Nothing for the formal statement; native conversion remains unpriced."
+    }
+  ]
+}

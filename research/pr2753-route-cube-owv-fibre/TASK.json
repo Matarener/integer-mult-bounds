@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Exact fibre copy_bits invoice and matching Omega(wV) lower bound for the pinned PR2753 routes.route_cube implementation (cap>1: (2*d*d*L+2)*V writes; L=arena.bits), under complete-prefix owner routing; no H2 admission or kappa change.",
+  "scope_change_reason": "Refine the supplier-boundary audit to open question 2 of docs/research/selected-bit-caller-storage-map.md: bind the stated O(wV) route charge to the actual reached route_cube primitive by an exact checkable work invoice, outside UT4 weighted n_b and unfinished (2,3)/(3,2) dirty-role gates.",
+  "bottleneck_link": "The all-size logical caller retains an O(wV) owner-route charge even after recursive callback completion; an exact invoice on the pinned route_cube is the minimal checkable binding of that charge before any faster H2 replacement claims.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after exact route_cube fibre invoice, cursor-pass lemma, fixtures, package tests; no atom_swap retarget, no H2 construction, no supplier admission, no kappa change.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json exact formulas; six metered fixtures including w=1 cap=1, scaled chart, d=2; independent closed-form checker; corruption controls.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for source audit, derivation, implementation, verification and writing.",
+  "open_questions": [
+    {
+      "question": "Can an exact total-traffic invoice (including key appends, numerical high_key work and Counter drains) replace the fibre-only lower bound?",
+      "why_it_matters": "Fibre copy_bits already matches O(wV); a full tape invoice would sharpen constants for bootstrap billing.",
+      "first_step": "Meter append_word/key paths and Counter lifetimes on the same fixtures.",
+      "blocked_by": "Numerical Matrices/high_key traffic and pool acquisition semantics remain outside this fibre metric."
+    },
+    {
+      "question": "Does the ordinary leaf atom_swap path admit a similarly exact matching Omega(wV) invoice under the same hypotheses without retargeting binary-digit-cost-audit?",
+      "why_it_matters": "The storage-map open question names both route and ordinary leaf; this package closes only route_cube.",
+      "first_step": "Compare PR2753 bitstream.atom_swap byte-identity with binary-digit-cost-audit before any new leaf package.",
+      "blocked_by": "Soft-overlap with the existing digit-swap exact bill is high if retargeted."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 2753,
+      "credit": "David Arias; all-size logical BIT caller and stated O(wV) route/leaf charge"
+    },
+    {
+      "pr": 2697,
+      "credit": "Jose Manuel; first-range caller and routes/bitstream lineage retained in PR2753 vendor"
+    },
+    {
+      "pr": 2708,
+      "credit": "Nick Petalas; route live-volume storage peaks for the same decorated-key cube"
+    },
+    {
+      "pr": 2809,
+      "credit": "Jose Manuel; physical caller retaining O(wV) route/leaf routines"
+    },
+    {
+      "note": "binary-digit-cost-audit prices atom_swap digits, not route_cube; selected-bit-fast-primitives replaces route_cube rather than invoicing it; high-route-prefix-cost prices the later wrapper only"
+    }
+  ],
+  "nearest_overlap": [
+    {
+      "package": "research/binary-digit-cost-audit",
+      "difference": "Exact digit-swap/atom_swap bills on the same bitstream bytes; this package invoices routes.route_cube fibre copy_bits instead."
+    },
+    {
+      "package": "research/selected-bit-fast-primitives",
+      "difference": "Constructs a faster H2 replacement; does not prove an exact lower bound on the retained PR2753 route_cube implementation."
+    },
+    {
+      "package": "research/high-route-prefix-cost",
+      "difference": "Prices the old-prefix wrapper around the replaced high_route path; leaves single-cube tariff open and does not invoice decorated-key route_cube."
+    },
+    {
+      "package": "research/linear-sign-total-traffic",
+      "difference": "Exact total traffic for linear_sign only; explicitly leaves route/leaf H2 binding open."
+    }
+  ],
+  "soft_overlap_estimate": 0.35,
+  "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+}

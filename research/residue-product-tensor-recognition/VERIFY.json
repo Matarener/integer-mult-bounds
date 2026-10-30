@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/residue-product-tensor-recognition/vendor/split.py",
+    "research/residue-product-tensor-recognition/vendor/local.py",
+    "research/residue-product-tensor-recognition/vendor/PR5661.md",
+    "research/residue-product-tensor-recognition/vendor/PR5656.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Check complete small tensor orbits; nonsplit nilpotent products and all factor maps; residue-degree, field and nonregular-module controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Check complete small tensor orbits; nonsplit nilpotent products and all factor maps; residue-degree, field and nonregular-module controls."
+    }
+  ]
+}

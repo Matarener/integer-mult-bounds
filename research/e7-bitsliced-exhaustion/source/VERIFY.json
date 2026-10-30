@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e7-minimum-support-classification/vendor/PR5238.py",
+    "research/e7-minimum-support-classification/vendor/PR5238.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exhaust all binary words; classify all minimum supports; check exact rational and quadratic ranks, reflections, transport and negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exhaust all binary words; classify all minimum supports; check exact rational and quadratic ranks, reflections, transport and negative controls."
+    }
+  ]
+}

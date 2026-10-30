@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Explicit donor asked for primitive profile and feasibility before construction. Exact bounded table passes correctness and speeds the trace; complete-cost screen remains below15% after new checks, so no complete qualifier or performance PR.",
+  "actual_scope": "PR5848/frozen-66fb6c6/Fraction-primitives-and-bounded-contribution-table",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Stopped at complete-cost screen after the one declared final16k FIFO feasibility step. No further capacity/algorithm trial, complete qualifier, B/C benchmark or performance PR. Original180s source cap,600s initial/1500s shared cumulative,1GiB sampled group RSS, serialized, no automatic retries.",
+  "time_budget_minutes": 90,
+  "outcome": "negative-result",
+  "evidence": "PRIMITIVES profile, PROOF.md, RESULT.json and all raw evidence. 241 finite programs at4 capacities,34 controls, both2048/16384-entry actual audits, complete-cost screen and preserved bounds. All source bytes unchanged.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex assistance for source review, execution, tooling and report; no subagents, independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can source-bound invariant validation be moved out of the new hot loop without losing failure coverage?",
+      "why_it_matters": "The pure table introduces five type checks per coefficient update, about12.9 million checks; whether moving them changes the complete-cost decision is unmeasured.",
+      "first_step": "Separately bind a well-formed immutable Fraction input contract, prove internal type preservation, retain malformed-input fallback and profile the new hot path before a finite gate.",
+      "blocked_by": "A separately assigned source/independence/coverage scope; no automatic permission from this artifact."
+    },
+    {
+      "question": "Would a different bounded table or arithmetic algorithm clear the whole-stage gate?",
+      "why_it_matters": "The current16k table retains326784 misses; its measured trace benefit does not pay the complete15% target.",
+      "first_step": "Use a separately bounded reuse/primitive census and complete memory/time bill before construction.",
+      "blocked_by": "New overlap and feasibility gates; no extrapolated performance claim."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

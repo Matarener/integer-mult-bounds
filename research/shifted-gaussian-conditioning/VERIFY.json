@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
+    "research/capped-phase-fusion/README.md",
+    "research/capped-fusion-t74-k554/README.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md",
+    "research/capped-phase-fusion/BILATERAL-LDU.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Authenticate sources, enclose shifted Gaussian minima and perturbations, reconstruct rational positivity certificates, and check finite q-LDU inverse bounds through both half-shift endpoints with exact kernel/inverse identities."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Repeat the complete certificate with optimized Python and explicit acceptance checks; compare the full typed receipt."
+    }
+  ]
+}

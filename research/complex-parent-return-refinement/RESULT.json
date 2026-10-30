@@ -1,0 +1,259 @@
+{
+  "cases": [
+    {
+      "all_other_role_bodies_preserved": true,
+      "all_return_heads_canonical": true,
+      "callee": "cyclic left rotation by rank bits; conditional endpoint only",
+      "child_descriptors": {
+        "after": 4,
+        "back": 1,
+        "before": 1,
+        "coefficients": 1,
+        "compact_bits": 0,
+        "component_bits": 2,
+        "front": 1,
+        "guard": 1,
+        "prefixes": 2,
+        "residue": 0,
+        "root_width": 3,
+        "rows": 2,
+        "spacing": 1,
+        "width": 1
+      },
+      "empty_unselected_slot": 2,
+      "encoded_frame_symbols": 131458,
+      "gathered_packets": [
+        {
+          "owner": [
+            1,
+            1
+          ],
+          "sha256": "083b04921b1963dda40bf8d46816dba5a0cfdc69f5b01455ce619ee0c0ad7d8c",
+          "slot": 0
+        },
+        {
+          "owner": [
+            0,
+            0
+          ],
+          "sha256": "c156a5021cdb9eec9d070d92e22f05db783eb91d4acfa06a74fe977ae433f534",
+          "slot": 1
+        }
+      ],
+      "packet_bits": 4096,
+      "parent_descriptors": {
+        "after": 2,
+        "back": 1,
+        "before": 1,
+        "coefficients": 1,
+        "compact_bits": 0,
+        "component_bits": 2,
+        "front": 1,
+        "guard": 1,
+        "prefixes": 2,
+        "residue": 0,
+        "root_width": 3,
+        "rows": 8,
+        "spacing": 1,
+        "width": 3
+      },
+      "parked_body_symbols": 32858,
+      "parked_roles": 25,
+      "rank": 1,
+      "replacement_bank_sha256": "7e15e27f3335d0322394e5a27b02146a8216b289b6137b73c7e4f3b8cd1078f0",
+      "returned_sha256": "2f7c66025723884d579150fc6732ae6a213579c6d1625cb6c98775fbfaff2627",
+      "row_bits": 1024,
+      "saved_next_PC": 2,
+      "source_sha256": "7e15e27f3335d0322394e5a27b02146a8216b289b6137b73c7e4f3b8cd1078f0",
+      "target": 3,
+      "target_kind": "private"
+    },
+    {
+      "all_other_role_bodies_preserved": true,
+      "all_return_heads_canonical": true,
+      "callee": "cyclic left rotation by rank bits; conditional endpoint only",
+      "child_descriptors": {
+        "after": 3,
+        "back": 1,
+        "before": 2,
+        "coefficients": 1,
+        "compact_bits": 0,
+        "component_bits": 2,
+        "front": 1,
+        "guard": 1,
+        "prefixes": 2,
+        "residue": 1,
+        "root_width": 3,
+        "rows": 1,
+        "spacing": 2,
+        "width": 2
+      },
+      "empty_unselected_slot": 2,
+      "encoded_frame_symbols": 524690,
+      "gathered_packets": [
+        {
+          "owner": [
+            1,
+            1
+          ],
+          "sha256": "150678743e9155bb0cb301530036cf2ea4e0f180713dd22abe7188c9fabbcf19",
+          "slot": 0
+        },
+        {
+          "owner": [
+            0,
+            0
+          ],
+          "sha256": "0fad58fc8d582107247ccf684255c66783c5f2fcdbe29d2de524799028389399",
+          "slot": 1
+        }
+      ],
+      "packet_bits": 16384,
+      "parent_descriptors": {
+        "after": 1,
+        "back": 1,
+        "before": 2,
+        "coefficients": 1,
+        "compact_bits": 0,
+        "component_bits": 2,
+        "front": 1,
+        "guard": 1,
+        "prefixes": 2,
+        "residue": 1,
+        "root_width": 3,
+        "rows": 4,
+        "spacing": 2,
+        "width": 3
+      },
+      "parked_body_symbols": 131166,
+      "parked_roles": 25,
+      "rank": 2,
+      "replacement_bank_sha256": "152bfde740b0455176284d2770098ee179750f61689fdd4cfc032fbe5342097e",
+      "returned_sha256": "622b28339909bbd22e8bbc27b350882c1edca73493c1f5be84421140bda0481e",
+      "row_bits": 8192,
+      "saved_next_PC": 2,
+      "source_sha256": "7ce7b6e043da7fb9014b26c00f17e64b06742b3638a7af84d17e5df8597fd2c8",
+      "target": 1,
+      "target_kind": "bank"
+    }
+  ],
+  "controls": {
+    "limitation": "A header naming another identical child can pass the source guard; the independent expected transition detects it.",
+    "out_of_range_header_rejected": true,
+    "source_mutants": [
+      {
+        "detected_by": "oracle child descriptor transition",
+        "mutation": "after",
+        "new": "tail.multiply_small(self.binding.dimension - rank + 1)",
+        "old": "tail.multiply_small(self.binding.dimension - rank)",
+        "sha256": "1387a8d975e7a07b2b43054218e5d2a0b35b40dfdc6192e2535522d7f2d31f5e",
+        "source_return_accepts_matching_alternate_PC": false
+      },
+      {
+        "detected_by": "oracle restored target or untouched role",
+        "mutation": "target",
+        "new": "transfer(self.output, self.packet((target + 1) % self.binding.slots))",
+        "old": "transfer(self.output, self.packet(target))",
+        "sha256": "8fad671caf7afcfc2993c3e1b4d9a02c6477d9c9b8ab84e80a27e9ae9a893585",
+        "source_return_accepts_matching_alternate_PC": false
+      },
+      {
+        "detected_by": "oracle saved PC and finite state",
+        "mutation": "PC",
+        "new": "self.cover_index, self.pc + 4, target, rank))",
+        "old": "self.cover_index, self.pc + 1, target, rank))",
+        "sha256": "bf634404fdf35917133a47e15f94797951f072dcc21c3110ff3cf680a7f36922",
+        "source_return_accepts_matching_alternate_PC": true
+      }
+    ]
+  },
+  "inherited_temporary_directories_cleaned": true,
+  "inputs_sha256": {
+    "certificates/selected-result.json": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+    "inputs/pr3385/PROOF.md": "471185621c0ecce295ffd327b1244aed234efe5ff05a804aaaa11316f1a8319e",
+    "inputs/pr3385/SOURCES.json": "c9c47d9df2445fc554673316d42f68f0a1b800ea3593ac568835c9b063025eb4",
+    "inputs/pr3385/bank_packets.py": "83e2f80fb72c906ccc7857f2b5139758ca8a997b17f51a5db29e2bb3c1143477",
+    "inputs/pr3385/check_machine.py": "57deb4aac01d98bc5af7bdfbaf6624367fa5f84595b2b5902acada824db53eab",
+    "inputs/pr3385/cohort.py": "8fb650c0cc3dfaad94811149b0c0e725777a8cff195c5f21e21a7576494e84f1",
+    "inputs/pr3385/machine.py": "b648792a361fdf98597a2f56c634767508be8e818b82e482fbfc60b5c63cc855",
+    "inputs/pr3385/monomial_packets.py": "6856e80c13ebf3b6e9e0e142ed65420579b5a1b4892f23859d3c6e5f17a334b4",
+    "inputs/pr3385/parking.py": "33e6d2a6fcdc648de31b374132bf885259eec9748bafa6facca3822a78427e94",
+    "inputs/pr3385/scalar_packets.py": "cc48f726325c000ab2304eb691feb950ff4abeab5c537d6165d5b3322dc45c35",
+    "inputs/pr3385/scalar_program.py": "4c005167b4c2fe0d98d2dd93b7f931b251259417ff4392b67ee0fbe290f6d48a",
+    "inputs/pr3385/selected_binding.py": "d6583458d00e4933c3a3fd83cc376f21c059e9fc6aa338c00d66c1deeaa0e985",
+    "notes/compact-control-layout.tex": "2bc28e50f3eb092195294cafa81213e520f6d42e7935e9905ad8a6199e2a7c87",
+    "notes/compact-control-movement.tex": "b963c3d2f4e1b7059aa289bb4b4ac89b688920bcf42f5b20d7698cdef0132cc6",
+    "research/bit2234-stock-threshold/README.md": "1e050c9f963421d751d9208092f9a15321ed77810e03912df8eb5eb56bbb06e7",
+    "research/community-frontier1094-audit/selected-replay.tar.gz": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/hosted/GLOBAL-TEMPLATE.json.gz": "0357b7cfbd7c29b4983982baf153c8a9f1e1e412690cd7fa9fc3d23d7963b20f",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/nine/GEOMETRY.json": "0058c491d839142aa99ef86a5ec697ce99857632228531512ea3fa74fb24d734",
+    "research/complex-grid-prefix-audit/PROOF.md": "9c2473e080a64de5139abf66680534043143ec9f4488ceabf62403702047a3ad",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json": "b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4",
+    "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r740-replica32/code/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r740-replica32/code/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "research/gaussian-normalization-stream/PROOF.md": "733862ab7afe5074c4aac2d3db25c1bfb01a7935cc584013024f287bda085c64",
+    "research/gaussian-normalization-stream/SOURCES.json": "c434302f4489366c1763f918ba59e2f57efc0a41d72310fd3c6bbe1553370275",
+    "research/gaussian-normalization-stream/normalizer.py": "2b0acaa831219faf3e7776969bdcffc3f0f9c608b15d6b4c343ff20cf6a50107",
+    "research/gaussian-parity-synthesis/REVIEW.md": "7d7b9ac63ccd2927f592e9edac1b4c11d58a6c74c5813d488e112f729090f60c",
+    "research/gaussian-parity/gaussian-parity-certificates.tex": "e21e1063141cbc798e73052e22d01eec57f1c173a580041e55aa196b1b0479f8",
+    "research/p104-whole-word-internal-grid/README.md": "d98c0b0a4835d766852e960299dd87112375990ed645d2c9e84edb08b79500e4",
+    "research/physical-complex-compact/PROOF.md": "ec6395822ae500242f3fe5e2cf40caf9a7f9fa259d475d2c14970d951ff4df48",
+    "research/physical-gaussian-leaf/PROOF.md": "29ebd43146f921077f980a408915ecc3a5199a07fcdadc624a8282c06b0b8104",
+    "research/physical-gaussian-leaf/SOURCES.json": "c693fc79212652d7427560189ad8eb5e841fe71325e6d7a0d61e05f97438a5e1",
+    "research/physical-gaussian-leaf/axis_stream.py": "40dea1c6fa41effd8e7a61f39a3a599e897370ca118e332ee5301a905dbb2998",
+    "research/physical-gaussian-leaf/coefficient_engine.py": "fff28cbc27b95ed546ac65f70279fa41a933421f1cd32b988ae8910632f0efcf",
+    "research/physical-gaussian-leaf/inputs/pr3087.tar": "d7e9c04a5e6d3f76158555d84080786c7cd8028ca31a61c9399de2b2c67bfd53",
+    "research/physical-gaussian-leaf/leaf_sources.py": "e0f958a0169257ba08eac5e025a3fc7ce99009efc18974cdd231f16758004014",
+    "research/physical-gaussian-leaf/signed_linear.py": "5b86afc33042e1c43eaa6957f94e0ebf403d1b07bb26d30ba89aa14d71f76078",
+    "research/physical-scalar-stream/scalar_engine.py": "be74c74862ff2b152d3752cb887c6682ddf2d889bc9f16f6328e418618e4c8b6",
+    "research/physical-scalar-stream/scalar_words.py": "f4293c5ea5a7b65be920997f2ff33ce046ae3d9707ecbcecb3bd163d821dfd00",
+    "research/pr589-five-helper-hosting/PROOF.md": "59cae781bfbe1a01ed9e66a8efeeb5a2b995e5ecdf908586b23ecc39f2b8d647",
+    "research/pr589-five-helper-hosting/verify.py": "cf90e19ae9991b0698be03d395a8cc29061ecb307eb7fea19adfb2d23c25a367",
+    "research/recursive-parking-boundary/README.md": "491aa208391ee4c2936510b1a5c5c018dd5509d9a0e88687c72ab8406cd77b18",
+    "research/selected-bit-local-ring-sweeps/PROOF.md": "846c59440cc99e28bae93ad2af99525bc769de29368080071b8427141215b4f7",
+    "research/selected-bit-recursive-closure/PROOF.md": "74cc8de20f21acb5123fe2d20996fe0925ea6e51b3dec633bd5221fb719b3344",
+    "research/selected-complex-layer-closure/PROOF.md": "43feda0342c07a9429699c3a44e8936a3f3fb57ce9b32f38ff3dc06ac887b265",
+    "research/selected-complex-layer-closure/arithmetic.py": "31e4b21bb64924d723d1248a7eccf4e9c80d323ba8784804af79a75da18c346a",
+    "upstream/build/sections/02-streams.tex": "606c80db61cad13aa0c3b6060dc4b88dbbe7ac60cdd831aa93f28d908fd09dab"
+  },
+  "parking": {
+    "BODY_symbols_exercised": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "all_BODY_symbols_exercised": true,
+    "depth": 12,
+    "frame_delimiter_mutation_rejected": true,
+    "frame_lengths": [
+      92,
+      176,
+      260,
+      252,
+      244,
+      236,
+      320,
+      220,
+      304,
+      296,
+      380,
+      188
+    ],
+    "older_frames_preserved": true,
+    "roles": 7
+  },
+  "schema_version": 1,
+  "scope": "Conditional parent-cut refinement with unchanged source Tape/Count/controller bodies; reduced valid layouts, no selected O73 payload or numerical child implementation.",
+  "source_corruption_before_execution": true,
+  "status": "PASS_COMPLEX_PARENT_RETURN_REFINEMENT"
+}

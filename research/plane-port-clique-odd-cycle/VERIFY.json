@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/plane-port-global-rank-dual/THEORY.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "E3 source hash, 400 exact decompositions of I6 checking supp N within both term graphs and the bipartite spectral bound, triangle control"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "same checks with assertions disabled; the verifier does not use assert"
+    }
+  ]
+}

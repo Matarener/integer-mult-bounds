@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-weight-parity-census-correction/UPPER-WITNESS.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_10.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_7.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_8.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_9.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_9_9.json",
+    "research/universal-f7-singleton-seedb859517b/engine.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--quick"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Direct small-domain brute force; exact old-code rejection of the witness; new C n4 census; fail-closed capped n7 control; source hashes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--full"
+      ],
+      "timeout_seconds": 600,
+      "checks": "All quick controls plus five uncapped complete n7,L20 split enumerations, direct 128-mask leaf checks, zero hits, pinned receipt consistency and direct length-24 upper witness."
+    }
+  ]
+}

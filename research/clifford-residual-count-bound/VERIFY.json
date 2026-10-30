@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/clifford-pointwise-faithfulness/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete n=1,2 signed-Pauli and residual-form set equality; trace lifts; exact uniform rational tail; literal generator signs; five negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same substantive checks with Python assertions disabled; failures use explicit exceptions."
+    }
+  ]
+}

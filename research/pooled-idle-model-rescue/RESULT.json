@@ -1,0 +1,132 @@
+{
+ "baseline_unpaid_1": {
+  "idle_mass_pooled": 237024,
+  "idle_rank_cap_R": 51,
+  "incumbent_fractional_ceiling": "1690054109089/1000000000000000",
+  "matches_pr1685_optimum": true,
+  "pooled_headroom_pct": 0.868850687235255,
+  "pooled_integer_ceiling": "1690044548223/1000000000000000",
+  "pooled_integer_ceiling_decimal": 0.001690044548223,
+  "pooled_integer_optimum": {
+   "27": 1,
+   "51": 4647
+  },
+  "pooled_kappa_cap_decimal": 0.0016871931166943313,
+  "relative_tightening_pct": 0.0005657136034037188
+ },
+ "claim": "Pooling the 144 calls of a replica into one idle child multiset gives (a) the ceiling that PR #1685 proved the optimum for but declined to state, and (b) an integer packing for the two-unpaid-coordinates premise that the per-call model admits no packing for.",
+ "controls": {
+  "exhaustive_integer_idle_optima_checked": 328,
+  "pooled_not_below_percall_fractional_cases": 240,
+  "pooled_vs_percall_widths_covered": [
+   9,
+   13,
+   17,
+   23,
+   29,
+   37,
+   45,
+   51,
+   64,
+   73
+  ],
+  "published_realised_packings_excluded_at_pooled_ceiling": {
+   "pr1042": {
+    "excluded": true,
+    "moment_over_1e15": 1000044110361663
+   },
+   "selected_1094": {
+    "excluded": true,
+    "moment_over_1e15": 1000042710548762
+   }
+  },
+  "rejected_invalid_inputs": [
+   "rank cap 52 violates the halving guard",
+   "local word pays more mass than the coverage law allows",
+   "unpaid coordinate count equal to m rejected",
+   "zero idle rank cap rejected",
+   "zero call count rejected"
+  ]
+ },
+ "environment": {
+  "implementation": "CPython",
+  "python": "3.12.15"
+ },
+ "no_new_kappa": true,
+ "package": "pooled-idle-model-rescue",
+ "schema": "integer-mult-research-result/v1",
+ "selected": {
+  "calls_pooled": 144,
+  "centre_per_call": 64,
+  "families_per_replica": 896,
+  "live_families_per_call": "896/9",
+  "live_families_pooled_W": "14336",
+  "local_profile": {
+   "1": 2412,
+   "2": 418,
+   "3": 432,
+   "4": 142,
+   "5": 82,
+   "8": 8
+  },
+  "m": 73,
+  "pairs": 4,
+  "ports": 112,
+  "replicas": 16,
+  "stages": 9
+ },
+ "selected_kappa_decimal": 0.001672660197076918,
+ "sources_sha256": {
+  "certificates/selected-result.json": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+  "research/community-frontier1094-audit/ASSEMBLY.json": "1122cb3a575f8c788345fc1bf4c108ac7c3250fb81a5988671f5eb04b3ab3045",
+  "research/complex-local-word-ceiling/ceiling.py": "86a1432870b3b21d8454106ec9162fddc0471472d9214c590a1420f2426cedfc",
+  "research/complex-local-word-ceiling/levers.py": "24c71fc5dce5e2d8f9fbd34d059fc9a1c8ad635d93b62102ccb41b03a7b38b9e",
+  "research/complex-local-word-ceiling/verify.py": "06b59955c69a2e7f49aa031d2ebaac2f39dbe107f4087122704f2a37ce9806d5",
+  "research/idle-packing-stability/README.md": "cacaae230ca70dc01b2218f6f7d913c776721b9fed539aab3c9f34ddce4fd759",
+  "research/idle-packing-stability/verify.py": "09be716ea0661b1270d1a4e5c1143d0d3beb849234d0f0fc94eeeea94513e542"
+ },
+ "two_unpaid_premise": {
+  "per_call_idle_mass": "13918/9",
+  "per_call_integer_packing_exists": false,
+  "pooled_ceiling": "6377945692541/1000000000000000",
+  "pooled_ceiling_decimal": 0.006377945692541,
+  "pooled_headroom_pct": 278.88898841650547,
+  "pooled_idle_mass": 222688,
+  "pooled_integer_packing_exists": true,
+  "pooled_kappa_cap_decimal": 0.006337525300350261,
+  "pooled_levels": {
+   "one_replica": {
+    "calls": 9,
+    "ceiling": "6377826759129/1000000000000000",
+    "ceiling_decimal": 0.006377826759129,
+    "headroom_pct": 278.88196782045515,
+    "idle_mass": 13918,
+    "integer_packing_exists": true,
+    "kappa_cap_decimal": 0.00633740786963453,
+    "live_families_W": "896",
+    "optimum": {
+     "46": 1,
+     "51": 272
+    }
+   },
+   "sixteen_replicas": {
+    "calls": 144,
+    "ceiling": "6377945692541/1000000000000000",
+    "ceiling_decimal": 0.006377945692541,
+    "headroom_pct": 278.88898841650547,
+    "idle_mass": 222688,
+    "integer_packing_exists": true,
+    "kappa_cap_decimal": 0.006337525300350261,
+    "live_families_W": "14336",
+    "optimum": {
+     "22": 1,
+     "51": 4366
+    }
+   }
+  },
+  "pooled_optimum": {
+   "22": 1,
+   "51": 4366
+  }
+ }
+}

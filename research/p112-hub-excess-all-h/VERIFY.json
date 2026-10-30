@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Nine reduced circuits through E; excluded three-query hub; per-hub source cases; every cost-one witness on the closed-form table for h<=12; brute-force census for h<=4 equals the closed-form table, with charges 48, 128, 256, 448."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--hmax",
+        "5",
+        "--closed-form-hmax",
+        "3"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same census control at h=5 (2^18 subsets): 308 rows, charge 736, excess 120."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "A moved t, a dropped circuit and a family-C row treated as cost one are rejected; the h=2 cost-two E-readers are exactly families A-C."
+    }
+  ]
+}

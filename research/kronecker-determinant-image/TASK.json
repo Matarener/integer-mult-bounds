@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Written determinant-image theorem for L_e tensor I_r, e,r >= 1, and its transpose; exact bounded independent corroboration.",
+  "scope_change_reason": "Take the explicit singular-pencil handoff in PR5250 rather than the original Lean formalization card; no selected-supplier or full multiplication implication.",
+  "bottleneck_link": "Mathematical side result: closes the homogeneous singular block character gap in atlas A030. No paid physical realization or kappa claim.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at one minimal-index block type with multiplicity and transpose, or publish a counterexample/precise obstruction; exclude mixed block types and physical compilation.",
+  "outcome": "completed",
+  "evidence": "PROOF.md and registered bounded replay: independent literal stabilizer oracle, characteristic-safe lifts, constructive converse and controls. Publication-byte/export checks recorded in the PR after final commit.",
+  "author": "apoursh",
+  "ai_assistance": "Substantial OpenAI Codex assistance, including parallel mathematical derivation, overlap triage and independent corroborator work.",
+  "open_questions": [
+    {
+      "question": "Determine the determinant image for mixed positive minimal indices, both orientations and regular/singular couplings.",
+      "why_it_matters": "This is the remaining singular-pencil obstruction to combining the one-type theorem with PR5250.",
+      "first_step": "Classify fixed-slice homomorphisms for L_1 direct sum L_2 and track their determinant factors before introducing any regular block.",
+      "blocked_by": "No mixed-block endomorphism filtration or complete slice-action analysis in this package."
+    },
+    {
+      "question": "Extend regular-square-pencil assembly when every base-field rational slice is singular.",
+      "why_it_matters": "The separate rational-slice restriction of PR5250 remains.",
+      "first_step": "Study diag(s,t,s+t) over F2 via homogeneous elementary divisors and an extension-field invertible slice.",
+      "blocked_by": "A coordinate-independent replacement for B_R inverse and a descent-compatible determinant assembly."
+    }
+  ],
+  "coordination": {
+    "upstream_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+    "checked_at_utc": "2026-10-26T04:25:24Z",
+    "predecessor_pr": 5250,
+    "predecessor_head": "43142bedc7cb5c0f1f73ff3fea6d9bfd237949ee",
+    "live_coverage": "Newest handoffs, active Discussions and Kronecker discussion search; all-state narrow PR searches. No competing successor found; not exhaustive novelty evidence.",
+    "local_overlap_limit": "Sparse offline helper searched only 3 working notes; live targeted searches supplement this incomplete inventory.",
+    "canonical_discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5670",
+    "hub_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19188415",
+    "submission_refresh_utc": "2026-10-26T04:32:44Z",
+    "submission_refresh": "Canonical main unchanged at df0137e; two fresh all-state PR searches still return only predecessor #5250. No new conflicting scope found."
+  },
+  "family_expansion_gate": {
+    "exact_evidence": "PR5250 explicit singular next question at head 43142bedc7cb5c0f1f73ff3fea6d9bfd237949ee; merged archive is not theorem acceptance.",
+    "boundary": "Single positive minimal-index type L_e tensor I_r and transpose; written character theorem, no recognition of arbitrary tensors.",
+    "cost_ledger": "Native realization, routing, dirty-state/storage, precision, compiler and full recursive invoice UNKNOWN; no supplier or kappa admission.",
+    "decision": "Replace the singular homogeneous-block unknown with an exact character and constructive witnesses.",
+    "alternative_and_stop": "Further PR5668 nonsplit expansion lacks a named physical consumer. Resolve this explicit one-type handoff; stop before mixed types or physical compilation."
+  }
+}

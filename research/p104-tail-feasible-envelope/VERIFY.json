@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/compare_recursive_invoices.py",
+    "scripts/evaluate_recursive_power.py",
+    "research/p104-tail-feasible-envelope/inputs/RESULT.json",
+    "research/p104-tail-feasible-envelope/inputs/pricing.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact tail envelope, all integer cutoff/floor choices, continuum offset proof, rational and independent arithmetic controls"
+    }
+  ]
+}

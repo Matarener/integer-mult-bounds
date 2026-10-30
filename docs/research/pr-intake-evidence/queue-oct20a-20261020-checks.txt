@@ -1,0 +1,271 @@
+Focused local tooling checks, CPython 3.14, macOS. Serial processes, 180s per file, sampled 1GiB descendant limit. No Lean, Docker or supplier replay.
+
+{"test": "test_partial_swap_digest.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020/pycache/test_partial_swap_digest.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_partial_swap_digest.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 2.82, "peak_sampled_rss_kib": 61024}
+
+test_baseline_matches_base_commit_bytes (test_partial_swap_digest.PartialSwapDigestTests.test_baseline_matches_base_commit_bytes) ... ok
+test_certificate_pin_only (test_partial_swap_digest.PartialSwapDigestTests.test_certificate_pin_only) ... ok
+test_encoding_matches_json_dumps (test_partial_swap_digest.PartialSwapDigestTests.test_encoding_matches_json_dumps) ... ok
+test_none_mutant_differs (test_partial_swap_digest.PartialSwapDigestTests.test_none_mutant_differs) ... ok
+test_production_digest_pin (test_partial_swap_digest.PartialSwapDigestTests.test_production_digest_pin) ... ok
+test_retained_total_receipts_match (test_partial_swap_digest.PartialSwapDigestTests.test_retained_total_receipts_match) ... ok
+test_small_circuit_receipts_match (test_partial_swap_digest.PartialSwapDigestTests.test_small_circuit_receipts_match) ... ok
+test_support_rejection_preserved (test_partial_swap_digest.PartialSwapDigestTests.test_support_rejection_preserved) ... ok
+test_wrong_retained_total_rejected (test_partial_swap_digest.PartialSwapDigestTests.test_wrong_retained_total_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.642s
+
+OK
+
+
+{"test": "test_partial_swap_init.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020/pycache/test_partial_swap_init.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_partial_swap_init.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 1.14, "peak_sampled_rss_kib": 33024}
+
+test_baseline_matches_base_commit_bytes (test_partial_swap_init.PartialSwapInitTests.test_baseline_matches_base_commit_bytes) ... ok
+test_certificate_pin_only (test_partial_swap_init.PartialSwapInitTests.test_certificate_pin_only) ... ok
+test_production_digest_pin (test_partial_swap_init.PartialSwapInitTests.test_production_digest_pin) ... ok
+test_small_circuit_structure_and_receipts_match (test_partial_swap_init.PartialSwapInitTests.test_small_circuit_structure_and_receipts_match) ... ok
+test_support_rejection_preserved (test_partial_swap_init.PartialSwapInitTests.test_support_rejection_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.184s
+
+OK
+
+
+{"test": "test_lean_axiom_audit_parser.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020/pycache/test_lean_axiom_audit_parser.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_lean_axiom_audit_parser.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 1.15, "peak_sampled_rss_kib": 29296}
+
+test_existing_audit_inventory_remains_identical (test_lean_axiom_audit_parser.AxiomParserTests.test_existing_audit_inventory_remains_identical) ... ok
+test_identifier_suffix_is_not_a_raw_string_prefix (test_lean_axiom_audit_parser.AxiomParserTests.test_identifier_suffix_is_not_a_raw_string_prefix) ... ok
+test_live_lean_source_and_output_controls (test_lean_axiom_audit_parser.AxiomParserTests.test_live_lean_source_and_output_controls) ... skipped 'set LEAN_AUDIT_BIN for live kernel controls'
+test_multiline_output_and_axiom_free_report (test_lean_axiom_audit_parser.AxiomParserTests.test_multiline_output_and_axiom_free_report) ... ok
+test_only_actual_source_queries_are_counted (test_lean_axiom_audit_parser.AxiomParserTests.test_only_actual_source_queries_are_counted) ... ok
+test_raw_delimiters_do_not_interpret_backslash_escapes (test_lean_axiom_audit_parser.AxiomParserTests.test_raw_delimiters_do_not_interpret_backslash_escapes) ... ok
+test_raw_strings_do_not_supply_queries (test_lean_axiom_audit_parser.AxiomParserTests.test_raw_strings_do_not_supply_queries) ... ok
+test_unterminated_raw_strings_are_rejected (test_lean_axiom_audit_parser.AxiomParserTests.test_unterminated_raw_strings_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.023s
+
+OK (skipped=1)
+
+
+{"test": "test_research_pr_inventory_coverage.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020/pycache/test_research_pr_inventory_coverage.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_research_pr_inventory_coverage.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 2.3, "peak_sampled_rss_kib": 61184}
+
+test_combined_term_and_path_matches_preserve_truncation (test_research_pr_inventory_coverage.InventoryCoverageTests.test_combined_term_and_path_matches_preserve_truncation) ... ok
+test_complete_empty_inventory_is_not_reported_as_a_gap (test_research_pr_inventory_coverage.InventoryCoverageTests.test_complete_empty_inventory_is_not_reported_as_a_gap) ... ok
+test_result_limit_does_not_hide_incomplete_inventories (test_research_pr_inventory_coverage.InventoryCoverageTests.test_result_limit_does_not_hide_incomplete_inventories) ... ok
+test_text_report_surfaces_unmatched_gaps_and_combined_match_flags (test_research_pr_inventory_coverage.InventoryCoverageTests.test_text_report_surfaces_unmatched_gaps_and_combined_match_flags) ... ok
+test_unavailable_and_short_inventories_warn_even_without_a_hit (test_research_pr_inventory_coverage.InventoryCoverageTests.test_unavailable_and_short_inventories_warn_even_without_a_hit) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.279s
+
+OK
+
+
+{"test": "test_research_git_replacements.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020/pycache/test_research_git_replacements.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_research_git_replacements.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 9.18, "peak_sampled_rss_kib": 53904}
+
+test_blob_replacements_cannot_change_ids_or_bytes_in_any_reader (test_research_git_replacements.GitReplacementTests.test_blob_replacements_cannot_change_ids_or_bytes_in_any_reader) ... ok
+test_commit_replacement_cannot_change_tree_inventory_or_catalogue (test_research_git_replacements.GitReplacementTests.test_commit_replacement_cannot_change_tree_inventory_or_catalogue) ... ok
+test_custom_replacement_namespace_does_not_change_parent_environment (test_research_git_replacements.GitReplacementTests.test_custom_replacement_namespace_does_not_change_parent_environment) ... ok
+test_export_retains_original_payload_and_receipt_under_replacement (test_research_git_replacements.GitReplacementTests.test_export_retains_original_payload_and_receipt_under_replacement) ... ok
+test_publication_preflight_compares_actual_commit_bytes (test_research_git_replacements.GitReplacementTests.test_publication_preflight_compares_actual_commit_bytes) ... ok
+test_scaffold_and_validator_reject_replacement_only_live_bytes (test_research_git_replacements.GitReplacementTests.test_scaffold_and_validator_reject_replacement_only_live_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 7.731s
+
+OK
+
+
+{"test": "test_research_descendant_source_roles.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020/pycache/test_research_descendant_source_roles.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_research_descendant_source_roles.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 13.44, "peak_sampled_rss_kib": 96496}
+
+test_broken_live_cache_isolation_fails_the_unchanged_registered_command (test_research_descendant_source_roles.DescendantSourceRoleTests.test_broken_live_cache_isolation_fails_the_unchanged_registered_command) ... ok
+test_current_helper_remains_a_planner_and_publication_input (test_research_descendant_source_roles.DescendantSourceRoleTests.test_current_helper_remains_a_planner_and_publication_input) ... ok
+test_historical_blob_and_hash_corruption_still_rejects (test_research_descendant_source_roles.DescendantSourceRoleTests.test_historical_blob_and_hash_corruption_still_rejects) ... ok
+test_only_source_role_changes_and_frozen_evidence_is_retained (test_research_descendant_source_roles.DescendantSourceRoleTests.test_only_source_role_changes_and_frozen_evidence_is_retained) ... ok
+test_original_gate_rejects_but_correct_role_accepts_current_helper (test_research_descendant_source_roles.DescendantSourceRoleTests.test_original_gate_rejects_but_correct_role_accepts_current_helper) ... ok
+test_unrelated_live_input_drift_still_rejects (test_research_descendant_source_roles.DescendantSourceRoleTests.test_unrelated_live_input_drift_still_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 12.476s
+
+OK
+
+
+{"test": "test_selected_ci_inputs.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020/pycache/test_selected_ci_inputs.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_selected_ci_inputs.py", "-v"], "exit": 1, "resource_stop": null, "seconds": 4.4, "peak_sampled_rss_kib": 63040}
+
+test_frontier1094_required_paths (test_selected_ci_inputs.CurrentTree.test_frontier1094_required_paths) ... ERROR
+test_frontier1094_shape (test_selected_ci_inputs.CurrentTree.test_frontier1094_shape) ... ERROR
+test_frontier1094_workflow_triggers_complete (test_selected_ci_inputs.CurrentTree.test_frontier1094_workflow_triggers_complete) ... ERROR
+test_hard_checks_pass (test_selected_ci_inputs.CurrentTree.test_hard_checks_pass) ... ERROR
+test_live_pins_are_outside_the_fast_inventory (test_selected_ci_inputs.CurrentTree.test_live_pins_are_outside_the_fast_inventory) ... ERROR
+test_hard_failures (test_selected_ci_inputs.ExitCodes.test_hard_failures) ... ok
+test_triggers_are_advisory_unless_required (test_selected_ci_inputs.ExitCodes.test_triggers_are_advisory_unless_required) ... ok
+test_branch_exclusions_apply_in_order (test_selected_ci_inputs.Globs.test_branch_exclusions_apply_in_order) ... ok
+test_event_reader (test_selected_ci_inputs.Globs.test_event_reader) ... ok
+test_github_path_filter_semantics (test_selected_ci_inputs.Globs.test_github_path_filter_semantics) ... ok
+test_github_path_filters_match_whole_paths_including_newlines (test_selected_ci_inputs.Globs.test_github_path_filters_match_whole_paths_including_newlines) ... ok
+test_unsupported_branch_globs_fail_closed (test_selected_ci_inputs.Globs.test_unsupported_branch_globs_fail_closed) ... ok
+test_unsupported_syntax_fails_closed (test_selected_ci_inputs.Globs.test_unsupported_syntax_fails_closed) ... ok
+test_changed_checkpoint_certificate_is_reported (test_selected_ci_inputs.Records.test_changed_checkpoint_certificate_is_reported) ... ok
+setUpClass (test_selected_ci_inputs.Skeleton) ... ERROR
+test_excluded_main_fails_only_when_triggers_are_required (test_selected_ci_inputs.TriggerFilterCLI.test_excluded_main_fails_only_when_triggers_are_required) ... ok
+test_newline_paths_through_the_real_cli (test_selected_ci_inputs.TriggerFilterCLI.test_newline_paths_through_the_real_cli) ... ok
+
+======================================================================
+ERROR: test_frontier1094_required_paths (test_selected_ci_inputs.CurrentTree.test_frontier1094_required_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_selected_ci_inputs.py", line 63, in test_frontier1094_required_paths
+    record, manifest, pins = guard.live_pins(ROOT)
+                             ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 66, in live_pins
+    manifest = read(root/relative(record['source_manifest']))
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 49, in read
+    return json.loads(Path(path).read_bytes())
+                      ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/community-frontier1094-audit/SELECTED-SOURCE.json'
+
+======================================================================
+ERROR: test_frontier1094_shape (test_selected_ci_inputs.CurrentTree.test_frontier1094_shape)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_selected_ci_inputs.py", line 44, in test_frontier1094_shape
+    _, _, pins = guard.live_pins(ROOT)
+                 ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 66, in live_pins
+    manifest = read(root/relative(record['source_manifest']))
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 49, in read
+    return json.loads(Path(path).read_bytes())
+                      ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/community-frontier1094-audit/SELECTED-SOURCE.json'
+
+======================================================================
+ERROR: test_frontier1094_workflow_triggers_complete (test_selected_ci_inputs.CurrentTree.test_frontier1094_workflow_triggers_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_selected_ci_inputs.py", line 79, in test_frontier1094_workflow_triggers_complete
+    result = guard.check(ROOT)
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 322, in check
+    record, manifest, pins = live_pins(root)
+                             ~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 66, in live_pins
+    manifest = read(root/relative(record['source_manifest']))
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 49, in read
+    return json.loads(Path(path).read_bytes())
+                      ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/community-frontier1094-audit/SELECTED-SOURCE.json'
+
+======================================================================
+ERROR: test_hard_checks_pass (test_selected_ci_inputs.CurrentTree.test_hard_checks_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_selected_ci_inputs.py", line 31, in test_hard_checks_pass
+    result = guard.check(ROOT)
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 322, in check
+    record, manifest, pins = live_pins(root)
+                             ~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 66, in live_pins
+    manifest = read(root/relative(record['source_manifest']))
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 49, in read
+    return json.loads(Path(path).read_bytes())
+                      ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/community-frontier1094-audit/SELECTED-SOURCE.json'
+
+======================================================================
+ERROR: test_live_pins_are_outside_the_fast_inventory (test_selected_ci_inputs.CurrentTree.test_live_pins_are_outside_the_fast_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_selected_ci_inputs.py", line 37, in test_live_pins_are_outside_the_fast_inventory
+    record, manifest, pins = guard.live_pins(ROOT)
+                             ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 66, in live_pins
+    manifest = read(root/relative(record['source_manifest']))
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 49, in read
+    return json.loads(Path(path).read_bytes())
+                      ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/community-frontier1094-audit/SELECTED-SOURCE.json'
+
+======================================================================
+ERROR: setUpClass (test_selected_ci_inputs.Skeleton)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_selected_ci_inputs.py", line 112, in setUpClass
+    record, manifest, pins = guard.live_pins(ROOT)
+                             ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 66, in live_pins
+    manifest = read(root/relative(record['source_manifest']))
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/check_selected_ci_inputs.py", line 49, in read
+    return json.loads(Path(path).read_bytes())
+                      ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/community-frontier1094-audit/SELECTED-SOURCE.json'
+
+----------------------------------------------------------------------
+Ran 16 tests in 2.995s
+
+FAILED (errors=6)
+
+
+The all-module CI-input test encountered six sparse-checkout missing-input setup errors; changed glob and real CLI classes were then tested separately without invoking the selected supplier.
+
+ci-globs.log
+
+test_branch_exclusions_apply_in_order (test_selected_ci_inputs.Globs.test_branch_exclusions_apply_in_order) ... ok
+test_event_reader (test_selected_ci_inputs.Globs.test_event_reader) ... ok
+test_github_path_filter_semantics (test_selected_ci_inputs.Globs.test_github_path_filter_semantics) ... ok
+test_github_path_filters_match_whole_paths_including_newlines (test_selected_ci_inputs.Globs.test_github_path_filters_match_whole_paths_including_newlines) ... ok
+test_unsupported_branch_globs_fail_closed (test_selected_ci_inputs.Globs.test_unsupported_branch_globs_fail_closed) ... ok
+test_unsupported_syntax_fails_closed (test_selected_ci_inputs.Globs.test_unsupported_syntax_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK
+
+
+ci-cli.log
+
+test_excluded_main_fails_only_when_triggers_are_required (test_selected_ci_inputs.TriggerFilterCLI.test_excluded_main_fails_only_when_triggers_are_required) ... ok
+test_newline_paths_through_the_real_cli (test_selected_ci_inputs.TriggerFilterCLI.test_newline_paths_through_the_real_cli) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.693s
+
+OK

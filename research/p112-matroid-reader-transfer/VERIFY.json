@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact rational/GF4 operators, termwise support inclusion, rectangular tariffs, full labelled subset ranks and symbolic minors."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "No primary imports: permutation determinants and hereditary independent-set rank stream, all support requests and expanded entries."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Reader omission, illegal domains and six actual optimized CLI corruptions with restored positive replay."
+    }
+  ]
+}

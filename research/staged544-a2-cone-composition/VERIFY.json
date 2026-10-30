@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Current base source, credited and combined full723operator/cleanup checks and fivecone witnesses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Current extra source, credited and combined full723operator/cleanup checks and fivecone witnesses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--tariff"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact2551packingpattern dual and incumbent attainment."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/check_composition.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Credited separate pointset representation and new timeline uniquecompleteframe proof;14semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Production positives, sixsemantic rejections and twoactualoptimizedCLI source/ownerreceipt rejections."
+    }
+  ]
+}

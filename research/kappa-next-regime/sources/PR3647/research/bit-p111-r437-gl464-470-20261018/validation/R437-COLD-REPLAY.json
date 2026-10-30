@@ -1,0 +1,188 @@
+{
+  "status": "PASS_COLD_REPLAY_CANONICAL_WORD_ACTUAL_PROGRAM_FULL_INVOICE_AND_BIT_RECORD",
+  "at_utc": "2026-10-18T12:44:03.427750+00:00",
+  "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+  "seconds": 54.60697629999777,
+  "commands": [
+    {
+      "script": "code\\generate.py",
+      "arguments": [
+        "{output}"
+      ],
+      "exit_code": 0,
+      "seconds": 0.4703603999951156
+    },
+    {
+      "script": "vendor\\xcheck_p.py",
+      "arguments": [
+        "{output}\\WORD.json.gz",
+        "--json",
+        "{output}\\UPSTREAM-XCHECK.json"
+      ],
+      "exit_code": 0,
+      "seconds": 1.0813889000055497
+    },
+    {
+      "script": "code\\word_audit.py",
+      "arguments": [
+        "{output}"
+      ],
+      "exit_code": 0,
+      "seconds": 0.7659620999984327
+    },
+    {
+      "script": "code\\catalog_check.py",
+      "arguments": [
+        "{output}"
+      ],
+      "exit_code": 0,
+      "seconds": 0.2685175000005984
+    },
+    {
+      "script": "code\\source_history_scope.py",
+      "arguments": [
+        "{output}"
+      ],
+      "exit_code": 0,
+      "seconds": 0.18136219999723835
+    },
+    {
+      "script": "vendor\\export_records.py",
+      "arguments": [
+        "{output}\\WORD.json.gz",
+        "{output}\\records"
+      ],
+      "exit_code": 0,
+      "seconds": 0.46399590000510216
+    },
+    {
+      "script": "code\\local_counter.py",
+      "arguments": [
+        "{output}"
+      ],
+      "exit_code": 0,
+      "seconds": 0.26239429999986896
+    },
+    {
+      "script": "vendor\\global_k.py",
+      "arguments": [
+        "--word",
+        "{output}\\WORD.json.gz",
+        "--local-check",
+        "{output}",
+        "--out",
+        "{output}\\nine",
+        "--isometries",
+        "{package}\\data\\residual-isometries.json",
+        "--no-banks",
+        "--stages",
+        "9",
+        "--replicas",
+        "32"
+      ],
+      "exit_code": 0,
+      "seconds": 1.2265381999968668
+    },
+    {
+      "script": "code\\match.py",
+      "arguments": [
+        "{output}"
+      ],
+      "exit_code": 0,
+      "seconds": 0.5274484999972628
+    },
+    {
+      "script": "vendor\\emit_k.py",
+      "arguments": [
+        "{output}\\nine",
+        "{output}",
+        "{output}\\hosted",
+        "--selection",
+        "{output}\\SELECTION.json",
+        "--key",
+        "bit",
+        "--host-all",
+        "--depth",
+        "2",
+        "--version-tag",
+        "r437-public470-plus-464GL"
+      ],
+      "exit_code": 0,
+      "seconds": 18.029616899999382
+    },
+    {
+      "script": "vendor\\audit_hosted_k.py",
+      "arguments": [
+        "{output}",
+        "{output}\\hosted",
+        "{output}\\HOSTING-AUDIT.json"
+      ],
+      "exit_code": 0,
+      "seconds": 27.44071740000072
+    },
+    {
+      "script": "vendor\\assemble9.py",
+      "arguments": [
+        "{output}",
+        "{output}\\hosted",
+        "{output}\\HOSTING-AUDIT.json",
+        "{package}",
+        "{output}\\ASSEMBLY-BIT-AND-HISTORICAL-CONTROL.json",
+        "pr548"
+      ],
+      "exit_code": 0,
+      "seconds": 0.36882840000180295
+    },
+    {
+      "script": "code\\invoice_audit.py",
+      "arguments": [
+        "{output}"
+      ],
+      "exit_code": 0,
+      "seconds": 3.0239266000062344
+    }
+  ],
+  "word_content_sha256": "da77deaf11368d016622348227657b98404b6afbc7e4f3d6fe9a246baae0dcce",
+  "program_sha256": "d8ae6356093ce525db39c00169ad905b57fd86ec6f5f4d9761b0f196532f0d3d",
+  "BIT_c": "868314126713557740143/500000000000000000000000",
+  "whole_kappa_changed": false,
+  "hosted_CI": false,
+  "scope": "Conditional finite supplier under unchanged selected all-size/SOURCE/field/PR442 interfaces; no unconditional multiplication theorem.",
+  "outputs": {
+    "00-generate.log": "19f51299f229aa74577bb216afab8b80fd75885e9342cf2cf7ecf4062272ccb9",
+    "01-xcheck_p.log": "beb4fb04360bbb30bd243eab37f9d39815c369d2c84c0b68d841e9da37054e3b",
+    "02-word_audit.log": "1f56125e692bb043c5ccb61ff14921f1301bb83e89b73fc8ac80331c17643295",
+    "03-catalog_check.log": "0b9463b40c61de56be7ee111a4bcfd969d3b08c35ff9416de64dbd94579fe680",
+    "04-source_history_scope.log": "239d1df4740fdf1aa3f55ba12d05f7bb1dc0a133c64c1fc4c7ebc04c0f3af7f8",
+    "05-export_records.log": "f4b01ee992d4ca4cb91b6940a08eac6dbfbbf0ef48e08a5ebb2e12bff1857099",
+    "06-local_counter.log": "2564ebb4810236794ade329e69ea61d1db8e57feb60a89f8f8d56d1fd07057db",
+    "07-global_k.log": "64167134355d26d620d9dbfbb80b3dca453d1951bc084e416ace5b7e4e9d7f52",
+    "08-match.log": "dbf30a2bd65187a7295a61e0b432d5102398620701ec820c024cd1650f7aafa1",
+    "09-emit_k.log": "329f649b3f8e2c45d2c8290bdbf41716b856439d66af3ffdf1985b7f470b69ea",
+    "10-audit_hosted_k.log": "2bfdcf10cbee10ff790e449078415115b244756579be6bb9a9dcb818bc14eaa5",
+    "11-assemble9.log": "d22fde403079e25d4b047fdfac57efab12cb8c43efe83713dfe058fc85fabd9d",
+    "12-invoice_audit.log": "ea8c171e97522d252129c13da3956c593890dcca06b69a47cd37f417f6b6cadf",
+    "ASSEMBLY-BIT-AND-HISTORICAL-CONTROL.json": "808430bd8495950ac3981b7aefd169c547391fcff5c90a8044187b4242d9e5d8",
+    "CATALOG-RESULT.json": "2cce3ec7644cfb6913b87a67eb62e493b1a56ed8a5e4b05c02ca95a7514b77a8",
+    "HOSTING-AUDIT.json": "9ea3163fa4605e27e9260f02dfd5be4d42e8e2ba507eeae51a6277b26bbbf67c",
+    "INVOICE-INDEPENDENT.json": "8173901ba90526d8959bc91478b0de92958146f9b3d6a27ac01f22fcfc7d7ce2",
+    "MATCHING.json": "dbf30a2bd65187a7295a61e0b432d5102398620701ec820c024cd1650f7aafa1",
+    "RESULT.json": "755e749f2f64cd02e39c446768ec9c4114fb485e89e5421f89fed1b0d4bb5687",
+    "SELECTION.json": "a468af5976661b0c24de79d3d279b27b3c5dff7d9298d3002e257a93c0d98786",
+    "SOURCE-HISTORY-SCOPE.json": "8749bb6486e990ded71cb9ed41a6dea26897f85c3e7da61ead877f6735458f5a",
+    "UPSTREAM-XCHECK.json": "6e75d9c5538089c5bcae59df074c1b6a52a219c308d9ea4b386008d7e8ed8fb1",
+    "WORD.json.gz": "e432182d5b62c8bbefeb871fce30317234d707e5e18d4295e65ac21f7fd8365e",
+    "cout/columns.json": "e329a2375fbfa11936c837749126b0f3633d51c8cf7e2fa7884fab1c1d5afa74",
+    "cout/legality.json": "9667212203075b94a1e3f2c591e49214f33f2be10af0e8246252256976bca5ee",
+    "hosted/GLOBAL-TEMPLATE.json.gz": "00dee04c5372ac300b678c4ac1e6770c178923099d2d4bf01be9e4bccd2a1e72",
+    "hosted/GLOBAL.json": "d5bd4900612b29890d170c3b43b054e07bfdf6a072f75b430f54fb5dfe77882e",
+    "nine/GEOMETRY.json": "b9ed0e5e0084dcd285f33bfc71aab833ddcfa1062bd80c9c83da8244276d6830",
+    "nine/GLOBAL-TEMPLATE.json.gz": "280a64b570bf2f163c5643f97e2fa580518a2110dbfb7a4aa9934c369081cdf2",
+    "nine/GLOBAL.json": "cd47e1a02ee260ee473dd21578e2cc876c061b2d6086ca48a5b4c5ef79dbc9f3",
+    "records/249-records.bin": "caeb2eb0e417992788c32c1f5812ada60b46d1dfdba9f4ac376299b2dede13cb",
+    "records/249-states.json": "434309bb40829a4fd4afaa84f8b999a85ed0edf02d1317716a6d85465e5bc258",
+    "records/frames.json": "d006b3bfe0c04afecfea7aecfa59dfe4298b99501c70da3938e40289bc2f5010"
+  },
+  "original_immutable_receipt_sha256": "7facfd2631d9c99031e62c924286d9a20f0aa2b22c034d82e739de552401fcf7",
+  "child_bytecode_isolation": "Every child executes with -X pycache_prefix=<fresh output/private-pycache-N>; -B; source-pinned verifier byte hash in SOURCES."
+}

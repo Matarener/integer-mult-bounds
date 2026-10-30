@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-local-word-ceiling/README.md",
+    "research/split-centres-global/proofs/INHERITED-COMPLEX-GEOMETRY.txt",
+    "research/plane-port-copy-budgets/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the line and plane repairs on a dirty spectator, then screen the naive charge 224."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the plane repair hits and the omitted repair misses."
+    }
+  ]
+}

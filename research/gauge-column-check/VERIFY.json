@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "#4438: factorization on 2,000 random constant-phase runs, the 1/(1-eps) column bound on random rounded blocks, exact gap 1/(16p^2-1) and eps=1/2 failure, least setup constant C=3 (equality at p=2), downstream comparison p(2p-1)>2."
+    }
+  ]
+}

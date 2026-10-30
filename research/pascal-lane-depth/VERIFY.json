@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bounded-lane-border-core/README.md",
+    "research/bounded-lane-border-core/core/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Integer-only rank-power enclosures; sharp depth-110/111 signs; equal-start failure; literal versus binomial recurrence, optimality/equality cases and rejection controls; generated source-bound receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same complete exact certificate and rejection controls under optimization; every invariant uses an explicit exception."
+    }
+  ]
+}

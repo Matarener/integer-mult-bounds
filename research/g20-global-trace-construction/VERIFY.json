@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Rebuild every global artifact; check all 11070 input axes, independent transpose, exact native sources, lifetimes and full finite costs."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Rebuild every global artifact; check all 11070 input axes, independent transpose, exact native sources, lifetimes and full finite costs."
+    }
+  ]
+}

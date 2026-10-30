@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/connector-depth-blocks/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source pin; exhaustive census of 39,288 floor words (k,c) in {(2,2..5),(3,2..4),(4,2)} with weight-identity and per-weight last-read checks at depths 1,2 (3 when kc<=9); 21 rebuilt reflected-Gray depth-two blocks; exact capacity table to c=2^4096; four rejected controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat every check under optimized Python; checks use explicit exceptions, not assert."
+    }
+  ]
+}

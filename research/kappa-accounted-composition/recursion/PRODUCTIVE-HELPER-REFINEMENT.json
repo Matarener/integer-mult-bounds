@@ -1,0 +1,169 @@
+{
+  "case": {
+    "ambient_rank": 41,
+    "calls": 5,
+    "helper_histogram_per_call": {
+      "5": 28,
+      "6": 18,
+      "7": 56,
+      "8": 93,
+      "9": 213
+    },
+    "historical_identity_fallback_same_helper_packing_favorable_screen": [
+      {
+        "C": "349/200000",
+        "complete_margin": {
+          "lower": "-21.681262726317840632739489904400586413276967019",
+          "upper": "-21.681262726317840632739489904400586413276967018"
+        }
+      },
+      {
+        "C": "1/250",
+        "complete_margin": {
+          "lower": "-213.510709179406946576527880277692889204555019621",
+          "upper": "-213.510709179406946576527880277692889204555019620"
+        }
+      }
+    ],
+    "host_assignment_sha256": "5ee500e785abcde1821024c1d2c8618e9c938e21ba480df9dd37cc20aaa05c86",
+    "invoices": [
+      {
+        "C": "349/200000",
+        "after_8_H1_per_call": {
+          "lower": "257.806066345723391675909306493955168307429250173",
+          "upper": "257.806066345723391675909306493955168307429250174"
+        },
+        "raw_allowance": {
+          "lower": "297.806066345723391675909306493955168307429250173",
+          "upper": "297.806066345723391675909306493955168307429250174"
+        }
+      },
+      {
+        "C": "1/250",
+        "after_8_H1_per_call": {
+          "lower": "65.316953179733111045264369400560019813688800044",
+          "upper": "65.316953179733111045264369400560019813688800045"
+        },
+        "raw_allowance": {
+          "lower": "105.316953179733111045264369400560019813688800044",
+          "upper": "105.316953179733111045264369400560019813688800045"
+        }
+      }
+    ],
+    "lift": 1,
+    "minimum_in_fixed_middle_window": {
+      "attained": true,
+      "bound": 213,
+      "proof": "The middle call needs213 width9 helper roles. Every original idle field available there has rank8. A productive field can host at most one simultaneous native helper role. Therefore at least213 new productive fields are required for this same fixed middle window. The displayed213-field word-width packing attains the bound. This does not cover staggered controllers, changed helper interfaces, or different original idle windows."
+    },
+    "name": "p2_changed_original_assignment_213_hosts",
+    "productive_fields_per_controller": 213,
+    "rank_bill": "26653",
+    "rank_credit": 27101,
+    "rank_margin": "448",
+    "residual_profile_per_controller": {
+      "1": "128",
+      "2": "82",
+      "3": "28",
+      "5": "116",
+      "8": "29"
+    },
+    "role_match": true,
+    "strict_child_rank": true,
+    "templates": {
+      "global_templates": [
+        {
+          "count": 48,
+          "each_5_position_count": 12,
+          "middle_width": 9,
+          "other_widths": [
+            9,
+            9,
+            9,
+            5
+          ]
+        },
+        {
+          "count": 116,
+          "each_0_position_count": 29,
+          "middle_width": 9,
+          "other_widths": [
+            9,
+            9,
+            9,
+            0
+          ]
+        },
+        {
+          "count": 49,
+          "middle_width": 9,
+          "other_widths": [
+            8,
+            8,
+            8,
+            8
+          ]
+        }
+      ],
+      "original_pair_bins": [
+        [
+          56,
+          [
+            9,
+            7
+          ]
+        ],
+        [
+          56,
+          [
+            7,
+            9
+          ]
+        ],
+        [
+          18,
+          [
+            9,
+            6
+          ]
+        ],
+        [
+          18,
+          [
+            6,
+            9
+          ]
+        ],
+        [
+          16,
+          [
+            9,
+            5
+          ]
+        ],
+        [
+          16,
+          [
+            5,
+            9
+          ]
+        ],
+        [
+          44,
+          [
+            8,
+            8
+          ]
+        ]
+      ]
+    },
+    "total_fields_per_controller": 661
+  },
+  "scope": "Exact changed idle-bin allocation, complete tariff and fixed-middle-window host minimum. Native whole-block adapters and main-controller closure remain unverified here.",
+  "sources": {
+    "PRODUCTIVE-HELPER-FOREST.json": "63a4197062a6ea4a96555b4136210efc716317c1251d88c40a47a22b9926b89d",
+    "productive_helper_forest.py": "fc8ce7bd7ec4803d2cff816af54feee9ebb5198afe6e58bd33f8f85fde1014f4",
+    "productive_helper_refinement.py": "d70e2feb935f93e9c9ce30340ce099dbefdc3ffe9ef54b3b338333efe815df71"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PARTIAL_REVIEW_RESOURCE_STOP",
+  "source_head": "09dd0965711ca7eeb169057a420abab1c9052137",
+  "claimed_kappa": "62009/20000000",
+  "selected_frontier_changed": false,
+  "closed_export_unchanged": true,
+  "execution": {
+    "command": [
+      "/usr/local/bin/python3.12",
+      "-B",
+      "-I",
+      "source/research/p104-helper-subspace-splits/verify.py"
+    ],
+    "exit": -9,
+    "resource_stop": "timeout",
+    "timeout_seconds": 600,
+    "seconds": 600.51,
+    "peak_sampled_rss_kib": 65424,
+    "log": "primary.log",
+    "log_sha256": "70f9e12566a0bbf34500fa147a0ac7e21ae33d1f3a3d81876b41acaacc24f6a0"
+  },
+  "passed": [
+    "Source authentication",
+    "Thirteen exact independent helper cuts and sequential whole-word checks",
+    "Complete 756 by 756 dense transpose endpoint check"
+  ],
+  "uncompleted": [
+    "Full native-map/caller replay checkpoint",
+    "Complete primary funding and mutation-control checkpoint",
+    "Optimized-mode declared replay",
+    "Parameterized independent caller positive control and candidate replay",
+    "Final application/conjunction and selected-frontier admission"
+  ],
+  "prepared_but_not_scientifically_executed": [
+    "PR5550 inventory adapter and positive-control/candidate launcher"
+  ],
+  "reason": "The serial primary replay exceeded its declared 600-second wall limit on the loaded host. No mathematical failure was observed; an incomplete replay is not a pass. Do not repeat unchanged resource attempts automatically.",
+  "next_action": "Plan a sufficient resource window or a stage-separated source-bound replay; retain the completed endpoint evidence. Then run the independent caller positive control/candidate comparison before admission."
+}

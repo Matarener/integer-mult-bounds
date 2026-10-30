@@ -1,0 +1,24 @@
+[
+  {
+    "after_sha256": "01da5270d47e9b9932a98c4511c5bd85e25324f64568126792b8c3fdcbb632a4",
+    "before_sha256": "4f5c0926b70edb5aef3af0f8a8d9fa8119fa7af6603df1721c0dc31760b08254",
+    "path": "replay.py",
+    "replacements": [
+      [
+        "len(rd(work/'ADMISSION-CONTROLS.json')['rejected_controls'])==139",
+        "len(rd(work/'ADMISSION-CONTROLS.json')['rejected_controls'])==rd(spec)['expected']['assembly_controls_rejected']"
+      ]
+    ]
+  },
+  {
+    "after_sha256": "bb518f3230c7d9e67f1b53e7d889a61502318deaa09f214949244477a27176bf",
+    "before_sha256": "30f775738b9ea19b8707df367b98c68f7ded893066ac53a579be1a4cca10795f",
+    "path": "verify.py",
+    "replacements": [
+      [
+        "controls=dict(admission=139,bit=12,controller=15,independent_owner=8,geometry=6)",
+        "controls=dict(admission=rd(P/'new/SPEC.json')['expected']['assembly_controls_rejected'],bit=12,controller=15,independent_owner=8,geometry=6)"
+      ]
+    ]
+  }
+]

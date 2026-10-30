@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-isolated-exchange-floor/inputs/CONTROLLER.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Source replay and component closure, exhaustive budgeted exclusion of words of at most 19 ADDs on the 18-wire component (9 for each 9-wire part), witness replay on all Boolean inputs, four controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same exact exclusion and controls with assertions disabled; all checks use explicit exceptions."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Check the square step, the one-axis rollouts, the two-axis states and the visit bound."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Recompute one rollout, the square identity and one visit ratio independently."
+    }
+  ]
+}

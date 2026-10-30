@@ -4,6 +4,7 @@ from hashlib import sha256
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -101,6 +102,65 @@ class ExitCodes(unittest.TestCase):
         error = dict(coverage_error='Unsupported', uncovered=None)
         self.assertEqual(self.outcome(**error), 0)
         self.assertEqual(self.outcome(['--require-triggers'], **error), 1)
+
+
+class ExplicitFilePins(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        (self.root / 'certificates').mkdir()
+        (self.root / 'supplier/data').mkdir(parents=True)
+        (self.root / 'supplier/construction').mkdir()
+        (self.root / 'certificates/selected-result.json').write_text(
+            json.dumps({'source_manifest': 'manifest.json'}))
+        self.digest = sha256(b'frozen').hexdigest()
+        self.manifest = {'format': 'repository-files-sha256-v1', 'files': {
+            'supplier/data/UPSTREAM-PINS.json': self.digest,
+            'frozen/proof.md': self.digest},
+            'replay_inputs': {'original/proof.md': 'frozen/proof.md'}}
+        self.pins = self.root / 'supplier/data/UPSTREAM-PINS.json'
+        self.pins.write_text(json.dumps({'original/proof.md': self.digest,
+                                         'external.py': self.digest}))
+        self.save()
+
+    def save(self):
+        (self.root / 'manifest.json').write_text(json.dumps(self.manifest))
+
+    def test_remapped_source_and_external_pin(self):
+        self.assertEqual(guard.live_pins(self.root)[2], {'external.py': self.digest})
+        self.assertEqual(guard.drift(guard.live_pins(self.root)[2], self.root), ['external.py'])
+        (self.root / 'external.py').write_bytes(b'frozen')
+        self.assertEqual(guard.drift(guard.live_pins(self.root)[2], self.root), [])
+
+    def test_unexported_neighbor_does_not_add_pins(self):
+        (self.root / 'supplier/construction/INPUTS.json').write_text('invalid JSON')
+        self.assertEqual(guard.live_pins(self.root)[2], {'external.py': self.digest})
+
+    def test_remapped_digest_conflict_is_rejected(self):
+        self.manifest['files']['frozen/proof.md'] = '0' * 64
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'selected source inventory'):
+            guard.live_pins(self.root)
+
+    def test_explicit_pin_map_cannot_disappear(self):
+        self.pins.unlink()
+        with self.assertRaises(FileNotFoundError):
+            guard.live_pins(self.root)
+
+    def test_external_conflict_is_rejected(self):
+        name = 'supplier/construction/INPUTS.json'
+        self.manifest['files'][name] = self.digest
+        self.save()
+        (self.root / name).write_text(json.dumps({'files': {'main': {'external.py': '0' * 64}}}))
+        with self.assertRaisesRegex(ValueError, 'Conflicting live pins'):
+            guard.live_pins(self.root)
+
+    def test_unknown_format_does_not_silently_skip_pins(self):
+        self.manifest['format'] = 'unknown'
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'Unsupported selected source manifest'):
+            guard.live_pins(self.root)
 
 
 class Skeleton(unittest.TestCase):
@@ -341,6 +401,23 @@ class Globs(unittest.TestCase):
             with self.subTest(patterns=patterns, name=name):
                 self.assertEqual(guard.triggers(patterns, name), expected)
 
+    def test_github_path_filters_match_whole_paths_including_newlines(self):
+        cases = [
+            (['proof.md'], 'proof.md\n', False),
+            (['proof.md\n'], 'proof.md\n', True),
+            (['supplier/**'], 'supplier/line\nbreak.md', True),
+            (['supplier/**/proof.md'], 'supplier/line\nbreak/proof.md', True),
+            (['supplier/**/proof.md'], 'supplier/proof.md', True),
+            (['supplier/*'], 'supplier/line\nbreak.md', True),
+            (['supplier/*'], 'supplier/line\nbreak/proof.md', False),
+            (['supplier/**', '!supplier/*'], 'supplier/line\nbreak.md', False),
+            (['supplier/**', '!supplier/**', 'supplier/*'], 'supplier/line\nbreak.md', True),
+            (['supplier/**', '!supplier/proof.md'], 'supplier/proof.md\n', True),
+        ]
+        for patterns, name, expected in cases:
+            with self.subTest(patterns=patterns, name=name):
+                self.assertEqual(guard.triggers(patterns, name), expected)
+
     def test_unsupported_syntax_fails_closed(self):
         for pattern in ('research/[ab]/**', 'scripts/verify_?.py', 'research/CORE-23+.json', 'a/{b,c}'):
             with self.subTest(pattern=pattern), self.assertRaises(ValueError):
@@ -356,7 +433,7 @@ class Globs(unittest.TestCase):
         self.assertIsNone(guard.event_paths(text, 'schedule'))
 
 
-class BranchFilterCLI(unittest.TestCase):
+class TriggerFilterCLI(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
@@ -407,6 +484,53 @@ class BranchFilterCLI(unittest.TestCase):
                             self.assertIn(event + ' branch filter excludes main', result.stdout)
                         else:
                             self.assertNotIn('ADVISORY:', result.stdout)
+
+    @unittest.skipIf(os.name == 'nt', 'Windows filenames cannot contain LF')
+    def test_newline_paths_through_the_real_cli(self):
+        command = [sys.executable, '-B', str(ROOT / 'scripts/check_selected_ci_inputs.py'),
+                   '--root', str(self.root)]
+        workflow = self.root / '.github/workflows/replay.yml'
+        ordinary = ['scripts/**', 'certificates/**', 'certificate.json', 'manifest.json',
+                    '.github/workflows/**', 'supplier/proof.md']
+        original_manifest = (self.root / 'manifest.json').read_bytes()
+        cases = [
+            ('supplier/proof.md\n', 'supplier/proof.md', False),
+            ('supplier/line\nbreak.md', 'supplier/**', True),
+            ('supplier/line\nbreak/proof.md', 'supplier/**/proof.md', True),
+        ]
+        for name, pattern, covered in cases:
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'inventoried input\n')
+            manifest = json.loads(original_manifest)
+            manifest['files'][name] = sha256(path.read_bytes()).hexdigest()
+            (self.root / 'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+            try:
+                for event in guard.EVENTS:
+                    text = 'on:\n'
+                    for kind in guard.EVENTS:
+                        text += '  ' + kind + ':\n'
+                        if kind == event:
+                            text += '    paths: ' + json.dumps(ordinary + [pattern]) + '\n'
+                    text += 'jobs:\n  replay:\n    steps:\n      - run: python scripts/replay.py\n'
+                    workflow.write_text(text, encoding='utf-8')
+                    for required in (False, True):
+                        with self.subTest(name=name, event=event, required=required):
+                            result = subprocess.run(command + (['--require-triggers'] if required else []),
+                                                    check=False, capture_output=True, text=True, timeout=30)
+                            self.assertEqual(result.returncode, int(required and not covered),
+                                             result.stdout + result.stderr)
+                            report, _ = json.JSONDecoder().raw_decode(result.stdout)
+                            self.assertEqual(report['record_failures'], {})
+                            self.assertIsNone(report['coverage_error'])
+                            self.assertEqual(report['uncovered'],
+                                             {kind: [name] if kind == event and not covered else []
+                                              for kind in guard.EVENTS})
+                            marker = 'FAIL_SELECTED_CI_INPUTS' if required and not covered else 'PASS_SELECTED_CI_INPUTS'
+                            self.assertEqual(result.stdout.splitlines()[-1], marker)
+            finally:
+                path.unlink()
+                (self.root / 'manifest.json').write_bytes(original_manifest)
 
 
 if __name__ == '__main__':

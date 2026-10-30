@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the actual PR3945 consumer columns of helpers 600 and 601, is there one common native frame where the two coefficient columns are equal or opposite?",
+  "scope_change_reason": "The drawn card was p104-side-correction. Its named first experiment, one #2981 collection with times, coefficients and dirty restoration, is already open for flag 0 in #3915, #3669 and #3683, and the same present-head scanner covers flags 1, 9 and 43. Repeating that scan is the card's pending-follow-up trigger. The second suggestion is this rank-shape card. Its ideal rank-16 ceiling already clears the 5% screen in levers.py, and repacking the selected word's idle remainder is a stated scope-change trigger. The live handoff at discussion 1166 comment 19038903 names an unclaimed test on this same alphabet: signed proportionality of the complete consumer columns of actual helpers 600 and 601. This package runs that test and stops.",
+  "bottleneck_link": "Helpers 600 and 601 are two of the four actual rank-4 climbs whose one-call rank-16 transfer is already blocked. A same-frame signed capture would be a copy saving on that fixed alphabet. If their consumer columns are not equal or opposite, that capture cannot replace either climb, so the group's effective child rank stays four rank-4 calls.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop when every consumer add of helpers 600 and 601 on both frozen words is classified at its frame. Do not emit a capture, retimed provider or search of other helpers.",
+  "outcome": "negative-result",
+  "evidence": "Both frozen words, SHA-256 08e6c96fbe3dfec96cb8451b3867ef8c1a214109ecd1e5af7fcc28e0f05728d0 and d83c2ec9cecc0ad092d34ea4080b28a4fd7199579356b6d5a8fc6cd53ff93299, give the same frame-(45,) columns. In consumer order 123,175,183,202 the signs are 600=(-1,+1,+1,-1) and 601=(+1,+1,+1,+1). Both ratios +1 and -1 occur, so no single sign matches them. The same split occurs for every pair among 600,601,602,604. A one-entry sign flip of 601 makes it equal to 600, so the checker is not vacuously negative.",
+  "author": "Riquelme Soares (@hevlyo)",
+  "ai_assistance": "Substantial AI assistance was used for the overlap check, column extraction, verifier and write-up. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can a capture that keeps the disagreeing consumers 123 and 202, and merges only the agreeing consumers 175 and 183, reduce the complete child and restoration bill?",
+      "why_it_matters": "Those two consumers already have the same sign on helpers 600 and 601, but the other two do not, so a full-column capture is impossible. A partial merge would still leave both helpers alive.",
+      "first_step": "Price one explicit partial capture of consumers 175 and 183 only, including its cleanup, and compare it with the 0.03825 allowance recorded by PR4045.",
+      "blocked_by": "No such partial map is exhibited, and both helpers remain necessary for consumers 123 and 202."
+    }
+  ]
+}

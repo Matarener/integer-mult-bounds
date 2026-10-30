@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Answer Open next question 2 of ywz65 PR2627: accelerate the remaining 209 Q-rank calls in the complete PR2017 replay, retaining its K adapter, F4 calls and all original checks.",
+  "scope_change_reason": "The runtime card is refined to the explicit rational-arithmetic performance question in PR2627. This contributes a new optional adapter rather than auditing the predecessor theorem.",
+  "bottleneck_link": "An exact faster opt-in replay reduces the measured check latency. It adds no mathematics to the cited cost-40 theorem and changes no supplier or selected frontier.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first output-identical improvement exceeding observed timing noise, or a documented dead end. Do not optimize another field or extend a mathematical census.",
+  "outcome": "completed",
+  "evidence": "BENCHMARK.json: six alternating fresh-process pairs, no errors, full stdout byte equality; median 0.4368235835 to 0.2827440000 seconds. verify.py covers the 209 actual Q calls and 1798 minor-oracle matrices. integrity.py rejects three source corruptions before import.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the same Q-rank adapter help another named complete replay with larger ranks or coefficient heights?",
+      "why_it_matters": "This measurement does not imply a general performance policy.",
+      "first_step": "Capture that actual ordered matrix census and compare complete matched fresh-process runs before proposing adoption.",
+      "blocked_by": "A separate concrete consumer, height bounds and full workload measurements."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19220187",
+  "first_working_command": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -B scripts/research_selected_baseline.py -> PASS_RESEARCH_BASELINE_BINDINGS_ONLY"
+}

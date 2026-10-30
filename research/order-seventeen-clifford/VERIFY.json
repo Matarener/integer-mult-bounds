@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete order-17 matrix certificate, signed Pauli action, Bell rank eight, seven hypothesis controls and retained source digests."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete order-17 matrix certificate, signed Pauli action, Bell rank eight, seven hypothesis controls and retained source digests. Optimized Python control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent unreduced Gaussian integer order-17 certificate and signed Pauli/Bell block check; no primary checker imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "-O",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent unreduced Gaussian integer order-17 certificate and signed Pauli/Bell block check; no primary checker imports. Optimized Python control."
+    }
+  ]
+}

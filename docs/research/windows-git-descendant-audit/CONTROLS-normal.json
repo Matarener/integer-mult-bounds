@@ -1,0 +1,25 @@
+{
+  "status": "REJECTED_ALL_THREE_MUTATIONS",
+  "optimized": 0,
+  "completed_at_utc": "2026-10-24T22:36:21.440649+00:00",
+  "source_sha256": "84a45190a6a96c20993a0d4a1045fbf24de660d2e6fef8f8a447bb3d1aa78db6",
+  "controls_sha256": "2a4ba94055f18475c1a4a4939eb273c9cc11cb2f8c120c08063955f53f1e7611",
+  "probe_sha256": "8a2b151eb9de33ac8a7a04e6dbf59b056996657e6e1460f43e0e071fe3b22f39",
+  "controls": [
+    {
+      "name": "no-watchdog",
+      "rejection": "fixture timed out: watchdog callback",
+      "mutant_sha256": "b08eb554f8a8584aeed1c97a2520782d70ca0d152f50d338313e09eba8d357f0"
+    },
+    {
+      "name": "wrong-timeout-class",
+      "rejection": "expected timeout after EOF/stop",
+      "mutant_sha256": "79287b16820fc4b1b2bc61082e03d8695414d9e0cad98d7df8f37c2b112e72f6"
+    },
+    {
+      "name": "changed-binary-payload",
+      "rejection": "binary reply changed",
+      "mutant_sha256": "6ab41633de237893402fe915b320e352e017b6b3c6dc31eb1e079ddc90ab6132"
+    }
+  ]
+}

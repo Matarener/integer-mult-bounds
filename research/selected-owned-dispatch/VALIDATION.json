@@ -1,0 +1,29 @@
+{
+  "base": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "commands": [
+    {
+      "command": "python3.12 -B scripts/research_package.py --package research/selected-owned-dispatch --check-only",
+      "result": "PASS_PACKAGE_METADATA_AND_PINS"
+    },
+    {
+      "command": "python3.12 -B scripts/research_package.py --package research/selected-owned-dispatch",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE; normal and isolated optimized scientific receipts identical"
+    }
+  ],
+  "committed_export": {
+    "archive_sha256": "0adaa909af4c84fd48a7161608454d3e937a78f38bdae380b4c186b256ebf18c",
+    "declared_inputs": 30,
+    "files": 56,
+    "no_git": true,
+    "publication_delta": "The following commit only adds this export validation receipt; scientific code, proof and inputs are unchanged.",
+    "read_only": true,
+    "reproduce": "Export research/selected-owned-dispatch at25a706acc366a9854ef313d26585e6bfadafd2ba with scripts/export_research_package.py, check with --check-inputs, extract, then run its direct verify.py in normal and -I -O modes.",
+    "result": "PASS normal and isolated optimized Git-free read-only export",
+    "scientific_commit": "25a706acc366a9854ef313d26585e6bfadafd2ba"
+  },
+  "overlap": "Discussion5009 unchanged except our claim; targeted recent PR review includes5813 at af37059809ae41283142c6aeb217cc456852aff1, a distinct spectral/precision construction explicitly retaining all five assumptions.",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "scope": "Scoped physical refinement and ownership-source checks; no selected full replay, native child execution, full multiplier, formal kernel proof or hosted CI result claimed.",
+  "upstream_refresh": "Canonical main unchanged at de5ec2e7a6074068452f45b1a191b5c72832df4a before submission."
+}

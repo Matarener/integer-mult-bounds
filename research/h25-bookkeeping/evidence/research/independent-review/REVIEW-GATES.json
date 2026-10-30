@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "review_status": "ALL_THREE_PRIMARY_DESIGNS_ADMITTED_IMPLEMENTATION_AND_MEASUREMENT_PENDING",
+  "review_date": "2026-10-28",
+  "execution_performed": false,
+  "baseline": {
+    "pr": 5995,
+    "head": "4f4159820c37f01d245784d1186bd51fcbc8ebb6",
+    "arm": "Frozen full_driver.py --mode candidate; native C plus all original controls",
+    "older_python_arm_eligible_as_new_baseline": false,
+    "original_files_protected": 123,
+    "historical_timings_are_orientation_only": true
+  },
+  "contract_sources": [
+    "PLAN.md",
+    "PLAN.json",
+    "control/BASELINE.json",
+    "baseline/full_driver.py:144-346",
+    "baseline/engine/native_backend.py:1-386",
+    "baseline/engine/native_gf2.c:1-209",
+    "baseline/engine/finite_controls.py:1-456",
+    "baseline/engine/source/complex_circuit.py:219-348",
+    "baseline/engine/source/complex_network.py:90-120",
+    "baseline/anchor.json"
+  ],
+  "gates": [
+    {
+      "id": "BASELINE_IDENTITY",
+      "status": "REQUIRED_AT_INTEGRATION",
+      "requirements": [
+        "PR5995 native configuration, unchanged original controls and observations",
+        "New driver/source identity kept separate from immutable original closure and scientific anchor",
+        "Fresh same-session baseline; no old Python comparison or inherited speed percentage",
+        "Reference implementations cannot resolve candidate helpers through shared global mutations"
+      ]
+    },
+    {
+      "id": "P1_SET_REUSE",
+      "status": "ACCEPT_REVISION_2_FOR_IMPLEMENTATION_CORRECTNESS_UNPROVEN",
+      "source_promising_route": "Per-invocation private sets constructed after untouched verify_map prefix; retain both original ordered all-pair predicates",
+      "blockers_to_resolve": [
+        "Exact tuples and ints alone do not establish whole-tail ownership or exclude mutation through other fields/callbacks",
+        "Native per-kernel no-mutation policy cannot silently become a whole-verify_map lease",
+        "Fallback after prefix must not rerun prefix or change its exception ordering"
+      ],
+      "minimal_repairs": [
+        "Define source-bound frozen caller ownership and callback-free optimized tail, with safe admission or literal tail fallback",
+        "No caller-visible or persistent sets, no reuse across mutated invocations",
+        "Preserve source predicates, coefficient tests, target order and exact original result"
+      ],
+      "new_controls": [
+        "Valid bounded original-vs-candidate complete map results",
+        "Corrupt support topology, overlap, coefficient and expected target masks",
+        "Mutated triples between calls and unsupported subclass/custom/callback fixtures",
+        "Prefix executes once and prior failure ordering is unchanged",
+        "Independent intersection expectations do not reuse candidate cached-set helper"
+      ],
+      "costs_unknown": [
+        "admission",
+        "source and ownership checks",
+        "set allocation and cleanup",
+        "new controls"
+      ]
+    },
+    {
+      "id": "P2_RUNTIME_GUARDS",
+      "status": "ACCEPT_FOR_IMPLEMENTATION_CORRECTNESS_UNPROVEN",
+      "source_promising_route": "First-occurrence identity deduplication of function records plus failure-only error strings",
+      "retained_boundaries": [
+        "RuntimeGuard initialization",
+        "every complement entry before trace/native/fallback",
+        "every nondegenerate entry before native/fallback",
+        "final full-driver check"
+      ],
+      "retained_checks": [
+        "source module dispatch and namespace identity",
+        "Label type and MRO",
+        "every source global slot",
+        "every builtin slot and source shadow",
+        "class member count and every member identity",
+        "every distinct function code/globals/effective builtins/defaults/kwdefaults/closure",
+        "every captured closure cell and value",
+        "native module type and every native entry slot"
+      ],
+      "blockers": [
+        "cached PASS or once-per-run freshness",
+        "deduplication by equality rather than identity",
+        "removing separate slot checks",
+        "changing first rejection ordering or executing modified callbacks"
+      ],
+      "new_controls": [
+        "structural equality of old distinct record set and candidate records",
+        "each distinct field/cell/slot mutation rejected before both native and fallback",
+        "same RuntimeError message and first-failure ordering",
+        "zero modified helper calls and unchanged counters on rejection"
+      ],
+      "costs_unknown": [
+        "guard construction and dedup",
+        "new controls",
+        "optional native guard build and ownership costs if proposed"
+      ]
+    },
+    {
+      "id": "P3_TRACE_ENCODING",
+      "status": "ACCEPT_FOR_IMPLEMENTATION_CORRECTNESS_UNPROVEN",
+      "source_promising_route": "Stateless bounded native canonical-record bytes plus unchanged JSON fallback, immediate original hash update and counter order",
+      "retained_semantics": [
+        "exact input admission",
+        "snapshot before arithmetic",
+        "ordered values and exact output list-or-None types",
+        "canonical sorted-key ASCII compact JSON plus newline",
+        "current call index",
+        "hasher update then bytes then count",
+        "immediate receipt and public hash prefix",
+        "prior prefix on validation/encoding failure",
+        "arbitrary-width fallback including decimal conversion error behavior"
+      ],
+      "blockers_to_resolve": [
+        "native encoder entry missing freshness coverage",
+        "buffering across records while hasher/count/bytes remain visible",
+        "claimed changed-JSON-hook support without matching admission/fallback",
+        "holding mutable output/input aliases past the original after boundary"
+      ],
+      "new_controls": [
+        "literal baseline record-byte equality",
+        "prefix receipt equality after every record",
+        "None versus empty list and reordered input/output negatives",
+        "bounds at 0, 2**64-1, 2**64 and vector length 64/65",
+        "negative and huge exact integers through fallback",
+        "bool/subclass/invalid output errors",
+        "encoding/hash-failure prefix and counter ordering",
+        "new encoder-entry drift rejection"
+      ],
+      "costs_unknown": [
+        "cold compile/link/load",
+        "encoding and allocations",
+        "fallback admission",
+        "new freshness checks",
+        "new finite controls"
+      ]
+    },
+    {
+      "id": "COMBINED_INTERACTION",
+      "status": "REQUIRED_AFTER_ALL_PROPOSALS",
+      "requirements": [
+        "Finalize all wrappers and native/trace helpers before RuntimeGuard captures function and closure identities",
+        "Keep per-invocation set ownership, per-binding guard ownership and per-stream trace ownership distinct",
+        "No candidate replacement of baseline/reference helpers in common process/module environment",
+        "Retain full union of old and new controls, source checks, observations, cleanup and failure evidence",
+        "Verify exact source/import/certificate/stdout/typed return/witness/rank/complement anchor and full native coverage"
+      ]
+    },
+    {
+      "id": "COMPLETE_COST_AND_PERFORMANCE",
+      "status": "UNMEASURED",
+      "parent_only_serial_queue": true,
+      "sequence": [
+        "B1",
+        "C1",
+        "C2",
+        "B2",
+        "B3",
+        "C3"
+      ],
+      "wall_reduction_minimum": 0.15,
+      "cpu_reduction_minimum": 0.15,
+      "each_median_saving_must_exceed_max_within_arm_range": true,
+      "individual_lane_reduction_minimum": null,
+      "complete_bill": [
+        "cold process/import/copy/source custody",
+        "baseline native cold build/link/load",
+        "all original controls",
+        "new compilation/binding/admission/controls",
+        "original complete CLI and all retained observations",
+        "serialization/output/final checks",
+        "cleanup within declared harness boundary",
+        "all failed attempts in resource ledger"
+      ],
+      "excluded_claims": [
+        "component timings establish complete gain",
+        "nested phase timings are additive",
+        "publication wrapper run is scientific performance sample",
+        "finite controls establish universal correctness",
+        "scoped stop completes an unmet combined performance target"
+      ]
+    }
+  ],
+  "required_execution_modes": {
+    "finite": [
+      "normal",
+      "optimized"
+    ],
+    "complete_cli": "assertion-on"
+  },
+  "review_limits": [
+    "source-only mapping, no execution",
+    "current-main and bounded live overlap are parent-provided, not an exhaustive novelty proof",
+    "no general sandbox or concurrent-mutation theorem",
+    "all cost estimates remain unmeasured"
+  ],
+  "proposal_review_file": "PROPOSAL-REVIEW.json",
+  "p1_lease_contract": "P1-LEASE-CONTRACT.md",
+  "call_budget_review": {
+    "P2": "SOURCE_COUNTS_ACCEPTED",
+    "P3": "SOURCE_COUNTS_ACCEPTED",
+    "P1": "SOURCE_COUNTS_ACCEPTED",
+    "combined": "Parent must revise counts for changed guard or adapter interfaces; counts do not establish speed"
+  },
+  "call_budget_review_file": "CALL-BUDGET-REVIEW.json"
+}

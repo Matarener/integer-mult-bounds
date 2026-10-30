@@ -1,0 +1,15 @@
+case g=5 L=7: exact tensor product reproduced; sum|F|=28812 = sum|U_i|; g|U|=74035 (x2.57); moves=336140 <= 950796; rounds=5
+case g=4 L=6: exact tensor product reproduced; sum|F|=1944 = sum|U_i|; g|U|=4416 (x2.27); moves=18360 <= 58320; rounds=4
+case g=6 L=5: exact tensor product reproduced; sum|F|=40625 = sum|U_i|; g|U|=90834 (x2.24); moves=459375 <= 1340625; rounds=6
+case g=3 L=8: exact tensor product reproduced; sum|F|=512 = sum|U_i|; g|U|=1086 (x2.12); moves=5120 <= 15360; rounds=3
+PASS_UNION_SCHEDULE
+Traceback (most recent call last):
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admission/package/outer/check_gaugefree.py", line 13, in <module>
+    import sympy as sp, mpmath as mp, numpy as np
+ModuleNotFoundError: No module named 'sympy'
+Traceback (most recent call last):
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admission/package/outer/run_outer.py", line 20, in <module>
+    subprocess.run([sys.executable, '-B', str(P / 'outer/check_gaugefree.py')], check=True, stdout=subprocess.DEVNULL)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '-B', '/workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admission/package/outer/check_gaugefree.py']' returned non-zero exit status 1.

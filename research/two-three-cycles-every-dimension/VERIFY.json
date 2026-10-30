@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Involution of all 120 paid calls at n=5, R=2; rank(I+N)=R-1 at R=2,3; single-write projection identity on 150 random n=5 words; restriction, quotient and transpose maps on 60 random words each; exhaustive single-write rank consequence on all 368,136 reduced n=4 words of length <= 3; 12-call upper word; counting step and residual profiles; corrupted-projection control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same checks with assertions disabled; verification uses explicit failures, not assert."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "A twelve-call diagonal word and a fourteen-call predecessor both realize diag(Z_1, Z_w, Z_w^2) on the upper-triangular group of order 64, and one extra register stays fixed.",
+  "scope_change_reason": "The length-11 exclusion is a different argument. This package checks these two words. It does not search shorter words.",
+  "bottleneck_link": "Both words realize the three central outputs, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record these two words. Do not search shorter words.",
+  "outcome": "partial",
+  "evidence": "The twelve-call word uses six X labels and six Y labels. The predecessor uses fourteen calls. Both act correctly on every group element, including one spectator.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "These words attain the diagonal. A shorter word would leave them."
+}

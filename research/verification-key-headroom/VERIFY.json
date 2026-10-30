@@ -1,0 +1,57 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "finite"
+      ],
+      "checks": "Fresh unchanged key comparator plus all82 finite/reference/ownership/collision/FIFO checks; Linux64 CPython3.12 and existing cc/headers; no benchmark or full capture.",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py",
+        "finite"
+      ],
+      "checks": "Same fresh finite controls under deliberate optimization; explicit guards remain active and source compile inherits -O.",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "data"
+      ],
+      "checks": "Authenticate committed data then stream all2579750 exact keys through literal dict/deque and compare every canonical ID, flag, prefix and payload hash; strict plain pickle/EOF; no C or timing.",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "context"
+      ],
+      "checks": "Source-only external reconstruction: exact164baseline/177stage bytes and modes, complete C inverse, reference pins and officialPR5864 archive equality; no scientific imports or execution.",
+      "timeout_seconds": 60
+    }
+  ],
+  "inputs": [
+    "research/c-verification-feasibility/inputs/PR5864.tar",
+    "research/verification-key-headroom/data/DATA.json",
+    "research/verification-key-headroom/data/actual-keys-v1.pickle.gz",
+    "research/verification-key-headroom/data/canonical-flags.u8.gz",
+    "research/verification-key-headroom/data/canonical-ids.u64.gz",
+    "research/verification-key-headroom/data/canonical-prefixes.json.gz"
+  ],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

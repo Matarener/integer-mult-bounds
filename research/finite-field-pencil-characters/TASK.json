@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Complete determinant images, SL labels and literal corrections for supplied finite-field Kronecker models, including regular blocks without an invertible rational slice and all regular/singular mixing.",
+  "scope_change_reason": "The released PR5250/5672/5683 handoff requires a written finite-field theorem and exact evidence, not a Lean formalization. Per-primary chart normalization removes the missing global-slice premise.",
+  "bottleneck_link": "Exact tensor-atlas admissibility and map correction can screen alternatives without accepting invalid determinant classes. A physical caller and all its costs are still required; no kappa gain is inferred.",
+  "budget_minutes": 120,
+  "stop_rule": "Complete the supplied-model theorem and bounded independent checks. Do not add arbitrary-tensor extraction or an unpriced physical caller.",
+  "outcome": "completed",
+  "evidence": "PROOF.md and RESULT.json: 27 models, 320 Hom cases, 52807 literal solutions, 2194 admitted slice lifts, 7450 prescribed-action witnesses and 239 SL corrections.",
+  "author": "Ali Romman with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance for proof, implementation, exact verification and publication. No subagents.",
+  "open_questions": [
+    {
+      "question": "Can an arbitrary rectangular pencil be reduced to this model with checked row, column and slice maps?",
+      "why_it_matters": "The input currently supplies a complete Kronecker model.",
+      "first_step": "Pin an exact canonical-form algorithm and return literal factor maps, including zero indices and regular infinity blocks.",
+      "blocked_by": "Constructive model extraction, not the supplied-model determinant theorem."
+    },
+    {
+      "question": "Which native multiplication interface can use a classified pencil?",
+      "why_it_matters": "A tensor stabilizer does not provide a paid supplier.",
+      "first_step": "Name the actual producer and consumer, and charge native maps, ownership, routes, restoration, storage and precision.",
+      "blocked_by": "A complete physical construction and recursive bill."
+    }
+  ]
+}

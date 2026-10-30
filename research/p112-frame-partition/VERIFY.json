@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate the source, enumerate all 4,032 frames, check seven generator actions and both orbits, the thirteen-frame packing and twelve controls. Bounded iterative DLX exhausts the all-special and canonical ordinary cases."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Separate dense nine-coordinate frame enumeration and BFS orbits. A separately compiled active-row/count search exhausts the unfixed all-special case and the complete canonical ordinary case."
+    }
+  ]
+}

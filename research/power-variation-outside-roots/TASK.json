@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "task_id": "independent-moment",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "independent-moment",
+    "question": "Does a changed construction's serialized target/paid invoice independently support its claimed improvement?",
+    "starting_points": [
+      "docs/research/current-priorities.md",
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+      "docs/research/recursive-invoice-preflight.md"
+    ],
+    "methods": [
+      "Construct and independently check one source-bound instance of the stated first experiment.",
+      "Seek an exact counterexample or target-specific complete-budget obstruction to that same proposed change."
+    ],
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls. Name the existing checks and the missing coverage. More digits or another equivalent evaluation of an unchanged root is not by itself new verification coverage.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read revision 8, the selected review and live exact-source handoffs. Then follow this card's bounded first_experiment.",
+      "scope": "Source-bound orientation only, not a supplier replay or theorem proof."
+    },
+    "first_experiment": "Independently recount one changed emitted word and its complete caller, importing no constructor or pricing engine. Include target losses, owned lifetimes, native orientation and extra charges. Check existing #5633/#5708/#5717/#5719 coverage to avoid duplicate audits and preserve its exact head. Stop after the chosen missing implication; a correct root alone is not supplier admission.",
+    "bottleneck_link": "Judge the actual current supplier contract and complete signed target/paid bill; frozen-profile ceilings require an applicability proof.",
+    "allowed_variations": [
+      "One exact source head, helper/cut region or quantified proposition and changed hypothesis; check live handoffs first. Different seeds are not different scopes."
+    ],
+    "scope_change_triggers": [
+      "Changing source head, helper/cut domain, operation alphabet or caller boundary without recording the new scope.",
+      "Treating an archived proposal or local numerical pass as complete supplier admission."
+    ],
+    "overlap_terms": [
+      "invoice",
+      "signed moment",
+      "productive target",
+      "independent recount"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4088: mixed local/owner/phase ledger and moment reported.",
+        "evidence": "research/staged544-mixed-fourth-entry/README.md",
+        "remaining": "Independent binding of changed construction to paid histogram, distinct from full admission.",
+        "status": "author-checked",
+        "source_commit": "72d7efc181edb21806a878f174847c96dd410ab0",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4091: sharp pooled ceiling proposed for fixed THREE/FOUR words and inventory.",
+        "evidence": "research/staged-fourth-mixture-ceiling/README.md",
+        "remaining": "Validate dual, exhaustive pattern scope and exact source equivalence before applying to newer fills.",
+        "status": "author-checked",
+        "source_commit": "a29bdd8f56cd18b805917775cdec09ff935eddc4",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4067: paid (2,2) to (1,3) exchange and fixed OQ4 host reported.",
+        "evidence": "research/r437-two-window-carrier/README.md",
+        "remaining": "Independent full cost delta; remaining caller/precision/stock obligations are separate.",
+        "status": "author-checked",
+        "source_commit": "a95f11c52e3ca1e4c5171b3c20d8f4b0815aee2e",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "Selected PR5599: complete helper-subspace construction and independent caller replay; five framework assumptions remain.",
+        "evidence": "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+        "remaining": "The next experiment must identify uncovered source-specific work. Successor archive intake does not transfer this admission.",
+        "status": "reviewed",
+        "source_commit": "09dd0965711ca7eeb169057a420abab1c9052137",
+        "selected_record_sha256": "2a0220e866417774606e0f991e41b9c1d26b1f43b97857238cf478dbc7d330b5"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Invoice-order certificate tooling: spend the generalized Descartes root budget of PR5788's general-rank power-variation comparator on exactly witnessed roots at t<0 and t>1, then close the interior count on the reduced budget.",
+  "scope_change_reason": "The card asks for an independent recount of a changed construction's invoice. This package instead answers the Open next question of docs/research/recursive-power-variation.md (PR5788): proving outside-domain roots so an unspent budget can be closed. It strengthens the certificate that such invoice comparisons use; it recounts no construction.",
+  "bottleneck_link": "Revision 8 asks contributors to compare complete paid and target power sums over the whole exponent interval; PR5788's certificate is the general-rank tool for that and returns inconclusive when roots lie outside 0<t<1. This removes that cause of inconclusive reports. Side result for the accounting tools; it does not change any supplier bill or kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first sound outside-witness rule verified against an independent factored oracle with failure controls; leave finer outside brackets, source invoices and touching roots as open questions.",
+  "outcome": "completed",
+  "evidence": "verify.py: 2 motivating fixtures move from inconclusive to uniformly_lower; factored oracle census of 4455 invoices: predecessor 391 certified, extension 2987, newly settled 2596, 0 false certificates, 0 budget overruns, 0 changed predecessor verdicts; two mutation controls rejected.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can rational points outside [0,1] separate two outside roots in one unit interval?",
+      "why_it_matters": "Same-interval outside roots leave the budget unspent and the report inconclusive.",
+      "first_step": "Extend directed power enclosures to r^(k+s) for integer k and 0<s<1, then test (2^t-5/2)(3^t-4), whose roots both lie in (1,2).",
+      "blocked_by": "scripts/evaluate_recursive_power.py accepts only 0<t<1."
+    },
+    {
+      "question": "Does any committed paid-minus-target invoice left inconclusive by PR5788 become certified with outside witnesses?",
+      "why_it_matters": "A source-bound case would show the rule matters for an actual comparison, not only for fixtures.",
+      "first_step": "Export the pinned P104 ledger with the #5735 selected-invoice tool and run outside_roots.py on it and its declared edits.",
+      "blocked_by": "No source invoice was run in this package."
+    },
+    {
+      "question": "Can touching (even-multiplicity) interior roots be certified for general ranks?",
+      "why_it_matters": "They are the remaining cause of inconclusive reports when the budget is otherwise exhausted.",
+      "first_step": "Try an exact derivative-sign witness or a Sturm sequence on commensurable-exponent subfamilies.",
+      "blocked_by": "No general exact root-isolation method for exponential sums is implemented here."
+    }
+  ]
+}

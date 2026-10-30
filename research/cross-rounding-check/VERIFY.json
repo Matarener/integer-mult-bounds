@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "#4449: exact exponent identity n=exp(-pi j/k) on 24,000 random cases, j>0 off-diagonal, second form, period cut, repair lemma against every admissible grid oracle output (794 cases), one-ulp counterexample, sharpness of 4, 8W eta row bound."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned geometry, expandedI224, exact729x800 tariffs and typed receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 35 dictionary minors and 127 rational support subsets, independent coordinate ranks and full receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-Werror",
+        "-O",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Literal half-integral operator, omissions, F3/F5 span requests, binary/rational distinction, capacities, duplicate keys and six actual optimized CLI corruptions"
+    }
+  ]
+}

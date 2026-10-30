@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact pinned canonical and symbolic all-strict-fit I334 expansions; all full-group tariffs and residual6+1 refinement; GF4 gauge/unit/cycle, changed-free strict fit and failed-intersection controls; complete bridge reader-kernel identities; immutable receipt. Quantified transfer is a separate written proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent all-strict-fit symbolic I334 coefficients and canonical geometry; finite-field and changed-free controls, residual completion, bridge endpoint/kernel identities and fault controls; immutable receipt and independent written proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/mixed_controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Literal mixed-transfer controls: replicated balanced gain square, preserved unbalanced repeated-gain cycle, mixed I3 with forbidden cancellations across orientations, and F4 nonzero-diagonal tree with consistent global row scaling. Default read-only receipt. Quantified transfer remains a separate written proof. Includes reader-column normalization for the mixed coefficient/actual-reader exact-endpoint companion."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper-subspace-splits/WORD.json.gz",
+    "research/p104-stochastic-prefix/PROOF.md",
+    "research/p104-stochastic-prefix/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact stochastic marginals and inverse identities, signed-half parity recovery, changing-source tiny protocols, full 9589-event source-bound compute/copy/uncompute and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same exact checks with assertions disabled."
+    }
+  ]
+}

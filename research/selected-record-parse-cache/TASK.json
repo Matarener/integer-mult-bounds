@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Time a hash-checked parse cache on the selected record and show that a one-digit change misses.",
+  "scope_change_reason": "The selected reproduction command is the full frontier replay. This measurement uses the selected record, which is one of the card's starting points, and does not run that replay.",
+  "bottleneck_link": "A hash-checked parse is faster on this record and still rejects a changed byte. The selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Time this one fixture. Do not run the frontier replay and do not drop the hash check to claim a larger speedup.",
+  "outcome": "partial",
+  "evidence": "Four thousand cached loads of the selected record are more than twice as fast as four thousand cold parses. A changed decimal digit misses, and restoring the bytes parses again.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The frontier baseline stage is a different replay. Timing it would leave this fixture."
+}

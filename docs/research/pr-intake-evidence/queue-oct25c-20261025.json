@@ -1,0 +1,3147 @@
+{
+  "schema_version": 1,
+  "baseline": "13be6ac685845c1ff671f5d26e7166165abd998e",
+  "scope": "10 exact heads; source/integrity intake only, with separately reviewed shared-tooling changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 5552,
+      "head": "fb607e2385980dd36cd4bfc53885cb2ffab5d5dc",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "Close the 24 coordinate-kernel span-six pools by a 3+1 restriction",
+      "author": {
+        "id": "MDQ6VXNlcjk0NjMxMDU=",
+        "is_bot": false,
+        "login": "NicholasStone",
+        "name": "Nicholas Stone"
+      },
+      "files": [
+        {
+          "path": "research/coordinate-kernel-span-six-closure/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bf20f5d4f906dcb037503c027fe21b4e5e8deb11"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coordinate-kernel-span-six-closure/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e6a3c5728ece99e13c2be64f155d13d14d25803"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coordinate-kernel-span-six-closure/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "57482bc9b568a8acad65166d167834319bfbac82"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coordinate-kernel-span-six-closure/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "81333e428357e724621f2e948bb017c54bc38ae8"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coordinate-kernel-span-six-closure/VALIDATION.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5bc14ee49d065bbceb537d11fbf2ff4b014dcde4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coordinate-kernel-span-six-closure/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cc40c991a901f36702844bab837ab47ed015ad3f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/coordinate-kernel-span-six-closure/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "affd795069159cca1534ec1061c9d4257bf0e20b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 4
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/coordinate-kernel-span-six-closure/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coordinate-kernel-span-six-closure/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coordinate-kernel-span-six-closure/SOURCES.json",
+          "path": "research/flagless-kernel-obstruction/PROOF.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/flagless-kernel-obstruction/PROOF.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coordinate-kernel-span-six-closure/SOURCES.json",
+          "path": "research/auxiliary-span-six-flag/README.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/auxiliary-span-six-flag/README.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/coordinate-kernel-span-six-closure/SOURCES.json",
+          "path": "research/three-register-no-target-flag/README.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/three-register-no-target-flag/README.md",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Change and mathematical scope\n\nPR #5231 leaves 24 coordinate-kernel pools unresolved for eight rank-one calls at address span six. This scoped written proof excludes that orbit: the literal projectors and every interleaved coordinate projector preserve a coordinate 3+1 decomposition. Relations of the triple subword inject into the full two-dimensional relation space. PR #720's disjoint-subset lemma bounds the triple's rank sum by its calls; the singleton has the complementary budget. Total rank is at most eight, contradicting three invertible 3-by-3 targets. Both singleton-data and singleton-auxiliary cases are covered.\n\nThe predecessor lemma is cited, not independently reproved. Combined span-six closure additionally depends on #4119, #5075 and #5231. Span five, additional auxiliaries, native costs and new kappa remain outside scope.\n\n## Task and overlap\n\nUser-selected #5231 handoff; refined bit-new-register-model scope, priority revision 7. Base: 13be6ac685845c1ff671f5d26e7166165abd998e. Head: fb607e2385980dd36cd4bfc53885cb2ffab5d5dc. Bounded live PR text searches found no overlapping closure; full Discussion pagination and arbitrary diffs were not searched.\n\n## Validation\n\nCPython 3.14.4 on macOS arm64: normal/optimized direct replay passes all 24 pools, 2,800 short formal words, seven inverse controls, model-boundary controls and a nine-call span-six positive control. The verifier authenticates three declared predecessor inputs. All five canonical source blob IDs were recomputed. Metadata validate(check_pins=False) passes in a local Git fixture. Seven published blobs",
+      "roots": [
+        "research/coordinate-kernel-span-six-closure"
+      ],
+      "installed": [
+        "research/coordinate-kernel-span-six-closure/PROOF.md",
+        "research/coordinate-kernel-span-six-closure/README.md",
+        "research/coordinate-kernel-span-six-closure/SOURCES.json",
+        "research/coordinate-kernel-span-six-closure/TASK.json",
+        "research/coordinate-kernel-span-six-closure/VALIDATION.json",
+        "research/coordinate-kernel-span-six-closure/VERIFY.json",
+        "research/coordinate-kernel-span-six-closure/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5553,
+      "head": "d0ac06f6fe72b83ea8bf3bac7f9e4d76bb25e2f1",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "Two successor hand-offs on the P104 word: conditional \u03ba 0.0030428242",
+      "author": {
+        "id": "U_kgDOClpS9w",
+        "is_bot": false,
+        "login": "DreamingOfClouds",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "research/p104-two-handoffs/LITERAL-CHANGES.diff",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d2e0fcf73ddc1e489bbcf73bbc6f8c6e377e8fd3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "eecf35927c87a119c47ef016d95cba09931b1e76"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6aff82c1a463695fa4fecc2a86a61102198e1347"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "97b6a6a322b16a1f192c75439715aba9e29eaa1b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c975e0fa24da016b5960e33082c88d758223d10b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d3bc44466ed1c40855d15daac75542a666cae9a9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/WORD-VARIANT-A.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f3db5ee53356f70e73dd196efa42f4786d47b422"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b1c80d27f50e99fc15e02c6675525bc1a07006d7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/common.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4c32746826c27f2097e6c5b83b6678fb97519a47"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/handoff.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b0a5151dc5e07cf89706c42c19cab38631ffba81"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/inputs/pr5545-source-closure.tar.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3084088544d1e3136e1f38b8011b9e24edc969c6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/inputs/pr5551-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/inputs/pr5551-pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ef78de99ffe678dcf762bab0e784eab46d9331cf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/local.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "69ead9f46d02836e788e8b8c3d97260adfce5630"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e7708a6ac1b56ddd239d761800fd817e000a80f6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "09177f2897b11f6eacfb4d3338a87a70acc60ade"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-two-handoffs/verify.sh",
+          "source": {
+            "mode": "100755",
+            "kind": "blob",
+            "oid": "d7a4b8e1b5fcb162b86a1080f56049e2ae1fc1e8"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/wordram-ntt-kernel/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e43a2b044a0e98b9b7ea1634a6dde575f828a14"
+          },
+          "old_oid": "4ae0f65622d1159e1c8a051155c2ac9e2579238f",
+          "change": "M"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 6,
+        "json": 5
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/p104-two-handoffs/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-two-handoffs/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [
+        "research/wordram-ntt-kernel/VERIFY.json"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [
+        {
+          "author": {
+            "login": "DreamingOfClouds"
+          },
+          "body": "CI note: the **plan** failure was not this package. Current main's `research/wordram-ntt-kernel/VERIFY.json` declares the non-repo input `\"MANIFEST.json\"` (from #5466), which breaks `test_research_matrix_batches` for every new PR. Fixed separately in #5555; the same one-line fix is cherry-picked here so this PR's CI can run now. It will drop out cleanly once #5555 merges. No change to the claim or the package."
+        },
+        {
+          "author": {
+            "login": "DreamingOfClouds"
+          },
+          "body": "CI: `plan` and `replay (research/p104-two-handoffs)` pass. The remaining red job, `replay (research/wordram-ntt-kernel)`, is selected only because this branch carries the one-line main fix from #5555; that package's own replay fails independently of this PR. It drops out once #5555 (or an equivalent fix) lands on main and the cherry-pick is removed."
+        }
+      ],
+      "claim_excerpt": "Adds `research/p104-two-handoffs/`: two successor hand-offs on PR5551's P104 word, conditional complete kappa **.0030428242** (+1.29e-6 over #5551's .0030415312).\n\n**Conditional on** (a) the five framework assumptions retained by #5544/#5545/#5551; (b) #5551's validity (unreproduced at the time of writing); (c) admissibility of a fresh helper starting at a non-canonical mid frame. For (c), \"Variant A\" (helpers start at frames 608/613) passes the unmodified PR5545 `local.py`; the canonical-start rule exists only in the #4610 compact-width verifier. No independent human or proof-kernel acceptance is claimed; the selected record is unchanged.\n\n**Mechanism.** Helpers 473 (event 13725) and 531 (event 13941) end their first rank-1 climb at a dim-2 frame and then idle, with no other register holding their symbol. Following the successor hand-off of #5472, the rest of each helper's life moves to a fresh helper starting at that frame (8 -> 1+7, 7 -> 1+6). Pure rename: same 25,310 events, no new ADD, identical paid profile; productive fields 12,814 -> 12,850. By subadditivity the concave moment drops at all 18 calls.\n\n**Verify:** `research/p104-two-handoffs/verify.sh` (stdlib, Python 3.12). It regenerates the word from #5551's pinned word, checks `local.py`/`pricing.py` are literal-only edits (735->737, 743->745, 12814->12850, kappa constants; see `LITERAL-CHANGES.diff`), replays scalar/native/physical caller, and checks all 54 strict + 4 functional outer checks and the exact crossing interval (76070606559/25000000000000, 304282426237/100000000000000), for both the hand-off word and ",
+      "roots": [
+        "research/p104-two-handoffs",
+        "research/wordram-ntt-kernel"
+      ],
+      "installed": [],
+      "resolutions": {},
+      "lane": "waiting_revision",
+      "reason": "Advertised complete kappa .0030428242 is a truncation of the raw crossing, while pricing.py and the complete-cost receipt set KAPPA=.00304282 and TESTED=.0030428205. The larger headline exceeds even that tested supplier saving. State the actually certified .00304282 endpoint or regenerate the full strictification/outer certificate at the advertised value. Mid-frame-start admissibility and the #5551 parent remain explicit separate hypotheses, not discharged by an archive merge."
+    },
+    {
+      "number": 5554,
+      "head": "18c1770246340e9f4aaac5a9ebd712e23498d0a3",
+      "merge_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "title": "Research: the productive-helper path (#4440 lineage) can't pass \u03ba \u2248 .00304 without cheaper helpers",
+      "author": {
+        "id": "MDQ6VXNlcjM2NjQ3NA==",
+        "is_bot": false,
+        "login": "zxv",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "research/kappa-architecture-frontier/CLAIMS.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "91b6ae1fb633c28f0365799a780659cff429211d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/EXAMPLE-PROFILE.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6de87bbd883e34291abb4938dd768c17ad9769f8"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/LITERATURE.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d13b2806ac93b3d87a03d18196b120e44cd9be24"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/ORIGINS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "54737cecdf7d704a65857aa5408ea2ef9cfa3c91"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/PR-DRAFT.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d33e7144b09a02d301a7c30fed0788a55db90cf9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "619859b95985f4034c901fa54e7cd365f49726c0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aed6dbad186b12dee182344bdeebdeb5afe7945e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/RESEARCH-CONTEXT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9a7ecde6c1d584ea72a1625d9b17bde93e7ae5c3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1fccef0029fa6e7ea637ab7d57ff3ebb6805caae"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6b0993b8297bb044ed4f1fc2af9f3ad1a20d2ca3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "843b14392296bc2c3054e7eebe600324f739521e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/VALIDATION.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a5aa6c3037092f175d651685915be2cefefc1017"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d3f0506509c597495beaa674fe8e7fc7d1c88c71"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/check_controls.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ffb42afd242432a54f5a7548ea078a1017a67350"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/convexity-proof.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d464faf030fe15acbe95d44177e19580d88a66ed"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/exchange-proof.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e0f0ce8a01fc3bce3df5b9cb2a2d33ede4d824ef"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/neutral-invoice.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d66216ad80b502c4042979269655bacb9f6668b9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/p104-5544.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5637130d4a3884948eda39c185e3b6e8f4b4717b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/p104-5545.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a4daa8e3f1d90ba8f103f4cdf0abe5bff8b4986e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/p104-5551.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a83db6d025b3755176449e679e58f8a2e16f3e5c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/p104-caller-proof.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e0bb34fbef6b412b572818d669150b54a13ea30d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/p104-contact-proof.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d1c5fb2211e95c3528b0b5ab99567012e73f98ef"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/p19-precompilation.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9a5ea04e5db6f56b2e80dd1a8cd4fa28b8977ac7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/p19-readme.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "22dfb3140152db9baedff32b8c661428dcbb14f0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/round3-proof.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "92b6fc3c7cf45a9b1c5dde8e89a1b6469b33f304"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/selected-claim.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b2b7e3edb561ab1c371513dc46c9d292bab78ae4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/inputs/selected.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fc3d4ba105e1f097d0d7d051a308281e86ab1446"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/kappa-architecture-frontier/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a9137e3bdf5e5735fcbc76d85a130c299240b85e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 14
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/kappa-architecture-frontier/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/kappa-architecture-frontier/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/kappa-architecture-frontier/SOURCES.json",
+          "path": "certificates/frontier5413/CLAIM.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/frontier5413/CLAIM.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/kappa-architecture-frontier/SOURCES.json",
+          "path": "docs/research/pr-intake-evidence/pr5413/fresh/primary/invoice-funding/INVOICE-NEUTRAL-LITERAL.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/pr-intake-evidence/pr5413/fresh/primary/invoice-funding/INVOICE-NEUTRAL-LITERAL.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/kappa-architecture-frontier/SOURCES.json",
+          "path": "research/controller-thinning-global-ceiling/PROOF.md",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/controller-thinning-global-ceiling/PROOF.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/kappa-architecture-frontier/SOURCES.json",
+          "path": "research/controller-ceiling-convexity/numerical/inputs/5405-concavity-exchange-reduction.md",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/controller-ceiling-convexity/numerical/inputs/5405-concavity-exchange-reduction.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/kappa-architecture-frontier/SOURCES.json",
+          "path": "research/controller-ceiling-convexity/numerical/inputs/5405-discrete-convexity-three-value-gate.md",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/controller-ceiling-convexity/numerical/inputs/5405-discrete-convexity-three-value-gate.md",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "We prove all-length caps and a per-FULL price frontier for rank-eight productive-helper paths, identifying the local savings needed for further growth beyond controller-only changes.\n\n## Background\n\n[#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359) raised \u03ba to .0023 with productive helpers. Independent helper jobs finish with autonomous transforms and earn output credit, and a mixed-rank compiler turns that template into a uniform supplier. A supplier with saving C passes when its paid jobs cost less than its targets in the rank moment M_t(X) = \u03a3 X_r r^t, with t = 1\u2212C.\n\n[#4440](https://github.com/CrocSwap/integer-mult-bounds/pull/4440) and [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470) developed this into a specific construction: a paired path of FULL stages, each adding a fresh rank-eight block, interleaved with rank-one QUERY stages. It reached .00302. Every \u03ba gain since has kept that path and changed only the local helper bill. These gains came from the native profile of [#4610](https://github.com/CrocSwap/integer-mult-bounds/pull/4610), the owned helper relations of [#5377](https://github.com/CrocSwap/integer-mult-bounds/pull/5377) and [#5383](https://github.com/CrocSwap/integer-mult-bounds/pull/5383), and the transposition and direct caller of [#5392](https://github.com/CrocSwap/integer-mult-bounds/pull/5392) and [#5398](https://github.com/CrocSwap/integer-mult-bounds/pull/5398). The last was the neutral completion of [#5413](https://github.com/CrocSwap/integer-mult-bounds/pull/5413), now the selected result at .003027288235. The op",
+      "roots": [
+        "research/kappa-architecture-frontier"
+      ],
+      "installed": [
+        "research/kappa-architecture-frontier/CLAIMS.md",
+        "research/kappa-architecture-frontier/EXAMPLE-PROFILE.json",
+        "research/kappa-architecture-frontier/LITERATURE.md",
+        "research/kappa-architecture-frontier/ORIGINS.json",
+        "research/kappa-architecture-frontier/PR-DRAFT.md",
+        "research/kappa-architecture-frontier/PROOF.md",
+        "research/kappa-architecture-frontier/README.md",
+        "research/kappa-architecture-frontier/RESEARCH-CONTEXT.json",
+        "research/kappa-architecture-frontier/RESULT.json",
+        "research/kappa-architecture-frontier/SOURCES.json",
+        "research/kappa-architecture-frontier/TASK.json",
+        "research/kappa-architecture-frontier/VALIDATION.md",
+        "research/kappa-architecture-frontier/VERIFY.json",
+        "research/kappa-architecture-frontier/check_controls.py",
+        "research/kappa-architecture-frontier/inputs/convexity-proof.md",
+        "research/kappa-architecture-frontier/inputs/exchange-proof.md",
+        "research/kappa-architecture-frontier/inputs/neutral-invoice.json",
+        "research/kappa-architecture-frontier/inputs/p104-5544.json",
+        "research/kappa-architecture-frontier/inputs/p104-5545.json",
+        "research/kappa-architecture-frontier/inputs/p104-5551.json",
+        "research/kappa-architecture-frontier/inputs/p104-caller-proof.md",
+        "research/kappa-architecture-frontier/inputs/p104-contact-proof.md",
+        "research/kappa-architecture-frontier/inputs/p19-precompilation.json",
+        "research/kappa-architecture-frontier/inputs/p19-readme.md",
+        "research/kappa-architecture-frontier/inputs/round3-proof.md",
+        "research/kappa-architecture-frontier/inputs/selected-claim.json",
+        "research/kappa-architecture-frontier/inputs/selected.json",
+        "research/kappa-architecture-frontier/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5555,
+      "head": "c53bff3f3f7b9251d939d16ba43a26213743a987",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "Fix wordram-ntt-kernel VERIFY.json input path (unbreaks CI planner)",
+      "author": {
+        "id": "U_kgDOClpS9w",
+        "is_bot": false,
+        "login": "DreamingOfClouds",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "research/wordram-ntt-kernel/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e43a2b044a0e98b9b7ea1634a6dde575f828a14"
+          },
+          "old_oid": "4ae0f65622d1159e1c8a051155c2ac9e2579238f",
+          "change": "M"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 0,
+        "json": 1
+      },
+      "pin_checks": [],
+      "shared": [],
+      "conflicts": [
+        "research/wordram-ntt-kernel/VERIFY.json"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "Since #5466, `research/wordram-ntt-kernel/VERIFY.json` declares the input `\"MANIFEST.json\"`. The CI planner (`scripts/research_package.py` \u2192 `require_tracked_input`) needs an exact Git-tracked repo path, so the onboarding tests `test_research_matrix_batches` (`test_grouped_cli_output_keeps_total_package_count`, `test_nested_workflow_change_selects_every_registered_package`) now fail on the **plan** job of every new PR (e.g. #5553, #5556).\n\nOne-line fix: `\"MANIFEST.json\"` \u2192 `\"research/wordram-ntt-kernel/MANIFEST.json\"`. No scientific change. Locally `python3 -B -m unittest tests.test_research_matrix_batches` passes (5 tests).\n\nPrepared by DreamingOfClouds with Claude Opus 5.5 (Anthropic), via Claude Code.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)",
+      "roots": [
+        "research/wordram-ntt-kernel"
+      ],
+      "installed": [
+        "research/wordram-ntt-kernel/VERIFY.json"
+      ],
+      "resolutions": {},
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed exact one-field path correction to a real Git-tracked package manifest; targeted planner/matrix tests pass normally and optimized. This fixes selection only. The retained standalone VERIFY format is still not a valid registered replay schema; no NTT/scientific execution or package replay admission is claimed.",
+      "historical_only": false
+    },
+    {
+      "number": 5556,
+      "head": "f87b6ac80fce79eb83c005d9b33d0a06597aeb50",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "Count optimal second callees for a two-dimensional Jordan first map",
+      "author": {
+        "id": "MDQ6VXNlcjk0NjMxMDU=",
+        "is_bot": false,
+        "login": "NicholasStone",
+        "name": "Nicholas Stone"
+      },
+      "files": [
+        {
+          "path": "research/jordan-second-callee-count/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9686b917aa7bfd9a3b59672bec414d68cfae6aad"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/jordan-second-callee-count/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "da13fd8c532ac2494aa5f0b6e959f4fa971a2290"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/jordan-second-callee-count/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0d4a480735861b1d33bc641e94848f4d49bb9b51"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/jordan-second-callee-count/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "28484ce0aa0b7062f7984c024d7ff1bca9296876"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/jordan-second-callee-count/VALIDATION.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "73b33fc35d5e8ddb421525452f7b5e705c6ce329"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/jordan-second-callee-count/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0d2fedbb4cb8f20b1a7da2469c2e702ddd0e8baf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/jordan-second-callee-count/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5ba269a59323be9fc61c7a09e3db9a9457196be7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 4
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/jordan-second-callee-count/SOURCES.json",
+          "path": "research/optimal-second-callees/PROOF.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/optimal-second-callees/PROOF.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/jordan-second-callee-count/SOURCES.json",
+          "path": "research/optimal-second-callees/README.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/optimal-second-callees/README.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/jordan-second-callee-count/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Change and mathematical scope\n\nState the result, changed hypotheses and status: construction, proof, bounded\nsearch, audit or tooling. Distinguish a scalar saving from a paid-profile or \u03ba\nimprovement. List remaining obligations.\n\n## Task and overlap\n\nGive the base commit, exact dependency heads, concrete object and bounded domain.\nFor donated-agent work, include the task ID/scope key or link the task card from\nautoresearch.md. Link the nearest overlapping PRs and explain the added value;\ndifferent random seeds alone are not separate contributions.\n\nDeclare whether scope is unchanged, refined or changed. If the card's premise\nchanged, explain why and how the actual result connects to the bottleneck.\n\n## Validation\n\nGive reproduction commands, environment, exact evidence and meaningful failure\ncontrols. Distinguish finite tests from proof arguments and list checks not run.\nFor a proposed bound, include the full paid budget and source bindings.\n\n## Credit\n\nCredit predecessor and parallel work, retain source licenses, and disclose\nsubstantial AI assistance. Useful independent or superseded work still merits credit.\n\n## Open next questions\n\nFor a research package, link its next questions and give the smallest useful\nfollow-up, why it matters and any blocker. \u201cNone justified\u201d is acceptable.\n\n## Workflow feedback (optional)\n\nWhat helped, what caused friction or an unintended detour, and one suggested\nimprovement? A link to the feedback discussion or an existing report is enough.\n",
+      "roots": [
+        "research/jordan-second-callee-count"
+      ],
+      "installed": [
+        "research/jordan-second-callee-count/PROOF.md",
+        "research/jordan-second-callee-count/README.md",
+        "research/jordan-second-callee-count/SOURCES.json",
+        "research/jordan-second-callee-count/TASK.json",
+        "research/jordan-second-callee-count/VALIDATION.json",
+        "research/jordan-second-callee-count/VERIFY.json",
+        "research/jordan-second-callee-count/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5557,
+      "head": "3b154c52cb05922fc10eb8ce656a2a314bbb8187",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "P104: certify residual-preserving all-cut stability and 265-axis range bounds",
+      "author": {
+        "id": "U_kgDODYmVSQ",
+        "is_bot": false,
+        "login": "thu-nmrc",
+        "name": "THU New Media Research Center\u00b7 Prof. Shen Yang"
+      },
+      "files": [
+        {
+          "path": "research/p104-cut-stability/ASSEMBLED-REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c39fe3d12b5d6e42dda48bd2bf62b194331e3cf7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/FIBER-REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cf7dfe0ac881f91a18316e8aaf9a173b51f5750b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a003667716875420da0579bc13ee1a23fd347e90"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5a3e7e381672d6067755dd767aec5a16cc2b00ef"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/RESIDUAL-SOURCE-REPLAY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b85ce258a0f6faca12b2f83a84454ee7b633d5cb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/RESIDUAL-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ff97feda44e56cb9bbe0c8a3e4e01d2730cff7e8"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4ebe918a65fcd0f0b0c64f0cdc4c8462c504db6c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/RUNTIME-PINS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f0a689e4005a1b4b51e4e9afa2d145bc603231e3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "181ee30118c1bdeaa3fda6282d7215f54e2802c1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "34270a2a6ee45e5240a280f8daaaa747abe510ed"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/VALIDATION.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b6a3c0907d0bcadcf51b868d9073d9ddf5abbfc9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f85fe35a383c0a1bc8b06d8e48070a44557b561b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0c2b55f73da56cff3ec2e161dea694407c2bcfa0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/inputs/PRIOR-ERROR-README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ddc3f9b0c6b12638067bc7dd12c2bf6ba578cf08"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/inputs/PRIOR-GRID-README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5324d11bb78606cc1d278554db53462f9faa6373"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/inputs/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/inputs/native_verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2c209dfa9cfade3bc20ac5fc9d876b433a147f8c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/inputs/source_local.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dbb3d56a4f5b733bb0c32a91249d1f6a7e1ab5d2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/ENVIRONMENT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9d2ad4cccf267247bb722118f9ca6db8cc31d064"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/FILES.sha256",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e7e94c7fa05f278d3fe126106009d3225a20350f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9a0506423ab5641fd272db051d2cd95f2b7a923a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "900ad0b6e52a75fa1d25d75d2daa22d957b5834a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fd5beee70f757649b1839b6160eccad5ed7a5b40"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/inputs/CLAIM.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d61d1b68672f82fd0ad3c32f2d787511f5c2f4d1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/inputs/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/peer/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c87651b4ab021cb80572f1f4dbb9da38c57f8b7a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/proof-peer/AUTHOR-RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d61d1b68672f82fd0ad3c32f2d787511f5c2f4d1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/proof-peer/FILES.sha256",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b75050991212387886f999d137df7d93dfc35a52"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/proof-peer/OPTIMIZED.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1a4055791d8fac6f774fe9c810d5137446aa0a64"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/proof-peer/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1a4055791d8fac6f774fe9c810d5137446aa0a64"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/proof-peer/REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "15a6f2f59bbcc75fdb687a4593b59aeb3b82ab91"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/proof-peer/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/proof-peer/review.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e14d90d35266d3a6c41e7f567abe14f0fc0430c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/range-peer/FILES.sha256",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "33ba9a803f2f8fc1b703ea49287ef0a9d14fb9ff"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/range-peer/OPTIMIZED.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7008deeb06c0b8f68febb569c18b39aef2a1f303"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/range-peer/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5c2210ea450e1c845256c9156ab3bb10ddacafa1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/range-peer/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7008deeb06c0b8f68febb569c18b39aef2a1f303"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/range-peer/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/range-peer/range.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0235c92e13e872eef74db6eb32d2c3eccbb3cf9c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/validation/COLD.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f5922ad9ba48087972214511ca14ae7faf65dbc6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/validation/COMMITTED-INITIAL.log",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "825fb8344dd44064b803ba7796b18faad6418f8c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/validation/DIRECT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e8b7a1b803f0d8a2271d1335c9522da2f57dacd5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/validation/REGISTERED.log",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "587b597e55c446548598d9cc55a28320c172ff28"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "185eb8a29fe62e23328c1639de5511cc3e7913c6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/CHECKS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a1a2077ec8f17224d0bfd6556e1556038c782bd2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/FILES.sha256",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2b5247d7da0e0163589dfcc052c90a54ff9ca58e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6570225e1ba3691b33fd1334e8cc29769e4751a0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8feae551b7332d928383e9c9d6e8d41bb36fdb46"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "73a7d5d89bfe42b4a360a37785ca8bbd9a7e3dec"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "448ac767cedb776928e549c336199d0cc9be59cf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d8bd7b17c5709b5f99cfc90bc098d9817012baea"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/CUT-STABILITY-RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0be2c5316232a9a478b0b3a824759f1666c88502"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/HILBERT-FIBER-REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cf7dfe0ac881f91a18316e8aaf9a173b51f5750b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/PR5551-RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a83db6d025b3755176449e679e58f8a2e16f3e5c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/SELECTED-V16-APPLICATION-PROOF-v3.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "574c1d0bd75cd85f720991d815272738aa3e5b8f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/caller.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6ac5e735691555ecafe2afbcff71edd923178113"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/controller.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cc539db709cf7a6c42872c4380902736ad453af3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/local.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dbb3d56a4f5b733bb0c32a91249d1f6a7e1ab5d2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-cut-stability/whole-caller/inputs/physical.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e8f5aa076b9f2793e48943008750757bcb14690b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 10,
+        "json": 24
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/p104-cut-stability/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-cut-stability/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-cut-stability/SOURCES.json",
+          "path": "research/p104-productive-controller/local.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/p104-productive-controller/local.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-cut-stability/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/native_verify.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/p104-native-channel/vendor/native_verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-cut-stability/SOURCES.json",
+          "path": "research/p104-retimed-internal-grid/README.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/p104-retimed-internal-grid/README.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-cut-stability/SOURCES.json",
+          "path": "research/p104-retimed-error-recovery/README.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/p104-retimed-error-recovery/README.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-cut-stability/SOURCES.json",
+          "path": "research/p104-joint-contact/WORD.json.gz",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/p104-joint-contact/WORD.json.gz",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "PR #5551 supplies a complete conditional P104 candidate at \u03ba = 0.00304153, but its scientific admission still needs a source-specific error/range application. This supplement makes the owned-COPY implementation explicit and supplies exact all-cut certificates and finite-format bounds for that actual word and its complete 265-axis caller. It claims **no new \u03ba** and does not treat #5551's archive merge as scientific acceptance.\n\n- Realize the eight owned COPYs as ADD into their initialized zero. A retained literal word and fresh source replay preserve every exact endpoint, MOVE request, paid/helper histogram and the 217428 scalar allowance, while preserving arbitrary injected owned residuals. Assignment-COPY would erase a real nonzero suffix response.\n- Two independent exhaustive dyadic/Fraction interpreters scan all **25,311 cuts** on 735 arbitrary public inputs and 743 state positions. The exact maximum prefix and final-suffix row norms are **131072** and **135415/4**, with full equality witnesses. An independent induction/fixture bounds every scalar interval by **2^296**, with denominator exponent at most 54.\n- The credited active-fiber method gives a complete-caller interval bound **2^5844** in maximum-individual-field Hilbert norm, and **2^(5844+ceil((265f+1)/2))** in coordinate norm. Every active coordinate is retained; external spectators and the number of independent fields introduce no extra conversion factor in this norm.\n- A fresh whole-caller census retains all **12,814 productive fields**, reserves 248 owned query/local positions, and supplies finite ordinary rec",
+      "roots": [
+        "research/p104-cut-stability"
+      ],
+      "installed": [
+        "research/p104-cut-stability/ASSEMBLED-REVIEW.md",
+        "research/p104-cut-stability/FIBER-REVIEW.md",
+        "research/p104-cut-stability/PROOF.md",
+        "research/p104-cut-stability/README.md",
+        "research/p104-cut-stability/RESIDUAL-SOURCE-REPLAY.json",
+        "research/p104-cut-stability/RESIDUAL-WORD.json.gz",
+        "research/p104-cut-stability/RESULT.json",
+        "research/p104-cut-stability/RUNTIME-PINS.json",
+        "research/p104-cut-stability/SOURCES.json",
+        "research/p104-cut-stability/TASK.json",
+        "research/p104-cut-stability/VALIDATION.md",
+        "research/p104-cut-stability/VERIFY.json",
+        "research/p104-cut-stability/check.py",
+        "research/p104-cut-stability/inputs/PRIOR-ERROR-README.md",
+        "research/p104-cut-stability/inputs/PRIOR-GRID-README.md",
+        "research/p104-cut-stability/inputs/WORD.json.gz",
+        "research/p104-cut-stability/inputs/native_verify.py",
+        "research/p104-cut-stability/inputs/source_local.py",
+        "research/p104-cut-stability/peer/ENVIRONMENT.json",
+        "research/p104-cut-stability/peer/FILES.sha256",
+        "research/p104-cut-stability/peer/README.md",
+        "research/p104-cut-stability/peer/RESULT.json",
+        "research/p104-cut-stability/peer/SOURCES.json",
+        "research/p104-cut-stability/peer/inputs/CLAIM.json",
+        "research/p104-cut-stability/peer/inputs/WORD.json.gz",
+        "research/p104-cut-stability/peer/verify.py",
+        "research/p104-cut-stability/proof-peer/AUTHOR-RESULT.json",
+        "research/p104-cut-stability/proof-peer/FILES.sha256",
+        "research/p104-cut-stability/proof-peer/OPTIMIZED.json",
+        "research/p104-cut-stability/proof-peer/RESULT.json",
+        "research/p104-cut-stability/proof-peer/REVIEW.md",
+        "research/p104-cut-stability/proof-peer/WORD.json.gz",
+        "research/p104-cut-stability/proof-peer/review.py",
+        "research/p104-cut-stability/range-peer/FILES.sha256",
+        "research/p104-cut-stability/range-peer/OPTIMIZED.json",
+        "research/p104-cut-stability/range-peer/PROOF.md",
+        "research/p104-cut-stability/range-peer/RESULT.json",
+        "research/p104-cut-stability/range-peer/WORD.json.gz",
+        "research/p104-cut-stability/range-peer/range.py",
+        "research/p104-cut-stability/validation/COLD.json",
+        "research/p104-cut-stability/validation/COMMITTED-INITIAL.log",
+        "research/p104-cut-stability/validation/DIRECT.json",
+        "research/p104-cut-stability/validation/REGISTERED.log",
+        "research/p104-cut-stability/verify.py",
+        "research/p104-cut-stability/whole-caller/CHECKS.json",
+        "research/p104-cut-stability/whole-caller/FILES.sha256",
+        "research/p104-cut-stability/whole-caller/PROOF.md",
+        "research/p104-cut-stability/whole-caller/README.md",
+        "research/p104-cut-stability/whole-caller/RESULT.json",
+        "research/p104-cut-stability/whole-caller/SOURCES.json",
+        "research/p104-cut-stability/whole-caller/check.py",
+        "research/p104-cut-stability/whole-caller/inputs/CUT-STABILITY-RESULT.json",
+        "research/p104-cut-stability/whole-caller/inputs/HILBERT-FIBER-REVIEW.md",
+        "research/p104-cut-stability/whole-caller/inputs/PR5551-RESULT.json",
+        "research/p104-cut-stability/whole-caller/inputs/SELECTED-V16-APPLICATION-PROOF-v3.md",
+        "research/p104-cut-stability/whole-caller/inputs/WORD.json.gz",
+        "research/p104-cut-stability/whole-caller/inputs/caller.py",
+        "research/p104-cut-stability/whole-caller/inputs/controller.json",
+        "research/p104-cut-stability/whole-caller/inputs/local.py",
+        "research/p104-cut-stability/whole-caller/inputs/physical.json"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5558,
+      "head": "3ce75dcac77004beff6ece24076636462fa991c6",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "Qualify PR5285's h8 family closure with exact coverage",
+      "author": {
+        "id": "MDQ6VXNlcjgwMjk5Njgz",
+        "is_bot": false,
+        "login": "CubeJerry",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "docs/research/research-family-status.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "101a28bf9b77547551aacb84964ab9c52a7d9d38"
+          },
+          "old_oid": "743a1afcbc46c715d2035037797e2f81b32e58a5",
+          "change": "M"
+        },
+        {
+          "path": "research/h8-census-coverage/LICENSE",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ffcc8183f9bf440f1cdc62d55bf6f86d70614a22"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "468de5c6be0953b293ba9adfb8ef5ef968a85623"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0f3ee1c083fec0b27d8e868015733de2638633de"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "25de7cc90ba3d32c854c6e2f6490c4ee453bcbe8"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/VALIDATION.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c528538668582e3a496d58b3cbbb49c15368342e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fa04f337c3802daa49cbf42ade4bffcc903f5a8b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/test_verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "be7dab8876c62aaf8121e477179ab529b78477f7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/h8-census-coverage/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a9daadbfef5f57b1c1bae75f5c45b2020240924a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 4
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/README.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/README.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/TASK.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/TASK.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/data/STAGE-A.csv.gz",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/data/STAGE-A.csv.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/data/STAGE-B.csv.gz",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/data/STAGE-B.csv.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/data/STAGE-C.csv.gz",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/data/STAGE-C.csv.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/data/TUNED.csv",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/data/TUNED.csv",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/producer/README.md",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/producer/README.md",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/producer/run_stageB.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/producer/run_stageB.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/producer/run_stageC.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/producer/run_stageC.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/verify.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/e8-bit-p111/code/gen_p3.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/e8-bit-p111/code/gen_p3.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/e8-bit-p111/data/plan-l3.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/e8-bit-p111/data/plan-l3.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "docs/research/pr-intake-decisions.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:docs/research/pr-intake-decisions.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/e8-bit-carrier-skeleton/code/skeleton/e8.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/e8-bit-carrier-skeleton/code/skeleton/e8.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/e8-bit-carrier-skeleton/data/skeleton/d4part-pairs.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/e8-bit-carrier-skeleton/data/skeleton/d4part-pairs.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/bit-h8-receiver-census/sets.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/bit-h8-receiver-census/sets.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/h8-census-coverage/SOURCES.json",
+          "path": "research/e8-bit-carrier-skeleton/code/skeleton/geom.py",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/e8-bit-carrier-skeleton/code/skeleton/geom.py",
+          "result": "match"
+        }
+      ],
+      "shared": [
+        "docs/research/research-family-status.md"
+      ],
+      "conflicts": [
+        "docs/research/research-family-status.md"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "PR5285's recorded search does not by itself establish its whole-family closure. An independent stdlib checker reconstructs all 17,478 admissible puncture sets and finds 43,122 represented set/receiver pairs out of 344,019,474 (343,976,352 absent). It reproduces 6,000 sampling draws, supplies an omitted allowed input, and identifies Stage C's saved effort 50 versus documented/spot-replay effort 2000.\n\nNew relative to Matarener's PR5285: source-derived domain enumeration, deduplicated coverage certificate, and a precise scope/provenance correction. Original census files and selected result are unchanged.\n\nNo new \u03ba. This identifies a missing exclusion/equivalence argument, not a better word or a counterexample to optimality. No omitted word was built/priced; producer, transfer, compiler and outer proofs were not replayed. The historical Stage C invocation remains unresolved; inherited framework assumptions remain.\n\nBase: 13be6ac685845c1ff671f5d26e7166165abd998e.\nPR5285 source head: 440550b43428ef856ce217ec682111ba65ac93dc. Exact Git/SHA256 pins, scope, local seed-95 claim and supporting detail are in the package.\n\nReproduce (Python 3.12, no third-party dependencies):\n`python3.12 -B scripts/research_package.py --package research/h8-census-coverage`\nExpected: PASS_H8_CENSUS_COVERAGE, represented=43122, unrepresented=343976352; 16 tests; PASS_REGISTERED_RESEARCH_PACKAGE.\n\nExecuted: normal/-O replay, metadata/source-history checks, Git-free export with empty PATH and unchanged hashes, and 15 rejecting controls (including forged full-coverage/effort receipts and source-byte corrupt",
+      "roots": [
+        "research/h8-census-coverage"
+      ],
+      "installed": [
+        "research/h8-census-coverage/LICENSE",
+        "research/h8-census-coverage/README.md",
+        "research/h8-census-coverage/RESULT.json",
+        "research/h8-census-coverage/SOURCES.json",
+        "research/h8-census-coverage/TASK.json",
+        "research/h8-census-coverage/VALIDATION.md",
+        "research/h8-census-coverage/VERIFY.json",
+        "research/h8-census-coverage/test_verify.py",
+        "research/h8-census-coverage/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa. Collateral docs/research/research-family-status.md retained only in original source ancestry; not installed. Frozen family-status page is not overwritten with an unreviewed scientific conclusion; archive package and PR5285 ledger cross-reference retain the coverage qualification for follow-up.",
+      "historical_only": false
+    },
+    {
+      "number": 5559,
+      "head": "687c25962abdee0dadf36c0fc078ff655cc2946d",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "Research: partial theorems on the P112 decoder wall (no kappa)",
+      "author": {
+        "id": "U_kgDOClpS9w",
+        "is_bot": false,
+        "login": "DreamingOfClouds",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "research/p112-decoder-wall-partial/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "92e1d713d9b8d83d801ddfa58598ca4308883e89"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "67bf6d1a9c11dce4440f6c812cb1bcee989ff91f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "25cecfc7a31de7c23f9ad0ebad9f1340581d9b10"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3ab8607af47cd1d70797a6711f77dcafbfda45b5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "af0c878bbe399f64e752e33edbe08e74c76eb89e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/data/coversat_certs/o3_b7_22111_i0.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ff7fcd580ae7510a8d835c026597ecc1e5849bbb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/data/coversat_certs/o3_b7_2221_i0.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a1ac552165150e7eed102e85741183d1c03b9fc2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/data/coversat_cut_shards.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d4fff1a4ecfee8c655c8458c9172707e06339563"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/data/coversat_snapshot.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aea3335310298f0d0bc78f39ac524d0694a5a45c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/data/ct8_orbit2_dual.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d0a47ce106ac03e3af00160efbf07b3b641d2d2e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/data/ct8_orbit5_dual.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "80e75222419d83ed826ae68d2290e77b3298838c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/data/receipt.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a167c03b3a4298fc79876c68ab6f0ccfb94d3a98"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/core3/core3.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7b54611d21c94569780e7afe51b1d1a24c20f178"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/core3/flats.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "047882f3e53cd8012bee64ac745cc7f1b7a4fdcb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/core3/mkaut.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0760558c9a009928f61561543239b3b07b95c080"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/core3/s4.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5038163cde04e0a62093be6603e17437a1be094f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/core3/stats.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dad37f20dfce9d1e135e12d3bc6f817945fb64c9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/core3/xcheck.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4298ca1a104a1bfe107a31d491d3253b1417b282"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/a8star.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5a5fe4312638b824ea0e058fcec3ebe8dc573b94"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/kcsp.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e7e9686118bd27d8a752a7f44e73251e91bf5db7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/lossy.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "67238b72aa95ffbfc6c0d6df6be6a648badf719e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/r8bin.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3c06a4689dca0e1f00e4cb46a9f93fb8a65ad6a1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/star.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "56904c980ad82264658d0fac193dedeeee29e884"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/xa2.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1b4324c20fdf0cf68fec8c9a446636334407ac97"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/xpartA.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9d21627e0dab29458663da83da47de8298a4de03"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coreres/xr8.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2416974605ddfc4ed0ececfe3afada156644b1f1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coversat/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0f88ddb9c52da455488ec2db83680f1c446c422d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coversat/cutenc.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6dceed9bbd4e6e4ddf3f01ff0e65e94c53b5c9cf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coversat/enc.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ecc6ff61bf885cb3bf8781371bf894f89b4f7411"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coversat/lib.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "91d43c68b617be483b82d247a15c70ec034534cd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coversat/nogoods.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5ef9234b03e1ed98bb16f21051a6249e35e8e2eb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/coversat/shard.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1fcb6524fa99a38e58b4d7c6c34040a1e6fb1a4d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/ct8/certify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "39c6f516c6cf49ec58bae382cb36fa45c3da8a38"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/ct8/dual_check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8400a9076a255db6ba7c909b5986f2798c2e713d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/ct8/exact.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "68ef8e5c6fd3c8352d83b3820cce2c37d2a07564"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/ct8/mkdual.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e8585da4db5652855b3c05e21618d920e6fa8fb5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/ct8/orbits.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3622c76fe9eb09c7148acca4cb3aedf9e14569fd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/base.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "48a081a3bf83db4b9c3075c63ada7b405fe7c6fc"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/cntsub.c",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "108a47698d31332d1ee02e3595b51fdef9751b0b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/m8.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a4b5df580499f0d0537993201612e630acd96d1f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/mklabels.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dadb5268677511e9ec51ff9638b4a474d7d72014"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/rect2.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e26047ef15c32cb813c2686f0166b292504b47e5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/subsp.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0d67b89f9444b4e847e462c34f84112604975c9f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/xcheck_m8.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3820e493eb0f880c966918feaf9a997e8692b276"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/fullwall/xorb.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5c40a63ddd77a549b4a7c9f85f84936bbd6f58dc"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/intm8/lsplit.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1d5d6aabd2076dfbec0fadad98b538ca4ead2f79"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/intm8/rigz.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6ef67c1422be165de78b705c030dd4b7dcd77f31"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/intm8/rigz50.cnf.frames",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3db445262f79b2d92490f81a0353fd6928e0ec7f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/intm8/rigz50.drat.xz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2b13f67987de7a09721ca2bca22f58af4502a054"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/intm8/shas.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1545d6e6b15fa94c8c53e213afe8caf66bf8b400"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/intm8/tie8.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2192ce9b2ac52d79ad013122151789b1c3fa5673"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/src/intm8/xtie8.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1106ce14d3bf214bd4dc635e4bd9ef44e6830495"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p112-decoder-wall-partial/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0842506f6f546a21be58606febe575312bc3f192"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/wordram-ntt-kernel/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e43a2b044a0e98b9b7ea1634a6dde575f828a14"
+          },
+          "old_oid": "4ae0f65622d1159e1c8a051155c2ac9e2579238f",
+          "change": "M"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 36,
+        "json": 12
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/p112-decoder-wall-partial/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [
+        "research/wordram-ntt-kernel/VERIFY.json"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Research package: partial theorems on the P112 decoder wall (no kappa)\n\nMethods package for the `complex-rank-shape-decoder` card (scope recorded as `changed`): exact lower bounds showing masked P112 decoders cannot cost less than 64 in the covered cases.\n\nCovered: every decoder with at most 8 rank-1 terms (C >= 64 for m <= 8); MIX-8 for mixed rectangle/Ferrers-atom decoders with at most 8 pieces; rank-8 nine-term decoders (CORE3 / CORE-RES / R8); KFAM T-block cost C(T) = 8 for COVERSAT orbits 0, 1, 3, 4 and CT8. Orbit 2 of COVERSAT, rank-9 nine-term decoders, m >= 10 and mixed decoders with 9 or more pieces are open (see \"Open next questions\" in the README).\n\nNo supplier, no coefficients, no kappa claim. Part of the proof is conditional (stated precisely in the README).\n\nVerification:\n- `python3 scripts/research_package.py --package research/p112-decoder-wall-partial --check-only` passes.\n- The registered replay is one stdlib step (CT8 exact LP-dual certificates, about 1 s). The full replay (numpy, pynauty, kissat, drat-trim, about 49 min with 4 jobs) is a documented local check with exact commands; saved log and receipt are in `data/`.\n- An independent AI audit (WALL-AUDIT) re-derived and re-ran selected parts. No human or formal proof review is claimed.\n\nAlso includes a one-line cherry-pick fixing the `wordram-ntt-kernel` VERIFY.json input path.\n\nPrepared by DreamingOfClouds with Claude Opus 5.5 (Anthropic), via Claude Code.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n",
+      "roots": [
+        "research/p112-decoder-wall-partial",
+        "research/wordram-ntt-kernel"
+      ],
+      "installed": [
+        "research/p112-decoder-wall-partial/PROOF.md",
+        "research/p112-decoder-wall-partial/README.md",
+        "research/p112-decoder-wall-partial/SOURCES.json",
+        "research/p112-decoder-wall-partial/TASK.json",
+        "research/p112-decoder-wall-partial/VERIFY.json",
+        "research/p112-decoder-wall-partial/data/coversat_certs/o3_b7_22111_i0.json",
+        "research/p112-decoder-wall-partial/data/coversat_certs/o3_b7_2221_i0.json",
+        "research/p112-decoder-wall-partial/data/coversat_cut_shards.json",
+        "research/p112-decoder-wall-partial/data/coversat_snapshot.json",
+        "research/p112-decoder-wall-partial/data/ct8_orbit2_dual.json",
+        "research/p112-decoder-wall-partial/data/ct8_orbit5_dual.json",
+        "research/p112-decoder-wall-partial/data/receipt.json",
+        "research/p112-decoder-wall-partial/src/core3/core3.py",
+        "research/p112-decoder-wall-partial/src/core3/flats.py",
+        "research/p112-decoder-wall-partial/src/core3/mkaut.py",
+        "research/p112-decoder-wall-partial/src/core3/s4.py",
+        "research/p112-decoder-wall-partial/src/core3/stats.py",
+        "research/p112-decoder-wall-partial/src/core3/xcheck.py",
+        "research/p112-decoder-wall-partial/src/coreres/a8star.py",
+        "research/p112-decoder-wall-partial/src/coreres/kcsp.py",
+        "research/p112-decoder-wall-partial/src/coreres/lossy.py",
+        "research/p112-decoder-wall-partial/src/coreres/r8bin.py",
+        "research/p112-decoder-wall-partial/src/coreres/star.py",
+        "research/p112-decoder-wall-partial/src/coreres/xa2.py",
+        "research/p112-decoder-wall-partial/src/coreres/xpartA.py",
+        "research/p112-decoder-wall-partial/src/coreres/xr8.py",
+        "research/p112-decoder-wall-partial/src/coversat/check.py",
+        "research/p112-decoder-wall-partial/src/coversat/cutenc.py",
+        "research/p112-decoder-wall-partial/src/coversat/enc.py",
+        "research/p112-decoder-wall-partial/src/coversat/lib.py",
+        "research/p112-decoder-wall-partial/src/coversat/nogoods.py",
+        "research/p112-decoder-wall-partial/src/coversat/shard.py",
+        "research/p112-decoder-wall-partial/src/ct8/certify.py",
+        "research/p112-decoder-wall-partial/src/ct8/dual_check.py",
+        "research/p112-decoder-wall-partial/src/ct8/exact.py",
+        "research/p112-decoder-wall-partial/src/ct8/mkdual.py",
+        "research/p112-decoder-wall-partial/src/ct8/orbits.json",
+        "research/p112-decoder-wall-partial/src/fullwall/base.py",
+        "research/p112-decoder-wall-partial/src/fullwall/cntsub.c",
+        "research/p112-decoder-wall-partial/src/fullwall/m8.py",
+        "research/p112-decoder-wall-partial/src/fullwall/mklabels.py",
+        "research/p112-decoder-wall-partial/src/fullwall/rect2.py",
+        "research/p112-decoder-wall-partial/src/fullwall/subsp.py",
+        "research/p112-decoder-wall-partial/src/fullwall/xcheck_m8.py",
+        "research/p112-decoder-wall-partial/src/fullwall/xorb.py",
+        "research/p112-decoder-wall-partial/src/intm8/lsplit.py",
+        "research/p112-decoder-wall-partial/src/intm8/rigz.py",
+        "research/p112-decoder-wall-partial/src/intm8/rigz50.cnf.frames",
+        "research/p112-decoder-wall-partial/src/intm8/rigz50.drat.xz",
+        "research/p112-decoder-wall-partial/src/intm8/shas.txt",
+        "research/p112-decoder-wall-partial/src/intm8/tie8.py",
+        "research/p112-decoder-wall-partial/src/intm8/xtie8.py",
+        "research/p112-decoder-wall-partial/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa. Collateral research/wordram-ntt-kernel/VERIFY.json retained only in original source ancestry; not installed.",
+      "historical_only": false
+    },
+    {
+      "number": 5560,
+      "head": "c0a3ffd0e4a2f33702204953444b88505752ea1d",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "Prove a global all-field COPY floor 140 for the 56-plane port decoder (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjUyOTEyMzI1",
+        "is_bot": false,
+        "login": "Matarener",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "research/plane-port-global-rank-dual/CERTIFICATE.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "512297535886e717087af5cb0ade0a747a2bb400"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/EVIDENCE.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b02256f52df541aab4160fb998343e120c3b3abb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/FULL-CHECK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "513a60c373086cea0a326563462f2e94ae43d766"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1dba9e1f33b79e93bd6bc4f8c8216b764b495279"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ee074b60df481c564a82d7324cde8ca9f8a81056"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f238d4ef5f9ee6648643f7a2bc7a5cad44411894"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c5a2e96fa8ab6b3983dabc13b5b75b78964a98d2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/THEORY.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bfa8755cae4f883bdd1c863c5fc821d481341519"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c7329da08fd061b959aed8b9b4becfd270bcf5f4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/lean/V4Duality.lean",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5da80935f134e37addfc1a9bbd29c7f08d294b89"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/lean/V4Rank.lean",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f9d5b933c35df9aa2a38f720a99dcfda70d51e3a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/lean/check.sh",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ede6f4a48fecca0a727dd624a1d960b00c7b7acb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/lean/lake-manifest.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7fea5106dfe640c2c7713327a3250c4321837332"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/lean/lakefile.toml",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "32822d1fc02176e3ff777e7967fa4654678ca272"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/lean/lean-toolchain",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "980709bbbae28702ec58c368b84fdf6638093c63"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/search/real_escape.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6e3adfde57f53dfee83c7fe4396f04cbea47c12d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/search/results/c5-run1.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "918434b995db58b275807e2e7687f058c021bba9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/search/results/c5-run2.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "840662c6872112431715c4668c37045ee9f10065"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/search/results/quads-degenerate-60.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "992bf3d1cea696125c6ecdd6022249ab898fb16a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/search/results/quads-open-40.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6a7362e8b6098e53f5d62a459ae3eb82471b2428"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/search/results/triples-open.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ea362c2ba82ba4786575754df8a168a704280333"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/plane-port-global-rank-dual/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "19cdcb405cd27b00b1770cb8c2e86a6170e7ad15"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 6
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/plane-port-global-rank-dual/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/plane-port-global-rank-dual/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/plane-port-global-rank-dual/SOURCES.json",
+          "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/community-frontier1094-audit/selected-replay.tar.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/plane-port-global-rank-dual/SOURCES.json",
+          "path": "research/four-plane-rank-dual/CERT-INDEX.bin.gz",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/four-plane-rank-dual/CERT-INDEX.bin.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/plane-port-global-rank-dual/SOURCES.json",
+          "path": "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/plane-port-global-rank-dual/SOURCES.json",
+          "path": "research/three-plane-rank-dual/CERTIFICATES.json",
+          "source_spec": "13be6ac685845c1ff671f5d26e7166165abd998e:research/three-plane-rank-dual/CERTIFICATES.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "<!-- claude-projects-attribution: {\"github_login\":\"Matarener\"} -->\r\n_Requested by **Mark**_\r\n\r\n## Change and mathematical scope\r\n\r\n**Proof with an exact finite certificate; two Lean-checked lemmas; conjecture with search evidence. No new \u03ba.**\r\n\r\nBefore: for the full 56-plane decoder of the strict 112-port mask (PR1825 matching, PR1889 mask), the only global COPY-mass floor valid for arbitrary coefficients was the fitting rank 49. The floor 224 was proved only for 2-integral coefficients and characteristic 2 (Philippe Van Velzen), and for decoders split into disjoint plane pairs (#4365). Decoders with even denominators were open between 49 and 224.\r\n\r\nAfter: every finite rank-one decoder, over **any** field, has additive full-plane COPY mass at least `18233853/131072 = 139.113`, hence at least **140**. Under #4365's contract this excludes the \u03ba-doubling budget (about 128) for every coefficient field and narrows the break-even window to `[140, 164]`, open only in characteristic 0.\r\n\r\nHow: on a clique of pairwise non-orthogonal planes the mask is an identity block, so at least `2|Q|` terms touch it on both sides over every field. Weights on 443 cliques that are feasible against every tariff give the bound by weak duality. Feasibility is a finite exhaustive check over all `39,087\u00b2` ordered pairs of plane-generated subspaces.\r\n\r\nThe package also states the conjecture that 224 holds over every field, with structural conditions an escape must meet (essential halves, 2-adic layering, a spectral condition on cliques), and a real-coefficient search on the open local cases of the thre",
+      "roots": [
+        "research/plane-port-global-rank-dual"
+      ],
+      "installed": [
+        "research/plane-port-global-rank-dual/CERTIFICATE.json",
+        "research/plane-port-global-rank-dual/EVIDENCE.md",
+        "research/plane-port-global-rank-dual/FULL-CHECK.json",
+        "research/plane-port-global-rank-dual/PROOF.md",
+        "research/plane-port-global-rank-dual/README.md",
+        "research/plane-port-global-rank-dual/SOURCES.json",
+        "research/plane-port-global-rank-dual/TASK.json",
+        "research/plane-port-global-rank-dual/THEORY.md",
+        "research/plane-port-global-rank-dual/VERIFY.json",
+        "research/plane-port-global-rank-dual/lean/V4Duality.lean",
+        "research/plane-port-global-rank-dual/lean/V4Rank.lean",
+        "research/plane-port-global-rank-dual/lean/check.sh",
+        "research/plane-port-global-rank-dual/lean/lake-manifest.json",
+        "research/plane-port-global-rank-dual/lean/lakefile.toml",
+        "research/plane-port-global-rank-dual/lean/lean-toolchain",
+        "research/plane-port-global-rank-dual/search/real_escape.py",
+        "research/plane-port-global-rank-dual/search/results/c5-run1.txt",
+        "research/plane-port-global-rank-dual/search/results/c5-run2.txt",
+        "research/plane-port-global-rank-dual/search/results/quads-degenerate-60.txt",
+        "research/plane-port-global-rank-dual/search/results/quads-open-40.txt",
+        "research/plane-port-global-rank-dual/search/results/triples-open.txt",
+        "research/plane-port-global-rank-dual/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5561,
+      "head": "452d27dde67ee9f772dbbd3be129db97a8ecb9c1",
+      "merge_base": "13be6ac685845c1ff671f5d26e7166165abd998e",
+      "title": "P104 free helper endpoints: conditional \u03ba .0030814243 (retime of #5551's word)",
+      "author": {
+        "id": "U_kgDOClpS9w",
+        "is_bot": false,
+        "login": "DreamingOfClouds",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "research/p104-free-endpoint-retime/LITERAL-CHANGES.diff",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fa9154b209c62ca48b695bfac826fcfa1f9e3736"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e8c177c6b716003986ab5aa748978734f1bf1d3c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a953f0a60a1004eb8abec7e2e544b9461115542a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2fe44de014166025a88470343fc96d82f138c722"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7a34be8497e03f55330a0efdf2ff3c183f422822"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a4cfbef7c2b3343978fd065c6e809eb65f3a4db5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/WORD-STARTS-ONLY.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b0c13f48e9fbcd8956dcafe1e5b19adad70b114b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c367d865a154ffd2ae0b6f6053469580a139f487"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/common.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b8368c7948abbe501f0b4e2406cead115b35a621"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/inputs/pr5545-source-closure.tar.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3084088544d1e3136e1f38b8011b9e24edc969c6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/inputs/pr5551-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/inputs/pr5551-pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ef78de99ffe678dcf762bab0e784eab46d9331cf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/pricing-starts-only.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e32cbc0fe1b0613fecf8d9b0369e8d64b12bcffd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8d3e006225c1bed0ea2820fb0195a293dd4ed9f9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/retime.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fa8b19a7ceae5c965d1f8b16be18a1f686f8b534"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a69ff28ef2387a456f04bc317b20bd782028d086"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-free-endpoint-retime/verify.sh",
+          "source": {
+            "mode": "100755",
+            "kind": "blob",
+            "oid": "d7a4b8e1b5fcb162b86a1080f56049e2ae1fc1e8"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/wordram-ntt-kernel/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e43a2b044a0e98b9b7ea1634a6dde575f828a14"
+          },
+          "old_oid": "4ae0f65622d1159e1c8a051155c2ac9e2579238f",
+          "change": "M"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 6,
+        "json": 5
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/p104-free-endpoint-retime/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-free-endpoint-retime/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [
+        "research/wordram-ntt-kernel/VERIFY.json"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [
+        {
+          "author": {
+            "login": "DreamingOfClouds"
+          },
+          "body": "Clarification from an independent internal (AI) audit of this package, which re-ran verify.sh from scratch, reproduced both crossing intervals exactly, and confirmed the #5551 word and pricing hashes:\n- The supporting **starts-only** figure should read **.0030768800** (truncated). Its proved crossing is (.00307688008012, .00307688008013); \".0030768801\" in the summary rounds above it. The headline claim **.0030814243** (crossing (.00308142433380, .00308142433381)) is unaffected.\n- Intermediate main-register frames are free under #5551's `local.py`/`native()` (only X-initial and Y-final are pinned). The paid-call drop 69,912 \u2192 66,852 is exactly 18 calls \u00d7 170 deleted stops, and the rank-mass surplus stays 760.\n- TASK.json describes the earlier audit loosely; the audit above is the one that covers this word."
+        }
+      ],
+      "claim_excerpt": "## Summary\n\nComplete conditional kappa **.0030814243** (+3.99e-5, +1.31% over #5551's .0030415312), tested at .0030814205, exact raw crossing in (.00308142433380, .00308142433381). Supporting word with free helper *starts* only: **.0030768801** (+3.54e-5).\n\nPackage: `research/p104-free-endpoint-retime/` (task card `scalar-to-moment`, recorded as `scope_status: changed`; the package retimes helper endpoint/stop frames of #5551's word rather than pursuing scalar A2 contractions).\n\n## What changed\n\nA retime of helper endpoints and a collapse of 170 stops on #5551's pinned word. It is **not** an unchanged circuit: the scalar program (21,686 events, registers, coefficients, order) is identical, but 168 helper start spans and 23 helper final spans differ, 607 frame labels are relabelled, and 3,624 -> 3,454 MOVEs. All 208 main registers keep identical initial and final spans; productive fields (12,814) and rank-mass surplus (760) are unchanged; paid calls 69,912 -> 66,852.\n\nThe retime was found by an exact-lattice CP-SAT solve (multi-worker, not byte-reproducible), so the package ships both words plus `retime.py`, a stdlib checker proving each is a legal retime of #5551's pinned word. `pricing*.py` are #5551's pricing with literal-only changes (`LITERAL-CHANGES.diff`); the PR5545 `local.py` is used unmodified.\n\n## Conditional on\n\n(a) the five framework assumptions retained by #5544/#5545/#5551; (b) the validity of #5551 (unreproduced at the time of writing); (c) free helper START frames and free helper FINAL frames. The verifier checks only nesting and rank = dimension gap for hel",
+      "roots": [
+        "research/p104-free-endpoint-retime",
+        "research/wordram-ntt-kernel"
+      ],
+      "installed": [],
+      "resolutions": {},
+      "lane": "waiting_revision",
+      "reason": "Advertised complete kappa .0030814243 exceeds pricing.py KAPPA=.00308142 and TESTED=.0030814205; the raw crossing is not the fully checked outer endpoint. Starts-only .0030768801 is additionally above its own upper root .00307688008013, as the author comment acknowledges; its checker sets KAPPA=.003076879 and TESTED=.0030768795. Correct all summary/README/receipt claims or rerun the full strict funding at consistent endpoints. Free helper-start/final-frame admissibility remains a separate unverified hypothesis."
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct25c-20261025-checks.txt",
+  "selected_frontier_changed": false,
+  "tooling_tests": {
+    "normal": ".Planning includes 3154 unchanged sparse manifests from HEAD; materialize packages and inputs before replay.\n..Planning includes 3154 unchanged sparse manifests from HEAD; materialize packages and inputs before replay.\n..\n----------------------------------------------------------------------\nRan 5 tests in 47.473s\n\nOK\n",
+    "optimized": ".Planning includes 3154 unchanged sparse manifests from HEAD; materialize packages and inputs before replay.\n..Planning includes 3154 unchanged sparse manifests from HEAD; materialize packages and inputs before replay.\n..\n----------------------------------------------------------------------\nRan 5 tests in 74.367s\n\nOK\n"
+  },
+  "tooling_scope": "Exact single-input-path repair; five CI planner/matrix tests passed in both modes. No registered NTT/scientific execution. No changed path intersects selected frontier5413 source manifest.",
+  "prior_archive_qualifications": {
+    "5285": "Source-bound coverage challenge in #5558 retained for independent review; default frozen family-status page preserved.",
+    "5466": "Planner path fixed by #5555; standalone VERIFY format still does not satisfy registered scientific replay schema."
+  }
+}

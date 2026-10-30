@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/one-sided-six-multisets/data/data.txt",
+    "research/p112-b6-t4-original-covers/PROOF.md",
+    "research/p112-b6-t4-original-covers/RESULT.json",
+    "research/p112-common-deletion-slice/FIXTURE.json",
+    "research/p112-common-deletion-slice/geometry.py",
+    "research/p112-common-six-span/PROOF.md",
+    "research/p112-three-endpoint-sparsity/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Exact source/model binding;43435seven-spaces;5212200root-flat tests;8214570quadruples;positive common-cut fixture;caller inventory."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Separate lattice, rational label reconstruction, RREF annihilators and pair-join full histograms."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Eight actual optimized rejecting CLI runs, positive optimized export, invalid proof budgets and separate-versus-common deletion boundary."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "command": "python -B -m unittest -v test_exact_ntt.py",
+  "exit_code": 0,
+  "test_groups": 8,
+  "finite_evidence_only": true,
+  "stdout": "",
+  "stderr": "test_all_binary_vectors_up_to_four_digits (test_exact_ntt.ExactNTTTests.test_all_binary_vectors_up_to_four_digits) ... ok\ntest_cost_instrumentation (test_exact_ntt.ExactNTTTests.test_cost_instrumentation) ... ok\ntest_dense_maximum_binary_operands (test_exact_ntt.ExactNTTTests.test_dense_maximum_binary_operands) ... ok\ntest_invalid_contracts (test_exact_ntt.ExactNTTTests.test_invalid_contracts) ... ok\ntest_random_asymmetric_and_maximal_digits (test_exact_ntt.ExactNTTTests.test_random_asymmetric_and_maximal_digits) ... ok\ntest_signed_endpoint (test_exact_ntt.ExactNTTTests.test_signed_endpoint) ... ok\ntest_transform_against_direct_dft (test_exact_ntt.ExactNTTTests.test_transform_against_direct_dft) ... ok\ntest_upper_binary_transform_length (test_exact_ntt.ExactNTTTests.test_upper_binary_transform_length) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 1.729s\n\nOK\n",
+  "source_hash_checks": 3,
+  "source_hash_mismatches": 0,
+  "lean_checks_run": false,
+  "max_dense_binary_length_each": 32768,
+  "max_transform_length_tested": 65536,
+  "base16_maximal_cases": [
+    [
+      256,
+      256
+    ],
+    [
+      291,
+      310
+    ]
+  ],
+  "base16_256_costs": {
+    "N": 512,
+    "butterflies": 6912,
+    "butterfly_additions_subtractions": 13824,
+    "modular_products_including_twiddle_updates": 14848,
+    "includes_all_runtime_costs": false
+  }
+}

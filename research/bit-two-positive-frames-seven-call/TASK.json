@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "In the PR2085/2112 four-target formal register model extended by two nonzero positive rational rank-one added addresses R,S (any direction and scale, possibly coinciding), prove that no exact word of at most seven paid calls uses both R and S, for every finite restored dirty width and free binary mixing.",
+  "scope_change_reason": "Took the open handoff #6104 question 1 (JoyboyBrian), which is also PR6089's two-frame open question, instead of the card's native larger/nonabelian construction. This is a formal alphabet lower bound on the same endpoint.",
+  "bottleneck_link": "Scoped side result: adding up to two positive rank-one frames cannot produce a cheaper (fewer than eight call) primitive for this endpoint; such extensions are not a route to a BIT saving here.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at a complete necessary-condition elimination of every count profile with an exact verifier, or at the first surviving profile (reported as the remaining obligation). No word census.",
+  "outcome": "completed",
+  "evidence": "README.md proof: determinant residual (442 psd profiles), exact support systems (7 free families with old-only supports, 32 pinned splits, all on old directions), exact-lattice character rank kills all pinned splits, uniform 2-local chi_PQ/chi_AB lemma kills the seven free families. verify.py (stdlib, ~5 s) checks all finite steps, 7784 grid regression cases for the free families against both the lemma and the exact lattice a direct-subset-sum regression over 46916 concrete splits of all 442 profiles (648 support survivors, all killed by exact-lattice characters), an eight-call positive control (77 survivors incl. literal word multiplied out) and negative controls.",
+  "author": "Josie Elliston (Claude Opus 5.5 via Claude Code)",
+  "ai_assistance": "Proof, verifier and package prepared by Claude Opus 5.5 via Claude Code for JosieElliston; an independent read-only OpenAI Codex adversarial review was requested. No human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Do three or more added positive rank-one frames allow a word of at most seven calls?",
+      "why_it_matters": "Closes the positive-frame extension route for this endpoint at seven calls.",
+      "first_step": "Repeat the support classification with the split replaced by a k-term positive rank-one decomposition of M; check whether free families still force a,b,p,q>=1.",
+      "blocked_by": "2-local membership of a general multi-term decomposition is not automatic."
+    },
+    {
+      "question": "Which eight-call two-frame survivors (for example (1,3,0,1,1,2) with R=2A, S=P/2) are realizable?",
+      "why_it_matters": "Gives the complete two-frame length spectrum, as PR6089 did for one frame; not a cheaper word.",
+      "first_step": "Try subdivision words for each of the 77 eight-call survivors.",
+      "blocked_by": "None known."
+    },
+    {
+      "question": "Do indefinite added rank-one frames escape the eight-call floor?",
+      "why_it_matters": "Positivity of the residual is what makes the profile list finite here.",
+      "first_step": "Find a substitute bound on the residual counts without positivity.",
+      "blocked_by": "No finite residual list without positivity."
+    }
+  ]
+}

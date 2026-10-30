@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 8,
+  "base_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Repair the held PR2477 outer-log LF/CRLF-only grammar in a new composed caller, preserving all frozen vendors and authenticating raw links first.",
+  "scope_change_reason": "Take the concrete Mister-Meeseeks review counterexample against exact PR2477 head. The historical1094 fixture is intentional; this is not a replay of the current6030 supplier.",
+  "bottleneck_link": "Restore the declared acceptance boundary of a source-bound portability comparator; side result, no new multiplication bound.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop if the repair needs a scientific field, frozen vendor or inner-log comparison policy change.",
+  "outcome": "completed",
+  "evidence": "Registered Windows CPython3.12.11 replay passed: normal archived grammar controls, optimized fresh historical1094 final stage with assertion-enabled child;105 outputs,30 raw links per side,6 inherited positives/203 negatives,8 historical parser counterexamples and1 new positive/129 grammar negatives.",
+  "author": "AAAmirinu",
+  "ai_assistance": "Substantial OpenAI Codex assistance in investigation, implementation, checks and writing; separate AI source review, not independent human review.",
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1472#discussioncomment-19283537",
+  "open_questions": [
+    {
+      "question": "Should the inherited Decimal timing-token grammar be made lexical?",
+      "why_it_matters": "This patch closes line separators only; numeric equality still admits inherited spelling variations.",
+      "first_step": "Specify permissible timing-token spellings against real archived and native outputs before proposing a separate caller-side guard.",
+      "blocked_by": "A declared lexical contract and separate overlap/review are required; numeric equality is unchanged here."
+    }
+  ]
+}

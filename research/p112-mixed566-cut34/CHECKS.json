@@ -1,0 +1,143 @@
+{
+  "phase": "scientific commit replay and read-only Git-free export passed",
+  "scientific_baseline": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "claim": "Conditional mixed566 commoncut34 only",
+  "performed": [
+    {
+      "argv": [
+        "/Users/nick/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12",
+        "-W",
+        "error",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-mixed566-cut34"
+      ],
+      "exit_code": 0,
+      "evidence": "registered-final.log"
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "research/p112-mixed566-cut34/verify.py"
+      ],
+      "exit_code": 0,
+      "evidence": "optimized-primary.log"
+    },
+    {
+      "argv": [
+        "python3",
+        "-W",
+        "error",
+        "-B",
+        "-m",
+        "py_compile",
+        "research/p112-mixed566-cut34/test_verify.py",
+        "research/p112-mixed566-cut34/independent.py",
+        "research/p112-mixed566-cut34/verify.py"
+      ],
+      "exit_code": 0,
+      "evidence": "compile.log"
+    },
+    {
+      "argv": [
+        "ruff==0.14.0",
+        "check",
+        "research/p112-mixed566-cut34"
+      ],
+      "exit_code": 0,
+      "evidence": "ruff.log"
+    }
+  ],
+  "unrun": [
+    "inherited capacity/concentration/E6/Weyl/pair-union/four-puncture proofs and heavy suites",
+    "selected cold replay",
+    "Lean/Docker",
+    "human/proof-kernel review",
+    "hosted CI"
+  ],
+  "python_versions": {
+    "registered": "Python 3.12.15",
+    "direct": "Python 3.15.0"
+  },
+  "scientific_commit": "d980a3f2bf90c67dc0dad0a8fa659a18f77b3586",
+  "committed_byte_and_history_check": {
+    "files": 15,
+    "source_history_commits": [
+      "6f100d4bb5083f8c35d96fd95a539811c62f245c"
+    ],
+    "outcome": "passed"
+  },
+  "committed_export": {
+    "commit": "d980a3f2bf90c67dc0dad0a8fa659a18f77b3586",
+    "files": 15,
+    "archive_sha256": "fc0e242679ca62f63d6c53a5f0634eb8834aeaf514f09d6543906ffa44fbdf64",
+    "regular_only": true,
+    "read_only": true,
+    "git_free": true,
+    "checks": [
+      {
+        "argv": [
+          "/opt/homebrew/bin/python3.14",
+          "-O",
+          "-W",
+          "error",
+          "-B",
+          "/Users/nick/.cache/integer-mult-bounds-runs/orchestrator-20261017T223700Z-2d47ba0f/worker-5/scientific-export/research/p112-mixed566-cut34/verify.py"
+        ],
+        "exit_code": 0,
+        "log": "export-verify.py.log",
+        "log_sha256": "0c4025b2d4f1aaecb61e946695c1db7387189124369ba8d87d77dc124b6ccf3d"
+      },
+      {
+        "argv": [
+          "/opt/homebrew/bin/python3.14",
+          "-O",
+          "-W",
+          "error",
+          "-B",
+          "/Users/nick/.cache/integer-mult-bounds-runs/orchestrator-20261017T223700Z-2d47ba0f/worker-5/scientific-export/research/p112-mixed566-cut34/independent.py"
+        ],
+        "exit_code": 0,
+        "log": "export-independent.py.log",
+        "log_sha256": "40f624624c5819d1f838c842fe92c6de698ce741328eef051a68af647dcda9d6"
+      },
+      {
+        "argv": [
+          "/opt/homebrew/bin/python3.14",
+          "-O",
+          "-W",
+          "error",
+          "-B",
+          "/Users/nick/.cache/integer-mult-bounds-runs/orchestrator-20261017T223700Z-2d47ba0f/worker-5/scientific-export/research/p112-mixed566-cut34/test_verify.py"
+        ],
+        "exit_code": 0,
+        "log": "export-test_verify.py.log",
+        "log_sha256": "ebb92067d579f9164fb92ca8d89d92b434d699d720aba6d5348217cff8cfd14a"
+      }
+    ]
+  },
+  "submission_refresh": {
+    "canonical_main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "guidance_changed": false,
+    "priority_revision": 6,
+    "overlap_coverage": {
+      "open_prs": {
+        "fetched_at": "2026-10-17T22:48:13.426342+00:00",
+        "complete_pagination": true,
+        "records": 265
+      },
+      "discussions": {
+        "fetched_at": "2026-10-17T22:48:44.336904+00:00",
+        "complete_pagination": true,
+        "records": 2193
+      }
+    },
+    "warnings": [],
+    "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."
+  }
+}

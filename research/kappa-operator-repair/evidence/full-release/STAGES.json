@@ -1,0 +1,97 @@
+[
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "--root-user-action=ignore",
+      "--no-compile",
+      "--no-index",
+      "--no-deps",
+      "--target",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/python-deps",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/replay-support/wheels/mpmath-1.3.0-py3-none-any.whl",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-adaptive-continuation/replay-support/wheels/sympy-1.14.0-py3-none-any.whl"
+    ],
+    "exit_code": 0,
+    "log_sha256": "57dcb49855c447a3d13ac4b8cfe9aaad2eecd95f8a9fb2e5d6fc547ab563f28d",
+    "name": "install-outer-dependencies",
+    "seconds": 0.740988109006139
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "-c",
+      "import json,numpy,scipy,sympy,mpmath;assert sympy.__version__=='1.14.0';assert mpmath.__version__=='1.3.0';print(json.dumps({x:globals()[x].__version__ for x in ['numpy','scipy','sympy','mpmath']},sort_keys=True))"
+    ],
+    "exit_code": 0,
+    "log_sha256": "29be278225c67b39a35517321d460834bbab51462e176aeb3d9ce89c9391bfbb",
+    "name": "dependencies",
+    "seconds": 2.1235512109997217
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/source/new/borrow/terminal_review.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "be24d67b25305edbd7007e3d66204ea332b0589d2e68e8dc9c3ea7b6bf0afe16",
+    "name": "independent-terminal-word",
+    "seconds": 4.996777610002027
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/source/new/borrow/review_receiver_share.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "5f7aa6ad77145d2c054e1616119f80bd65b45ff0401f1cc6e5423ae75f40e6c4",
+    "name": "independent-receiver-word",
+    "seconds": 5.103766510997957
+  },
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admit_composed.py",
+      "--source",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/source",
+      "--fill",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/owner/FILL.json.gz",
+      "--order",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/owner/inputs/ORDER.json",
+      "--dispatch",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/owner/inputs/DISPATCH.json",
+      "--native-cache",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/native-cache",
+      "--native-receipt",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/NATIVE-RECEIPT.json",
+      "--work",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/admission",
+      "--replica-helper-dir",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/helpers",
+      "--reconstructor",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/helpers/reconstruct_replica.py",
+      "--comparison-claim",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/admission/PR3682-CLAIM.json",
+      "--blocknorm-checker",
+      "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-operator-repair/composed-supplier/release-work/inputs/extension_blocknorm.py",
+      "--source-profile",
+      "staged544",
+      "--comparison-profile",
+      "pr3682",
+      "--jobs",
+      "1"
+    ],
+    "exit_code": 0,
+    "log_sha256": "56380f47a9b2a81e3cf7618d209c36fba90947fc865457b2bc736db29604193b",
+    "name": "complete-admission",
+    "seconds": 1839.1120703209963
+  }
+]

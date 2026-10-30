@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Audit the PR49 historical arithmetic checker for omitted supplier-to-assembly saving equality; reproduce a positive-domain arithmetic counterexample and supply an opt-in equality guard.",
+  "scope_change_reason": "Refine the portable-replay card's proof-relevant field-comparison method to a supplier/assembly parameter comparison. This is a scoped arithmetic audit, not an environment fix or a new construction.",
+  "bottleneck_link": "Proof-relevant parameter equality prevents a contracting supplier moment from being reused at an unchecked stronger assembly saving. This is a verifier side result; production integration remains open.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after authenticated historical CLI reproduction, an independent exact consumed-moment lower bound, fixed-receipt controls, and a bounded equality guard. Do not rerun finite-count producers or change frozen helpers.",
+  "outcome": "completed",
+  "evidence": "EXPECTED.json records the actual historical CLI controls and an independent exact rational consumed-moment lower bound exceeding 1+4/10^10; verify.py replays every control normally and with -O.",
+  "author": "roger-sato",
+  "ai_assistance": "Substantial OpenAI Codex assistance with diagnosis, implementation, exact arithmetic, review, and documentation.",
+  "open_questions": [
+    {
+      "question": "How should production arithmetic-checker entry points enforce supplier saving equality without invalidating frozen consumers?",
+      "why_it_matters": "The package guard is opt-in; the historical helper remains unchanged because mixed-demotions-t37 and mixed-fusions-x54-t37 bind its live bytes.",
+      "first_step": "Design a current non-frozen entry point or a source-preserving adapter that runs the two rational equalities before arithmetic verification, with original-receipt and mismatched-saving controls.",
+      "blocked_by": "Maintainer choice of integration surface and review of dependent source pins. No frozen source identities should be rewritten."
+    },
+    {
+      "question": "Which additional supplier-to-assembly fields require independently checked semantic binding?",
+      "why_it_matters": "This audit covers only a_bit and a_complex; finite-count production, other parameters, and transfer hypotheses remain separate obligations.",
+      "first_step": "Trace one actual consumed parameter to its independently checked supplier evidence and propose a bounded control if equality is missing.",
+      "blocked_by": "Separate overlap and source-consumer review; no general completeness claim follows from this package."
+    }
+  ]
+}

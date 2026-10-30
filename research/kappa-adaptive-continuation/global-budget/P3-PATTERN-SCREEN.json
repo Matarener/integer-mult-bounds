@@ -1,0 +1,68 @@
+{
+  "status": "P3_FLOATING_PATTERN_LP_FAILED",
+  "windows": [
+    {
+      "rank": 16,
+      "eligible_stages": [
+        0,
+        1
+      ],
+      "bins_per_replica": 224
+    },
+    {
+      "rank": 8,
+      "eligible_stages": [
+        2
+      ],
+      "bins_per_replica": 224
+    },
+    {
+      "rank": 32,
+      "eligible_stages": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "bins_per_replica": 224
+    },
+    {
+      "rank": 8,
+      "eligible_stages": [
+        4
+      ],
+      "bins_per_replica": 224
+    },
+    {
+      "rank": 32,
+      "eligible_stages": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "bins_per_replica": 224
+    },
+    {
+      "rank": 16,
+      "eligible_stages": [
+        5,
+        6
+      ],
+      "bins_per_replica": 224
+    }
+  ],
+  "width_demand_per_stage": {
+    "4": 26,
+    "5": 2,
+    "6": 18,
+    "7": 53,
+    "8": 96,
+    "9": 213
+  },
+  "variables": 972,
+  "equations": 84,
+  "solver_status": 2,
+  "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+  "scope": "Exploratory floating-point aggregate pattern LP. No actual clock or physical owner assignment. A rational reconstruction is required for a certified feasibility or price statement."
+}

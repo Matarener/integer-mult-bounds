@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task_id": "p104-side-correction",
+  "priority_revision": 6,
+  "selected_kappa": "0.001672660197076918",
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "p104-side-correction",
+    "question": "Can the proposed P104 joint endpoint flags be realized by a chronological correction program with coefficients, dirty restoration and an affordable complete bill?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/p104-native-channel/README.md",
+      "research/p104-native-channel/PROOF.md",
+      "docs/research/community-efficient1000-review.md",
+      "research/p104-joint-unit-flags/README.md"
+    ],
+    "methods": [
+      "Construct one side-correction word at an explicit chronological cut with the needed frames still available.",
+      "Derive a lower bound on the side correction and hosting costs that decides whether this channel can beat the selected budget."
+    ],
+    "acceptance_gate": "An exact arbitrary-input identity, source/target frame availability and restoration at the chosen cut, plus the complete channel+correction+idle/hosting bill or an explicit favorable bound. The native channel alone is not a supplier. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the revision-6 family record and #2981 static joint flags, alongside the reviewed #1991 channel. #2981 is an author-checked source archive, not an independently validated executable correction or a refutation of program-level lifetime floors.",
+      "scope": "Source-bound orientation only. Read the named package and review before relying on its local evidence; this command is not its replay or supplier admission."
+    },
+    "first_experiment": "After checking live handoffs, pin one named collection from #2981 and attach acquisition/delivery times, source dependencies and coefficient requirements. Test legal access and arbitrary dirty restoration; price any completion against the full channel/endpoint/hosting allowance. Stop with the exact missing implication or a scoped counterexample rather than expanding the static cover census.",
+    "bottleneck_link": "Completing an already realized changed channel tests a concrete construction opportunity, instead of refining the incumbent packing. A positive local result still needs global and all-size admission.",
+    "allowed_variations": [
+      "One correction factorization, one chronological cut, or one explicit hosting obstruction.",
+      "A changed correction schedule with an updated full bill and native frame contract."
+    ],
+    "scope_change_triggers": [
+      "Recompiling the already certified low-rank channel without closing a new obligation.",
+      "Treating a pending ancestor, local histogram or unpriced side correction as an admitted global supplier.",
+      "Repeating a correction or physical conversion already supplied by a pending follow-up without adding independent coverage or a different unresolved obligation.",
+      "Repeating the 208-flag static matching or calling a static nested cover a chronological correction program. Independent audit of that certificate is distinct and remains useful."
+    ],
+    "overlap_terms": [
+      "P104",
+      "I-G/2",
+      "side correction",
+      "native channel",
+      "1972",
+      "1991",
+      "2586",
+      "endpoint transport",
+      "physical dual",
+      "relay composition",
+      "2981",
+      "joint unit flags",
+      "acquisition delivery",
+      "static nesting"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #2981 reports static joint endpoint flags and a matching of 208 departure and arrival flags; archival intake is not independent verification.",
+        "evidence": "research/p104-joint-unit-flags/README.md",
+        "remaining": "Independent flag check and a chronological coefficient program with dirty restoration and a complete cost.",
+        "status": "author-checked",
+        "source_commit": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Pin matched present-head flag 0 (X0 to Y34, basis head 232) from the #2981 certificate and prove on the published #1991 channel that the basis head enters Y34's frame, both as a listed vector and in the GF(2) span, only at Y34's terminal transport after-frame (event 3500), after all fifteen Y34 row updates have run in head-free charts, while X0's span keeps the head at every annotation. No Y34 event occurs while both endpoint frames host the head direction, so chronological dirty restoration cannot use co-hosted basis-head geometry on this coefficient-cascade target.",
+  "scope_change_reason": "Open #3349 registers the 208-flag restoration census and names the present-head class (0, 1, 9, 43). Open #3451/#3443/#3456 pin flags 1/9/43 chronologies and leave flag 0 to the coefficient cascade on Y34. Open #3392 pins absent-head flag 2. Open #3575 records a literal forward-relay cut for flag 0 (drop 591, arrive 3500, empty Q-relay) without the GF(2) span reading. The native channel's frames are binary subspaces with nested transports, so this package checks hosting in span: the literal source drop and the coordinate-basis reading at event 3500 are chart changes, and the dirty-restoration obstruction is entirely on the target side (15/15 head-free updates; span co-hosting opens only at the terminal transport).",
+  "bottleneck_link": "Flag 0 is the coefficient-cascade target Y34. A present-head target final does not host the basis-head direction while the target is still being updated, so dirty restoration along co-hosted head geometry on the published word needs new Y34 events before the published I-G/2 tail add.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after flag 0's late-only hosting obstruction is pinned literally and in span and dual-scanned. Do not build a correction word, recompute algebraic relays, re-audit flags 1/9/43, or price the published tail add at event 5759.",
+  "outcome": "completed",
+  "evidence": "Flag 0 is source 0, target 34, basis head 232. X0 starts at [232]; its first transport at event 591 goes to [8, 32, 64, 128, 256], removing 232 from the list but not from the span (232 = 8 xor 32 xor 64 xor 128). All 22 X0 annotations span the head. Y34's preterminal frames never list or span 232. The head enters Y34 only in the after-frame of event 3500, Y34's last event (literal gap 2909 after event 591). Y34's fifteen adds (events 129 through 3369) all run in head-free charts. No joint X0/Y34 event exists; all eleven endpoint transports are nested upward with rank steps equal to their recorded costs. Neither endpoint frame is restored (ranks 1 to 9 and 0 to 8). At event 3500 X0 already sits on the coordinate basis, which does not list 232, but still spans it. Selected kappa is unchanged.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
+  "no_new_kappa": true,
+  "open_questions": [
+    {
+      "question": "Can a changed schedule place 232 in Y34's span before Y34's last row update (event 3369), while X0 is still live, and what does that add to the channel bill ahead of the published I-G/2 tail add at event 5759?",
+      "why_it_matters": "On the published word the head direction reaches Y34 only at its final transport, after the last add at event 3369. Dirty restoration along co-hosted head geometry therefore needs earlier target hosting or new target events before the coefficient cascade can use that geometry.",
+      "first_step": "Try moving part of Y34's rank-three terminal step (event 3500) ahead of the add at event 3369 so that 232 is in span there. Then check the common-chart requirement against D23's frame at that add.",
+      "blocked_by": "This package reads only the published frames of flag 0. It does not construct a repair, price one, or check D23's frame contract."
+    },
+    {
+      "question": "Does the published full-frame promote/add/restore at events 5758/5759/5807 admit an owner/host schedule for the X0 read that restores arbitrary dirt without repaying the unrestored channel endpoints?",
+      "why_it_matters": "The coefficient cascade already pins the -1/2 add on the promoted frame. The remaining obligation is chronological dirty restoration and hosting for that source read, which this channel-prefix obstruction shows cannot reuse co-hosted basis-head geometry from the published word.",
+      "first_step": "Start from research/p104-tail-flag0-owner and ask whether any later host assignment for event 5759 is compatible with unrestored X0/Y34 channel finals.",
+      "blocked_by": "This package does not read the tail word or assign owners."
+    }
+  ]
+}

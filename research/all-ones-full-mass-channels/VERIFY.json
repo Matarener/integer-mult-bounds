@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/leaf-destination-transport-bound/PROOF.md",
+    "research/leaf-destination-transport-bound/PROOF3.md",
+    "research/leaf-destination-transport-bound/check2.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "WORD vs PR2177 check2.gen, Lemma G, Lemma P2, class bounds and exact 4g-3 maximum for g=3..6, understated-bound and ceil-split controls; prints PASS_ALL_ONES_FULL_MASS_CHANNELS"
+    }
+  ]
+}

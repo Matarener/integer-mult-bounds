@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/segment-continuation-stack/PROOF.md",
+    "research/segment-continuation-stack/README.md",
+    "research/segment-continuation-stack/stack.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source authentication, complete restoration and frame grammar, exact action invoices, 4816 small boundaries, 36 power boundaries, 117 nested returns, four negative controls and source-bound receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete verifier with optimizations; explicit exceptions remain active."
+    }
+  ]
+}

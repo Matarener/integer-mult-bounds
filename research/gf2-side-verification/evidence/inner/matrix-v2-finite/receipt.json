@@ -1,0 +1,116 @@
+{
+  "base_main": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "build": {
+    "c_source_sha256": "e9c3c9194a08718bd1575c1cf08c6c6772d3b644c2e274c25a84a1f9249d06cc",
+    "command": [
+      "x86_64-linux-gnu-gcc",
+      "-shared",
+      "-fPIC",
+      "-O3",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/usr/include/python3.12",
+      "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/c-verification-all-opportunities-20261027/stages/matrix-anchor-v2/native_gf2.c",
+      "-o",
+      "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/c-verification-all-opportunities-20261027/runtime/matrix-v2-finite/cold-build/_packed_gf2.cpython-312-x86_64-linux-gnu.so"
+    ],
+    "extension_sha256": "d990705af645971612df802a427642bdb4cd79de0bb028a2f8ed3667bcf44c04",
+    "no_cached_binary": true,
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "complete": null,
+  "controls": {
+    "counts": {
+      "binding_rejections": 3,
+      "boundary_cases": 17,
+      "fallback_cases": 38,
+      "gram_cases": 621,
+      "oracle_negative_controls": 2,
+      "ordered_complements": 5344,
+      "real_label_permutations": 24
+    },
+    "fixture_sha256": "fbf7cb44bb99c96ee7d393eb91f2ebfbfb94375917c78a902d547320afd75d84",
+    "independent_oracle": "Dense binary lists, descending pivots, addition modulo 2; no packed/source/native helpers",
+    "micro": {
+      "native_with_conversion": {
+        "cpu_seconds": 0.01950881300000007,
+        "wall_seconds": 0.019559950014809147
+      },
+      "unchanged_python": {
+        "cpu_seconds": 0.13026391399999993,
+        "wall_seconds": 0.1303495999891311
+      }
+    },
+    "micro_fixtures": 4,
+    "micro_repetitions": 128,
+    "micro_scope": "Fixed h25 label families with conversion; diagnostic only, not complete side speed",
+    "native_and_fallback_calls": {
+      "complement_fallback": 30,
+      "complement_native": 5875,
+      "gram_fallback": 20,
+      "gram_native": 1638
+    },
+    "status": "FINITE_NATIVE_GF2_CONTROLS_PASS",
+    "v2_controls": {
+      "complement_fixture_stream": {
+        "calls": 7,
+        "canonical_stream_bytes": 597,
+        "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+        "sha256": "ed44b2291db9f1bafc9bdb02e6d3b53e1926b01e549ef8bdccc1991922a6345d"
+      },
+      "counts": {
+        "class_dispatch_rejections": 2,
+        "effective_builtins_rejections": 2,
+        "native_proxy_rejections": 1,
+        "postbind_drift_rejections": 25,
+        "prebind_shadow_rejections": 10,
+        "real_builtin_drift_rejections": 2,
+        "trace_negative_controls": 4,
+        "trace_pairs": 7
+      },
+      "modified_helper_invocations": 0,
+      "runtime_policy": "Reject before native/fallback on source helper, effective builtins, class, function, closure or native dispatch drift",
+      "status": "V2_RUNTIME_AND_COMPLEMENT_STREAM_PASS"
+    }
+  },
+  "engineering_sources": {
+    "compare_side_verifier.py": "6e507bb0c7e00d090a60289fddb6c55e90c946d0850c42c3c5e3e15c27604a68",
+    "finite_controls.py": "df989a831aac43cc1af95169dad8c64a7548760e6e1f96976da996703f2c8f7a",
+    "native_backend.py": "e473c38245c3668715b5a78dfe980b2fe3ed0d0c9b8c97c666fbae6ecf1fffd5",
+    "native_gf2.c": "e9c3c9194a08718bd1575c1cf08c6c6772d3b644c2e274c25a84a1f9249d06cc",
+    "profile_side_verifier.py": "9c994378171c20a91539418d93cb8387e1daa93465d6862beefea90e12999c2a"
+  },
+  "environment": {
+    "executable": "/usr/bin/python3.12",
+    "optimization": 0,
+    "platform": "linux",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "expected_complement_sha256": null,
+  "frozen_sources": {
+    "complex_circuit.py": "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1",
+    "complex_network.py": "0da395e67ac04fa213494e71012c1b19b544596d34cdce5a3b172b1fb6af5f1b"
+  },
+  "measured_wall_seconds_before_receipt_write": 1.464233073987998,
+  "measurement_scope": "Cold entire process; parent guard outer wall/CPU is authoritative. Both arms write identical complete witness bytes. Candidate additionally compiles, links, loads and runs every finite/native/binding control.",
+  "mode": "finite",
+  "phases": {
+    "all_finite_independent_binding_fallback_controls": {
+      "cpu_seconds_including_children": 1.1082770000000002,
+      "wall_seconds": 1.108601727988571
+    },
+    "cold_compile_link_load": {
+      "cpu_seconds_including_children": 0.19273600000000002,
+      "wall_seconds": 0.19265605101827532
+    }
+  },
+  "process_plus_compiler_cpu_seconds_before_receipt_write": 1.6113699999999997,
+  "qualification_revision": 2,
+  "scientific_scope": "Frozen H=25 complex side verification only; no full network certificate, selected frontier, PR5864 gain, new construction, parameter search or kappa admission.",
+  "status": "FINITE_PASS"
+}

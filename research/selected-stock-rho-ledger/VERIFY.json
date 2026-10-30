@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/paired-cube-assembly.tex",
+    "notes/partial-gauge-assembly.tex",
+    "notes/structured-bulk-assembly.tex",
+    "notes/three-stage-cover-assembly.tex",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/complex-t16-rare-pattern-exchanges/upstream1087.tar.gz",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/code/assemble9.py",
+    "research/selected-bit-parent-reserve/README.md",
+    "research/selected-bit-recursive-closure/PROOF.md",
+    "research/selected-bootstrap-stock-audit/RESULT.json",
+    "research/selected-coarse-depth-stock/PROOF.md",
+    "research/selected-complex-compact-adapters/PROOF.md",
+    "research/selected-complex-layer-closure/PROOF.md",
+    "research/selected-stock-envelope-m73/README.md",
+    "research/selected-stock-shape-a-zero/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticates all live inputs and three tarball members by SHA-256; parses the selected ledger, family pairs, prefix payload, PR589 record and all fourteen stage records and the PR2287/PR2250/PR2234 callee contract; the 9909/252 slot and q-adic row arithmetic; 62 exact checks; 16 mutation controls (tampered byte, ledger constant, family wire bits, Sp(70,2), prefix extra, eleven-stage BIT record, row gap, w-free constant as rho, missing S_leaf premise, guard below sigma, adapter callee given external row stock, BIT stock coefficient 4098, leaves given a BIT reserve, divisor families doubled, late-stage headroom tampered, BIT prime bound lowered) must each be rejected."
+    }
+  ]
+}

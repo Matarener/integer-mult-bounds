@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-new-helper-inventory",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-new-helper-inventory",
+    "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json",
+      "research/selected-k8-unrestricted-ends/README.md"
+    ],
+    "methods": [
+      "Propose a changed helper inventory and derive an optimistic exact moment.",
+      "Design a small completed instance and independently verify its endpoint and rank bill."
+    ],
+    "acceptance_gate": "A new physically realizable contract outside the frozen catalogue whose per-call profile, screened with ceiling.ceiling(), beats the selected word's packing ceiling; a lower cap does not establish identical circuitry or order attainable optima, and is insufficient to pass the stronger-budget target under this model. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin.",
+    "bottleneck_link": "Packing of the selected word is capped at +0.87% (ceiling model); only a lower local excess spend or a changed coverage law raises the cap.",
+    "allowed_variations": [
+      "Narrow to one changed boundary or helper type with explicit counts.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Mixing only providers already inside the pinned catalogue.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "helper inventory",
+      "heterogeneous-owner",
+      "mutable leaver"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Narrowed to one helper-inventory lever of the staged544 T360 template (PR3734/PR3815): exact prices of hosted-width changes in the clock-free fixed-bin ideal. Deliverables: exact width-unit prices at a_hi = 0.001730578437266246818741 with basis ranges (0.987736781185353068089966 for 6..9, 1 for 5->4, h(5)-h(3)-1 = 0.991791369039984911721564 for 4->3 on 324/5 helper-calls); two staging screens per width (documented PR3605 signature {1:+3,2:+1,3:-2}, observed only on 8->7 units and assumed for the other widths: +0.003264300394675969421322 for 6..9, -0.008998918419970962488711 for 5->4, -0.000790287459955874210276 for 4->3; hypothetical rank-1 deletion: at most 0.012263218814646931910033, 0 and 0.008208630960015088278435); the weak-duality screen (*) over widths 1..9; the monotone-price lemma for free reductions; the per-call conservation 1856 on both pinned pairs; and the PR3682 -> staged544 split. No new contract and no kappa.",
+  "scope_change_reason": "The card asks for a changed helper inventory. Staging (hosted-width reduction) is the engine of the pending gains in #3605 and #3734, and PR3815's open question 1 asks which changed T360 inventory raises the ceiling, so this package prices that lever exactly instead of proposing a contract. The task card's premise that a free width reduction is an upper relaxation of real staging was corrected: on both pinned (inventory, local) pairs, local paid rank minus hosted width is 1856 per call (PR3605 states the same conservation), so under that observed conservation a literal staging unit also changes the local profile. The package therefore prices staging with its local change.",
+  "bottleneck_link": "The complex primitive binds the selected conditional kappa. The staged-entrance family's gains (#3605, #3734) are ideal-packing gains of the complex local word. This package gives the exact price at which staging a helper pays in that ideal: (*) in README/PROOF. Expansion-gate point 4 (stage more helpers versus redirect to bins or the local word) can therefore be decided per candidate by one inequality.",
+  "budget_minutes": 90,
+  "stop_rule": "Stop if the exact certificate fails and report the improving width move instead; ship without the decomposition if the PR3682 inventory is not pinned within 15 minutes; stop at the iteration deadline; stop and post nothing if a competing staged544 width or inventory pricing appears before submission.",
+  "outcome": "completed",
+  "evidence": "verify.py (stdlib, about 6 s) prints PASS_STAGED544_WIDTH_LEVER_SCREEN. Ceiling bracket [0.001730578437266246818740, ...741]: F(a_lo) <= -1.31e-19 and F(a_hi) >= 5.28e-20 (reproduces PR3815). Cheapest and tight dual extensions feasible on 318,840 patterns with minimum reduced cost exactly 0, matched by a knapsack recursion; slack-lemma premises hold (margin 0.986093083432664503980103). Width-unit prices: 0.987736781185353068089966 (9->8/8->7/7->6/6->5, ranges 28/30/28/28), 1 (5->4, range 18), 0.991791369039984911721564 (4->3, range 324/5). Documented-signature gains +0.003264300394675969421322 / -0.008998918419970962488711 / -0.000790287459955874210276; rank-1-deletion references 0.012263218814646931910033 / 0 / 0.008208630960015088278435. Split: width +8.889631030668177612809695088162, local -8.919009734220261337601597266358 (interaction identically 0 by separability). Per-call conservation 1856 on both pairs. Five negative controls fail as required. Second method: HiGHS (evidence/HIGHS.json) agrees to about 3e-12 in prices and 1e-16 in roots.",
+  "author": "Sagar Thakrar (thakrarsagar)",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for design, code, proofs and text. Reviewed by four AI review passes in the same loop (reproducibility, mathematical audit, provenance, referee), then one revision, a re-verification round by two of them (mathematical audit, referee) and a second, text-level revision. No human or formal-kernel verification is claimed.",
+  "open_questions": [
+    {
+      "question": "Is the staging signature {1:+3,2:+1,3:-2} forced for width-6..9 staging of this template?",
+      "why_it_matters": "A literal staging with a smaller gap to a rank-1 deletion would gain up to 0.008999 more per width unit; with the signature the gain is 0.003264.",
+      "first_step": "The PR3682 -> staged544 local delta equals the signature, which suggests PR3682's delayed donor release {1:-2,2:-2,3:+2} survives in PR3734. Check in PR3734's frames whether it survives, or whether an analogous release applies to helper 544's donors; then price the result with (*).",
+      "blocked_by": "Reading PR3734's literal frames and staging identities; not done in this time box."
+    },
+    {
+      "question": "Does the per-call conservation (local paid rank minus hosted width = 1856) hold for every literal construction of this template?",
+      "why_it_matters": "It makes the non-realizability of free reductions unconditional.",
+      "first_step": "Derive it from the owner and frame accounting in PR3734's owner_audit.py, or exhibit a literal construction that violates it.",
+      "blocked_by": "Reading the unmerged PR3734 owner/frame accounting."
+    },
+    {
+      "question": "Which bin-count changes pass screen (*)?",
+      "why_it_matters": "mu gives subgradient bin prices; PR3815's open question 1 asks for a changed T360 inventory. New bin ranks are constrained by concurrent PR3836 (Matarener, unmerged), which reports by a census within its class that the alphabet is forced within bridge-based nine-stage schedules.",
+      "first_step": "Write a candidate template's bin counts, evaluate (*), and re-solve the LP outside the unknown bin ranges.",
+      "blocked_by": "Physical stock, coverage law and template checks of the complete admission."
+    }
+  ]
+}

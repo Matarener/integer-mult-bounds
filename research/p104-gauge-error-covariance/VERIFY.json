@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-gauge-error-covariance/inputs/base-WORD.json.gz",
+    "research/p104-gauge-error-covariance/inputs/WORD.json.gz",
+    "research/p104-gauge-error-covariance/inputs/GAUGES.json",
+    "research/p104-gauge-error-covariance/inputs/source-RESULT.json",
+    "research/p104-gauge-error-covariance/inputs/source-construct.py",
+    "research/p104-gauge-error-covariance/inputs/source-local.py",
+    "research/p104-gauge-error-covariance/inputs/NOTICE"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Complete source timeline/invoice/endpoint, gauge covariance, all signed error coefficients and transpose, strict20-bit causal guard,8 controls and36 exact oracle cases; admissible 19-bit counterexamples and family witness transport at t=0,32"
+    }
+  ]
+}

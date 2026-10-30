@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/filtered-native-kappa004/inputs/original-packet.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the frozen archive and two members; replay all chronological rank-one contacts, exact weighted-cover certificates and rejection controls; check rational cleanup and frame geometry."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the frozen archive and two members; replay all chronological rank-one contacts, exact weighted-cover certificates and rejection controls; check rational cleanup and frame geometry."
+    }
+  ]
+}

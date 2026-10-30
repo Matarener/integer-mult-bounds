@@ -1,0 +1,123 @@
+"""Per-trace bounded tabulation of pure exact Fraction contributions.
+
+Original arithmetic: Ali Romman and retained completed-error lineage.
+New table/derivation: Chris R / Clear1nsight, substantial OpenAI Codex assistance.
+Apache-2.0. No approximate or shared integer-backend arithmetic.
+"""
+from contextlib import contextmanager
+from collections import OrderedDict
+from fractions import Fraction as F
+from hashlib import sha256
+import inspect
+from pathlib import Path
+from types import CodeType
+
+MODULE_SHA256='a4c743e79c55e9c2ac26deb6d87cb948b1b0fbe942e4f7912ccbfba55db4b32a'
+FUNCTION_SHA256='379c0e7c1c5ab7433ab5ad2669c1bda1234dbf0530fc61b21bfbe83528f37f53'
+CAPACITY=16384
+BEFORE='''                value = old + q*v
+                change = abs(value)-abs(old)
+                scores[r][0] += change*weights[i][0]
+                scores[r][1] += change*weights[i][1]
+                scores[r][2] += change
+'''
+AFTER='''                value, increment_a, increment_c, change = contributions.step(
+                    old, q, v, weights[i][0], weights[i][1])
+                scores[r][0] += increment_a
+                scores[r][1] += increment_c
+                scores[r][2] += change
+'''
+
+
+def need(ok,message):
+    if not ok:
+        raise ValueError(message)
+
+
+class Contributions:
+    def __init__(self,capacity=CAPACITY):
+        need(type(capacity) is int and 0<=capacity<=CAPACITY,'bounded integer table capacity')
+        self.capacity=capacity
+        self.table=OrderedDict()
+        self.calls=self.hits=self.misses=self.evictions=self.bypasses=0
+
+    @staticmethod
+    def compute(old,q,v,a,c):
+        value=old+q*v
+        change=abs(value)-abs(old)
+        return value,change*a,change*c,change
+
+    def step(self,old,q,v,a,c):
+        self.calls+=1
+        if not self.capacity or not all(type(x) is F for x in (old,q,v,a,c)):
+            self.bypasses+=1
+            return self.compute(old,q,v,a,c)
+        key=(old.numerator,old.denominator,q.numerator,q.denominator,
+             v.numerator,v.denominator,a.numerator,a.denominator,c.numerator,c.denominator)
+        result=self.table.get(key)
+        if result is not None:
+            self.hits+=1
+            return result
+        self.misses+=1
+        result=self.compute(old,q,v,a,c)
+        if len(self.table)>=self.capacity:
+            self.table.popitem(last=False)
+            self.evictions+=1
+        self.table[key]=result
+        return result
+
+    def statistics(self):
+        return dict(calls=self.calls,hits=self.hits,misses=self.misses,
+                    evictions=self.evictions,bypasses=self.bypasses,
+                    resident=len(self.table),capacity=self.capacity)
+
+
+def code_shape(code):
+    constants=tuple(code_shape(c) if isinstance(c,CodeType) else c for c in code.co_consts)
+    return (code.co_code,constants,code.co_names,code.co_varnames,code.co_argcount,
+            code.co_posonlyargcount,code.co_kwonlyargcount,code.co_flags,
+            code.co_freevars,code.co_cellvars,code.co_name,code.co_stacksize,
+            code.co_nlocals,code.co_exceptiontable)
+
+
+def transformed(raw):
+    need(sha256(raw.encode()).hexdigest()==FUNCTION_SHA256,'exact Fraction function source')
+    need(raw.count(BEFORE)==1,'one exact Fraction contribution block')
+    value=raw.replace(BEFORE,AFTER)
+    seam="    n = word['public'] + word['owned_fields']\n"
+    need(value.count(seam)==1,'one exact Fraction setup seam')
+    value=value.replace(seam,seam+'    _contribution_report(None)\n    contributions = _contribution_factory()\n')
+    seam='    return dict(rounded=sorted(rounded), sites=sites, peaks=peaks, pareto=pareto,\n'
+    need(value.count(seam)==1,'one exact Fraction return seam')
+    return value.replace(seam,'    _contribution_report(contributions.statistics())\n'+seam)
+
+
+def derive(reference,capacity=CAPACITY):
+    need(type(capacity) is int and 0<=capacity<=CAPACITY,'bounded integer table capacity')
+    need(reference.F is F,'exact standard Fraction type')
+    need(sha256(Path(reference.__file__).read_bytes()).hexdigest()==MODULE_SHA256,'exact Fraction module bytes')
+    original=reference.error_trace
+    raw=inspect.getsource(original)
+    text=transformed(raw)
+    namespace=dict(reference.__dict__)
+    exec(compile(raw,'<fraction-original-binding>','exec'),namespace)
+    need(code_shape(original.__code__)==code_shape(namespace['error_trace'].__code__),'live Fraction code agrees with source')
+    need(original.__defaults__ is None and original.__kwdefaults__ is None and original.__closure__ is None,'ordinary Fraction function')
+    last=[None]
+    def report(value):last[0]=None if value is None else dict(value)
+    namespace.update(_contribution_factory=lambda:Contributions(capacity),_contribution_report=report)
+    exec(compile(text,'<fraction-exact-contributions>','exec'),namespace)
+    result=namespace['error_trace']
+    result.statistics=lambda:None if last[0] is None else dict(last[0])
+    return result
+
+
+@contextmanager
+def installed(reference,capacity=CAPACITY):
+    original=reference.error_trace
+    derived=derive(reference,capacity)
+    reference.error_trace=derived
+    try:
+        yield derived
+    finally:
+        reference.error_trace=original

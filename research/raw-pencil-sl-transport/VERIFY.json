@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/raw-pencil-sl-transport/vendor/characters/INPUTS.json",
+    "research/raw-pencil-sl-transport/vendor/characters/NOTICE.md",
+    "research/raw-pencil-sl-transport/vendor/characters/PROOF.md",
+    "research/raw-pencil-sl-transport/vendor/characters/pencils.py",
+    "research/raw-pencil-sl-transport/vendor/characters/source/REGULAR.md",
+    "research/raw-pencil-sl-transport/vendor/characters/source/SINGULAR.md",
+    "research/raw-pencil-sl-transport/vendor/characters/source/oracle.py",
+    "research/raw-pencil-sl-transport/vendor/characters/source/pencil.py",
+    "research/raw-pencil-sl-transport/vendor/raw/PROOF.md",
+    "research/raw-pencil-sl-transport/vendor/raw/decompose.py",
+    "research/raw-pencil-sl-transport/vendor/raw/field_source.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "small"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete F2/F3 raw SL orbits, literal determinant-one maps and rectangular/one-dimensional factors."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "extension"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Complete F4 raw SL orbits and literal maps, including all65536 two-by-two pencils."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "fixtures"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Larger arbitrary-basis, nonsplit, no-invertible-slice and unbounded-interface cases; raw-to-raw maps; failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "norms"
+      ],
+      "timeout_seconds": 60,
+      "checks": "All declared degree1..8 residue norm targets and length1/2/4 lifted determinants; invalid norm controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "characters"
+      ],
+      "timeout_seconds": 60,
+      "checks": "All determinant triples in fifteen supplied-model GL orbits compared with the frozen complete character oracle."
+    }
+  ]
+}

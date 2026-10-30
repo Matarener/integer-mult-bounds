@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/productive-controller-basis-search/GLOBAL-PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Exact parity census, old-cut witnesses, mixed coefficients, positive word, all-order control and complete price intervals."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Exact parity census, old-cut witnesses, mixed coefficients, positive word, all-order control and complete price intervals."
+    }
+  ]
+}

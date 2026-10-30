@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+    "research/allwidth-caller-certificate/PROOF.md",
+    "research/p104-helper-subspace-splits/PROOF.md",
+    "research/p104-helper-subspace-splits/VERIFY.json",
+    "research/p104-helper-subspace-splits/WORD.json.gz",
+    "research/p104-helper-subspace-splits/local.py",
+    "research/p104-helper-subspace-splits/verify.py",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate sources, count MOVE coverage, independently check 512 columns of one actual MOVE and reject phase/address faults; diagnose retained absolute-phase rejection."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Repeat the same bounded exact evidence with assertions disabled; no whole-supplier replay."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-tail-side-correction-seed749717/AUGMENTED-WITNESS.json.gz",
+    "research/p104-tail-side-correction-seed749717/CORRECTION-ROWS.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check that event 5759 adds -1/2 times X0 into Y34 and that the channel prefix ends at +1/2."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the off-diagonal and diagonal values of delta minus G/2."
+    }
+  ]
+}

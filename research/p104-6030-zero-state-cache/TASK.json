@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Profile the selected PR6030 primary verifier (research/p104-helper470-twin-rung-removal/verify.py, run twice by make frontier6030-verify) and remove its measured bottleneck, clifford_exact.Op.zero_state, by binding the already merged gate-table evaluator research/clifford-state-performance/fast_state.py to the byte-identical clifford_exact.py copy that PR6030's chain loads, without editing any frozen file.",
+  "scope_change_reason": "Refined from the generic card to one fixture (the selected replay's primary stage) and one bottleneck. The table method is not new: it is Charles Bethin's fast_state.py (PR662 lineage), reused unchanged; the new parts are the source-bound binding to this consumer, an exhaustive differential over its real workload, and same-fixture timings.",
+  "bottleneck_link": "The primary verifier is the longest stage of the selected replay and runs twice (normal and -O), each under a 600 s stage timeout; the maintainer audit recorded 228 s and 461 s. Halving it shortens every review of P104 successors that reuse PR5827's chain.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after one bottleneck: same-fixture before/after timings, an exhaustive differential over every zero_state call of the real run, and invalidation controls. Do not optimize the next hotspot or edit scripts/audit_p1046030.py (maintainer decision).",
+  "outcome": "completed",
+  "evidence": "cProfile: Op.zero_state is 202 of 280 profiled seconds. Same fixture, serial fresh processes on Apple M5 / CPython 3.12.14: normal stage 107.0-120.4 s -> 47.3-47.6 s (2.39x of medians), -O stage 62.2-62.9 s -> 41.7-42.0 s (1.50x). Differential: all 32,766 calls equal; the unchanged verifier's own RESULT.json byte check passes in every mode. test_equivalence: 1,714 random states, 280 lowered children, 48 frames, 3 mutants rejected, changed compiler bytes and all 14 changed pins refused. Raw samples in BENCHMARK.json.",
+  "author": "Josie Elliston (session 43, Claude Opus 5.5)",
+  "ai_assistance": "Claude Opus 5.5 (Anthropic) via Claude Code wrote the binding, tests and documentation, profiled and timed the runs, in an unattended overnight session coordinated by another Claude session for Josie Elliston.",
+  "open_questions": [
+    {
+      "question": "Should frontier6030-verify (scripts/audit_p1046030.py) opt into this binding for its primary and optimized stages?",
+      "why_it_matters": "Those two stages are most of the selected replay's wall time and the -O stage came within 140 s of its 600 s timeout in the maintainer audit.",
+      "first_step": "Parameterize run.py's TARGET to the audit's work/source copy, run the five-stage audit in both engines on one host and compare VALIDATION.json and the stage logs byte for byte.",
+      "blocked_by": "A maintainer decision: the selected replay is the admission evidence, and changing its engine needs review even when outputs are identical."
+    },
+    {
+      "question": "What does the remaining ~45-55 s of the accelerated primary consist of?",
+      "why_it_matters": "After this change no single function dominates as zero_state did; the next win needs a fresh profile rather than a guess.",
+      "first_step": "cProfile run.py --mode fast; the earlier profile suggests the caller.physical orthogonality loops in research/p104-productive-controller/caller.py and pr4359 native_inventory.contact are next.",
+      "blocked_by": "None; it was out of this session's one-bottleneck scope."
+    }
+  ]
+}

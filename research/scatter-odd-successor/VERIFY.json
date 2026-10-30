@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-bit-carrier-skeleton/code/bit/export_records.py",
+    "research/e8-bit-p111-tuned/code/xcheck_p.py",
+    "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz",
+    "research/scatter-duplicate-boundary/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Run the odd-multiplicity successor and the published per-occurrence replay on the selected word, the even duplicate, and the odd triple."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that one and three occurrences emit an ADD and two occurrences emit none."
+    }
+  ]
+}

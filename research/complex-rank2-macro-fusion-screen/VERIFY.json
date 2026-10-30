@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned selected record, replay archive, canonical word and exact member bytes; both orientations' climb and scalar-frame replay; successive rank-one links; exact rank-two endpoint-recipe matching; same-register event-touch histogram and candidate phase pairs; no add operand has a reusable same-key rank-one transition; reconstruct the 597-event L195 window; compare exact Gaussian-dyadic child matrices on all 512 basis columns and bind the product to the direct rank-two recipe; verify nonzero forward source block/backward intermediate tap and stored operator digests; wrong-rank and removed-recipe controls; scoped no-kappa conclusion."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete source-pinned frame replay, exact operator and ADD-tap screen, call-reuse screen, stored result-digest comparison, and controls under optimized Python."
+    }
+  ]
+}

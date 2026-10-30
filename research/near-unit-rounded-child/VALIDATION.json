@@ -1,0 +1,41 @@
+{
+  "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
+  "date_utc": "2026-10-30",
+  "command": "python3.12 scripts/research_package.py --package research/near-unit-rounded-child",
+  "python": "3.12.11 (main, Jul 23 2025, 00:32:20) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "modes": [
+    "normal",
+    "optimized"
+  ],
+  "complete_receipts_equal": true,
+  "observations": 34,
+  "rejecting_controls": 6,
+  "certificate_sha256": "cd199ca37238dd7d163cdeedcb9e4337eac4f718519b48523fd9fefe5b5af1e7",
+  "input_contract_correction": {
+    "allocated_precision_bits_unchanged": true,
+    "corpus_radius_target_unchanged": true,
+    "original_eight_real_basis_inputs_admitted_at_zero": true,
+    "original_scout_incoming_bits": 0,
+    "reason": "Predeclared mixed input has half-valued real and imaginary components.",
+    "registered_incoming_bits": 1
+  },
+  "review": {
+    "kind": "Separate AI source/parameter proof review plus root wrapper inspection",
+    "result": "No remaining blocking issue identified. Root found the original mixed-input grid mismatch; both arms now declare incoming1, retain all17 inputs, and reject the incompatible incoming0 declaration. Independent AI review confirmed only incoming_bits changes in the allocator output.",
+    "limitations": "No independent human, formal-kernel, full caller or physical-cost acceptance."
+  },
+  "checked_sources": {
+    "verify.py": "55a6dd3eebf8a7298c834d5e219e41e1ec5e838aaddb695ac4b2e10cffa77eb6",
+    "PROOF.md": "d6132961993ca0a93d6dbad53ba024ad920b078a4af91d9392898c4c390fc9e2",
+    "vendor/pr6228/verify.py": "969f0fc387297c350954e431efa3856abb250cbfe6442d808e98e674ac83ca98"
+  },
+  "limitations": [
+    "Finite observations are not a universal rounded-error proof.",
+    "Unrounded sources restore exactly; rounded sources have only the checked error bound.",
+    "The unchanged allocation does not consume the smaller coefficient-row norm.",
+    "No full Gaussian/caller, physical delivery, tape, complete cost or savings claim.",
+    "The chosen lower Toeplitz matrix is not an actual Gaussian kernel.",
+    "No hosted CI claimed."
+  ]
+}

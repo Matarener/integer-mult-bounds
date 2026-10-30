@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/direct-delivery504-global/inputs/data-base/work/complex-nine-native/DATA-PHASES.json",
+    "research/e8-complex-gauge-kernel/code/replay_gk.py",
+    "research/e8-signed-prefix/vendor/cx/work/odd-stages/RECIPE-9.json",
+    "research/e8-signed-prefix/vendor/cx/work/odd-stages/data_phases.py",
+    "research/e8-signed-prefix/vendor/cx/work/odd-stages/global_nine.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact eight-wire rule bound to replay_gk.py; RECIPE-9 closes and a flipped bridge fails; level model equals DATA-PHASES idle ranks on all 112 ports; builder rebuilds RECIPE-9 and closure recovers its final bridges; census of 2,037,336 simple-riding designs: all 37,968 alternating designs tested exactly, 16 close, all with the incumbent alphabet; all 728 designs of the best relaxed alphabet fail; 2000 non-alternating designs (every 1000th) fail; wrong final bridge fails; equality with RESULT.json"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "failed_label": "finite-direct-add-freshness",
+  "cause": "New hostile-callable fixture was armed during classmethod construction and before its log existed; setup failed after inherited54controls, before freshness probe.",
+  "repair": "Construct classmethod with ordinary attribute reads first, initialize log, then arm hostile attribute behavior before the pure freshness check. No arithmetic or production implementation change.",
+  "automatic_retry": false
+}

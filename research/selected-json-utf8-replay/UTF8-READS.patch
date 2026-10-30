@@ -1,0 +1,28 @@
+--- a/scripts/verify_selected_result.py
++++ b/scripts/verify_selected_result.py
+@@ -76,14 +76,14 @@
+ def check(record, root=ROOT, *, historical=False):
+     root = root.resolve()
+     certificate_path = path(root, record['certificate'])
+-    certificate = json.loads(certificate_path.read_text())
++    certificate = json.loads(certificate_path.read_text(encoding='utf-8'))
+     kappa = Fraction(record['kappa'])
+     require(kappa > 0 and kappa == Fraction(certificate['kappa']), 'Selected kappa differs from finite certificate')
+     require(kappa == Fraction(record['decimal']), 'Selected decimal differs from exact kappa')
+     require(sha256(certificate_path.read_bytes()).hexdigest() == record['certificate_sha256'],
+             'Selected certificate bytes changed')
+     manifest_path = path(root, record['source_manifest'])
+-    manifest = json.loads(manifest_path.read_text())
++    manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+     require(manifest.get('files'), 'Empty selected source inventory')
+     explicit = manifest.get('format') == 'repository-files-sha256-v1'
+     if explicit:
+@@ -130,7 +130,7 @@
+     parser.add_argument('--record', type=Path, default=ROOT / 'certificates/selected-result.json',
+                         help='Selected or historical checkpoint record to verify')
+     args = parser.parse_args()
+-    record = json.loads(args.record.read_text())
++    record = json.loads(args.record.read_text(encoding='utf-8'))
+     kappa = check(record, historical=args.record.resolve() != (ROOT / 'certificates/selected-result.json').resolve())
+     print('PASS selected record, exact kappa, original source inventory and proof supplement: ' + str(kappa))
+ 

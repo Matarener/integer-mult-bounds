@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Invocation-local exact projective-normal reuse in the complete PR1867 H4 support-certificate replay, with unchanged complete stdout and every inherited check.",
+  "scope_change_reason": "A measured hyperplane-construction bottleneck gives one independent implementation question; no predecessor mathematical audit or altered domain is the deliverable.",
+  "bottleneck_link": "Reducing complete certificate replay time preserves coverage while shortening the wait for source-bound research evidence.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first source-bound measurable complete-command improvement after conformance and publication checks; do not extend the mechanism.",
+  "outcome": "completed",
+  "evidence": "Integer projective-normal key proof, exact rational-key and field-scaling controls, four complete flat-dictionary comparisons and byte-identical complete historical output. Alternating complete-command timing is recorded in README.md.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can a complete H4 replay use a shorter exact cofactor computation after projective scan reuse?",
+      "why_it_matters": "Cofactor construction remains paid for every spanning triple; this is a separate possible replay cost.",
+      "first_step": "Profile the complete accelerated command and compare its cofactor routine with an exact algebraic replacement, preserving all normal and witness outputs.",
+      "blocked_by": "No replacement or performance result is provided; the present stop rule ends after one mechanism."
+    }
+  ],
+  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19272415",
+  "upstream_checkpoint": {
+    "commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+    "priority_revision": 8,
+    "checked_at_utc": "2026-10-29T16:14:25Z"
+  }
+}

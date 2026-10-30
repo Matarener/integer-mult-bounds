@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/HALO.md",
+    "research/unconditional-batched-crt/INVERSE-CONDITIONING.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source phrases, exact error identity and bound, sharp bandwidth and exactness radius on five instances, three rejecting controls, parameter inequalities for 2<=p<=64."
+    }
+  ]
+}

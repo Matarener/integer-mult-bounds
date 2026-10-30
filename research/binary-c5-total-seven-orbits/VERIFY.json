@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Every legal binary fit, full generator-orbit partition and all channel labels."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent row-product/kernel census and determinant-enumerated full local-group classification."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Eight corrupted certificate rejections and 7200 literal conjugation/involution controls."
+    }
+  ]
+}

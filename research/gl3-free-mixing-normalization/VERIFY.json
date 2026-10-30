@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gl3-free-mixing-normalization/source/DIRECT_NINE.json",
+    "research/gl3-free-mixing-normalization/source/ENCODING_AUDIT.md",
+    "research/gl3-free-mixing-normalization/source/LICENSE",
+    "research/gl3-free-mixing-normalization/source/NOTICE.md",
+    "research/gl3-free-mixing-normalization/source/README.md",
+    "research/gl3-free-mixing-normalization/source/cnf_model.py",
+    "research/gl3-free-mixing-normalization/source/exact_checker.py",
+    "research/gl3-free-mixing-normalization/source/model.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/oracle.py",
+        "selftest"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent all-n construction corroborated by complete noncommuting symbolic matrices,504conjugacies/28conversebases, boundaries and10negativecontrols."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/oracle.py",
+        "selftest"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent all-n construction corroborated by complete noncommuting symbolic matrices,504conjugacies/28conversebases, boundaries and10negativecontrols."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual unchanged source alphabet/factors and direct-nine endpoint bind to frozen oracle; raw interleaver is adapter-owned, no CNF/SAT/RUP claim."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual unchanged source alphabet/factors and direct-nine endpoint bind to frozen oracle; raw interleaver is adapter-owned, no CNF/SAT/RUP claim."
+    }
+  ]
+}

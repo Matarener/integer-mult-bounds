@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-joint-contact/WORD.json.gz",
+    "research/p104-joint-contact/RESULT.json",
+    "research/p104-full-frame-contact/WORD.json.gz",
+    "research/p104-caller-independent-audit/CAPSULE-INVENTORY.json",
+    "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/check.py",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py",
+    "research/pr4359-p7-padding/native_inventory.py",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Serial bounded replay: authenticated sources and PR5550 capsule; own exact replay of PR5551 and PR5545 with the 6 ADD + 15 SCALE chart edits and delta 2H1-3H2+H3-H4+H5; patched PR5550 checker reproduces its PR5545 output byte for byte and passes on PR5551 (changed invoice rejected); own decimal crossing equals the author interval; dense all-column absolute-phase check of a fixed subset (all four new maps, every helper endpoint pair, all 208 main adapters, every 32nd MOVE map) equal to FULL-CHECK.json, with phase-only and sign fault controls; result equals RESULT.json."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/clifford-pointwise-faithfulness/README.md",
+    "research/full-clifford-two-qubit-centre/README.md",
+    "research/nine-axis-cutoff-sharpness/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code step for n=2,3,4 exhaustive and n=2..64 explicit tuple; cuspidal coset sums on GL(2,2) and GL(3,2); literal two-qubit Clifford membership, class Gram null vectors at widths 1..4 and visibility at 9..12; three rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same complete finite check with optimization; checks use explicit require calls, not assert."
+    }
+  ]
+}

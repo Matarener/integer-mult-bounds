@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/a5-conjugate-5cycle-seedd316f8/CERTIFICATE.json",
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Read-only algebraic any-register obstruction; compares committed CERTIFICATE.json; source pins; need() admission; temp corruption reject; duplicate JSON key reject."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same verify under -O -Werror; need() still enforces admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent even-permutation A5 + uv^T idempotent rebuild; support filter; forced rank-two matrix outside alphabet; direct word."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Support filter, forced-matrix, certificate/pins, read-only+dup-JSON, CLI normal/-O controls."
+    }
+  ]
+}

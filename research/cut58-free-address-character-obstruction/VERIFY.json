@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/cut58-address-swap-menu/operators.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "New word relation via Boolean polynomials and all 4096 literal basis columns; all 16 generator sign assignments; outer-phase, omitted-ADDRESS and free-sign boundary controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "New word relation via Boolean polynomials and all 4096 literal basis columns; all 16 generator sign assignments; outer-phase, omitted-ADDRESS and free-sign boundary controls."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "An opt-in bounded-memory DAG serializer for the unchanged DisjointTensor.verify checks, with exact canonical-byte and complete-receipt equivalence and paired h=26 measurements.",
+  "scope_change_reason": "Takes the explicit DAG-serialization question in Wentao Li PR2117. This is verifier engineering on a historical checker, not a new mathematical supplier or an audit of predecessor results.",
+  "bottleneck_link": "Side result on review resources: avoid whole-document JSON allocation in a historical exact checker. This neither changes the binding complex supplier nor improves kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first material allocation reduction with identical bytes and all checks. Stop after packaging; leave default adoption and compile-memory work open.",
+  "outcome": "completed",
+  "evidence": "PROOF.md gives the scoped byte equivalence and buffer bound. verify.py checks 1623 schemas, six complete receipts through h=26, 41 rejecting controls and the complete nondigest checker AST. benchmark.py supplies five interleaved fresh-process pairs with exact receipt checks and separate traced-allocation runs.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can the default disjoint-tensor checker adopt the streaming encoder while preserving historical source bindings?",
+      "why_it_matters": "The measured allocation reduction is currently opt-in.",
+      "first_step": "Specify a source-pin migration and retain the historical implementations and certificates unchanged.",
+      "blocked_by": "Default adoption and historical replay migration are outside this isolated package."
+    },
+    {
+      "question": "Can the remaining compile allocation be reduced with a streamed reversible-embedding check?",
+      "why_it_matters": "The full verification still peaks near 41 MB even though digest allocation is below 1 MB.",
+      "first_step": "Profile the retained users, edges, gates and values, then specify an iterator that preserves every freshness and output check.",
+      "blocked_by": "No replacement compile algorithm or equivalent ownership protocol is supplied here."
+    }
+  ]
+}

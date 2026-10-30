@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "5e0052ca0aa3036a3afa8b0438927377c8d97d53",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independent informal proof audit of PR5526 REPAIR.md Sections 2-4: the arbitrary-linear-return module/error bridge and its declared invoice.",
+  "scope_change_reason": "The picker selected independent verification. Live overlap showed PR5547 had audited the core Clifford theorem but explicitly excluded the later repair theorem and invoice. This audits that implication before any formalization, retaining native source facts as premises.",
+  "bottleneck_link": "Checks whether the fixed observation/capacity contract really rules out affordable exact or small-error repair; a false bridge could prematurely exclude a research route.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the conditional bridge proof, independent finite and invoice checks, semantic controls and reviewable handoff; no fixed-invoice search or full native replay.",
+  "outcome": "completed",
+  "evidence": "AUDIT.md; RESULT.json; verify.py; mutations.py; VALIDATION.json",
+  "author": "josecarlosgonzalezroque-design",
+  "ai_assistance": "Substantial OpenAI Codex assistance in proof review, implementation, verification and writing. One agent; no independent human or proof-assistant review.",
+  "open_questions": [
+    {
+      "question": "Does the complete literal PR4948/4978 retained observation inventory satisfy the initial-history and target-coset premises at the actual caller?",
+      "why_it_matters": "The abstract implication cannot establish its own native/caller applicability; an extra observation or changed original paid input can invalidate it.",
+      "first_step": "Read both mandatory source clarifications and independently trace one zero-diagonal original input column through all nine cuts, then extend the coverage map.",
+      "blocked_by": "Complete independent source-to-observation and all-width grade coverage is outside this audit."
+    }
+  ],
+  "coordination_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5236#discussioncomment-19182242",
+  "selection_seed": "0ae98c6c6a57ad53401268db8aa558d4"
+}

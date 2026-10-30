@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/exact-clifford-quadratic-replay/NOTICE.md",
+    "research/exact-clifford-quadratic-replay/PROOF.md",
+    "research/exact-clifford-quadratic-replay/quadratic.py",
+    "research/higher-moment-strictification/verify.py",
+    "research/joint-helper-lattice/CONTROLLER.json",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+    "research/kappa-rebuild/architecture/mixed_target_probe.py",
+    "research/p104-helper-subspace-splits/NOTICE",
+    "research/p104-helper-subspace-splits/PROOF.md",
+    "research/p104-helper-subspace-splits/README.md",
+    "research/p104-helper-subspace-splits/RESULT.json",
+    "research/p104-helper-subspace-splits/SOURCES.json",
+    "research/p104-helper-subspace-splits/SPLITS.json",
+    "research/p104-helper-subspace-splits/TASK.json",
+    "research/p104-helper-subspace-splits/VALIDATION.md",
+    "research/p104-helper-subspace-splits/VERIFY.json",
+    "research/p104-helper-subspace-splits/WORD.json.gz",
+    "research/p104-helper-subspace-splits/construct.py",
+    "research/p104-helper-subspace-splits/inputs/PR5565-WORD.json.gz",
+    "research/p104-helper-subspace-splits/inputs/PR5580-WORD.json.gz",
+    "research/p104-helper-subspace-splits/local.py",
+    "research/p104-helper-subspace-splits/pricing.py",
+    "research/p104-helper-subspace-splits/search.py",
+    "research/p104-helper-subspace-splits/verify.py",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-productive-controller/CONTROLLER.json",
+    "research/p104-productive-controller/caller.py",
+    "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+    "research/pr4359-p7-padding/native_inventory.py",
+    "research/query-thinned-controllers/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate sources, retain every source proof check, check state conversion and cache invalidation, replay the complete selected caller and compare both saved scientific artifacts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/cross.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Collect every actual state input from the complete selected replay and independently compare every literal amplitude and denominator for all distinct inputs."
+    }
+  ]
+}

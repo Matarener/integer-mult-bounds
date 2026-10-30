@@ -1,0 +1,4 @@
+from portable import prepared
+import runpy
+with prepared('complete-B') as (_,baseline,stage):
+ runpy.run_path(str(stage/'baseline_full.py'),run_name='__main__')

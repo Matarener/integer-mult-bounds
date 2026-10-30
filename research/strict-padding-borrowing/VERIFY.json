@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-ordinary-interchange/inputs/pr2808.tar",
+    "research/ordinary-one-factor-stock/PROOF.md",
+    "research/physical-ordinary-interchange/ordinary.py",
+    "research/selected-runtime-guard-stock/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact pinned source, borrowing census, strict selected witness and literal Count-tape padding return"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact pinned source, borrowing census, strict selected witness and literal Count-tape padding return"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate direct padding oracle and selected forward-depth arithmetic"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual optimized public CLI rejection and endpoint/failure controls"
+    }
+  ]
+}

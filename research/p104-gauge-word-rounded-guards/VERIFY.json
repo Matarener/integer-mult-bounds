@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [],
+ "inputs": [
+  "research/p104-gauge-error-covariance/RESULT.json",
+  "research/p104-gauge-error-covariance/causal.py",
+  "research/p104-gauge-error-covariance/inputs/WORD.json.gz",
+  "research/p104-gauge-error-covariance/transfer.py",
+  "research/p104-gauge-word-rounded-guards/RESULT.json",
+  "research/p104-priced-amplification/BUDGET-WORD.json.gz",
+  "research/p104-priced-amplification/MINIMUM-WORD.json.gz"
+ ],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-I",
+    "-W",
+    "error",
+    "-B",
+    "{package}/verify.py"
+   ],
+   "timeout_seconds": 300,
+   "checks": "Authenticate six pinned inputs; import PR5838 causal.py/transfer.py unchanged; for the PR5830 and both PR5833 words, check endpoint rows, ideal peaks 65537/96/2 and the least accepted causal guard bracket (20 accepted, 19 rejected); PR5830 adapter equals PR5838's recorded 20-bit case; intermediate error < 0.978B and field norm plus error < 97B and < 3B on the PR5833 words; four rejection controls; committed RESULT.json equals the recomputation."
+  }
+ ]
+}

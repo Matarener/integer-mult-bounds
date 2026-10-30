@@ -1,0 +1,87 @@
+{
+ "schema_version": 1,
+ "task_id": "census-pruning-audit",
+ "priority_revision": 6,
+ "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+ "original_card": {
+  "id": "census-pruning-audit",
+  "question": "Does the reported word-census parity-pruning error invalidate a specific exclusion we still rely on, and what bounded repair is justified?",
+  "starting_points": [
+   "research/f7-weight-parity-census-correction/README.md",
+   "docs/research/research-family-status.md"
+  ],
+  "methods": [
+   "Independently reconstruct the tiny counterexample and trace one affected exclusion to its exact pruning code.",
+   "Compare corrected and unpruned enumeration on a small exhaustive domain, then audit the changed pruning implication."
+  ],
+  "acceptance_gate": "Pin the old and proposed corrected engines, distinguish a disproved pruning rule from a disproved final bound, and state exactly which downstream exclusions need revalidation. #2973 is an author-checked source archive; neither its new f(7) claim nor all old conclusions are automatically accepted or rejected.",
+  "first_step": {
+   "command": [
+    "python3",
+    "-B",
+    "scripts/research_baseline.py"
+   ],
+   "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+   "inspect": "Read #2973 error description and MATH.md; manually reconstruct the prefix states of 01021323 before running any large census.",
+   "scope": "Source-binding orientation only; no full enumeration or mathematical validation."
+  },
+  "first_experiment": "Reconstruct the eight prefix states of 01021323 and compare bit-0 versus Hamming-weight parity budgets independently. Trace the reported false prune to one pinned predecessor (#2542, #2634 or #2691), then test a small exhaustive domain. Stop after a source-impact handoff or corrected-prune proof; a full seven-label replay needs a separate resource budget and a named research decision it can change.",
+  "bottleneck_link": "An unsound exclusion can wrongly close a mechanism; correcting its dependency boundary is more useful than extending the same census.",
+  "allowed_variations": [
+   "One predecessor pruning rule, one independently exhaustive small domain, or one downstream dependency audit."
+  ],
+  "scope_change_triggers": [
+   "Launching a larger census before validating the prune and explaining which active decision it changes.",
+   "Treating a small-domain counterexample to the old rule as a counterexample to every reported seven-label bound."
+  ],
+  "overlap_terms": [
+   "2973",
+   "2542",
+   "2634",
+   "2691",
+   "weight parity",
+   "bit-0",
+   "01021323",
+   "census pruning"
+  ]
+ },
+ "scope_status": "refined",
+ "actual_scope": "Independent re-derivation of the nine-domain functional classification published in PR #3699 (exact head 13db47d8d31603c1391572009e1eb7a22675a219), with a separately written enumerator and classifier, plus three domains that package does not contain -- including (5,14), which it names as its own open next question 2.",
+ "scope_change_reason": "The card's first experiment (reconstruct 01021323, compare bit-0 against weight parity on one small domain) is already delivered by #2973, #3096 and PR #3699, whose nine-domain table this package reproduces exactly. The smallest remaining gap that changes a stated claim is the (5,14) domain PR #3699 names for its weight-threshold heuristic, so the card is narrowed to an independent check of the published certificate and the addition of that domain rather than another seven-label census.",
+ "bottleneck_link": "The word-census exclusions are only usable if the substitution that prunes them matches the classes it uses. An independent re-derivation, and one more domain at the length where the checked package stops, tests whether that unsound class is a small-length artefact or persists as L grows.",
+ "budget_minutes": 60,
+ "stop_rule": "Stop once the nine published domains are reproduced exactly by the separate implementation and the added domains are classified. Do not run a (7,18) or (7,20) census, do not claim a weight-threshold theorem, and do not change any selected result.",
+ "outcome": "completed",
+ "evidence": "Every number of the published nine-domain table is reproduced exactly by an independent enumerator and classifier: simple closed word counts 4, 2, 29, 110, 358, 3695, 6525, 123704, 161936; universal word counts 4, 2, 22, 110, 0, 828, 0, 0, 0; substituted budgets 3, 9, 5, 13, 5, 15, -1, 11, -21; false prune totals 0, 0, 44, 190, 0, 2856, 0, 0, 0; all 43 per-functional false-prune counts over the three firing domains; and the published bit-0 column 6, 20, 248. The 01021323 fixture is reconstructed from the word. New domains: (3,10) has no simple closed word at all; (4,12) has 314 simple closed and 314 universal words, 150 false prunes across 13 of 15 functionals, leaving only masks 0111 and 1111 sound; (5,14) has 33922 simple closed and 24787 universal words, 56686 false prunes across exactly the 25 functionals of Hamming weight 1, 2 and 3, with no firing functional of weight 4 or 5 and no exception of the (5,12) kind.",
+ "author": "Nick Petalas",
+ "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+ "overlap": {
+  "checked_at": "2026-10-18",
+  "coverage": "Open PR bodies and discussions were read through the repository API before starting and again before committing; peer branch heads and the checked package's own two open questions were inspected directly. This is an overlap check, not a novelty certificate.",
+  "checked_paths": [
+   "PR #3699 research/f7-bit0-functional-classification",
+   "PR #3718 research/ceiling-bracket-gap",
+   "PR #3708 research/f7-l22-split-domain"
+  ]
+ },
+ "open_questions": [
+  {
+   "question": "Is the set of functionals that the fixed L/2 substitution falsely prunes monotone in L for fixed n?",
+   "why_it_matters": "A monotone set would bound where the old engines could have pruned soundly as a function of length alone; a non-monotone set would make any per-length repair unsound.",
+   "first_step": "Classify (4,14) and (5,16) with research/f7-functional-independent-check/verify.py by adding them to NEW_DOMAINS and compare the firing sets with (4,12) and (5,14).",
+   "blocked_by": "The next even lengths at n=4 and n=5 are unmeasured here; the enumerator scales as the number of simple closed words and (5,16) is beyond this package's 600 s replay budget unbounded."
+  },
+  {
+   "question": "Why is no functional of Hamming weight at least n-1 ever falsely pruned on the measured domains?",
+   "why_it_matters": "The checked package's alternation lemma justifies the substitution for the all-ones functional only; the measured high-weight soundness is the reason the substitution is not obviously fatal for the old censuses.",
+   "first_step": "Bound the collision excess of a universal word from above by a function of the functional weight, then compare with base + d^2 for weight n-1.",
+   "blocked_by": "No such bound is proved here; the statement is an observation over ten bounded (n,L) domains."
+  },
+  {
+   "question": "Does (6,16) contain a universal word, and does the firing class change there?",
+   "why_it_matters": "(6,14) has 123704 simple closed words and no universal word, so n=6 has no measured functional classification at all.",
+   "first_step": "Run the same census at (6,16) with the package's enumerator and record the universal-word count before classifying functionals.",
+   "blocked_by": "The simple-closed count grows by roughly an order of magnitude per two steps of L; the domain needs its own runtime budget."
+  }
+ ]
+}

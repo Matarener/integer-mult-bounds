@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/r480-owner-optimum/inputs/local/FULL-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Selected-word hash, edge-interval climb cap 5, eight rank-8 centre descents, largest paid rank 8, free-gate tie-out 1741, rank-5 minima, cone-ceiling sensitivity, section-walk profile, outside-vector and false-cap-4 controls, RESULT.json byte match."
+    }
+  ]
+}

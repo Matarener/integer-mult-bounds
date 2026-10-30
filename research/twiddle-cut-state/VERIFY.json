@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/synthetic-twiddle-circuit/PROOF.md",
+    "research/synthetic-twiddle-circuit/circuit.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact physical residual functions, modular interval cardinalities, sharp closed form, parameter boundaries and pinned source/evidence bytes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Eight actual optimized CLI fault groups and a valid optimized retry from owned regular byte copies."
+    }
+  ]
+}

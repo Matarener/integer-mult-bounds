@@ -1,0 +1,194 @@
+{
+  "driver_sha256": "5b963a5f108b334a627e68001c80b9843fb300c7394693e72f34ce0a6050e6f1",
+  "lanes": "trace",
+  "new_controls": {
+    "trace": {
+      "comparison": "Original ComplementTrace, literal sorted ASCII JSON, exact per-record bytes, every prefix and exception/counter state",
+      "counts": {
+        "before_pairs": 7,
+        "byte_and_prefix_pairs": 55,
+        "digit_limit_pairs": 5,
+        "error_pairs": 18,
+        "factory_rejections": 3,
+        "native_admitted": 17,
+        "native_argument_errors": 5,
+        "native_fallback": 30,
+        "no_alias_checks": 2,
+        "source_module_loads": 1
+      },
+      "fixture_sha256": "8ccd1c97a80a3932e24748b75cbd7d60a070eace31cf56fed9e9819120dea284",
+      "native_entry_freshness": "Parent integration must additionally reject native owner/entry replacement before arithmetic at every original live guard boundary",
+      "native_interface": "encode_record(call,us,vs,output): exact bytes with LF or NotImplemented",
+      "ordered_fixture_stream": {
+        "calls": 20,
+        "canonical_stream_bytes": 5926,
+        "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+        "sha256": "9d601330d82aab41e0fb90606cd37fb75d7d96addd315797c8372e492e474b55"
+      },
+      "status": "TRACE_ENCODING_FINITE_CONTROLS_PASS",
+      "timing_claim": null
+    },
+    "trace_entry_freshness": {
+      "negative_actions": 3,
+      "rejected_before_arithmetic_and_observation": true,
+      "status": "PASS"
+    }
+  },
+  "new_source_custody": {
+    "PLAN.json": {
+      "mode": 292,
+      "sha256": "e9dba9c23f9048ec9c563bcc6e1eac5d132d649c1e7c521b114339f1ba4d3639"
+    },
+    "PLAN.md": {
+      "mode": 292,
+      "sha256": "0dc18b28a9016b7544a46b8983ff7a8ab969762be412916d60eb12ee1112d0c5"
+    },
+    "integration/DERIVATION.json": {
+      "mode": 292,
+      "sha256": "6a1b9148c48fe9016a3dc98c1aec339fba3efe73f421ecac2d3cb12d87c53256"
+    },
+    "integration/adapters.py": {
+      "mode": 292,
+      "sha256": "71dd4d0f9d27b867b8926ef227f2196a662dceae4ef6a585e96cda9e41120e72"
+    },
+    "integration/derive_driver.py": {
+      "mode": 292,
+      "sha256": "a18d312e6992786fa7b2cf8a613eea068e0ad282ff684d03781a5928bde2692a"
+    },
+    "integration/full_driver.py": {
+      "mode": 292,
+      "sha256": "5b963a5f108b334a627e68001c80b9843fb300c7394693e72f34ce0a6050e6f1"
+    },
+    "priorities/trace-encoding/trace_adapter.py": {
+      "mode": 292,
+      "sha256": "4bdb401271ffd049c52eff0edc28d8d604a11faf66fec419555a82cbd3b32d60"
+    },
+    "priorities/trace-encoding/trace_controls.py": {
+      "mode": 292,
+      "sha256": "527bb08e870dc2ee19bebf101e7353c6db8422a5702a80bca231b54d2a4af447"
+    },
+    "priorities/trace-encoding/trace_encoder.c": {
+      "mode": 292,
+      "sha256": "57d6f0f71d5bfd2145397ac0159837d32990b276fead2ec1b1d6854d8913bd7e"
+    }
+  },
+  "optimized": 0,
+  "original_controls": {
+    "counts": {
+      "binding_rejections": 3,
+      "boundary_cases": 17,
+      "fallback_cases": 38,
+      "gram_cases": 621,
+      "oracle_negative_controls": 2,
+      "ordered_complements": 5344,
+      "real_label_permutations": 24
+    },
+    "fixture_sha256": "fbf7cb44bb99c96ee7d393eb91f2ebfbfb94375917c78a902d547320afd75d84",
+    "independent_oracle": "Dense binary lists, descending pivots, addition modulo 2; no packed/source/native helpers",
+    "micro": {
+      "native_with_conversion": {
+        "cpu_seconds": 0.021254090000000003,
+        "wall_seconds": 0.02125159796560183
+      },
+      "unchanged_python": {
+        "cpu_seconds": 0.1285824339999999,
+        "wall_seconds": 0.12858684995444492
+      }
+    },
+    "micro_fixtures": 4,
+    "micro_repetitions": 128,
+    "micro_scope": "Fixed h25 label families with conversion; diagnostic only, not complete side speed",
+    "native_and_fallback_calls": {
+      "complement_fallback": 30,
+      "complement_native": 5875,
+      "gram_fallback": 20,
+      "gram_native": 1638
+    },
+    "status": "FINITE_NATIVE_GF2_CONTROLS_PASS",
+    "v2_controls": {
+      "complement_fixture_stream": {
+        "calls": 7,
+        "canonical_stream_bytes": 597,
+        "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+        "sha256": "ed44b2291db9f1bafc9bdb02e6d3b53e1926b01e549ef8bdccc1991922a6345d"
+      },
+      "counts": {
+        "class_dispatch_rejections": 2,
+        "effective_builtins_rejections": 2,
+        "native_proxy_rejections": 1,
+        "postbind_drift_rejections": 25,
+        "prebind_shadow_rejections": 10,
+        "real_builtin_drift_rejections": 2,
+        "trace_negative_controls": 4,
+        "trace_pairs": 7
+      },
+      "modified_helper_invocations": 0,
+      "runtime_policy": "Reject before native/fallback on source helper, effective builtins, class, function, closure or native dispatch drift",
+      "status": "V2_RUNTIME_AND_COMPLEMENT_STREAM_PASS"
+    }
+  },
+  "phases": {
+    "all_native_finite_independent_controls": {
+      "calls": 1,
+      "cpu_seconds_with_children": 1.244215,
+      "wall_seconds": 1.244274739001412
+    },
+    "all_new_controls": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.025459999999999816,
+      "wall_seconds": 0.02545965398894623
+    },
+    "cold_compile_link_load": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.21954899999999994,
+      "wall_seconds": 0.21926352800801396
+    },
+    "cold_engine_import": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.005865999999999996,
+      "wall_seconds": 0.005867265979759395
+    },
+    "engine_custody": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0012709999999999944,
+      "wall_seconds": 0.0012702970416285098
+    },
+    "fresh_engine_copy": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.0011099999999999999,
+      "wall_seconds": 0.0011091299820691347
+    },
+    "fresh_root_copy": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.004484999999999996,
+      "wall_seconds": 0.004483495024032891
+    },
+    "input_custody": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.005947000000000001,
+      "wall_seconds": 0.005946923978626728
+    },
+    "new_adapter_preparation": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.21632899999999994,
+      "wall_seconds": 0.21691366896266118
+    },
+    "new_trace_entry_freshness_controls": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.015459000000000334,
+      "wall_seconds": 0.01545581198297441
+    },
+    "new_trace_original_differential_controls": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.009978000000000264,
+      "wall_seconds": 0.009975763969123363
+    },
+    "trace_cold_compile_link_load": {
+      "calls": 1,
+      "cpu_seconds_with_children": 0.20990400000000003,
+      "wall_seconds": 0.21049061097437516
+    }
+  },
+  "reference_driver_sha256": "0d976d2eb6b845f20d4a3396591a806f966688b88693cd6a5f8a0c9e48925e36",
+  "status": "H25_BOOKKEEPING_FINITE_PASS"
+}

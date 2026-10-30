@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact joint full leading-minor guard law, zero locus and algebraic header-cover number for pairwise orthogonal idempotents of arbitrary ranks sharing a complete GL_m(F_q) header, over every finite field.",
+  "scope_change_reason": "The card asks for a proof audit. This contribution instead proves a new joint counting law for a changed shared-header interface, extending the single-request law of #4228 and the rank-one joint law of #4239 without rechecking them.",
+  "bottleneck_link": "Side result for possible header reuse: it determines exactly how dependent the full BIT pivot guards of an orthogonal request family are, and when one algebraic header serves the whole family. No physical cost saving or actual supplier binding is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the joint counting theorem and bounded finite corroboration; no nonorthogonal classification, physical caller, fallback repricing or recurrence change.",
+  "outcome": "completed",
+  "evidence": "Written Schur-deletion proof; complete GL census over F2 (m=3,4) and F3 (m=3) for every rank composition, checking the full passing-set law, the orthogonality lemma, conditional uniformity and the cover number; separate row/column-pair census over F2, F3, F4 and F5 up to m=6; formula grid, predecessor specializations and four controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the stage product extend to commuting but nonorthogonal idempotent families, or to families with prescribed image/kernel intersections?",
+      "why_it_matters": "Actual shared request streams need not be orthogonal; the Schur orthogonality lemma is the only step that used P_i P_j = 0.",
+      "first_step": "Compute the Schur complements of two idempotents with P_i P_j != 0 and identify which invariant of the pair survives one pivot stage.",
+      "blocked_by": "The nonorthogonal rank-one case is claimed separately; no general classification is supplied here."
+    },
+    {
+      "question": "Can an actual orthogonal BIT request family use a fully charged shared-header caller?",
+      "why_it_matters": "The exact joint law and one-or-two-header existence do not by themselves save paid work.",
+      "first_step": "Pin one producer family with its ranks and charge header selection, emission, dispatch, dirty return and stock.",
+      "blocked_by": "No actual request family or physical caller has been bound."
+    }
+  ],
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19081052",
+    "upstream_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "overlap_checked_at": "2026-10-20T20:25:00Z",
+    "coverage": "Open PR list (100 most recent), this account's PRs, last 30 handoff comments, targeted merged-README and PR-title searches. No orthogonal higher-rank joint guard law found; a separate nonorthogonal rank-one claim exists."
+  }
+}

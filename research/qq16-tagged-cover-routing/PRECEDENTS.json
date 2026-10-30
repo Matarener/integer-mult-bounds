@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "retrieval_scope": "Federated source catalog plus targeted canonical Lean source reads; not an exhaustive search of all DAG proofs.",
+  "catalog_unchanged": true,
+  "source_only_distinguished_from_kernel": true,
+  "predecessors": [
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeAbsolute20261014",
+      "canonical_source_sha256": "ec2859be9f1af651c87addef262465d6ba2d07e3b38c402ed9f77abbbd05b495",
+      "catalog_evidence": "SOURCE_ONLY / SOURCE_ONLY_UNELABORATED; retrieval is not kernel verification",
+      "portable_path": "research/multitape-proof-toolkit/lean/MultitapeToolkit/Absolute.lean",
+      "portable_sha256": "db54fb8a563ef6980ecc1b8f2d3324eb19265c4f2588092872bb3e63284318ce",
+      "public_head": "e5a5d0651003e8774e98121250203b35c236b02b",
+      "public_url": "https://github.com/CrocSwap/integer-mult-bounds/blob/e5a5d0651003e8774e98121250203b35c236b02b/research/multitape-proof-toolkit/lean/MultitapeToolkit/Absolute.lean",
+      "declarations": [
+        "runs_simulation",
+        "halts_iff",
+        "computesWithin_simulation"
+      ],
+      "used_for": "Exact unit-time bridge between absolute and head-relative semantics.",
+      "evidence_boundary": "Portable proof files were separately checked in the local PR2235 packaging repair; that receipt does not verify the new router. No predecessor module is imported by the standard-library replay."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeFrameRule20261014",
+      "canonical_source_sha256": "e5aa9ec056340c67bc6e382eee0a859e6903d9944d3a0e021f2a24a12459cb66",
+      "catalog_evidence": "SOURCE_ONLY / SOURCE_ONLY_UNELABORATED; retrieval is not kernel verification",
+      "portable_path": "research/multitape-proof-toolkit/lean/MultitapeToolkit/FrameRule.lean",
+      "portable_sha256": "3c84a50612cb477e0c17527693920f0be53b4e31b9a0f21a97a8e0a1467a8855",
+      "public_head": "e5a5d0651003e8774e98121250203b35c236b02b",
+      "public_url": "https://github.com/CrocSwap/integer-mult-bounds/blob/e5a5d0651003e8774e98121250203b35c236b02b/research/multitape-proof-toolkit/lean/MultitapeToolkit/FrameRule.lean",
+      "declarations": [
+        "FootprintedRuns.frame",
+        "completed_runs_finite_frame",
+        "halts_lockstep"
+      ],
+      "used_for": "Finite visited-cell agreement transfers completed runs, time and genuine halt to dirty exteriors.",
+      "evidence_boundary": "Portable proof files were separately checked in the local PR2235 packaging repair; that receipt does not verify the new router. No predecessor module is imported by the standard-library replay."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeTapeEmbedding20261014Next",
+      "canonical_source_sha256": "44ebc07458a2c3b65b9b71f516f796fa29d0bae65473f92a8c58d1600f248006",
+      "catalog_evidence": "SOURCE_ONLY / SOURCE_ONLY_UNELABORATED; retrieval is not kernel verification",
+      "portable_path": "research/multitape-proof-toolkit/lean/MultitapeToolkit/TapeEmbedding.lean",
+      "portable_sha256": "4fa29c0f5c7868ef4d9757312b5642f33a794f7ad97c0cfe9aabb9836d6da209",
+      "public_head": "e5a5d0651003e8774e98121250203b35c236b02b",
+      "public_url": "https://github.com/CrocSwap/integer-mult-bounds/blob/e5a5d0651003e8774e98121250203b35c236b02b/research/multitape-proof-toolkit/lean/MultitapeToolkit/TapeEmbedding.lean",
+      "declarations": [
+        "lift_runs",
+        "lift_halts",
+        "preserves_extra"
+      ],
+      "used_for": "Injective tape-bank embedding preserves time and halt while spectator tapes remain unchanged.",
+      "evidence_boundary": "Portable proof files were separately checked in the local PR2235 packaging repair; that receipt does not verify the new router. No predecessor module is imported by the standard-library replay."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeRelocation20261015",
+      "canonical_source_sha256": "ded4bd2ae02fc4af4d6588e36bf7b003e5f19e10cabb306b306686708dc3737a",
+      "catalog_evidence": "Canonical source inspected directly; no fresh kernel check or public portable version is claimed here.",
+      "declarations": [
+        "relocate_step",
+        "relocate_runs_iff",
+        "relocate_halts_iff",
+        "relocate_completed",
+        "relocate_matches"
+      ],
+      "used_for": "Independent tape-origin corollary: translate each head and its entire tape together; same controller, exact time and halt. This is a coordinate symmetry of supplied configurations, not a free physical head move.",
+      "evidence_boundary": "The corollary is also proved directly and informally in PROOF.md, so replay does not require this local source."
+    }
+  ],
+  "historical_repair_manifest_sha256": "a52550e78d75c544d9309b2679e23daa8150b03dca6022724933517090e774d3"
+}

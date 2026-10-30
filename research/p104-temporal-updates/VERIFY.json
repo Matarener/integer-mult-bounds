@@ -1,0 +1,37 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Source authentication, exact temporal identity, all columns, native phases, full caller, two price engines and rejection controls.",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "The same complete replay with assertions disabled.",
+      "timeout_seconds": 600
+    }
+  ],
+  "inputs": [
+    "research/p104-temporal-updates/inputs/pr5684/NOTICE",
+    "research/p104-temporal-updates/inputs/pr5684/README.md",
+    "research/p104-temporal-updates/inputs/pr5684/WORD.json.gz",
+    "research/p104-temporal-updates/inputs/pr5684/construct.py",
+    "research/p104-temporal-updates/inputs/pr5684/pricing.py",
+    "research/p104-temporal-updates/inputs/pr5678-source.tar"
+  ],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

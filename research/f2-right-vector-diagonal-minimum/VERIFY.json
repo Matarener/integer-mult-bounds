@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/agent-task-catalog.json",
+    "certificates/selected-result.json",
+    "research/bit-cyclic-root-barrier/PROOF.md",
+    "research/bit-one-relation-any-registers/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "F2-column bound on Klein and S3 words, two Klein multipliers, ring-valued sharpness witness, and pin-hypothesis separation. Default mode compares RESULT.json and does not write."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent Klein and S3 multipliers that do not call verify.py, duplicate-JSON rejection, receipt corruption in a temp copy, read-only default, and overwrite refusal."
+    }
+  ]
+}

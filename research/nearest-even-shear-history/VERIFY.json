@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete small rational/binary fibers, code-weight identity, signed history inverse and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same exact finite coverage with optimization, isolation and warnings as errors."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Source-pinned R438 local source-code replacement with three actual target repairs and deletion of nine unread physical families, giving 429 dirty helpers; exact signed restoration and complete local frame/rank invoice.",
+  "scope_change_reason": "The original card asks for a new full coverage law. This scoped contribution changes the local source contract and prices its literal word; it does not claim an all-family law or global supplier. The priority-6 family gate permits independently useful local results without global expansion.",
+  "bottleneck_link": "Nine rank-7 copied centres become three rank-1 source snapshots; nine subsequently unread helpers are deleted. Local mass 5121->4989. Returning those nine width-8 families to idle-owner children cancels 72 of the local reduction at beta=0 under incumbent accounting. The source endpoint changes, and terminal decoding plus all global implementation costs remain open.",
+  "budget_minutes": 240,
+  "stop_rule": "Stop after one source-closed local construction and independent replay; no global supplier or kappa admission without complete caller, native, precision, owner, tape and joint outer obligations.",
+  "outcome": "partial",
+  "evidence": "PROOF.md; WORD.json.gz; registered verify.py regenerates and independently checks the complete local result.",
+  "author": "Ross Richardson, with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance, including separate producer and independent audit agents; no human or formal-kernel review claimed.",
+  "open_questions": [
+    {
+      "question": "Can the changed source code be composed and its terminal code removed at the actual cap endpoints?",
+      "why_it_matters": "A local source-code saving is not a global supplier saving until the caller interface and decoder costs are paid.",
+      "first_step": "Write the exact global source/target code and price a literal cap-compatible terminal decoder, including dirty restoration.",
+      "blocked_by": "No full endpoint/decoder construction is admitted by this package."
+    },
+    {
+      "question": "Does a fully composed word meet rounded precision, owner, access and physical tape bounds in a useful joint budget?",
+      "why_it_matters": "The local signed prefix norms and frame invoice do not establish the recursive implementation contract.",
+      "first_step": "After a concrete global word exists, derive complete perturbation weights and chronological physical storage/call bounds before any outer transfer.",
+      "blocked_by": "The global word and complete caller/decoder contract are unresolved here."
+    }
+  ]
+}

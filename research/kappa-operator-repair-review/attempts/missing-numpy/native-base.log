@@ -1,0 +1,12 @@
+PASS native
+PASS ledgers
+Traceback (most recent call last):
+  File "/private/tmp/kappa-operator-review-20261019/source/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/native/run_native.py", line 96, in <module>
+    main()
+  File "/private/tmp/kappa-operator-review-20261019/source/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/native/run_native.py", line 82, in main
+    run(label+'-'+script, command + list(map(str, arguments)), native)
+  File "/private/tmp/kappa-operator-review-20261019/source/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/native/run_native.py", line 59, in run
+    need(result.returncode == 0, 'stage failed: '+name+'; see '+str(work/(name+'.log')))
+  File "/private/tmp/kappa-operator-review-20261019/source/integer-mult-bounds/research/kappa-operator-repair/sources/PR3945/research/staged544-terminal-gap-fill/native/common.py", line 12, in need
+    raise ValueError(message)
+ValueError: stage failed: local-replay-bw_audit_local.py; see /private/tmp/kappa-operator-review-20261019/replay/fresh-native/native-base/local-replay-bw_audit_local.py.log

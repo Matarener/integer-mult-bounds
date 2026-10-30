@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 8,
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove the exact fixed-contiguous capacity of an explicit eight-helper family and compare its split-range optimum.",
+  "scope_change_reason": "The random card suggested portable replay work. The donor asks for an original mathematical result, so the explicit contiguous-block boundary of PR5763 supplies a self-contained storage-contract side question instead of an audit or portability repair.",
+  "bottleneck_link": "Side result: peak live width cannot certify fixed contiguous native storage. A source-specific physical bill must establish whether split ranges or movement are legal.",
+  "budget_minutes": 60,
+  "stop_rule": "Retain and package the first exact storage gap; do not expand the construction search.",
+  "outcome": "completed",
+  "evidence": "README.md proves 5q versus 4q for every positive real q. verify.py independently checks 40320 address orders, 9216 capacity-four placements, explicit layouts, rational scales and rejection controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can an actual native caller use split fixed ranges with a complete route and address-description bill?",
+      "why_it_matters": "The split-range optimum is relevant only when the native interface and its charges permit it.",
+      "first_step": "Extract a source-pinned helper access trace and lower every split access.",
+      "blocked_by": "Safe source lifetimes and a declared native address and movement contract are not supplied here."
+    },
+    {
+      "question": "Which source-derived lifetime restrictions guarantee a contiguous layout at peak width?",
+      "why_it_matters": "A genuine restriction could prevent the eight-helper obstruction in a particular supplier.",
+      "first_step": "Identify a structural restriction in one actual native trace and check whether it excludes this pattern.",
+      "blocked_by": "No source-specific lifetime restriction is assumed or proved in this package."
+    }
+  ],
+  "claim_type": "scoped mathematical proof with finite corroboration",
+  "predecessors": [
+    {
+      "pr": 5763,
+      "author": "Ali Romman",
+      "head": "cee2336bc3a20c586b1dbb55152d97a114c657a6",
+      "use": "Question source and split-range interface context only; no predecessor implementation or theorem replay."
+    }
+  ]
+}

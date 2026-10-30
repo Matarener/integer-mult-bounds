@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "At p=19, beta0=-1/2, bandwidth 2, and t_i=i, is the tail of p^{-20} sum_{j<J} Q^j H* strictly below p^{10} exp(-p^2) for J=ceil(p^{42})?",
+  "scope_change_reason": "The eigenvalues of this section lie strictly inside (0, 1-p^{-40}). The named comparison is the geometric tail at r=1-p^{-40}; that coarser majorant is too large, and the checked bound is the identity Q^J H^{-1}.",
+  "bottleneck_link": "FINE-PRIME.md bounds that polynomial inverse by p^{10} exp(-p^2). The HALO error identity is P - H^{-1} = -Q^J H^{-1}. On this section (1-p^{-40})^J < exp(-p^2) and ||H^{-1}||_2 < 319/100, so the error is strictly below (319/100) exp(-p^2).",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the tail is compared with p^{10} exp(-p^2). Do not form Q and do not compare the tail with 2^{-Cp}.",
+  "outcome": "partial",
+  "evidence": "research/gaussian-origin-q-tail proves exp(p^{-40}) < (1-p^{-40})^{-1}, hence (1-19^{-40})^{19^{42}} < exp(-361). The tail 2-norm is strictly below (319/100) exp(-361) and hence below 19^{10} exp(-361). The coarser majorant 19^{20}(1226/625) r^J is strictly above that threshold.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the interval enclosure, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "Is (319/100) exp(-361) strictly below 2^{-19}?",
+      "why_it_matters": "FINE-PRIME.md says the polynomial error is below 2^{-Cp} for every fixed C eventually. The section tail is now below (319/100) exp(-361); the power-of-two comparison is not.",
+      "first_step": "Compare (319/100) exp(-361) with 2^{-19} by a rational bound for ln 2. Do not form Q.",
+      "blocked_by": "The power-of-two comparison is not in this package."
+    }
+  ]
+}

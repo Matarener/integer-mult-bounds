@@ -1,5 +1,6 @@
 """Actual Git object/working-tree controls for the publication byte preflight."""
 from pathlib import Path
+import hashlib
 import json
 import subprocess
 import sys
@@ -49,6 +50,36 @@ class CommitBytesTests(unittest.TestCase):
 
     def test_exact_bytes_and_binary_input_pass(self):
         self.assertEqual(self.check()['files'], 3)
+
+    def test_success_needs_no_mismatch_digests(self):
+        with patch.object(checker.hashlib, 'sha256',
+                          side_effect=AssertionError('unexpected diagnostic digest')):
+            self.assertEqual(self.check()['files'], 3)
+
+    def test_mismatch_preserves_exact_digest_diagnostic_and_closes_reader(self):
+        original = b'\x00\r\n\xff'
+        changed = b'\x00\r\n\xfe'
+        self.write('input.bin', changed)
+        expected = ('working/commit bytes differ: input.bin (working SHA256 ' +
+                    hashlib.sha256(changed).hexdigest() + ', commit SHA256 ' +
+                    hashlib.sha256(original).hexdigest() + ')')
+        reader = checker.git_blobs
+        closed = []
+
+        def tracked_reader(root, specs):
+            try:
+                yield from reader(root, specs)
+            finally:
+                closed.append(True)
+
+        with (patch.object(checker, 'git_blobs', side_effect=tracked_reader),
+              patch.object(checker.hashlib, 'sha256', wraps=hashlib.sha256) as digest):
+            with self.assertRaises(ValueError) as failure:
+                self.check()
+            self.assertEqual(str(failure.exception), expected)
+            self.assertEqual([call.args[0] for call in digest.call_args_list],
+                             [changed, original])
+        self.assertEqual(closed, [True])
 
     def test_actual_git_normalization_is_detected_then_fixed(self):
         path = self.path/'Proof.lean'

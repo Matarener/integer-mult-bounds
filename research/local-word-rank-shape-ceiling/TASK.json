@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Screen the complex-rank-shape lever for the selected #1094 local word: compute, for every paid-child rank cap s = 1..51 allowed by the outer halving guard, the exact packing ceiling of the selected word with its paid local mass delivered in children of rank <= s, and invert the table at the a = 1/99 planning target. Both an ideal fractional bound and an exact-integer-child-count bound are certified. No decoder, word or itinerary is synthesised.",
+  "scope_change_reason": "The card's acceptance gate asks for a constructed per-call local profile with copies, frames and restoration counted, and states that an optimistic passing relaxation alone is not acceptance. This session produced exactly that relaxation, certified and inverted, and no candidate decoder. The scope is refined, not met: the deliverable is the threshold the missing lemma has to clear (a target-scale saving needs paid local children of rank >= 44; rank <= 43 is exactly impossible) rather than a profile that satisfies the gate.",
+  "bottleneck_link": "The complex side binds, and its recursive cost is dominated by small children: cost per unit of paid mass is m^(a-1) r^(-a), strictly decreasing in r, so rank shape is the one lever that raises the ceiling without touching the coverage law, the centre charge or the outer guard. This package prices that lever end to end. The retained lever table stops at rank 16, which is below the point where the lever alone reaches a = 1/99, so the published table cannot tell a decoder team whether the centre path also has to be freed.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the cap curve is certified for every s <= 51, the a = 1/99 crossing is located, integrality is quantified and the missing lemma is stated. No synthesis attempt: the card requires a source-bound itinerary before a candidate profile can be written, and none is reachable in one session.",
+  "outcome": "completed",
+  "evidence": "RESULT.json. 51 certified caps with the sandwich a_int(s) <= cap_s <= a_frac(s) asserted at every step. The incumbent ceiling is re-derived from the pinned assembly inputs and matches the pinned sibling RESULT.json exactly (0.001690054109089). First cap clearing 1/99 is 44 for both bounds: a_43 = 0.0099889993, a_44 = 0.0103695754 (kappa <= 0.0102631508396, 6.14x the incumbent). At the guard cap 51 the integer histogram {51: 109, 27: 1} gives a = 0.0135848308, kappa <= 0.0134027566, 8.04x the incumbent, with at most 0.6605% integrality loss anywhere on the curve. The greedy histogram equals the exact-enclosure dynamic-program optimum at 11 caps and three screening savings with 0 ambiguous comparisons. 9 controls pass.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the largest paid child rank a physical local word on the 2x4x112 nine-stage template can actually emit, with copies, frames and restoration all counted?",
+      "why_it_matters": "This single number decides whether the rank-shape lever is open or closed. The certified curve says paid local children of rank <= 43 cannot reach a = 1/99 at all, and rank >= 44 can arithmetically with the centre charge and coverage law untouched. No arithmetic below cap 44 helps, so further moment recomputation is wasted effort until this is bounded.",
+      "first_step": "For one fixed support alphabet, enumerate the child ranks a block-climb decoder itinerary can emit and bound the largest of them directly, rather than recomputing the moment. Report the itinerary and its child-rank inventory with copied information and restoration priced.",
+      "blocked_by": "No source-bound itinerary carries an explicit child-rank inventory with its copied information and restoration cost. The sibling package records the same blocker for per-call profiles at other port counts."
+    },
+    {
+      "question": "At cap 44 the target is reached by {44: 126, 42: 1}; the bimodal shape {44: 126, 1: 42} stays below it at a = 0.009906. Which residual shapes near the crossing are physically available?",
+      "why_it_matters": "The two cap-44 readings differ by about 5% in a purely because 42 units of residual mass are carried at rank 42 rather than rank 1. That is a fine-grained shape constraint a decoder designer can act on, and it shows the crossing at cap 44 is not robust to residual shape.",
+      "first_step": "List the certified cap-s optima for s = 40..51 from RESULT.json and mark which are one block plus a single smaller block, since a fixed block size produces exactly those shapes.",
+      "blocked_by": "The same missing itinerary and its admissible residual shapes."
+    },
+    {
+      "question": "Does the rank-shape curve move with the port count V?",
+      "why_it_matters": "The budget B(a) grows with the live families per call, while a decoder's excess spend need not grow as fast. If the cap needed to clear 1/99 drops with V, a wider template is a cheaper route; if it rises, the port count is not the lever.",
+      "first_step": "Run cap() with families = 2*pairs*V for V other than 112 and a local profile rescaled by the same coverage law, recording the cap that clears 1/99 at each V.",
+      "blocked_by": "Per-call local profiles for different V on a comparable template; the same blocker recorded in research/complex-local-word-ceiling/README.md."
+    }
+  ]
+}

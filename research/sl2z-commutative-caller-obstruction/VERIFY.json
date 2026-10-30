@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Frozen source integrity, exact shear relations, commutative unit cancellation and boundary controls. Universal statements are written proofs in README."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/source/sl2z-verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Unchanged PR3905 exact four-call formal endpoint, restoration, radius-three exclusion and six rejecting controls."
+    }
+  ]
+}

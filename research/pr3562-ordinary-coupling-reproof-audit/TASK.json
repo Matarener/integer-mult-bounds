@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Prove or falsify, step by step from its stated premises, the arithmetic layer of PR3562's all-size ordinary-rate theorem (head abb93be8b9ceca07a2b17f3a97db7bb6b074271d, research/retuned-ordinary-coupling/PROOF.md): moment certificates, C0 majorant, e>=2^20 selector fit, the composed 4283584 C V e^(1-a) bound with a=576/332929, and the Consequence arithmetic, conditional on its line-154 physical bound (P5); classify any gap and state the reach of the c(1-c) proof shape like for like. Not covered: the physical composition behind line 154 (lines 141-154), history/preparation/reserve (84-104), binary transfer (172-174), space/restoration/ownership (20-25).",
+  "scope_change_reason": "The card asks for one exact all-size implication proved or falsified; this instantiates it on the specific open theorem that two consumers (PR3576, PR3690) depend on and that had no independent check.",
+  "bottleneck_link": "The ordinary-rate theorem is an all-size transfer obligation consumed by PR3576 and PR3690; an independent reproof of its arithmetic layer (with its constant) narrows what those consumers still inherit unchecked to the physical premises. Side output: the exact reach of the c(1-c) shape on the selected bit program.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop when every audited step is proved or a failing step is pinned with an exact witness; if (d) is only a constant gap, report the justified or corrected coefficient and do not chase other premises.",
+  "outcome": "completed",
+  "evidence": "verify.py (stdlib, exact): two moment engines (integer-root bisection; rational interval atanh/exp series; same methods as PR3562 states, implemented independently) agree inside PR3562's 10^-30 enclosure; source binding to the selected bit supplier and Selected.lean fallback literal; P5 coefficient composition 801 = 2*2*200+1; parametric (c)-(d) arithmetic; line-158 witness; selected bit_saving shown to be the fallback-inclusive root; seven frozen negative controls rejected. PROOF.md gives the written reproof. Result: every audited arithmetic step (a)-(e) holds from P1-P5. Line 158 is stated without derivation; the bounds listed beside it on line 156 (n<=e^(1-c), w<=2e^c) do not imply it (exact witness, ratio 2^(1-c)), while n<=e/w from line 117 does, so 4283584 holds as written; deriving line 158 from the two line-156 bounds alone would give 8033584.",
+  "author": "Sagar Thakrar (thakrarsagar)",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for the reproof, verifier and text; reviewed by seven AI review passes over two rounds in the same loop (round 1: reproducibility, adversarial mathematics, provenance, referee; round 2: reproducibility, adversarial mathematics, referee), not by a human.",
+  "open_questions": [
+    {
+      "question": "Should PR3562 derive line 158 from n<=e/w (line 117) at lines 156-158?",
+      "why_it_matters": "Consumers quote the composed constant; the fix makes the written derivation match the stated bound verbatim.",
+      "first_step": "One-line edit to PR3562 PROOF.md line 156.",
+      "blocked_by": "Author's decision."
+    },
+    {
+      "question": "Are the physical inputs behind PR3562's line-154 bound (P5) correct: exactly two reversed C0 calls, padded volume below 2V per call, cost equal to padded volume times T at the same n, a complete wrapper bill CV(n+k+w+1), elementary cost <= C*V*e and setup absorbed into C?",
+      "why_it_matters": "The arithmetic from these inputs to 801 and 4000000 (2*2*200+1, 2*2*10^6) and on to 4283584 is checked here; the theorem's remaining trust lies in these physical inputs.",
+      "first_step": "Trace the wrapper bill and padding in PR2899/PR2808.",
+      "blocked_by": "none"
+    },
+    {
+      "question": "Does a decoupled width exponent gamma (w=ceil(e^gamma), gamma<c) raise the shape's saving from c(1-c) to c(1-gamma), up to about b(1-17/10000)?",
+      "why_it_matters": "It is the only obvious way past the b(1-b) ceiling of the coupled shape.",
+      "first_step": "Redo step (d) with separate gamma and recheck PR3562 lines 86-97 history estimates.",
+      "blocked_by": "PR2753 history estimates require w >= e^(17/10000)."
+    },
+    {
+      "question": "Does an independent recheck with this package's two engines confirm PR3690's reported R437 moments (mu_1<199/200 and mu_(575/576)<1-10^-6), with its R437 histogram bound to source?",
+      "why_it_matters": "PR3690 reports its own two-engine enclosure; with an independent recheck, steps (b)-(d) here cover its c=1/576 template, provided PR3690 keeps the same D (child rank 42), K, P5 composition, A=200 and P2 form.",
+      "first_step": "Bind the R437 histogram and run the two engines of this package.",
+      "blocked_by": "Out of this audit's scope (PR3690 pipeline not read)."
+    }
+  ]
+}

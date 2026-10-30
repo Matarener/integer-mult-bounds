@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-pooled-cut-independent/verify.py",
+    "research/p104-pooled-cut-independent/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Apply one dimension-1 read-first transfer and count the edges whose state contains X102."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that equal dimension-1 lines share a read and a different line does not."
+    }
+  ]
+}

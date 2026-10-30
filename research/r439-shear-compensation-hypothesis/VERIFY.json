@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/r439-target-compensation/candidate.json.gz",
+    "research/r439-helper-stars-seed19/candidate.json.gz",
+    "research/r439-bsection-stars-seed01/composition.json.gz",
+    "research/r439-bsection-stars-seed01/candidate.json.gz",
+    "research/r439-bsection-stars-seed01/pair_control.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Parent E equals K, four compensated-shear descendants keep that footprint, the one-edge identity holds on their edges, and an uncompensated probe and the synthetic edge do not."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "The same certificate under isolated imports, optimized bytecode and warnings as errors."
+    }
+  ]
+}

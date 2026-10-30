@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "title": "H25 bookkeeping optimization plan",
+  "authorization": "User explicitly requested all three priorities, concurrent agent swarming including research, and a goal to finish the tasks. Existing Chrome publication authorization continues.",
+  "baseline": {
+    "pr": 5995,
+    "head": "4f4159820c37f01d245784d1186bd51fcbc8ebb6",
+    "path": "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/gf2-full-network-20261028/publication-repo/research/gf2-full-network",
+    "arm": "PR5995 native C configuration with all original qualification controls; NOT the older Python-only arm",
+    "code_manifest_sha256": "0ce6a3c120fc4f8f7ab98f044b3d7a72ce72310972c3846a4835bfc01e16a0d7",
+    "historical_wall_median": 28.63625624598353,
+    "historical_cpu_median": 28.46,
+    "historical_times_are_orientation_only": true,
+    "new_performance_claim_requires_fresh_same_session_baseline": true
+  },
+  "target": {
+    "combined_wall_reduction_minimum": 0.15,
+    "combined_cpu_reduction_minimum": 0.15,
+    "individual_15_percent_requirement": false,
+    "scope": "complete frozen historical H25 qualification with retained observations"
+  },
+  "lanes": [
+    {
+      "id": "P1",
+      "priority": "Set reuse",
+      "agent": "bookkeeping_sets",
+      "ownership": "priorities/set-reuse/",
+      "first_deliverables": [
+        "RESEARCH.md",
+        "PROPOSAL.json"
+      ],
+      "contract": "Precompute private sets from admitted triples; retain every original pairwise intersection/equality check and fallback for unsupported inputs."
+    },
+    {
+      "id": "P2",
+      "priority": "Runtime guards",
+      "agent": "bookkeeping_guards",
+      "ownership": "priorities/runtime-guards/",
+      "first_deliverables": [
+        "RESEARCH.md",
+        "PROPOSAL.json"
+      ],
+      "contract": "Deduplicate identical function records and build failure messages only on failure; keep every distinct freshness check at the same call boundary; assess a native implementation only if justified."
+    },
+    {
+      "id": "P3",
+      "priority": "Trace encoding",
+      "agent": "bookkeeping_trace",
+      "ownership": "priorities/trace-encoding/",
+      "first_deliverables": [
+        "RESEARCH.md",
+        "PROPOSAL.json"
+      ],
+      "contract": "Reduce temporary tuples/dictionaries/JSON/bytes and hash crossings; retain canonical bytes, ordering, exact types, prefixes, counters and failure semantics."
+    },
+    {
+      "id": "R",
+      "priority": "Independent contract review",
+      "agent": "bookkeeping_review",
+      "ownership": "research/independent-review/",
+      "first_deliverables": [
+        "CONTRACT-MATRIX.md",
+        "REVIEW-GATES.json"
+      ],
+      "contract": "Independently review proposals, aliasing/callback/fallback/freshness/byte contracts, interference and added cost; no implementation ownership."
+    }
+  ],
+  "parent_ownership": [
+    "control/",
+    "integration/",
+    "validation/",
+    "publication/",
+    "runtime/",
+    "stages/",
+    "PLAN.md",
+    "PLAN.json",
+    "TASK-BOARD.json",
+    "STATUS.json"
+  ],
+  "concurrency": {
+    "parallel": [
+      "source and primary-source research",
+      "independent design and review",
+      "implementation in disjoint owned paths after gates",
+      "fixture/test design and metadata preparation"
+    ],
+    "serialized": [
+      "compilation",
+      "scientific imports/corpus execution",
+      "correctness runs",
+      "profiling and benchmarks",
+      "shared integration",
+      "Chrome writes"
+    ],
+    "local_heavy_work_during_benchmarks": "prohibited",
+    "agent_model": "GPT-6-astra",
+    "reasoning_effort": "xhigh",
+    "initial_agents": 4,
+    "further_delegation_requires_parent_assignment": true
+  },
+  "resource_policy": {
+    "wall_seconds_per_scientific_command": 180,
+    "sampled_process_group_rss_bytes": 1073741824,
+    "initial_feasibility_seconds": 600,
+    "shared_round_seconds": 1500,
+    "single_parent_owned_runner": true,
+    "automatic_retries": false,
+    "all_failed_attempts_count": true,
+    "old_ledgers_preserved": true
+  },
+  "gates": [
+    "G0 refreshed canonical guidance/live overlap/baseline and shared contract freeze",
+    "G1 parallel source research and independent review; measurable-headroom decision",
+    "G2 finite correctness and all new-control cost freeze for each candidate",
+    "G3 individual bounded full pilot comparisons, not component gain promises",
+    "G4 combined integration and fresh fixed BCCBBC comparison against PR5995 native baseline",
+    "G5 normal/O finite, assertion-on complete, readonly Git-free/export/source/metadata/commit checks",
+    "G6 focused Chrome publication, exact-head hosted CI and required handoff readbacks"
+  ],
+  "noise_rule": "Combined fresh baseline median minus candidate median must exceed max(baseline range,candidate range) separately for wall and CPU, AND both reductions >=15%; predeclare six cold BCCBBC processes and retain all samples.",
+  "completion": [
+    "All three priorities have reviewed final dispositions: qualified integration or reproducible scoped stop",
+    "Combined >=15% complete wall AND CPU target and noise gates pass before calling the performance goal achieved",
+    "All outputs/types/coverage/independent oracles/source pins and full new costs retained",
+    "Useful artifacts published via Chrome with exact-head checks and handoffs; no merge/frontier change",
+    "No unfinished required work; target misses reported as unmet, never a fabricated win"
+  ],
+  "paused": [
+    "kappa research",
+    "Work1/2 mathematical streams",
+    "unrelated feeds",
+    "automations"
+  ],
+  "initial_dispatch": "Source-only research and contract mapping; no compilers, numerical runs or implementation until the corresponding gate.",
+  "repeated_call_reduction": {
+    "required_for_all_priorities": true,
+    "deliverable": "CALL-BUDGET.json per priority plus one parent diagnostic call census when discriminating",
+    "fields": [
+      "current calls",
+      "repeated inputs/state",
+      "safe equivalence/ownership basis",
+      "eliminated calls",
+      "retained semantic checks",
+      "replacement calls",
+      "new control and conversion costs",
+      "measurement/evidence boundary"
+    ],
+    "P1": "metadata/set constructors primary; loop fusion or intersection-result reuse separate research gate",
+    "P2": "identity dedup, equivalent inline failure paths and lazy messages; retain each distinct live check at same boundary",
+    "P3": "stateless per-record construction/encoding and crossings; immediate hash/counter semantics retained",
+    "integration": "reuse only proven admitted private metadata; no shared answers or cached PASS",
+    "no_standalone_call_count_speed_claim": true,
+    "coordination": "One parent inventory/upstream refresh/run index; batch independent bounded reads; reuse source gates only while exact digests/dependencies match; external refresh at publication/CI boundaries with revision waits; no reuse of live scientific PASS or declared cold costs"
+  }
+}

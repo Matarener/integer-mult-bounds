@@ -1,0 +1,196 @@
+--- v1-unrun/check.py
++++ v2/check.py
+@@ -283,38 +283,26 @@
+     C0 = import_source(exp/'research/p104-relay-split-composition/construct.py', 'onecut_parent', {'copy','fractions'})
+     D = import_source(hand/'pr5612-package/delayed.py', 'onecut_delayed', {'copy','hashlib','json'})
+     base = json.loads(gzip.decompress((exp/'research/p104-relay-split-composition/inputs/pr5580-WORD.json.gz').read_bytes()), object_pairs_hook=pairs_unique)
+-    try:
+-        stage = C0.construct_parent(base)
+-    except ValueError as error:
+-        raise PremiseFailure('source parent premise: '+str(error)) from error
+-    premise(digest(stage) == nomination['reconstruction']['known_parent_canonical_hash'], 'parent hash')
+-    try:
+-        stage = D.construct(stage)
+-    except ValueError as error:
+-        raise PremiseFailure('source delayed premise: '+str(error)) from error
+-    premise(digest(stage) == nomination['reconstruction']['known_delayed_canonical_hash'], 'delayed hash')
+-    for number,record in enumerate(h[:12],1):
+-        try:
+-            stage = S.split(stage, record)
+-        except ValueError as error:
+-            raise PremiseFailure('published predecessor split '+str(number)+': '+str(error)) from error
++    stage = C0.construct_parent(base)
++    need(digest(stage) == nomination['reconstruction']['known_parent_canonical_hash'], 'parent hash')
++    stage = D.construct(stage)
++    need(digest(stage) == nomination['reconstruction']['known_delayed_canonical_hash'], 'delayed hash')
++    for record in h[:12]:
++        stage = S.split(stage, record)
+     RESULT['stage_canonical_sha256'] = digest(stage)
+     RESULT['public'] = stage['public']; RESULT['events'] = len(stage['program'])
+     RESULT['reconstruction'] = 'authenticated base -> construct_parent -> delayed -> exactly first12 split'
+-    premise(stage['public'] == 747, 'pre13 public count')
+-    try:
+-        census = L.replay(stage)  # The sole full endpoint replay.
+-    except ValueError as error:
+-        raise PremiseFailure('source endpoint replay: '+str(error)) from error
++    need(stage['public'] == 747, 'pre13 public count')
++    census = L.replay(stage)  # The sole full endpoint replay.
+     RESULT['local_census'] = census
+     eco = nomination['economics']
+-    premise(encoded(census['paid']) == eco['pre13_local_paid'], 'pre13 paid invoice')
+-    premise(encoded(census['helpers']) == eco['pre13_local_targets'], 'pre13 helper invoice')
++    need(encoded(census['paid']) == eco['pre13_local_paid'], 'pre13 paid invoice')
++    need(encoded(census['helpers']) == eco['pre13_local_targets'], 'pre13 helper invoice')
+     actual_whole = whole_invoice(census['paid'],census['helpers'])
+-    premise(encoded(actual_whole) == eco['pre13'], 'all-charged fixed caller invoice')
++    need(encoded(actual_whole) == eco['pre13'], 'all-charged fixed caller invoice')
+     RESULT['actual_derived_complete_pre13_invoice'] = actual_whole
+     n = stage['public']; cut = h[12]['cut_after']; frame = h[12]['frame']
+-    premise((cut, frame, h[12]['pivot']) == (12626, 267, 225), 'fixed exact cut')
++    need((cut, frame, h[12]['pivot']) == (12626, 267, 225), 'fixed exact cut')
+     current = list(stage['initial'])+[None]*8; owned = set()
+     for e in stage['program'][:cut+1]:
+         op,r = e[:2]
+@@ -336,41 +324,38 @@
+     premise(224 in H and 225 in H and 224 != 225, 'unchanged original helper carrier boundary')
+     premise(L.span(stage['frames'][u]) < L.span(stage['frames'][frame]) < L.span(stage['frames'][v]), 'strict actual frame inclusions')
+     premise([len(stage['frames'][frame])-len(stage['frames'][u]),len(stage['frames'][v])-len(stage['frames'][frame])] == [8,1], 'split ranks')
+-    try:
+-        a0,b0,c0,d0 = S.check_cut(stage,h[12])
+-    except ValueError as error:
+-        raise PremiseFailure('known published record13: '+str(error)) from error
++    a0,b0,c0,d0 = S.check_cut(stage,h[12])
+     RESULT['known_published_channel'] = {'check_cut':True,'a':a0,'b':b0,'c':c0,'d':d0,'credited_once':True}
+     # Native geometry is inherited, not replayed. Public arbitrary-input
+     # endpoint replay and empty owned cut give BA=M with M invertible over D;
+     # hence square A,B are invertible over D. H is an identity direct summand.
+     prefix = propagate(stage, stage['program'][:cut+1], [{r:Q(1)} for r in range(n)]+[{} for _ in range(8)])
+     suffix = propagate(stage, stage['program'][cut+1:], [{E.index(r):Q(1)} if r in E else {} for r in range(n+8)])
+-    premise(all(not prefix[r] for r in range(n,n+8)), 'owned prefix rows not zero')
+-    premise(all(not suffix[r] for r in range(n,n+8)), 'owned suffix response not zero')
++    need(all(not prefix[r] for r in range(n,n+8)), 'owned prefix rows not zero')
++    need(all(not suffix[r] for r in range(n,n+8)), 'owned suffix response not zero')
+     A = [[prefix[r].get(j,Q(0)) for j in range(n)] for r in E]
+     B = [[suffix[r].get(i,Q(0)) for i in range(6)] for r in range(n)]
+     outside = [r for r in range(n) if r not in H]
+     left_constraints = [[A[i][r] for i in range(6)] for r in outside]
+     right_constraints = [B[r] for r in outside]
+     av = [a0.get(r,Q(0)) for r in E]; bv = [b0.get(r,Q(0)) for r in E]
+-    premise(set(a0)|set(b0) <= set(E), 'known pair uses outside E')
++    need(set(a0)|set(b0) <= set(E), 'known pair uses outside E')
+     need([sum((av[i]*A[i][j] for i in range(6)),Q(0)) for j in range(n)] ==
+          [c0.get(j,Q(0)) for j in range(n)], 'independent known prefix equation')
+     need([bilinear(row,bv) for row in B] == [d0.get(j,Q(0)) for j in range(n)], 'independent known suffix equation')
+-    premise(all(bilinear(row,av) == 0 for row in left_constraints) and all(bilinear(row,bv) == 0 for row in right_constraints), 'known pair module membership')
+-    premise(bilinear(av,bv) == 1, 'known pair unit')
++    need(all(bilinear(row,av) == 0 for row in left_constraints) and all(bilinear(row,bv) == 0 for row in right_constraints), 'known pair module membership')
++    need(bilinear(av,bv) == 1, 'known pair unit')
+     C = import_source(ROOT/inputs['capacity_module'], 'onecut_released_capacity', {'fractions'})
+     RESULT['controls'] = controls(C)
+     kl,cl = kernel(C,left_constraints,6,'L'); kr,cr = kernel(C,right_constraints,6,'R')
+     l = transpose(kl,6,len(kl[0])); r = kr
+     k = product(l,r,len(l),6,len(r[0])); full = capacity(C,k,len(l),len(r[0]))
+-    premise(full['capacity'] >= 1, 'known positive channel contradicts capacity')
++    need(full['capacity'] >= 1, 'known positive channel contradicts capacity')
+     ql,cql = kernel(C,left_constraints+[bv],6,'L orthogonal to known b')
+     qr,cqr = kernel(C,right_constraints+[av],6,'R orthogonal to known a')
+     ll = transpose(ql,6,len(ql[0])); rr = qr
+     kk = product(ll,rr,len(ll),6,len(rr[0])); residual = capacity(C,kk,len(ll),len(rr[0]))
+-    premise(full['capacity'] == 1+residual['capacity'], 'unit direct-summand residual identity')
++    need(full['capacity'] == 1+residual['capacity'], 'unit direct-summand residual identity')
+     RESULT['modules'] = {'L':cl,'R':cr,'L_residual':cql,'R_residual':cqr,
+                          'prefix_selected_rows_sha256':digest(A),'suffix_selected_columns_sha256':digest(B)}
+     RESULT['capacity'] = {'pairing':k,'certificate':full,'residual_pairing':kk,'residual_certificate':residual,
+--- v1-unrun/CONTRACT.md
++++ v2/CONTRACT.md
+@@ -8,7 +8,7 @@
+ 
+ The exact parent and delayed canonical hashes are authenticated from the nomination. The resulting pre13 canonical SHA is unknown until root execution and is recorded with complete local paid/helper counts, fixed-caller complete invoice, all initial/final public frame labels and all public/owned labels at the one cut. Public count747 and the nomination's full paid/helper multisets must match. Complete fixed-caller counts must be paid66690/targets13030, masses241268/242028. The already-published split would give13048 targets; one hypothetical extra would give13066. These comparison bills are optimistic signed count identities, with no new paid or scalar costs assumed to be physically achievable.
+ 
+-All cut premises precede capacity import: literal record13 identity; coframed E; actual strict basis inclusions U<F<V of ranks8+1; actual unchanged original full helper group H; both carriers224/225 in H; no live owned state; all owned rows zero at the cut; and the known published prefix/suffix equations and unit pair. Any failed premise ends this exact object. Parser/hash/source or certificate failure is distinguished from a negative scoped capacity result. Resource exhaustion is inconclusive and never authorizes a retry or larger envelope.
++All cut premises precede capacity import: coframed E; actual strict basis inclusions U<F<V of ranks8+1; actual unchanged original full helper group H; both carriers224/225 in H; and no live owned state. A failed qualified cut premise ends this exact object as a premise failure. Literal record identity, parent/delayed hashes, public/census/invoice binding, source constructor/replay/check_cut exceptions, known-channel equations or module membership, zero-owned-row contradictions and capacity-certificate contradictions instead stop as input/parser/certificate failures. Broad source ValueError exceptions are never relabelled as a physical premise failure; malformed Fraction/parser input therefore cannot become a scoped scientific negative. Resource exhaustion is inconclusive and never authorizes a retry or larger envelope.
+ 
+ The paired runner invokes two independent children, normal and `-O`, each at most60s. Root runs it once under the existing serial150s/512MiB guard. Entire scientific JSON bytes must agree; no fields are excluded. Existing attempt artifacts prevent automatic rerun. A premise failure can itself be the identical terminal result of the pair. A source/parser/certificate error or child timeout stops the pair. Guard memory/total-time termination is interpreted from the guard receipt.
+ 
+@@ -17,3 +17,5 @@
+ Predecessor credit remains with the source authors: David Arias's word, Cinna Davis's private reuse, Gareth Davidson's composition, Ali Romman's adaptations and PR5608/5612/5615 research with their stated OpenAI Codex assistance, and the earlier source chain retained by the export. The general dyadic capacity theorem and implementation are Ali Romman's released5615 contribution. This packet applies that result to one source-qualified, restricted-support object; it is not a replacement theorem or a broad ownership release. Active paid common0/9 conversions and changed-source basis/census work remain outside scope.
+ 
+ Static review is code/proof review by agents and root, not human review, formal verification, native replay, hosted CI or frontier acceptance. No publication is performed by this packet.
++
++Revision2 makes only this approved failure-classification correction. The original four frozen artifacts and supporting documents are preserved under `v1-unrun/`; no version1 scientific execution or retry occurred. Source bytes, exact object, source pins, algorithms and resource envelope are unchanged.
+--- v1-unrun/PROOF-AND-REVIEW.md
++++ v2/PROOF-AND-REVIEW.md
+@@ -15,3 +15,5 @@
+ Small controls, if capacity is reached at root execution, reject product-width truncation, an odd denominator constraint, a nonunimodular transform, rational-rank-as-unit-capacity confusion and reuse of the same unit pair twice. The full kernel of the odd constraint[3,0] is checked as a positive saturation control. These are algebraic sanity controls, not a stage-mutation campaign or independent source replay.
+ 
+ Independent reviewer should inspect: matrix orientations; exact all-input/empty-owned invertibility argument; the row-subset/full-constraint saturation proof; the unit-factor certificate and residual direct-summand proof; first12 versus known13 source binding; and the distinction between conditional capacity, actual carrier implementation, native correctness and economic funding. Preparation only performed source/hash/AST reads. The root code/run review and reviewer findings must be retained separately; no review completion or execution receipt is invented here.
++
++Revision2 classification: source constructors, predecessor splits, endpoint replay and known check_cut run without broad ValueError conversion. Their errors, including Fraction/parser errors, conservatively reach the input/parser/certificate stop with exit2. Parent/delayed hash, public and census/invoice mismatches are binding failures, not falsifications of the physical cut premises. Contradictions in known-pair module membership, zero-owned response, full capacity positivity or the residual direct-summand identity are certificate failures. Only the explicit qualified current cut checks (empty owned state, coframing, actual original carrier group, strict frame inclusion and split ranks) raise the dedicated premise exception. The math and scope above are unchanged, and the original version is retained unrun.
+--- v1-unrun/HANDOFF.md
++++ v2/HANDOFF.md
+@@ -1,6 +1,8 @@
+ # Root execution and review handoff
+ 
+ Preparation is STATIC ONLY. Root accepted the paper object and ownership clearance, with exact final code/request review still required. No stage SHA, capacity, successful resource fit, scientific result or run receipt is claimed. Independent static code review was requested from the existing successor-admission reviewer; its response must be retained separately. This file is operational guidance, not a run record.
++
++Current packet is static revision2, correcting only failure classification after root and independent review. The prior frozen REQUEST `e53a7b9e0d90b3ad9ace7d50a242e5e611e1463dd58711cc89910b051ced13f8`, checker, INPUTS, runner and supporting documents are preserved in `v1-unrun/`. No scientific execution of either version occurred during this preparation; this revision is not a retry.
+ 
+ The source object is PR5612 head `faa9f6dbe6b8cc4a996d3edeca71823056453e1a`, exactly pre-record13 reconstructed from the authenticated PR5608 export base through parent, delayed and first12 split calls. Frozen Astra nomination JSON SHA is `7b0239ad6f3516a82078ff53fbbe995c7171b0d34f15d33bcd384b83ceba24b6`; memo SHA `251f1d2354efa3e7353b96f8f504589baa6ae7110237b4a0c62530eb0dc4dee3`. Curatorial narrow-scope clearance SHA is `cbf168b6932ea6f546460f069dbea0cb38875b54c27dd5995d7fdd976b3a4834`. Released5615 capacity module SHA is `1cd82b0beab7983d955cfc1d1e562af490f90bcaad6e3ec7d07e0c5a33608834`, head `d914f77d948ac377bdb9823daca93d08913c3fa7`.
+ 
+@@ -16,9 +18,9 @@
+ 
+ Interpretation:
+ 
+-- `PREMISE_FAILURE_STOP_THIS_EXACT_OBJECT`: a specific stage/cut/current-role/owned/known-channel premise failed. Report that object as stopped and preserve available stage/census evidence. No capacity or alternative object is implied.
++- `PREMISE_FAILURE_STOP_THIS_EXACT_OBJECT`: an explicit qualified current-cut owned/coframe/carrier-group/nesting/rank premise failed. Report that object as stopped and preserve available stage/census evidence. No capacity or alternative object is implied.
+ - `NO_ADDITIONAL_RESTRICTED_CHANNEL_STOP_THIS_OBJECT`: all premises and certificates passed, but this exact E6 has only the known unit channel. This does not exclude a larger bank or another source.
+ - `CONDITIONAL_ALGEBRAIC_EXTRA_CHANNEL_ONLY`: the exact E6 residual has a unit pair jointly orthogonal to the known pair, with cut and boundary identity blocks checked. This is a conditional algebraic candidate, with fixed carrier224 merely qualified as an original coframed H role. It is not a physical basis/split program, funded target, native phase result or new kappa.
+-- Input/hash/parser/certificate failure returns exit2. A per-child60s timeout returns exit3 with an inconclusive resource receipt; guard memory/time termination has its own receipt. These outcomes are not scientific negatives and do not permit retries.
++- Input/hash/parser/certificate failure returns exit2. This includes source function exceptions, stage hash/public/census/invoice binding mismatch and contradictions in known-channel membership, zero-owned response or capacity certificates. Source ValueError errors are not recategorized as premise failures. A per-child60s timeout returns exit3 with an inconclusive resource receipt; guard memory/time termination has its own receipt. These outcomes are not scientific negatives and do not permit retries.
+ 
+ No existing historical, final5612 or final5613 scientific package is rerun. The published record13 pair is verified once and reserved explicitly through residual modules. Comparison whole bills13048/13066 are derived optimistic counts; the current pre13 bill13030 is independently assembled from the actual replayed local paid/helper counts and all fixed caller jobs. Ordinary costs, scalar programs, native all-width correctness and later-stage compatibility remain separate obligations.
+--- v1-unrun/REQUEST.json
++++ v2/REQUEST.json
+@@ -10,6 +10,10 @@
+   "comparison": "exact pre-record13 after delayed and first12 split calls; public747; no later5613 transfer",
+   "cut_after": 12626,
+   "execution_owner": "root only after accepting exact frozen request/code",
++  "failure_classification": {
++    "input_parser_certificate": "source exceptions, binding mismatch, known-pair/module/zero-owned/capacity contradictions; exit2",
++    "premise": "explicit qualified current cut no-owned/coframe/carrier/nesting/rank only"
++  },
+   "files": {
+     "outputs/continuous-kappa-process-20261026/dyadic-capacity-verification-review-5615/INPUT-OBLIGATION-MAP.json": "1ac7ae57a3c556a9578fe22e549017577c11c33f33e23dbfde59c89c4507363c",
+     "outputs/continuous-kappa-process-20261026/guarded/coordination/run_guarded.py": "720153b7491acede2c66bdc2dfd3174653195fa3222ec3589d0671c406a5bad8",
+@@ -54,11 +58,11 @@
+     "outputs/continuous-kappa-process-20261026/upstream/source-handoffs/20261025T234649Z-published-split-stage/pr5612-package/SPLITS.json": "fc18571561c53db849ef2ba78b51ce79411a1f751e5d169f614d4f2da9784cfc",
+     "outputs/continuous-kappa-process-20261026/upstream/source-handoffs/20261025T234649Z-published-split-stage/pr5612-package/delayed.py": "fcb8b97785ae05db6f60c38d8d75ee4fe856ea41a1327b772eff7a6ee388b3c8",
+     "outputs/continuous-kappa-process-20261026/upstream/source-handoffs/20261025T234649Z-published-split-stage/pr5612-package/verify.py": "afb7a5f8bb5e40572127d78d73fbbf621b4c35b9a6a01f523521b903b9e99138",
+-    "outputs/cut-capacity-feasibility-round-20261026/qualification/CONTRACT.md": "fa0871045d5001c57bf238551a152a9ec4bfa24579ac9d1d9c8de30a59885162",
++    "outputs/cut-capacity-feasibility-round-20261026/qualification/CONTRACT.md": "a2829f3fb6b4ff3e58c94bde3c57482c205e9de2f22b3146bb9f88bb8d2a6c4c",
+     "outputs/cut-capacity-feasibility-round-20261026/qualification/INPUTS.json": "6444717b29b80f81d8ee08e0bc875b9c64beea9340975d51ae202e3ffa616726",
+-    "outputs/cut-capacity-feasibility-round-20261026/qualification/PROOF-AND-REVIEW.md": "87cc210ce674955fe34d95a9671e2890ab617efdffb8fa2ce7be6b9a0e9f1236",
++    "outputs/cut-capacity-feasibility-round-20261026/qualification/PROOF-AND-REVIEW.md": "283d10356d46d4accd3754ee9cd53195902ecae3c3b99b8ca0db49cc10dd2fce",
+     "outputs/cut-capacity-feasibility-round-20261026/qualification/SOURCE-IMPORT-REVIEW.md": "1c45bd7f40d8d4cc911b2d2ce69b5805dede51839d98b61fe5d09bbbffadddc5",
+-    "outputs/cut-capacity-feasibility-round-20261026/qualification/check.py": "5c3f31abf198fc05ab49fbb6aa07f0fc958da64d1021b40094b3db5089701e1b",
++    "outputs/cut-capacity-feasibility-round-20261026/qualification/check.py": "385a0b1f588d9d170785fb34b5860719332b6121f10f2083cf94369bd35c6156",
+     "outputs/cut-capacity-feasibility-round-20261026/qualification/run_pair.py": "a7f1b25963db4bb91b2d759cce0781ee355d51adb92a5590c9f450fe9f7ceb54"
+   },
+   "forbidden": [
+@@ -100,6 +104,8 @@
+   "per_child_seconds": 60,
+   "physical_witness": false,
+   "preparation_status": "STATIC_ONLY; no source import/decode, reconstruction, replay, matrix, control or scientific run by preparer",
++  "previous_request_sha256": "e53a7b9e0d90b3ad9ace7d50a242e5e611e1463dd58711cc89910b051ced13f8",
++  "previous_request_status": "UNRUN; preserved v1-unrun/ before approved static classification revision",
+   "restricted_support_E": [
+     57,
+     81,
+@@ -112,6 +118,7 @@
+   "schema": "one-pre13-cut-capacity-request/v1",
+   "scope_clearance_sha256": "cbf168b6932ea6f546460f069dbea0cb38875b54c27dd5995d7fdd976b3a4834",
+   "source_head": "faa9f6dbe6b8cc4a996d3edeca71823056453e1a",
++  "static_revision": 2,
+   "stop_after_one_pair": true,
+   "theorem_head": "d914f77d948ac377bdb9823daca93d08913c3fa7",
+   "total_seconds": 150

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "source_base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "scientific_scope": "Unconditional finite real-power moment certificate; conditional full multiplication endpoint under the stated inherited premises.",
+  "python": "CPython 3.12.10, Windows x86_64, standard library only",
+  "registered_checks": [
+    {
+      "name": "metadata",
+      "exit_code": 0,
+      "seconds": 0.362
+    },
+    {
+      "name": "registered",
+      "exit_code": 0,
+      "seconds": 79.358
+    }
+  ],
+  "baseline_bindings": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY on current-main selected inputs; not a cold replay",
+  "lean": {
+    "version": "4.34.1",
+    "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "compiled_source_sha256": {
+      "AnalyticCertificate.lean": "1edd0cdcdc5873be01aa085ecc2da46b97cf3949598a3a691608627f966bbe6e",
+      "CapCertificate.lean": "3992defbc43fd2fda494fffed2ccc1ce3667e16e2a003aeb1492ffe0e721ee50"
+    },
+    "actual_theorems": [
+      "Staged544.actual_moment_lt_one",
+      "Staged544.actual_rpow_moment_lt_one"
+    ],
+    "actual_analytic_upper_bounds_discharged": true,
+    "elaboration_exit_code": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "module_kernel_replay": {
+      "exit_code": 0,
+      "seconds": 36.07,
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "AnalyticCertificate"
+      ]
+    },
+    "all_imports_fresh_replay": {
+      "exit_code": 124,
+      "seconds": 300.056,
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "--fresh",
+        "AnalyticCertificate"
+      ]
+    },
+    "fresh_replay_limit": "The all-imports --fresh attempt timed out at 300 seconds and is not counted as a pass. Source compilation, theorem transitive-axiom audit and separate target-module kernel replay passed."
+  },
+  "finite_coverage": {
+    "clock_owner_roles": 1321920,
+    "calls": 3240,
+    "live_inputs_per_word": 632,
+    "independent_dirty_buffers_per_word": 91,
+    "orientations": [
+      "forward",
+      "dual",
+      "reverse pull-back"
+    ],
+    "packing_patterns": 2551,
+    "bootstrap_strict_rows": 47,
+    "bootstrap_original_controls": 4,
+    "modern_outer_strict_rows": 63,
+    "modern_outer_original_controls": 17,
+    "owner_original_controls": 3,
+    "clock_cap_extra_controls": 6
+  },
+  "reuse": "Retained native receipts and source metadata; no fresh native chains or omitted cache-byte authentication. Exact retained interpreter and outer engines keep their credit.",
+  "remaining_obligations": [
+    "Independent scientific admission of all inherited all-size/compiler, physical hosting/source and precision/tape/recovery contracts",
+    "Full all-size outer transfer and BIT H1-H5 premises",
+    "Independent human review and hosted CI; no selected-frontier update"
+  ],
+  "log_sha256": {
+    "analytic-lean.log": "e85b210e44d543ab8267e2364eaffd17353e43c2ff3569d30731d18f8542e2b3",
+    "kernel-replay.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "kernel-fresh.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "registered-current.log": "33c6531080f7d0821f10360b6500022ceb1bb91da38823f9beee9af6a735e0bf",
+    "metadata-current.log": "689a43f8278e023fb84fc0cc029f6f20b7c3777f852bd6f83904e80f5d843c99",
+    "baseline-current.log": "767acbd9da247c78bcbc5758c05cfad26c5fe7c162a1be37d2528bc3bb3e5ee0"
+  }
+}

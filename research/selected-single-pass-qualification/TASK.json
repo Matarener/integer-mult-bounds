@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Remove the measured duplicate source execution while preserving original entry points, receipts, both literal interpreters and all controls.",
+  "actual_scope": "PR5757/frozen-53006fe/single-process-sharing-of-complete-source-execution-between-two-unchanged-qualification-entry-points",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Stop on output/coverage/source/mode drift, unexpected stderr or resource failure; first pair serial 900 seconds aggregate, 600 seconds per command and 1 GiB sampled group RSS; no automatic retries. Require at least 15 percent CPU and wall saving before expansion.",
+  "time_budget_minutes": 90,
+  "outcome": "completed",
+  "evidence": "Five full guarded Linux commands pass; BENCHMARK.json records the one-pair 33.74 percent wall and 33.47 percent CPU saving. Full normal, optimized and sealed source/RESULT/CROSS/oracle outputs agree. VALIDATION.json, COVERAGE-GATE.json and evidence/ retain scope, source pins, controls, full output and resource receipts. Hosted CI is separate.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex assistance for source review, execution, tooling and report; no subagents, independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can source execution be shared safely on a changed word?",
+      "why_it_matters": "This coverage argument is bound to the exact existing two entry points and actual-input trace.",
+      "first_step": "Authenticate changed sources and remap every obligation before any replay.",
+      "blocked_by": "A separate nominated source, overlap review and explicit coverage gate; no successor transfer or kappa work is part of this submission."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

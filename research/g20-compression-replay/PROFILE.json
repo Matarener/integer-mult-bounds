@@ -1,0 +1,32 @@
+{
+  "method": "cProfile diagnostics include profiler overhead; not speed measurements. Fresh copy of PR5708; four stages run in order.",
+  "stages": [
+    {
+      "stage": "integration",
+      "seconds_with_profiler": 11.224769665976055,
+      "returncode": 0
+    },
+    {
+      "stage": "global_retirement",
+      "seconds_with_profiler": 14.419093167060055,
+      "returncode": 0
+    },
+    {
+      "stage": "ordinary",
+      "seconds_with_profiler": 2.5202716250205413,
+      "returncode": 0
+    },
+    {
+      "stage": "independent",
+      "seconds_with_profiler": 7.281275624991395,
+      "returncode": 0
+    }
+  ],
+  "global_retirement_profile": {
+    "seconds": 14.283,
+    "gzip_compress_seconds": 6.942,
+    "gzip_calls": 2,
+    "json_dumps_seconds": 5.237,
+    "json_dumps_calls": 634015
+  }
+}

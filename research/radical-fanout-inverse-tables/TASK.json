@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Precompute immutable additive and unit inverse tables in the complete PR6210 command, prove scoped equivalence, and measure unchanged complete replays.",
+  "scope_change_reason": "Select one complete radical-fanout replay and preserve its entire finite workload. This is verifier engineering, not a new tariff or an audit.",
+  "bottleneck_link": "Remove repeated finite-ring inverse scans without dropping checks, so complete mechanism replays require less interpreter work.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first exact work reduction with unchanged complete output. Do not extend the mathematical tariff or optimize other paths.",
+  "outcome": "completed",
+  "evidence": "Full-command tuple.index count decreases from 1661695 to 260; all complete stdout is identical. 322 index cases and 16 controls pass. Ten alternating full-command pairs have zero errors; wall-time comparison remains inconclusive because timing ranges overlap.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the unchanged complete command show a stable wall-time gain on an idle Linux CPython 3.12 host?",
+      "why_it_matters": "The exact repeated-search reduction is portable; elapsed-time gains depend on the host and remaining interpreter work.",
+      "first_step": "Run benchmark.py for at least five alternating pairs, preserving all output digests, and report medians and ranges.",
+      "blocked_by": "An additional host measurement; no missing executable dependency."
+    }
+  ],
+  "coordination": {
+    "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19279673",
+    "source_pr": 6210,
+    "source_author": "lee-phys",
+    "source_head": "4e08457f4d0b69c00a6ca62eca81c8d0a55f3e60"
+  }
+}

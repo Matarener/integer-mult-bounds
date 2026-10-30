@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "author": "Chris R / Clear1nsight",
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "scope_status": "refined",
+  "scope_change_reason": "Donor requested all four C verification opportunities and at least15% improvement. This separate frozenH25side workload passes29.27%complete wallCPU afterallnewbills; noPR5864/fullnetwork/kappa claim.",
+  "actual_scope": "frozenH25/complete-side-verification/native-GF2-complement-Gram",
+  "stop_rule": "One bounded source-pinned profile, fixed finite controls, complete anchor then BCCBBC. Preserve all samples/drafts and no automatic retries; stop on field/witness/source/resource/noise mismatch.",
+  "time_budget_minutes": 60,
+  "outcome": "completed",
+  "evidence": "README.md and evidence/MATRIX-COMPLETE-GATE.json; allfourwitness identities, finite normalO, exact source bytes and complete cold resource receipts.",
+  "ai_assistance": "Substantial OpenAI Codex implementation; user-requested GPT-6-astra xhigh design and separate static review. One parent serial numerical runner; no human/proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Does this native side kernel improve the complete original complex-network certificate after every other stage and control is priced?",
+      "why_it_matters": "The measured29.27%scope is the entire side-verification segment, not the full network orPR5864.",
+      "first_step": "One unchanged complete-caller source/resource profile before proposing integration or another timing round.",
+      "blocked_by": "Full caller dependencies/costs/resources unpriced; no whole-network replay performed."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 570,
+      "checks": "Authenticated source cuts, complete before/after first-read census, all native and adjoint columns, chronological caller, exact target debits, two moment engines, new finite fees and five ordinary levels"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 570,
+      "checks": "Authenticated source cuts, complete before/after first-read census, all native and adjoint columns, chronological caller, exact target debits, two moment engines, new finite fees and five ordinary levels"
+    }
+  ]
+}

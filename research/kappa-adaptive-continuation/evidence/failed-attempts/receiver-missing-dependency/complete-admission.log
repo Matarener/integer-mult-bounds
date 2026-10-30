@@ -1,0 +1,16 @@
+PASS owners
+PASS parent-lift
+PASS rebind
+PASS discovery
+PASS outer-check_ledger.py
+PASS outer-independent_check.py
+Traceback (most recent call last):
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admit_receiver_share.py", line 420, in <module>
+    main()
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admit_receiver_share.py", line 401, in main
+    run('release', package / 'verify_release.py', '--main', source.parents[1], '--work', work / 'release',
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admit_receiver_share.py", line 228, in run
+    need(result.returncode == 0, 'failed ' + name + '; see ' + str(log))
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admit_receiver_share.py", line 86, in need
+    raise RuntimeError(why)
+RuntimeError: failed release; see /workspace/scratch/1a12211da438/adaptive-receiver-full-release-low-memory/admission/release.log

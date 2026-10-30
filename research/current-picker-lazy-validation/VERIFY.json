@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/choose_research_task.py",
+    "scripts/choose_current_research_task.py",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact baseline reconstruction, fresh source loading, unchanged live-card outputs and historical-route rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact baseline reconstruction, fresh source loading, unchanged live-card outputs and historical-route rejection controls."
+    }
+  ]
+}

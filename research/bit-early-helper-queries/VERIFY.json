@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-rebuild/bit/BIT-P3-NATIVE-BINDING.json",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/WORD.json.gz",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/records/249-records.bin",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/records/frames.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source pins; all-column source and feedback replays; 111 native route identities; source mutations and five held-state/owned-return controls."
+    }
+  ]
+}

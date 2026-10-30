@@ -1,0 +1,111 @@
+{
+  "base_main": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "build": null,
+  "complete": {
+    "complement_trace": {
+      "calls": 238685,
+      "canonical_stream_bytes": 55839507,
+      "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+      "sha256": "7dec2bf33303c37e1c699609e83768d61df7e19104d34a26a148f66d5ccc4838"
+    },
+    "exact_witness_sha256": "4b170c1dbfc33c7cb141a2284c6fd69eac7b6d100971d3e9ee625502b5893f82",
+    "rank_call_count": 59959,
+    "rank_distinct_matrix_count": 252,
+    "rank_trace_sha256": "85006ca332bbc57c2ba9fd06f61a0281d4cee600c9f3b449342379bf2aedec8f",
+    "result": {
+      "circuit": {
+        "additions": 80595,
+        "disjoint_additions": 68595,
+        "h": 25,
+        "injections": 27600,
+        "pair_star_additions": 12000,
+        "roles": 108195,
+        "roles_per_target": 47.041,
+        "v": 2300
+      },
+      "labels": {
+        "active_nodes": 82895,
+        "all_labels_nondegenerate": true,
+        "all_residuals_have_odd_vectors": true,
+        "checked_inclusions": 188790
+      },
+      "role_frames": {
+        "forward_frames_nested": true,
+        "reverse_complement_frames_nested": true,
+        "roles": 108195
+      },
+      "side_map": {
+        "coefficients": "+1/2 disjoint, -1/2 intersection two",
+        "nonzero_coefficients": 3693800,
+        "side_map_exact": true,
+        "targets": 2300
+      }
+    },
+    "result_sha256": "342e99212b12e518902ae9598613f5484113bacee8747c27a13b58a4b1d3986c",
+    "serialized_bytes": {
+      "rank_trace": 2674272,
+      "result": 527,
+      "witness": 58143622
+    }
+  },
+  "controls": null,
+  "engineering_sources": {
+    "compare_side_verifier.py": "6e507bb0c7e00d090a60289fddb6c55e90c946d0850c42c3c5e3e15c27604a68",
+    "finite_controls.py": "df989a831aac43cc1af95169dad8c64a7548760e6e1f96976da996703f2c8f7a",
+    "native_backend.py": "e473c38245c3668715b5a78dfe980b2fe3ed0d0c9b8c97c666fbae6ecf1fffd5",
+    "native_gf2.c": "e9c3c9194a08718bd1575c1cf08c6c6772d3b644c2e274c25a84a1f9249d06cc",
+    "profile_side_verifier.py": "9c994378171c20a91539418d93cb8387e1daa93465d6862beefea90e12999c2a"
+  },
+  "environment": {
+    "executable": "/usr/bin/python3.12",
+    "optimization": 0,
+    "platform": "linux",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "expected_complement_sha256": null,
+  "frozen_sources": {
+    "complex_circuit.py": "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1",
+    "complex_network.py": "0da395e67ac04fa213494e71012c1b19b544596d34cdce5a3b172b1fb6af5f1b"
+  },
+  "measured_wall_seconds_before_receipt_write": 35.857453499978874,
+  "measurement_scope": "Cold entire process; parent guard outer wall/CPU is authoritative. Both arms write identical complete witness bytes. Candidate additionally compiles, links, loads and runs every finite/native/binding control.",
+  "mode": "baseline",
+  "phases": {
+    "checks_initialization": {
+      "cpu_seconds_including_children": 6.300000000036832e-05,
+      "wall_seconds": 6.284000119194388e-05
+    },
+    "cold_source_load_guard_bind": {
+      "cpu_seconds_including_children": 0.019830000000000014,
+      "wall_seconds": 0.019828849006444216
+    },
+    "compile_roles": {
+      "cpu_seconds_including_children": 0.3766470000000002,
+      "wall_seconds": 0.3766869060054887
+    },
+    "construction": {
+      "cpu_seconds_including_children": 1.7136879999999999,
+      "wall_seconds": 1.7138633870054036
+    },
+    "same_complete_witness_trace_serialization": {
+      "cpu_seconds_including_children": 1.0552819999999983,
+      "wall_seconds": 1.05667901301058
+    },
+    "verify_labels": {
+      "cpu_seconds_including_children": 25.005594000000002,
+      "wall_seconds": 25.193313104013214
+    },
+    "verify_map": {
+      "cpu_seconds_including_children": 5.373737,
+      "wall_seconds": 5.376434844976757
+    },
+    "verify_role_frames": {
+      "cpu_seconds_including_children": 1.5150259999999989,
+      "wall_seconds": 1.515806892013643
+    }
+  },
+  "process_plus_compiler_cpu_seconds_before_receipt_write": 35.795717,
+  "qualification_revision": 2,
+  "scientific_scope": "Frozen H=25 complex side verification only; no full network certificate, selected frontier, PR5864 gain, new construction, parameter search or kappa admission.",
+  "status": "COMPLETE_SIDE_PASS"
+}

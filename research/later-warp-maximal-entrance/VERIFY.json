@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/later-warp-maximal-entrance/inputs/BASE-WORD.json.gz",
+    "research/later-warp-maximal-entrance/vendor/audit_core.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Warp-0 capacity control, warp-13 maximal entrance, 31-line admission, one identity scale, unchanged caller fields and terminal end-climbs, histogram delta, cleanup insert, and rejection of a swapped exit"
+    }
+  ]
+}

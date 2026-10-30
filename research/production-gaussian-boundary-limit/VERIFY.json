@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "NOTICE",
+    "research/broad-phase-cell-inverse-bound/verify.py",
+    "research/forward-fine-theta-conditioning/verify.py",
+    "research/gaussian-half-line-operator-limit/PROOF.md",
+    "research/gaussian-half-line-operator-limit/model.py",
+    "research/unconditional-batched-crt/GAUSSIAN.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Source authentication, exact normalized-product and q-LDU controls, rescaled original geometry and typed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Same exact checks with assertions disabled."
+    }
+  ]
+}

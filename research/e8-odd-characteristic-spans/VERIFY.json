@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-rank9-realisations/README.md",
+    "research/e8-rank9-realisations/checks/e8lib.py",
+    "research/e8-rank9-realisations/checks/spans.py",
+    "research/e8-rank9-realisations/checks/spans3.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Generate every fixed-anchor integer minor, all root-reflection images, exact determinant differentials and singular/odd-torsion rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat the complete certificate and rejection controls with Python assertions disabled."
+    }
+  ]
+}

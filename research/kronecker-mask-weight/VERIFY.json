@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Compare outer-product weights for every mask pair whose widths multiply to at most 20."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Recompute the product weights through width product 6 independently."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Sharp all-Clifford detour bounds; exhaustive small geometry and all rank-nine intersection patterns; complete PR5756 helper-query flags, exact fee budgets and negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Sharp all-Clifford detour bounds; exhaustive small geometry and all rank-nine intersection patterns; complete PR5756 helper-query flags, exact fee budgets and negative controls."
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+COMMAND ['/opt/homebrew/opt/python@3.14/bin/python3.14', '-B', '-W', 'error', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_research_scaffold*.py', '-v']
+test_dangling_package_alias_is_rejected_before_staging (test_research_scaffold_aliases.ScaffoldAliasTests.test_dangling_package_alias_is_rejected_before_staging) ... ok
+test_linked_research_directory_is_rejected_before_git_or_writes (test_research_scaffold_aliases.ScaffoldAliasTests.test_linked_research_directory_is_rejected_before_git_or_writes) ... ok
+test_ordinary_new_output_and_linked_checkout_root_reach_normal_validation (test_research_scaffold_aliases.ScaffoldAliasTests.test_ordinary_new_output_and_linked_checkout_root_reach_normal_validation) ... ok
+test_catalogue_is_requested_once_even_when_explicitly_duplicated (test_research_scaffold_batch.ScaffoldBatchTests.test_catalogue_is_requested_once_even_when_explicitly_duplicated) ... ok
+test_exact_pins_binary_names_deduplication_and_constant_process_count (test_research_scaffold_batch.ScaffoldBatchTests.test_exact_pins_binary_names_deduplication_and_constant_process_count) ... ok
+test_live_catalogue_drift_rejects_without_publishing (test_research_scaffold_batch.ScaffoldBatchTests.test_live_catalogue_drift_rejects_without_publishing) ... ok
+test_live_drift_rejects_first_and_last_inputs_without_draft_or_child_leak (test_research_scaffold_batch.ScaffoldBatchTests.test_live_drift_rejects_first_and_last_inputs_without_draft_or_child_leak) ... ok
+test_unknown_task_closes_reader_without_publishing (test_research_scaffold_batch.ScaffoldBatchTests.test_unknown_task_closes_reader_without_publishing) ... ok
+test_untracked_source_and_late_reader_failure_do_not_publish (test_research_scaffold_batch.ScaffoldBatchTests.test_untracked_source_and_late_reader_failure_do_not_publish) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 12.005s
+
+OK
+COMMAND ['/opt/homebrew/opt/python@3.14/bin/python3.14', '-B', '-W', 'error', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_research_onboarding.py', '-v']
+test_binding_and_target_are_derived (test_research_onboarding.BaselineTests.test_binding_and_target_are_derived) ... ok
+test_fetch_pr_files_paginates_and_flags_shortfall (test_research_onboarding.OverlapPathIndexTests.test_fetch_pr_files_paginates_and_flags_shortfall) ... ok
+test_fetch_pr_files_retries_transient_page_failures (test_research_onboarding.OverlapPathIndexTests.test_fetch_pr_files_retries_transient_page_failures) ... ok
+test_fetch_pr_files_skips_unavailable_file_lists (test_research_onboarding.OverlapPathIndexTests.test_fetch_pr_files_skips_unavailable_file_lists) ... ok
+test_path_report_exact_glob_substring_and_rejection (test_research_onboarding.OverlapPathIndexTests.test_path_report_exact_glob_substring_and_rejection) ... ok
+test_pr_files_fetched_only_when_requested_and_cached (test_research_onboarding.OverlapPathIndexTests.test_pr_files_fetched_only_when_requested_and_cached) ... ok
+test_pr_files_refresh_failure_keeps_old_records (test_research_onboarding.OverlapPathIndexTests.test_pr_files_refresh_failure_keeps_old_records) ... ok
+test_body_only_matches_and_no_clean_certificate (test_research_onboarding.OverlapTests.test_body_only_matches_and_no_clean_certificate) ... ok
+test_cache_fresh_offline_and_partial_failure (test_research_onboarding.OverlapTests.test_cache_fresh_offline_and_partial_failure) ... ok
+test_discussion_comment_and_reply_pagination (test_research_onboarding.OverlapTests.test_discussion_comment_and_reply_pagination) ... ok
+test_local_readme_and_ledger (test_research_onboarding.OverlapTests.test_local_readme_and_ledger) ... ok
+test_pr_pagination_normalization (test_research_onboarding.OverlapTests.test_pr_pagination_normalization) ... ok
+test_report_survives_a_cp1252_stdout (test_research_onboarding.OverlapTests.test_report_survives_a_cp1252_stdout) ... ok
+test_cli_replay_cannot_accept_assertion_failure_from_environment (test_research_onboarding.PackageTests.test_cli_replay_cannot_accept_assertion_failure_from_environment) ... skipped 'generic replay environment is Python 3.12'
+test_cli_unicode_coverage_does_not_relax_source_pins (test_research_onboarding.PackageTests.test_cli_unicode_coverage_does_not_relax_source_pins) ... skipped 'generic replay environment is Python 3.12'
+test_cli_unicode_coverage_survives_legacy_stdout (test_research_onboarding.PackageTests.test_cli_unicode_coverage_survives_legacy_stdout) ... skipped 'generic replay environment is Python 3.12'
+test_dependency_plan_and_runtime_failure (test_research_onboarding.PackageTests.test_dependency_plan_and_runtime_failure) ... ok
+test_inherited_optimization_cannot_disable_child_checks (test_research_onboarding.PackageTests.test_inherited_optimization_cannot_disable_child_checks) ... Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    assert False, "invalid fixture"
+           ^^^^^
+AssertionError: invalid fixture
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    assert False, "invalid fixture"
+           ^^^^^
+AssertionError: invalid fixture
+ok
+test_inherited_pythonpath_cannot_shadow_child_imports (test_research_onboarding.PackageTests.test_inherited_pythonpath_cannot_shadow_child_imports) ... ok
+test_live_input_drift_but_provenance_survives_priority_change (test_research_onboarding.PackageTests.test_live_input_drift_but_provenance_survives_priority_change) ... ok
+test_nested_interpreter_and_explicit_options (test_research_onboarding.PackageTests.test_nested_interpreter_and_explicit_options) ... ok
+test_original_contract_and_timeout_limits (test_research_onboarding.PackageTests.test_original_contract_and_timeout_limits) ... ok
+test_ready_package_replays_and_mutation_fails (test_research_onboarding.PackageTests.test_ready_package_replays_and_mutation_fails) ... skipped 'generic replay environment is Python 3.12'
+test_scaffold_pins_and_refuses_overwrite (test_research_onboarding.PackageTests.test_scaffold_pins_and_refuses_overwrite) ... ok
+test_scope_drift_requires_reason (test_research_onboarding.PackageTests.test_scope_drift_requires_reason) ... ok
+test_utf8_metadata_validates_under_any_locale (test_research_onboarding.PackageTests.test_utf8_metadata_validates_under_any_locale) ... ok
+test_onboarding_text_io_does_not_depend_on_host_locale (test_research_onboarding.TextEncodingTests.test_onboarding_text_io_does_not_depend_on_host_locale) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 13.552s
+
+OK (skipped=4)
+COMMAND ['/opt/homebrew/opt/python@3.14/bin/python3.14', '-B', '-O', '-W', 'error', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_research_scaffold*.py', '-v']
+test_dangling_package_alias_is_rejected_before_staging (test_research_scaffold_aliases.ScaffoldAliasTests.test_dangling_package_alias_is_rejected_before_staging) ... ok
+test_linked_research_directory_is_rejected_before_git_or_writes (test_research_scaffold_aliases.ScaffoldAliasTests.test_linked_research_directory_is_rejected_before_git_or_writes) ... ok
+test_ordinary_new_output_and_linked_checkout_root_reach_normal_validation (test_research_scaffold_aliases.ScaffoldAliasTests.test_ordinary_new_output_and_linked_checkout_root_reach_normal_validation) ... ok
+test_catalogue_is_requested_once_even_when_explicitly_duplicated (test_research_scaffold_batch.ScaffoldBatchTests.test_catalogue_is_requested_once_even_when_explicitly_duplicated) ... ok
+test_exact_pins_binary_names_deduplication_and_constant_process_count (test_research_scaffold_batch.ScaffoldBatchTests.test_exact_pins_binary_names_deduplication_and_constant_process_count) ... ok
+test_live_catalogue_drift_rejects_without_publishing (test_research_scaffold_batch.ScaffoldBatchTests.test_live_catalogue_drift_rejects_without_publishing) ... ok
+test_live_drift_rejects_first_and_last_inputs_without_draft_or_child_leak (test_research_scaffold_batch.ScaffoldBatchTests.test_live_drift_rejects_first_and_last_inputs_without_draft_or_child_leak) ... ok
+test_unknown_task_closes_reader_without_publishing (test_research_scaffold_batch.ScaffoldBatchTests.test_unknown_task_closes_reader_without_publishing) ... ok
+test_untracked_source_and_late_reader_failure_do_not_publish (test_research_scaffold_batch.ScaffoldBatchTests.test_untracked_source_and_late_reader_failure_do_not_publish) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 9.796s
+
+OK
+COMMAND ['/opt/homebrew/opt/python@3.14/bin/python3.14', '-B', '-O', '-W', 'error', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_research_onboarding.py', '-v']
+test_binding_and_target_are_derived (test_research_onboarding.BaselineTests.test_binding_and_target_are_derived) ... ok
+test_fetch_pr_files_paginates_and_flags_shortfall (test_research_onboarding.OverlapPathIndexTests.test_fetch_pr_files_paginates_and_flags_shortfall) ... ok
+test_fetch_pr_files_retries_transient_page_failures (test_research_onboarding.OverlapPathIndexTests.test_fetch_pr_files_retries_transient_page_failures) ... ok
+test_fetch_pr_files_skips_unavailable_file_lists (test_research_onboarding.OverlapPathIndexTests.test_fetch_pr_files_skips_unavailable_file_lists) ... ok
+test_path_report_exact_glob_substring_and_rejection (test_research_onboarding.OverlapPathIndexTests.test_path_report_exact_glob_substring_and_rejection) ... ok
+test_pr_files_fetched_only_when_requested_and_cached (test_research_onboarding.OverlapPathIndexTests.test_pr_files_fetched_only_when_requested_and_cached) ... ok
+test_pr_files_refresh_failure_keeps_old_records (test_research_onboarding.OverlapPathIndexTests.test_pr_files_refresh_failure_keeps_old_records) ... ok
+test_body_only_matches_and_no_clean_certificate (test_research_onboarding.OverlapTests.test_body_only_matches_and_no_clean_certificate) ... ok
+test_cache_fresh_offline_and_partial_failure (test_research_onboarding.OverlapTests.test_cache_fresh_offline_and_partial_failure) ... ok
+test_discussion_comment_and_reply_pagination (test_research_onboarding.OverlapTests.test_discussion_comment_and_reply_pagination) ... ok
+test_local_readme_and_ledger (test_research_onboarding.OverlapTests.test_local_readme_and_ledger) ... ok
+test_pr_pagination_normalization (test_research_onboarding.OverlapTests.test_pr_pagination_normalization) ... ok
+test_report_survives_a_cp1252_stdout (test_research_onboarding.OverlapTests.test_report_survives_a_cp1252_stdout) ... ok
+test_cli_replay_cannot_accept_assertion_failure_from_environment (test_research_onboarding.PackageTests.test_cli_replay_cannot_accept_assertion_failure_from_environment) ... skipped 'generic replay environment is Python 3.12'
+test_cli_unicode_coverage_does_not_relax_source_pins (test_research_onboarding.PackageTests.test_cli_unicode_coverage_does_not_relax_source_pins) ... skipped 'generic replay environment is Python 3.12'
+test_cli_unicode_coverage_survives_legacy_stdout (test_research_onboarding.PackageTests.test_cli_unicode_coverage_survives_legacy_stdout) ... skipped 'generic replay environment is Python 3.12'
+test_dependency_plan_and_runtime_failure (test_research_onboarding.PackageTests.test_dependency_plan_and_runtime_failure) ... ok
+test_inherited_optimization_cannot_disable_child_checks (test_research_onboarding.PackageTests.test_inherited_optimization_cannot_disable_child_checks) ... Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    assert False, "invalid fixture"
+           ^^^^^
+AssertionError: invalid fixture
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    assert False, "invalid fixture"
+           ^^^^^
+AssertionError: invalid fixture
+ok
+test_inherited_pythonpath_cannot_shadow_child_imports (test_research_onboarding.PackageTests.test_inherited_pythonpath_cannot_shadow_child_imports) ... ok
+test_live_input_drift_but_provenance_survives_priority_change (test_research_onboarding.PackageTests.test_live_input_drift_but_provenance_survives_priority_change) ... ok
+test_nested_interpreter_and_explicit_options (test_research_onboarding.PackageTests.test_nested_interpreter_and_explicit_options) ... ok
+test_original_contract_and_timeout_limits (test_research_onboarding.PackageTests.test_original_contract_and_timeout_limits) ... ok
+test_ready_package_replays_and_mutation_fails (test_research_onboarding.PackageTests.test_ready_package_replays_and_mutation_fails) ... skipped 'generic replay environment is Python 3.12'
+test_scaffold_pins_and_refuses_overwrite (test_research_onboarding.PackageTests.test_scaffold_pins_and_refuses_overwrite) ... ok
+test_scope_drift_requires_reason (test_research_onboarding.PackageTests.test_scope_drift_requires_reason) ... ok
+test_utf8_metadata_validates_under_any_locale (test_research_onboarding.PackageTests.test_utf8_metadata_validates_under_any_locale) ... ok
+test_onboarding_text_io_does_not_depend_on_host_locale (test_research_onboarding.TextEncodingTests.test_onboarding_text_io_does_not_depend_on_host_locale) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 17.063s
+
+OK (skipped=4)

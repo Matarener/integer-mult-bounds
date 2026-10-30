@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Bound the exact optimum of the unsigned F3 n-source connector (n immutable sources, all 2^n-1 nonzero binary-mask outputs, one arbitrarily dirty restored connector) for n >= 8, where PR4250 shows the three-call floor fails.",
+  "scope_change_reason": "Keeps the F3 alphabet and answers PR4250's open question 1 for n = 8, a source-count question the card lists as a scope-change trigger. It fixes the surcharge an F3 connector consumer pays above three calls per operator.",
+  "bottleneck_link": "Gives the exact eight-source surcharge (two extra call triples) and a surcharge that grows at least linearly in n for any larger F3 batch. No physical consumer, admission or transfer is supplied, so no kappa change follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the n = 8 exact value, the general lower bound, the n = 9 upper bound and a bounded n = 10 annealing probe. Exact values for n >= 9 are left open.",
+  "outcome": "completed",
+  "evidence": "A written proof that every legal word is a source path with readout lists and that deleting a source lowers the excess by that source's load; with PR4250's n = 7 exclusion this gives excess >= n - 6. verify.py simulates the 795-call eight-source and 1572-call nine-source words literally, checks the lower-bound table to n = 64 and replays the deletion map on every source of three words.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is the nine-source optimum 1569 (excess 3) or 1572 (excess 4)?",
+      "why_it_matters": "It decides whether the lower bound n - 6 is sharp beyond n = 8.",
+      "first_step": "Search 36-event paths with three doubled sources; annealing reached 499 of 511 masks. An exclusion needs a census or a structural argument.",
+      "blocked_by": "Bounded annealing found no excess-3 word; that is a search failure, not an exclusion."
+    },
+    {
+      "question": "What are the exact optima for n = 10..16, where the lower bound is linear and the counting bound is weaker?",
+      "why_it_matters": "It locates where the surcharge changes from linear to the counting regime.",
+      "first_step": "Run the annealer with n - 6 and n - 5 doubled sources, and a mixed objective that pays six readouts for unserved masks.",
+      "blocked_by": "Search cost grows with 2^n masks per evaluation."
+    },
+    {
+      "question": "Can the deletion step be sharpened beyond one excess unit per source?",
+      "why_it_matters": "An averaging version that uses several sources at once could improve the linear term.",
+      "first_step": "Study which sources carry load in optimal eight-source words; the bound forces load at most one on every source.",
+      "blocked_by": "No candidate argument yet."
+    }
+  ],
+  "predecessor_handoff": {
+    "pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/4250",
+    "head": "aa61e1746f8c12807bed59cd169591bd82320bc6",
+    "author": "Nick Petalas",
+    "usage": "The n = 7 exclusion (excess X(7) >= 1) is the base case of the induction; open question 1 is answered here for n = 8. PR4232 (head 86ad339efc9f817846479431d8cc0f04edf95fb9) supplies the interface, the 405-call word (X(7) <= 1) and the floor deletion lemma that this package generalises. No executable dependency."
+  },
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19082841",
+    "upstream_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+    "overlap_scope": "100 live open PR titles, 60 recent account PRs, last 30 handoff comments, merged README grep for eight-source F3 connector terms and a merged-PR title search. Only PR4232 and PR4250 study the n-source unsigned F3 binary-mask connector.",
+    "family_decision": "Local interface result; stop. No construction round is justified without a consumer."
+  }
+}

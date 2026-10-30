@@ -1,0 +1,163 @@
+{
+  "status": "PASS_WHOLE_K_UNIVERSAL_EXACT_DYADIC_PRECISION",
+  "forward": {
+    "events": 43008,
+    "event_counts": {
+      "MONOMIAL": 2048,
+      "PAID_PATH": 2048,
+      "ADD": 38912
+    },
+    "paid": {
+      "8": 512,
+      "9": 512,
+      "16": 512,
+      "15": 512
+    },
+    "conservative_grid_upper_envelope": [
+      [
+        23,
+        4
+      ],
+      [
+        24,
+        0
+      ]
+    ],
+    "sufficient_grid_envelope": [
+      [
+        23,
+        4
+      ],
+      [
+        24,
+        0
+      ]
+    ],
+    "magnitude_polynomial_degree": 24,
+    "magnitude_polynomial_coefficient_sum_upper": "8",
+    "all_original_fields": 1024,
+    "coarse_grid_bound_samples": {
+      "1": 27,
+      "2": 50,
+      "3": 73,
+      "4": 96,
+      "8": 192,
+      "16": 384,
+      "32": 768
+    },
+    "scope": "All positive f symbolic sufficient dyadic grid and component magnitude, conditional only on the source stream exact native semantics; not machine/recursive cost.",
+    "phase_permutation_word_definitions_checked": 4102,
+    "tight_gaussian_integer_grid_by_parity": [
+      {
+        "f_parity": 0,
+        "k_minimum": 1,
+        "relative_grid_envelope_in_k": [
+          [
+            23,
+            4
+          ],
+          [
+            24,
+            0
+          ]
+        ],
+        "variable": "f=2*k+parity"
+      },
+      {
+        "f_parity": 1,
+        "k_minimum": 0,
+        "relative_grid_envelope_in_k": [
+          [
+            23,
+            16
+          ],
+          [
+            24,
+            13
+          ]
+        ],
+        "variable": "f=2*k+parity"
+      }
+    ]
+  },
+  "backward": {
+    "events": 44544,
+    "event_counts": {
+      "BOUNDARY_MONOMIAL": 1536,
+      "MONOMIAL": 2048,
+      "PAID_PATH": 2048,
+      "ADD": 38912
+    },
+    "paid": {
+      "8": 512,
+      "9": 512,
+      "16": 512,
+      "15": 512
+    },
+    "conservative_grid_upper_envelope": [
+      [
+        25,
+        4
+      ]
+    ],
+    "sufficient_grid_envelope": [
+      [
+        25,
+        4
+      ]
+    ],
+    "magnitude_polynomial_degree": 25,
+    "magnitude_polynomial_coefficient_sum_upper": "8",
+    "all_original_fields": 1024,
+    "coarse_grid_bound_samples": {
+      "1": 29,
+      "2": 54,
+      "3": 79,
+      "4": 104,
+      "8": 204,
+      "16": 404,
+      "32": 804
+    },
+    "scope": "All positive f symbolic sufficient dyadic grid and component magnitude, conditional only on the source stream exact native semantics; not machine/recursive cost.",
+    "phase_permutation_word_definitions_checked": 4105,
+    "tight_gaussian_integer_grid_by_parity": [
+      {
+        "f_parity": 0,
+        "k_minimum": 1,
+        "relative_grid_envelope_in_k": [
+          [
+            25,
+            4
+          ]
+        ],
+        "variable": "f=2*k+parity"
+      },
+      {
+        "f_parity": 1,
+        "k_minimum": 0,
+        "relative_grid_envelope_in_k": [
+          [
+            25,
+            17
+          ]
+        ],
+        "variable": "f=2*k+parity"
+      }
+    ]
+  },
+  "common_grid_bits": "g+ceil(25*f/2)+4",
+  "common_complex_magnitude_upper": "8*H*2^ceil(25*f/2)",
+  "sufficient_signed_payload_bits": "g+2*ceil(25*f/2)+ceil(log2(H))+9, for H>=1",
+  "required_rounding_error": "zero when the stated exact dyadic storage and arithmetic are used",
+  "mutations": [
+    "increased actual scalar denominator rejected"
+  ],
+  "not_claimed": [
+    "new kappa",
+    "all-family emitted phase replay",
+    "whole caller budget",
+    "constant 64-bit word size for growing f",
+    "unit-cost arbitrary precision",
+    "native kernel proof verification"
+  ]
+}

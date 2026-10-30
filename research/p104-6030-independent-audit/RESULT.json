@@ -1,0 +1,367 @@
+{
+ "layer0_sources": {
+  "pinned_pr5907_payload_equal_canonical": true,
+  "pr5827_archive_equal_pr5907_pin": true,
+  "pr6030_regenerated_word_equal": true
+ },
+ "layer1_replay": {
+  "5907": {
+   "endpoint_rows": 799,
+   "events": 25998,
+   "helper_count": 562,
+   "helpers": {
+    "1": 15,
+    "2": 7,
+    "3": 5,
+    "4": 107,
+    "5": 14,
+    "6": 1,
+    "7": 10,
+    "8": 18,
+    "9": 385
+   },
+   "ops": {
+    "ADD": 21706,
+    "CLEAR": 31,
+    "COPY": 23,
+    "INIT": 31,
+    "MOVE": 3454,
+    "SCALE": 753
+   },
+   "owned_fields": 29,
+   "owned_lifetimes": 31,
+   "paid": {
+    "1": 2221,
+    "2": 456,
+    "3": 498,
+    "4": 99,
+    "5": 163,
+    "6": 10,
+    "7": 7
+   },
+   "paid_rank_mass": 5947,
+   "peak_owned": 13,
+   "public": 770
+  },
+  "6030": {
+   "endpoint_rows": 799,
+   "events": 22803,
+   "helper_count": 562,
+   "helpers": {
+    "1": 14,
+    "2": 8,
+    "3": 4,
+    "4": 107,
+    "5": 14,
+    "6": 2,
+    "7": 9,
+    "8": 19,
+    "9": 385
+   },
+   "ops": {
+    "ADD": 18404,
+    "CLEAR": 31,
+    "COPY": 23,
+    "INIT": 31,
+    "MOVE": 3453,
+    "SCALE": 861
+   },
+   "owned_fields": 29,
+   "owned_lifetimes": 31,
+   "paid": {
+    "1": 2219,
+    "2": 457,
+    "3": 496,
+    "4": 100,
+    "5": 163,
+    "6": 11,
+    "7": 6,
+    "8": 1
+   },
+   "paid_rank_mass": 5952,
+   "peak_owned": 13,
+   "public": 770
+  },
+  "delta_5907_6030": {
+   "boundary_changes": {
+    "final": {
+     "115": [
+      105,
+      189
+     ]
+    },
+    "initial": {
+     "713": [
+      3,
+      76
+     ],
+     "736": [
+      424,
+      749
+     ]
+    }
+   },
+   "changed_helper_ranks": {
+    "115": [
+     1,
+     8
+    ],
+    "713": [
+     3,
+     2
+    ],
+    "736": [
+     7,
+     6
+    ]
+   },
+   "events": [
+    25998,
+    22803
+   ],
+   "helper_delta": {
+    "1": -1,
+    "2": 1,
+    "3": -1,
+    "6": 1,
+    "7": -1,
+    "8": 1
+   },
+   "itineraries": {
+    "115": [
+     [
+      3,
+      105
+     ],
+     [
+      3,
+      189
+     ]
+    ],
+    "127": [
+     [
+      3,
+      602,
+      637,
+      643,
+      646,
+      649,
+      141
+     ],
+     [
+      3,
+      595,
+      637,
+      643,
+      646,
+      649,
+      141
+     ]
+    ],
+    "470": [
+     [
+      3,
+      593,
+      714,
+      875,
+      1001,
+      131,
+      127
+     ],
+     [
+      3,
+      714,
+      875,
+      1001,
+      131,
+      127
+     ]
+    ],
+    "704": [
+     [
+      3,
+      593,
+      612,
+      127
+     ],
+     [
+      3,
+      593,
+      714,
+      127
+     ]
+    ],
+    "713": [
+     [
+      3,
+      394
+     ],
+     [
+      76,
+      394
+     ]
+    ],
+    "736": [
+     [
+      424,
+      127
+     ],
+     [
+      749,
+      127
+     ]
+    ]
+   },
+   "margin_delta_per_local": {
+    "1": 1,
+    "3": 1,
+    "4": -1
+   },
+   "ops_delta": {
+    "ADD": -3302,
+    "MOVE": -1,
+    "SCALE": 108
+   },
+   "paid_delta": {
+    "1": -2,
+    "2": 1,
+    "3": -2,
+    "4": 1,
+    "6": 1,
+    "7": -1,
+    "8": 1
+   },
+   "registers_with_changed_event_sequence": 777
+  },
+  "tamper_controls": {
+   "drop_add_into_helper470": "rejected: endpoint row 116",
+   "flip_add_sign_helper268": "rejected: endpoint row 112",
+   "restore_final_115_chart": "rejected: public and owned exits",
+   "retarget_helper470_move_to_593": "rejected: destination chart at 14389",
+   "scale_by_one_third": "rejected: dyadic coefficient at 2"
+  }
+ },
+ "layer2_invoice": {
+  "5907": {
+   "max_paid_rank": 72,
+   "max_target_rank": 145,
+   "paid_calls": 66852,
+   "productive_fields": 13444,
+   "rank_mass_surplus": 760
+  },
+  "6030": {
+   "max_paid_rank": 72,
+   "max_target_rank": 145,
+   "paid_calls": 66834,
+   "productive_fields": 13444,
+   "rank_mass_surplus": 760
+  }
+ },
+ "layer3_dense": {
+  "control_map": [
+   3,
+   189
+  ],
+  "controls": {
+   "phase_only_fault": "rejected",
+   "wrong_child_sign": "rejected"
+  },
+  "covered_by_predecessor_full_check": 3156,
+  "distinct_helper_pairs": 69,
+  "distinct_moves": 2886,
+  "distinct_signed_maps": 2922,
+  "new_in_pr6030": [
+   [
+    "helper",
+    3,
+    189,
+    0,
+    8
+   ],
+   [
+    "helper",
+    76,
+    394,
+    0,
+    2
+   ],
+   [
+    "helper",
+    749,
+    127,
+    0,
+    6
+   ],
+   [
+    "move",
+    3,
+    189,
+    0,
+    8
+   ],
+   [
+    "move",
+    3,
+    714,
+    0,
+    4
+   ],
+   [
+    "move",
+    595,
+    637,
+    0,
+    2
+   ],
+   [
+    "move",
+    714,
+    127,
+    0,
+    5
+   ]
+  ],
+  "new_maps_sha256": "72f37f483e3a4b3b54e7d54719df3da190e4a3158ce471987430e74f98fdb5de",
+  "predecessor_full_check_sha256": "ad761f5f798a0fbbbb2620e8d8bb4ff3c606ccc86eb64a2c53188ffd24781e8d",
+  "tasks": 3163
+ },
+ "layer4_funding": {
+  "5907": {
+   "alpha": "0.99999999787209550886",
+   "claim": "1562641/500000000",
+   "delta": "0.95098476241487807261",
+   "derivative_upper": "-234348.96015517985862",
+   "equals_author": true,
+   "gamma": "0.97555768949964175020",
+   "raw_crossing": [
+    "78132227471/25000000000000",
+    "62505781977/20000000000000"
+   ],
+   "raw_crossing_decimal": [
+    "0.00312528909884",
+    "0.00312528909885"
+   ],
+   "tested": "3125287/1000000000",
+   "tested_sign": "positive"
+  },
+  "6030": {
+   "alpha": "0.99999999740808018176",
+   "claim": "781451/250000000",
+   "delta": "0.95062864224216952441",
+   "derivative_upper": "-234306.96640174399061",
+   "equals_author": true,
+   "gamma": "0.97556235104746729785",
+   "raw_crossing": [
+    "312581155791/100000000000000",
+    "19536322237/6250000000000"
+   ],
+   "raw_crossing_decimal": [
+    "0.00312581155791",
+    "0.00312581155792"
+   ],
+   "tested": "3125809/1000000000",
+   "tested_sign": "positive"
+  },
+  "claim_gain_6030_over_5907": "261/500000000"
+ }
+}

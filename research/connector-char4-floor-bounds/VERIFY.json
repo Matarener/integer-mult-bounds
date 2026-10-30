@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Nine-source walk coverage; parity collapse lemma on that walk; counting thresholds for c<=12; all 91,390 tenth-source insertions each with an uncovered mask; three rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--skip-insertions"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat every check except the insertion sweep under optimized Python; checks use explicit exceptions."
+    }
+  ]
+}

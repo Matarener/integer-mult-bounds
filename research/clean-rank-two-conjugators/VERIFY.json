@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/clean-square-zero-compiler/PROOF.md",
+    "research/clean-square-zero-compiler/README.md",
+    "research/square-zero-idempotent-compiler/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "New complete formal endpoint, all finite literal states and involutions, exact primitive bill and semantic rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "New complete formal endpoint, all finite literal states and involutions, exact primitive bill and semantic rejection controls."
+    }
+  ]
+}

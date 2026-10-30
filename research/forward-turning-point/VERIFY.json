@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==1.26.4",
+    "scipy==1.13.1"
+  ],
+  "inputs": [
+    "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Pinned FORWARD-SMALL-A bound; sparse inverse power iteration of the banded phase-cell block at alpha=3,4 for theta down to 1/102400; ratio to e^(a/4)/(2 alpha sqrt(pi)) theta^(-1/2) within 1% and converging at O(theta^1/2); dense SVD control; localisation control."
+    }
+  ]
+}

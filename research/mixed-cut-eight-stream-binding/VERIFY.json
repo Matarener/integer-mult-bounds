@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/rank7-idle-star-stream-obstruction/algebra.py",
+    "research/rank7-idle-star-stream-obstruction/source.py",
+    "research/rank7-joint-endframes/allocation/DISPATCH.json",
+    "research/rank7-joint-endframes/allocation/FILL.json.gz",
+    "research/rank7-joint-endframes/allocation/ORDER.json",
+    "research/rank7-joint-endframes/allocation/PROVIDERS.json",
+    "research/rank7-joint-endframes/allocation/vendor/PLAN.json.gz",
+    "research/rank7-joint-endframes/allocation/vendor/TEMPLATE.json.gz",
+    "research/rank7-joint-endframes/NOTICE",
+    "research/rank7-joint-endframes/CREDITS.md",
+    "research/rank7-idle-star-stream-obstruction/README.md",
+    "research/mixed-cut-eight-stream-binding/source/README.md",
+    "research/mixed-cut-eight-stream-binding/source/PROOF.md",
+    "research/mixed-cut-eight-stream-binding/source/TASK.json",
+    "research/mixed-cut-eight-stream-binding/source/SOURCES.json",
+    "research/mixed-cut-eight-stream-binding/source/NOTICE",
+    "research/mixed-cut-eight-stream-binding/source/tools/g0_staged.py",
+    "research/mixed-cut-eight-stream-binding/source/instances/2979.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fresh actualT74 source binding, fullhead classification, complete dirty-input matrices, separate dense arithmetic and exact full typed regenerated data with corruption controls; identity cover only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fresh actualT74 source binding, fullhead classification, complete dirty-input matrices, separate dense arithmetic and exact full typed regenerated data with corruption controls; identity cover only."
+    }
+  ]
+}

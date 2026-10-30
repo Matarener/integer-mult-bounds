@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-complex-controller/machine.py",
+    "research/qq16-nonterminal-c8-tree/README.md",
+    "research/qq16-nonterminal-c8-tree/RESULT.json",
+    "research/qq16-parking-power-law/README.md",
+    "research/qq16-recursive-binding/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "root-dependent-cutoff-envelope-depth-source-controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "root-dependent-cutoff-envelope-depth-source-controls-optimized"
+    }
+  ]
+}

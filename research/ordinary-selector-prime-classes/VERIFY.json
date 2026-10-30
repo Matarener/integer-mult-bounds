@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-ordinary-interchange/encoded.py",
+    "research/physical-ordinary-interchange/ordinary.py",
+    "research/physical-complex-controller/production_native.py",
+    "research/retuned-ordinary-coupling/PROOF.md",
+    "research/retuned-ordinary-coupling/interface.py",
+    "research/retuned-ordinary-coupling/check_setup.py",
+    "research/t74-retuned-physical-layer/retuned_native.py",
+    "research/t74-retuned-physical-layer/check_active_contracts.py",
+    "research/retuned-ordinary-coupling/predecessor.py",
+    "research/retuned-ordinary-coupling/inputs/pr2899-export.tar.gz",
+    "research/t74-retuned-physical-layer/active_sources.py",
+    "research/bit2234-stock-threshold/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh exact scalar source binding, seven prime class certificates, complete typed regenerated data and independent 7,340,032 bounded width decisions; infinite theorem is separately written and conditional."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh exact scalar source binding, seven prime class certificates, complete typed regenerated data and independent 7,340,032 bounded width decisions; infinite theorem is separately written and conditional."
+    }
+  ]
+}

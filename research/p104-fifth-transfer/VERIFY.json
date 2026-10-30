@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-pooled-cut-independent/verify.py",
+    "research/p104-pooled-cut-independent/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Apply the dimension-5 read-first transfer to the 365-edge state and count the edges containing X102."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that an arrival intersection of 32 carries the signal at dimension 5 and an intersection of 16 does not."
+    }
+  ]
+}

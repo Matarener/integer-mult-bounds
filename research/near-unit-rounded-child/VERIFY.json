@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py",
+    "research/cubic-cyclic-inverse/vendor/interval_kernel.py",
+    "research/rational-unitary-fft/engine.py",
+    "research/rational-unitary-fft/exact.py",
+    "research/rational-unitary-fft/generator.py",
+    "research/rational-unitary-fft/triangular.py",
+    "research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json",
+    "research/rational-unitary-fft/vendor/stein_rational.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Pinned original/new producer, exact adapter admission andfixedallocation, actual rounded child on17predeclared complex inputs each, semantic/domain/sourcecontrols."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Repeat with optimizedwrapper and assertion-enabled frozen scientific modules; identicaldeterministicreceipt required by publicationvalidation."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/native-lift-phase-tags/PROOF.md",
+    "research/native-lift-phase-tags/source/RECIPES.json",
+    "research/staged544-native-quadratic-audit/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 20,
+      "checks": "Pinned sources, exact512-column affine tags, both inverses and three discriminating controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 20,
+      "checks": "Same checks under optimized Python; no assert-based acceptance"
+    }
+  ]
+}

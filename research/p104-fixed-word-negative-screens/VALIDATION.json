@@ -1,0 +1,26 @@
+{
+  "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
+  "date_local": "2026-10-28",
+  "environment": "CPython3.12.3 on Ubuntu via WSL; standard library only",
+  "command": ["python3", "-B", "scripts/research_package.py", "--package", "research/p104-fixed-word-negative-screens"],
+  "metadata_and_provenance_pins": "PASS",
+  "normal_isolated_replay": "PASS",
+  "optimized_isolated_replay": "PASS",
+  "semantic_receipt_sha256": "e9de43aef960895096b75c5e057ee0119276cdbdbbbc81fe698be60dae61f683",
+  "scientific_module_controls": 27,
+  "independent_checks": [
+    "Dense suffix replay and exact protected minor/affine certificate for both surviving cuts",
+    "Affine-offset, protected-kernel and dependent-basis rejection controls",
+    "Endpoint receiver-contact, net-cancellation, time-specific value and boundary controls",
+    "Explicit dual separating functionals for all five private-query output banks"
+  ],
+  "cold_export": "PASS: only this package and the declared WORD input, without Git objects or scratch dependencies",
+  "package_rejection_controls": {
+    "changed_word_bytes": "PASS_REJECTED",
+    "changed_frozen_vendor_bytes": "PASS_REJECTED",
+    "forged_semantic_receipt": "PASS_REJECTED"
+  },
+  "full_source_history_audit": "Not run: shallow checkout. The base commit is available locally; pending predecessor code is included byte-for-byte and cold-export replay passed.",
+  "scope": "Exact scalar necessary-condition exclusions and package integrity only. No native/compiler/caller/outer replay, new kappa, maintainer admission, independent human approval or formal-kernel verification is claimed.",
+  "assistance": "OpenAI Codex implementation and separate AI-assisted code/mathematical-scope review. Final GitHub review is anchored to the submitted commit."
+}

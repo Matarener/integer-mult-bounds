@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/native-tensor-cutoff/PROOF.md",
+    "research/shorter-native-phase-witness/README.md",
+    "research/three-axis-sharp-cutoff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Every phase witness, two complete group inventories, all hyperplane cosets, the low-width census and five controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The complete exact certificate checks with assertions disabled."
+    }
+  ]
+}

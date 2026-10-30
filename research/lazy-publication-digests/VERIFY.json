@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/check_research_commit.py",
+    "scripts/research_package.py",
+    "tests/test_research_commit_bytes.py",
+    "tests/test_research_source_history.py",
+    "tests/test_research_commit_modes.py",
+    "tests/test_research_git_replacements.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual Git byte/inventory, exact mismatch digests, zero success-path digests, reader finalization, immutable objects, source history and POSIX execute modes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same complete behavior under optimized Python."
+    }
+  ]
+}

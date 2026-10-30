@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-caller-owned-interface/source/BINDING.json",
+    "research/p104-caller-owned-interface/source/WORD.json.gz",
+    "research/p104-temporal-fixed-independent-audit/inputs/LICENSE",
+    "research/p104-temporal-fixed-independent-audit/inputs/NOTICE",
+    "research/p104-temporal-fixed-independent-audit/inputs/WORD.json.gz",
+    "research/p104-temporal-fixed-independent-audit/verify.py",
+    "research/p104-two-boundary-helper-split/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Hash-pins both words and the published checkers, requires the #5719 checker to accept only its own word, and checks the anchor, provenance, chart-path, and owned-label delta plus injection controls."
+    }
+  ]
+}

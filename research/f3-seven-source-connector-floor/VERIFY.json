@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Compile both C engines; replay reduced n=1..6 and independent n=2..5 calibration counts; pure-Python brute force for n<=4 matching both engines, with every solution orbit met by the reduced census; PR4232's 405-call seven-source word; positive, negative and shard-partition controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--n7-shards",
+        "0,1"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Reduced-engine n=7 census shards 0,1 of 18: zero floor paths and leaf counts equal to CERTIFICATE.json. A sample of the census; the complete census is the opt-in --n7-all replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--n7-shards",
+        "8,9"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Reduced-engine n=7 census shards 8,9 of 18: zero floor paths and leaf counts equal to CERTIFICATE.json. A sample of the census; the complete census is the opt-in --n7-all replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--n7-shards",
+        "16,17"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Reduced-engine n=7 census shards 16,17 of 18: zero floor paths and leaf counts equal to CERTIFICATE.json. A sample of the census; the complete census is the opt-in --n7-all replay."
+    }
+  ],
+  "notes": "Requires a C11 compiler named cc. The 1200 s package replay cap holds six of the 18 reduced-engine shards. The complete reduced census (about 1350 CPU seconds; {python} -B {package}/verify.py --n7-all) and the independent-engine census (about 12.5 minutes wall on 18 cores; --n7-independent) are opt-in (--n7-independent also replays the independent n=6 calibration) and compare against the per-shard leaf counts in CERTIFICATE.json."
+}

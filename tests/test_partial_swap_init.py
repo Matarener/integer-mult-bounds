@@ -19,7 +19,7 @@ from partial_swap import shared as production  # noqa: E402
 
 BASE_COMMIT = "3b29a00f972bd15871baac0acf5ac204740a9863"
 ORIGINAL_SHA256 = "b27c8bfe1de3f7d2d5fb19ac742adf11597c2aaa7add68430443119997e646e8"
-OPTIMIZED_SHA256 = "7290bd639600aecff11941d3faf95c9ce95589125cc6a7f7440fb86af7a0f17c"
+OPTIMIZED_SHA256 = "5a0646a50b9f3e8ea55168620a78e8853b0ab810517cefc8cfb8696aedee278a"
 
 
 def load_baseline():

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/qq16-native-dirty-fault/verify.py",
+    "research/joint-query/certificate.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Record the value of register 359 immediately before event 24438 and the sum it writes into register 39."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that 4 times 1 takes -4 to 0."
+    }
+  ]
+}

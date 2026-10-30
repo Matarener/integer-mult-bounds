@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gaussian-scalar-backend-audit/source/gaussian.py",
+    "research/gaussian-scalar-backend-audit/source/verify_gaussian.py",
+    "research/gaussian-scalar-backend-audit/source/GAUSSIAN-PROOF.md",
+    "research/gaussian-scalar-backend-audit/source/GAUSSIAN-RESULT.json",
+    "research/gaussian-scalar-backend-audit/source/README.md",
+    "research/gaussian-scalar-backend-audit/source/TASK.json",
+    "research/gaussian-scalar-backend-audit/source/SOURCES.json",
+    "research/gaussian-scalar-backend-audit/source/full.py",
+    "research/gaussian-scalar-backend-audit/source/exact.py",
+    "research/gaussian-scalar-backend-audit/source/engine.py",
+    "research/gaussian-scalar-backend-audit/source/triangular.py",
+    "research/gaussian-scalar-backend-audit/source/generator.py",
+    "research/gaussian-scalar-backend-audit/source/intervals.py",
+    "research/gaussian-scalar-backend-audit/source/INTERVAL-NOTICE.md",
+    "research/gaussian-scalar-backend-audit/source/INTERVAL-PROOF.md",
+    "research/gaussian-scalar-backend-audit/source/source_evaluator.py",
+    "research/gaussian-scalar-backend-audit/source/LICENSE"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/oracle.py",
+        "--self-test"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent rational scalar self-tests and failure controls; no predecessor imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/oracle.py",
+        "--self-test"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent rational scalar self-tests and failure controls; no predecessor imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/oracle_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Replay all128 independently certified scalar inputs and compare complete typed frozen output."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/oracle_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Replay all128 independently certified scalar inputs and compare complete typed frozen output."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual retained scalar preparation; all186 source calls,43quantized/61finite offsets, independent containment and three source fault controls; no gates."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual retained scalar preparation; all186 source calls,43quantized/61finite offsets, independent containment and three source fault controls; no gates."
+    }
+  ]
+}

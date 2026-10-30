@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/fraction-contribution-table-feasibility/inputs/PR5848.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh241-program/10164-event exact finite trace/type/input differential at four capacities (964 complete comparisons), plus34 key/hash/capacity/eviction/exception/source/restoration controls. Finite feasibility only; does not freshly replay actual source qualification or certify wall/CPU savings."
+    }
+  ]
+}

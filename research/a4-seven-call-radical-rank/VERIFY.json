@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/a4-commutator-four-role-seed-dcbf/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact direct 8-word replay on all 48 basis inputs with 8 omission and 1 label-mutation rejections; C3 determinant formula on 200 random words; every step of the radical-rank lemma in both bases (factor split for all 120 idempotents, J = kernel of dimension 9, unique lifts, twisted bimodule law on all of J, Phi(J^2)=0, defect rank 3 and three-output control rank 2, step-5 identity on 60 random words per base); compile both C joins with warnings as errors and check P<=3 counts (printed as S3) 1/240/41920/6655830 (total 6697991, equal to PR #2116's pinned value), 1,597,399,200 lookups and no word of length <= 7 in each; three-output 6-word and planted 7-word positive controls in each join, all replayed in Python."
+    }
+  ]
+}

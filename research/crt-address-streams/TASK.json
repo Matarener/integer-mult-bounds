@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Complete encoded CRT coefficient-address conversion for the actual PR3935 compact physical tensor interface, replacing quadratic adjacent-axis field reversal with one paid global router per conversion.",
+  "scope_change_reason": "OS seed44 selects structural decoder/layout research. The coverage-law card is retained as catalogue provenance; this distinct layout obligation is explicitly left open in PR3935 and fits the live physical-completion handoff.",
+  "bottleneck_link": "Close the CRT entrance and exit layout obligation under the newer many-axis caller laws while retaining all physical router costs; this does not supply the numerical tensor or integer recovery.",
+  "budget_minutes": 120,
+  "stop_rule": "Stop after one complete encoded bidirectional converter, independent coefficient/geometry controls, a full conditional invoice and source/export verification. If the favorable full cost misses the retained allowance, record that failure instead of extending construction.",
+  "outcome": "completed",
+  "evidence": "PROOF.md; EXPECTED.json; verify.py",
+  "author": "Tekalign (tekuuu)",
+  "ai_assistance": "Substantial OpenAI Codex assistance in design, implementation, proof drafting, independent finite oracles and verification.",
+  "open_questions": [
+    {
+      "question": "Compose the encoded converter with the actual numerical Tensor input/output rather than only its typed layout plan.",
+      "why_it_matters": "The layout bridge alone does not execute a complete numerical convolution.",
+      "first_step": "Feed two converted coprime-axis compact inputs through the pinned tensor and compare the returned inverse layout with a direct cyclic convolution on a finite fixture.",
+      "blocked_by": "Inherited numerical tensor and native endpoint premises; no production execution claimed here."
+    },
+    {
+      "question": "Supply final integer normalization and exact rounding/carry return.",
+      "why_it_matters": "CRT address conversion preserves coefficients but does not finish integer multiplication.",
+      "first_step": "Bind the source08 two S scalings to the actual returned word format and derive the complete error/rounding invoice.",
+      "blocked_by": "Actual numerical tensor output error and scaling contracts."
+    }
+  ],
+  "assignment_seed": 44,
+  "track": "structural-decoder",
+  "source_pr": 3935,
+  "source_head": "240597ed313fc2854c0462b23c89dc3bae72aaf5"
+}

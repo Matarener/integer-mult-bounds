@@ -1,0 +1,46 @@
+{
+  "status": "PASS_ACTUAL_INVERSE_MODE_SHARING",
+  "source": {
+    "canonical_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+    "path": "research/coded-native-caller/NORMALIZERS.json",
+    "sha256": "ae8aad06aa5d1811d725895b3ab5a4f4daa9dcdd88294aa0d5f723e78bb1e0da",
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/blob/32890bc5de034ab8fc93ac88ead7279a6a416d04/research/coded-native-caller/NORMALIZERS.json"
+  },
+  "exact_component_infinity_norms": {
+    "4": "26",
+    "52": "38/13"
+  },
+  "mode_matrix_shape": [
+    112,
+    8
+  ],
+  "uniform_local_error_in_lattice_steps": "2",
+  "rounding": "nearest ties to even",
+  "word_bound": "|input integer numerator|<=2^k; 1<=k<=56; program instances tested k=4",
+  "tested_pairs": 136,
+  "exhaustive_signed_division_cases": 1793,
+  "additional_word_boundary_cases": 8,
+  "source_all_input_columns": 112,
+  "static_shared": 1441,
+  "static_control": 19041,
+  "inplace_static_shared": 1329,
+  "inplace_static_control": 18929,
+  "inplace_checked_cases": 4,
+  "dynamic_shared_min": 1285,
+  "dynamic_shared_max": 1318,
+  "dynamic_saving_min": 9020,
+  "dynamic_saving_max": 10835,
+  "owned_words": 29,
+  "rounded_divisions_shared": 8,
+  "rounded_divisions_control": 448,
+  "signed_add_subtractions_for_modes_and_updates": 896,
+  "max_observed_error_lattice_steps": "43/26",
+  "instructions": [
+    "one",
+    "add",
+    "sub",
+    "bltz",
+    "accept"
+  ],
+  "scope": "One actual scalar inverse recoding coordinate with full instruction/setup/cleanup counts; no p19 full native compiler, monomial wrappers, all-size precision tariff or kappa claim"
+}

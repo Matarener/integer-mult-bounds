@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/selected-bootstrap-scope-map.md",
+    "research/selected-bootstrap-stock-audit/RESULT.json",
+    "research/selected-coarse-depth-stock/PROOF.md",
+    "research/selected-stock-logq-parent/README.md",
+    "research/selected-stock-logq-parent/verify.py",
+    "research/selected-stock-rho-ledger/README.md",
+    "research/selected-stock-rho-ledger/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Pin the coarse-depth, log_q-parent and rho-ledger sentences; prove the width shape slack; certify both branch coefficients T(s) and the exact factor 80"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Same certificate with assertions removed; require() still enforces every check"
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Reject width 0 and a zero stock gap; a one-digit leaf and an 8194 leaf coefficient stay outside rho = 0"
+    }
+  ]
+}

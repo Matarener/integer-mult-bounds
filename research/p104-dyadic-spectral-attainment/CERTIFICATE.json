@@ -1,0 +1,120 @@
+{
+  "arithmetic": "exact rational; all code/inverse entries Gaussian-dyadic; modulo13 reduction",
+  "factored_endpoint_cases": 2,
+  "literal_endpoint_cases": 6,
+  "literal_fixtures": [
+    {
+      "cases": [
+        {
+          "alpha": 1,
+          "beta": 169,
+          "correction_sha256": "fec675c46cf16f1dcf13b16cdb34ad78ea9cdf9fe7596e0ba30610b212a2df19",
+          "rank_F13": 2,
+          "rank_Q": 2
+        },
+        {
+          "alpha": 13,
+          "beta": 13,
+          "correction_sha256": "cdb61da09be23cde1226d2bf415be433df3d58de02f3c3daa156e41d9161be80",
+          "rank_F13": 4,
+          "rank_Q": 4
+        }
+      ],
+      "dimension": 8,
+      "name": "integral-handoff-toy"
+    },
+    {
+      "cases": [
+        {
+          "alpha": 1,
+          "beta": 169,
+          "correction_sha256": "71db4e3fcbc8541cd84e0632ec1a8b2a8a8929b255edb8669bce12c5df9ffeb8",
+          "rank_F13": 4,
+          "rank_Q": 4
+        },
+        {
+          "alpha": 13,
+          "beta": 13,
+          "correction_sha256": "14395e1254cbef71d258fe0777120abdd1bde0dbe09564bc72ff79ce44e94b86",
+          "rank_F13": 8,
+          "rank_Q": 8
+        }
+      ],
+      "coupling_gram_scalar": "12",
+      "dimension": 32,
+      "name": "integral-Gram12",
+      "spectral_13_premise": true
+    },
+    {
+      "cases": [
+        {
+          "alpha": 1,
+          "beta": 169,
+          "correction_sha256": "3207d7b3c19ba547c3be76d649a490d4accd51f8318602aae3e1702a9c3e9156",
+          "rank_F13": 4,
+          "rank_Q": 4
+        },
+        {
+          "alpha": 13,
+          "beta": 13,
+          "correction_sha256": "fd2d9319c81e22cb0cabe4cb4cfe71b3cb99e43da043df7a82d32a62a570e8f5",
+          "rank_F13": 8,
+          "rank_Q": 8
+        }
+      ],
+      "coupling_gram_scalar": "7/2",
+      "dimension": 32,
+      "name": "dyadic-congruence-only",
+      "spectral_13_premise": false
+    }
+  ],
+  "maximum_literal_endpoint_dimension": 32,
+  "maximum_one_axis_dimension": 104,
+  "negative_control_count": 8,
+  "negative_controls": [
+    "reversed-shear-order",
+    "missing-transpose-integral",
+    "missing-transpose-dyadic",
+    "wrong-target-product",
+    "corrupted-P104-coupling",
+    "corrupted-source-bytes",
+    "forbidden-denominator13",
+    "large-literal-tensor"
+  ],
+  "p104_factored_certificate": {
+    "A_sha256": "ca843213e71e2c7cc2f7ce8d37cbd02b42fca1425cf660d8085f58cd2dd3835c",
+    "B_minor_columns_within_nonpivots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      10,
+      18,
+      27
+    ],
+    "B_minor_determinant_Q": "1/8",
+    "B_sha256": "46dca7a2e1a98c345773474540552754d897a9ceee8d73ac72f75d7d1f4017aa",
+    "M_determinant_Q": "1 (unit triangular U and transpose)",
+    "M_sha256": "3775d6d8a6a621d27d4c80bd1ae58d010667822d4b1e27e57279f8d6f2a40797",
+    "U_sha256": "b7a2fb7f0f02a9e72174ee25def4c5622de8d4cf378f82d90c4749d64148408f",
+    "balanced_minor_determinant_mod13": 1,
+    "endpoint_dimension": 21632,
+    "lower_tensor_minor_determinant_mod13": 1,
+    "n": 104,
+    "r": 8,
+    "rank_A_mod13": 8,
+    "rank_M_mod13": 104,
+    "rank_alpha13_beta13": 1664,
+    "rank_alpha1_beta169": 832,
+    "scratch_dimension": 0
+  },
+  "port_coordinates_sha256": "865efe0b0b3ab9099da5556a7d3df0b734b2d2c79c9f7c7dda3a9fcc28c86814",
+  "scope": "Exact common-code endpoint correction rank; no native recipe, paid cost or cold replay",
+  "source_sha256": {
+    "research/p104-joint-spectral-obstruction/PROOF.md": "52c528690f7fd5244ee337846aef4387e70661f803b1d001be6cf7233b195238",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4",
+    "research/p104-tensor-code/PROOF.md": "259ba7b0926dd6db4e7c45ff7ccb10659dee06aef0a573547236c994ad304756"
+  },
+  "status": "PASS_P104_DYADIC_SPECTRAL_ATTAINMENT"
+}

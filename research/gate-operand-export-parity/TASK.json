@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For the frozen symbolic checker and record exporter, when do D/A/B/C gate operand lists make accumulate-XOR and sequential ADD agree, and do destination-in-sources gates diverge under export-without-check?",
+  "scope_change_reason": "PR #3004 answered the scatter agreement contract and left gate operand lists as open question 2, claiming no known divergent word and treating distinctness as schema hygiene. This package answers that obligation with an exact Sym/Exp lemma, exhaustive small-domain census, named witnesses, and selected-word/checker/exporter controls.",
+  "bottleneck_link": "The checker/exporter pair is a selected source-bound acceptance condition. Knowing that gate self-operands diverge under export while destination-free duplicates do not tells a successor schema what must be enforced beyond scatter uniqueness.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the Sym/Exp lemma, small-domain census, named witnesses, selected-word distinct-operand census, checker rejects, and exporter self_even control. No native replay, production adoption, or kappa change.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json, PROOF.md, verify.py, independent.py and test_package.py. On 4686 destination-free patterns Sym=Exp always; destination-in witnesses self_even and dest_with_src diverge; all 5472 selected gates are distinct; checker rejects four B[0] mutants; exporter emits 27235 records on self_even.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for reading the #2977/#3004 cascade, deriving the Sym/Exp lemma, implementing the verifier and controls, and writing this package.",
+  "open_questions": [
+    {
+      "question": "Should a successor schema reject destination-in-sources gates at export time?",
+      "why_it_matters": "Scatter-only uniqueness leaves self-operand gates unchecked at the exporter boundary.",
+      "first_step": "Compose a distinct-operand gate check with an existing opt-in boundary before export and replay selected artifacts.",
+      "blocked_by": "Maintainer schema adoption; frozen exporters stay unchanged."
+    },
+    {
+      "question": "Does native legality independently reject self-operand gate exports?",
+      "why_it_matters": "It decides whether the symbolic checker is the only barrier or a later native check also rejects them.",
+      "first_step": "Feed the self_even export into the native column checker with the standard empty-owner staging.",
+      "blocked_by": "A C++17 toolchain and Boost native replay; not required for the Sym/Exp lemma."
+    }
+  ]
+}

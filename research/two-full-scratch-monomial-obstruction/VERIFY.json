@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/two-full-central-obstruction/PROOF.md",
+    "research/two-full-central-obstruction/grade/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticates the two predecessor proofs, checks target-rank arithmetic, and corroborates the subspace gap on S3 with both shear orientations, high-rank central letters, a scratch-only sharpness control, a zeroed clean factor, and a cutoff below 2t."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same corroboration with assertions compiled out; every comparison is an explicit failure."
+    }
+  ]
+}

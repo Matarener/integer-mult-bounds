@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/ternary-connector-independent-seed84/CERTIFICATE.json",
+    "research/weighted-signed-connector-seed58/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "New replicated-word coefficients and Pareto profiles; exact priced attainment; exhaustive transversal covers; literal dirty noncommuting maps and inverse; deletion and boundary controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "New replicated-word coefficients and Pareto profiles; exact priced attainment; exhaustive transversal covers; literal dirty noncommuting maps and inverse; deletion and boundary controls."
+    }
+  ]
+}

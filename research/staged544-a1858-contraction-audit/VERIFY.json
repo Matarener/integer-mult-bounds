@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged544-a1858-contraction-audit/inputs/BORROW-WORD-43base.json.gz",
+    "research/staged544-a1858-contraction-audit/inputs/BORROW-WORD-43extra.json.gz",
+    "research/staged544-a1858-contraction-audit/inputs/PR3945-WORD-base.json.gz",
+    "research/staged544-a1858-contraction-audit/inputs/PR3945-WORD-extra.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "SHA256-pinned four-word A1858 matrix, stored-cleanup match, one inverse site, local cleanup substitution, and sign/order/target controls"
+    }
+  ]
+}

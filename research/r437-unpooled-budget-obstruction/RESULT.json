@@ -1,0 +1,192 @@
+{
+  "admitted_saving": "17/5000",
+  "bridge_limit": "Historical transfer is stated at c=1/576 with c<1/512; dropping that range is only an optimistic moment relaxation, not an extension of its physical theorem",
+  "excluded_retained_moment_contraction_budget": true,
+  "failure_controls": [
+    {
+      "interpretation": "Changed invoice; original exclusion must not be transferred. This is not a candidate admission.",
+      "name": "dropped_rank_two_bin",
+      "reason": "fixed unpooled paid profile",
+      "recomputed_changed_model_lower": "1880792081203895039/3373834007980800000",
+      "rejected": true
+    },
+    {
+      "interpretation": "Changed invoice; original exclusion must not be transferred. This is not a candidate admission.",
+      "name": "moved_rank_42_bin_to_rank_one",
+      "reason": "fixed unpooled paid profile",
+      "recomputed_changed_model_lower": "694500314354399159/700229699769600000",
+      "rejected": true
+    },
+    {
+      "name": "physical_width_as_productive_width",
+      "reason": "fixed productive normalization",
+      "rejected": true
+    },
+    {
+      "interpretation": "This lower bound is inconclusive at the wrong slot; it is not an actual-moment pass.",
+      "name": "whole_kappa_as_target",
+      "reason": "target role must be admitted BIT saving",
+      "recomputed_wrong_slot_lower": "2523490598475003040318691/2523627837969638400000000",
+      "rejected": true
+    },
+    {
+      "name": "changed_source_bytes",
+      "reason": "raw source authentication: HOST-RESULT.json",
+      "rejected": true
+    },
+    {
+      "name": "boolean_integer_receipt_alias",
+      "reason": "canonical typed receipt mismatch",
+      "rejected": true
+    }
+  ],
+  "linear_lower_bound": {
+    "A": "18837/18944",
+    "B": "227656981418642299/126181391898481920",
+    "L": "37130213109568854799/37112174087788800000",
+    "L_minus_one": "18039021780054799/37112174087788800000",
+    "formula": "L(c)=A+c*B <= M0(c)",
+    "target": "17/5000",
+    "terms": [
+      {
+        "count": 380448,
+        "linear_term": "648231873/3078400000",
+        "log_lower": "126/65",
+        "rank": 1,
+        "rank_weight": "3963/18944"
+      },
+      {
+        "count": 400288,
+        "linear_term": "1038584743/2344320000",
+        "log_lower": "62/33",
+        "rank": 2,
+        "rank_weight": "12509/28416"
+      },
+      {
+        "count": 22464,
+        "linear_term": "59156487/1586560000",
+        "log_lower": "122/67",
+        "rank": 3,
+        "rank_weight": "351/9472"
+      },
+      {
+        "count": 26592,
+        "linear_term": "139331/2368000",
+        "log_lower": "30/17",
+        "rank": 4,
+        "rank_weight": "277/4736"
+      },
+      {
+        "count": 29376,
+        "linear_term": "8848653/108928000",
+        "log_lower": "118/69",
+        "rank": 5,
+        "rank_weight": "765/9472"
+      },
+      {
+        "count": 17376,
+        "linear_term": "47780199/828800000",
+        "log_lower": "58/35",
+        "rank": 6,
+        "rank_weight": "543/9472"
+      },
+      {
+        "count": 26496,
+        "linear_term": "86200527/840640000",
+        "log_lower": "114/71",
+        "rank": 7,
+        "rank_weight": "483/4736"
+      },
+      {
+        "count": 32,
+        "linear_term": "1466699/3196800000",
+        "log_lower": "38/45",
+        "rank": 26,
+        "rank_weight": "13/28416"
+      },
+      {
+        "count": 384,
+        "linear_term": "2786427/313760000",
+        "log_lower": "22/53",
+        "rank": 42,
+        "rank_weight": "21/2368"
+      }
+    ]
+  },
+  "model": {
+    "checked_sites": [
+      "factor=Q(n*r,64*28416)",
+      "log_bounds(64,r)",
+      "exp_bounds(c*l,c*h)",
+      "nonnegative rank-one surcharge"
+    ],
+    "dimension": 64,
+    "price_ast_sha256": "bacd021ed1168eb645fe8293ed09c1f84935940388d00a75e571a2219fca8b50",
+    "productive_width": 28416,
+    "scope": "Static model-site binding; no predecessor implementation execution"
+  },
+  "optimistic_moment": "M0(c)=sum_r n_r*r/(64*28416)*exp(c*log(64/r))",
+  "ordinary_saving": "8590884599/2500000000000",
+  "paid_children": 903456,
+  "positive_control_zero_saving": {
+    "L_at_zero": "18837/18944",
+    "strictly_below_one": true
+  },
+  "profile": {
+    "1": 380448,
+    "2": 400288,
+    "26": 32,
+    "3": 22464,
+    "4": 26592,
+    "42": 384,
+    "5": 29376,
+    "6": 17376,
+    "7": 26496
+  },
+  "proof": [
+    "For 1<=r<=64, log(64/r)>=2*(64-r)/(64+r).",
+    "For nonnegative u, exp(u)>=1+u; summing positive rank weights gives L(c)<=M0(c).",
+    "B>0, so every relaxed c>=admitted target has L(c)>=L(target)>1.",
+    "The declared bridge a=c*(1-c)<=c makes c>=a>=admitted a necessary condition.",
+    "All omitted bad-event or added costs are nonnegative under this fixed model."
+  ],
+  "rank_mass": 1808352,
+  "relaxation": "All nonnegative extra charges omitted optimistically; not asserted zero in the real caller",
+  "remaining": "Different pooled invoice, changed receiver/model, physical compiler/native/stock/precision admission and all-R437 exclusion are outside scope; selected frontier unchanged",
+  "schema": "r437-unpooled-budget-obstruction/1",
+  "scope": "Only the frozen unpooled invoice and declared moment-certification budget requiring M<=1; not a runtime lower bound or exclusion of other analyses",
+  "selected_whole_kappa_provenance_only": "62009/20000000",
+  "sources": [
+    {
+      "bytes": 3594,
+      "git_blob": "ee0952e10f744cf1c6d9c237006ccae4ce3c36c8",
+      "path": "source/HOST-RESULT.json",
+      "sha256": "000837b2b7a1e9d7e4b6b657a055c6f5f3886c7ea343239f8620f79d5d7b2ae8"
+    },
+    {
+      "bytes": 10905,
+      "git_blob": "2cb9b22890fdfacea4ee51a75b7746dd35b78489",
+      "path": "source/host.py",
+      "sha256": "df01e61dc31a1cb6b2bf3549be1e2241f7a30829c2c98567f462271e3fc216ee"
+    },
+    {
+      "bytes": 9424,
+      "git_blob": "092408728aa81e5a1e6d63307a3c0b85174e2ff2",
+      "path": "source/ORDINARY-TRANSFER-PROOF.md",
+      "sha256": "29ed43abaf5451a8514dff2233ba02f44c1d3839e72035ec5711d4edf060b8f9"
+    },
+    {
+      "bytes": 6419,
+      "git_blob": "581f8d87008354eb5b869f7ed9de1317ad837ce8",
+      "path": "source/SELECTED-RECORD.json",
+      "sha256": "2a0220e866417774606e0f991e41b9c1d26b1f43b97857238cf478dbc7d330b5"
+    },
+    {
+      "bytes": 1460,
+      "git_blob": "3a8673160d129f0bec6aacf3ff2c2cf693839221",
+      "path": "source/SELECTED-CLAIM.json",
+      "sha256": "66fbb5b21f32f1c4ba544c20d5a44ebcdfd11bce2bfa2d609c656ae520d3b21e"
+    }
+  ],
+  "target_role": "weaker admitted BIT saving; ordinary saving is larger"
+}

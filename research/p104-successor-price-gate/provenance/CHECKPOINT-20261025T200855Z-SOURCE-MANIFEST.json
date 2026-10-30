@@ -1,0 +1,135 @@
+{
+  "schema": "continuous-kappa-upstream-manifest/v3",
+  "owner": "source_curator_checkpoint_20261026",
+  "observed_utc": "2026-10-25T20:08:55Z",
+  "requested_since": "2026-10-25T19:53:44Z",
+  "inclusive_cursor_replay_since": "2026-10-25T19:37:51Z",
+  "canonical_main": "5e0052ca0aa3036a3afa8b0438927377c8d97d53",
+  "canonical_main_changed": false,
+  "selected_kappa": "0.003027288235",
+  "priority_revision": 7,
+  "previous_manifest": "../20261025T195344Z/SOURCE-MANIFEST.json",
+  "source_invalidation": {
+    "pr5569": {
+      "head": "af9f091ac6f30c6eaacb9c27777bfbe2d0e5ffdf",
+      "changed": false,
+      "price_gate_invalidated": false
+    },
+    "pr5554": {
+      "head": "18c1770246340e9f4aaac5a9ebd712e23498d0a3",
+      "changed": false
+    }
+  },
+  "new_material": [
+    {
+      "pr": 5572,
+      "author": "Matarener",
+      "head": "dba3cf67c800f32f04c80437138a51310dc08c1b",
+      "base": "5e0052ca0aa3036a3afa8b0438927377c8d97d53",
+      "created": "2026-10-25T19:52:04Z",
+      "kind": "Independent PR5551 row/caller/native/funding audit; no kappa",
+      "bound_word": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a",
+      "full_receipt_blob": "a5d3165a265ce07fce6051178b8063c7d75f7fb4",
+      "full_receipt_sha256": "d33e47ca4cb9afb95a4f6e95a42f2173d2bb20037d0e998da3cba3d332a34efa",
+      "full_tasks": 3188,
+      "full_kinds": {
+        "move": 2940,
+        "helper": 40,
+        "main_in": 104,
+        "main_out": 104
+      },
+      "default_rechecked": 344,
+      "default_kinds": {
+        "move": 96,
+        "helper": 40,
+        "main_in": 104,
+        "main_out": 104
+      },
+      "not_rechecked_in_default": 2844,
+      "distinct_task_keys": 3188,
+      "distinct_digest_values": 2382,
+      "public_body_distinct_digest_claim": 3187,
+      "discrepancy": "Static bookkeeping claim differs from committed data; no operator failure established",
+      "hosted": {
+        "run": 40228061474,
+        "conclusion": "success",
+        "scope": "Bounded serial default; author full --full --jobs4 execution not in CI"
+      },
+      "independent_acceptance": false
+    },
+    {
+      "pr": 5573,
+      "author": "Clear1nsight",
+      "head": "998d312fc3af584d39a3cf4c10a45e02a8395f48",
+      "base": "5e0052ca0aa3036a3afa8b0438927377c8d97d53",
+      "files": 39,
+      "hosted": {
+        "run": 40228913317,
+        "conclusion": "success",
+        "completed": "2026-10-25T20:08:50Z",
+        "jobs": [
+          {
+            "id": 121276227342,
+            "name": "plan",
+            "conclusion": "success"
+          },
+          {
+            "id": 121277123679,
+            "name": "scoped registered native-subset replay",
+            "conclusion": "success"
+          }
+        ]
+      },
+      "issue_handoff": 6402512076,
+      "hub_handoff": 19183158,
+      "source_scope": "Old PR5545 head18968423711fd902aaee1099979497d55603e1dc only; no automatic successor transfer"
+    }
+  ],
+  "active_economic_claims": [
+    {
+      "discussion": 5574,
+      "author": "aliromman",
+      "created": "2026-10-25T20:05:20Z",
+      "expiry": "2026-10-25T22:05:17.733973+00:00",
+      "scope": "Further event-frame retime after5569; event-order changes separate bounded fallback",
+      "input_pr": 5569,
+      "input_head": "af9f091ac6f30c6eaacb9c27777bfbe2d0e5ffdf",
+      "toolkit_pr": 5568,
+      "toolkit_head": "47a347ff70044615e7be6581d275d12f5df38295",
+      "new_construction_result": false,
+      "new_kappa": false,
+      "overlap": "Avoid duplicate retime/handoff construction; frozen local-debt all-n price qualification distinct"
+    }
+  ],
+  "coverage": {
+    "updated_pr_search_since_requested": 1,
+    "boundary_created_search": 2,
+    "new_issue_comments": 1,
+    "new_review_comments": 0,
+    "direct_pr_timeline_reads": [
+      5554,
+      5569,
+      5573
+    ],
+    "discussion_index_entries": 25,
+    "discussion_tails": [
+      1166,
+      1167,
+      5236
+    ],
+    "direct_active_claim": 5574,
+    "boundary_hole": "PR5572created19:52 was absent earlier metadata captured before final19:53timestamp; inclusive19:37cursor replay caught it now. Earlier publication overlap assessment was bounded and nonexhaustive.",
+    "not_exhausted": [
+      "Unpublished research",
+      "Collapsed Discussion replies and edit histories",
+      "All historical PR source diffs",
+      "Independent replay or mathematical acceptance"
+    ]
+  },
+  "source_capture": "PR5572-SOURCE-CAPTURE.json",
+  "custody": "PR5572-CUSTODY.json",
+  "read_evidence": "READ-EVIDENCE.json",
+  "no_scientific_execution": true,
+  "no_external_posts": true,
+  "old_generations_unchanged": true
+}

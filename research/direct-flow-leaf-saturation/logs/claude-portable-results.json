@@ -1,0 +1,49 @@
+{
+  "export_commit": "553198839618962e07519b51cb3bbe808ca6f1dc",
+  "git_available": false,
+  "path": "empty directory",
+  "runs": [
+    {
+      "command": [
+        "python3.12",
+        "-B",
+        "research/direct-flow-leaf-saturation/verify.py",
+        "--expect",
+        "research/direct-flow-leaf-saturation/RESULT.json"
+      ],
+      "exit_code": 0,
+      "seconds": 15.962,
+      "log": "logs/claude-portable-0.log"
+    },
+    {
+      "command": [
+        "python3.12",
+        "-B",
+        "research/direct-flow-leaf-saturation/independent_source.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "logs/claude-portable-1.log"
+    },
+    {
+      "command": [
+        "python3.12",
+        "-B",
+        "research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "exit_code": 0,
+      "seconds": 31.22,
+      "log": "logs/claude-portable-2.log"
+    },
+    {
+      "command": [
+        "python3.12",
+        "-B",
+        "research/direct-flow-leaf-saturation/test_enclosures.py"
+      ],
+      "exit_code": 0,
+      "seconds": 28.117,
+      "log": "logs/claude-portable-3.log"
+    }
+  ]
+}

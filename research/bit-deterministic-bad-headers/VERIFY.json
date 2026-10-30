@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/r437-uniform-copy-reduction/MINOR-BOUND.json",
+    "research/selected-bit-recursive-closure/vendor/controlled_normalizer.py",
+    "research/unconditional-batched-crt/BIT-PRIME-CERTIFICATE.json",
+    "research/unconditional-batched-crt/BIT.md",
+    "research/unconditional-batched-crt/NORMAL-FORM.md",
+    "research/unconditional-batched-crt/check_bit_prime.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact all-pivot and first-pivot laws; uniform Schur fibres; exhaustive GL and canonical RREF projector counts; complete Z/9 lifts; retained source guards; six scope controls; shared predecessor counts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat all mathematical and source-binding predicates with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "research/unconditional-batched-crt/check_bit_prime.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Retained complete Lucas certificate for the prerequisite q=2^89-1 primality and eta inequality."
+    }
+  ]
+}

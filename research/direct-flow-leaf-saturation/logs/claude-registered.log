@@ -1,0 +1,153 @@
+CHECK Exact rational root/drift/tilt/limit enclosures, eight whole-flow fixtures, lattice and domain failure controls; classical LLT proof is written, not machine-checked.
+{
+  "controls": {
+    "interval_domain_rejections": 3,
+    "lattice_countermodel": "geometric mean gap/log2 tends to 1; finite n=400 gap<0.7, not exponential mean1"
+  },
+  "finite_law": {
+    "ordered_word_max_depth": 3,
+    "source_check": "complete actual X-BX histogram equals ordered-word enumeration",
+    "terminal_cut_distinguishing_fixtures": 8,
+    "whole_flow_fixtures": 8
+  },
+  "parameters": {
+    "alpha": [
+      "0.98981438244597",
+      "0.98981438244599"
+    ],
+    "drift_above_log5": [
+      "0.016477707041",
+      "0.016477707042"
+    ],
+    "invoice_derivative_lower_bound_interval_0_99_to_1": [
+      "211661.930309",
+      "211661.930310"
+    ],
+    "lambda": [
+      "0.00749912850515",
+      "0.00749912850519"
+    ],
+    "mean_deficit_limit": [
+      "133.34882837",
+      "133.34882838"
+    ],
+    "mean_leaf_depth_limit": [
+      "136.51870330",
+      "136.51870331"
+    ],
+    "mean_log_rank": [
+      "1.625915619475",
+      "1.625915619476"
+    ],
+    "method": "exact Fraction arithmetic, log atanh48 and exp Taylor80 with positive remainder bounds",
+    "t_star": [
+      "0.99731351095114",
+      "0.99731351095116"
+    ]
+  },
+  "scope": "Source identity, rigorous numerical hypotheses and finite controls only; see PROOF.md for classical-LLT-based theorem. No finite-depth rate, total-flow ceiling or new kappa.",
+  "status": "PASS_DIRECT_FLOW_LEAF_SATURATION_CHECKS"
+}
+CHECK Ten independent ordered-word fixtures compare complete #4436 and #4467 leaf histograms after authenticating every input; terminal-cut fields describe fixture sensitivity.
+{
+  "status": "PASS_INDEPENDENT_SOURCE_LEAF_IDENTIFICATION",
+  "fixtures": [
+    {
+      "N": 121,
+      "G": 0,
+      "leaf_ranks": 9,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 604,
+      "G": 0,
+      "leaf_ranks": 9,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 605,
+      "G": 1,
+      "leaf_ranks": 26,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 606,
+      "G": 1,
+      "leaf_ranks": 26,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 3024,
+      "G": 1,
+      "leaf_ranks": 30,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 3025,
+      "G": 2,
+      "leaf_ranks": 55,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 3026,
+      "G": 2,
+      "leaf_ranks": 55,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 15124,
+      "G": 2,
+      "leaf_ranks": 65,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 15125,
+      "G": 3,
+      "leaf_ranks": 98,
+      "terminal_cut_distinguished": true
+    },
+    {
+      "N": 15126,
+      "G": 3,
+      "leaf_ranks": 98,
+      "terminal_cut_distinguished": true
+    }
+  ]
+}
+CHECK Reject altered bytes in both standalone entry points; re-pinned empty/truncated source branches rejected semantically in normal and optimized modes; fixed-bracket and receipt regressions.
+PASS_MUTATION_CONTROLS both_standalone_pins_normal_and_optimized repinned_empty_and_truncated_leaf_sources_normal_and_optimized corrupted_receipt fixed_bracket_count_regressions
+CHECK Independent exact rational bounds at every executed log/exp argument; reject zero logarithm/exponential tails and invalid exponential remainder majorant.
+{
+  "all_exp_arguments_below": "479/100",
+  "distinct_exp_rational_arguments": 127,
+  "domain_sha256": "5e27ec5fc8e5fe372d5511730fd47d3d9acac76ae707221b11bfa99b963c58e4",
+  "exp_oracle": "degree-82 positive series; exact ratio-bounded geometric tail",
+  "log_integer_arguments": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    16,
+    25,
+    32,
+    41,
+    48,
+    57,
+    121
+  ],
+  "log_oracle": "256-term -log(1-q) series; exact positive geometric tail",
+  "mutations_rejected": [
+    "zero_log_tail_at_log2",
+    "zero_exp_tail_at_exp1",
+    "invalid_exp_majorant_one_at_exp1"
+  ],
+  "production_source_sha256": "3a88ad1da0691afefead7d71c00ab4a51d547c770a40dc2e232c39dc02d8366d",
+  "scope": "Exact containment at every argument captured from current parameters and controls; finite mutation discrimination, not a formal verifier or an all-input enclosure proof.",
+  "status": "PASS_INDEPENDENT_RATIONAL_ENCLOSURES"
+}
+PASS_REGISTERED_RESEARCH_PACKAGE research/direct-flow-leaf-saturation outcome=completed

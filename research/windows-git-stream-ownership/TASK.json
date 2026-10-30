@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Opt-in Windows Job Object stream adapter integrated with the authenticated frozen Git blob reader",
+  "scope_change_reason": "Take the explicit Windows descendant handoff. Concurrent audit claims 19170424/19170434 appeared during overlap refresh, so release the duplicate audit and supply the complementary streaming ownership adapter. The retained baseline observations are failure controls, not a novelty claim.",
+  "bottleneck_link": "A blocked immutable-source read prevents replay; the adapter tests lifetime ownership while retaining exact source bytes and fallback semantics.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the bounded actual-reader integration and native process controls; production integration, other Git callers and a shared-launcher refactor remain separate.",
+  "outcome": "partial",
+  "evidence": "README.md; evidence/windows-normal.json; evidence/windows-optimized.json",
+  "author": "Mihir Srivastava, with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance, one agent; no independent human review claimed",
+  "open_questions": [
+    {
+      "question": "Should the shared reader adopt this streaming owner through a reusable launcher lifecycle?",
+      "why_it_matters": "The live production reader still has the Windows lifetime gap; an opt-in source-bound adapter does not change it.",
+      "first_step": "Review owned_pipe.py and adapt the shared runner with the same source-protocol and native ownership controls, coordinating with the two baseline-audit owners.",
+      "blocked_by": "Production integration, all affected test seams and pinned-source invalidation review are not covered here."
+    },
+    {
+      "question": "Do the ownership contract and gate work with the intended deployed Git helper chain and host Job Object policy?",
+      "why_it_matters": "Controlled Python producers reproduce the pipe boundary but do not establish behavior of every Git/helper deployment.",
+      "first_step": "Run the adapter on an identified actual helper invocation under the intended host job policy with retained handles.",
+      "blocked_by": "No naturally stalled Git/helper incident or alternate native Windows environment was supplied."
+    }
+  ],
+  "overlap": {
+    "canonical_thread": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4681#discussioncomment-19170460",
+    "open_prs": 332,
+    "discussion_records": 4732,
+    "tracked_notes": 7402,
+    "complete_reported_coverage": true,
+    "limitation": "Body/note search, not historical diffs or unpublished work",
+    "checked_at": "2026-10-24T22:48:46Z",
+    "concurrent_audit_pr": 5461
+  }
+}

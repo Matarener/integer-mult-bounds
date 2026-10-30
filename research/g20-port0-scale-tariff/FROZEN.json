@@ -1,0 +1,163 @@
+{
+  "schema": "g20-port0-owner0-scale-marker/1",
+  "route_binding_commit": "b895ae7770a97276ae0e9c13fb0c51cbed4fd00a",
+  "route_binding_result_sha256": "4d55a2f3b8acd1335bea0d05552ccaa2281623fab1c65ad6648519ac516172de",
+  "route_binding_words_sha256": "c74b8446503425fb4964921e8651b3931f917c62a21565d9569e9f6399ea571b",
+  "event_join_sha256": "91383314869a40a96ced928dc857b9f32ac02b11eb7cb45853b1092d10291eb0",
+  "manifest_sha256": "6748fb3edcd58ab118653e8bb7372a86b323bb055539128e8159447e7d5dbe57",
+  "marker_count": 7548,
+  "marker_count_factors": [
+    17,
+    2,
+    111,
+    2
+  ],
+  "cover_convention": "Declared single ROW cover g->gS: P=WQW^-1, ENTRY S=W^-1, RETURN S=W; one word per marker",
+  "word_convention": "RIGHT product E1...Em=W; ADD[i,j,a]=I+a*e_i*e_j^T; row[j]+=a*row[i]",
+  "conditional_coefficient_bill": "For each observed word coefficient a, count[a]*(127*f)*f*C_kind(a); no physical leaf tariff is asserted",
+  "physical_scope": "Exact source-event to program manifest under the declared single-cover plan; physical ROW schedule, tape/cache/carry/type/borrow/padding and full bill remain open",
+  "published_selected_operation_totals": {
+    "ADD": 202640,
+    "SCALE": 73916
+  },
+  "kernel_call_multiplier": "127*f^2",
+  "active_dimension": 8,
+  "ambient_layout_note": "Chosen compatible 127-slot layout; not the retained literal physical head map",
+  "ordered_shift_address": "source=half*N^2+row*N+active[i]*f+lane; target=half*N^2+row*N+active[j]*f+lane",
+  "scale_address": "SCALE[i,u] scales the corresponding active[i] coordinate; u is a dyadic unit",
+  "entry": {
+    "event_index": 21502,
+    "call_index": 1,
+    "stage": 1,
+    "owner": 0,
+    "owner_bank": 0,
+    "port": 0,
+    "phase": "ENTRY",
+    "direction": "inverse",
+    "stage_ordinal": 1,
+    "word_sha256": "af5261a8c087e8c2917cdc280302d07d75b8fe098e31581d21c1ba2d53b42313",
+    "operations": [
+      [
+        "SCALE",
+        7,
+        "1/2"
+      ],
+      [
+        "SCALE",
+        6,
+        "1/2"
+      ],
+      [
+        "SCALE",
+        5,
+        "1/2"
+      ],
+      [
+        "SCALE",
+        4,
+        "1/2"
+      ],
+      [
+        "SCALE",
+        3,
+        "1/2"
+      ],
+      [
+        "SCALE",
+        2,
+        "1/2"
+      ],
+      [
+        "SCALE",
+        1,
+        "1/2"
+      ],
+      [
+        "SCALE",
+        0,
+        "1/2"
+      ]
+    ]
+  },
+  "return_twin": {
+    "event_index": 36518,
+    "call_index": 1,
+    "stage": 1,
+    "owner": 0,
+    "owner_bank": 0,
+    "port": 0,
+    "phase": "RETURN",
+    "direction": "forward",
+    "stage_ordinal": 1,
+    "word_sha256": "4da46ed5dcf4933d9186e2f326331e946f568a56057c9814986b051c40f9b7ac",
+    "operations": [
+      [
+        "SCALE",
+        0,
+        "2"
+      ],
+      [
+        "SCALE",
+        1,
+        "2"
+      ],
+      [
+        "SCALE",
+        2,
+        "2"
+      ],
+      [
+        "SCALE",
+        3,
+        "2"
+      ],
+      [
+        "SCALE",
+        4,
+        "2"
+      ],
+      [
+        "SCALE",
+        5,
+        "2"
+      ],
+      [
+        "SCALE",
+        6,
+        "2"
+      ],
+      [
+        "SCALE",
+        7,
+        "2"
+      ]
+    ]
+  },
+  "marker_factor_histogram": {
+    "ADD": {
+      "-1": 78540,
+      "-1/2": 12444,
+      "-2": 6392,
+      "-3": 3366,
+      "-3/2": 476,
+      "-4": 102,
+      "1": 78540,
+      "1/2": 12444,
+      "2": 6392,
+      "3": 3366,
+      "3/2": 476,
+      "4": 102
+    },
+    "SCALE": {
+      "-1": 32776,
+      "-1/2": 510,
+      "-1/4": 1564,
+      "-2": 510,
+      "-4": 1564,
+      "1/2": 16626,
+      "1/4": 1870,
+      "2": 16626,
+      "4": 1870
+    }
+  }
+}

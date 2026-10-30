@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Classify isomorphism and tensor isotopy for split local odd-finite-field algebras with J^3=0 and one-dimensional socle J^2; construct canonical charts and pairwise table maps.",
+  "scope_change_reason": "The card is changed from a proof-assistant interface check to a new written algebraic side result answering the restricted recovered-algebra isomorphism question in Ali Romman PR5540. No predecessor result is audited and no formalization gate is claimed.",
+  "bottleneck_link": "Algebraic interface side result: complete the missing comparison step for one specified class of recovered multiplication tensors. Physical map costs and recursive supplier admission remain unknown.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first verified classification; no characteristic-two or physical-caller expansion.",
+  "outcome": "completed",
+  "evidence": "PROOF.md gives the all-dimension odd-field theorem. Exact replay checks 51200 nonsingular forms, four complete GL/similarity domains, 96 changed presentations, 4128 basis products, 96 transporter mutations and 12 rejection controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Extend this specific isomorphism interface to characteristic two.",
+      "why_it_matters": "The odd-field form classification does not cover binary coefficient algebras.",
+      "first_step": "Separate alternating and nonalternating symmetric multiplication forms.",
+      "blocked_by": "A separate field contract and proof; the current odd-pivot algorithm is inapplicable."
+    },
+    {
+      "question": "Price one emitted map in a concrete native caller.",
+      "why_it_matters": "An algebra isomorphism has no physical supplier consequence until all costs are paid.",
+      "first_step": "List legal coefficients, dirty state, endpoints and restoration, then charge every conversion.",
+      "blocked_by": "No native realization, complete caller or tariff is supplied."
+    }
+  ],
+  "source_question": {
+    "pr": 5540,
+    "author": "aliromman",
+    "head": "831b41da0fc09e3e4cb983c03662da5df7970f68",
+    "question": "Given two accepted general commutative tensors, decide whether their recovered algebras are isomorphic."
+  },
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19220065",
+  "claim_type": "scoped proof with exact finite corroboration",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "interpreter": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12"
+  },
+  "ownership": {
+    "initial_branch": "detached HEAD",
+    "initial_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+    "preserved": true
+  },
+  "upstream_freshness": {
+    "commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+    "priority_revision": 8,
+    "checked_utc": "2026-10-27T15:23:36.949791+00:00"
+  }
+}

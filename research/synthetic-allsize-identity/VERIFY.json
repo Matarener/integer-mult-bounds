@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-conservative-outer/PROOF.md",
+    "research/synthetic-layout-independent/README.md",
+    "research/synthetic-layout-independent/physical.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact path/slot formulas, integral characters and both scaled inverses; residue rings and sensitive algebra controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized real CLI success and rejection of altered source, missing source and altered finite receipt"
+    }
+  ]
+}

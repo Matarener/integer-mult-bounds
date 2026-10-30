@@ -1,0 +1,15 @@
+# Exact local contribution tabulation
+
+For standard immutable Fraction values x,q,y,a,c, define
+
+`v = x + q*y; d = abs(v)-abs(x); H(x,q,y,a,c) = (v,d*a,d*c,d)`.
+
+This is exactly the original coefficient and score-increment arithmetic in the authenticated Fraction ADD/COPY loop. Each input Fraction has a unique reduced numerator/positive-denominator pair. The ten-integer key therefore determines every input value. A Python dictionary compares the complete tuple after hashing; hash collisions do not identify distinct tuples. On a miss, the table computes H with the original Fraction operators. On a hit, it returns the same immutable four-value tuple. FIFO eviction removes only an optional stored answer; a later miss recomputes H. Capacity zero bypasses storage. Exceptions are not stored. Nonstandard numeric types bypass the table; the proof does not extend to arbitrary user-defined numeric operator side effects.
+
+Assuming equal rows/scores at the start of a coefficient iteration, replacing the local arithmetic with H preserves the new coefficient and all three increments. The caller still performs every score addition, zero removal/insertion and index-specific row update in the same order. Event operations, rounded-site injections, prefix/tie/peak decisions, full witness copies, Pareto sorting, final scores and signed hash updates are untouched. Induction over coefficients/events proves exact returned values on the declared domain. Tests additionally compare numeric types and unchanged inputs. Mutable output containers remain fresh; standard Fraction values are immutable through their public API.
+
+The cache is newly constructed for every trace. Only a statistics dictionary survives for observation, cleared before a new call; no Fraction answer table is reused by another call or backend. Original integer arithmetic, literal execution and transpose oracles are unchanged. Full module/function hashes and unique setup/contribution/return seams bind the derivation. The live source callable must equal a fresh compilation's recursively compared executable structure, excluding only source locations. The installer restores it in `finally`.
+
+Finite checks cover 241 programs/10,164 events at four capacities, including disabled and repeated-eviction cases, sign flips/cancellation and all operations. Thirty-four controls include each key operand, canonical equal-value keys, actual integer-hash collisions, capacity rejection, FIFO recomputation, uncached exceptions, failed-call statistics clearing, returned/statistics mutation, source/live/nested-code drift and restoration. Both full actual audits compare every returned trace/witness value/type and input on the frozen 25,984-event/799-coordinate word.
+
+This correctness result does not imply profitable qualification. The complete-cost screen includes the new finite checks and remains below the requested 15% saving. No complete performance implementation or CPU/wall benchmark is admitted. Physical native/reset/owned-return/tape/compiler/outer obligations and the selected result are untouched; kappa work remains paused.

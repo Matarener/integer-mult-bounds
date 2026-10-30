@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Answer #3696 open question 2 on the pinned tuned word: are the four named B[0] checker rejects exhaustive for dest-in-sources Sym/Exp divergence? Prove a dest-in closed form, enumerate all length-≤2 source lists at destination 111 over n=661 registers, and show exactly 661 divergences of which only two lie among the four named rejects.",
+  "scope_change_reason": "Authorized follow-up to #3696 OQ2 under the supplier-boundary cascade. Dest-free Sym/Exp agreement is already published and is not restated as the claim; the new obligation is exhaustiveness of the four rejects versus the complete length-≤2 divergence set, plus the dest-in closed form that makes the census checkable.",
+  "bottleneck_link": "Knowing that reject samples are not a divergence taxonomy prevents treating four mutants as a complete gate-operand contract.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the closed form, length-≤2 census, named-reject comparison, checker spot controls, and certificate admission. No dest-absent schema corollary, exporter rewrite, native replay, or kappa change.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json, PROOF.md, verify.py, independent.py and test_package.py. Closed form matches linear Sym/Exp on n≤8,len≤5 and on all length-≤2 lists at d=111; exactly 661 divergences; named diverge count 2; four_exhaustive=false; checker rejects the four named mutants and four spot divergences.",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for reading the #3696 cascade, deriving the dest-in closed form, implementing the length-≤2 census and package controls, and writing this package.",
+  "open_questions": [
+    {
+      "question": "What is the exact count of dest-in Sym/Exp divergences for source lists of length ≤3 at the same destination?",
+      "why_it_matters": "Length 3 is the next bound that appears in selected multi-source gates; a closed count would extend the taxonomy past the length-≤2 census.",
+      "first_step": "Apply the closed form to count odd-count(d) lists with even non-d prefix multiplicities over n=661.",
+      "blocked_by": "None mathematically; omitted here to keep the package inside the length-≤2 OQ2 scope."
+    },
+    {
+      "question": "Should a successor schema document divergence classes separately from distinctness rejects?",
+      "why_it_matters": "Distinctness rejects agreeing cases (dup_src, self_once, [d,a]) as well as diverging ones; a contract that only names four mutants understates the diverge set.",
+      "first_step": "Add an optional exporter warning keyed to the closed-form diverge predicate.",
+      "blocked_by": "Maintainer schema adoption; frozen exporters stay unchanged."
+    }
+  ]
+}

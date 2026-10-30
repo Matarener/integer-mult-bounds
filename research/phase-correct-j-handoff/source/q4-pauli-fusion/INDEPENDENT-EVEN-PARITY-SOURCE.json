@@ -1,0 +1,608 @@
+{
+  "actual_chart_drift": {
+    "all_f_native_arity": "4f by exact bitwise tensoring; all global phases cancel in E^-1 M^-1 E M.",
+    "one_bit_B_columns": [
+      4,
+      8,
+      5,
+      10,
+      0,
+      0
+    ],
+    "one_bit_native_arity": 4
+  },
+  "actual_recipe_checks": [
+    {
+      "actual_B_columns": [
+        5,
+        10,
+        5,
+        10,
+        0,
+        0
+      ],
+      "actual_columns": 64,
+      "both_monomial_adapters_checked": true,
+      "matrix_sha256": "469f9d808fb834b10b6fbb0c60ccec1bfe4770f5f32b1c30487fc3ebb91cd567",
+      "name": "queryJ",
+      "native_arity": 2,
+      "omitted_adapter_controls_rejected": {
+        "left": true,
+        "right": true
+      }
+    },
+    {
+      "actual_B_columns": [
+        4,
+        8,
+        1,
+        2,
+        16,
+        32
+      ],
+      "actual_columns": 64,
+      "both_monomial_adapters_checked": true,
+      "matrix_sha256": "29b021d1177a6b1df9539add4dc0b1af9c4c726aff40ac1ec42771584f9270df",
+      "name": "retainedJE_L3",
+      "native_arity": 6,
+      "omitted_adapter_controls_rejected": {
+        "left": true,
+        "right": true
+      }
+    }
+  ],
+  "all_f_arity_proof": "Gamma=sum(vk vkT+wk wkT), with2f independent pairwise-orthogonal even parity vectors. Gamma has rank2f and Gamma^2=0. J hasB=Gamma; E hasB=I; JE hasB=I+Gamma, invertible with inverseI+Gamma, so JE arity=2Lf for everyL>=2,f>=1.",
+  "all_f_square_proof": "Z anticommutes with each of the2f independent parityXs. Hence ZUZ=i^(2f)U^-1 and [i^(f+1)ZU]^2=i^(4f+2)I=-I. A constanti gives i^(2f+2)I, which is+I at everyoddf.",
+  "arbitrary_column_action": "On(E*x,E*y), the exact output is(JE*x,E*y+JE*x). x,y arbitrary and independent.",
+  "attribution": "Native worker supplied J, its native/query/source endpoint recipes and proposed all-size identities. This independent lane constructs its own X-character monomials, physical Gaussian columns, physical Pauli conjugation B ranks and binary nilpotent rank grid; it imports no native Clifford/model/producer code.",
+  "cleanup_inference": "No cheap cleanup or caller closure follows. JE has full arity and differs from E; both full-endpoint gauges are needed to turn it into a chosen canonical full native. A right endpoint gauge cannot be dropped at an intermediate mixed cut, and the oldN reader is not replaced byJ without a new all-column caller identity.",
+  "exact_finite_rank_and_phase_grid": [
+    {
+      "JE_arity": 4,
+      "J_arity": 2,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 1,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 8,
+      "J_arity": 4,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 2,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 12,
+      "J_arity": 6,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 3,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 16,
+      "J_arity": 8,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 4,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 20,
+      "J_arity": 10,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 5,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 24,
+      "J_arity": 12,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 6,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 28,
+      "J_arity": 14,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 7,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 32,
+      "J_arity": 16,
+      "J_square_i_exponent": 2,
+      "L": 2,
+      "f": 8,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 6,
+      "J_arity": 2,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 1,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 12,
+      "J_arity": 4,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 2,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 18,
+      "J_arity": 6,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 3,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 24,
+      "J_arity": 8,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 4,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 30,
+      "J_arity": 10,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 5,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 36,
+      "J_arity": 12,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 6,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 42,
+      "J_arity": 14,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 7,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 48,
+      "J_arity": 16,
+      "J_square_i_exponent": 2,
+      "L": 3,
+      "f": 8,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 8,
+      "J_arity": 2,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 1,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 16,
+      "J_arity": 4,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 2,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 24,
+      "J_arity": 6,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 3,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 32,
+      "J_arity": 8,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 4,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 40,
+      "J_arity": 10,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 5,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 48,
+      "J_arity": 12,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 6,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 56,
+      "J_arity": 14,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 7,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 64,
+      "J_arity": 16,
+      "J_square_i_exponent": 2,
+      "L": 4,
+      "f": 8,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 10,
+      "J_arity": 2,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 1,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 20,
+      "J_arity": 4,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 2,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 30,
+      "J_arity": 6,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 3,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 40,
+      "J_arity": 8,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 4,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 50,
+      "J_arity": 10,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 5,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 60,
+      "J_arity": 12,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 6,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 70,
+      "J_arity": 14,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 7,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 80,
+      "J_arity": 16,
+      "J_square_i_exponent": 2,
+      "L": 5,
+      "f": 8,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 12,
+      "J_arity": 2,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 1,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 24,
+      "J_arity": 4,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 2,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 36,
+      "J_arity": 6,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 3,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 48,
+      "J_arity": 8,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 4,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 60,
+      "J_arity": 10,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 5,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 72,
+      "J_arity": 12,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 6,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 84,
+      "J_arity": 14,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 7,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 96,
+      "J_arity": 16,
+      "J_square_i_exponent": 2,
+      "L": 6,
+      "f": 8,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 14,
+      "J_arity": 2,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 1,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 28,
+      "J_arity": 4,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 2,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 42,
+      "J_arity": 6,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 3,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 56,
+      "J_arity": 8,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 4,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 70,
+      "J_arity": 10,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 5,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 84,
+      "J_arity": 12,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 6,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 98,
+      "J_arity": 14,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 7,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 112,
+      "J_arity": 16,
+      "J_square_i_exponent": 2,
+      "L": 7,
+      "f": 8,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 16,
+      "J_arity": 2,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 1,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 32,
+      "J_arity": 4,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 2,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 48,
+      "J_arity": 6,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 3,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 64,
+      "J_arity": 8,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 4,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 80,
+      "J_arity": 10,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 5,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 96,
+      "J_arity": 12,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 6,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    },
+    {
+      "JE_arity": 112,
+      "J_arity": 14,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 7,
+      "wrong_constant_i_square_i_exponent": 0,
+      "wrong_mutant_rejected": true
+    },
+    {
+      "JE_arity": 128,
+      "J_arity": 16,
+      "J_square_i_exponent": 2,
+      "L": 8,
+      "f": 8,
+      "wrong_constant_i_square_i_exponent": 2,
+      "wrong_mutant_rejected": false
+    }
+  ],
+  "exact_tensor_phases": "J_f=i^(1-f) J1^tensorf, N0_f=i^(1-f) N0_1^tensorf and M_f=M1^tensorf. The actual J1=M1 N0_1 M1^-1 equality therefore gives J_f=M_f N0_f M_f^-1. JE atLoldplanes has global unit i^((L+1)(1-f)) times (J1 E1)^tensorf; at checkedL3 this unit is1.",
+  "inverse_proof": "[[J,0],[J,I]]^-1=[[-J,0],[-I,I]], both product ordersI becauseJ^2=-I.",
+  "literal_inverse": [
+    "target-=source",
+    "source=-J source"
+  ],
+  "literal_source_word": [
+    "source=J source",
+    "target+=source"
+  ],
+  "monomial_handoff_gate": "If physical monomials P,Q obeyP J Q^-1=Nj and E^-1 Q E is also monomial, then NjE=P(JE)(E^-1Q^-1E) has arity2Lf, contradicting its actual arity(2L-2)f. Thus no such free-retarded-frame handoff exists.",
+  "no_new_kappa": true,
+  "paid_invoice": {
+    "ADDRESS_scans_at_most": 2,
+    "Pauli_phase_scans_at_most": 2,
+    "incoming_full_E_anchor": "paid premise",
+    "monomial_adapters": 2,
+    "native_rank2f_queries": 1,
+    "ordinary_helpers": 0,
+    "scalar_delivery_ADDs": 1,
+    "scope": "Forward source/delivery word only; executing its literal inverse costs another rank2f query, two monomial adapters and one ADD."
+  },
+  "producer_sha256": "cbde8b497d74b7868c1dcc70caf8eda1c96f476ceb735b4a136b9cf72d52d9e1",
+  "quantitative_drift_gate": "For physical-monomial P withJ=P Nj P^-1, letF=P^-1 E P,D=E^-1F. ThenJE=P(NjE)D P^-1. Native B rank is invariant under monomial endpoints and subadditive under Clifford products, hence rankB(D)>=2f. D is allowed to be Clifford. IfP is instead a general nonmonomial Clifford, this argument only yieldsrankB(D)>=2f-2rankB(P).",
+  "source_pins": [
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/EVEN-PARITY-SOURCE.json",
+      "sha256": "dbeea9cb1abe6fff72cc98e98d9f70eed578d5094cf5f310ed7c500e26af3f3c"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/even_parity_source.py",
+      "sha256": "961f136e4bc1b5da930bdd4ba9bbb594892b9e27f7ab44749d747d4fe16b4cb3"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/q4-pauli-fusion/unpaired_reflection_screen.py",
+      "sha256": "cc385b510da37946acc0f9882f74d30f3431e8c9ef9e99dd5699aeaa81ec531e"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/q4-pauli-fusion/one_query_endpoint_obstruction.py",
+      "sha256": "398ae61a6c59c86f0c41c8b2bcbdd60ce9dafacb410a3071fd68e27d427c5384"
+    }
+  ],
+  "status": "PASS_INDEPENDENT_ALL_F_QUADRATIC_J_SOURCE_AUDIT"
+}

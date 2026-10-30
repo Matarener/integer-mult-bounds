@@ -1,0 +1,152 @@
+{
+  "nilpotent_special_case": {
+    "binary_gram_controls": [
+      {
+        "gram_zero": false,
+        "h": 5,
+        "ports": 10
+      },
+      {
+        "gram_zero": true,
+        "h": 6,
+        "ports": 20
+      },
+      {
+        "gram_zero": false,
+        "h": 7,
+        "ports": 35
+      },
+      {
+        "gram_zero": false,
+        "h": 8,
+        "ports": 56
+      },
+      {
+        "gram_zero": true,
+        "h": 10,
+        "ports": 120
+      }
+    ],
+    "complex_relaxed_endpoint_moments": [
+      [
+        "108588565037086960333137/100000000000000000000000",
+        "1085885650370869603331373/1000000000000000000000000"
+      ],
+      [
+        "4278449626219560738721841/4000000000000000000000000",
+        "8556899252439121477443717/8000000000000000000000000"
+      ]
+    ],
+    "scope": "Simple involutory side-map shortcut only; not the general terminal decoder."
+  },
+  "orbit_difference": {
+    "each_packed_stream": 10,
+    "moved_addresses": 20,
+    "n": 5,
+    "paid_alignments": [
+      "lower-to-upper triangular order",
+      "upper-to-lower triangular order"
+    ],
+    "scope": "Two half-volume alignments equal full movable volume; no fixed-tape cost bound or faster typed recurrence.",
+    "total_aligned_volume": 20
+  },
+  "status": "Design comparison; general coupled terminal decoder selected for one pricing test.",
+  "tensor_lift": {
+    "exact_coordinate_counterexample": {
+      "intersection": {
+        "dimension": 9,
+        "rank": 1,
+        "required_edge_product_rank": 0
+      },
+      "parity": {
+        "dimension": 9,
+        "rank": 4,
+        "required_edge_product_rank": 1
+      },
+      "union": {
+        "dimension": 9,
+        "rank": 5,
+        "required_edge_product_rank": 3
+      }
+    },
+    "scope": "These literal tensor/union/parity lifts with unchanged tensor scalar support only."
+  },
+  "terminal_decoder": [
+    {
+      "central_channels": 6,
+      "central_square_zero": true,
+      "decoder_matrix_rank": null,
+      "exact_dirty_endpoint": true,
+      "field": "F2",
+      "full_data_channels": 40,
+      "h": 6,
+      "new_decoder_nonzero_coefficients": 492,
+      "nonzero_phase_coefficients": {
+        "backward_injection": 120,
+        "injection": 120,
+        "read": 120,
+        "workspace_normalization": 12
+      },
+      "old_three_central_routines_nonzero_coefficients": 720,
+      "ports": 20,
+      "scope": "Scalar identity and arbitrary-input restoration only. Frames, recursive children, stock and complex phases not priced.",
+      "side_involutory": true,
+      "terminal_workspace_channels": 12,
+      "tested_coefficients_dyadic": true
+    },
+    {
+      "central_channels": 5,
+      "central_square_zero": false,
+      "decoder_matrix_rank": 20,
+      "exact_dirty_endpoint": true,
+      "field": "Q",
+      "full_data_channels": 20,
+      "h": 5,
+      "new_decoder_nonzero_coefficients": 576,
+      "nonzero_phase_coefficients": {
+        "backward_injection": 200,
+        "injection": 68,
+        "read": 136,
+        "workspace_normalization": 36
+      },
+      "old_three_central_routines_nonzero_coefficients": 408,
+      "ports": 10,
+      "scope": "Scalar identity and arbitrary-input restoration only. Frames, recursive children, stock and complex phases not priced.",
+      "side_involutory": false,
+      "terminal_workspace_channels": 10,
+      "tested_coefficients_dyadic": true
+    }
+  ],
+  "unequal_stages": [
+    {
+      "algebraic_summary_dimension": 18,
+      "channels_per_stage": 6,
+      "exact_dirty_endpoint": true,
+      "field": "F2",
+      "h": 6,
+      "joint_input_summary_ranks": [
+        9,
+        9
+      ],
+      "noncommuting_stages": true,
+      "ports": 20,
+      "scope": "Toy column-permuted stage maps, NOT production cover routing. Rank compression is not a free framed implementation.",
+      "uncompressed_workspace": 24
+    },
+    {
+      "algebraic_summary_dimension": 15,
+      "channels_per_stage": 5,
+      "exact_dirty_endpoint": true,
+      "field": "Q",
+      "h": 5,
+      "joint_input_summary_ranks": [
+        7,
+        8
+      ],
+      "noncommuting_stages": true,
+      "ports": 10,
+      "scope": "Toy column-permuted stage maps, NOT production cover routing. Rank compression is not a free framed implementation.",
+      "uncompressed_workspace": 20
+    }
+  ]
+}

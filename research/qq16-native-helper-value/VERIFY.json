@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/qq16-native-dirty-fault/README.md",
+    "research/qq16-native-dirty-fault/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Read the literal value of L359 and check it against the stored data error and injection."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that T=256 recovers 1/1024 and 1/512."
+    }
+  ]
+}

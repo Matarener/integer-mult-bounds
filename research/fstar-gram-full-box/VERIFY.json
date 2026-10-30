@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Verify exact residue implications, canonical normalization, explicit retained witnesses, source binding and semantic failure controls; the arbitrary-size theorem is the written proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Repeat under isolation and optimization without relying on assertions."
+    }
+  ]
+}

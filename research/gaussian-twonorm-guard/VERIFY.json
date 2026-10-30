@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/AUDIT.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/HALO.md",
+    "research/unconditional-batched-crt/INVERSE-CONDITIONING.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pinned caller phrases, the p=2 corner below p^10 and not below p^9, and the p=19 ceilings below p^6 and p^3."
+    }
+  ]
+}

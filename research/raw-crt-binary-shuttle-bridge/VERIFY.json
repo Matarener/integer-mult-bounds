@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/binary-elementary-interchange/README.md",
+    "research/binary-elementary-interchange/binary_machine.py",
+    "research/interchange-retained-backing/PROOF.md",
+    "research/literal-elementary-interchange/PROOF.md",
+    "research/literal-elementary-interchange/machine.py",
+    "research/literal-elementary-interchange/program.py",
+    "research/standalone-elementary-crt-raw/README.md",
+    "research/standalone-elementary-crt-raw/raw.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Complete small basis/history cases, dual literal interpreters, retained capacities and semantic controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Optimized light proof controls and typed receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--full"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Actual196608-bit raw u/back shuttle through literal binary callee and same-owner return"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_integrity.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Git-free optimized light replay and source/typed receipt rejection"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one of the selected record's five inherited assumptions be proved at its actual caller?",
+    "starting_points": [
+      "docs/research/current-priorities.md",
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md"
+    ],
+    "methods": [
+      "Construct and independently check one source-bound instance of the stated first experiment.",
+      "Seek an exact counterexample or target-specific complete-budget obstruction to that same proposed change."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read revision 8, the selected review and live exact-source handoffs. Then follow this card's bounded first_experiment.",
+      "scope": "Source-bound orientation only, not a supplier replay or theorem proof."
+    },
+    "first_experiment": "Choose one assumption ID (native_all_columns, owned_erasure, compiler, precision_tape, analytic_recovery), one quantified implication and exact dependency closure. Check current handoffs, including #5625 row reentry and #5707 root-prefix lowering, without treating their partial scope as the whole theorem. Prove or falsify that implication with a caller-bound argument; stop at the chosen obligation. Finite tests or root digits do not discharge an all-size statement.",
+    "bottleneck_link": "Judge the actual current supplier contract and complete signed target/paid bill; frozen-profile ceilings require an applicability proof.",
+    "allowed_variations": [
+      "One exact source head, helper/cut region or quantified proposition and changed hypothesis; check live handoffs first. Different seeds are not different scopes."
+    ],
+    "scope_change_triggers": [
+      "Changing source head, helper/cut domain, operation alphabet or caller boundary without recording the new scope.",
+      "Treating an archived proposal or local numerical pass as complete supplier admission."
+    ],
+    "overlap_terms": [
+      "native_all_columns",
+      "owned_erasure",
+      "compiler",
+      "precision_tape",
+      "analytic_recovery"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "Selected PR5599: complete helper-subspace construction and independent caller replay; five framework assumptions remain.",
+        "evidence": "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+        "remaining": "The next experiment must identify uncovered source-specific work. Successor archive intake does not transfer this admission.",
+        "status": "reviewed",
+        "source_commit": "09dd0965711ca7eeb169057a420abab1c9052137",
+        "selected_record_sha256": "2a0220e866417774606e0f991e41b9c1d26b1f43b97857238cf478dbc7d330b5"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Determine the exact paid-history minimum for arbitrary requested targets in the PR #5482 phase-complete Pauli model, and classify every tensor square and every rank-one tensor power at width at least three.",
+  "scope_change_reason": "The audit card is narrowed to the explicit open boundary of JoyboyBrian PR #5482, which does not classify arbitrary Pauli-nonordinary targets. This is a new scoped history-model theorem, not an audit of a #4100 obligation or a recheck of the predecessor.",
+  "bottleneck_link": "History-dimension floors price helper returns at cached boundaries; the exact minimum shows when per-owner charging is forced and when owners can share a return.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first exact arbitrary-target formula with its width-two and rank-one classifications; leave invertible targets at widths three and above open.",
+  "outcome": "completed",
+  "evidence": "PROOF.md; verify.py exact Q(i) finite corroboration with generated hash-bound stdout receipt",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does every invertible M outside K{I,X,Z,XZ} have excess 2 at odd widths f>=3 and all four characters at even widths f>=4?",
+      "why_it_matters": "A positive answer extends the q-call count of PR #5482 to all invertible nonordinary tensor powers.",
+      "first_step": "Write r M^tensor f in R as a linear relation among the eight tensor powers of sigma M and sigma, and treat widths 3 to 6 separately.",
+      "blocked_by": "The tensor-power independence lemma needs f>=7 for eight vectors; the tested invertible cases are finite observations only."
+    },
+    {
+      "question": "Can two paid calls, each a fixed linear operator applied to one current field, deliver the three width-two X/Y/Z-type targets?",
+      "why_it_matters": "It decides whether history sharing is realizable as a program or whether operator calls obey a stronger floor.",
+      "first_step": "Write the returns in the Bell basis and solve the bilinear system for two operators and two ordinary fields.",
+      "blocked_by": "Theorem 1 constructs returned rows, not operators acting on a single field."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19225349",
+  "question_source": "PR #5482"
+}

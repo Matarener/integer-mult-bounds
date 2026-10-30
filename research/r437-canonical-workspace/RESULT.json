@@ -1,0 +1,148 @@
+{
+  "authenticated_inputs": 418,
+  "caller_boundary": {
+    "acquisitions": 261492,
+    "all_leases_retired": true,
+    "backing_after_first": 1289,
+    "backing_after_last": 1290,
+    "canonical_commit": true,
+    "canonical_destination_backing": 19684,
+    "capacity": 150,
+    "conditional_backing_bound": {
+      "field_body": 30,
+      "full_output_cells": 19685,
+      "pool_body_bound": 81,
+      "pool_cells": 12450,
+      "pool_roles": 150,
+      "three_producer_cells": 105
+    },
+    "controls": [
+      {
+        "name": "uninstalled pool",
+        "reason": "canonical pool already installed"
+      },
+      {
+        "name": "borrowed output alias",
+        "reason": "persistent roles disjoint from borrows and scratch"
+      },
+      {
+        "name": "scratch physical alias",
+        "reason": "persistent roles disjoint from borrows and scratch"
+      },
+      {
+        "name": "dirty producer role",
+        "reason": "empty persistent body"
+      },
+      {
+        "name": "live macro entry",
+        "reason": "empty canonical pool at macro entry"
+      },
+      {
+        "name": "live lease at actual CALL",
+        "reason": "completed macro closes all scratch leases"
+      },
+      {
+        "name": "under-reserved pool",
+        "reason": "canonical stream role reserve"
+      },
+      {
+        "name": "standalone adapter under caller",
+        "reason": "physical Tape allocation inside a completed macro"
+      },
+      {
+        "name": "global empty at local prefix",
+        "reason": "completed macro closes all scratch leases"
+      },
+      {
+        "name": "unretired consumer lease",
+        "reason": "consumer preserves exactly the producer leases"
+      },
+      {
+        "name": "same-slot producer replacement",
+        "reason": "consumer preserves exactly the producer leases"
+      }
+    ],
+    "exact_commit_tariff_cases": 289,
+    "final_pool_backing": 1290,
+    "fixture_pooling_surcharge_bound": 403060,
+    "fixture_record_traffic_difference": 403060,
+    "full_output_backing": 19684,
+    "joined_record_actions_before_commit": {
+      "moves": 20268986,
+      "reads": 19790568,
+      "writes": 6174251
+    },
+    "maximum_live": 32,
+    "old_failure_live_counts": 2,
+    "owned_record_actions": {
+      "moves": 20269050,
+      "reads": 19810248,
+      "writes": 6213617
+    },
+    "prefixes": 243,
+    "producer_residents": 5,
+    "producer_role_backing": [
+      31,
+      61,
+      10
+    ],
+    "standalone_record_actions": {
+      "moves": 20198202,
+      "reads": 19458292,
+      "writes": 6174251
+    },
+    "unchanged_numerical_actions": {
+      "index": {
+        "moves": 2670828,
+        "reads": 2730626,
+        "writes": 465876
+      },
+      "residue": {
+        "moves": 21471348,
+        "reads": 21333663,
+        "writes": 3815500
+      }
+    }
+  },
+  "fixture": {
+    "complete_consumer": {
+      "actual_leaf_and_xor": true,
+      "callbacks": 1458,
+      "fibre_bits": 81,
+      "output_sha256": "c74d323c6de93c1b73f8cc5235cc4407e564248735c3725d3ff40b87c00b7665",
+      "packet_bits": 19683,
+      "prefixes": 243,
+      "word_inspect_disabled": true
+    },
+    "controls": [
+      "duplicate physical prefixes retained",
+      "nonzero high-cube order",
+      "independent complete payload oracle",
+      "callback failure clears fixed producer stores",
+      "invalid new code rejected before callbacks",
+      "complete out-of-range old high rejected with cleanup",
+      "omitted physical prefix rejected after162 callbacks"
+    ],
+    "live_inputs": 406,
+    "producer": {
+      "dimension": 2,
+      "directory_bytes": 14580,
+      "emitted": 243,
+      "highs": 81,
+      "max_current_prefix_bytes": 60,
+      "no_record_constructor_in_emission_loop": true,
+      "old_physical_prefixes": 3,
+      "one_current_prefix_role": true,
+      "q": 3,
+      "sha256": "2eb4b8a1637eaba05348053ad195b29bda1c228932f3b31e9af2478abba01337",
+      "w": 2
+    },
+    "scope": "Complete generic high cube and actual source leaf/XOR consumer; production GL64 and total physical reserve remain unproved.",
+    "status": "PASS_R437_STREAMING_DIRECTORY"
+  },
+  "fixture_ast_edits": 1,
+  "full_node_executed": false,
+  "selected_frontier_changed": false,
+  "source87_calibration_executed": false,
+  "status": "PASS_R437_CANONICAL_WORKSPACE"
+}

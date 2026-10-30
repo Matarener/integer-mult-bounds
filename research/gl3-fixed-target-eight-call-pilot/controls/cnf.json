@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "checks": [
+    "all_gate_truth_tables_including_constants_signs_and_aliases",
+    "all_168_factors_have_satisfying_independent_CNF_assignments",
+    "32_mixed_two_factor_full_matrix_assignments",
+    "eight_fixed_word_native_SAT_positive_negative_calibrations"
+  ],
+  "solver_cases": [
+    {
+      "name": "direct_nine",
+      "support_bounds": false,
+      "expected": "s SATISFIABLE",
+      "actual_result": [
+        "s SATISFIABLE"
+      ],
+      "original_output_sha256": "998802e6f90b4ed88e87a7c964d8695eac3a7f0ff7e79707b92c7e24f20b77f2"
+    },
+    {
+      "name": "omitted_last",
+      "support_bounds": false,
+      "expected": "s UNSATISFIABLE",
+      "actual_result": [
+        "s UNSATISFIABLE"
+      ],
+      "original_output_sha256": "4dadc5fa7c1c36ef572106a0aa2c22fbc1e16e0cf6acbddaa1a57d90f1400fe7"
+    },
+    {
+      "name": "natural_alias",
+      "support_bounds": false,
+      "expected": "s UNSATISFIABLE",
+      "actual_result": [
+        "s UNSATISFIABLE"
+      ],
+      "original_output_sha256": "4dadc5fa7c1c36ef572106a0aa2c22fbc1e16e0cf6acbddaa1a57d90f1400fe7"
+    },
+    {
+      "name": "dirty_third",
+      "support_bounds": false,
+      "expected": "s UNSATISFIABLE",
+      "actual_result": [
+        "s UNSATISFIABLE"
+      ],
+      "original_output_sha256": "4dadc5fa7c1c36ef572106a0aa2c22fbc1e16e0cf6acbddaa1a57d90f1400fe7"
+    },
+    {
+      "name": "direct_nine",
+      "support_bounds": true,
+      "expected": "s SATISFIABLE",
+      "actual_result": [
+        "s SATISFIABLE"
+      ],
+      "original_output_sha256": "e754b0cd8b93f33a9705fff64bd0a2d160f9cdf1ce1b312773398195fac7d4bd"
+    },
+    {
+      "name": "omitted_last",
+      "support_bounds": true,
+      "expected": "s UNSATISFIABLE",
+      "actual_result": [
+        "s UNSATISFIABLE"
+      ],
+      "original_output_sha256": "4dadc5fa7c1c36ef572106a0aa2c22fbc1e16e0cf6acbddaa1a57d90f1400fe7"
+    },
+    {
+      "name": "natural_alias",
+      "support_bounds": true,
+      "expected": "s UNSATISFIABLE",
+      "actual_result": [
+        "s UNSATISFIABLE"
+      ],
+      "original_output_sha256": "4dadc5fa7c1c36ef572106a0aa2c22fbc1e16e0cf6acbddaa1a57d90f1400fe7"
+    },
+    {
+      "name": "dirty_third",
+      "support_bounds": true,
+      "expected": "s UNSATISFIABLE",
+      "actual_result": [
+        "s UNSATISFIABLE"
+      ],
+      "original_output_sha256": "4dadc5fa7c1c36ef572106a0aa2c22fbc1e16e0cf6acbddaa1a57d90f1400fe7"
+    }
+  ],
+  "elapsed_seconds": 8.005953499989118,
+  "publication_note": "Verbose fixed-word SAT assignments omitted; status and original output digest retained. Full local control log preserved separately."
+}

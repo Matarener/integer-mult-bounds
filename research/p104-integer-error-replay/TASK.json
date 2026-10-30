@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Accelerate the complete PR5826 precision replay with proved exact dyadic integer arithmetic, retaining all source coverage.",
+  "scope_change_reason": "The Fraction inner loops are measured in the full current precision contract; changed words and physical arithmetic remain outside this runtime task.",
+  "bottleneck_link": "Reduces the cost of complete arbitrary-input, signed-error and transpose checks when evaluating P104 precision candidates.",
+  "budget_minutes": 90,
+  "stop_rule": "Require exact complete result and witness equality, semantic controls and a measured whole-process gain.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, RESULT.json and BENCHMARK.json; original full contract and additional exact arithmetic qualification.",
+  "author": "Ali Romman with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in proof, implementation, measurement and checks. No subagents.",
+  "open_questions": [
+    {
+      "question": "Does the complete replay speedup reproduce on Linux?",
+      "why_it_matters": "Local shared-host timings do not establish hosted performance.",
+      "first_step": "Run the six serial cold-process benchmark with the exact committed code and Python3.12.",
+      "blocked_by": "An idle Linux measurement is not supplied here."
+    },
+    {
+      "question": "Can actual native and reset machines meet the precision allowances?",
+      "why_it_matters": "Faster checking is not numerical supplier admission.",
+      "first_step": "Bind a paid completed child and reset to the source contract, retaining all owned return obligations.",
+      "blocked_by": "The five framework assumptions keep their status."
+    }
+  ]
+}

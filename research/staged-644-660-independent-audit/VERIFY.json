@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coupled-carrier-cap740/CLAIM.json",
+    "research/rank7-coupled-586-588-carrier-fold/edits/FINAL-WORD-base.json.gz",
+    "research/rank7-coupled-586-588-carrier-fold/edits/FINAL-WORD-extra.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Both providers: PR3133 parent control table, PROOF.md-prose reconstruction and record digests, free-operator dirty-input identity (forward with symbolic private buffers, contragredient dual, reverse pull-back), literal inverse cleanup, binary-frame chronology/profile/widths, P_new=P_old S1 S2 on all registers, target tables, per-register invoice, 19 required-outcome mutants, receipt comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/root.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact interval and decimal-Newton enclosures of the PR3605 and PR3148 complex roots on their published complete histograms, H=6660L+I decompositions, coverage law 72W+64N and the forced owner capacity 54W, recount of I from the vendored aggregate owner witness with the audited widths and the verify_aggregate.py legality checks except the two template-derived ones (six controls, each rejected for its asserted reason), attribution hybrids, law-violating single-child slopes, and mass-conserving sensitivity with exact direct thresholds and least relabel counts, receipt comparison."
+    }
+  ]
+}

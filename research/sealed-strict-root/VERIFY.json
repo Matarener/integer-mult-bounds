@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit2234-stock-threshold/README.md",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/hosted/GLOBAL-TEMPLATE.json.gz",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/nine/GEOMETRY.json",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz",
+    "research/encoded-strict-borrowing/PR3503-PROOF.md",
+    "research/encoded-strict-borrowing/PREDECESSOR.json",
+    "research/encoded-strict-borrowing/PROOF.md",
+    "research/encoded-strict-borrowing/pr3518.tar",
+    "research/encoded-strict-borrowing/strict_selector.py",
+    "research/physical-ordinary-interchange/PROOF.md",
+    "research/physical-ordinary-interchange/README.md",
+    "research/physical-ordinary-interchange/encoded.py",
+    "research/physical-ordinary-interchange/inputs/pr2808.tar",
+    "research/physical-ordinary-interchange/inputs/pr2809.tar",
+    "research/physical-ordinary-interchange/ordinary.py",
+    "research/physical-ordinary-interchange/physical_words.py",
+    "research/physical-ordinary-interchange/provenance.py",
+    "research/physical-ordinary-interchange/session.py",
+    "research/physical-ordinary-interchange/source.py",
+    "research/pr589-five-helper-hosting/PROOF.md",
+    "research/pr589-five-helper-hosting/verify.py",
+    "research/recursive-parking-boundary/README.md",
+    "research/selected-bit-local-ring-sweeps/PROOF.md",
+    "research/selected-bit-recursive-closure/PROOF.md",
+    "upstream/build/sections/02-streams.tex",
+    "research/physical-ordinary-interchange/inputs/selected-result-pinned.json",
+    "research/physical-ordinary-interchange/VERIFY.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "science"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Actual sealed strict root, every independent column at both completed returns and final endpoint, fallback/reuse, source/Counts/leases and owned erasure, with exact tape/parking traffic."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "science"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Actual sealed strict root, every independent column at both completed returns and final endpoint, fallback/reuse, source/Counts/leases and owned erasure, with exact tape/parking traffic."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "controls"
+      ],
+      "timeout_seconds": 20,
+      "checks": "Exact actual strict plan versus covering no-fit; six positive/rejecting completed-return boundary controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "controls"
+      ],
+      "timeout_seconds": 20,
+      "checks": "Exact actual strict plan versus covering no-fit; six positive/rejecting completed-return boundary controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cli_controls.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Three actual optimized CLI rejections: unknown argument, canonical source drift and retained archive drift on owned regular inode-disjoint byte copies; unchanged original identities."
+    }
+  ]
+}

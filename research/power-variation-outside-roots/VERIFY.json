@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/power-variation-outside-roots/outside_roots.py",
+    "research/power-variation-outside-roots/verify.py",
+    "scripts/compare_power_variation.py",
+    "scripts/compare_recursive_invoices.py",
+    "scripts/evaluate_recursive_power.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Two predecessor-inconclusive fixtures become uniformly_lower; factored oracle census of 4455 invoices with 0 false certificates and 0 changed predecessor verdicts; two mutation controls (swapped asymptotic signs, double-counted zero endpoints) rejected."
+    }
+  ]
+}

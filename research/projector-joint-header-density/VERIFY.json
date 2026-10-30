@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bit-recursive-closure/vendor/controlled_normalizer.py",
+    "research/unconditional-batched-crt/BIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact joint law, complete success distribution, scalar-pair and GL censuses, F4 arithmetic, source and receipt bindings; six boundary controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact joint law, complete success distribution, scalar-pair and GL censuses, F4 arithmetic, source and receipt bindings; six boundary controls."
+    }
+  ]
+}

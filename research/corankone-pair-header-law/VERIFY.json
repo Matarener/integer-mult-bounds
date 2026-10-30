@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/BIT.md",
+    "research/selected-bit-recursive-closure/vendor/controlled_normalizer.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact transfer law, complete normalized-pair and GL-header censuses, full pivot guards, boundary specializations, controls and source hashes; read-only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same checks under optimized Python, using explicit need() checks."
+    }
+  ]
+}

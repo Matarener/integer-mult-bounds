@@ -1,0 +1,28 @@
+"""Positive finite primitive-count bounds, represented without tower expansion.
+
+The resulting bounds multiply retained native primitive constants. They are
+not a claim of a source-independent numerical Turing-machine coefficient.
+"""
+from fractions import Fraction as F
+def need(c,m):
+ if not c:raise ValueError(m)
+def certify(fees,invoice,H1,v=1024):
+ n=invoice['originals'];M=invoice['QUERYs'];park=4*(n+2)*M
+ need(n==11400 and M==57321 and fees['parent_parking']['total_FIELD_pass_bound']==park==2614296168,'Actual new FIELD parking bound')
+ need(fees['in_BODY_paid_MAINport_wholefiber_routes']==7548 and fees['canonical_job_matching_routes']==7248,'Both internal and whole-job routes charged')
+ need(fees['stock']['per_primitive_GLOBAL_unit_owned_banks']==2 and fees['stock']['owned_OUTPUT_credit']==0,'Two owned per compiled unit, no extra DATA credit')
+ scans=sum(fees[k]for k in('literal_VALUE_XOR_passes','compound_pointwiseCOPY_assignments','new_shadow_ZERO_INIT_passes','all_paid_owned_CLEAR_passes','initial_owned_bank_ZERO_scans','final_owned_bank_teardown_scans'))
+ routes=7548+7248;raw=fees['raw_bit_IR_records'];base=scans+park+routes+raw+M*(32*127**2+8*127**3)
+ need(base<2**64 and park>10**9,'Only RAW record cap1e9; new base primitive envelope fits2^64')
+ # K bounds ranks, roles, rounds and primitive descriptions in the fixed
+ # tensor/completion/splitting unit. It is an integer, not expanded here.
+ kexp=256*v
+ need(kexp>=4*v*64 and 127<256 and v==1024,'Conservative tensor/completion/splitting count envelope')
+ return {'status':'PASS_EXPLICIT_POSITIVE_FIXED_PROGRAM_FEE_BOUNDS',
+  'base_counts':{'raw_records':raw,'scan_assign_CLEAR_INIT_passes':scans,'parent_parking_FIELD_passes':park,'all_internal_plus_canonical_routes':routes,'coarse_base_primitive_descriptions_including_local_dimension_work':base,'verified_less_than':str(2**64)},
+  'fixed_tensor_unit':{'v':v,'upper_K':f'2^{kexp}','meaning':'K bounds all fixed integer ranks, role/round/operation inventories after chronological tensor product, charged target completion and paid splitting. No owned array is a productive role.'},
+  'finite_compiler_count_bound':{'top_rank_N':'2^'+str(H1),'J(n)':'(n+1)^4 * K^(4*n+4)','A(1)':'K^4','A(n)':'(J(n)+2)^4 * (A(n-1)+2)^(4*n+8), for2<=n<=N','bounds':'A(n) bounds productive roles, paid leaves, compiled unit instances, primitive/route descriptors, owned banks, and coefficient-construction descriptions. Allocate2 banks for EVERY unit instance; C_N<=2*A(N). A(n) is a concrete finite recursive integer, not expanded or assumed small.','replication':'At n, the denominator-clearer product of smaller widths is <=A(n-1)^(n-1); source/exit flow inventories are <=J(n). The displayed recurrence dominates their products, smaller-program inlining and two owned banks per unit.'},
+  'rational_height_and_prime':{'base_input_height_bits_upper':1024,'arithmetic_step_bound_T':'(2*N+2)^4 * (A(N)+2)^2','rational_height_bits_H':'1026 * 4^(T+1)','meaning':'Each exact rational arithmetic operation increases numerator/denominator bit height by at most4*(height+1). This includes fixed rational matchers/Gaussian eliminations, not only VALUE coefficients. Every fixed matrix/witness is compiled first.','choose_q':'An odd prime q>max(2^45*N^5, 2^(2*H)), excluding the finite completed-program witnesses. No previous numerical prime/H/precision threshold is reused.'},
+  'all_in_primitive_fee':{'low_types_upper':'q^(N^2)','single_fixed_route_or_leaf_normalizer_bound':'(q+2)^(16*(N+1)^2) retained primitive invocations, including low-type dispatch, carry and polynomially many fixed affine/scaling/old-atom operations. Rank-one leaf shears<=4*N^2-2*N; bad classes charged<=32*N^2 ordinary calls separately in moment.','compiled_primitive_multiplier_F':'(q+2)^(32*(N+1)^2) * (A(N)+2)^8','actual_cost':'F times a positive maximum retained completed-backend/stream primitive constant. The latter is fixed at each finite level, never declared1 or free. This is a constructive finite bound schema, not a materialized all-in machine constant.','parking':'At most4*(B_N+C_N) FIELD passes per query plus initialization/teardown. B_N, P_N, C_N and all route counts are bounded above by the explicit A(N) expressions. The F bound dominates these positive products.'},
+  'stock':{'uniform_B':'B_N<=A(N)','owned_C':'C_N<=2*A(N), full owned INIT/CLEAR charged','reserve':'[B_N*|GL_N(F_q)|*q^(N^2*(w-1))]^D*S_completed_backend','depth_D':'floor(log_N ceil(e/w))+1 is safe','borrowed_digits_bound':'D*(N^2*(w-1)+ceil(log_q(B_N*|GL_N(F_q)|)))+ceil(log_q S_completed_backend)+1; =O_new(w loge)','nested_backend':'Each completed finite backend restores all outer ROW/spectators and its own stock before return; it supplies no externally assumed empty space.'},
+  'eventual_threshold_rule':{'stage_constant':'K_j>=16 times the sum of F*all positive inherited primitive constants, reserve/adapter bounds and the already frozen backend constant globalized to ALL widths by its finite fallback. K_j is newly fixed before e varies.','stage_gap':'eta_j=min(rho-a_j,1-rho-a_j,a_j-b_j)>0','sufficient_form':'A new integer e_j dominates E_backend^(ceil(2/rho)), the borrow threshold, and ceil((32*K_j/eta_j)^(ceil(8/eta_j)))+2^(ceil(8/eta_j)).','justification':'For fixed positive eta, loge<=2/eta * e^(eta/2); the displayed oversized threshold absorbs every fixed coefficient in the three root costs and k<e/2. Backend subcalls below their own threshold use the completed all-width finite fallback. Bounded smaller outer inputs use the already completed backend.','not_claimed':'No explicit decimal e_j, final uniform WORD, q or fixed machine execution is materialized. Exponent remains conditional on the same retained native/compiler/tape contracts.'}}

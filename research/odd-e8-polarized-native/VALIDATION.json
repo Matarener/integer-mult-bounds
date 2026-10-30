@@ -1,0 +1,36 @@
+{
+  "schema": "odd-e8-polarized-native-validation-v1",
+  "environment": {
+    "python": "3.12.13",
+    "system": "macOS arm64",
+    "dependencies": "standard library only"
+  },
+  "registered_replay": {
+    "command": "python3.12 -B scripts/research_package.py --package research/odd-e8-polarized-native",
+    "commands_passed": 8,
+    "exit_code": 0,
+    "marker": "PASS_REGISTERED_RESEARCH_PACKAGE research/odd-e8-polarized-native outcome=partial"
+  },
+  "independent_review": "Separate AI-worker code, same retained primitive Clifford compiler; not independent human review",
+  "program_scientific_digest": "497ab37cf2b4c55883d860458bb58d946f685fd55d344fb2b29fcb727b6033b9",
+  "exact_controls": [
+    "phase i with unchanged signed tableau",
+    "wrong source/read physical chart",
+    "omitted actual uncompute"
+  ],
+  "publication_adaptations": [
+    "Geometry replay compares generated channel payload, with JSON tuple/list canonicalization, separately from retained source-container SHA.",
+    "Embedding reads package-local retained geometry data.",
+    "Independent review and dense anchor audit use package-relative paths."
+  ],
+  "not_run": [
+    "Whole odd-E8 H/K native caller",
+    "20D native path compilation",
+    "Selected supplier/ordinary/outer cold replay",
+    "Whole-caller precision/storage admission",
+    "Formal proof kernel",
+    "Independent human review",
+    "Hosted CI (before publication)"
+  ],
+  "outcome": "Exact local native component; no new kappa and no upstream scientific acceptance claim."
+}

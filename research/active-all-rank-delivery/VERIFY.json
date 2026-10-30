@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/filtered-native-kappa004/inputs/original-packet.tar.gz",
+    "research/active-all-rank-delivery/responses.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Source bytes; exact full response census; 71 rational dual rows; 48 separate integer determinants; universal rank-nine response; eight attaining clean directions; all-power polynomial proof; seven semantic rejection controls."
+    }
+  ]
+}

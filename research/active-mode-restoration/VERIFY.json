@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/filtered-native-kappa004/inputs/original-packet.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the original archive and four members; regenerate the L240 granted-injection, full-sink and conditional direct-repair gates in a temporary directory; compare semantic evidence and independently check witness pairings and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the same explicit checks with Python assertions disabled; source-integrity, scoped mathematical certificates and failure controls must remain active."
+    }
+  ]
+}

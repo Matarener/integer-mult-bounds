@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 550,
+      "checks": "Full n_b=7 middle-rank-(2,2) census; zero abc=cba=I key pairs; source pins; corrupted temporary certificate and duplicate JSON key rejection; read-only."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/independent.py"],
+      "timeout_seconds": 550,
+      "checks": "Separate base-16 half-profile MITM census matching CERTIFICATE.json; does not import verify.py."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/test_package.py"],
+      "timeout_seconds": 100,
+      "checks": "Isolated -O controls-only replay, independent import guard, subsample zero pairs, certificate mismatch, duplicate JSON keys, SOURCES base drift."
+    }
+  ]
+}

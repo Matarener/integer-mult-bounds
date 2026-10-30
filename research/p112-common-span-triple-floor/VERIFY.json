@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-five-term-reader-floor/PROOF.md",
+    "research/p112-five-term-reader-floor/TEMPLATES.json",
+    "research/p112-matroid-reader-transfer/PROOF.md",
+    "research/p112-five-term-reader-floor/RESULT.json",
+    "research/p112-five-term-reader-floor/independent.py",
+    "research/p112-five-term-reader-floor/verify.py",
+    "research/p112-five-term-reader-floor/SOURCE-CLOSURE.json",
+    "research/p112-five-term-reader-floor/PREDECESSOR-PROOF.md",
+    "research/p112-five-term-reader-floor/PREDECESSOR-TEMPLATES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete-plane bills, joint-atom rank injection, two selective maps and integer ambient operator identities."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate raw rectangular Gram bills and set-sum injection; gauged identities over F3,F5,F7."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Seven real optimized CLI corruptions and two restored positive runs on regular inode-disjoint byte copies."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-five-term-reader-floor/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Inherited exact complete seven-point classification, including separately enumerated incidence coverage and field representations."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-five-term-reader-floor/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Inherited exact complete seven-point classification, including separately enumerated incidence coverage and field representations."
+    }
+  ]
+}

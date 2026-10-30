@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/outputs/fraction-reference-feasibility-20261027/runtime/profile.py", line 22, in <module>
+    with baseline() as package:
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "<WORKSPACE>/outputs/fraction-reference-feasibility-20261027/runtime/frozen.py", line 46, in baseline
+    contents = payload()
+               ^^^^^^^^^
+  File "<WORKSPACE>/outputs/fraction-reference-feasibility-20261027/runtime/frozen.py", line 24, in payload
+    require(len(members) == 98 and len({m.name for m in members}) == 14, 'Complete unique baseline bundle')
+  File "<WORKSPACE>/outputs/fraction-reference-feasibility-20261027/runtime/frozen.py", line 16, in require
+    raise ValueError(why)
+ValueError: Complete unique baseline bundle

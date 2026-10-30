@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-rational-shear-leaves/inputs/machine.py",
+    "research/g20-rational-shear-leaves/inputs/counters.py",
+    "research/g20-rational-shear-leaves/inputs/shear.py",
+    "research/g20-rational-shear-leaves/inputs/independent.py",
+    "research/g20-rational-shear-leaves/inputs/affine.py",
+    "research/g20-rational-shear-leaves/inputs/owner-PROOF.md",
+    "research/g20-rational-shear-leaves/inputs/source-offset.py",
+    "research/g20-rational-shear-leaves/inputs/controller.py",
+    "research/g20-rational-shear-leaves/inputs/descriptor-PROOF.md",
+    "research/g20-rational-shear-leaves/inputs/descriptor-README.md",
+    "research/g20-rational-shear-leaves/inputs/route-RESULT.json",
+    "research/g20-rational-shear-leaves/inputs/affine-PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "All14 source coefficients; explicit-edge to literal ABI comparison; both engines; full same-owner leaves and descriptor erasure; exact tables, costs, round trips and controls"
+    }
+  ]
+}

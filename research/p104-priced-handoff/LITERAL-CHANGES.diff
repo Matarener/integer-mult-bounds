@@ -1,0 +1,20 @@
+--- inputs/pr5561-pricing.py (PR5561 head 452d27dd)
++++ pricing.py
+@@ -11,7 +11,7 @@
+ from fractions import Fraction as Q
+ import local as L
+ 
+-KAPPA, TESTED = Q('.00308142'), Q('.0030814205')
++KAPPA, TESTED = Q('.00308181'), Q('.0030818105')
+ PREVIOUS = Q('.00304117')
+ 
+ 
+@@ -139,7 +139,7 @@
+     L.need(wrong_cutoff[0] > 1, 'Old cutoff fails with this helper inventory')
+     bad=outer_module.ledger(dict(params,bit_saving=Q('.0027')))
+     L.need(any(x <= 0 for x in bad['strict_checks'].values()), 'Insufficient BIT contract rejected')
+-    return encode({'kappa':KAPPA,'kappa_decimal':'.00308142','previous_open_pr5545':PREVIOUS,'gain':KAPPA-PREVIOUS,
++    return encode({'kappa':KAPPA,'kappa_decimal':'.00308181','previous_open_pr5545':PREVIOUS,'gain':KAPPA-PREVIOUS,
+                    'relative_gain_percent':100*(KAPPA/PREVIOUS-1),'raw_root_interval':[lower,upper],
+                    'raw_headroom':[lower-KAPPA,upper-KAPPA],'margin_at_previous':E.display(margin(PREVIOUS)),
+                    'targets':T,'paid':P,'productive_fields':sum(T.values()),'paid_calls':sum(P.values()),

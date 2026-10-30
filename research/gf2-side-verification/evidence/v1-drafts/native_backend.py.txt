@@ -1,0 +1,166 @@
+"""Source-bound optional packed GF(2) backend; never changes frozen sources."""
+from __future__ import annotations
+
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import shlex
+import subprocess
+import sys
+import sysconfig
+from types import CodeType, FunctionType, ModuleType
+
+ROOT = Path(__file__).resolve().parent
+SOURCE = ROOT / "source" / "complex_circuit.py"
+SOURCE_SHA256 = "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1"
+CALLER_SHA256 = "0da395e67ac04fa213494e71012c1b19b544596d34cdce5a3b172b1fb6af5f1b"
+
+
+def require(condition, message):
+    if not condition:
+        raise RuntimeError(message)
+
+
+def verify_sources():
+    raw = SOURCE.read_bytes()
+    require(hashlib.sha256(raw).hexdigest() == SOURCE_SHA256, "Frozen complex source changed")
+    caller = (ROOT / "source" / "complex_network.py").read_bytes()
+    require(hashlib.sha256(caller).hexdigest() == CALLER_SHA256, "Frozen caller source changed")
+    return raw
+
+
+def load_source(name):
+    verify_sources()
+    spec = importlib.util.spec_from_file_location(name, SOURCE)
+    require(spec is not None and spec.loader is not None, "Missing frozen module loader")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def guard_module(module):
+    """Check exact source bytes and current runtime function code/globals/shape."""
+    raw = verify_sources()
+    require(type(module) is ModuleType, "Unexpected source module type")
+    require(Path(module.__file__).resolve() == SOURCE.resolve(), "Unexpected source module path")
+    expected = compile(raw, str(SOURCE), "exec", dont_inherit=True, optimize=sys.flags.optimize)
+    codes = {code.co_name: code for code in expected.co_consts if type(code) is CodeType}
+
+    def check(function, expected_code, name):
+        require(type(function) is FunctionType, "Non-function replacement: " + name)
+        require(function.__globals__ is module.__dict__, "Changed function globals: " + name)
+        require(function.__closure__ is None and function.__defaults__ is None and
+                function.__kwdefaults__ is None, "Changed function calling contract: " + name)
+        require(function.__code__ == expected_code and function.__code__.co_filename == str(SOURCE),
+                "Changed frozen function code: " + name)
+
+    for name in ("echelon", "reduce", "dot", "rank"):
+        check(module.__dict__.get(name), codes[name], name)
+    label = module.__dict__.get("Label")
+    require(type(label) is type and label.__mro__ == (label, object), "Changed Label class shape")
+    require(label.__module__ == module.__name__, "Changed Label module ownership")
+    methods = {code.co_name: code for code in codes["Label"].co_consts if type(code) is CodeType}
+    require(set(label.__dict__) == {"__module__", "__doc__", "__dict__", "__weakref__"} | set(methods),
+            "Changed Label class attributes")
+    for name, code in methods.items():
+        check(label.__dict__.get(name), code, "Label." + name)
+    return label
+
+
+def build_native(directory):
+    """Always cold compile/link/load once. The parent supplies the outer guard."""
+    require(sys.implementation.name == "cpython" and sys.version_info[:2] == (3, 12),
+            "This qualification is frozen to CPython 3.12")
+    require(sys.platform.startswith("linux"), "This qualification is frozen to Linux")
+    directory = Path(directory)
+    require(not directory.exists(), "Refusing to reuse a native build directory")
+    directory.mkdir(parents=True)
+    source = ROOT / "native_gf2.c"
+    source_before = source.read_bytes()
+    source_hash = hashlib.sha256(source_before).hexdigest()
+    suffix = sysconfig.get_config_var("EXT_SUFFIX")
+    require(type(suffix) is str and suffix.endswith(".so"), "Unexpected extension suffix")
+    target = directory / ("_packed_gf2" + suffix)
+    compiler = shlex.split(sysconfig.get_config_var("CC") or "cc")
+    require(compiler, "Missing configured C compiler")
+    command = compiler + ["-shared", "-fPIC", "-O3", "-std=c11", "-Wall", "-Wextra", "-Werror",
+                          "-I" + sysconfig.get_paths()["include"], str(source), "-o", str(target)]
+    completed = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                               text=True, timeout=90, check=False)
+    manifest = {"command": command, "returncode": completed.returncode,
+                "stdout": completed.stdout, "stderr": completed.stderr,
+                "c_source_sha256": source_hash, "python": sys.version,
+                "no_cached_binary": True}
+    (directory / "build.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    require(completed.returncode == 0, "Native compilation failed; see build.json (no retry)")
+    require(source.read_bytes() == source_before, "Native source changed during compilation")
+    manifest["extension_sha256"] = hashlib.sha256(target.read_bytes()).hexdigest()
+    spec = importlib.util.spec_from_file_location("_packed_gf2", target)
+    require(spec is not None and spec.loader is not None, "Missing extension loader")
+    native = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(native)
+    (directory / "build.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    return native, manifest
+
+
+def attach_trace(module, rank_calls):
+    """Baseline trace with the same rows, integer output and append as candidate."""
+    original_rank = module.rank
+
+    def traced_rank(rows):
+        frozen_rows = tuple(rows)
+        answer = original_rank(frozen_rows)
+        require(type(answer) is int, "Rank output type changed")
+        rank_calls.append((frozen_rows, answer))
+        return answer
+
+    module.rank = traced_rank
+    return original_rank
+
+
+def bind(module, native, rank_calls=None):
+    """Replace only two Label methods, retaining literal untouched fallbacks."""
+    label = guard_module(module)
+    original_complement = label.complement_in
+    original_nondegenerate = label.nondegenerate
+    original_dot = module.dot
+    original_rank = module.rank
+    if rank_calls is not None:
+        attach_trace(module, rank_calls)
+    counters = {"complement_native": 0, "complement_fallback": 0,
+                "gram_native": 0, "gram_fallback": 0}
+    missing = object()
+
+    def complement_in(self, other):
+        if type(self) is label and type(other) is label:
+            big = vars(other).get("basis", missing)
+            small = vars(self).get("basis", missing)
+            if type(big) is dict and type(small) is dict:
+                result = native.complement(small, big)
+                if result is not NotImplemented:
+                    counters["complement_native"] += 1
+                    return result
+        counters["complement_fallback"] += 1
+        return original_complement(self, other)
+
+    def nondegenerate(self):
+        if type(self) is label:
+            basis = vars(self).get("basis", missing)
+            if type(basis) is dict:
+                answer = native.gram_rank(basis)
+                if answer is not NotImplemented:
+                    rows, rank = answer
+                    if rank_calls is not None:
+                        require(type(rank) is int, "Native rank output type changed")
+                        rank_calls.append((rows, rank))
+                    counters["gram_native"] += 1
+                    return rank == len(rows)
+        counters["gram_fallback"] += 1
+        return original_nondegenerate(self)
+
+    label.complement_in = complement_in
+    label.nondegenerate = nondegenerate
+    return {"counters": counters, "original_complement": original_complement,
+            "original_nondegenerate": original_nondegenerate, "original_dot": original_dot,
+            "original_rank": original_rank, "label": label}

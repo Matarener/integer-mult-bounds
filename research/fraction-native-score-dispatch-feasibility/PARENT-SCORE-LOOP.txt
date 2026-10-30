@@ -1,0 +1,9 @@
+        for(int k=0;k<3;k++){
+            PyObject *score=PyList_GetItem(scores,k);
+            if(!score)goto fail;
+            Py_INCREF(score);
+            PyObject *next=PyNumber_InPlaceAdd(score,PyTuple_GET_ITEM(result,k+1));
+            Py_DECREF(score);
+            if(!next)goto fail;
+            if(PyList_SetItem(scores,k,next)<0)goto fail;
+        }

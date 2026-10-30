@@ -1,0 +1,454 @@
+{
+  "DISPATCH": {
+    "canonical_sha256": "9d3749203330e5dde93343861614850486f5690c4dbb7ecd4f68bf4840c4ecc9",
+    "sha256": "0b07311cfcdeaf75d6dfe429020e9dacac88d03ccc560a06fc989448fe6b9676"
+  },
+  "ORDER": {
+    "canonical_sha256": "400f676648d59012c8809e4b5c2c578b999b29f06c3cc28d810765beb8b8fb1a",
+    "sha256": "d30c25031984bbcdecd73e411cf931ac30f87d1bb7c8a03c7601019462aae4b8"
+  },
+  "format": "bit-full-caller-owner-witness-v1",
+  "inputs": {
+    "../inputs/consumer/inputs/retained/boundary/inputs/GEOMETRY.json.gz": "a353999bceac4ac957f540adfd3e5f8768297138b27132eeb83332e2ea4b1022",
+    "../inputs/consumer/inputs/retained/boundary/inputs/TERMINAL-CHARTS.json": "489216ea25f47f061675ab7b7e4a17289a531bce6fe77cca166a13265bfcbb17",
+    "../inputs/consumer/inputs/retained/boundary/inputs/WORD.json.gz": "c46ccd7d3eedabc6a7efbb1a91ec13f2928bad8ee0bac57c6e593a092d13d96c",
+    "../inputs/consumer/inputs/retained/source-context/global_k.py": "6368196a393ac25bb2918880e4c4bd31ed733b762c27b6873ab391cbc0c5c3c8",
+    "../inputs/consumer/integration/PACKING-CANDIDATE.json": "7555060ce67c37beafe883a1952991efdce6b3d340342c6d64bcc3692ca01f96",
+    "../inputs/consumer/schedule/STAGE0-OWNER-WITNESS.json": "6bdc92cafd702fbe99cbbbd702e7ea7330d856bce17a6722333aaa81203fe405"
+  },
+  "policies": {
+    "cap16": {
+      "construction": "Greedy earliest-deadline full8, smallest-remainder partial4; one family per call.",
+      "displaced_reference_remainders": {
+        "8": 100
+      },
+      "later_width_cap_at_displaced_host": 16,
+      "variants": {
+        "consumer": {
+          "fill": {
+            "canonical_sha256": "afc626d7282f52cbb7db8ab2a8aed1f81fc749133c07e5aba51282950308fe8b",
+            "sha256": "c9519a60d281d1f9723b6664192b57cf4b12e5674f78b3cffd882588b54bc56f"
+          },
+          "fill_file": "cap16-consumer-FILL.json.gz",
+          "idles": {
+            "canonical_sha256": "aed4f08b43749b44c7ec58bd23ec44b518e7a019c7e9d93b82cc914f8453b310",
+            "sha256": "25e150ae77400f5de71fa3c8d03457e3789af5d49540b3784aad09aa5b989478"
+          },
+          "idles_file": "cap16-consumer-IDLES.json.gz",
+          "invoice": {
+            "COPY_ERASE_episodes": 2592,
+            "H": {
+              "1": 380736,
+              "2": 399929,
+              "3": 23012,
+              "4": 24185,
+              "5": 29376,
+              "6": 17371,
+              "7": 26236,
+              "10": 81,
+              "12": 100,
+              "26": 171,
+              "34": 176,
+              "42": 352
+            },
+            "additional_helper_banks": 0,
+            "bridge_ADDs": 63936,
+            "final_exchange_pairs": 14208,
+            "helper_roles": 126144,
+            "idle_endpoint_rows_including_rank_zero": 71040,
+            "idle_histogram": {
+              "2": 13433,
+              "3": 160,
+              "4": 12953,
+              "6": 14203,
+              "7": 21152,
+              "10": 81,
+              "12": 100,
+              "26": 171,
+              "34": 176,
+              "42": 352
+            },
+            "local_ADDs": 10369440,
+            "local_calls": 288,
+            "local_histogram": {
+              "1": 1322,
+              "2": 1342,
+              "3": 79,
+              "4": 39,
+              "5": 102,
+              "6": 11,
+              "7": 18
+            },
+            "max_child_rank": 42,
+            "nonzero_idle_queries": 62781,
+            "private_borrowed_helper_roles": 100,
+            "private_peak": 6,
+            "private_reserve_premise": 9,
+            "public_families": 28416,
+            "public_helper_roles": 126044,
+            "queries": 901725,
+            "rank_mass": 1808352,
+            "rank_mass_deficit": 10272
+          }
+        },
+        "reference": {
+          "fill": {
+            "canonical_sha256": "7e24021e1e0dadfb1e0b538658a19c89c966ddb846c174d7b8891d3fa7e5e056",
+            "sha256": "18094e47375b2e701e7f826c0a506fced17303a1b4c312350af81ae6f9f4f643"
+          },
+          "fill_file": "cap16-reference-FILL.json.gz",
+          "idles": {
+            "canonical_sha256": "af3c028c17fed99a66fd37fc770cfbdc9a82216d7ec3c5c7992b3d42d8751799",
+            "sha256": "3858db9af71d007cf1fc606ed69d8a90c3e101ea92cafa1a4fa76b8e3d8e4bd1"
+          },
+          "idles_file": "cap16-reference-IDLES.json.gz",
+          "invoice": {
+            "COPY_ERASE_episodes": 2592,
+            "H": {
+              "1": 380736,
+              "2": 399929,
+              "3": 22912,
+              "4": 24185,
+              "5": 29376,
+              "6": 17371,
+              "7": 26336,
+              "8": 100,
+              "10": 81,
+              "26": 171,
+              "34": 176,
+              "42": 352
+            },
+            "additional_helper_banks": 0,
+            "bridge_ADDs": 63936,
+            "final_exchange_pairs": 14208,
+            "helper_roles": 126144,
+            "idle_endpoint_rows_including_rank_zero": 71040,
+            "idle_histogram": {
+              "2": 13433,
+              "3": 160,
+              "4": 12953,
+              "6": 14203,
+              "7": 21152,
+              "8": 100,
+              "10": 81,
+              "26": 171,
+              "34": 176,
+              "42": 352
+            },
+            "local_ADDs": 10369440,
+            "local_calls": 288,
+            "local_histogram": {
+              "1": 1322,
+              "2": 1342,
+              "3": 79,
+              "4": 39,
+              "5": 102,
+              "6": 11,
+              "7": 18
+            },
+            "max_child_rank": 42,
+            "nonzero_idle_queries": 62781,
+            "private_borrowed_helper_roles": 0,
+            "private_peak": 6,
+            "private_reserve_premise": 9,
+            "public_families": 28416,
+            "public_helper_roles": 126144,
+            "queries": 901725,
+            "rank_mass": 1808352,
+            "rank_mass_deficit": 10272
+          }
+        }
+      }
+    },
+    "freeze": {
+      "construction": "Greedy earliest-deadline full8, smallest-remainder partial4; one family per call.",
+      "displaced_reference_remainders": {
+        "24": 100
+      },
+      "later_width_cap_at_displaced_host": 0,
+      "variants": {
+        "consumer": {
+          "fill": {
+            "canonical_sha256": "6a2db259a9f2e3cb4e007dfaa578744a31088ea74e6d422c6446893ed8d0dc3f",
+            "sha256": "ad4389230e8f42f9102c056c0c68e6ce16b56885f833d5415e9b449f399ff9b9"
+          },
+          "fill_file": "freeze-consumer-FILL.json.gz",
+          "idles": {
+            "canonical_sha256": "6585c9f59042de18d784673b29ec75aa0f272473954ee7bcfc419b5665d2a011",
+            "sha256": "762249090e36a3f667fa80be13b089841da3fc25471fef07e838388dba65157c"
+          },
+          "idles_file": "freeze-consumer-IDLES.json.gz",
+          "invoice": {
+            "COPY_ERASE_episodes": 2592,
+            "H": {
+              "1": 380736,
+              "2": 399934,
+              "3": 23012,
+              "4": 24185,
+              "5": 29376,
+              "6": 17371,
+              "7": 26236,
+              "10": 171,
+              "18": 5,
+              "26": 71,
+              "28": 100,
+              "34": 176,
+              "42": 352
+            },
+            "additional_helper_banks": 0,
+            "bridge_ADDs": 63936,
+            "final_exchange_pairs": 14208,
+            "helper_roles": 126144,
+            "idle_endpoint_rows_including_rank_zero": 71040,
+            "idle_histogram": {
+              "2": 13438,
+              "3": 160,
+              "4": 12953,
+              "6": 14203,
+              "7": 21152,
+              "10": 171,
+              "18": 5,
+              "26": 71,
+              "28": 100,
+              "34": 176,
+              "42": 352
+            },
+            "local_ADDs": 10369440,
+            "local_calls": 288,
+            "local_histogram": {
+              "1": 1322,
+              "2": 1342,
+              "3": 79,
+              "4": 39,
+              "5": 102,
+              "6": 11,
+              "7": 18
+            },
+            "max_child_rank": 42,
+            "nonzero_idle_queries": 62781,
+            "private_borrowed_helper_roles": 100,
+            "private_peak": 6,
+            "private_reserve_premise": 9,
+            "public_families": 28416,
+            "public_helper_roles": 126044,
+            "queries": 901725,
+            "rank_mass": 1808352,
+            "rank_mass_deficit": 10272
+          }
+        },
+        "reference": {
+          "fill": {
+            "canonical_sha256": "0c54dc6758c6d97ce37bdd5e84a9ad93ee0b37aab186c3f413e78fc955cd1dfe",
+            "sha256": "516d15dbc82e96de27f269099ace8b881630f316f22da8480c12d01500c3d3f7"
+          },
+          "fill_file": "freeze-reference-FILL.json.gz",
+          "idles": {
+            "canonical_sha256": "7ca0d1865dcffba663e25b04ac32f65a8243f82e42c1ffe6d0abbc66fb3085a9",
+            "sha256": "124c3b5c03c19c269c3d74a9c7bc163d4703fca3517c3495a4f81356ecac7ae0"
+          },
+          "idles_file": "freeze-reference-IDLES.json.gz",
+          "invoice": {
+            "COPY_ERASE_episodes": 2592,
+            "H": {
+              "1": 380736,
+              "2": 399934,
+              "3": 22912,
+              "4": 24185,
+              "5": 29376,
+              "6": 17371,
+              "7": 26336,
+              "10": 171,
+              "18": 5,
+              "24": 100,
+              "26": 71,
+              "34": 176,
+              "42": 352
+            },
+            "additional_helper_banks": 0,
+            "bridge_ADDs": 63936,
+            "final_exchange_pairs": 14208,
+            "helper_roles": 126144,
+            "idle_endpoint_rows_including_rank_zero": 71040,
+            "idle_histogram": {
+              "2": 13438,
+              "3": 160,
+              "4": 12953,
+              "6": 14203,
+              "7": 21152,
+              "10": 171,
+              "18": 5,
+              "24": 100,
+              "26": 71,
+              "34": 176,
+              "42": 352
+            },
+            "local_ADDs": 10369440,
+            "local_calls": 288,
+            "local_histogram": {
+              "1": 1322,
+              "2": 1342,
+              "3": 79,
+              "4": 39,
+              "5": 102,
+              "6": 11,
+              "7": 18
+            },
+            "max_child_rank": 42,
+            "nonzero_idle_queries": 62781,
+            "private_borrowed_helper_roles": 0,
+            "private_peak": 6,
+            "private_reserve_premise": 9,
+            "public_families": 28416,
+            "public_helper_roles": 126144,
+            "queries": 901725,
+            "rank_mass": 1808352,
+            "rank_mass_deficit": 10272
+          }
+        }
+      }
+    },
+    "reuse": {
+      "construction": "Greedy earliest-deadline full8, smallest-remainder partial4; one family per call.",
+      "displaced_reference_remainders": {
+        "0": 100
+      },
+      "later_width_cap_at_displaced_host": null,
+      "variants": {
+        "consumer": {
+          "fill": {
+            "canonical_sha256": "275c216372e0b84730519f2995fc3bcb0579b08ddd6eb089367864ca42d929d7",
+            "sha256": "668a0f6613caae1cfe01ef5991830e02eaaa02cf643d5e980e2fe461abffa492"
+          },
+          "fill_file": "reuse-consumer-FILL.json.gz",
+          "idles": {
+            "canonical_sha256": "1862239243a035fd00ce9475481b201167b5ceb004297ffdb5fa4b6b3d26f8e8",
+            "sha256": "0d751cff62f4f4bda478ae2768f83ae3d99cd0f9ed079326c0ce9423c200758d"
+          },
+          "idles_file": "reuse-consumer-IDLES.json.gz",
+          "invoice": {
+            "COPY_ERASE_episodes": 2592,
+            "H": {
+              "1": 380736,
+              "2": 399924,
+              "3": 23012,
+              "4": 24285,
+              "5": 29376,
+              "6": 17371,
+              "7": 26236,
+              "10": 81,
+              "18": 5,
+              "26": 171,
+              "34": 86,
+              "42": 442
+            },
+            "additional_helper_banks": 0,
+            "bridge_ADDs": 63936,
+            "final_exchange_pairs": 14208,
+            "helper_roles": 126144,
+            "idle_endpoint_rows_including_rank_zero": 71040,
+            "idle_histogram": {
+              "2": 13428,
+              "3": 160,
+              "4": 13053,
+              "6": 14203,
+              "7": 21152,
+              "10": 81,
+              "18": 5,
+              "26": 171,
+              "34": 86,
+              "42": 442
+            },
+            "local_ADDs": 10369440,
+            "local_calls": 288,
+            "local_histogram": {
+              "1": 1322,
+              "2": 1342,
+              "3": 79,
+              "4": 39,
+              "5": 102,
+              "6": 11,
+              "7": 18
+            },
+            "max_child_rank": 42,
+            "nonzero_idle_queries": 62781,
+            "private_borrowed_helper_roles": 100,
+            "private_peak": 6,
+            "private_reserve_premise": 9,
+            "public_families": 28416,
+            "public_helper_roles": 126044,
+            "queries": 901725,
+            "rank_mass": 1808352,
+            "rank_mass_deficit": 10272
+          }
+        },
+        "reference": {
+          "fill": {
+            "canonical_sha256": "fdeb71e67b30476d6a971b128d35261dc192b80abd8f515f261bf87fcc4eb9cc",
+            "sha256": "9d23cbca22b5cbcdaa614afe538d60056945078732c3dc5685a5b36017e24675"
+          },
+          "fill_file": "reuse-reference-FILL.json.gz",
+          "idles": {
+            "canonical_sha256": "5400464da9bfee05da787498d295419ae3506e65212421ec40d55c45e0d58c77",
+            "sha256": "c701d9ba2bebb510195093ec79d478bc6495c7546dcddf033373e9d477b41d13"
+          },
+          "idles_file": "reuse-reference-IDLES.json.gz",
+          "invoice": {
+            "COPY_ERASE_episodes": 2592,
+            "H": {
+              "1": 380736,
+              "2": 399924,
+              "3": 22912,
+              "4": 24185,
+              "5": 29376,
+              "6": 17371,
+              "7": 26336,
+              "10": 81,
+              "18": 5,
+              "26": 171,
+              "34": 86,
+              "42": 442
+            },
+            "additional_helper_banks": 0,
+            "bridge_ADDs": 63936,
+            "final_exchange_pairs": 14208,
+            "helper_roles": 126144,
+            "idle_endpoint_rows_including_rank_zero": 71040,
+            "idle_histogram": {
+              "2": 13428,
+              "3": 160,
+              "4": 12953,
+              "6": 14203,
+              "7": 21152,
+              "10": 81,
+              "18": 5,
+              "26": 171,
+              "34": 86,
+              "42": 442
+            },
+            "local_ADDs": 10369440,
+            "local_calls": 288,
+            "local_histogram": {
+              "1": 1322,
+              "2": 1342,
+              "3": 79,
+              "4": 39,
+              "5": 102,
+              "6": 11,
+              "7": 18
+            },
+            "max_child_rank": 42,
+            "nonzero_idle_queries": 62681,
+            "private_borrowed_helper_roles": 0,
+            "private_peak": 6,
+            "private_reserve_premise": 9,
+            "public_families": 28416,
+            "public_helper_roles": 126144,
+            "queries": 901625,
+            "rank_mass": 1808352,
+            "rank_mass_deficit": 10272
+          }
+        }
+      }
+    }
+  }
+}

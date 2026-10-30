@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-helper-lattice/CONTROLLER.json",
+    "research/kappa-0035-target-atlas/provider-targets.md",
+    "research/kappa-backward-controller-20261023/CONTROLLER.json",
+    "research/p104-productive-controller/CONTROLLER.json",
+    "research/p104-productive-controller/caller.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate pinned inputs; replay one central port of the three retained p16 controllers with the literal rational coefficients; exact rank over Q after Q^2 -> 7/3 and 11/5 of the free span (initial banks plus the eighteen full-call outputs, 49) and of the free span plus the fifteen shear results (64), so the floor is 15 per port; each shear result independent of the free span plus the other fourteen; greedy causal realization uses exactly 15; controls: redundant sixteenth shear recognised as free, contents-free model collapses to 0, odd-central-powers-free model collapses to 0; RESULT.json compared in full."
+    }
+  ]
+}

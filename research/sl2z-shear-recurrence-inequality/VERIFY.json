@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Faithful length of B^k, doubling, moment comparison, diagonal spectator pairs, and the three-bit quotient identity."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Reject an l1 factor of 1, a length-3 witness for B, a passing four-letter moment, and a length-4 witness for B^2."
+    }
+  ]
+}

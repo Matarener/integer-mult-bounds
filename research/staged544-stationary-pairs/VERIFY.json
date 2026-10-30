@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticate immutable sources; regenerate both exact stationary pair domains, all signs and direct intermediate checks; exact arbitrary-dirty whole-word controls and ledger."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent quotient-subspace enumeration, graph coverage, signs, crossed-line positive control, dimension-only false-positive rejection, source/scalar/frame/cleanup failures."
+    }
+  ]
+}

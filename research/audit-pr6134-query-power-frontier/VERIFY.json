@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-W", "error", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Exact rational checks: inequality (3) and the trace bound on 2631 seeded random unbiased laws with oblique, nonsymmetric and mixed-rank outcomes, with every equality classified; 13 non-coordinate attaining laws (rank one and two, k=2,3); necessity controls; the +/- x auxiliary-offset argument."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-W", "error", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "The same checks with assertions disabled (the verifier uses explicit raises)."
+    }
+  ]
+}

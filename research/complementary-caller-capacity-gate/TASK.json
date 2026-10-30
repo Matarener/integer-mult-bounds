@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "6cf7a683f447b9f1e2333791907fd92be5009a63",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove a whole-caller capacity and complete-moment obstruction for the exact seven-axis B/C suppliers under the ordinary even-power coordinate alphabet.",
+  "scope_change_reason": "The user asked for ten useful contributions. The live handoff and PR4848 leave arbitrary-owner, nonserial callers open. The task picker suggested unrelated diagnostics. This handoff-led override gives a written interface proof and exact checks, not a Lean theorem. The initial per-axis plan was strengthened to a two-character rank-distance proof, which removes every target/query rank cutoff.",
+  "bottleneck_link": "This rules out attempts to improve kappa through arbitrary main wiring, role mixing, axis reuse or extra coordinate queries using the unchanged B/C whole calls. It states which source or address contract must change before another construction can help.",
+  "budget_minutes": 90,
+  "stop_rule": "Stop after the all-caller sign proof, exact source bill, independent finite controls and publication checks pass. Do not emit another caller inside a proved negative scope.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md gives the quantified proof. RESULT.json and verify.py bind the frozen source and check rank identities, cut polynomials, complete bills and exact power intervals.",
+  "author": "Ali Romman",
+  "ai_assistance": "Substantial OpenAI Codex assistance in proof development, implementation, verification and publication.",
+  "open_questions": [
+    {
+      "question": "Can a shared native producer use helper information in the main computation with a favorable complete bill?",
+      "why_it_matters": "Separate helpers are a premise of this obstruction. A real shared endpoint could change the capacity per paid call.",
+      "first_step": "Give one exact all-input joint endpoint and its full independent helper census before emitting a caller.",
+      "blocked_by": "No source-bound shared producer with a profitable complete moment is provided here."
+    },
+    {
+      "question": "Can an explicit address map outside the even-power coordinate algebra reduce a whole caller bill?",
+      "why_it_matters": "Such a map can invalidate the two-character comparison, but its preparation and restoration must be priced.",
+      "first_step": "Exhibit one concrete map and the exact sign-sector implication it breaks, then bind a complete source-compatible word.",
+      "blocked_by": "No useful fully priced noncommuting caller map is established."
+    }
+  ],
+  "coordination": {
+    "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5628",
+    "base": "6cf7a683f447b9f1e2333791907fd92be5009a63",
+    "prior_scope": "PR4848 / Discussion4853: serial calls on 224 fixed owners; this result removes that restriction. PR5617 concerns P104 stages. PR5626 supplies the query-rank perspective.",
+    "overlap_coverage": "Live paginated open PR bodies and Discussions plus tracked local package notes; not all code diffs, closed historical bodies or private work.",
+    "final_refresh": {
+      "canonical_main": "6cf7a683f447b9f1e2333791907fd92be5009a63",
+      "priority_revision": 7,
+      "open_prs": 325,
+      "open_prs_fetched_at": "2026-10-26T00:23:45.046411+00:00",
+      "discussion_records": 4904,
+      "discussions_fetched_at": "2026-10-26T00:24:47.534749+00:00",
+      "complete_pagination": true,
+      "finding": "No matching active B/C caller claim was found. PR5627 changes P104 helpers; PR5629 changes BIT partial-helper continuation. Both are outside this B/C scope."
+    }
+  }
+}

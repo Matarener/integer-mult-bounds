@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-designer-toolkit-v2/P104-LEMMAS.md",
+    "research/p104-designer-toolkit-v2/alignbuild/data/manifest_6030.json",
+    "research/p104-designer-toolkit-v2/words/6030.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact new birth-lowering geometry, arbitrary-input continuation splices, composition bounds and scope/rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same result and rejection controls with assertions disabled."
+    }
+  ]
+}

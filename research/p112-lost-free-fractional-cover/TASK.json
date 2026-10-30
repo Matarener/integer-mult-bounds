@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independent compact rational frame cover proving PR3625 lost-free P112 size<=56 without relying on census completeness; exact fixed-tariff arithmetic and semantic failure controls.",
+  "scope_change_reason": "The fresh lost-free plane contract changes the old unpaid-coordinate model. Check its obstruction using a new weighted proof object, rather than repeat a closed disjoint-frame search or construct another unpriced decoder.",
+  "bottleneck_link": "Determines whether this proposed two-unpaid plane family can meet its stated fixed72 block tariff and incumbent copy allowances; does not price a cheaper physical block.",
+  "assignment_seed": "abd26268e2352963323cb91c9c701880",
+  "track": "recursive-interfaces",
+  "budget_minutes": 60,
+  "start_utc": "2026-10-18T13:19:23Z",
+  "verification_cutoff_utc": "2026-10-18T14:04:23Z",
+  "deadline_utc": "2026-10-18T14:19:23Z",
+  "stop_rule": "Bounded support discovery under120seconds, exact rational acceptance only; preserve failures. No strongerbound search,14partition rerun, supplier adoption or selected change. Finalquarter verification/handoff.",
+  "outcome": "completed",
+  "evidence": "COVER.json/RESULT.json; registered CPython3.12 replay passed all3commands in1.4493seconds;16primary+19independent controls and5realoptimizedCLI faults with2positives. Source/history/export/publication validation is recorded inVALIDATION.md.",
+  "author": "ToikY",
+  "ai_assistance": "Substantial OpenAI Codex assistance in derivation, coding and writing; separately authored AI dense-vector implementation and independent scope review. No human/formal acceptance claimed.",
+  "overlap": {
+    "checked_utc": "2026-10-18T13:28:00Z",
+    "canonical_thread": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1587",
+    "advance_claim": "Optional onehour scope; overlap checked, no retrospective reservation.",
+    "coverage": "Live newest1166 handoffs,1587 visible comments, start1163 and targeted current/historicalPR bodies. Broader hiddenDiscussion coverage incomplete; cached helper reported missingremote snapshots; no novelty guarantee.",
+    "nearest": [
+      "3625 samebound/exhaustive4032frame method",
+      "3373 excludes14disjointframes",
+      "3356 gives13disjointframes",
+      "3370/3387 even-group repairs",
+      "2484 fixed-plane fractionalcolouring"
+    ]
+  },
+  "open_questions": [
+    {
+      "question": "Can an exact stronger bound<=48 or actual lost-free set>=49 be certified?",
+      "why_it_matters": "This decides positive saving under fixed72, not only the incumbent threshold.",
+      "first_step": "Use precise plane constraints and a separately checkable strongercertificate.",
+      "blocked_by": "This cover establishes only56; predecessor solver<=51 is not certified."
+    },
+    {
+      "question": "Can a cheaper complete physical block meet the changedB thresholds?",
+      "why_it_matters": "Fixed72 is a charged model, not a universal block lowerbound.",
+      "first_step": "Pin actualterms/ranks/access/restoration/consumer and totalbill.",
+      "blocked_by": "No such physical program or exacttotalinvoice supplied here."
+    }
+  ]
+}

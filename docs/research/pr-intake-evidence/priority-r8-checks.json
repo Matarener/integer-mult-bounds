@@ -1,0 +1,32 @@
+{
+  "priority_revision": 8,
+  "date": "2026-10-26",
+  "selected_kappa": "62009/20000000",
+  "selected_source_head": "09dd0965711ca7eeb169057a420abab1c9052137",
+  "checks": [
+    {
+      "command": "python3.12 -I -B -m unittest discover -s tests -p test_research_assignment.py",
+      "tests": 16,
+      "passed": true
+    },
+    {
+      "command": "python3.12 -I -B -m unittest discover -s tests -p test_research_coordination.py",
+      "tests": 9,
+      "passed": true
+    },
+    {
+      "command": "python3.12 -I -B -m unittest discover -s tests -p test_research_current_status.py",
+      "tests": 6,
+      "passed": true
+    },
+    {
+      "command": "python3.12 -I -B scripts/verify_pr_ledger_markdown.py",
+      "passed": true
+    },
+    {
+      "command": "python3.12 -I -B scripts/verify_selected_result.py",
+      "passed": true
+    }
+  ],
+  "scope": "Guidance, ledger consistency and immutable selected source bindings only. No new scientific replay or selected-frontier promotion."
+}

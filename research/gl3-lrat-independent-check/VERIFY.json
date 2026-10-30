@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gl3-lrat-independent-check/source/drat-trim.c",
+    "research/gl3-lrat-independent-check/source/DRAT-LICENSE",
+    "research/gl3-lrat-independent-check/source/length7.cnf",
+    "research/gl3-lrat-independent-check/source/length8.cnf",
+    "research/gl3-lrat-independent-check/source/length7.rup.gz",
+    "research/gl3-lrat-independent-check/source/length8.rup.gz",
+    "research/gl3-lrat-independent-check/source/CHECKER.json",
+    "research/gl3-lrat-independent-check/source/CERTIFICATES.json",
+    "research/gl3-lrat-independent-check/source/NOTICE.md",
+    "research/gl3-lrat-independent-check/source/LICENSE",
+    "research/gl3-lrat-independent-check/source/README.md",
+    "research/gl3-lrat-independent-check/source/ENCODING_AUDIT.md",
+    "research/gl3-lrat-independent-check/source/length7-checker.log",
+    "research/gl3-lrat-independent-check/source/length8-checker.log"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fresh independent length7 LRAT replay, complete typed receipt/source bindings and separately authored exhaustive tiny semantic and malformed-input controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same actual independent proof replay and semantic controls under optimized warning-strict Python; length8 explicitly excluded."
+    }
+  ]
+}

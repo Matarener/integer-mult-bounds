@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-10-19T08:49:57Z",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "scientific_sha256": {
+    "verify.py": "e37cac9e29ddc0d2524012a03ec54f9cdf75deb4bc7e4275a838b354875012b6",
+    "test_verify.py": "f189c800b90691bce6f3476359dac125ea6b8ca795216ffcc3e2c99914bb8db1",
+    "native.py": "705431d37e7895ed655c7381f525a83075d88e78cb12acbed8423555d16ecc7d",
+    "PROOF.md": "69f38e08a4abe46d66285fe5d7101d335c53a6623ac0f672eae58000b82b59c3",
+    "WORD.json": "d39d78e3b6d913d2e59f481474909dea9a17bc77dba0fa18745027abbd47247b",
+    "RESULT.json": "6cbc7828ee400978bb489d8e3c15ebd2785fb70bf6f8353a28a6ddff64d88c8a",
+    "SOURCES.json": "e07c9ced6625c59a74cf18ffb39d1836f09b99cad7dea431ac3f631535c5a6dd",
+    "PREDECESSORS.json": "7ef55066acd61551bb99bfb03eddbdd3b9e17d53c1d3edadea4f521c81647319"
+  },
+  "checks": [
+    {
+      "command": "python3 -I -B research/qq16-output-pebbling/verify.py --write",
+      "result": "PASS_QQ16_OUTPUT_PEBBLING; final scientific word/receipt generated once after lifetime/caller hardening."
+    },
+    {
+      "command": "python3 -I -O -Werror -B research/qq16-output-pebbling/test_verify.py",
+      "result": "All 6 tests PASS in 472.637 seconds. Includes normal and optimized full verifier, read-only Git-free export with PATH=/nonexistent, canonical executable corruption rejected before execution, retained data hash failure, full-word and typed-receipt mutants, and overwrite refusal."
+    },
+    {
+      "command": "python3 -B scripts/research_package.py --package research/qq16-output-pebbling --check-only",
+      "result": "PASS_PACKAGE_METADATA_AND_PINS."
+    }
+  ],
+  "mathematical_controls": [
+    "response clear before final query read",
+    "omit deferred output initialization",
+    "borrowed output alias",
+    "wrong query frame",
+    "restore A after correction",
+    "omit first query initialization",
+    "overwrite live selected output",
+    "private dirty return",
+    "wrong negative native translation"
+  ],
+  "unrun": [
+    "No redundant second local full test suite via registered launcher; hosted registered replay will be reported against the publication head.",
+    "No full selected cold replay, Lean/proof assistant or human review."
+  ],
+  "remaining_obligations": [
+    "Physical first-B1 placement/access of 224 owned outputs, movement/control and complete coverage.",
+    "Numerical error/dirty ranges and all-depth supplier admission; no \u03ba claim."
+  ],
+  "publication_preflight": "Final committed-byte/source-history and official export checks recorded in PR at final head, not self-referential in this file."
+}

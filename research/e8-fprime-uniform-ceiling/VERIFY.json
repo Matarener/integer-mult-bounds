@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "E8 frames and incidence counts, reflection automorphisms, exact least meets for k = 7, 8 by pair caps, Caro-Wei cores and orbit search, exact 360/17 ceiling, rejecting weight control, E7 positive control and RESULT.json equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same exact checks under python -O; contracts use explicit require() and stay active."
+    }
+  ]
+}

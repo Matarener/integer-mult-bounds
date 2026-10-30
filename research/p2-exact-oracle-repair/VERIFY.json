@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p2-full-history-deficit/PROOF.md",
+    "research/p2-full-history-deficit/inputs/INVOLUTIVE-WORD.json.gz",
+    "research/p2-full-history-deficit/inputs/NORMALIZERS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source pins, involution, exact balanced projector, every signed product, second moment, sharp integer count and four rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same scientific checks with assertions disabled."
+    }
+  ]
+}

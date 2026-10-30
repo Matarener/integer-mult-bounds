@@ -315,6 +315,57 @@ class HistoricalReplay(unittest.TestCase):
                     digest = hashlib.sha256(raw).hexdigest()
                     self.assertIn(digest, [entry['sha256'], *entry['accepted_live_sha256']])
 
+    def test_ci_document_successor_replays_exact_frozen_bytes(self):
+        config = next(entry for entry in checker.CONFIG['tooling-ledger']['additional_inputs']
+                      if entry['path'] == 'docs/ci-verification.md')
+        live_bytes = (ROOT / config['path']).read_bytes()
+        frozen_bytes = (checker.INPUTS / config['input']).read_bytes()
+        manifest_bytes = (ROOT / config['manifest']).read_bytes()
+        self.assertNotEqual(live_bytes, frozen_bytes)
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs = Path(td) / 'source', Path(td) / 'inputs'
+            inputs.mkdir()
+            frozen = inputs / config['input']
+            frozen.write_bytes(frozen_bytes)
+            paths = [config['path'], config['manifest']]
+            for name, data in zip(paths, (live_bytes, manifest_bytes)):
+                destination = root / name
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(data)
+            target = Path(td) / 'snapshot'
+            expected = checker.materialize(root, target, config, paths, inputs)
+            self.assertEqual((target / config['path']).read_bytes(), frozen_bytes)
+            self.assertEqual(expected[config['path']], config['sha256'])
+            self.assertEqual((target / config['manifest']).read_bytes(), manifest_bytes)
+            self.assertEqual((root / config['path']).read_bytes(), live_bytes)
+            checker.verify_unchanged(target, expected)
+
+            # An append must not be admitted merely because its prefix is known.
+            (root / config['path']).write_bytes(live_bytes + b'\n')
+            with self.assertRaisesRegex(ValueError, 'Unrecognized live source update'):
+                checker.authenticated_input(root, config, inputs)
+            (root / config['path']).write_bytes(live_bytes)
+            frozen.write_bytes(frozen_bytes + b'\n')
+            with self.assertRaisesRegex(ValueError, 'Changed historical input'):
+                checker.authenticated_input(root, config, inputs)
+            frozen.write_bytes(frozen_bytes)
+
+            altered = json.loads(manifest_bytes)
+            records = altered
+            for field in config['field']:
+                records = records[field]
+            self.assertIsInstance(records, list)
+            for record in records:
+                if record.get('integrated_path') == config['path']:
+                    record['integrated_sha256'] = '0' * 64
+            (root / config['manifest']).write_text(json.dumps(altered), encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'Missing or changed predecessor source pin'):
+                checker.authenticated_input(root, config, inputs)
+
+        self.assertEqual((ROOT / config['path']).read_bytes(), live_bytes)
+        self.assertEqual((ROOT / config['manifest']).read_bytes(), manifest_bytes)
+        self.assertEqual((checker.INPUTS / config['input']).read_bytes(), frozen_bytes)
+
     def test_real_snapshots_match_unchanged_predecessor_pins(self):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):

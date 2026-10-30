@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-28T03:57:29.955186+00:00",
+  "research_started_at": "2026-10-28T03:02:42Z",
+  "scope": "Independent audit of apoursh PR6053 at 12385ca23315181e3d15eb23a2d9ffec65d9a909; no novelty or kappa claim.",
+  "registered_replay": {
+    "started_at": "2026-10-28T03:51:43.217824+00:00",
+    "finished_at": "2026-10-28T03:57:29.802727+00:00",
+    "command": [
+      "{python}",
+      "-X",
+      "utf8",
+      "-B",
+      "scripts/research_package.py",
+      "--package",
+      "research/schur-rank-attainment"
+    ],
+    "seconds": 346.5848621999612,
+    "returncode": 0,
+    "package_unchanged": true,
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "log_sha256": "66994b561c270e4231aa23501337777f43a29d1e7e57b7dc1fd4b207e080612a"
+  },
+  "source_mutations": {
+    "mode": "optimized fresh source-only subprocesses; exact receipt comparison disabled",
+    "positive_controls": 1,
+    "code_mutants_rejected": 9,
+    "results": [
+      {
+        "name": "optimized_positive",
+        "status": "PASS",
+        "seconds": 15.747633099905215
+      },
+      {
+        "name": "reorder_closed_formula_inverse",
+        "status": "REJECTED",
+        "seconds": 0.2837741000112146,
+        "expected_check": "PR6053 ordered closed rho0",
+        "stderr_sha256": "a78a6192198b04894063e9f3acd223336ea870a206584edd6a3cd580bed11c52",
+        "last_error": "ValueError: PR6053 ordered closed rho0"
+      },
+      {
+        "name": "omit_H_rank_closed_formula",
+        "status": "REJECTED",
+        "seconds": 0.37425830005668104,
+        "expected_check": "PR6053 ordered closed rho0",
+        "stderr_sha256": "7e807e88cfde1136e9237ef2065b4a952775e653886fbfc863237be77f930beb",
+        "last_error": "ValueError: PR6053 ordered closed rho0"
+      },
+      {
+        "name": "omit_efficient_row_phase",
+        "status": "REJECTED",
+        "seconds": 0.26833619992248714,
+        "expected_check": "maximal rank minor",
+        "stderr_sha256": "c0575b1035e51f7467ef169a0744cfc73293124b53122bc2c62110525f45b984",
+        "last_error": "ValueError: maximal rank minor"
+      },
+      {
+        "name": "use_principal_minors_only",
+        "status": "REJECTED",
+        "seconds": 0.42268980003427714,
+        "expected_check": "nonzero cofactor exists",
+        "stderr_sha256": "fc8169a7c4306317d683e3daafc948f39ede4f901ab4d8753205f8af962cf991",
+        "last_error": "ValueError: nonzero cofactor exists"
+      },
+      {
+        "name": "reverse_H_Binverse_order",
+        "status": "REJECTED",
+        "seconds": 0.750686899991706,
+        "expected_check": "left lift identity",
+        "stderr_sha256": "33fd781d8d8ac1e16f761f7b5b76bebc34847a2b0a82ae9536010e6c36d065b7",
+        "last_error": "ValueError: left lift identity"
+      },
+      {
+        "name": "lose_odd_characteristic_sign",
+        "status": "REJECTED",
+        "seconds": 1.0337002000305802,
+        "expected_check": "right lift identity",
+        "stderr_sha256": "f7cd3be1c84b63e48c9756f06e65398a0c67874607e9047d1e1fc7321a2ee488",
+        "last_error": "ValueError: right lift identity"
+      },
+      {
+        "name": "mix_sector_annihilators",
+        "status": "REJECTED",
+        "seconds": 0.4241997000062838,
+        "expected_check": "sector factor",
+        "stderr_sha256": "9898ecb4d793e5ca22e51d78fd74bda17da53ef4bc2221bcc72606088604ef20",
+        "last_error": "ValueError: sector factor dimensions"
+      },
+      {
+        "name": "wrong_slope_two_bound",
+        "status": "REJECTED",
+        "seconds": 0.448273399961181,
+        "expected_check": "sharp dimension law",
+        "stderr_sha256": "ffd3f041f67911f3fb2820c69699c7fa356b6be08a44938db90c447982add100",
+        "last_error": "ValueError: sharp dimension law"
+      },
+      {
+        "name": "omit_independent_rank_check",
+        "status": "REJECTED",
+        "seconds": 16.31005179998465,
+        "expected_check": "independent checker accepted wrong_rank",
+        "stderr_sha256": "022888f2b38cc81b27aee0c29b581cc999eefb732a595932ab41ed3092a80abe",
+        "last_error": "ValueError: independent checker accepted wrong_rank"
+      }
+    ]
+  },
+  "coverage": {
+    "unique_triples": 9381,
+    "labelled_closed_formula_comparisons": 9389,
+    "literal_witnesses": 32051,
+    "subspace_pairs": 171259,
+    "ternary": {
+      "burnside_orbit_count": 8136,
+      "coverage": "All A,B in GL_2(F3), all H in M_2(F3), by exact simultaneous conjugacy",
+      "distinct_actions": 24,
+      "group_elements": 48,
+      "invertible_pivots": 48,
+      "orbit_partition_sha256": "7a6ea3ee24fd992b7d5073c40ece8602fae4457adbaea0a789707640470a24c7",
+      "orbit_representatives": 8136,
+      "orbit_size_histogram": {
+        "1": 12,
+        "12": 66,
+        "24": 7620,
+        "6": 282,
+        "8": 156
+      },
+      "raw_triples": 186624
+    }
+  },
+  "written_review": "Reviewed all six lifts, the exact annihilator/kernel equalities, cost lower bounds, cofactor deletion, padding, simultaneous-conjugacy invariance, and PR6053's two disjoint cross blocks and ordered block elimination. No discrepancy found within the stated scope.",
+  "limitations": [
+    "Same assistant authored the primary and separate verification paths; no independent human or proof-kernel acceptance.",
+    "No replay of the original PR6053 executable or its exact 886-case inventory is claimed.",
+    "No selected supplier replay or physical cost/pricing claim.",
+    "Repository is shallow; explicit fetched source pins resolve, but optional full source-history closure is not claimed."
+  ],
+  "delivery": "A subsequent official committed export and Git-free replay are recorded outside the package in export-validation.json, avoiding a self-referential committed receipt.",
+  "publication": "Local research only. PR6046 publishes the previous five-label study, not this audit."
+}

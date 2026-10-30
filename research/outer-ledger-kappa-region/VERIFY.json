@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/frontier5599/CLAIM.json",
+    "research/p104-helper-subspace-splits/pricing.py",
+    "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Ledger inventory and selected call; closed forms of the nine necessity-chain checks; explicit witness at 528 points including both region endpoints; random feasible points inside the region; boundary and 1/32 controls; selected corollary."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Ledger inventory and selected call; closed forms of the nine necessity-chain checks; explicit witness at 528 points including both region endpoints; random feasible points inside the region; boundary and 1/32 controls; selected corollary."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ALL_THREE_SOURCE_CALL_BUDGETS_ACCEPTED_NOT_MEASURED",
+  "reviewed": ["priorities/set-reuse/CALL-BUDGET.json", "priorities/runtime-guards/CALL-BUDGET.json", "priorities/trace-encoding/CALL-BUDGET.json"],
+  "P1": {
+    "source_formula_check": "4*N*N operand constructors replaced with N; 2*N*N intersections, N*N intersection lengths, 2*N sums/enumerates/bitcounts retained",
+    "N": 2300,
+    "operand_constructors_removed": 21157700,
+    "intersections_retained": 10580000,
+    "conditional_prefix_counts": "For declared 27600 pieces, successful Q construction and got.get counts are each 2*P+2*N=59800. Prefix/early failure counts remain data-dependent.",
+    "classification": "Per-invocation metadata reuse, no predicate-result reuse",
+    "additional_bill": "Source preparation, new parent lease, post-prefix admission, hook/binding checks, private sequence, controls and cleanup all unknown until implementation"
+  },
+  "P2": {
+    "successful_traced_require_calls_before": 61,
+    "successful_traced_require_calls_after": 0,
+    "distinct_predicate_groups_retained": 59,
+    "function_records_before": 13,
+    "function_records_after": 11,
+    "closure_cell_reads_retained": 14,
+    "remaining_explicit_calls_inside_check": 36,
+    "classification": "True identity deduplication plus Python dispatch and eager-string elimination; no cached check result",
+    "limits": "Original traced closure inventory only; excludes finite/constructor/final calls and later integration entries; traceback helper frame changes are disclosed while exact outcome type/message/state remain preserved"
+  },
+  "P3": {
+    "source_check": "Current local json __init__.py and encoder.py confirm new JSONEncoder for given kwargs, encode/iterencode, ordinary c_make_encoder, join and ascii calls",
+    "python_json_frames_removed_per_admitted_record": 4,
+    "replacement_native_entries_per_admitted_record": 1,
+    "immediate_hash_updates_retained": 238685,
+    "classification": "Removes Python object graph/general serializer setup; decimal conversion and byte composition move to specialized C; no record deduplication",
+    "limits": "Counts assume ordinary unchanged CPython JSON accelerator and admitted records; fallback pays failed native admission plus original serializer; do not sum nested constructor operations as independent constructions",
+    "integration_cost": "Adding encoder entry to common guard pays every original 298644 native wrapper entry, including Gram; constructor/final/finite checks additionally remain"
+  },
+  "combined": {
+    "no_percent_forecast": true,
+    "no_component_addition": true,
+    "parent_diagnostic_is_not_performance_sample": true,
+    "must_update_after_integration": ["guard closure inventory", "encoder owner/entry checks", "call preparation and admission", "constructor/lease observations", "all new finite controls", "shared versus duplicated builds"],
+    "not_authorized_by_this_review": ["P1 loop fusion", "sharing intersection predicate answers", "once-per-run freshness", "intercall hash buffering", "native guard alternative"],
+    "qualification": "Fresh complete PR5995-native baseline and candidate wall/CPU with full cost and unchanged target/noise rules"
+  },
+  "scientific_execution": "None"
+}

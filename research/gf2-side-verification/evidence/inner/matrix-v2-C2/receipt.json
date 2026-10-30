@@ -1,0 +1,200 @@
+{
+  "base_main": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "build": {
+    "c_source_sha256": "e9c3c9194a08718bd1575c1cf08c6c6772d3b644c2e274c25a84a1f9249d06cc",
+    "command": [
+      "x86_64-linux-gnu-gcc",
+      "-shared",
+      "-fPIC",
+      "-O3",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/usr/include/python3.12",
+      "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/c-verification-all-opportunities-20261027/stages/matrix-qualification-v2/native_gf2.c",
+      "-o",
+      "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/c-verification-all-opportunities-20261027/runtime/matrix-v2-C2/cold-build/_packed_gf2.cpython-312-x86_64-linux-gnu.so"
+    ],
+    "extension_sha256": "d990705af645971612df802a427642bdb4cd79de0bb028a2f8ed3667bcf44c04",
+    "no_cached_binary": true,
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "complete": {
+    "complement_trace": {
+      "calls": 238685,
+      "canonical_stream_bytes": 55839507,
+      "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+      "sha256": "7dec2bf33303c37e1c699609e83768d61df7e19104d34a26a148f66d5ccc4838"
+    },
+    "exact_witness_sha256": "4b170c1dbfc33c7cb141a2284c6fd69eac7b6d100971d3e9ee625502b5893f82",
+    "native_calls": {
+      "complement_fallback": 0,
+      "complement_native": 238685,
+      "gram_fallback": 0,
+      "gram_native": 59959
+    },
+    "rank_call_count": 59959,
+    "rank_distinct_matrix_count": 252,
+    "rank_trace_sha256": "85006ca332bbc57c2ba9fd06f61a0281d4cee600c9f3b449342379bf2aedec8f",
+    "result": {
+      "circuit": {
+        "additions": 80595,
+        "disjoint_additions": 68595,
+        "h": 25,
+        "injections": 27600,
+        "pair_star_additions": 12000,
+        "roles": 108195,
+        "roles_per_target": 47.041,
+        "v": 2300
+      },
+      "labels": {
+        "active_nodes": 82895,
+        "all_labels_nondegenerate": true,
+        "all_residuals_have_odd_vectors": true,
+        "checked_inclusions": 188790
+      },
+      "role_frames": {
+        "forward_frames_nested": true,
+        "reverse_complement_frames_nested": true,
+        "roles": 108195
+      },
+      "side_map": {
+        "coefficients": "+1/2 disjoint, -1/2 intersection two",
+        "nonzero_coefficients": 3693800,
+        "side_map_exact": true,
+        "targets": 2300
+      }
+    },
+    "result_sha256": "342e99212b12e518902ae9598613f5484113bacee8747c27a13b58a4b1d3986c",
+    "serialized_bytes": {
+      "rank_trace": 2674272,
+      "result": 527,
+      "witness": 58143622
+    }
+  },
+  "controls": {
+    "counts": {
+      "binding_rejections": 3,
+      "boundary_cases": 17,
+      "fallback_cases": 38,
+      "gram_cases": 621,
+      "oracle_negative_controls": 2,
+      "ordered_complements": 5344,
+      "real_label_permutations": 24
+    },
+    "fixture_sha256": "fbf7cb44bb99c96ee7d393eb91f2ebfbfb94375917c78a902d547320afd75d84",
+    "independent_oracle": "Dense binary lists, descending pivots, addition modulo 2; no packed/source/native helpers",
+    "micro": {
+      "native_with_conversion": {
+        "cpu_seconds": 0.019639576000000103,
+        "wall_seconds": 0.019637446996057406
+      },
+      "unchanged_python": {
+        "cpu_seconds": 0.13415110100000005,
+        "wall_seconds": 0.1341587630158756
+      }
+    },
+    "micro_fixtures": 4,
+    "micro_repetitions": 128,
+    "micro_scope": "Fixed h25 label families with conversion; diagnostic only, not complete side speed",
+    "native_and_fallback_calls": {
+      "complement_fallback": 30,
+      "complement_native": 5875,
+      "gram_fallback": 20,
+      "gram_native": 1638
+    },
+    "status": "FINITE_NATIVE_GF2_CONTROLS_PASS",
+    "v2_controls": {
+      "complement_fixture_stream": {
+        "calls": 7,
+        "canonical_stream_bytes": 597,
+        "schema": "v2-jsonl:call,us,vs,result(type=list+values or type=None); ordered exact integer vectors",
+        "sha256": "ed44b2291db9f1bafc9bdb02e6d3b53e1926b01e549ef8bdccc1991922a6345d"
+      },
+      "counts": {
+        "class_dispatch_rejections": 2,
+        "effective_builtins_rejections": 2,
+        "native_proxy_rejections": 1,
+        "postbind_drift_rejections": 25,
+        "prebind_shadow_rejections": 10,
+        "real_builtin_drift_rejections": 2,
+        "trace_negative_controls": 4,
+        "trace_pairs": 7
+      },
+      "modified_helper_invocations": 0,
+      "runtime_policy": "Reject before native/fallback on source helper, effective builtins, class, function, closure or native dispatch drift",
+      "status": "V2_RUNTIME_AND_COMPLEMENT_STREAM_PASS"
+    }
+  },
+  "engineering_sources": {
+    "compare_side_verifier.py": "6e507bb0c7e00d090a60289fddb6c55e90c946d0850c42c3c5e3e15c27604a68",
+    "finite_controls.py": "df989a831aac43cc1af95169dad8c64a7548760e6e1f96976da996703f2c8f7a",
+    "native_backend.py": "e473c38245c3668715b5a78dfe980b2fe3ed0d0c9b8c97c666fbae6ecf1fffd5",
+    "native_gf2.c": "e9c3c9194a08718bd1575c1cf08c6c6772d3b644c2e274c25a84a1f9249d06cc",
+    "profile_side_verifier.py": "9c994378171c20a91539418d93cb8387e1daa93465d6862beefea90e12999c2a"
+  },
+  "environment": {
+    "executable": "/usr/bin/python3.12",
+    "optimization": 0,
+    "platform": "linux",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "expected_complement_sha256": "7dec2bf33303c37e1c699609e83768d61df7e19104d34a26a148f66d5ccc4838",
+  "frozen_sources": {
+    "complex_circuit.py": "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1",
+    "complex_network.py": "0da395e67ac04fa213494e71012c1b19b544596d34cdce5a3b172b1fb6af5f1b"
+  },
+  "measured_wall_seconds_before_receipt_write": 24.54664336401038,
+  "measurement_scope": "Cold entire process; parent guard outer wall/CPU is authoritative. Both arms write identical complete witness bytes. Candidate additionally compiles, links, loads and runs every finite/native/binding control.",
+  "mode": "candidate",
+  "phases": {
+    "all_finite_independent_binding_fallback_controls": {
+      "cpu_seconds_including_children": 1.1028819999999997,
+      "wall_seconds": 1.1030606599815655
+    },
+    "checks_initialization": {
+      "cpu_seconds_including_children": 9.000000000014552e-05,
+      "wall_seconds": 8.936499943956733e-05
+    },
+    "cold_compile_link_load": {
+      "cpu_seconds_including_children": 0.19693500000000003,
+      "wall_seconds": 0.19688948901602998
+    },
+    "cold_source_load_guard_bind": {
+      "cpu_seconds_including_children": 0.014989999999999837,
+      "wall_seconds": 0.015003323002019897
+    },
+    "compile_roles": {
+      "cpu_seconds_including_children": 0.3342450000000001,
+      "wall_seconds": 0.3344006109982729
+    },
+    "construction": {
+      "cpu_seconds_including_children": 1.7173869999999998,
+      "wall_seconds": 1.7179188650043216
+    },
+    "same_complete_witness_trace_serialization": {
+      "cpu_seconds_including_children": 1.0824269999999991,
+      "wall_seconds": 1.0843385549960658
+    },
+    "verify_labels": {
+      "cpu_seconds_including_children": 13.436663999999999,
+      "wall_seconds": 13.45439318800345
+    },
+    "verify_map": {
+      "cpu_seconds_including_children": 5.028192000000001,
+      "wall_seconds": 5.03588097501779
+    },
+    "verify_role_frames": {
+      "cpu_seconds_including_children": 1.0107660000000038,
+      "wall_seconds": 1.0108844279893674
+    }
+  },
+  "process_plus_compiler_cpu_seconds_before_receipt_write": 24.655914999999997,
+  "qualification_revision": 2,
+  "scientific_scope": "Frozen H=25 complex side verification only; no full network certificate, selected frontier, PR5864 gain, new construction, parameter search or kappa admission.",
+  "status": "COMPLETE_SIDE_PASS"
+}

@@ -1,0 +1,28 @@
+{
+  "attempts": [
+    {
+      "tool": "Z3 5.3.1 QF_BV",
+      "scope": "unrestricted exactly eight",
+      "result": "timeout; inconclusive",
+      "wall_limits_seconds": [
+        120,
+        300
+      ]
+    },
+    {
+      "tool": "Z3 5.3.1 explicit bitblast SAT",
+      "result": "UNSAT report without accepted proof; not credited"
+    },
+    {
+      "tool": "Z3 5.3.1 native DIMACS proof",
+      "result": "UNSAT report; proof rejected in default and plain checker modes; not credited",
+      "cnf_sha256": "34706dd378805dc7ef46501d7129f6a7441317379df82b865dc20b5e07aeea7f",
+      "proof_bytes": 182137305,
+      "proof_sha256": "ccfe45a4f870a534bb044ba9b8a952077d124f9bf287466a00cb1866d02fcab0",
+      "diagnostic": "s NOT VERIFIED; failed at proof line 1024737 modulo deletion errors",
+      "root_cause": "undetermined",
+      "retention": "Failed trace retained locally, omitted from publication because it is unnecessary for accepted proof reproduction."
+    }
+  ],
+  "resource_measurement_limit": "Original eight-call Glucose worker peak RSS unknown: monitor sampled Windows launcher. Corrected recursive-process monitor used for later seven-call run; certificates unaffected."
+}

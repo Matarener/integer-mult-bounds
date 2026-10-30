@@ -1,0 +1,1 @@
+These are exact local source snapshots used for receipt evaluation and indexing before publication. Their relative paths refer to the original round layout. They are retained for audit and are not package entry points. Use the registered root wrappers and replay.py described in the package README.

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent full-plane mask and support/clique certificates; all-field block proof binding; noncommuting block fixtures; complete d=2 source/dirty columns; 27-line colouring-versus-rank counterexample; eight semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-Werror",
+        "{package}/test_integrity.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Real optimized CLI on a Git-free read-only export, archive/certificate corruption, boolean/float receipt corruption and unsupported mutation flag."
+    }
+  ]
+}

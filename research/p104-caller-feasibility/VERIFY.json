@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-caller-feasibility/consumer/inputs/ALL_PAIR_README.md",
+    "research/p104-caller-feasibility/consumer/inputs/PR2744_PREDECESSORS.json",
+    "research/p104-caller-feasibility/consumer/inputs/PR2744_RESULT.json",
+    "research/p104-caller-feasibility/consumer/inputs/PR3574_README.md",
+    "research/p104-caller-feasibility/consumer/inputs/PR3574_verify.py",
+    "research/p104-caller-feasibility/consumer/inputs/PR3605_CLAIM.json",
+    "research/p104-caller-feasibility/consumer/inputs/PR3605_DERIVATION.md",
+    "research/p104-caller-feasibility/consumer/inputs/PR3605_PROFILE.json",
+    "research/p104-caller-feasibility/consumer/inputs/PR3605_README.md",
+    "research/p104-caller-feasibility/consumer/inputs/PR3609_RECEIPT.json",
+    "research/p104-caller-feasibility/consumer/inputs/SELECTED.json",
+    "research/p104-caller-feasibility/physical/inputs/FRAME-SA504-NOTICE.md",
+    "research/p104-caller-feasibility/physical/inputs/LICENSE",
+    "research/p104-caller-feasibility/physical/inputs/NATIVE-LINEAGE-NOTICE",
+    "research/p104-caller-feasibility/physical/inputs/NOTICE",
+    "research/p104-caller-feasibility/physical/inputs/ORIGINAL_NATIVE.json.gz",
+    "research/p104-caller-feasibility/physical/inputs/PR1862-NOTICE.md",
+    "research/p104-caller-feasibility/physical/inputs/PR1972-NOTICE.md",
+    "research/p104-caller-feasibility/physical/inputs/PR3382_PROOF.md",
+    "research/p104-caller-feasibility/physical/inputs/PR3416_PROOF.md",
+    "research/p104-caller-feasibility/physical/inputs/PR3609_NATIVE.json",
+    "research/p104-caller-feasibility/physical/inputs/PR3609_PROGRAM.json",
+    "research/p104-caller-feasibility/physical/inputs/PR3609_PROOF.md",
+    "research/p104-caller-feasibility/physical/inputs/WORD.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate 24 retained source inputs and both typed receipts; independent exact budget, convexity signs, scalar/frame trace and literal precision witnesses; no full physical caller."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete bounded replay with optimization; all explicit arithmetic/source/type checks remain active."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/physical/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual disposable CLI normal/optimized immutability and missing/corrupt WORD plus Boolean-receipt rejection with exact diagnostics."
+    }
+  ],
+  "execution_boundary": "Standard library; no predecessor executable imported by either scientific component, no historical native census, physical producer, owner allocation, full release or all-size admission. New bounded data/proof checks only."
+}

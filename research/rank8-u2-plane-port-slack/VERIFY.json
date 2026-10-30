@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/plane-port-copy-budgets/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Recompute the 16/17 rank-1 boundary of the rank-8/u2 integer cell; certify plane-port shrink and unchanged moments above 1 at a=1/98; certify the C=224 coverage overspend 293/292; reject a moved selected kappa."
+    }
+  ]
+}

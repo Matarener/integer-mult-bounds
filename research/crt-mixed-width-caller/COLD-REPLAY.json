@@ -1,0 +1,53 @@
+{
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "reviewed_hashes": {
+    "PROOF.md": "ded150e3ab4da3561ac8623fd7d0041deb6f31dbf7b49a04dc19e0ba959c58d9",
+    "README.md": "c5126d2e1f381fe5a34b8e3350799ac4c3a58fe2def590b12ad4354da7b01ebf",
+    "RESULT.json": "2ba6f2e1661d8d9af0861eaf903bc596acd9bf0912b090389b1bc6d1f9898dd0",
+    "SOURCE-PINS.json": "e8e5c7320fb0bd1494e063eaa5aaf5f2f08562b80b72750081ea5a409eea5b1e",
+    "verify.py": "5e62787f3c4a8f1175ca7dea6c6b8ceff7863a3f879abd6245faf6aeb272fd45"
+  },
+  "runs": [
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "cwd_template": "{repository}",
+      "exit_code": 0,
+      "receipt": {
+        "padded_states": 16480,
+        "result": "PASS_EXPLICIT_WIDTH_SYNCHRONIZED_CRT_CALLER",
+        "row_checks": 229984
+      },
+      "stderr": ""
+    },
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "cwd_template": "{repository}",
+      "exit_code": 0,
+      "receipt": {
+        "padded_states": 16480,
+        "result": "PASS_EXPLICIT_WIDTH_SYNCHRONIZED_CRT_CALLER",
+        "row_checks": 229984
+      },
+      "stderr": ""
+    }
+  ],
+  "schema_version": 1,
+  "scope": "exact git-free source-bound copy; no source-root override; logical caller only",
+  "source_inputs_checked": 3,
+  "status": "PASS_COLD_MIXED_CALLER_REPLAY",
+  "time_utc": "2026-10-20T13:04:24.760866+00:00"
+}

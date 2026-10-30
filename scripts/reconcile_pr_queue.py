@@ -9,9 +9,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import runpy
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / 'research/pr-reconciliation-20261012'
+initial_head_for_decision = runpy.run_path(
+    str(Path(__file__).with_name('pr_intake_initial_heads.py')))['initial_head_for_decision']
 
 
 def read(path):
@@ -268,7 +271,8 @@ def build():
                 pr = decision['metadata']
                 item = dict(number=n, url=f'https://github.com/CrocSwap/integer-mult-bounds/pull/{n}',
                             title=pr['title'], contributor=pr['author'], draft=pr['isDraft'],
-                            starting_head=pr['headRefOid'], current_head=pr['headRefOid'],
+                            starting_head=initial_head_for_decision(ROOT, family_path, decision),
+                            current_head=pr['headRefOid'],
                             previously_reviewed_heads=[], historical_assessment_heads=[], evidence=[],
                             historical_mentions=[], integration_location=[], github_state='OPEN', closure=None)
                 result.append(item)

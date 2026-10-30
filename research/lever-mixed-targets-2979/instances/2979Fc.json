@@ -1,0 +1,139 @@
+{
+ "id": "2979Fc",
+ "pr": 2979,
+ "author": "Marius-Paul Dumitrean (mdumitrean)",
+ "on_main": true,
+ "head": "be191346391661f4d35fc0d1508d0a6029572576",
+ "source_default": "research/rank7-joint-endframes",
+ "files": {
+  "word_base": "data/WORD-base.json.gz",
+  "word_extra": "data/WORD-extra.json.gz",
+  "fill": "allocation/FILL.json.gz",
+  "order": "allocation/ORDER.json",
+  "dispatch": "allocation/DISPATCH.json",
+  "plan": "allocation/vendor/PLAN.json.gz",
+  "template": "allocation/vendor/TEMPLATE.json.gz",
+  "profile": "allocation/PROFILE.json"
+ },
+ "inputs_sha256": {
+  "data/WORD-base.json.gz": "abaf67bfcb257528658c906b612f57025617592bd7889828f92b97a5f4f4300d",
+  "data/WORD-extra.json.gz": "e0eaf64c4d5d324693d43889bce1b9e53e8da00402105c8c978fd102f208bed7",
+  "allocation/FILL.json.gz": "c2136be9434cda511a1a8a44d98f9f72ea5376830a8426674253b4ee351c4c39",
+  "allocation/ORDER.json": "519d1d5dbb997a219fcfcad34c0b03e7838bef24199784d7e964fa10090f66e1",
+  "allocation/DISPATCH.json": "65e435bd68e97243c003677271b88485a29d4d0fae2dff1354100404a145e74c",
+  "allocation/PROFILE.json": "94a819747f3ced41f1544ada0036c983fc0c92847b9644380f877a06cd7931cf",
+  "allocation/PROVIDERS.json": "f2edb7922f3029a5d607437e737775ff3371bca49ebab62e5e2495d16d3bf573",
+  "allocation/vendor/PLAN.json.gz": "d566cfb87b71639d4138e1f89b543e2dd6a7772070226a2a14c799a6835bf21e",
+  "allocation/vendor/TEMPLATE.json.gz": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e",
+  "CLAIM.json": "436e0d297cbdf195445d3697d496ac675e95210b79e70ce602a6a6667a4c6ce9"
+ },
+ "stated": {
+  "complex_lower": "1689703011137435213783/1000000000000000000000000",
+  "local_profile": {
+   "1": 2445,
+   "2": 706,
+   "3": 232,
+   "4": 108,
+   "5": 18,
+   "8": 8
+  },
+  "width_inventory": {
+   "4": 26,
+   "5": 2,
+   "6": 16,
+   "7": 52,
+   "8": 99,
+   "9": 213
+  },
+  "zero_buffers": 91,
+  "sources": [
+   {
+    "what": "local_profile",
+    "file": "CLAIM.json",
+    "key": "local_profile"
+   },
+   {
+    "what": "local_profile",
+    "file": "allocation/PROVIDERS.json",
+    "key": "gauge44.actual_paid_profile"
+   },
+   {
+    "what": "local_profile",
+    "file": "allocation/PROVIDERS.json",
+    "key": "extra.actual_paid_profile"
+   },
+   {
+    "what": "width_inventory",
+    "file": "CLAIM.json",
+    "key": "width_inventory"
+   },
+   {
+    "what": "zero_buffers",
+    "file": "CLAIM.json",
+    "key": "zero_buffers"
+   }
+  ],
+  "complex_lower_note": "the uniform root of this table's paid profile (no lever) as the community's own discovery assembly prints it for this table (complex_lower 0.001689703011137435213783, run unmodified on a fresh clone at the base); not in #2979's files, because the table is new"
+ },
+ "lowering": {
+  "R": 408,
+  "warps": 72,
+  "tadds": 36,
+  "base": {
+   "canonical_content_sha256": "852d09f08b83b760055aaa525632b75f4a8497a816405edbc325670222db63b4",
+   "gcert1w_content_sha256": "c03055bfeda8058849ec6cf82ff9c1e2b47366485ec17b1e17a943e9e94e2760",
+   "gcert1b_content_sha256": "db40b7dea1da2922d96b8a675c0eda2c0efdd4794c51a086c249f5b747898ccb"
+  },
+  "extra": {
+   "canonical_content_sha256": "202d3bfa43c5449eb0531816dc0dbd116b22ae1bf6cede550d82c49eb3bb1b22",
+   "gcert1w_content_sha256": "43f4b3f09a62aa2181c196f1413fc28856e0e850440531e9932666652e84331a",
+   "gcert1b_content_sha256": "3edb0a402baab54a13440b33efffc478d7aeadc3e7065e8e31b808a10084148d"
+  }
+ },
+ "fill": {
+  "rows": 271728,
+  "roles_per_call": 408,
+  "calls": 666,
+  "replicas": 74
+ },
+ "heads": {
+  "total": 16576,
+  "child8": 8288,
+  "child10": 8288,
+  "other_rank48": 0
+ },
+ "price": {
+  "half_cut": "1.7159005029e-03",
+  "full_cut": "1.7887045643e-03"
+ },
+ "rate": {
+  "N": 17887045,
+  "module": null,
+  "cut": "full",
+  "profile": {
+   "children": {
+    "1": 1630639,
+    "2": 470196,
+    "3": 154512,
+    "4": 71928,
+    "5": 11988,
+    "6": 5,
+    "7": 3,
+    "8": 5328,
+    "17": 8,
+    "19": 1,
+    "23": 25905
+   },
+   "W": 66304,
+   "H": 16576,
+   "kc": 25,
+   "m": 73
+  }
+ },
+ "what": "A-fc: #2979's words, order, dispatch, plan and template unchanged (the price changes with the table: its own uniform figure is 1.6897030e-3), with a re-solved table of hosts (fills/2979Fc/FILL.json.gz and its paid profile fills/2979Fc/PROFILE.json), FULL cut: each of the 16,576 literal heads removed (job 73 - 48 = 25 on its array); this table has no other rank-48 block, so nothing is split; every paid block then has rank at most 23 < 25. Checked by computer, not proved in Lean.",
+ "fill_in_package": "fills/2979Fc/FILL.json.gz",
+ "fill_in_package_sha256": "7fc766c6c3e1561cee60b258138a918020b96d85ea782a2b01ad0ee035fd082e",
+ "profile_in_package": "fills/2979Fc/PROFILE.json",
+ "profile_in_package_sha256": "5df7941120150492c64e62dc3362095eff3dfac9facff041ebb5c25b2e78f75e",
+ "lean_status": "not proved in Lean: Theorem 1G and the general theorem of the full cut are proved in Lean (Lean repository, package/leverF); this table's own instance is not: its heads-first certificate and the rate fact at 17887045/10^10 are checked by computer, and the cut fact on #2979's words is argued by hand from the template it shares with #3945 (where it is proved in Lean), not checked"
+}

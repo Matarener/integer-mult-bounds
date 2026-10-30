@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/frontier6030/CLAIM.json",
+    "research/kappa-rebuild/transfer-audit/OUTER-TRANSFER-AUDIT.md",
+    "research/outer-ledger-kappa-region/PROOF.md",
+    "research/p104-helper470-twin-rung-removal/pricing.py",
+    "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+    "upstream/build/sections/08-assembly.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticated source, 4056 rational witnesses across 63 predicates, all nine formulas, dual identities, strict boundaries and paid-fallback false positive."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same scientific arithmetic and rejection controls under optimized Python."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/sl2f3-conjugate-triple-seed592f/CERTIFICATE.json",
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Read-only rebuild of four-role SL2(F3) depth-4 MITM; compares committed CERTIFICATE.json; source pins; need() admission; temp corruption reject."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same verify under -O -Werror; need() still enforces admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent frozenset F2[SL2(F3)] engines; separate digests; no primary import."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Direct-word, deletion, mutation, dirty-toggle, duplicate-JSON and corruption controls."
+    }
+  ]
+}

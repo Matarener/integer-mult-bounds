@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-ring-product/inputs/fourier-export.tar",
+    "research/certified-gaussian-recovery/intervals.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","sources"],"timeout_seconds":30,"checks":"Whole Fourier export, external source pins, package-local modules, one shared tape cohort and two binding controls."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","budget"],"timeout_seconds":30,"checks":"Exact finite precision, twiddle and exponent controls; PROOF.md supplies universal arguments."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","words"],"timeout_seconds":60,"checks":"Signed codecs, linear shifts and actual Karatsuba through257 bits, restoration and wrong-sign control."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","twiddles"],"timeout_seconds":90,"checks":"Directed encoded Machin/Taylor producer against a separate certified interval reference, inward norms, conjugation and invalid descriptors."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","fft"],"timeout_seconds":90,"checks":"Exact scalar butterfly numerators and executed premature-truncation mutant."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","product"],"timeout_seconds":180,"checks":"Complete physical product packets, exact direct negacyclic oracle, multiple rows, recursion depth and owner reuse."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","convolution"],"timeout_seconds":550,"checks":"Actual two-forward/product/opposite/M-scale caller, independent staged and direct models, nonzero rounding and protected width port."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","failures"],"timeout_seconds":160,"checks":"Eleven precondition/physical fault controls and a positive complete packet after ordinary rejections."}
+  ]
+}

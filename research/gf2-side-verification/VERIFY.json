@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gf2-side-verification/source/complex_circuit.py",
+    "research/gf2-side-verification/source/complex_network.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh cold native independent dense/source/binding/fallback finite controls; no full or timing run."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Same explicit finite controls in optimized mode; complete source assertions are never disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/check_artifacts.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separate byte-transport check: complete decompressed canonical witness and ordered Gram-rank transcript; no benchmark or mathematical acceptance."
+    }
+  ]
+}

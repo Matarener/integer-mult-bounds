@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/PHASE-LAYOUT-AUDIT.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/vendor/UNION-SCHEDULE.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Padding factor M(a) < 2a for a = 1..65536; batch partition; exact lockstep move count; removal versus retained padding; source-sentence binding; rejection controls."
+    }
+  ]
+}

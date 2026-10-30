@@ -1,0 +1,396 @@
+{
+  "status": "PASS",
+  "cases": 277,
+  "models": "Literal tcslib ISA at W=64; fixed lengths and fixed modulus; interpreted program includes setup, constant synthesis, arithmetic, carry, clearing and final accept",
+  "tests": "All single-hex-digit pairs; boundary/random cases through 1024-bit operands; dirty owned memory; operand/exterior preservation; all owned temporaries zero; independent NTT and integer product oracles; same-ABI fused vs recomputation control",
+  "records": [
+    {
+      "lengths": [
+        1,
+        1
+      ],
+      "n": 1,
+      "butterflies": 0,
+      "fused_static_instructions": 369,
+      "duplicate_static_instructions": 369,
+      "owned_temporary_words": 24,
+      "output_words": 2,
+      "comparisons": {
+        "exhaustive_256_cases": true,
+        "minimum_steps": 313,
+        "maximum_steps": 319
+      }
+    },
+    {
+      "lengths": [
+        1,
+        2
+      ],
+      "n": 2,
+      "butterflies": 3,
+      "fused_static_instructions": 726,
+      "duplicate_static_instructions": 873,
+      "owned_temporary_words": 38,
+      "output_words": 3,
+      "comparisons": [
+        {
+          "fused_steps": 563,
+          "duplicate_steps": 662,
+          "saved_instructions": 99,
+          "fused_instruction_histogram": {
+            "one": 19,
+            "sub": 204,
+            "add": 190,
+            "mul": 7,
+            "bltz": 142,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 583,
+          "duplicate_steps": 682,
+          "saved_instructions": 99,
+          "fused_instruction_histogram": {
+            "one": 19,
+            "sub": 204,
+            "add": 210,
+            "mul": 7,
+            "bltz": 142,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 571,
+          "duplicate_steps": 670,
+          "saved_instructions": 99,
+          "fused_instruction_histogram": {
+            "one": 19,
+            "sub": 204,
+            "add": 198,
+            "mul": 7,
+            "bltz": 142,
+            "accept": 1
+          }
+        }
+      ]
+    },
+    {
+      "lengths": [
+        2,
+        2
+      ],
+      "n": 4,
+      "butterflies": 12,
+      "fused_static_instructions": 1610,
+      "duplicate_static_instructions": 2198,
+      "owned_temporary_words": 71,
+      "output_words": 5,
+      "comparisons": [
+        {
+          "fused_steps": 1182,
+          "duplicate_steps": 1578,
+          "saved_instructions": 396,
+          "fused_instruction_histogram": {
+            "one": 20,
+            "sub": 496,
+            "add": 253,
+            "mul": 20,
+            "bltz": 392,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 1243,
+          "duplicate_steps": 1650,
+          "saved_instructions": 407,
+          "fused_instruction_histogram": {
+            "one": 20,
+            "sub": 496,
+            "add": 314,
+            "mul": 20,
+            "bltz": 392,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 1226,
+          "duplicate_steps": 1628,
+          "saved_instructions": 402,
+          "fused_instruction_histogram": {
+            "one": 20,
+            "sub": 496,
+            "add": 297,
+            "mul": 20,
+            "bltz": 392,
+            "accept": 1
+          }
+        }
+      ]
+    },
+    {
+      "lengths": [
+        3,
+        5
+      ],
+      "n": 8,
+      "butterflies": 36,
+      "fused_static_instructions": 3737,
+      "duplicate_static_instructions": 5501,
+      "owned_temporary_words": 149,
+      "output_words": 9,
+      "comparisons": [
+        {
+          "fused_steps": 2677,
+          "duplicate_steps": 3865,
+          "saved_instructions": 1188,
+          "fused_instruction_histogram": {
+            "one": 22,
+            "sub": 1206,
+            "add": 396,
+            "mul": 52,
+            "bltz": 1000,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 2832,
+          "duplicate_steps": 4061,
+          "saved_instructions": 1229,
+          "fused_instruction_histogram": {
+            "one": 22,
+            "sub": 1206,
+            "add": 551,
+            "mul": 52,
+            "bltz": 1000,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 2817,
+          "duplicate_steps": 4048,
+          "saved_instructions": 1231,
+          "fused_instruction_histogram": {
+            "one": 22,
+            "sub": 1206,
+            "add": 536,
+            "mul": 52,
+            "bltz": 1000,
+            "accept": 1
+          }
+        }
+      ]
+    },
+    {
+      "lengths": [
+        8,
+        8
+      ],
+      "n": 16,
+      "butterflies": 96,
+      "fused_static_instructions": 8689,
+      "duplicate_static_instructions": 13393,
+      "owned_temporary_words": 328,
+      "output_words": 17,
+      "comparisons": [
+        {
+          "fused_steps": 6161,
+          "duplicate_steps": 9329,
+          "saved_instructions": 3168,
+          "fused_instruction_histogram": {
+            "one": 25,
+            "sub": 2877,
+            "add": 698,
+            "mul": 128,
+            "bltz": 2432,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 6582,
+          "duplicate_steps": 9901,
+          "saved_instructions": 3319,
+          "fused_instruction_histogram": {
+            "one": 25,
+            "sub": 2877,
+            "add": 1119,
+            "mul": 128,
+            "bltz": 2432,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 6653,
+          "duplicate_steps": 10054,
+          "saved_instructions": 3401,
+          "fused_instruction_histogram": {
+            "one": 25,
+            "sub": 2877,
+            "add": 1190,
+            "mul": 128,
+            "bltz": 2432,
+            "accept": 1
+          }
+        }
+      ]
+    },
+    {
+      "lengths": [
+        16,
+        13
+      ],
+      "n": 32,
+      "butterflies": 240,
+      "fused_static_instructions": 20073,
+      "duplicate_static_instructions": 31833,
+      "owned_temporary_words": 736,
+      "output_words": 33,
+      "comparisons": [
+        {
+          "fused_steps": 14201,
+          "duplicate_steps": 22121,
+          "saved_instructions": 7920,
+          "fused_instruction_histogram": {
+            "one": 33,
+            "sub": 6725,
+            "add": 1410,
+            "mul": 304,
+            "bltz": 5728,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 15228,
+          "duplicate_steps": 23628,
+          "saved_instructions": 8400,
+          "fused_instruction_histogram": {
+            "one": 33,
+            "sub": 6725,
+            "add": 2437,
+            "mul": 304,
+            "bltz": 5728,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 15413,
+          "duplicate_steps": 24051,
+          "saved_instructions": 8638,
+          "fused_instruction_histogram": {
+            "one": 33,
+            "sub": 6725,
+            "add": 2622,
+            "mul": 304,
+            "bltz": 5728,
+            "accept": 1
+          }
+        }
+      ]
+    },
+    {
+      "lengths": [
+        64,
+        64
+      ],
+      "n": 128,
+      "butterflies": 1344,
+      "fused_static_instructions": 103751,
+      "duplicate_static_instructions": 169607,
+      "owned_temporary_words": 3712,
+      "output_words": 129,
+      "comparisons": [
+        {
+          "fused_steps": 73735,
+          "duplicate_steps": 118087,
+          "saved_instructions": 44352,
+          "fused_instruction_histogram": {
+            "one": 129,
+            "sub": 34901,
+            "add": 7280,
+            "mul": 1600,
+            "bltz": 29824,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 79413,
+          "duplicate_steps": 126822,
+          "saved_instructions": 47409,
+          "fused_instruction_histogram": {
+            "one": 129,
+            "sub": 34901,
+            "add": 12958,
+            "mul": 1600,
+            "bltz": 29824,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 81919,
+          "duplicate_steps": 131791,
+          "saved_instructions": 49872,
+          "fused_instruction_histogram": {
+            "one": 129,
+            "sub": 34901,
+            "add": 15464,
+            "mul": 1600,
+            "bltz": 29824,
+            "accept": 1
+          }
+        }
+      ]
+    },
+    {
+      "lengths": [
+        256,
+        256
+      ],
+      "n": 512,
+      "butterflies": 6912,
+      "fused_static_instructions": 507701,
+      "duplicate_static_instructions": 846389,
+      "owned_temporary_words": 17920,
+      "output_words": 513,
+      "comparisons": [
+        {
+          "fused_steps": 361525,
+          "duplicate_steps": 589621,
+          "saved_instructions": 228096,
+          "fused_instruction_histogram": {
+            "one": 513,
+            "sub": 171797,
+            "add": 34334,
+            "mul": 7936,
+            "bltz": 146944,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 391079,
+          "duplicate_steps": 636835,
+          "saved_instructions": 245756,
+          "fused_instruction_histogram": {
+            "one": 513,
+            "sub": 171797,
+            "add": 63888,
+            "mul": 7936,
+            "bltz": 146944,
+            "accept": 1
+          }
+        },
+        {
+          "fused_steps": 406526,
+          "duplicate_steps": 667219,
+          "saved_instructions": 260693,
+          "fused_instruction_histogram": {
+            "one": 513,
+            "sub": 171797,
+            "add": 79335,
+            "mul": 7936,
+            "bltz": 146944,
+            "accept": 1
+          }
+        }
+      ]
+    }
+  ]
+}

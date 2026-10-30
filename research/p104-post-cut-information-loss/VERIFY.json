@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz",
+    "research/p104-helper468-rung-removal/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate inputs and the pinned PR6040/PR6045 modules; class census equals PR6040 counts; exact rank and left-kernel tracker audit at every cut; brute-force tracker comparison; information-loss census and residual combination closure on PR6030 and PR5907; explicit PR5907 witness simulated directly with perturbations rejected; RESULT.json compared byte for byte."
+    }
+  ]
+}

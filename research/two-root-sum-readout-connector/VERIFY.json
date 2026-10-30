@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/universal-connector-boundary/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "945-pairing one-root control (max 31); fused-read census over 945 words x 30 root assignments (minimum 30, crossing bound met exactly); symbolic arbitrary-map and 600 dense dirty F2 replays of the literal 72-call schedule; five mutation controls rejected."
+    }
+  ]
+}

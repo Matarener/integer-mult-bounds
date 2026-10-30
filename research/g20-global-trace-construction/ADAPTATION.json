@@ -1,0 +1,27 @@
+{
+  "source": "research/g20-conjugation-admission/global_retirement.py",
+  "source_sha256": "2378fc4518bf9ee572ad1de8c2b93a1eeed025882bca1881691f5e252c3b1143",
+  "body_changes": [
+    [
+      " clock=process_time();controller=",
+      " controller="
+    ],
+    [
+      ";local=read(R/'WORD.json.gz')",
+      ""
+    ],
+    [
+      "(R/'GLOBAL.jsonl.gz')",
+      "(output/'GLOBAL.jsonl.gz')"
+    ],
+    [
+      "'CPU_seconds':process_time()-clock,",
+      ""
+    ],
+    [
+      "'owned_payload_episodes','CPU_seconds'",
+      "'owned_payload_episodes'"
+    ]
+  ],
+  "header": "\"\"\"Install a checked local G20 word in the full physical caller.\n\nAdapted from PR5708, PR5671 and ai-nanachi PR5512. All source checks\nremain. Ali Romman with OpenAI Codex assistance. Apache-2.0.\n\"\"\"\nfrom collections import Counter\nfrom hashlib import sha256\nimport gzip\nimport importlib.util\nimport json\n\n\ndef need(ok, message):\n    if not ok:\n        raise ValueError(message)\n\n\ndef compile_global(L, local, output):\n R, S = L.R, L.S\n read = L.read\n def put(name, value):\n  raw = (json.dumps(value, indent=2) + '\\n').encode()\n  (output/name).write_bytes(gzip.compress(raw, mtime=0) if name.endswith('.gz') else raw)\n"
+}

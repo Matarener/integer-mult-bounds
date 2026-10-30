@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-single-pass-qualification/inputs/PR5757.tar",
+    "research/selected-single-pass-qualification/INPUT-MANIFEST.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/checks.py"
+      ],
+      "timeout_seconds": 45,
+      "checks": "Tiny actual-adapter receipt equivalence against both literal interpreters, exact stage/invalidation/exception controls, before scientific replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/custody_controls.py"
+      ],
+      "timeout_seconds": 45,
+      "checks": "Seven actual proof-relevant source/export corruption controls reject before imports: engine, word, compiler, both entry points, expected oracle receipt and complete manifest."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/joint.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Fresh full scientific qualification: both unchanged original entry points, one complete source execution, original RESULT/CROSS, every actual state against both full literal interpreters, all original controls, and source bytes/modes unchanged."
+    }
+  ]
+}

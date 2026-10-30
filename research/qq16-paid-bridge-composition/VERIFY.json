@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/qq16-controller-scope-map.md",
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/joint-query/certificate.json.gz",
+    "research/joint-query/evidence/CONSERVED-QQ16.md",
+    "research/qq16-line-normalized-decoder/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete routed arbitrary-array composition, all phase/ownership/zero-return checks, signed native kernels, literal words and typed receipt; semantic negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Normal and optimized read-only replay; Git-free export; source/word/typed-receipt rejection and regeneration overwrite refusal."
+    }
+  ]
+}

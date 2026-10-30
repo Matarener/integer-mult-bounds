@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact expansion and corner identities on 200 rational triples; direct four-call word and its four one-call deletions on 82 noncommuting length-4 signatures (S3, S4, S5, Q8, free group); exhaustive exclusion of every word of length 1..3 for all 26 subset-class keys over F2 at widths 2 and 3 and over F3 at width 2; inverse-pair control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same checks under optimized execution; the verifier uses explicit exceptions, not assert."
+    }
+  ]
+}

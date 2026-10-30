@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Q8 product law against an independent table; i^3=zi, j^3=zj, z^2=1; eight witnesses replayed to exact diagonal endpoints; five complete breadth-first receipts that must exhaust every word on 1 and 2 roles to lengths 2 and 5 without reaching the target."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same receipt with assertions disabled; no check may depend on assert."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Behavioural controls: positive fixtures for the unmodified census, the witnesses and the legal-call enumeration; real rejections for a corrupted Q8 product law, a corrupted z involution, a bad paid label, a zero or out-of-range projector, even v^T u overlap, role capacity, an empty or unknown target, a truncated witness, a shrunk census limit, a corrupted parity bound, and a JSON receipt round trip."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+import json
+from pathlib import Path
+import sys
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE/'prototype'))
+from candidate import run
+
+result = run()
+(HERE/'SETUP-STATS.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')

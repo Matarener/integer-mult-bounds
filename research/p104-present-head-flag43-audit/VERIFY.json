@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-endpoint-geometric-budget/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Program-order scan of flag 43 hosting on X21 and Y59: literal frames, GF(2) span of the head and of the non-head basis vectors by row reduction, live source frame at each target update"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/independent.py"],
+      "timeout_seconds": 60,
+      "checks": "Per-register scan of the same flag-43 obstruction with explicit XOR-closure spans, subset search and bisected source-frame lookup"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/test_package.py"],
+      "timeout_seconds": 120,
+      "checks": "Duplicate JSON keys, temp-tree certificate and input corruption under -O, optimized admission, span negative control, reprint guard, scanner agreement, read-only replay"
+    }
+  ]
+}

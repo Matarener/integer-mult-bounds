@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the pinned C5 source statement; exact canonical counterexamples, literal mutual-zero graphs versus reciprocal classes, and semantic boundary controls. The general classification is proved analytically."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat exact source and graph controls under isolation, optimization and warnings-as-errors. No predecessor search replay or full F-star claim."
+    }
+  ]
+}

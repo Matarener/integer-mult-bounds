@@ -1,0 +1,84 @@
+{
+  "status": "STOP_ROUND2_INSUFFICIENT_CONSERVATIVE_MARGIN_BEFORE_COMPLETE_CONSTRUCTION",
+  "date": "2026-10-27",
+  "decision": "Accept scoped stop; no further implementation or measurement supported in this round",
+  "micro_result": {
+    "raw_status_preserved": "MICRO_PASS_REQUIRES_FULL_INCREMENTAL_COST_BILL",
+    "order": ["B", "C", "C", "B"],
+    "groups_per_arm": 32768,
+    "additions_per_arm": 98304,
+    "prefix_comparisons": 33,
+    "controls": 10,
+    "all_reported_pass": true,
+    "observations": [
+      {"arm": "B1", "wall_seconds": 0.08336172500276007, "cpu_seconds": 0.08278898000000001},
+      {"arm": "C1", "wall_seconds": 0.06712531601078808, "cpu_seconds": 0.06712270600000003},
+      {"arm": "C2", "wall_seconds": 0.06753551599103957, "cpu_seconds": 0.06753953200000001},
+      {"arm": "B2", "wall_seconds": 0.06991359798121266, "cpu_seconds": 0.069917697}
+    ],
+    "wall_paired_differences": [0.016236408991971985, 0.0023780819901730865],
+    "cpu_paired_differences": [0.01566627399999998, 0.0023781649999999876],
+    "all_samples_retained": true,
+    "counter_boundary": "Direct arm increments per-add dispatch counters; generic returns aggregate counts. No hypothetical counter-removal saving credited.",
+    "plan_prose_count_note": "All32 prefix phrase differs from implemented range(33), which verifies prefixes 0 through 32."
+  },
+  "economic_screen": {
+    "target_additions": 7739250,
+    "illustrative_gross_wall_seconds": 0.18722097821499695,
+    "illustrative_gross_cpu_seconds": 0.18722751338958643,
+    "parent_complete_wall_seconds": [32.771296680002706, 33.03183611499844, 32.57126763599808],
+    "parent_complete_cpu_seconds": [32.74, 32.95, 32.5],
+    "parent_wall_range_seconds": 0.4605684790003579,
+    "parent_cpu_range_seconds": 0.45,
+    "wall_margin_before_incremental_cost_seconds": -0.27334750078536096,
+    "cpu_margin_before_incremental_cost_seconds": -0.2627724866104164,
+    "actual_incremental_complete_bill_measured": false,
+    "optimistic_bill_used_for_stop_seconds": 0,
+    "reason": "Even zero added cost fails the conservative illustration plus observed-spread gate in both metrics; no integration is needed to reject this screen.",
+    "range_is_confidence_interval": false,
+    "illustration_bounds_true_gain": false
+  },
+  "verified_receipt": {
+    "exit": 0,
+    "stderr_bytes": 0,
+    "source_bytes_and_modes_unchanged": true,
+    "source_inventory_sha256": "dc576d82c24a9f00d0dc87a3cec52384716f046516ca300a5f73da7e9d37ebac",
+    "probe_cold_build_load_wall_seconds": 0.1481919409998227,
+    "whole_probe_wall_seconds": 0.709715356992092,
+    "cost_boundary": "These are probe costs, not the unmeasured incremental complete successor bill."
+  },
+  "coverage_boundary": "33 prefixes and ten probe controls passed; no claim that the full inherited 964/118 suite, prior19 dispatch controls or future cache-owned-kernel integration obligations have passed here",
+  "continuation_supported": ["preserve exact evidence", "record scoped stop and handoff"],
+  "continuation_not_supported_this_round": [
+    "repeat or adapt timing",
+    "drop or replace samples",
+    "change the primary statistic to reverse the decision",
+    "credit hypothetical counter removal",
+    "full-control integration",
+    "actual-word audit",
+    "complete construction",
+    "combine deferred mechanisms without a new nomination"
+  ],
+  "claim_boundary": "Engineering stop for insufficient evidence of complete incremental margin, not a bound on true native gain or a universal optimization obstruction; PR5864 remains the accepted measured result",
+  "reviewer_actions": {
+    "compiler_runs": 0,
+    "numerical_experiments": 0,
+    "measured_file_mutations": 0,
+    "external_posts": 0,
+    "receipt_arithmetic_recomputed": true,
+    "written_files": ["ROUND2-STOP-REVIEW.md", "ROUND2-STOP-REVIEW.json"]
+  },
+  "inspected_evidence": [
+    {"path": "outputs/fraction-native-score-add-20261027/feasibility/score_probe.c", "sha256": "ac5d282405e74f1f8cc4cddb768485709057d249dae370a16c063ab45327c2ea"},
+    {"path": "outputs/fraction-native-score-add-20261027/feasibility/micro.py", "sha256": "ad34e00ad7d0a9f192f4e3e89b1b7cc3b45d27d10063fa2dc1937e101cf60c09"},
+    {"path": "outputs/fraction-native-score-add-20261027/feasibility/probe_backend.py", "sha256": "393e1a4c0a04b31eaa0bc75e0ed90686b072a05cd6ad6193eac7e99cab812e16"},
+    {"path": "outputs/fraction-native-score-add-20261027/feasibility/runtime_binding.py", "sha256": "f2e74fef881cb49101338e40e2d84600e2c9d0e717dafb46a20d7217609d4c71"},
+    {"path": "outputs/fraction-native-score-add-20261027/runtime/runs/micro-native-direct-add/stdout.txt", "sha256": "52212bb5f8fd5bf877b6b2bebe65346c1ef201eaec1b2b0bfd560df4263fcac7"},
+    {"path": "outputs/fraction-native-score-add-20261027/runtime/runs/micro-native-direct-add/receipt.json", "sha256": "48f2a7ffdea2e2ae74833cf6d10b43bb1e9973acae4a077bbe5f8afaf33bd3b2"},
+    {"path": "outputs/fraction-native-cache-20261027/runtime/runs/C1/receipt.json", "sha256": "9763ceec4da7db54fc61cb7f8440ffbccc3b9f3b291d2bce485fe309319e68ba"},
+    {"path": "outputs/fraction-native-cache-20261027/runtime/runs/C2/receipt.json", "sha256": "56f0f5891a6efc138028647593e4221c63d19f3eebe161850928e0cc498a3579"},
+    {"path": "outputs/fraction-native-cache-20261027/runtime/runs/C3/receipt.json", "sha256": "410eac666993518da4194bc8d97898d27b2c419aca19dc17f4fe35afc9bd30c9"},
+    {"path": "outputs/fraction-15-percent-strategy-20261027/ROUND2-NOMINATION.md", "sha256": "201747b0da2dd28e84e1b35a9405142406e576b683394ecd4c1be4052fe8b4f1"},
+    {"path": "outputs/fraction-15-percent-strategy-20261027/ROUND2-NOMINATION.json", "sha256": "1fc1474532777f487c0fc2d58ddc2f35acbd9c565a83fa457b7fd858b8f23d2e"}
+  ]
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/private/tmp/pr4470-review/research/stage-zero-forced-translation/verify.py", line 128, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/private/tmp/pr4470-review/research/stage-zero-forced-translation/verify.py", line 67, in main
+    need(hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["sha256"], row["path"])
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/pr4470-review/certificates/selected-result.json'

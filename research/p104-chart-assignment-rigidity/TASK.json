@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "task_id": "selected-packing",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "selected-packing",
+    "question": "Is there meaningful uncovered packing headroom for an exact current word and boundary contract?",
+    "starting_points": [
+      "docs/research/current-priorities.md",
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+      "docs/research/recursive-invoice-preflight.md"
+    ],
+    "methods": [
+      "Construct and independently check one source-bound instance of the stated first experiment.",
+      "Seek an exact counterexample or target-specific complete-budget obstruction to that same proposed change."
+    ],
+    "acceptance_gate": "Check live overlap and exact model/source binding first. Distinguish a chronological construction from a pooled optimum. State the applicable fixed-inventory ceiling and remaining headroom; changed words or interfaces require a new fully charged model. Do not launch a residual search without an explicit scope and time cap.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read revision 8, the selected review and live exact-source handoffs. Then follow this card's bounded first_experiment.",
+      "scope": "Source-bound orientation only, not a supplier replay or theorem proof."
+    },
+    "first_experiment": "Derive or authenticate a ceiling for the exact current paid/target inventory before searching. Old #1240/#4091 caps do not constrain #5599 automatically. Require an unclaimed domain, time cap and useful complete margin. Stop at the applicable ceiling; change the word or boundary instead of adding seeds.",
+    "bottleneck_link": "Judge the actual current supplier contract and complete signed target/paid bill; frozen-profile ceilings require an applicability proof.",
+    "allowed_variations": [
+      "One exact source head, helper/cut region or quantified proposition and changed hypothesis; check live handoffs first. Different seeds are not different scopes."
+    ],
+    "scope_change_triggers": [
+      "Changing source head, helper/cut domain, operation alphabet or caller boundary without recording the new scope.",
+      "Treating an archived proposal or local numerical pass as complete supplier admission."
+    ],
+    "overlap_terms": [
+      "T16",
+      "owner exchange",
+      "packing",
+      "4091",
+      "4088",
+      "staged-fourth-mixture-ceiling",
+      "staged544-mixed-fourth-entry"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4091: pooled optimum at one-third staging for pinned fixed words; not a chronological fill.",
+        "evidence": "research/staged-fourth-mixture-ceiling/README.md",
+        "remaining": "Independent scope/source check; any residual optimization is explicitly bounded and optional.",
+        "status": "author-checked",
+        "source_commit": "a29bdd8f56cd18b805917775cdec09ff935eddc4",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4088: later 1090-call literal fill improves the earlier 1080-call witness.",
+        "evidence": "research/staged544-mixed-fourth-entry/README.md",
+        "remaining": "Complete admission remains separate; old residual-bin instructions must not be copied blindly.",
+        "status": "author-checked",
+        "source_commit": "72d7efc181edb21806a878f174847c96dd410ab0",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "Selected PR5599: complete helper-subspace construction and independent caller replay; five framework assumptions remain.",
+        "evidence": "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+        "remaining": "The next experiment must identify uncovered source-specific work. Successor archive intake does not transfer this admission.",
+        "status": "reviewed",
+        "source_commit": "09dd0965711ca7eeb169057a420abab1c9052137",
+        "selected_record_sha256": "2a0220e866417774606e0f991e41b9c1d26b1f43b97857238cf478dbc7d330b5"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Chart-assignment headroom of the exact PR6030 local P104 word (and, for comparison, the PR5907 and PR5827 words): edits that keep the scalar program's events and change only frames, MOVEs or commuting event timing, priced by PR5827 local.py's paid-rank rule and replayed by its unmodified replay.",
+  "scope_change_reason": "The fixed-invoice packing ceiling of PR6030 is already its raw crossing (PROOF-REVIEW.md), so the next packing question is whether the paid profile itself has slack that needs no scalar rewrite. This tests the one degree of freedom that the paid rank rule exposes: which chart each register occupies when.",
+  "bottleneck_link": "Complex binds the selected outer assembly (main_transform). Each complex step since PR5811 changed the local paid profile; this shows that, for the PR6030 word, such a step cannot come from re-charting or retiming alone in the four tested classes and must change the scalar program (as PR5827, PR5907 and PR6030 did).",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at one exhaustive pass of each class over the three words with positive controls; any positive proposal would be handed to the full PR5827 chain rather than claimed.",
+  "outcome": "negative-result",
+  "evidence": "verify.py: classes A-E on PR6030/PR5907/PR5827 words, zero positive proposals; three synthetic controls on PR6030 (inserted unread rung found by A-D; worsened meeting chart found by B, C and E; rung holding two SCALEs found by A and B), every class A proposal and every positive class B proposal replayed by PR5827 local.py, class E priced by the nesting rule. RESULT.json is regenerated and compared byte for byte.",
+  "author": "Josie Elliston",
+  "ai_assistance": "Claude Opus 5.5 (Anthropic) via Claude Code wrote the census and package; the author supervised an unattended overnight run.",
+  "open_questions": [
+    {
+      "question": "Can read rerouting (a register reading a source directly instead of through an intermediate register, as in PR6030 where helper 268 reads 2*704 at frame 714 and helper 560 no longer reads 704 at frame 612) be searched systematically, and does it expose stays that classes A-E can then delete?",
+      "why_it_matters": "All three recent complex steps were of this shape; this package shows chart edits alone are exhausted, so the scalar rewrite is the step that creates headroom.",
+      "first_step": "Using the exact row replay of PR5827 local.py, list every ADD d += q*k whose source k carries a single-source term that k receives at a frame d never visits; test whether d can take that term directly at a frame it shares with the source, then rerun classes A-E on the rewritten word.",
+      "blocked_by": "Needs a rewrite engine that keeps every row identity; PR5827 local.py can serve as the exact checker."
+    },
+    {
+      "question": "Do re-charts of three or more linked meetings, or of linked pairs over arbitrary (unlisted) subspaces, find a gain that classes C and E miss?",
+      "why_it_matters": "Class C is coordinate-wise and class E covers pairs over listed frames only; a concave rank cost can reward larger joint moves.",
+      "first_step": "Extend class E to arbitrary subspaces between the pair's outer bounds, then to chains of three meetings.",
+      "blocked_by": "None; it is a bounded extension of class C."
+    }
+  ]
+}

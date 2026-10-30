@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-cross-call-paid-reuse/inputs/DATA-PHASES.json",
+    "research/p104-cross-call-paid-reuse/inputs/NOTICE5718",
+    "research/p104-cross-call-paid-reuse/inputs/clifford_exact.py",
+    "research/p104-cross-call-paid-reuse/inputs/controller5718.json",
+    "research/p104-cross-call-paid-reuse/inputs/native_verify.py",
+    "research/p104-cross-call-paid-reuse/inputs/result5718.json",
+    "research/p104-cross-call-paid-reuse/inputs/word5718.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/experiment.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All versioned paid rows, exact helper quotients, all separately aligned cache subsets under the full necessary cost budget, native phases, full invoice and positive/stale/access controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/experiment.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same full deterministic receipts and controls with Python assertions disabled."
+    }
+  ]
+}

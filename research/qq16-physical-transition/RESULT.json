@@ -1,0 +1,102 @@
+{
+  "abi_obstruction": {
+    "first_symbol": "^ rather than a two-complement bit",
+    "independent_origin_translation": "cannot change stride L to W or split one payload tape into two heads",
+    "n73_lambda1_W4": {
+      "L": 5412,
+      "d": 5402,
+      "first_real_payload_offset": 5404,
+      "misread_field": "first imaginary component, e.g. 1 instead of second real component0",
+      "second_bare_real_offset": 5408,
+      "second_tagged_real_offset": 10816
+    },
+    "native_wrapper": "q19 negative recipe cannot be replaced by a bare coordinate axis"
+  },
+  "contract": {
+    "C": "S*L+2",
+    "H": "C+gap, gap>=0",
+    "L": "d+2*W+2",
+    "M": ">=1",
+    "P": "2*S*W",
+    "S": "M*2^(n*lambda)",
+    "W": ">=2 stored bits/component",
+    "buffers": 0,
+    "d": "n*n+n*lambda",
+    "destination_window": "[a+H,a+H+C-1]",
+    "initial_and_final_head": "a",
+    "lambda": ">=1",
+    "n": ">=1",
+    "other_five_tapes": "arbitrary unchanged spectators",
+    "owned_gap": "included in traversable envelope",
+    "source_window": "[a,a+C-1]"
+  },
+  "exact_cell_actions": {
+    "MOVE": "2*P*H+2*(d+2)",
+    "READ": "P",
+    "TOTAL": "2*P*(H+1)+2*(d+2)",
+    "WRITE": "P"
+  },
+  "finite_meter": {
+    "cases": 10,
+    "cell_actions": 157760,
+    "controls": [
+      "wrong destination offset",
+      "omit head return",
+      "overwrite source",
+      "overwrite tag",
+      "intervening destination use"
+    ],
+    "paired_transfer_orders": 24
+  },
+  "predecessor_heads": {
+    "3394": "daf052a106a8ff492bafdb4adaae1cc9ca5c9fff",
+    "3884": "2f25b8a68ee676031bcf590c2a95c96a3165dde6",
+    "4015": "0fff81d8997cef646538bcd4f60d7d455cf93b8e"
+  },
+  "saving_against_identical_copy_with_destination_read": "P=2*S*W READ actions, no movement credit",
+  "scope": {
+    "no_global_optimality": true,
+    "no_new_kappa": true,
+    "proved": "one conditional local physical copy and direct-composition obstruction",
+    "unknown": [
+      "actual caller windows/head placement",
+      "signed-grid and range at1707",
+      "tag/raw reformat",
+      "native wrapper movement",
+      "map1706 full physical admission",
+      "remaining accumulations/consumer/whole supplier"
+    ]
+  },
+  "source_boundary": {
+    "aligned_add_frame": "F16, axes9 through24",
+    "bare_axis_witness": {
+      "bare_axis_nonzero_coordinates": [
+        0,
+        1
+      ],
+      "correct_nonzero_coordinates": [
+        0,
+        19
+      ],
+      "input": "2*real delta_0, W>=3"
+    },
+    "copy_event": 1708,
+    "native_q": 19,
+    "native_recipe_columns_checked": 512,
+    "native_sign": -1,
+    "paid_zero_event": 1697,
+    "role": "Q1 in Z2",
+    "source_events": [
+      1704,
+      1705,
+      1706,
+      1707,
+      1708,
+      1709,
+      1710,
+      1711
+    ],
+    "work_bank": "Z10"
+  },
+  "status": "PASS_SCOPED_PHYSICAL_COPY_AND_ABI_OBSTRUCTION"
+}

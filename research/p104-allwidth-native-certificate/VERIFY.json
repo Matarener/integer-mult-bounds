@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.3.5"
+  ],
+  "inputs": [
+    "research/p104-helper-subspace-splits/WORD.json.gz",
+    "research/p104-helper-subspace-splits/RESULT.json",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/selected-monomial-tape-lift/lift.py",
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Pinned inputs; word census equals the author's invoice (3,447 MOVE occurrences, paid rank mass 6014, 540 helpers, 104 ports); all 1,089 canonical charts built as dense 512x512 exact matrices, unitary, column support 2^|W|; every one of the 2,887 distinct MOVE chart changes Gamma_b Gamma_a^-1 equals its lowered recipe entrywise with absolute phase and has support rank = recipe rank = |dim b - dim a|; 540 helper pairs strictly productive with the author's rank profile; 2,923 distinct maps; 208 main adapters are Gaussian monomials equal to Gamma_<q> C_q^-1 and F9 C_q^-1 Gamma_final^-1; recipe payload SHA-256 equals the author's registered hash; first MOVE (event 9589) equals ((1+i)I+(1-i)X_11 Z_3)/2, its factorwise tensor lift equals U^(x)f and the termwise lift fails at widths 2 and 3; every distinct monomial factor executes as an f-independent record list (f=1 exhaustive, f=2,3 sampled) within the 171-record grammar bound; RESULT.json equals the rebuild."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Rejecting controls: pinned-input drift, a left-factor phase mutation, an offset toggle, reversed factor order, a conjugated child, an extra Fourier axis, a chart with the uncomplemented Gram diagonal, a termwise tensor lift, a rank-one Gaussian offered as a monomial, a tampered RESULT.json."
+    }
+  ]
+}

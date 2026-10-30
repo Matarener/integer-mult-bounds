@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "3f0152a32eeebac0df11946dbd50cabe5a7f7839",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Accelerate the complete frozen PR6111 replay by replacing its concrete rational subset-set expansion with an exact integer meet-in-the-middle support join; retain every split, target predicate, lattice check, existing control and complete output.",
+  "scope_change_reason": "Original verifier-engineering question on the replay-runtime card. This is a performance mechanism, not a theorem extension or audit of the predecessor.",
+  "bottleneck_link": "The measured concrete subset scan dominates a complete exact BIT obstruction replay. Reducing this cost improves future mechanism-screening throughput without changing mathematical acceptance.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first complete-command speedup exceeding five-pair timing noise with exact output and full concrete support-mask agreement; otherwise hand off the negative performance finding.",
+  "outcome": "completed",
+  "evidence": "Generated five-pair benchmark: 71.4% less complete-command median elapsed time, 10 identical successful outputs. Exact agreement on 46916 concrete four-target support masks, 420 small rational fixtures and seven rejections. Written predicate-equivalence proof. No new mathematical endpoint theorem.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can the unchanged symbolic support-classification stage benefit from a separate exact integer formulation?",
+      "why_it_matters": "It may become the dominant cost after the concrete scan is accelerated.",
+      "first_step": "Profile the complete accelerated command and state a distinct equivalence contract before changing that stage.",
+      "blocked_by": "No such implementation or measurement is supplied here."
+    }
+  ],
+  "coordination_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19267812"
+}

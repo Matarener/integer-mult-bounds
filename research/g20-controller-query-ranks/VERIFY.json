@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-conjugation-admission/GLOBAL.jsonl.gz",
+    "research/g20-conjugation-admission/INVOICE.json",
+    "research/g20-conjugation-admission/prior/prior/prior/source/PROOF.md",
+    "research/g20-conjugation-admission/prior/prior/prior/source/vendor/g20/inputs/CONTROLLER.json",
+    "research/g20-helper-split/GLOBAL.jsonl.gz",
+    "research/g20-helper-split/INVOICE.json",
+    "research/g20-helper-split/prior/prior/source/vendor/g20/inputs/CONTROLLER.json",
+    "research/g20-independent-review/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate eight inputs, derive and bind 4,995 controller queries in each actual stream, verify 1,665 thin scratch episodes each, run self-contained reversal/projector and 17 semantic mutations, live wrong-rank and source-byte rejection."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same complete consumer checks and explicit rejecting controls with optimized Python."
+    }
+  ]
+}

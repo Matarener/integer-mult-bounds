@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-delayed-shared-relay/inputs/pr5601-CHANGES.json",
+    "research/p104-delayed-shared-relay/inputs/pr5601-construct.py",
+    "research/p104-delayed-shared-relay/inputs/pr5606-prepared.py",
+    "research/p104-delayed-shared-relay/inputs/pr5606-pricing.py",
+    "research/p104-delayed-shared-relay/inputs/pr5606-construct.py",
+    "research/p104-delayed-shared-relay/inputs/pr5608-source.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate source export and all nested payloads; reconstruct every stage, thirteen exact cuts,747 independent inputs and nine owned roles; check dense transpose, signed native maps, complete physical caller, paid/target/ordinary bill, two interval engines, compiler and58 outer predicates; reject five corruptions and compare complete receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate source export and all nested payloads; reconstruct every stage, thirteen exact cuts,747 independent inputs and nine owned roles; check dense transpose, signed native maps, complete physical caller, paid/target/ordinary bill, two interval engines, compiler and58 outer predicates; reject five corruptions and compare complete receipt."
+    }
+  ]
+}

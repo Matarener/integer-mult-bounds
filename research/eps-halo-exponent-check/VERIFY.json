@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "#4439/#4442 epsilon route: split identity (grid-proved), exact gap 1/(16p^2-1), exponents 12/26/28/28 and normalizer 6 for p=2..64 plus all-p arguments, every 'fails' entry, p=2 tightness 63*63>62*64, bare-kernel example."
+    }
+  ]
+}

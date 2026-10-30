@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-coupled-helper-bases/PROOF.md",
+    "research/p104-coupled-helper-bases/WITNESS.json",
+    "research/p104-coupled-helper-bases/construct.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source hashes, all 18 pinned basis interfaces, complete small dual-pair census, dense inverse identities and invalid-input controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source hashes, all 18 pinned basis interfaces, complete small dual-pair census, dense inverse identities and invalid-input controls."
+    }
+  ]
+}

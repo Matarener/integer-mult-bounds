@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "python": "CPython3.12.1",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "latest_predecessor": {
+    "pr": 3366,
+    "head": "3f59a00257b3e29ad54e349f826d5ffdc59f7cfb"
+  },
+  "checks": [
+    "Private candidate full eleven-stage strict replay and exact typed invoice comparison passed.",
+    "Both supplier paths, seven-step bootstraps and47strict outer inequalities each passed.",
+    "Nine behavioral groups passed normal and optimized Python.",
+    "Independent private construction from PR3366 plus exact three-role cycle matches every canonical row; 11rows change including offsets.",
+    "Package metadata and source pins pass."
+  ],
+  "commands": [
+    "python3.12 -Werror -B research/t16-post-unlock-cycle/verify.py --work /absolute/new/output --write",
+    "python3.12 -Werror -B research/t16-post-unlock-cycle/test_verify.py",
+    "python3.12 -O -Werror -B research/t16-post-unlock-cycle/test_verify.py",
+    "python3.12 -B scripts/research_package.py --package research/t16-post-unlock-cycle --check-only"
+  ],
+  "not_claimed": [
+    "HostedCI",
+    "Fresh full cold native rebuilding",
+    "Independent human review",
+    "Formal kernel proof",
+    "Unconditional multiplication theorem"
+  ]
+}

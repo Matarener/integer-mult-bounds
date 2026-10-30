@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged-entry-release-audit/inputs/NEW-base.json.gz",
+    "research/staged-entry-release-audit/inputs/NEW-extra.json.gz",
+    "research/staged-entry-release-audit/inputs/OLD-base.json.gz",
+    "research/staged-entry-release-audit/inputs/OLD-extra.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact two-provider eight-subset free-group boundary defect, regenerated projected cleanup and 28 rejections."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate raw-word noncommuting 2x2 exact oracle, actual source cleanup and six complete input assignments."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_algebra.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Noncommutativity, rational cancellation, alias and rank-two minor controls."
+    }
+  ]
+}

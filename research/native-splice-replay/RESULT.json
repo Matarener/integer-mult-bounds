@@ -1,0 +1,524 @@
+{
+  "status": "PASS_NATIVE_SPLICE_FULL_IDEAL_REPLAY",
+  "local_rules": [
+    {
+      "direction": "forward",
+      "source_indices": [
+        18895,
+        18900
+      ],
+      "new_indices": [
+        18895,
+        18899
+      ],
+      "old_cost": 52,
+      "new_cost": 42,
+      "columns": 5
+    },
+    {
+      "direction": "forward",
+      "source_indices": [
+        20180,
+        20185
+      ],
+      "new_indices": [
+        20179,
+        20183
+      ],
+      "old_cost": 52,
+      "new_cost": 42,
+      "columns": 5
+    },
+    {
+      "direction": "forward",
+      "source_indices": [
+        21531,
+        21556
+      ],
+      "new_indices": [
+        21529,
+        21556
+      ],
+      "old_cost": 244,
+      "new_cost": 224,
+      "columns": 27
+    },
+    {
+      "direction": "forward",
+      "source_indices": [
+        22007,
+        22044
+      ],
+      "new_indices": [
+        22007,
+        22046
+      ],
+      "old_cost": 418,
+      "new_cost": 358,
+      "columns": 39
+    },
+    {
+      "direction": "backward",
+      "source_indices": [
+        18895,
+        18900
+      ],
+      "new_indices": [
+        18895,
+        18899
+      ],
+      "old_cost": 52,
+      "new_cost": 42,
+      "columns": 5
+    },
+    {
+      "direction": "backward",
+      "source_indices": [
+        20180,
+        20185
+      ],
+      "new_indices": [
+        20179,
+        20183
+      ],
+      "old_cost": 52,
+      "new_cost": 42,
+      "columns": 5
+    },
+    {
+      "direction": "backward",
+      "source_indices": [
+        21531,
+        21556
+      ],
+      "new_indices": [
+        21529,
+        21556
+      ],
+      "old_cost": 244,
+      "new_cost": 224,
+      "columns": 27
+    },
+    {
+      "direction": "backward",
+      "source_indices": [
+        22007,
+        22044
+      ],
+      "new_indices": [
+        22007,
+        22046
+      ],
+      "old_cost": 418,
+      "new_cost": 358,
+      "columns": 39
+    }
+  ],
+  "retained_event_segments": {
+    "forward": [
+      {
+        "old_range": [
+          0,
+          18894
+        ],
+        "new_start": 0
+      },
+      {
+        "old_range": [
+          18901,
+          20179
+        ],
+        "new_start": 18900
+      },
+      {
+        "old_range": [
+          20186,
+          21530
+        ],
+        "new_start": 20184
+      },
+      {
+        "old_range": [
+          21557,
+          22006
+        ],
+        "new_start": 21557
+      },
+      {
+        "old_range": [
+          22045,
+          22632
+        ],
+        "new_start": 22047
+      }
+    ],
+    "backward": [
+      {
+        "old_range": [
+          0,
+          18894
+        ],
+        "new_start": 0
+      },
+      {
+        "old_range": [
+          18901,
+          20179
+        ],
+        "new_start": 18900
+      },
+      {
+        "old_range": [
+          20186,
+          21530
+        ],
+        "new_start": 20184
+      },
+      {
+        "old_range": [
+          21557,
+          22006
+        ],
+        "new_start": 21557
+      },
+      {
+        "old_range": [
+          22045,
+          22632
+        ],
+        "new_start": 22047
+      }
+    ]
+  },
+  "original": {
+    "forward": {
+      "prefix": {
+        "direction": "forward",
+        "endpoint": "identity-shear",
+        "independent_persistent_input_fields": 632,
+        "independently_initialized_owned_C_fields": 1,
+        "owned_C_fields_zero_at_exit": true,
+        "all_408_helpers_exactly_restored_in_logical_coordinates": true,
+        "all_scalar_frames_checked": true,
+        "all_new_coefficients_dyadic": true,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17453,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "real_scalar_allowance": 158120,
+        "prefix": {
+          "max_formal_row_l1": "457",
+          "max_abs_coefficient": "32",
+          "max_abs_numerator": 32,
+          "max_denominator": 32,
+          "l1_witness": {
+            "event": 20028,
+            "role": [
+              "L",
+              224
+            ]
+          },
+          "scope": "Exact logical ideal prefixes; no rounded recursive error bound."
+        },
+        "exact_endpoint": true,
+        "mismatch_examples": []
+      },
+      "independent_literal": {
+        "direction": "forward",
+        "clean_J": false,
+        "independent_borrowed_input_fields": 632,
+        "original_data_fields": 224,
+        "expected_restored_helpers": 408,
+        "expected_restored_arbitrary_cleanup_buffers": 0,
+        "explicitly_owned_C_fields_cleared": 1,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17453,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "conservative_real_scalar_primitive_allowance": 158120,
+        "all_scalar_frames_checked": true,
+        "dyadic_coefficients_and_unit_scales_checked": true,
+        "free_warp_operator_endpoint_matches": true,
+        "negative_control_omitted_last_cleanup_scalar": false,
+        "mismatch_examples": []
+      },
+      "semantic_word_sha256": "b1ea6c3f84198bb94fe13584a483b2fec9a465a8f8f50be09759e9905c70520f"
+    },
+    "backward": {
+      "prefix": {
+        "direction": "backward",
+        "endpoint": "identity-shear",
+        "independent_persistent_input_fields": 632,
+        "independently_initialized_owned_C_fields": 1,
+        "owned_C_fields_zero_at_exit": true,
+        "all_408_helpers_exactly_restored_in_logical_coordinates": true,
+        "all_scalar_frames_checked": true,
+        "all_new_coefficients_dyadic": true,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17453,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "real_scalar_allowance": 158168,
+        "prefix": {
+          "max_formal_row_l1": "169",
+          "max_abs_coefficient": "5",
+          "max_abs_numerator": 21,
+          "max_denominator": 64,
+          "l1_witness": {
+            "event": 6804,
+            "role": [
+              "L",
+              225
+            ]
+          },
+          "scope": "Exact logical ideal prefixes; no rounded recursive error bound."
+        },
+        "exact_endpoint": true,
+        "mismatch_examples": []
+      },
+      "independent_literal": {
+        "direction": "backward",
+        "clean_J": false,
+        "independent_borrowed_input_fields": 632,
+        "original_data_fields": 224,
+        "expected_restored_helpers": 408,
+        "expected_restored_arbitrary_cleanup_buffers": 0,
+        "explicitly_owned_C_fields_cleared": 1,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17453,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "conservative_real_scalar_primitive_allowance": 158168,
+        "all_scalar_frames_checked": true,
+        "dyadic_coefficients_and_unit_scales_checked": true,
+        "free_warp_operator_endpoint_matches": true,
+        "negative_control_omitted_last_cleanup_scalar": false,
+        "mismatch_examples": []
+      },
+      "semantic_word_sha256": "ede3de3b4b6b2adedbd23bae71d14a5c082c7f067a4ae7a207605be29769e37e"
+    }
+  },
+  "rewritten": {
+    "forward": {
+      "prefix": {
+        "direction": "forward",
+        "endpoint": "identity-shear",
+        "independent_persistent_input_fields": 632,
+        "independently_initialized_owned_C_fields": 1,
+        "owned_C_fields_zero_at_exit": true,
+        "all_408_helpers_exactly_restored_in_logical_coordinates": true,
+        "all_scalar_frames_checked": true,
+        "all_new_coefficients_dyadic": true,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17455,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "real_scalar_allowance": 158020,
+        "prefix": {
+          "max_formal_row_l1": "457",
+          "max_abs_coefficient": "32",
+          "max_abs_numerator": 32,
+          "max_denominator": 32,
+          "l1_witness": {
+            "event": 20027,
+            "role": [
+              "L",
+              224
+            ]
+          },
+          "scope": "Exact logical ideal prefixes; no rounded recursive error bound."
+        },
+        "exact_endpoint": true,
+        "mismatch_examples": []
+      },
+      "independent_literal": {
+        "direction": "forward",
+        "clean_J": false,
+        "independent_borrowed_input_fields": 632,
+        "original_data_fields": 224,
+        "expected_restored_helpers": 408,
+        "expected_restored_arbitrary_cleanup_buffers": 0,
+        "explicitly_owned_C_fields_cleared": 1,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17455,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "conservative_real_scalar_primitive_allowance": 158020,
+        "all_scalar_frames_checked": true,
+        "dyadic_coefficients_and_unit_scales_checked": true,
+        "free_warp_operator_endpoint_matches": true,
+        "negative_control_omitted_last_cleanup_scalar": false,
+        "mismatch_examples": []
+      },
+      "semantic_word_sha256": "760c2c54f8232450b18591096d270cf5e1660d564de63d47c4b16bf47788d1e2"
+    },
+    "backward": {
+      "prefix": {
+        "direction": "backward",
+        "endpoint": "identity-shear",
+        "independent_persistent_input_fields": 632,
+        "independently_initialized_owned_C_fields": 1,
+        "owned_C_fields_zero_at_exit": true,
+        "all_408_helpers_exactly_restored_in_logical_coordinates": true,
+        "all_scalar_frames_checked": true,
+        "all_new_coefficients_dyadic": true,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17455,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "real_scalar_allowance": 158068,
+        "prefix": {
+          "max_formal_row_l1": "169",
+          "max_abs_coefficient": "5",
+          "max_abs_numerator": 21,
+          "max_denominator": 64,
+          "l1_witness": {
+            "event": 6804,
+            "role": [
+              "L",
+              225
+            ]
+          },
+          "scope": "Exact logical ideal prefixes; no rounded recursive error bound."
+        },
+        "exact_endpoint": true,
+        "mismatch_examples": []
+      },
+      "independent_literal": {
+        "direction": "backward",
+        "clean_J": false,
+        "independent_borrowed_input_fields": 632,
+        "original_data_fields": 224,
+        "expected_restored_helpers": 408,
+        "expected_restored_arbitrary_cleanup_buffers": 0,
+        "explicitly_owned_C_fields_cleared": 1,
+        "event_counts": {
+          "phase": 10,
+          "warp": 240,
+          "scalar": 17455,
+          "adapter": 978,
+          "residual_adapter": 390,
+          "climb": 3546,
+          "center": 16
+        },
+        "paid_profile": {
+          "1": 2487,
+          "2": 713,
+          "3": 232,
+          "4": 102,
+          "5": 28
+        },
+        "paid_rank_mass": 5157,
+        "conservative_real_scalar_primitive_allowance": 158068,
+        "all_scalar_frames_checked": true,
+        "dyadic_coefficients_and_unit_scales_checked": true,
+        "free_warp_operator_endpoint_matches": true,
+        "negative_control_omitted_last_cleanup_scalar": false,
+        "mismatch_examples": []
+      },
+      "semantic_word_sha256": "45e470e2d8014c24c61216f685e132873cab0948ec48d21728b5811e0f855dd4"
+    }
+  },
+  "columns_per_orientation": 633,
+  "persistent_fields": 632,
+  "original_owned_fields": 1,
+  "additional_owned_fields": 0,
+  "paid_calls_per_orientation": 3562,
+  "paid_rank_mass_per_orientation": 5157,
+  "scalar_saving_per_orientation": 100,
+  "unchanged_global_ideal_prefix_envelopes": true,
+  "new_kappa": false,
+  "rounded_induction_checked": false,
+  "physical_phase_recipes_regenerated": false
+}

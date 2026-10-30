@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/one-sided-six-multisets/data/data.txt",
+    "research/p112-root-simplex-exclusion/PROOF.md",
+    "research/p112-root-simplex-exclusion/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 4,097,782 binary five/six-spaces in each of three normal orbits, capacities, exact cover profiles, label transport and chamber finite facts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Separate 11,969,496 affine-space reconstruction, complete eligible section and cover digests, literal five-site coefficient boundary."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Five-site positive boundary, relaxed-limit rejection, binary-rank examples, invalid dimensions, typed receipts and four actual optimized CLI mutations."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "scope": "Exact isolated four-wire scalar certificate; not the complete physical caller or multiplication theorem.",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "checks": [
+    {
+      "command": "python3 -B scripts/research_package.py --package research/g20-isolated-exchange-floor",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE; normal and -O complete replays and all five semantic controls pass"
+    },
+    {
+      "command": "python3 -B research/g20-isolated-exchange-floor/generate.py --output /workspace/work/g20-seed16/regenerated; compare both generated artifacts",
+      "result": "Both distances.bin and CERTIFICATE.json reproduce byte-for-byte"
+    },
+    {
+      "command": "Absolute Python -I -O -B verify.py from an isolated read-only copy with empty PATH",
+      "result": "PASS_G20_ISOLATED_EXCHANGE_FLOOR; every copied file byte and mode unchanged",
+      "elapsed_seconds": 0.861,
+      "receipt_sha256": "2697e675e8e38d77f522dfc2b0df48dd072ae8e598c9d04a0828aee8b2ca17f1"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS before staging; repeated in final handoff"
+    }
+  ],
+  "scientific_files": {
+    "verify.py": "9fabaa8c4bf46cff1f709e73577d7d2d091a12bd22e886b8b564601368817ac7",
+    "generate.py": "6b8cdaeb20d92d2db90de1c81681fa14299fd6b506a23a0e7f68041f0c3f04e5",
+    "distances.bin": "43622fae75a82ef1e45d50213f195f16ab93c82aa0c359116aab6e4694e8fc45",
+    "CERTIFICATE.json": "559a65be01e1dcc677ab29c902187503e9dd80a67337ba456226f1a0908ee939",
+    "inputs/CONTROLLER.json": "978536e852c0cfbc150f143e19d2cfddbb434bac6017d914974eb99f641593a8"
+  },
+  "unrun": [
+    "Complete PR5840 physical/native/caller replay",
+    "Repository-wide historical suites",
+    "Lean or Docker",
+    "Full source-history provenance preflight (not run for this scalar-only certificate)"
+  ],
+  "publication": "Exact final commit, official committed-package export, push and PR status are separate handoff evidence; no hosted CI success claimed."
+}

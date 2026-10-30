@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "5e0052ca0aa3036a3afa8b0438927377c8d97d53",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact all-width spectrum and sharp uniform Riesz/conditioning bounds for the full one-qubit Clifford tensor Gram, with a sharp missing-class Hilbert-Schmidt distance corollary.",
+  "scope_change_reason": "PR5526 explicitly leaves the best full-Clifford spectral constant open. PR5549 solves the one-qubit rank threshold but does not give quantitative spectral bounds. This scoped algebraic refinement replaces a proof-assistant campaign; no formal-kernel proof is claimed.",
+  "bottleneck_link": "Quantitative native-algebra separation prevents unsupported exact/approximate interface claims; this small-alphabet result supplies no selected-supplier or kappa gain.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish one self-contained all-width spectral certificate, exact controls and frozen handoff; no larger-qubit census or physical circuit expansion.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, RESULT.json and exact normal/optimized verifier output; finite joint projector certificate, independent characteristic polynomials and literal tensors.",
+  "author": "MatShep",
+  "ai_assistance": "Substantial OpenAI Codex assistance: actual GPT-6.1 Sol/xhigh research, derivation, implementation, verification and documentation. Publication is reserved for actual GPT-6 Astra/high brief review; no independent human or formal-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can exact best spectral bounds for the full two-qubit Clifford tensor Gram be obtained without constructing its full Gram matrix?",
+      "why_it_matters": "This would sharpen quantitative interface separation beyond the one-qubit case.",
+      "first_step": "Use a symmetry/Pauli decomposition to reduce the projective Gram before an exact bounded computation; retain the central residue.",
+      "blocked_by": "The11520 projective classes make naive exact dense diagonalization unsuitable; no such computation is included."
+    }
+  ]
+}

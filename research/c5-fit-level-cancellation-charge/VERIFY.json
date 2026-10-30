@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/c5-dyadic-decoder-gate/inputs/DATA-PHASES.json.gz",
+    "research/c5-dyadic-decoder-gate/inputs/MATCHING.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticate sources; 23 C5 census; named-support domination 2547216 rectangles; floors 45 and 561/16 beat 180/7; exact RESULT receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Independent dense elimination and chordless-path census; same named-support domination and floors"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Behavioral and source-corruption controls under -O admission"
+    }
+  ]
+}

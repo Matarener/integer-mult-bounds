@@ -1,0 +1,102 @@
+{
+  "status": "PASS_SOURCE_BOUND_P1045599_FINITE_REPLAYS",
+  "source_head": "09dd0965711ca7eeb169057a420abab1c9052137",
+  "kappa": "62009/20000000",
+  "guards": {
+    "primary": {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
+        "-B",
+        "-I",
+        "source/research/p104-helper-subspace-splits/verify.py"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 3600,
+      "seconds": 180.86,
+      "peak_sampled_rss_kib": 486056,
+      "log": "primary.log",
+      "log_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b"
+    },
+    "control": {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
+        "-B",
+        "-I",
+        "run_caller.py",
+        "control"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 1800,
+      "seconds": 27.34,
+      "peak_sampled_rss_kib": 57252,
+      "log": "control.log",
+      "log_sha256": "b51a7d19c10faea7d569a48e9536db8ba1e7418f8dd8dfb25646cc87cc9c4009"
+    },
+    "candidate": {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
+        "-B",
+        "-I",
+        "run_caller.py",
+        "candidate"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 1800,
+      "seconds": 27.34,
+      "peak_sampled_rss_kib": 59216,
+      "log": "candidate.log",
+      "log_sha256": "9c17688e85c5819bb135bafb5d88db2f194129ed7ce973a1bbb82ce6dde70a77"
+    },
+    "optimized": {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
+        "-B",
+        "-I",
+        "-O",
+        "source/research/p104-helper-subspace-splits/verify.py"
+      ],
+      "exit": 0,
+      "resource_stop": null,
+      "timeout_seconds": 3600,
+      "seconds": 108.35,
+      "peak_sampled_rss_kib": 487100,
+      "log": "optimized.log",
+      "log_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b"
+    }
+  },
+  "original_caller_positive_control_sha256": "b51a7d19c10faea7d569a48e9536db8ba1e7418f8dd8dfb25646cc87cc9c4009",
+  "caller_summary": {
+    "native_checks": {
+      "distinct_signed_Pauli_and_independent_phase_anchors": 316,
+      "fresh_helpers": 9720,
+      "owned_peak": 1
+    },
+    "ordinary": {
+      "abstract_address_phase_scalar_pass_upper": 124625152,
+      "local_contact_pass_bound": 306,
+      "machine_and_precision_admitted": false,
+      "main_map_pair_pass_bound": 699,
+      "meaning": "fixed finite descriptor passes under retained per-pass/tape contract; not a new tape or precision theorem",
+      "paid_native_maps_replayed": false,
+      "retained_raw_scalar_upper": 184647552
+    },
+    "controls": {
+      "exterior_sign": "literal complete free-Laurent endpoint and exterior signs",
+      "global_phase": "nonzero absolute spectral phase",
+      "helper_alias_collision": "helper output alias collision",
+      "laurent_exponent_overflow": "Laurent exponent overflow rejected, never wrapped",
+      "lost_idle": "literal complete free-Laurent endpoint and exterior signs",
+      "missing_final_main_translation": "missing final main translation",
+      "missing_inverse_Q_correction": "literal clear/copy/positive-child/correct/add/clear chronology",
+      "omitted_contact_translation": "missing nonzero physical contact translation",
+      "owned_lifetime": "owned query/source/destination separation",
+      "wrong_route": "contact absolute/quadratic phase"
+    }
+  },
+  "five_framework_assumptions_retained": true,
+  "selected_frontier_changed": false,
+  "scope": "Finite implementation and numeric replays. Mathematical application review and selected-frontier publication are separate; no full uniform word or rounded multiplier is materialized."
+}

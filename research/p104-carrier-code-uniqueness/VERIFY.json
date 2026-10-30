@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper468-rung-removal/WORD.json.gz",
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--parts",
+        "0,1"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate pinned inputs; structure (ports, 55-regular conflict graph, clique T, f(8) = 60, f(7) = 36); Lemma-1 replay of both words with frame invariant and partner endpoints; weight-52 delivery codes pass the model equations; replay of certificate parts 0,1 with all options recomputed at every node; solution checks where present; controls; RESULT.json sections and totals."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--parts",
+        "2,3"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate pinned inputs; structure (ports, 55-regular conflict graph, clique T, f(8) = 60, f(7) = 36); Lemma-1 replay of both words with frame invariant and partner endpoints; weight-52 delivery codes pass the model equations; replay of certificate parts 2,3 with all options recomputed at every node; solution checks where present; controls; RESULT.json sections and totals."
+    }
+  ]
+}

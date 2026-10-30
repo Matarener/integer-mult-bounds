@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Answer Open next question 1 of PR3662 (research/ceiling-exp-fixed-point): compare its fixed-point exponential bounds with the pinned ceiling.py Taylor series for every rational argument in [0, 1/2] at PREC=256.",
+  "scope_change_reason": "The card asks for faster replay without coverage loss. PR3662 keeps its faster kernel opt-in until equality with the pinned series is settled on the whole domain. This package settles that coverage question instead of measuring a new speedup.",
+  "bottleneck_link": "An opt-in replay kernel can be adopted only with a precise statement of what it preserves. The theorem gives soundness on the whole domain and shows that byte-identical brackets are not guaranteed.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at a written all-argument comparison theorem with explicit witnesses for every allowed difference; no change to either engine and no caller-wide argument census.",
+  "outcome": "completed",
+  "evidence": "PROOF.md all-argument proof; three exact witnesses; 987 general and 391 stopping-threshold arguments checked against the theorem, index relations and an independent 2^-420 enclosure; exact loop replicas matched to both pinned engines; 13 rejected controls; warning-strict normal and optimized runs.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the selected ceiling search, or another registered caller of ceiling.py, visit an argument where the engines differ?",
+      "why_it_matters": "This decides whether the kernel can be used there without a separate bracket-equality check.",
+      "first_step": "Log every exp argument of each registered caller and test the stopping-threshold and grid-proximity conditions of PROOF.md.",
+      "blocked_by": "Caller argument logs are not produced here."
+    },
+    {
+      "question": "Can a fast path with an exact-rational fallback near grid points and stopping thresholds reproduce the pinned bounds byte for byte?",
+      "why_it_matters": "It could keep most of the speedup while removing the bracket difference.",
+      "first_step": "Detect the two proximity conditions from the integer state and fall back to the pinned series there; measure the fallback rate.",
+      "blocked_by": "No fallback kernel is implemented here."
+    },
+    {
+      "question": "Do fixed-point atanh and ln kernels admit the same one-step comparison?",
+      "why_it_matters": "They have the same threshold stopping form and feed the same ceiling engine.",
+      "first_step": "Write the analogous index and rounding-error lemma for the atanh series.",
+      "blocked_by": "No fixed-point atanh kernel exists in the repository."
+    }
+  ],
+  "predecessor": {
+    "pr": 3662,
+    "author": "Riquelme Soares (hevlyo)",
+    "usage": "Live input fast_exp.py, loaded unchanged; the open question is its Open next question 1."
+  },
+  "scope_key": "ceiling-exp/fixed-point-vs-pinned/all-rationals-0-to-half/prec-256",
+  "engineering": {
+    "playbook": "investigation",
+    "principles": [
+      "Build the Lever: one verifier loads both unchanged engines and emits a source-bound receipt.",
+      "Prove It Works: the replicas must reproduce both engines exactly before their indices are trusted.",
+      "Power of Ten: bounded loops (200 terms, fixed sweeps), explicit failure exits, no recursion."
+    ],
+    "deviations": [
+      "Python big-integer and Fraction allocation is runtime-managed; arguments have denominators at most 2^420.",
+      "No Python static analyzer is configured for this package; warning-strict normal and optimized execution is used."
+    ]
+  },
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "dependencies": "standard library only"
+  }
+}

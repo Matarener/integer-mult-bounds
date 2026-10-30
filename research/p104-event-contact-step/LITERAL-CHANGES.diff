@@ -1,0 +1,13 @@
+--- PR5569 pricing.py
++++ pricing.py
+@@ -14,2 +14,2 @@
+-KAPPA, TESTED = Q('.00308181'), Q('.0030818105')
+-PREVIOUS = Q('.00304117')
++KAPPA, TESTED = Q('.00308189'), Q('.0030818905')
++PREVIOUS = Q('.00308181')
+@@ -142 +142 @@
+-    return encode({'kappa':KAPPA,'kappa_decimal':'.00308181','previous_open_pr5545':PREVIOUS,'gain':KAPPA-PREVIOUS,
++    return encode({'kappa':KAPPA,'kappa_decimal':'.00308189','previous_open_pr5569':PREVIOUS,'gain':KAPPA-PREVIOUS,
+@@ -154 +154 @@
+-                                   'tensor_native_growth_bound':'Each rank-r Gaussian has row l1 norm at most 2^(rf); sum of local ranks is 5894.'},
++                                   'tensor_native_growth_bound':f'Each rank-r Gaussian has row l1 norm at most 2^(rf); sum of local ranks is {sum(r*n for r,n in local["paid"].items())}.'},

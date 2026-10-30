@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/joint-query/certificate.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Literal events 9894 and 9895, nested-frame legality of that ADD, scalar work 4, absent reverse child (4, 0), and controls that drop the climb, move L561, or change the coefficient."
+    }
+  ]
+}

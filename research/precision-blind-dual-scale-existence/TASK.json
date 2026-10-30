@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Answer #4063 OQ1: prove that every odd-prime-power precision-blind pair a=(1+p^{w-1},1) on (Z/p^w Z)^2 admits dual-scale Norm on the same two coordinates (H'_1,D'_0) into the reciprocal unit pair (a0,a0^{-1}), while no shared single-factor scale exists; classify that a0 is always a unit quadratic residue mod p^w and that dual-scale existence uses invertibility rather than an explicit square root. Algebraic census only \u2014 no Boolean meter inventory and no reprint of the M=9 dual-scale meters.",
+  "scope_change_reason": "Priority revision 6 prefers #4063 OQ1 (uniform dual-scale existence for the precision-blind family) when grounded as non-thin new algebra beyond another (p,w,a) meter retarget; the drawn connector-alphabet card is redirected to that classification lemma. Preferred #2687 BIT-supplier and #2888 non-toy F_I Incoming remain blocked by prior soft-overlap DEFERs.",
+  "bottleneck_link": "A uniform dual-scale existence lemma decides whether the #4063 (3,2) construction extends across the whole precision-blind family before any supplier substitution or further Boolean meter census.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after existence/obstruction/square-class census on the certified (p,w) grid, #4063 (3,2) cross-check, independent replay, package tests; no Boolean meter inventory and no new kappa.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json pairs grid: single_factor_exists=0, a0 always unit QR, dual scales (inv(a0),a0) realize F_(a0,inv), crosscheck (3,2)->(7,4).",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
+  "open_questions": [
+    {
+      "question": "Does the same dual-scale reciprocal construction extend to precision-blind lists of length n>2 with middle coordinates forced to \u00b11?",
+      "why_it_matters": "Weighted-wrapper-contract permits odd-length middles only at \u00b11; a uniform n>2 lemma would cover longer banks without new meter retargets.",
+      "first_step": "State the coordinate-wise scale support for n=3 and check involution of the induced P' against Theorem 1.",
+      "blocked_by": "No n>2 dual-scale support analysis is constructed here."
+    },
+    {
+      "question": "Can a fully charged Boolean inventory for one further (p,w) be derived from this existence lemma without reprinting the M=9 line items?",
+      "why_it_matters": "Existence alone does not price Boolean traffic; a non-thin invoice would need a new closed form or a different fixture obligation.",
+      "first_step": "Pick one certified (p,w) other than (3,2) and price scale/inverse/source-access/restoration/frame_copy from live callee counts.",
+      "blocked_by": "Leave-alone policy blocks thin (p,w,a) meter retargets of #4063/#4053."
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 4063,
+      "credit": "Wentao Li; precision-blind (3,2) dual-scale Boolean invoice; OQ1 answered here"
+    },
+    {
+      "pr": 4053,
+      "credit": "Wentao Li; Boolean Norm inventory for a=(2,1)"
+    },
+    {
+      "pr": 2950,
+      "credit": "weighted-wrapper-contract / Jerry Chen lineage; precision-blind family definition"
+    },
+    {
+      "ref": "research/weighted-wrapper-contract",
+      "credit": "Jerry Chen (@CubeJerry); Theorem 1, formula (5), precision-blind family"
+    }
+  ]
+}

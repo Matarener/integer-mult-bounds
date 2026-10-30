@@ -1,0 +1,2660 @@
+{
+  "basis_axes": 63,
+  "controls": [
+    "zero normalized precision retains response",
+    "odd Gaussian precision retains parity",
+    "one fewer T digit loses output",
+    "rounded inverse cleanup fails"
+  ],
+  "endpoint_cases": 723,
+  "examples": [
+    {
+      "installation": {
+        "alignment_divisions": 2,
+        "cleanup_adds": 2,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 2,
+              "CLEAR": 2,
+              "COPY": 4,
+              "INIT": 4,
+              "PHASE": 2,
+              "PI2_SCALE": 1,
+              "TRUNCATE": 1
+            },
+            "diagonal_bits": 42,
+            "precision_mass": {
+              "ADD": 44,
+              "CLEAR": 44,
+              "COPY": 88,
+              "INIT": 88,
+              "PHASE": 44,
+              "PI2_SCALE": 22,
+              "TRUNCATE": 22
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                22
+              ],
+              [
+                "S",
+                0,
+                22
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 22
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 2,
+              "CLEAR": 2,
+              "COPY": 4,
+              "INIT": 4,
+              "PHASE": 2,
+              "PI2_SCALE": 1,
+              "TRUNCATE": 1
+            },
+            "diagonal_bits": 46,
+            "precision_mass": {
+              "ADD": 48,
+              "CLEAR": 48,
+              "COPY": 96,
+              "INIT": 96,
+              "PHASE": 48,
+              "PI2_SCALE": 24,
+              "TRUNCATE": 24
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                24
+              ],
+              [
+                "S",
+                0,
+                24
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 24
+        },
+        "output_header": 4,
+        "owned_zero": true,
+        "payload_swap_cells": 4
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 2,
+          "CLEAR": 2,
+          "COPY": 4,
+          "INIT": 4,
+          "PHASE": 2,
+          "PI2_SCALE": 1,
+          "TRUNCATE": 1
+        },
+        "diagonal_bits": 2,
+        "precision_mass": {
+          "ADD": 4,
+          "CLEAR": 4,
+          "COPY": 8,
+          "INIT": 8,
+          "PHASE": 4,
+          "PI2_SCALE": 2,
+          "TRUNCATE": 2
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            2
+          ],
+          [
+            "S",
+            0,
+            2
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 1,
+      "p": 1
+    },
+    {
+      "installation": {
+        "alignment_divisions": 4,
+        "cleanup_adds": 4,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 8,
+              "CLEAR": 4,
+              "COPY": 8,
+              "INIT": 8,
+              "PHASE": 8,
+              "PI2_SCALE": 4,
+              "TRUNCATE": 4
+            },
+            "diagonal_bits": 88,
+            "precision_mass": {
+              "ADD": 188,
+              "CLEAR": 96,
+              "COPY": 192,
+              "INIT": 192,
+              "PHASE": 188,
+              "PI2_SCALE": 94,
+              "TRUNCATE": 94
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                48
+              ],
+              [
+                "T",
+                1,
+                46
+              ],
+              [
+                "S",
+                0,
+                46
+              ],
+              [
+                "S",
+                1,
+                48
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 24
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 8,
+              "CLEAR": 4,
+              "COPY": 8,
+              "INIT": 8,
+              "PHASE": 8,
+              "PI2_SCALE": 4,
+              "TRUNCATE": 4
+            },
+            "diagonal_bits": 96,
+            "precision_mass": {
+              "ADD": 204,
+              "CLEAR": 104,
+              "COPY": 208,
+              "INIT": 208,
+              "PHASE": 204,
+              "PI2_SCALE": 102,
+              "TRUNCATE": 102
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                52
+              ],
+              [
+                "T",
+                1,
+                50
+              ],
+              [
+                "S",
+                0,
+                50
+              ],
+              [
+                "S",
+                1,
+                52
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 26
+        },
+        "output_header": 5,
+        "owned_zero": true,
+        "payload_swap_cells": 8
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 8,
+          "CLEAR": 4,
+          "COPY": 8,
+          "INIT": 8,
+          "PHASE": 8,
+          "PI2_SCALE": 4,
+          "TRUNCATE": 4
+        },
+        "diagonal_bits": 8,
+        "precision_mass": {
+          "ADD": 28,
+          "CLEAR": 16,
+          "COPY": 32,
+          "INIT": 32,
+          "PHASE": 28,
+          "PI2_SCALE": 14,
+          "TRUNCATE": 14
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            8
+          ],
+          [
+            "T",
+            1,
+            6
+          ],
+          [
+            "S",
+            0,
+            6
+          ],
+          [
+            "S",
+            1,
+            8
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 2,
+      "p": 2
+    },
+    {
+      "installation": {
+        "alignment_divisions": 8,
+        "cleanup_adds": 8,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 24,
+              "CLEAR": 8,
+              "COPY": 16,
+              "INIT": 16,
+              "PHASE": 24,
+              "PI2_SCALE": 12,
+              "TRUNCATE": 12
+            },
+            "diagonal_bits": 184,
+            "precision_mass": {
+              "ADD": 600,
+              "CLEAR": 208,
+              "COPY": 416,
+              "INIT": 416,
+              "PHASE": 600,
+              "PI2_SCALE": 300,
+              "TRUNCATE": 300
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                104
+              ],
+              [
+                "T",
+                1,
+                100
+              ],
+              [
+                "T",
+                2,
+                96
+              ],
+              [
+                "S",
+                0,
+                96
+              ],
+              [
+                "S",
+                1,
+                100
+              ],
+              [
+                "S",
+                2,
+                104
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 26
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 24,
+              "CLEAR": 8,
+              "COPY": 16,
+              "INIT": 16,
+              "PHASE": 24,
+              "PI2_SCALE": 12,
+              "TRUNCATE": 12
+            },
+            "diagonal_bits": 232,
+            "precision_mass": {
+              "ADD": 744,
+              "CLEAR": 256,
+              "COPY": 512,
+              "INIT": 512,
+              "PHASE": 744,
+              "PI2_SCALE": 372,
+              "TRUNCATE": 372
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                128
+              ],
+              [
+                "T",
+                1,
+                124
+              ],
+              [
+                "T",
+                2,
+                120
+              ],
+              [
+                "S",
+                0,
+                120
+              ],
+              [
+                "S",
+                1,
+                124
+              ],
+              [
+                "S",
+                2,
+                128
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 32
+        },
+        "output_header": 6,
+        "owned_zero": true,
+        "payload_swap_cells": 16
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 24,
+          "CLEAR": 8,
+          "COPY": 16,
+          "INIT": 16,
+          "PHASE": 24,
+          "PI2_SCALE": 12,
+          "TRUNCATE": 12
+        },
+        "diagonal_bits": 24,
+        "precision_mass": {
+          "ADD": 120,
+          "CLEAR": 48,
+          "COPY": 96,
+          "INIT": 96,
+          "PHASE": 120,
+          "PI2_SCALE": 60,
+          "TRUNCATE": 60
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            24
+          ],
+          [
+            "T",
+            1,
+            20
+          ],
+          [
+            "T",
+            2,
+            16
+          ],
+          [
+            "S",
+            0,
+            16
+          ],
+          [
+            "S",
+            1,
+            20
+          ],
+          [
+            "S",
+            2,
+            24
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 3,
+      "p": 3
+    },
+    {
+      "installation": {
+        "alignment_divisions": 16,
+        "cleanup_adds": 16,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 64,
+              "CLEAR": 16,
+              "COPY": 32,
+              "INIT": 32,
+              "PHASE": 64,
+              "PI2_SCALE": 32,
+              "TRUNCATE": 32
+            },
+            "diagonal_bits": 416,
+            "precision_mass": {
+              "ADD": 1824,
+              "CLEAR": 480,
+              "COPY": 960,
+              "INIT": 960,
+              "PHASE": 1824,
+              "PI2_SCALE": 912,
+              "TRUNCATE": 912
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                240
+              ],
+              [
+                "T",
+                1,
+                232
+              ],
+              [
+                "T",
+                2,
+                224
+              ],
+              [
+                "T",
+                3,
+                216
+              ],
+              [
+                "S",
+                0,
+                216
+              ],
+              [
+                "S",
+                1,
+                224
+              ],
+              [
+                "S",
+                2,
+                232
+              ],
+              [
+                "S",
+                3,
+                240
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 30
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 64,
+              "CLEAR": 16,
+              "COPY": 32,
+              "INIT": 32,
+              "PHASE": 64,
+              "PI2_SCALE": 32,
+              "TRUNCATE": 32
+            },
+            "diagonal_bits": 480,
+            "precision_mass": {
+              "ADD": 2080,
+              "CLEAR": 544,
+              "COPY": 1088,
+              "INIT": 1088,
+              "PHASE": 2080,
+              "PI2_SCALE": 1040,
+              "TRUNCATE": 1040
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                272
+              ],
+              [
+                "T",
+                1,
+                264
+              ],
+              [
+                "T",
+                2,
+                256
+              ],
+              [
+                "T",
+                3,
+                248
+              ],
+              [
+                "S",
+                0,
+                248
+              ],
+              [
+                "S",
+                1,
+                256
+              ],
+              [
+                "S",
+                2,
+                264
+              ],
+              [
+                "S",
+                3,
+                272
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 34
+        },
+        "output_header": 7,
+        "owned_zero": true,
+        "payload_swap_cells": 32
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 64,
+          "CLEAR": 16,
+          "COPY": 32,
+          "INIT": 32,
+          "PHASE": 64,
+          "PI2_SCALE": 32,
+          "TRUNCATE": 32
+        },
+        "diagonal_bits": 64,
+        "precision_mass": {
+          "ADD": 416,
+          "CLEAR": 128,
+          "COPY": 256,
+          "INIT": 256,
+          "PHASE": 416,
+          "PI2_SCALE": 208,
+          "TRUNCATE": 208
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            64
+          ],
+          [
+            "T",
+            1,
+            56
+          ],
+          [
+            "T",
+            2,
+            48
+          ],
+          [
+            "T",
+            3,
+            40
+          ],
+          [
+            "S",
+            0,
+            40
+          ],
+          [
+            "S",
+            1,
+            48
+          ],
+          [
+            "S",
+            2,
+            56
+          ],
+          [
+            "S",
+            3,
+            64
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 4,
+      "p": 4
+    },
+    {
+      "installation": {
+        "alignment_divisions": 32,
+        "cleanup_adds": 32,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 160,
+              "CLEAR": 32,
+              "COPY": 64,
+              "INIT": 64,
+              "PHASE": 160,
+              "PI2_SCALE": 80,
+              "TRUNCATE": 80
+            },
+            "diagonal_bits": 800,
+            "precision_mass": {
+              "ADD": 4480,
+              "CLEAR": 960,
+              "COPY": 1920,
+              "INIT": 1920,
+              "PHASE": 4480,
+              "PI2_SCALE": 2240,
+              "TRUNCATE": 2240
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                480
+              ],
+              [
+                "T",
+                1,
+                464
+              ],
+              [
+                "T",
+                2,
+                448
+              ],
+              [
+                "T",
+                3,
+                432
+              ],
+              [
+                "T",
+                4,
+                416
+              ],
+              [
+                "S",
+                0,
+                416
+              ],
+              [
+                "S",
+                1,
+                432
+              ],
+              [
+                "S",
+                2,
+                448
+              ],
+              [
+                "S",
+                3,
+                464
+              ],
+              [
+                "S",
+                4,
+                480
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 30
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 160,
+              "CLEAR": 32,
+              "COPY": 64,
+              "INIT": 64,
+              "PHASE": 160,
+              "PI2_SCALE": 80,
+              "TRUNCATE": 80
+            },
+            "diagonal_bits": 992,
+            "precision_mass": {
+              "ADD": 5440,
+              "CLEAR": 1152,
+              "COPY": 2304,
+              "INIT": 2304,
+              "PHASE": 5440,
+              "PI2_SCALE": 2720,
+              "TRUNCATE": 2720
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                576
+              ],
+              [
+                "T",
+                1,
+                560
+              ],
+              [
+                "T",
+                2,
+                544
+              ],
+              [
+                "T",
+                3,
+                528
+              ],
+              [
+                "T",
+                4,
+                512
+              ],
+              [
+                "S",
+                0,
+                512
+              ],
+              [
+                "S",
+                1,
+                528
+              ],
+              [
+                "S",
+                2,
+                544
+              ],
+              [
+                "S",
+                3,
+                560
+              ],
+              [
+                "S",
+                4,
+                576
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 36
+        },
+        "output_header": 8,
+        "owned_zero": true,
+        "payload_swap_cells": 64
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 160,
+          "CLEAR": 32,
+          "COPY": 64,
+          "INIT": 64,
+          "PHASE": 160,
+          "PI2_SCALE": 80,
+          "TRUNCATE": 80
+        },
+        "diagonal_bits": 160,
+        "precision_mass": {
+          "ADD": 1280,
+          "CLEAR": 320,
+          "COPY": 640,
+          "INIT": 640,
+          "PHASE": 1280,
+          "PI2_SCALE": 640,
+          "TRUNCATE": 640
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            160
+          ],
+          [
+            "T",
+            1,
+            144
+          ],
+          [
+            "T",
+            2,
+            128
+          ],
+          [
+            "T",
+            3,
+            112
+          ],
+          [
+            "T",
+            4,
+            96
+          ],
+          [
+            "S",
+            0,
+            96
+          ],
+          [
+            "S",
+            1,
+            112
+          ],
+          [
+            "S",
+            2,
+            128
+          ],
+          [
+            "S",
+            3,
+            144
+          ],
+          [
+            "S",
+            4,
+            160
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 5,
+      "p": 5
+    },
+    {
+      "installation": {
+        "alignment_divisions": 64,
+        "cleanup_adds": 64,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 384,
+              "CLEAR": 64,
+              "COPY": 128,
+              "INIT": 128,
+              "PHASE": 384,
+              "PI2_SCALE": 192,
+              "TRUNCATE": 192
+            },
+            "diagonal_bits": 1792,
+            "precision_mass": {
+              "ADD": 12096,
+              "CLEAR": 2176,
+              "COPY": 4352,
+              "INIT": 4352,
+              "PHASE": 12096,
+              "PI2_SCALE": 6048,
+              "TRUNCATE": 6048
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                1088
+              ],
+              [
+                "T",
+                1,
+                1056
+              ],
+              [
+                "T",
+                2,
+                1024
+              ],
+              [
+                "T",
+                3,
+                992
+              ],
+              [
+                "T",
+                4,
+                960
+              ],
+              [
+                "T",
+                5,
+                928
+              ],
+              [
+                "S",
+                0,
+                928
+              ],
+              [
+                "S",
+                1,
+                960
+              ],
+              [
+                "S",
+                2,
+                992
+              ],
+              [
+                "S",
+                3,
+                1024
+              ],
+              [
+                "S",
+                4,
+                1056
+              ],
+              [
+                "S",
+                5,
+                1088
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 34
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 384,
+              "CLEAR": 64,
+              "COPY": 128,
+              "INIT": 128,
+              "PHASE": 384,
+              "PI2_SCALE": 192,
+              "TRUNCATE": 192
+            },
+            "diagonal_bits": 2304,
+            "precision_mass": {
+              "ADD": 15168,
+              "CLEAR": 2688,
+              "COPY": 5376,
+              "INIT": 5376,
+              "PHASE": 15168,
+              "PI2_SCALE": 7584,
+              "TRUNCATE": 7584
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                1344
+              ],
+              [
+                "T",
+                1,
+                1312
+              ],
+              [
+                "T",
+                2,
+                1280
+              ],
+              [
+                "T",
+                3,
+                1248
+              ],
+              [
+                "T",
+                4,
+                1216
+              ],
+              [
+                "T",
+                5,
+                1184
+              ],
+              [
+                "S",
+                0,
+                1184
+              ],
+              [
+                "S",
+                1,
+                1216
+              ],
+              [
+                "S",
+                2,
+                1248
+              ],
+              [
+                "S",
+                3,
+                1280
+              ],
+              [
+                "S",
+                4,
+                1312
+              ],
+              [
+                "S",
+                5,
+                1344
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 42
+        },
+        "output_header": 9,
+        "owned_zero": true,
+        "payload_swap_cells": 128
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 384,
+          "CLEAR": 64,
+          "COPY": 128,
+          "INIT": 128,
+          "PHASE": 384,
+          "PI2_SCALE": 192,
+          "TRUNCATE": 192
+        },
+        "diagonal_bits": 384,
+        "precision_mass": {
+          "ADD": 3648,
+          "CLEAR": 768,
+          "COPY": 1536,
+          "INIT": 1536,
+          "PHASE": 3648,
+          "PI2_SCALE": 1824,
+          "TRUNCATE": 1824
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            384
+          ],
+          [
+            "T",
+            1,
+            352
+          ],
+          [
+            "T",
+            2,
+            320
+          ],
+          [
+            "T",
+            3,
+            288
+          ],
+          [
+            "T",
+            4,
+            256
+          ],
+          [
+            "T",
+            5,
+            224
+          ],
+          [
+            "S",
+            0,
+            224
+          ],
+          [
+            "S",
+            1,
+            256
+          ],
+          [
+            "S",
+            2,
+            288
+          ],
+          [
+            "S",
+            3,
+            320
+          ],
+          [
+            "S",
+            4,
+            352
+          ],
+          [
+            "S",
+            5,
+            384
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 6,
+      "p": 6
+    },
+    {
+      "installation": {
+        "alignment_divisions": 128,
+        "cleanup_adds": 128,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 896,
+              "CLEAR": 128,
+              "COPY": 256,
+              "INIT": 256,
+              "PHASE": 896,
+              "PI2_SCALE": 448,
+              "TRUNCATE": 448
+            },
+            "diagonal_bits": 3712,
+            "precision_mass": {
+              "ADD": 29568,
+              "CLEAR": 4608,
+              "COPY": 9216,
+              "INIT": 9216,
+              "PHASE": 29568,
+              "PI2_SCALE": 14784,
+              "TRUNCATE": 14784
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                2304
+              ],
+              [
+                "T",
+                1,
+                2240
+              ],
+              [
+                "T",
+                2,
+                2176
+              ],
+              [
+                "T",
+                3,
+                2112
+              ],
+              [
+                "T",
+                4,
+                2048
+              ],
+              [
+                "T",
+                5,
+                1984
+              ],
+              [
+                "T",
+                6,
+                1920
+              ],
+              [
+                "S",
+                0,
+                1920
+              ],
+              [
+                "S",
+                1,
+                1984
+              ],
+              [
+                "S",
+                2,
+                2048
+              ],
+              [
+                "S",
+                3,
+                2112
+              ],
+              [
+                "S",
+                4,
+                2176
+              ],
+              [
+                "S",
+                5,
+                2240
+              ],
+              [
+                "S",
+                6,
+                2304
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 36
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 896,
+              "CLEAR": 128,
+              "COPY": 256,
+              "INIT": 256,
+              "PHASE": 896,
+              "PI2_SCALE": 448,
+              "TRUNCATE": 448
+            },
+            "diagonal_bits": 4736,
+            "precision_mass": {
+              "ADD": 36736,
+              "CLEAR": 5632,
+              "COPY": 11264,
+              "INIT": 11264,
+              "PHASE": 36736,
+              "PI2_SCALE": 18368,
+              "TRUNCATE": 18368
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                2816
+              ],
+              [
+                "T",
+                1,
+                2752
+              ],
+              [
+                "T",
+                2,
+                2688
+              ],
+              [
+                "T",
+                3,
+                2624
+              ],
+              [
+                "T",
+                4,
+                2560
+              ],
+              [
+                "T",
+                5,
+                2496
+              ],
+              [
+                "T",
+                6,
+                2432
+              ],
+              [
+                "S",
+                0,
+                2432
+              ],
+              [
+                "S",
+                1,
+                2496
+              ],
+              [
+                "S",
+                2,
+                2560
+              ],
+              [
+                "S",
+                3,
+                2624
+              ],
+              [
+                "S",
+                4,
+                2688
+              ],
+              [
+                "S",
+                5,
+                2752
+              ],
+              [
+                "S",
+                6,
+                2816
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 44
+        },
+        "output_header": 10,
+        "owned_zero": true,
+        "payload_swap_cells": 256
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 896,
+          "CLEAR": 128,
+          "COPY": 256,
+          "INIT": 256,
+          "PHASE": 896,
+          "PI2_SCALE": 448,
+          "TRUNCATE": 448
+        },
+        "diagonal_bits": 896,
+        "precision_mass": {
+          "ADD": 9856,
+          "CLEAR": 1792,
+          "COPY": 3584,
+          "INIT": 3584,
+          "PHASE": 9856,
+          "PI2_SCALE": 4928,
+          "TRUNCATE": 4928
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            896
+          ],
+          [
+            "T",
+            1,
+            832
+          ],
+          [
+            "T",
+            2,
+            768
+          ],
+          [
+            "T",
+            3,
+            704
+          ],
+          [
+            "T",
+            4,
+            640
+          ],
+          [
+            "T",
+            5,
+            576
+          ],
+          [
+            "T",
+            6,
+            512
+          ],
+          [
+            "S",
+            0,
+            512
+          ],
+          [
+            "S",
+            1,
+            576
+          ],
+          [
+            "S",
+            2,
+            640
+          ],
+          [
+            "S",
+            3,
+            704
+          ],
+          [
+            "S",
+            4,
+            768
+          ],
+          [
+            "S",
+            5,
+            832
+          ],
+          [
+            "S",
+            6,
+            896
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 7,
+      "p": 7
+    },
+    {
+      "installation": {
+        "alignment_divisions": 256,
+        "cleanup_adds": 256,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 2048,
+              "CLEAR": 256,
+              "COPY": 512,
+              "INIT": 512,
+              "PHASE": 2048,
+              "PI2_SCALE": 1024,
+              "TRUNCATE": 1024
+            },
+            "diagonal_bits": 7680,
+            "precision_mass": {
+              "ADD": 70656,
+              "CLEAR": 9728,
+              "COPY": 19456,
+              "INIT": 19456,
+              "PHASE": 70656,
+              "PI2_SCALE": 35328,
+              "TRUNCATE": 35328
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                4864
+              ],
+              [
+                "T",
+                1,
+                4736
+              ],
+              [
+                "T",
+                2,
+                4608
+              ],
+              [
+                "T",
+                3,
+                4480
+              ],
+              [
+                "T",
+                4,
+                4352
+              ],
+              [
+                "T",
+                5,
+                4224
+              ],
+              [
+                "T",
+                6,
+                4096
+              ],
+              [
+                "T",
+                7,
+                3968
+              ],
+              [
+                "S",
+                0,
+                3968
+              ],
+              [
+                "S",
+                1,
+                4096
+              ],
+              [
+                "S",
+                2,
+                4224
+              ],
+              [
+                "S",
+                3,
+                4352
+              ],
+              [
+                "S",
+                4,
+                4480
+              ],
+              [
+                "S",
+                5,
+                4608
+              ],
+              [
+                "S",
+                6,
+                4736
+              ],
+              [
+                "S",
+                7,
+                4864
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 38
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 2048,
+              "CLEAR": 256,
+              "COPY": 512,
+              "INIT": 512,
+              "PHASE": 2048,
+              "PI2_SCALE": 1024,
+              "TRUNCATE": 1024
+            },
+            "diagonal_bits": 9728,
+            "precision_mass": {
+              "ADD": 87040,
+              "CLEAR": 11776,
+              "COPY": 23552,
+              "INIT": 23552,
+              "PHASE": 87040,
+              "PI2_SCALE": 43520,
+              "TRUNCATE": 43520
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                5888
+              ],
+              [
+                "T",
+                1,
+                5760
+              ],
+              [
+                "T",
+                2,
+                5632
+              ],
+              [
+                "T",
+                3,
+                5504
+              ],
+              [
+                "T",
+                4,
+                5376
+              ],
+              [
+                "T",
+                5,
+                5248
+              ],
+              [
+                "T",
+                6,
+                5120
+              ],
+              [
+                "T",
+                7,
+                4992
+              ],
+              [
+                "S",
+                0,
+                4992
+              ],
+              [
+                "S",
+                1,
+                5120
+              ],
+              [
+                "S",
+                2,
+                5248
+              ],
+              [
+                "S",
+                3,
+                5376
+              ],
+              [
+                "S",
+                4,
+                5504
+              ],
+              [
+                "S",
+                5,
+                5632
+              ],
+              [
+                "S",
+                6,
+                5760
+              ],
+              [
+                "S",
+                7,
+                5888
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 46
+        },
+        "output_header": 11,
+        "owned_zero": true,
+        "payload_swap_cells": 512
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 2048,
+          "CLEAR": 256,
+          "COPY": 512,
+          "INIT": 512,
+          "PHASE": 2048,
+          "PI2_SCALE": 1024,
+          "TRUNCATE": 1024
+        },
+        "diagonal_bits": 2048,
+        "precision_mass": {
+          "ADD": 25600,
+          "CLEAR": 4096,
+          "COPY": 8192,
+          "INIT": 8192,
+          "PHASE": 25600,
+          "PI2_SCALE": 12800,
+          "TRUNCATE": 12800
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            2048
+          ],
+          [
+            "T",
+            1,
+            1920
+          ],
+          [
+            "T",
+            2,
+            1792
+          ],
+          [
+            "T",
+            3,
+            1664
+          ],
+          [
+            "T",
+            4,
+            1536
+          ],
+          [
+            "T",
+            5,
+            1408
+          ],
+          [
+            "T",
+            6,
+            1280
+          ],
+          [
+            "T",
+            7,
+            1152
+          ],
+          [
+            "S",
+            0,
+            1152
+          ],
+          [
+            "S",
+            1,
+            1280
+          ],
+          [
+            "S",
+            2,
+            1408
+          ],
+          [
+            "S",
+            3,
+            1536
+          ],
+          [
+            "S",
+            4,
+            1664
+          ],
+          [
+            "S",
+            5,
+            1792
+          ],
+          [
+            "S",
+            6,
+            1920
+          ],
+          [
+            "S",
+            7,
+            2048
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 8,
+      "p": 8
+    },
+    {
+      "installation": {
+        "alignment_divisions": 512,
+        "cleanup_adds": 512,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 4608,
+              "CLEAR": 512,
+              "COPY": 1024,
+              "INIT": 1024,
+              "PHASE": 4608,
+              "PI2_SCALE": 2304,
+              "TRUNCATE": 2304
+            },
+            "diagonal_bits": 15872,
+            "precision_mass": {
+              "ADD": 165888,
+              "CLEAR": 20480,
+              "COPY": 40960,
+              "INIT": 40960,
+              "PHASE": 165888,
+              "PI2_SCALE": 82944,
+              "TRUNCATE": 82944
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                10240
+              ],
+              [
+                "T",
+                1,
+                9984
+              ],
+              [
+                "T",
+                2,
+                9728
+              ],
+              [
+                "T",
+                3,
+                9472
+              ],
+              [
+                "T",
+                4,
+                9216
+              ],
+              [
+                "T",
+                5,
+                8960
+              ],
+              [
+                "T",
+                6,
+                8704
+              ],
+              [
+                "T",
+                7,
+                8448
+              ],
+              [
+                "T",
+                8,
+                8192
+              ],
+              [
+                "S",
+                0,
+                8192
+              ],
+              [
+                "S",
+                1,
+                8448
+              ],
+              [
+                "S",
+                2,
+                8704
+              ],
+              [
+                "S",
+                3,
+                8960
+              ],
+              [
+                "S",
+                4,
+                9216
+              ],
+              [
+                "S",
+                5,
+                9472
+              ],
+              [
+                "S",
+                6,
+                9728
+              ],
+              [
+                "S",
+                7,
+                9984
+              ],
+              [
+                "S",
+                8,
+                10240
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 40
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 4608,
+              "CLEAR": 512,
+              "COPY": 1024,
+              "INIT": 1024,
+              "PHASE": 4608,
+              "PI2_SCALE": 2304,
+              "TRUNCATE": 2304
+            },
+            "diagonal_bits": 20992,
+            "precision_mass": {
+              "ADD": 211968,
+              "CLEAR": 25600,
+              "COPY": 51200,
+              "INIT": 51200,
+              "PHASE": 211968,
+              "PI2_SCALE": 105984,
+              "TRUNCATE": 105984
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                12800
+              ],
+              [
+                "T",
+                1,
+                12544
+              ],
+              [
+                "T",
+                2,
+                12288
+              ],
+              [
+                "T",
+                3,
+                12032
+              ],
+              [
+                "T",
+                4,
+                11776
+              ],
+              [
+                "T",
+                5,
+                11520
+              ],
+              [
+                "T",
+                6,
+                11264
+              ],
+              [
+                "T",
+                7,
+                11008
+              ],
+              [
+                "T",
+                8,
+                10752
+              ],
+              [
+                "S",
+                0,
+                10752
+              ],
+              [
+                "S",
+                1,
+                11008
+              ],
+              [
+                "S",
+                2,
+                11264
+              ],
+              [
+                "S",
+                3,
+                11520
+              ],
+              [
+                "S",
+                4,
+                11776
+              ],
+              [
+                "S",
+                5,
+                12032
+              ],
+              [
+                "S",
+                6,
+                12288
+              ],
+              [
+                "S",
+                7,
+                12544
+              ],
+              [
+                "S",
+                8,
+                12800
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 50
+        },
+        "output_header": 12,
+        "owned_zero": true,
+        "payload_swap_cells": 1024
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 4608,
+          "CLEAR": 512,
+          "COPY": 1024,
+          "INIT": 1024,
+          "PHASE": 4608,
+          "PI2_SCALE": 2304,
+          "TRUNCATE": 2304
+        },
+        "diagonal_bits": 4608,
+        "precision_mass": {
+          "ADD": 64512,
+          "CLEAR": 9216,
+          "COPY": 18432,
+          "INIT": 18432,
+          "PHASE": 64512,
+          "PI2_SCALE": 32256,
+          "TRUNCATE": 32256
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            4608
+          ],
+          [
+            "T",
+            1,
+            4352
+          ],
+          [
+            "T",
+            2,
+            4096
+          ],
+          [
+            "T",
+            3,
+            3840
+          ],
+          [
+            "T",
+            4,
+            3584
+          ],
+          [
+            "T",
+            5,
+            3328
+          ],
+          [
+            "T",
+            6,
+            3072
+          ],
+          [
+            "T",
+            7,
+            2816
+          ],
+          [
+            "T",
+            8,
+            2560
+          ],
+          [
+            "S",
+            0,
+            2560
+          ],
+          [
+            "S",
+            1,
+            2816
+          ],
+          [
+            "S",
+            2,
+            3072
+          ],
+          [
+            "S",
+            3,
+            3328
+          ],
+          [
+            "S",
+            4,
+            3584
+          ],
+          [
+            "S",
+            5,
+            3840
+          ],
+          [
+            "S",
+            6,
+            4096
+          ],
+          [
+            "S",
+            7,
+            4352
+          ],
+          [
+            "S",
+            8,
+            4608
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 9,
+      "p": 9
+    },
+    {
+      "installation": {
+        "alignment_divisions": 1024,
+        "cleanup_adds": 1024,
+        "forward": {
+          "invoice": {
+            "counts": {
+              "ADD": 10240,
+              "CLEAR": 1024,
+              "COPY": 2048,
+              "INIT": 2048,
+              "PHASE": 10240,
+              "PI2_SCALE": 5120,
+              "TRUNCATE": 5120
+            },
+            "diagonal_bits": 32768,
+            "precision_mass": {
+              "ADD": 384000,
+              "CLEAR": 43008,
+              "COPY": 86016,
+              "INIT": 86016,
+              "PHASE": 384000,
+              "PI2_SCALE": 192000,
+              "TRUNCATE": 192000
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                21504
+              ],
+              [
+                "T",
+                1,
+                20992
+              ],
+              [
+                "T",
+                2,
+                20480
+              ],
+              [
+                "T",
+                3,
+                19968
+              ],
+              [
+                "T",
+                4,
+                19456
+              ],
+              [
+                "T",
+                5,
+                18944
+              ],
+              [
+                "T",
+                6,
+                18432
+              ],
+              [
+                "T",
+                7,
+                17920
+              ],
+              [
+                "T",
+                8,
+                17408
+              ],
+              [
+                "T",
+                9,
+                16896
+              ],
+              [
+                "S",
+                0,
+                16896
+              ],
+              [
+                "S",
+                1,
+                17408
+              ],
+              [
+                "S",
+                2,
+                17920
+              ],
+              [
+                "S",
+                3,
+                18432
+              ],
+              [
+                "S",
+                4,
+                18944
+              ],
+              [
+                "S",
+                5,
+                19456
+              ],
+              [
+                "S",
+                6,
+                19968
+              ],
+              [
+                "S",
+                7,
+                20480
+              ],
+              [
+                "S",
+                8,
+                20992
+              ],
+              [
+                "S",
+                9,
+                21504
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 42
+        },
+        "header_swaps": 1,
+        "input_header": 3,
+        "inverse": {
+          "invoice": {
+            "counts": {
+              "ADD": 10240,
+              "CLEAR": 1024,
+              "COPY": 2048,
+              "INIT": 2048,
+              "PHASE": 10240,
+              "PI2_SCALE": 5120,
+              "TRUNCATE": 5120
+            },
+            "diagonal_bits": 45056,
+            "precision_mass": {
+              "ADD": 506880,
+              "CLEAR": 55296,
+              "COPY": 110592,
+              "INIT": 110592,
+              "PHASE": 506880,
+              "PI2_SCALE": 253440,
+              "TRUNCATE": 253440
+            },
+            "source_preserved": true,
+            "stages": [
+              [
+                "T",
+                0,
+                27648
+              ],
+              [
+                "T",
+                1,
+                27136
+              ],
+              [
+                "T",
+                2,
+                26624
+              ],
+              [
+                "T",
+                3,
+                26112
+              ],
+              [
+                "T",
+                4,
+                25600
+              ],
+              [
+                "T",
+                5,
+                25088
+              ],
+              [
+                "T",
+                6,
+                24576
+              ],
+              [
+                "T",
+                7,
+                24064
+              ],
+              [
+                "T",
+                8,
+                23552
+              ],
+              [
+                "T",
+                9,
+                23040
+              ],
+              [
+                "S",
+                0,
+                23040
+              ],
+              [
+                "S",
+                1,
+                23552
+              ],
+              [
+                "S",
+                2,
+                24064
+              ],
+              [
+                "S",
+                3,
+                24576
+              ],
+              [
+                "S",
+                4,
+                25088
+              ],
+              [
+                "S",
+                5,
+                25600
+              ],
+              [
+                "S",
+                6,
+                26112
+              ],
+              [
+                "S",
+                7,
+                26624
+              ],
+              [
+                "S",
+                8,
+                27136
+              ],
+              [
+                "S",
+                9,
+                27648
+              ]
+            ],
+            "work_zero": true
+          },
+          "raw_precision": 54
+        },
+        "output_header": 13,
+        "owned_zero": true,
+        "payload_swap_cells": 2048
+      },
+      "invoice": {
+        "counts": {
+          "ADD": 10240,
+          "CLEAR": 1024,
+          "COPY": 2048,
+          "INIT": 2048,
+          "PHASE": 10240,
+          "PI2_SCALE": 5120,
+          "TRUNCATE": 5120
+        },
+        "diagonal_bits": 10240,
+        "precision_mass": {
+          "ADD": 158720,
+          "CLEAR": 20480,
+          "COPY": 40960,
+          "INIT": 40960,
+          "PHASE": 158720,
+          "PI2_SCALE": 79360,
+          "TRUNCATE": 79360
+        },
+        "source_preserved": true,
+        "stages": [
+          [
+            "T",
+            0,
+            10240
+          ],
+          [
+            "T",
+            1,
+            9728
+          ],
+          [
+            "T",
+            2,
+            9216
+          ],
+          [
+            "T",
+            3,
+            8704
+          ],
+          [
+            "T",
+            4,
+            8192
+          ],
+          [
+            "T",
+            5,
+            7680
+          ],
+          [
+            "T",
+            6,
+            7168
+          ],
+          [
+            "T",
+            7,
+            6656
+          ],
+          [
+            "T",
+            8,
+            6144
+          ],
+          [
+            "T",
+            9,
+            5632
+          ],
+          [
+            "S",
+            0,
+            5632
+          ],
+          [
+            "S",
+            1,
+            6144
+          ],
+          [
+            "S",
+            2,
+            6656
+          ],
+          [
+            "S",
+            3,
+            7168
+          ],
+          [
+            "S",
+            4,
+            7680
+          ],
+          [
+            "S",
+            5,
+            8192
+          ],
+          [
+            "S",
+            6,
+            8704
+          ],
+          [
+            "S",
+            7,
+            9216
+          ],
+          [
+            "S",
+            8,
+            9728
+          ],
+          [
+            "S",
+            9,
+            10240
+          ]
+        ],
+        "work_zero": true
+      },
+      "n": 10,
+      "p": 10
+    }
+  ],
+  "image_cardinalities": [
+    {
+      "P": 1,
+      "bits": 1,
+      "images": 2,
+      "inputs": 4,
+      "n": 1
+    },
+    {
+      "P": 2,
+      "bits": 2,
+      "images": 4,
+      "inputs": 16,
+      "n": 1
+    },
+    {
+      "P": 3,
+      "bits": 4,
+      "images": 16,
+      "inputs": 64,
+      "n": 1
+    },
+    {
+      "P": 4,
+      "bits": 6,
+      "images": 64,
+      "inputs": 256,
+      "n": 1
+    },
+    {
+      "P": 1,
+      "bits": 1,
+      "images": 2,
+      "inputs": 16,
+      "n": 2
+    },
+    {
+      "P": 2,
+      "bits": 2,
+      "images": 4,
+      "inputs": 256,
+      "n": 2
+    },
+    {
+      "P": 3,
+      "bits": 5,
+      "images": 32,
+      "inputs": 4096,
+      "n": 2
+    }
+  ],
+  "invoice_cases": 768,
+  "minimal_T_precision_witnesses": 2746,
+  "residue_checks": 19773,
+  "schema_version": 1,
+  "scope": "Exact indexed ordinary circuit and precision invoice; no physical tape cost or kappa claim.",
+  "source_corruptions": 7,
+  "source_head": "f0fcda576df410dc15cd5b8183d4f74d284eba2b"
+}

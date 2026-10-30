@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/HALO.md",
+    "research/unconditional-batched-crt/INVERSE-CONDITIONING.md",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned notes and phrases; alpha = 3; exact original-form entries; quotient-identity H^-1 and exact H with perturbation bounds; #4354 1-norm interval; #4355 2-norm bound; #4361 row and column sums; #4362 spectrum; #4364 exponent identity; 27 two-power claims and #4401's negative from a 60-digit e^361 enclosure; sharp threshold 519."
+    }
+  ]
+}

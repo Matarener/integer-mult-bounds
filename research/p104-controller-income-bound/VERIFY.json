@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-helper-lattice/CONTROLLER.json",
+    "research/kappa-backward-controller-20261023/CONTROLLER.json",
+    "research/p104-productive-controller/CONTROLLER.json",
+    "research/p104-productive-controller/caller.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate pinned inputs; replay one central port of the three retained p16 controllers (right boundary rows, literal rational coefficients, left boundary at the end) tracking the exact rank over Q of the even-Q part after markers -> 1 and Q^2 -> 7/3 and 11/5: free operations keep it, each of the 33 paid shears changes it by at most one, the first leaves it at 32, the trace is 32,32,31,...,0 and all 32 declared diagonal outputs are odd monomials (bound 32 <= 33 - 1 attained); per-port income from the literal word = 17 = outputs - thin = thick - 1; controls: Whitehead three-shear word passes with trace 2,2,1,0 and its two-shear prefix leaves an even part, one thin shear fewer leaves a positive even rank and the declared diagonal is rejected, a free odd central power is rejected; RESULT.json compared in full."
+    }
+  ]
+}

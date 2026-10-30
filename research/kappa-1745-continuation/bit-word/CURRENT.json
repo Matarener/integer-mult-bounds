@@ -1,0 +1,271 @@
+{
+  "baseline_profile": {
+    "1": 1322,
+    "2": 1342,
+    "3": 74,
+    "4": 46,
+    "5": 103,
+    "6": 10,
+    "7": 18
+  },
+  "construction_chain": [
+    {
+      "check": "checkpoint.py",
+      "construction": "source_resynthesis.py --seeds 4 --passes 3 --max-terms 2 --optimize",
+      "output": "source-resynthesis/PASS1-SEED2.json.gz",
+      "source": "research/kappa-next-regime/word-search/candidate/WORD.json.gz"
+    },
+    {
+      "construction": "retime_source_birth.py",
+      "output": "retimed444/WORD.json.gz",
+      "source": "checkpoint/WORD.json.gz"
+    },
+    {
+      "construction": "compose_prefixes.py",
+      "helpers": [
+        265,
+        281,
+        321,
+        390
+      ],
+      "output": "prefix-composed4/WORD.json.gz",
+      "source": "retimed444/WORD.json.gz"
+    },
+    {
+      "construction": "early_birth_prefixes.py --passes 2",
+      "helpers": [
+        246,
+        260,
+        270,
+        302,
+        312,
+        384
+      ],
+      "output": "early-birth-prefixes/WORD.json.gz",
+      "scheduled_births": 283,
+      "source": "prefix-composed4/WORD.json.gz"
+    }
+  ],
+  "counts": {
+    "A": 2130,
+    "B": 932,
+    "C": 2627,
+    "D": 17573
+  },
+  "final_profile": {
+    "1": 1330,
+    "2": 1327,
+    "3": 79,
+    "4": 49,
+    "5": 90,
+    "6": 20,
+    "7": 18
+  },
+  "fraction_of_local_screen_closed": "0.158785305992159990475071777559485999236289901763655331447402255148094470156172938577373169",
+  "initial_local_tariff_deficit_interval": [
+    "0.1666910525545158741257550700653033242840986434789028958525736791803349",
+    "0.1666910525545158741257550700653033242840986434789028958525736796454017"
+  ],
+  "initial_local_tariff_deficit_screen": "0.1666910525545158741257550700653033242840986434789028958525736791803349",
+  "local_tariff_saving": "0.0264680897860240253151677859234015231202481661558382719607695253517402655236384564679229",
+  "native_columns": {
+    "formal_columns_checked": 881,
+    "forward_l1": 49281,
+    "local_raw_H": [
+      [
+        1,
+        1330
+      ],
+      [
+        2,
+        1327
+      ],
+      [
+        3,
+        79
+      ],
+      [
+        4,
+        49
+      ],
+      [
+        5,
+        90
+      ],
+      [
+        6,
+        20
+      ],
+      [
+        7,
+        18
+      ]
+    ],
+    "local_scalar_additions": 23789,
+    "payload_prefix_bits": 93,
+    "reverse_l1": 1052208,
+    "scope": "Actual all881 F2 input columns, shared arbitrary437-helper dirt, COPY originals/WORK tested. Native parent realization remains inherited conditional.",
+    "status": "PASS_INDEPENDENT_PYTHON_FIVE_STAGE_881_COLUMNS_AND_PREFIX"
+  },
+  "native_legality": {
+    "common_frame_ADDs": 23789,
+    "copies": 9,
+    "erasures": 9,
+    "paid_histogram": {
+      "1": 1330,
+      "2": 1327,
+      "3": 79,
+      "4": 49,
+      "5": 90,
+      "6": 20,
+      "7": 18
+    },
+    "rank_mass": 5113,
+    "records": 26711,
+    "scope": "New Python exact geometry/record audit, not a C++ receipt",
+    "status": "PASS_INDEPENDENT_PYTHON_RECORD_GEOMETRY_COPY_LIFECYCLE"
+  },
+  "native_record_sha256": "91d74ab960e882aa7f5236265c3f4427735c4b8019f509758a33a238c05901fe",
+  "numerical_screen_notice": "High-precision Decimal comparisons are screening values, not directed certificates for the final global invoice. The BUDGET input interval is directed; the current child count changed. Root recomputes the complete actual T35 invoice.",
+  "paid_children": 2913,
+  "profile_delta_from_baseline": {
+    "1": 8,
+    "2": -15,
+    "3": 5,
+    "4": 3,
+    "5": -13,
+    "6": 10
+  },
+  "rank_mass": 5113,
+  "remaining_local_tariff_deficit_screen": "0.1402229627684918488105872841419018011638504773230646238918041538285946344763615435320771",
+  "scope": "Complete local R437 native word and arbitrary-column/frame checks. Root separately rebuilds T35 owner/template, complete moment, native catalogue, whole word and controlled physical binding. The requested conditional kappa above0.001745 is not established by this scope.",
+  "search_receipts": {
+    "birth-prefix": {
+      "receipt_sha256": "2f147e03fd0eafd9f4423e9ebf9769671e90474b799e56f664d733f683cd0f1b",
+      "seconds": 0.7585534950048896,
+      "stats": {
+        "SOURCE_prefix_rebuilt": 7,
+        "attempted": 436,
+        "not_better": 7,
+        "prefix_SOURCE_span": 174,
+        "prefix_too_short": 254,
+        "single_frame_prefix": 1
+      },
+      "status": "FINITE_UNOBSERVED_BIRTH_PREFIX_SOURCE_RESYNTHESIS"
+    },
+    "dynamic-quotient": {
+      "receipt_sha256": "39a75cefe3aeb59bdc0cbb0b8a8a624b32d3fc9b5b159ec1f6a91c9bccdb7bdf",
+      "seconds": 23.344377330999123,
+      "stats": {
+        "arbitrary_columns_pass": 427,
+        "attempted": 427,
+        "infeasible rational catalogue bounds": 427
+      },
+      "status": "FINITE_DYNAMIC_LOGICAL_PHYSICAL_QUOTIENT_SEARCH"
+    },
+    "early-birth-prefixes": {
+      "receipt_sha256": "f0993e6b5164b345b3eb25189fd08caa953449bab4d800d70cf0fd4430af7097",
+      "seconds": 22.192660460998013,
+      "stats": {
+        "SOURCE_prefix_rebuilt": 32,
+        "attempted": 872,
+        "positive": 6,
+        "prefix_SOURCE_span": 451,
+        "prefix_too_short": 386,
+        "single_frame_prefix": 3
+      },
+      "status": "PASS_EARLY_SOURCE_BIRTH_SCHEDULE_AND_PREFIX_SEARCH"
+    },
+    "late-prefix": {
+      "receipt_sha256": "cdad7b6801010d67bd18e718eace80ef4da646836b294d56f7757197db6dc6e0",
+      "seconds": 1.3338053119950928,
+      "stats": {
+        "SOURCE_prefix_rebuilt": 9,
+        "attempted": 436,
+        "late_prefix_SOURCE_span": 339,
+        "not_better": 9,
+        "single_frame_prefix": 88
+      },
+      "status": "FINITE_FIRST_OBSERVER_BIRTH_PREFIX_SOURCE_RESYNTHESIS"
+    },
+    "multidonor-A": {
+      "receipt_sha256": "c432a1ae5a7b0ca5d9c2125b4131d19f598764db0738d265e089a9e3c83e2818",
+      "seconds": 508.99441121299606,
+      "stats": {
+        "all_arbitrary_columns_pass": 5944,
+        "geometry_feasible": 3416,
+        "indexed": 5944,
+        "infeasible rational catalogue bounds": 2528
+      },
+      "status": "FINITE_CURRENT_WORD_NETWORK_SEARCH"
+    },
+    "multidonor-B": {
+      "receipt_sha256": "000363e765e52f97f8d6e2b23a84835b0d1f8927bfe397cf9f23b09098083fe9",
+      "seconds": 60.0054269329994,
+      "stats": {
+        "all_arbitrary_columns_pass": 678,
+        "geometry_feasible": 672,
+        "indexed": 678,
+        "infeasible rational catalogue bounds": 6
+      },
+      "status": "FINITE_CURRENT_WORD_NETWORK_SEARCH"
+    },
+    "observation-birth": {
+      "receipt_sha256": "b0f6e004ba4b8e735c1299f3f7cdff3b510aee523691bb53b05d9ed83738275e",
+      "seconds": 14.626879784998891,
+      "stats": {
+        "attempted": 436,
+        "observation_span": 436
+      },
+      "status": "FINITE_OBSERVATION_ONLY_SOURCE_REPAIR"
+    },
+    "prefix-frame-followup": {
+      "receipt_sha256": "effc72b07b13e9e6a45ae38e973a5f1421bc11fca16a306ddceb466dba61deb7",
+      "seconds": 24.304361399998015,
+      "stats": {
+        "first_observer_feasible": 9,
+        "last_write_feasible": 9,
+        "positive": 8
+      },
+      "status": "FINITE_FEASIBLE_PREFIX_JOINT_FRAME_FOLLOWUP"
+    },
+    "quotient": {
+      "receipt_sha256": "8825b86866bf1a70308d6f4189391f67f203773cec4d97d767206650f13b9dc3",
+      "seconds": 14.207167758999276,
+      "stats": {
+        "all_arbitrary_columns_pass": 240,
+        "coordinate_loss": 187,
+        "indexed": 240,
+        "infeasible rational catalogue bounds": 240
+      },
+      "status": "FINITE_CURRENT_WORD_NETWORK_SEARCH"
+    },
+    "source-quotient": {
+      "receipt_sha256": "48727e5f2bf469c175a604620589d2c55e2817ac62f5f505635012406177e4ae",
+      "seconds": 10.468069962997106,
+      "stats": {
+        "attempted": 427,
+        "source_span_obstruction": 427
+      },
+      "status": "FINITE_SOURCE_PROJECTION_QUOTIENT_SEARCH"
+    },
+    "source-resynthesis": {
+      "receipt_sha256": "f7c4878d13c8f859a7ccf5aa4a6af71ae15dd39bf4148634ea28ae5326d055c2",
+      "seconds": 32.7705253660024,
+      "stats": null,
+      "status": "FINITE_SOURCE_PROJECTION_WHOLE_WORD_RESYNTHESIS"
+    },
+    "source-resynthesis-3": {
+      "receipt_sha256": "a74cf8491c6ba5d377464d332d9d5b7a9b00ed9c3477a2782211685687c89561",
+      "seconds": 26.00691717999871,
+      "stats": null,
+      "status": "FINITE_SOURCE_PROJECTION_WHOLE_WORD_RESYNTHESIS"
+    }
+  },
+  "source_baseline_content_sha256": "3f7de7e1d8a6ff9da8ab7650209b559062da4cc053de2b2566b306eb4fbeffd0",
+  "status": "FINAL_LOCAL_BIT_WORD_CHECKPOINT_TARGET_NOT_CLOSED",
+  "tariff_endpoint": "0.001745",
+  "word_content_sha256": "f84bdf9b2d4e8758584e3a4759519acc2307e3723fb23568bb7ed4fde617a908",
+  "word_gzip_sha256": "defa63c0864f1f52cb0a1eb0d6c2b56f7d3a3b5542c8038082447aec2e810c2e",
+  "word_path": "research/kappa-1745-continuation/bit-word/early-birth-prefixes/WORD.json.gz"
+}

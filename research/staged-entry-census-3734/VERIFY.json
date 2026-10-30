@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged544-producer-return/audit_core.py",
+    "research/staged544-producer-return/audit_verify.py",
+    "research/staged544-producer-return/rational_price.py",
+    "research/staged544-producer-return/words/BORROW-WORD-43base.json.gz",
+    "research/staged544-producer-return/words/BORROW-WORD-43extra.json.gz",
+    "research/staged544-producer-return/staged544/PRE-base.json.gz",
+    "research/staged544-producer-return/REPLAY-INPUTS.json",
+    "research/staged544-producer-return/REPLAY-INPUTS.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Rebuild the helper-472 staged word on both PR3734 providers and compare it with the frozen words; PR3734 frame bill, hygiene and full arbitrary-dirty semantics (forward, dual, cleanup boundary, pull-back) PASS; reject a flipped release and releases after 472's producer; show the pure retiming of 472's early target read is scalar-correct but frame-infeasible by the exact minimal assignment. Positive controls: the constructor rebuilds 544 on PR3734's parent word with PR3734's bill and widths, and 644 and 660 on PR3605's parent word (from PR3734's digest-checked archive), each with exact semantics. Exact dual certificate (2,551 patterns, adapted from PR3815): every owner fill of the 472 inventory has root below 0.0017305031, tight to 1e-10, below the parent ceiling 0.001730578437266246818740; parent bracket and a perturbed-dual control; PR3862-style net per width unit negative for 472 and positive for the 544 signature. Authenticate and re-summarise the recorded census. The census itself (numpy/scipy) is recorded, not rerun; replay_subset.py reruns a subset."
+    }
+  ]
+}

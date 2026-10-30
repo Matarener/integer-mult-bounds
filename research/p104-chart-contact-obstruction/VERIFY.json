@@ -1,0 +1,30 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Authenticate committed public payloads and exact one-line core adaptation; execute the core once; require full original output SHA256 and exact donor 597-to-652-to-597 obstruction, seven original and two portable integrity controls; no candidate invoice or kappa.",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "checks": "Authenticate committed public payloads and exact one-line core adaptation; execute the core once; require full original output SHA256 and exact donor 597-to-652-to-597 obstruction, seven original and two portable integrity controls; no candidate invoice or kappa.",
+      "timeout_seconds": 60
+    }
+  ],
+  "inputs": [],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

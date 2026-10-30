@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/connector-depth-blocks/README.md",
+    "research/connector-five-halves-growth/README.md",
+    "research/unsigned-connector-characteristic/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate three canonical source READMEs; explicit prefix identities, recursive independent construction, production literal calls on all source/dirty input columns over Z/c, block composition, counting thresholds and semantic failure controls; no selected-frontier replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate three canonical source READMEs; explicit prefix identities, recursive independent construction, production literal calls on all source/dirty input columns over Z/c, block composition, counting thresholds and semantic failure controls; no selected-frontier replay."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "helpers": {
+    "cross_check.py": "a1fb766eeaa062b7677ff33d4430c96563b97de0a5129455d4710a0b947f69ed",
+    "independent_guard_oracle.py": "5863cd978de7f81c0627ba6ade29912ea2de99fbd149db8575302f3f10e97a3e"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "runs": [
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-B",
+        "{review}/cross_check.py",
+        "{package}",
+        "{repository}"
+      ],
+      "exit_code": 0,
+      "receipt": {
+        "generic_stencils": {
+          "addresses": 1300,
+          "cases": 181,
+          "combined_mask_ascii_sha256": "b41657849cd1c7a0b05473a1ef687b627d13f970c2dc55942bb8c5e084d4a363",
+          "coverage": "L=1..3 all-SKIP; every single D placement; every single G placement/all threshold pairs; adjacent D/G orders",
+          "observed_actions": 59409
+        },
+        "preimplementation_oracle_sha256": "5863cd978de7f81c0627ba6ade29912ea2de99fbd149db8575302f3f10e97a3e",
+        "primary_hashes": {
+          "SOURCE-PINS.json": "e8e5c7320fb0bd1494e063eaa5aaf5f2f08562b80b72750081ea5a409eea5b1e",
+          "machine.py": "1cb27312932914eb631078bd56e85feb1dc6c4191e9d1962b2cc3a7e1cfb8df7",
+          "verify.py": "40794cd2e2936f0f5e42fac1bb51b65c951a2ab56b7e88824e8c2d09a3dbf40e"
+        },
+        "scope": "Complete Boolean output/ownership cross-check; source predicate projections, not production placement; geometry/admission and oracle are unpriced host work.",
+        "source_files_checked": 3,
+        "source_fixture_addresses": 49408,
+        "source_fixtures": [
+          {
+            "addresses": 16384,
+            "back_skip_bits": 0,
+            "bad": 16128,
+            "good": 256,
+            "mask_ascii_sha256": "5d1906a782234a5664d5b1478baaaea2becd207fe111676581c6fc64c40fca29",
+            "name": "two_active_digits",
+            "observed_actions": 2080968
+          },
+          {
+            "addresses": 32768,
+            "back_skip_bits": 0,
+            "bad": 18944,
+            "good": 13824,
+            "mask_ascii_sha256": "92e2c33f11c21d88a022ab8fedd137181ee026557f2b84dce81d7a1bd40d1354",
+            "name": "single_with_dirty_spectators",
+            "observed_actions": 4423893
+          },
+          {
+            "addresses": 256,
+            "back_skip_bits": 1,
+            "bad": 224,
+            "good": 32,
+            "mask_ascii_sha256": "30852858b0e592a63a14bf785536c81b448d1d6fb4fc3f79979876aad58bd278",
+            "name": "one_target_with_back_spectator",
+            "observed_actions": 20346
+          }
+        ],
+        "status": "PASS_INDEPENDENT_LITERAL_GUARD_CROSS_CHECK"
+      },
+      "stderr": ""
+    },
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{review}/cross_check.py",
+        "{package}",
+        "{repository}"
+      ],
+      "exit_code": 0,
+      "receipt": {
+        "generic_stencils": {
+          "addresses": 1300,
+          "cases": 181,
+          "combined_mask_ascii_sha256": "b41657849cd1c7a0b05473a1ef687b627d13f970c2dc55942bb8c5e084d4a363",
+          "coverage": "L=1..3 all-SKIP; every single D placement; every single G placement/all threshold pairs; adjacent D/G orders",
+          "observed_actions": 59409
+        },
+        "preimplementation_oracle_sha256": "5863cd978de7f81c0627ba6ade29912ea2de99fbd149db8575302f3f10e97a3e",
+        "primary_hashes": {
+          "SOURCE-PINS.json": "e8e5c7320fb0bd1494e063eaa5aaf5f2f08562b80b72750081ea5a409eea5b1e",
+          "machine.py": "1cb27312932914eb631078bd56e85feb1dc6c4191e9d1962b2cc3a7e1cfb8df7",
+          "verify.py": "40794cd2e2936f0f5e42fac1bb51b65c951a2ab56b7e88824e8c2d09a3dbf40e"
+        },
+        "scope": "Complete Boolean output/ownership cross-check; source predicate projections, not production placement; geometry/admission and oracle are unpriced host work.",
+        "source_files_checked": 3,
+        "source_fixture_addresses": 49408,
+        "source_fixtures": [
+          {
+            "addresses": 16384,
+            "back_skip_bits": 0,
+            "bad": 16128,
+            "good": 256,
+            "mask_ascii_sha256": "5d1906a782234a5664d5b1478baaaea2becd207fe111676581c6fc64c40fca29",
+            "name": "two_active_digits",
+            "observed_actions": 2080968
+          },
+          {
+            "addresses": 32768,
+            "back_skip_bits": 0,
+            "bad": 18944,
+            "good": 13824,
+            "mask_ascii_sha256": "92e2c33f11c21d88a022ab8fedd137181ee026557f2b84dce81d7a1bd40d1354",
+            "name": "single_with_dirty_spectators",
+            "observed_actions": 4423893
+          },
+          {
+            "addresses": 256,
+            "back_skip_bits": 1,
+            "bad": 224,
+            "good": 32,
+            "mask_ascii_sha256": "30852858b0e592a63a14bf785536c81b448d1d6fb4fc3f79979876aad58bd278",
+            "name": "one_target_with_back_spectator",
+            "observed_actions": 20346
+          }
+        ],
+        "status": "PASS_INDEPENDENT_LITERAL_GUARD_CROSS_CHECK"
+      },
+      "stderr": ""
+    }
+  ],
+  "schema_version": 1,
+  "status": "PASS_INDEPENDENT_CROSS_NORMAL_OPTIMIZED",
+  "timestamp_utc": "2026-10-20T13:38:31.105404+00:00"
+}

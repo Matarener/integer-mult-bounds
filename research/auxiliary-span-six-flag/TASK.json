@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "In the abelian rank-one model, with three invertible 3x3 data targets and one dirty auxiliary, exclude every word of at most eight calls whose projectors are simultaneously permutation-triangular, and exclude every span-six word whose occurring noncoordinate projectors share a complete flag of F2^4. The finite input is the complete-flag census of the 120 four-register rank-one idempotents and all 4964 two-dimensional off-diagonal pattern spans.",
+  "scope_change_reason": "The card asks whether a larger or nonabelian register model escapes the three-register obstruction. This run keeps the abelian rank-one alphabet and changes the register hypothesis from three scalar registers to three data registers plus one dirty auxiliary, the case left open by research/bit-dirty-auxiliary-registers section 6. It answers the permutation-triangular words and the flagged span-six words in that case, and it leaves the 72 flagless triples, the 12 cyclic lines, and spans four and five.",
+  "bottleneck_link": "Side result for the selected frontier. An eight-call identity in this model would change the formal bit-primitive cost, but the proved cases are exclusions. Selected kappa stays 0.001672660197076918 and the selected record is untouched.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish the four-register flag census, the permutation-triangular rank bound, and the span-six flag bound, then stop. Do not search spans four or five, the 72 flagless triples, or the 12 cyclic lines, and do not rerun the predecessor 80-minute engine.",
+  "outcome": "partial",
+  "evidence": "verify.py agrees on two enumerations of the 120 projectors, reproduces the published pattern counts 105/93/12/196/176/20, finds 4892 flagged spans and 72 flagless triples in one GL(4,2) orbit of size 10080, checks 10080 flag-basis pivots, separates the 12 cyclic projectors from the coordinate flags, and checks the eight-call failure against the nine-call coordinate construction. README sections 2-5 give the rank bound. The parallel span-four note in Discussion 1166 comment 19056267 leaves span six open.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial assistance from Grok 4.7 (xAI), which drafted the classification, the written argument, the verifier, and this note. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can the normal-form triple X, Y, Z, interleaved with the four coordinate projectors, realize three invertible 3x3 blocks in eight calls at frame span six?",
+      "why_it_matters": "These 72 triples are one GL(4,2) orbit and are the only two-dimensional spans with no common complete flag, so one calculation would close every two-dimensional span-six word.",
+      "first_step": "Repeat the degree-two bookkeeping of PR 468 section 5.1 on this seven-matrix alphabet after transporting the word to the normal form.",
+      "blocked_by": "The transport of a diagonal target is not diagonal, and 7^8 ordered words are outside this verifier. Lemma 1 does not apply at relation rank 2."
+    },
+    {
+      "question": "Can one of the 12 cyclic projectors, interleaved with coordinate projectors, meet the same bound at span six when the cube rank is two?",
+      "why_it_matters": "Cube rank at most one is already impossible. Each cyclic projector is triangular in some flag basis and in no basis that all four coordinate projectors preserve, so the permutation argument stops.",
+      "first_step": "Collapse consecutive copies by (I+(a-1)N)(I+(b-1)N)=I+(ab-1)N and classify the resulting words in that five-matrix alphabet.",
+      "blocked_by": "In pattern dimension one a zero off-diagonal pattern need not kill both cube-basis coordinates, so the relation support can meet the coordinate calls."
+    },
+    {
+      "question": "Does span five admit an eight-call word outside the permutation-triangular class?",
+      "why_it_matters": "Span four is already reduced by the parallel classification in Discussion 1166 comment 19056267 to one five-call 2x2 shape, and permutation-triangular words of length at most eight are impossible at every span.",
+      "first_step": "Extend the span-five scalar catalogue of PR 468 section 7 from 28 projectors to these 120, starting at pattern dimension three.",
+      "blocked_by": "Relation rank three no longer caps the pattern space at dimension two, and 120^8 enumeration does not fit this verifier."
+    }
+  ]
+}

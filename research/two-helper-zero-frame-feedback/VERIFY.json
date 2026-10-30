@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-zero-frame-feedback-to-8-registers/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Restricted witnesses for every K at T=1..8 (87,380), exact restricted and unrestricted BFS for T=1..3 (84), formula against pinned PR2567 2x4-2x6 minima (5,376), four rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Restricted witnesses for every K at T=1..8 (87,380), exact restricted and unrestricted BFS for T=1..3 (84), formula against pinned PR2567 2x4-2x6 minima (5,376), four rejection controls."
+    }
+  ]
+}

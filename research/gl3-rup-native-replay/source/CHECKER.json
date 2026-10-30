@@ -1,0 +1,44 @@
+{
+  "checker_repository": "https://github.com/marijnheule/drat-trim",
+  "checker_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985",
+  "compiler_version": "gcc.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r6) 15.2.0",
+  "compile_command": [
+    "gcc",
+    "drat-trim.c",
+    "-std=c99",
+    "-O2",
+    "-Dgetc_unlocked=getc",
+    "-o",
+    "drat-trim.exe"
+  ],
+  "portability_change": "Compile-time alias to standard locked getc; source and verification logic unchanged. Binary parser positive control passed.",
+  "source_sha256": "78026871882de3f2fee66034e549e9c1a0a9a5291abd817d06f611f9ba0f355d",
+  "checker_binary_sha256": "fa94c1cea660628dc16636f34114f79e44bfd4c50ba87a256c4b05f6f5e7535e",
+  "source": "third_party/drat-trim/drat-trim.c",
+  "tests": [
+    {
+      "test": "valid-native-ascii",
+      "passed": true,
+      "expected_verified": true,
+      "exit_code": 0
+    },
+    {
+      "test": "valid-binary-parser",
+      "passed": true,
+      "expected_verified": true,
+      "exit_code": 0
+    },
+    {
+      "test": "invalid-proof",
+      "passed": true,
+      "expected_verified": false,
+      "exit_code": 1
+    },
+    {
+      "test": "wrong-formula",
+      "passed": true,
+      "expected_verified": false,
+      "exit_code": 1
+    }
+  ]
+}

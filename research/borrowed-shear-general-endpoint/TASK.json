@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact borrowed-space cross-bank shear tariff for a general endpoint diag(T, I_q) in the PR #5640 alphabet: a written proof that at most two gathers or at most two scatters force (T-I)^2 = 0, so non-square-zero endpoints need at least max(2 ceil(r/q)+2, 6) shears, plus exact breadth-first minima on six small prime-field domains.",
+  "scope_change_reason": "The card asks for a missing interface implication. PR #5640 proves its tariff only for square-zero updates although its lower bound applies to every endpoint; this package settles the square-zero dependence of the lower bound. It is a written mathematical side result, not a Lean formalization or a selected-caller binding.",
+  "bottleneck_link": "Side result: it prices reader recoding with borrowed dirty coordinates when the update is not square-zero. It changes no complete signed bill, kappa or selected frontier.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the lower-bound theorem and the exact census once every enumerated minimum matches; leave the general attaining construction as an open question.",
+  "outcome": "partial",
+  "evidence": "README.md proof; verify.py exhaustive BFS minima and witness replays on F2 (n,q)=(2,1),(2,2),(3,1), F3 (2,1), F5 (2,1); opt-in extended_census.py on F2 (3,2), local only.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is max(2 ceil(r/q)+2, 6) attainable for every non-square-zero endpoint over every field?",
+      "why_it_matters": "It would complete the exact borrowed-space tariff for general endpoints in this alphabet.",
+      "first_step": "Construct a six-shear GSGSGS word for arbitrary T in SL(n,K) with q >= n, then splice with the grouped PR #5640 word for larger r.",
+      "blocked_by": "The PR #5640 condition L_i V_j = 0 fails for non-square-zero factors; no replacement invariant is known."
+    },
+    {
+      "question": "Is every T in SL(n,K) reachable for every field and every q >= 1?",
+      "why_it_matters": "det T = 1 is necessary; reachability decides where the tariff is finite.",
+      "first_step": "Prove that the alphabet generates the block-unipotent subgroup and contains diag(SL(n,K), I_q).",
+      "blocked_by": "Only the six enumerated domains are checked here."
+    },
+    {
+      "question": "Does the clean-borrowed count 2 ceil(r/q)+1 have the same square-zero gap?",
+      "why_it_matters": "Clean scratch is a separate alphabet use in PR #5640.",
+      "first_step": "Redo the two-gather state calculation with z0 = 0 and without the transpose argument.",
+      "blocked_by": "The transpose-reversal argument does not apply to clean coordinates."
+    }
+  ]
+}

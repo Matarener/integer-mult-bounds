@@ -1,0 +1,13 @@
+# Attribution and overlap
+
+Immediate predecessor: Dugongue's [#4494](https://github.com/CrocSwap/integer-mult-bounds/pull/4494), commit ad31d9fdf000d4ca98dd911afe489a45d2ea4f74, supplies the four source selectors, 698 baseline, rank-factor comparison, source-authentication helpers and symbolic-column verifier adapted here. Its predecessor [#4489](https://github.com/CrocSwap/integer-mult-bounds/pull/4489) supplies the rank-one owned-field sum macro. The new contribution is the exact native unit-gauge optimizer, circulation certificates and the 686 / 674 local specializations. Classical min-cost circulation and weighted absolute-value duality are not claimed as new mathematics.
+
+The retained native/compiler source is zxv's lineage at canonical main 2a13eb1827784206202db90e5dc8327cf8a250db; keep all earlier source contributors and licenses. Credit Jacob Alan Sussman's mixed-target compiler and Cinna Davis's padding, query-thinning, retiming and joint-boundary contributions in #4359, #4416, #4440, #4441, #4447 and #4470. These native cleanup blocks predate this package.
+
+MathProof discovery precedents inherited from the preceding investigation include Meta/TITensorRank20260902.lean (transported rank-one sums) and Abstraction/VPVNPFixedGateVisiblePricing20260826.lean (linear_response_top_sum). These were source-only precedents, not fresh kernel audits, imports or a claim that the full DAG was searched in this short session. The canonical DAG and Lean tree remain unchanged.
+
+Recent visible PRs included #4494, #4493, #4492, #4491, #4490 and #4489. The new scope follows #4494's open question about scalar cost beyond rank minimization. Main guidance, priority revision 7 and visible handoffs were checked. Public API and cached overlap coverage is incomplete; no absence-of-prior-art or exhaustive search claim is made. Public write authentication is unavailable to this worker, so no Discussion claim was posted and publication uses the user's existing CLI login.
+
+Prepared for Dugongue with substantial OpenAI assistance in mathematics, implementation and verification. New files are Apache-2.0; inherited notices are preserved. No independent human review or Lean formalization is claimed.
+
+Submission checkpoint: canonical main was fetched again and remained at the pinned base. Public PR listing now also includes #4495 (Neumann factor absorption), a different obligation. The repository overlap helper reported only 4 searched local records and 5,729 unsearched HEAD note paths; remote snapshots failed from cache access denial / API rate limiting. These limitations are retained rather than treating no matches as novelty evidence.

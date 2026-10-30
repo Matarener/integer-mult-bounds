@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact two-point gcd/LCM laws on the stated finite domains; all small-fixture projections and binary regular-action columns; unsafe quotient, omitted-target, prime-only and support-size controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact two-point gcd/LCM laws on the stated finite domains; all small-fixture projections and binary regular-action columns; unsafe quotient, omitted-target, prime-only and support-size controls."
+    }
+  ]
+}

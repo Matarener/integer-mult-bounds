@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/centre-code-services/frozen/lanes/history-encoding/independent-skeleton-20261018/fresh-three-child/FRESH-THREE-CHILD-PROGRAMS.json.gz",
+    "research/centre-code-services/frozen/lanes/new-core-transfer-20261017/low-displacement-20261020/run-normal/RESPONSE-PROGRAM.json",
+    "research/centre-code-services/frozen/root/RANK30-PHASE-SECTION-20261020.md",
+    "research/centre-code-services/frozen/root/RANK30-PHASE-SECTION-BLOCKS-20261020.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All 512 source inverses and ranks, exact kernel and basis, all 870 dyadic row-ADD directions, physical dirty replay and three corruption controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All 512 source inverses and ranks, exact kernel and basis, all 870 dyadic row-ADD directions, physical dirty replay and three corruption controls."
+    }
+  ]
+}

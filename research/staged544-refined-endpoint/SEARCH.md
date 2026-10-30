@@ -1,0 +1,1 @@
+No new circuit search. Exact adjacent-grid evaluation at65,70,75,80digits;80 selected after two independent enclosures and formal numeric checks. This is a small endpoint refinement of unchanged geometry. Structural searches remain private and are not part of this package.

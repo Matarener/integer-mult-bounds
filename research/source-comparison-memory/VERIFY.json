@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/research_package.py",
+    "scripts/new_research_package.py",
+    "tests/test_research_source_comparison.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Seven exact comparison and complete validator contracts, including binary chunk boundaries, truncation/append, same-size drift, late I/O errors/close, restored inputs and unchanged blob/SHA rejection."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "The same complete contracts under optimized Python, with executable unittest checks still active."
+    }
+  ]
+}

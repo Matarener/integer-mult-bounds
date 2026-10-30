@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/selected-bit-recursive-closure/RESULT.json",
+    "research/staged-fourth-mixture-ceiling/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Vendored PROOF.md hash and 28 phrases; H, a1, C bound to pinned main files; a2 and a2-C; section 1 outer-loss shortfall; F and mu_1 exact; certified mu_(576/577) enclosure in the stated interval; induction coefficients; fit comparisons; exponent algebra; 4283584 coefficient; gap table; fallback-omission control."
+    }
+  ]
+}

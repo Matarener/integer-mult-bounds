@@ -1,0 +1,19 @@
+{
+  "format": "standalone source-export research package",
+  "inputs": [
+    "research/wordram-ntt-kernel/MANIFEST.json"
+  ],
+  "commands": [
+    [
+      "python3",
+      "-B",
+      "verify.py"
+    ]
+  ],
+  "python": "3.10+ standard library",
+  "network_required": false,
+  "lean_required": false,
+  "timeout_seconds": 120,
+  "expected": "All integrity, exact NTT, supported-ISA, complete-program and rational recovery checks pass",
+  "scope": "Paper universal argument plus finite replay; no full Lean machine verification or asymptotic kappa"
+}

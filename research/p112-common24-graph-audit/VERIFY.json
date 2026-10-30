@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/one-sided-six-multisets/data/data.txt",
+    "research/p112-root-simplex-exclusion/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "All43435 annihilator spaces,5212200 normal-space pairs, full6216-vertex colored graph and complete matching; target digests, field finite facts and literal caller arithmetic."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Triangle positive/false-converse and color controls; small annihilator domain oracle; optimized CLI positive and receipt/edge/source corruption rejection."
+    }
+  ]
+}

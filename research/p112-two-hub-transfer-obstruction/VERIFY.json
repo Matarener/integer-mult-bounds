@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 512 exact two-hub subsets, 21 obstruction premises, 64 one-star GF4 transfers, 1764 literal operator entries and actual bill."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate primitive-integer ranks, all GF4 annihilators, raw binary Gram rectangles and full literal operator."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Twelve rejecting optimized actual-CLI corruptions and fourteen before/restored positives on owned regular inode-disjoint copies."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-fifth-frame-determinant-obstruction/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hash; all 442 psd determinant profiles of length <=7; exact support classification (7 free, 32 pinned); exact-lattice characters on pinned splits; 2-local lemma and exact lattice on 7784 free-family grid cases (regression); eight-call positive controls incl. a literal word; negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hash; all 442 psd determinant profiles of length <=7; exact support classification (7 free, 32 pinned); exact-lattice characters on pinned splits; 2-local lemma and exact lattice on 7784 free-family grid cases (regression); eight-call positive controls incl. a literal word; negative controls."
+    }
+  ]
+}

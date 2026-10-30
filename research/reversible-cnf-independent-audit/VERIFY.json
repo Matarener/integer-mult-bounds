@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "research/native-cutoff-independent-audit/README.md",
+    "research/native-tensor-cutoff/PROOF.md",
+    "research/native-tensor-cutoff/README.md",
+    "research/native-tensor-cutoff/exact.py",
+    "research/native-tensor-cutoff/reversible_cnf.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the exact compiler/proof closure; independently evaluate every emitted dirty matrix in the declared finite domain, Boolean truth and all permutation branches, tensor signs, size/encoding controls, eight semantic mutation witnesses and seven input rejections; compare deterministic receipt."
+    }
+  ]
+}

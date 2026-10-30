@@ -1,0 +1,21 @@
+{
+  "status": "PASS_ACTUAL_COPIED_PACKAGE_SOURCE_CORRUPTION_CONTROLS",
+  "checks": [
+    {
+      "source": "inputs/pr5643/construct.py",
+      "exit_code": 1,
+      "reason": "Exact retained source SHA256 rejection before retained-code import"
+    },
+    {
+      "source": "inputs/pr5644/construct.py",
+      "exit_code": 1,
+      "reason": "Exact retained source SHA256 rejection before retained-code import"
+    },
+    {
+      "source": "inputs/pr5644/inputs/pr5627-source.tar",
+      "exit_code": 1,
+      "reason": "Exact retained source SHA256 rejection before retained-code import"
+    }
+  ],
+  "scope": "One byte changed in each of three temporary retained inputs; actual isolated optimized verifier --quick invoked. Original package and source bytes were never modified."
+}

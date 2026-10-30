@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-local-word-ceiling/levers.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source pins, 12 integer moment brackets, target and additive-surcharge signs, 224 small-DP controls and 9 malformed-input controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent exact integer-power target signs, source-independent calibrations and failure controls."
+    }
+  ]
+}

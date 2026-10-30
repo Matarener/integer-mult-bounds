@@ -1,0 +1,84 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "reviewed_predecessor": "ff365dba6911ce615bec76e8d1f149faf1fe16ca",
+  "upstream": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "runs": [
+    {
+      "name": "metadata",
+      "command": [
+        "python3.12",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/direct-flow-leaf-saturation",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "seconds": 0.282,
+      "log": "logs/claude-metadata.log"
+    },
+    {
+      "name": "registered",
+      "command": [
+        "python3.12",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/direct-flow-leaf-saturation"
+      ],
+      "exit_code": 0,
+      "seconds": 75.068,
+      "log": "logs/claude-registered.log"
+    },
+    {
+      "name": "optimized",
+      "command": [
+        "python3.12",
+        "-B",
+        "-O",
+        "research/direct-flow-leaf-saturation/verify.py",
+        "--expect",
+        "research/direct-flow-leaf-saturation/RESULT.json"
+      ],
+      "exit_code": 0,
+      "seconds": 14.372,
+      "log": "logs/claude-optimized.log"
+    },
+    {
+      "name": "independent-optimized",
+      "command": [
+        "python3.12",
+        "-B",
+        "-O",
+        "research/direct-flow-leaf-saturation/independent_source.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.155,
+      "log": "logs/claude-independent-optimized.log"
+    },
+    {
+      "name": "mutations-optimized",
+      "command": [
+        "python3.12",
+        "-B",
+        "-O",
+        "research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "exit_code": 0,
+      "seconds": 30.389,
+      "log": "logs/claude-mutations-optimized.log"
+    }
+  ],
+  "enclosure_agent_runs": "logs/claude-enclosures-timing.json",
+  "scientific_files_sha256": {
+    "PROOF.md": "09dc0d6fd22b5e502b812543ddf78395ab7deacc894cd52430709475acfb2978",
+    "verify.py": "3a88ad1da0691afefead7d71c00ab4a51d547c770a40dc2e232c39dc02d8366d",
+    "RESULT.json": "d195c3fd5620bf2e64dc7d677c79ad52e780aefde9534d4e6a02a5ff1b9c9bdd",
+    "independent_source.py": "abe248ffc0012fdcb7a941c399cba0f5f943c006d86368553c1c3317442f5773",
+    "test_controls.py": "ff4e4b8b8a34416b6e93a32ab2afbdd3733ce6e730a0df51a946d47b4a3836a5",
+    "test_enclosures.py": "b92a75601ef676ab0b412395eb2ccaa52c8e802f89fe1fb2f3820cafa173aea4",
+    "SOURCES.json": "90997ec1be8cd8c3e588d71a349783b2f1696a224dc082749f3886bebd8c2c4a",
+    "VERIFY.json": "07b8cf8da544a3049f817664381b3d26b3c5e35454ce2e308cfa41a6f3e76663"
+  }
+}

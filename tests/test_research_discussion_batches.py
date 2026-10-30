@@ -102,7 +102,10 @@ class DiscussionBatchTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             cache = Path(directory) / 'overlap.json'
             old = {'fetched_at': overlap.now(), 'complete_pagination': True,
-                   'records': [{'body': 'previous complete snapshot'}]}
+                   'records': [{'kind': 'discussion', 'number': 1, 'title': 'Prior claim',
+                                'body': 'previous complete snapshot',
+                                'url': 'https://example.invalid/discussions/1',
+                                'updated_at': '2026-10-15T00:00:00Z'}]}
             initial = {'schema_version': 1, 'repository': overlap.REPO,
                        'sources': {'discussions': old}}
             for fail_at in (2, 4, 7):

@@ -1,0 +1,186 @@
+{
+  "status": "PASS_COLD_REPLAY_CANONICAL_WORD_ACTUAL_PROGRAM_FULL_INVOICE_AND_BIT_RECORD",
+  "at_utc": "2026-10-18T14:59:55.810226+00:00",
+  "python": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "seconds": 41.75949337500788,
+  "commands": [
+    {
+      "script": "code/generate.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source"
+      ],
+      "exit_code": 0,
+      "seconds": 0.13366354198660702
+    },
+    {
+      "script": "vendor/xcheck_p.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source/WORD.json.gz",
+        "--json",
+        "/private/tmp/r437-cold-source/UPSTREAM-XCHECK.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.8656008329999167
+    },
+    {
+      "script": "code/word_audit.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source"
+      ],
+      "exit_code": 0,
+      "seconds": 0.5772697920037899
+    },
+    {
+      "script": "code/catalog_check.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source"
+      ],
+      "exit_code": 0,
+      "seconds": 0.09428812500846107
+    },
+    {
+      "script": "code/source_history_scope.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source"
+      ],
+      "exit_code": 0,
+      "seconds": 0.076435125010903
+    },
+    {
+      "script": "vendor/export_records.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source/WORD.json.gz",
+        "/private/tmp/r437-cold-source/records"
+      ],
+      "exit_code": 0,
+      "seconds": 0.33918229200935457
+    },
+    {
+      "script": "code/local_counter.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source"
+      ],
+      "exit_code": 0,
+      "seconds": 0.12745249998988584
+    },
+    {
+      "script": "vendor/global_k.py",
+      "arguments": [
+        "--word",
+        "/private/tmp/r437-cold-source/WORD.json.gz",
+        "--local-check",
+        "/private/tmp/r437-cold-source",
+        "--out",
+        "/private/tmp/r437-cold-source/nine",
+        "--isometries",
+        "/Users/temp/.codex/worktrees/r437-ordinary-t360/integer-mult-bounds/research/r437-ordinary-t360/sources/r437/data/residual-isometries.json",
+        "--no-banks",
+        "--stages",
+        "9",
+        "--replicas",
+        "32"
+      ],
+      "exit_code": 0,
+      "seconds": 0.8615477919956902
+    },
+    {
+      "script": "code/match.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source"
+      ],
+      "exit_code": 0,
+      "seconds": 0.24932729100692086
+    },
+    {
+      "script": "vendor/emit_k.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source/nine",
+        "/private/tmp/r437-cold-source",
+        "/private/tmp/r437-cold-source/hosted",
+        "--selection",
+        "/private/tmp/r437-cold-source/SELECTION.json",
+        "--key",
+        "bit",
+        "--host-all",
+        "--depth",
+        "2",
+        "--version-tag",
+        "r437-public470-plus-464GL"
+      ],
+      "exit_code": 0,
+      "seconds": 15.422304791994975
+    },
+    {
+      "script": "vendor/audit_hosted_k.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source",
+        "/private/tmp/r437-cold-source/hosted",
+        "/private/tmp/r437-cold-source/HOSTING-AUDIT.json"
+      ],
+      "exit_code": 0,
+      "seconds": 20.36201808300393
+    },
+    {
+      "script": "vendor/assemble9.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source",
+        "/private/tmp/r437-cold-source/hosted",
+        "/private/tmp/r437-cold-source/HOSTING-AUDIT.json",
+        "/Users/temp/.codex/worktrees/r437-ordinary-t360/integer-mult-bounds/research/r437-ordinary-t360/sources/r437",
+        "/private/tmp/r437-cold-source/ASSEMBLY-BIT-AND-HISTORICAL-CONTROL.json",
+        "pr548"
+      ],
+      "exit_code": 0,
+      "seconds": 0.23022599999967497
+    },
+    {
+      "script": "code/invoice_audit.py",
+      "arguments": [
+        "/private/tmp/r437-cold-source"
+      ],
+      "exit_code": 0,
+      "seconds": 2.4032692089967895
+    }
+  ],
+  "word_content_sha256": "da77deaf11368d016622348227657b98404b6afbc7e4f3d6fe9a246baae0dcce",
+  "program_sha256": "d8ae6356093ce525db39c00169ad905b57fd86ec6f5f4d9761b0f196532f0d3d",
+  "BIT_c": "868314126713557740143/500000000000000000000000",
+  "whole_kappa_changed": false,
+  "hosted_CI": false,
+  "scope": "Conditional finite supplier under unchanged selected all-size/SOURCE/field/PR442 interfaces; no unconditional multiplication theorem.",
+  "outputs": {
+    "06-local_counter.log": "e04fc23b3b8fa93ca8ef992d14fc9843acba72c4612a0c233ab6d8491fce8196",
+    "SOURCE-HISTORY-SCOPE.json": "4f30906e5f4f69cee907073669d7b4474806079e9ac0a1702780f3cc8817e2c8",
+    "03-catalog_check.log": "23bedc8890b2382ea8a74c65090e7229f13ccfd18b59fff6952bee66940d3511",
+    "RESULT.json": "b4570664c6b54753c9afec38877d75076aa30df971b3f666429eae00f22e93d3",
+    "12-invoice_audit.log": "897f8f7dc8e5dca90e9e1e5a8d4b065e493841d447d32119afc81d465e106f2e",
+    "WORD.json.gz": "e432182d5b62c8bbefeb871fce30317234d707e5e18d4295e65ac21f7fd8365e",
+    "02-word_audit.log": "4ccb73d93e12ced60552db06953ae9dec1af880eab66c4a90bd0b9538373f037",
+    "HOSTING-AUDIT.json": "6df92b7e3bf75abf2f2d64e9adf4146b2fc43ead8d428935ab579bff62c2f2f3",
+    "ASSEMBLY-BIT-AND-HISTORICAL-CONTROL.json": "08907c19ce9d189fc65a8a40179606504664328ec00dc8af1a71406e7a0a1642",
+    "05-export_records.log": "e97c913a295a70dc03d6c7dacdf0264cee6e02320b4e39f5d82b2ddef0a5f0da",
+    "01-xcheck_p.log": "42187339c1090886b3986a0c9dec2bc3fb8f0150052594e9119117319101a406",
+    "08-match.log": "503c3c9ef2b51036ad2073a4fa1b3ce7862dedf857cdcdc8f54909f5549a45ed",
+    "INVOICE-INDEPENDENT.json": "95da6956ca8259bd43defd2510bf2645da9229c14564d3f07fd11bf17e56eb3e",
+    "10-audit_hosted_k.log": "9620a35f2fc25deee725a569fef1e962924c5f52ac13617f10f7c4f68fb853c6",
+    "SELECTION.json": "b9dc10dc7a0cc088064fae0003020263f552b7ab4833b461fc63fe292b862919",
+    "UPSTREAM-XCHECK.json": "17a88e4845aa298adb2f441f571c52d0ea2a98abb8894b0cebb164cd20b59c48",
+    "MATCHING.json": "503c3c9ef2b51036ad2073a4fa1b3ce7862dedf857cdcdc8f54909f5549a45ed",
+    "07-global_k.log": "01f4a4212f9473294edb81262fc9d1b738a0842b31d2dd789cb812696bacd7b1",
+    "00-generate.log": "031f10da29eee5bdff8bb7135153e453da54354ce7ad9cd3a2b141ac607437c2",
+    "04-source_history_scope.log": "f8fb89cba1647bb9bc88b335b4eb3bd345a33ea4bd80db6f18e904cd2d333bd7",
+    "11-assemble9.log": "8ea64913532bf66e67e31fae85cfef062f4b75034d66ffe8168af073e51e3ca7",
+    "09-emit_k.log": "efb3814778715ae7f355e58ea34ceb6cf7812d9c5ed4da5355e007e1dc601bd5",
+    "CATALOG-RESULT.json": "8e7186ded25dde9b55c62a6a224354f99726d4f4c140264a641fc43aaaf47312",
+    "records/249-records.bin": "caeb2eb0e417992788c32c1f5812ada60b46d1dfdba9f4ac376299b2dede13cb",
+    "records/249-states.json": "434309bb40829a4fd4afaa84f8b999a85ed0edf02d1317716a6d85465e5bc258",
+    "records/frames.json": "d006b3bfe0c04afecfea7aecfa59dfe4298b99501c70da3938e40289bc2f5010",
+    "nine/GEOMETRY.json": "b9ed0e5e0084dcd285f33bfc71aab833ddcfa1062bd80c9c83da8244276d6830",
+    "nine/GLOBAL-TEMPLATE.json.gz": "280a64b570bf2f163c5643f97e2fa580518a2110dbfb7a4aa9934c369081cdf2",
+    "nine/GLOBAL.json": "3889dfaeae1acdefea257a78722e4f7092e5258ec3b0bb9038ef49d469b64e08",
+    "hosted/GLOBAL-TEMPLATE.json.gz": "00dee04c5372ac300b678c4ac1e6770c178923099d2d4bf01be9e4bccd2a1e72",
+    "hosted/GLOBAL.json": "5c7602f710ac275f0bad39b25a4a41e0a1173c065c32d224cfbf917ba89d3170",
+    "cout/columns.json": "3fd05b8b5488f65b10c5328660a64ed3fc03021deef6f46669325af764d340d7",
+    "cout/legality.json": "43ed3518ce16b078ed76729353019c90ef52ddd12970aca017466c8403269c24"
+  }
+}

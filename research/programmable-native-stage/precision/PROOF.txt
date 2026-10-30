@@ -1,0 +1,61 @@
+Exact all-width dyadic precision for the actual whole-K native primitive
+
+Positive result. For the forward and backward whole-K programs pinned below, every field component can be evaluated with ZERO rounding error on one explicitly bounded dyadic grid, at every positive field-column width f. Both orientations admit the common sufficient fractional-bit budget
+                         B = g + ceil(25 f/2) + 4.
+Here input real and imaginary components lie in 2^-g Z. If initial complex component magnitudes are at most H>=1, every prefix has magnitude at most
+                         8 H 2^ceil(25 f/2).
+A signed payload of g+2 ceil(25 f/2)+ceil(log2 H)+9 bits is sufficient, including conservative guard bits for temporary sums. This is a source-bound sufficient format theorem, not a minimal-grid claim, new kappa, or uncharged runtime theorem.
+
+For bounded integer/dyadic input amplitudes this format is linear in f. At g=0,H<=15 it fits within 25f+14 signed bits. The full whole-K family has 2*112^3 fields of 2^(25f) physical components; its positive signed address space already needs at most 25f+23 bits before additional caller scratch. Thus this local primitive's exact payload budget does not require asymptotically wider words than its physical address space. This statement does not assert that constant 64-bit words suffice for growing f or that address transformations cost one instruction.
+
+1. Frozen actual source and scope.
+The source is PR 5464 head 3981f9539e63630681f6903e3c6a50b3a0d2f2dd, research/odd-e8-whole-k-native/K-PROGRAM.json.gz and B-PROGRAM.json.gz. Their immutable container and decompressed payload hashes are checked against SOURCES.json. The forward stream has 43,008 events; the backward stream has 44,544, including 1,536 explicit boundary monomials. Each uses 512 Gaussian children of every rank 8,9,15,16, 38,912 scalar ADDs and all source-declared monomial wrappers. Both root-cube streams have 1,024 arbitrary original fields. The checker examines every referenced phase/permutation word and rejects an unrecorded non-monomial operation.
+
+The all-family geometry/phase theorem belongs to the source. Our symbolic proof applies to each constructor instance because all instances have the same field-path ranks, signed coefficient magnitudes and chronology. We do not claim to have rerun every all-family absolute phase instance or the entire upstream scientific suite. The checker replays the two actual pinned root-cube streams as independent evidence for the precision bounds.
+
+2. Gaussian-integer coefficient lemma.
+Use the source convention
+                      C=((1+i) I+(1-i) X)/2.
+For m independent bit axes, every nonzero entry of C tensor ... tensor C is
+                 (1+i)^(m-h) (1-i)^h / 2^m
+               = (-i)^h (1+i)^m / 2^m.
+If m=2s, (1+i)^m=2^s i^s. If m=2s+1 it equals 2^s i^s(1+i). Hence every entry is a Gaussian integer divided by 2^ceil(m/2). Conjugation gives the same bound for inverse children. Literal phase, signed translation and binary permutation gates multiply components by Gaussian units and permute their addresses, so they introduce no denominator.
+
+A rank-r child over f columns acts on r f independent axes. It therefore increases a sufficient dyadic denominator exponent by at most ceil(r f/2), rather than r f. This also covers intermediate butterfly stages: after k independent axes the same lemma gives ceil(k/2)<=ceil(rf/2). Computing with a fixed common grid does not require rounding at hidden intermediate steps; the exact mathematical lattice bound proves the corresponding integer numerators are divisible before a power-of-two division is performed.
+
+3. Literal forward grid.
+Every source X first traverses rank 8; its initial grid exponent becomes g+4f. Every reader Y first traverses rank 9; its exponent becomes g+ceil(9f/2). Each actual ADD uses a source X at its rank-8 cut and coefficient of denominator at most 16. No source X is changed by any such ADD. Thus after all ADDs a reader lies on the grid with exponent
+                g+max(ceil(9f/2),4f+4).
+Readers then traverse rank 15. Sources traverse rank 16, so every forward prefix and output is covered by
+  B_F = g+max(ceil(9f/2)+ceil(15f/2),
+              4f+ceil(15f/2)+4,
+              12f).
+The third term is redundant but displays the source path. Repeated ADDs at a fixed grid do not accumulate denominator bits: their exponent is a maximum, not a sum. This is why the result has no factor from 38,912 ADDs or the number of ports.
+
+4. Literal backward grid.
+The actual inverse-transpose program reverses ADD direction, with all native inverse children represented by positive Gaussian children and explicit monomials. Source Y reaches its rank-9 cut with exponent g+ceil(9f/2). An X field, initially at its rank-8 cut, receives signed dyadic multiples of these Y values and then traverses rank 16. Therefore
+                     B_B = g+8f+ceil(9f/2)+4
+                         = g+ceil(25f/2)+4
+is sufficient for every backward prefix. Its other original fields follow rank 9 plus rank 15 and are covered by this bound. Directly considering even and odd f shows B_F<=B_B for every f>=1. The verifier independently carries symbolic affine envelopes for f=2k and f=2k+1, on their full unbounded integer domains. Sample widths are illustrations; universal validity is not inferred by finite sampling.
+
+5. Amplitude and integer payload bounds.
+A rank-r Gaussian child has exactly 2^(rf) entries of magnitude 2^(-rf/2) per row, so its induced maximum-component norm is 2^(rf/2). Monomial words preserve component magnitudes. Each scalar K row has twelve coefficients of magnitude 1/4 and sixty-four of magnitude 1/16, with total absolute sum seven; each reader/source also retains its own old value with coefficient one.
+
+In the forward stream, each X bound evolves through exponents 8 and 16, giving at most H 2^(12f). Each Y bound, after its ADDs and rank-15 exit, is at most H(2^(12f)+7*2^(23f/2)). Thus all forward prefixes are bounded by 8H2^(12f).
+
+In the backward stream the ADDs instead put Y's rank-9 values into X before rank 16. This gives the bound H(2^(12f)+7*2^(25f/2)); the unchanged Y path remains below H2^ceil(24f/2). Every prefix is therefore bounded by 8H2^ceil(25f/2). The checker proves these bounds by positive polynomials in u=2^(f/2): no polynomial has degree above 25 or coefficient sum above eight.
+
+Multiplying this magnitude bound by the common denominator 2^B bounds the integer numerator. The stated signed payload length leaves conservative headroom for the real/imaginary temporary sums used by C and dyadic ADDs. No multiplication of two unrestricted payload words is needed for these particular linear gates: coefficients are Gaussian units and dyadic scalars.
+
+6. What this establishes and what is still charged.
+This supplies an actual local ordinary finite-precision realization: exact Gaussian-integer/dyadic arithmetic has zero rounding error with the specified format, and the source's original data/frame/owned contracts remain unchanged. Integer division by powers of two, carry handling, permutations, address-bit calculations, storage and movement still have to be implemented and charged on the chosen ISA. A direct butterfly implementation is finite but is not thereby faster than the intended recursive supplier. Our word-width bound is not a claim of unit-cost arbitrary precision, nor does it supply the entire ordinary conversion or analytic integer-multiplication theorem.
+
+A complete caller may compose these bounds with its own actual ADDs, recodings and native children. The present note does not hide that missing composition inside an assumed residual gadget. It makes no replacement of the selected paid profile or selected frontier.
+
+Reproduce with Python 3.12+, standard library only:
+  python -B verify.py
+  python -O -B verify.py
+
+A mutation increases the denominator of a real emitted scalar edge; it is rejected by the universal grid test.
+
+Credit. THU New Media Research Center / thu-nmrc supplies PR 5464's actual whole-K geometry, field chronology, literal phases, forward/backward words and retained source lineage. Ali Romman's PR 5439 supplies the odd-E8 geometry; Dugongue PR4929 and Dillon Amburgey supply retained code/normalizer work; Cao Yifan, Cinna Davis, zxv, Jacob Alan Sussman and the native/Clifford/compiler predecessors retain their source credit. Matarener's PR 5438 and the Clifford denominator literature demonstrate why exact grids must be separated from crude height bounds. The Gaussian-integer coefficient identity is elementary and classical. This exact format/size specialization and symbolic precision checker were prepared with substantial OpenAI Codex assistance. Original work is Apache-2.0.

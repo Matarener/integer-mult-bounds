@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source/PLAN authentication; all789 source axes; first split791 formal axes/625681 coefficient positions; contact/frame/lifetime and7 specific controls; entire frozen RESULT comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized independent first-split replay with explicit guards and exact frozen receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Opposite-direction temporal oracle;6 source columns/pivot-row basis commutation; complete frozen ORACLE receipt."
+    }
+  ]
+}

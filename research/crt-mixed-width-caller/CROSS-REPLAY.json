@@ -1,0 +1,71 @@
+{
+  "cross_helper_written_after_primary_read": true,
+  "files": {
+    "cross_check.py": "eb7a65c1129fe302ddf0cabb7cf73b178f905525c32b77768e2b14283c978def",
+    "independent_benes_oracle.py": "7a58689072b730201a6b4007f7b2524db2abff460a3116cfa42821fb2e1b63a5",
+    "independent_mixed_oracle.py": "8cdaedebd991fc0f73e74dd7b53e1c42f1e50d7b61e5b2e52d74134e2dafbdc4",
+    "verify.py": "5e62787f3c4a8f1175ca7dea6c6b8ceff7863a3f879abd6245faf6aeb272fd45"
+  },
+  "oracle_primitives_written_before_primary_read": true,
+  "runs": [
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/cross_check.py",
+        "{package}/verify.py",
+        "{package}/independent_mixed_oracle.py",
+        "research/unconditional-batched-crt/check_batched_crt.py"
+      ],
+      "cwd_template": "{repository}",
+      "exit_code": 0,
+      "receipt": {
+        "endpoint_sha256": "46209c8ca0f8b228236b5601150dafca35157003b507a6f6aad24aa0587489eb",
+        "forward_inverse_rows": 3064,
+        "literal_idle_specifications": 648,
+        "oracle_sha256": "8cdaedebd991fc0f73e74dd7b53e1c42f1e50d7b61e5b2e52d74134e2dafbdc4",
+        "primary_sha256": "5e62787f3c4a8f1175ca7dea6c6b8ceff7863a3f879abd6245faf6aeb272fd45",
+        "retained_source_sha256": "681e2e3d71fa74c8b9b326f3860104fd9d89590a222e26ae6ee718d1fd40ff2e",
+        "row_decoder_comparisons": 510,
+        "scope": "separate pre-code oracle against actual rows, including external ell/all-short and singleton cases; no E/tape theorem",
+        "states": 166,
+        "status": "PASS_PINNED_MIXED_CALLER_CROSSCHECK"
+      },
+      "stderr": ""
+    },
+    {
+      "argv_template": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cross_check.py",
+        "{package}/verify.py",
+        "{package}/independent_mixed_oracle.py",
+        "research/unconditional-batched-crt/check_batched_crt.py"
+      ],
+      "cwd_template": "{repository}",
+      "exit_code": 0,
+      "receipt": {
+        "endpoint_sha256": "46209c8ca0f8b228236b5601150dafca35157003b507a6f6aad24aa0587489eb",
+        "forward_inverse_rows": 3064,
+        "literal_idle_specifications": 648,
+        "oracle_sha256": "8cdaedebd991fc0f73e74dd7b53e1c42f1e50d7b61e5b2e52d74134e2dafbdc4",
+        "primary_sha256": "5e62787f3c4a8f1175ca7dea6c6b8ceff7863a3f879abd6245faf6aeb272fd45",
+        "retained_source_sha256": "681e2e3d71fa74c8b9b326f3860104fd9d89590a222e26ae6ee718d1fd40ff2e",
+        "row_decoder_comparisons": 510,
+        "scope": "separate pre-code oracle against actual rows, including external ell/all-short and singleton cases; no E/tape theorem",
+        "states": 166,
+        "status": "PASS_PINNED_MIXED_CALLER_CROSSCHECK"
+      },
+      "stderr": ""
+    }
+  ],
+  "schema_version": 1,
+  "scope": "bounded actual-row and two-sided endpoint comparison using the earlier independent compiler/bruteCRT oracle; no tape/E theorem",
+  "status": "PASS_PINNED_MIXED_CROSS_REPLAY",
+  "time_utc": "2026-10-20T13:06:30.039871+00:00"
+}

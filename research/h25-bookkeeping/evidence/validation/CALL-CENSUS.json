@@ -1,0 +1,77 @@
+{
+  "P1": {
+    "both_loops_retained": true,
+    "constructors_removed": 21157700,
+    "intersection_operations_retained": 10580000,
+    "lease_receipt": {
+      "allowances_armed": 1,
+      "checks_captured": 1,
+      "circuits_captured": 1,
+      "entries": 1,
+      "fallback_calls": 0,
+      "fast_admissions": 1,
+      "fraction_sha256": "cf33568f7b767f66896995a7a81cc662e8be226f2e58efb61d2028f64eb5d231",
+      "fraction_source_profile": "recorded-local-cpython-3.12.3",
+      "private_operand_sets_constructed": 2300,
+      "reservations": 1,
+      "reservations_expired": 1,
+      "schema": "h25-private-set-reuse-v1",
+      "source_sha256": "d623617f7c5cb3189580883a8ab30c0bd3832688ae3f1f0c1f881bbbbff8e0c1"
+    },
+    "private_set_constructors_observed": 2300,
+    "scope": "verify_map tail only",
+    "set_constructors_reference": 21160000,
+    "triples": 2300
+  },
+  "P2": {
+    "candidate_records_observed_in_traced_control": {
+      "captured_cell_reads": 14,
+      "distinct_functions": 11,
+      "records": 11,
+      "same_code_distinct_function_rejected": true
+    },
+    "eager_messages_removed_at_native_entries_source": 8959320,
+    "eager_messages_removed_per_check_source": 30,
+    "fresh_checks_at_every_original_boundary": true,
+    "native_entry_boundaries": 298644,
+    "reference_records_observed_in_traced_control": {
+      "captured_cell_reads": 14,
+      "distinct_functions": 11,
+      "records": 13,
+      "same_code_distinct_function_rejected": true
+    },
+    "require_dispatches_removed_at_native_entries_source": 18217284,
+    "require_dispatches_removed_per_supported_check_source": 61,
+    "scope": "original full-caller native entry boundaries; excludes finite/setup/final overhead, which remains paid in complete receipts"
+  },
+  "P3": {
+    "admission_reasoning": "Each full complement used original bounded native domain with zero arithmetic fallback; exact before snapshots share that <=64 row/u64 domain, count<2^64 and result exact list/None. New byte/prefix/error fixtures compare unchanged original observer.",
+    "canonical_bytes": 55839507,
+    "full_records": 238685,
+    "hash_updates_and_counter_order_unchanged": true,
+    "new_native_record_calls_per_admitted_record": 1,
+    "old_temp_dict_constructions_per_record": 2,
+    "old_temp_dict_constructions_removed_at_admitted_records_source": 477370,
+    "scope": "complement observer after for admitted native-domain records",
+    "stream_sha256": "7dec2bf33303c37e1c699609e83768d61df7e19104d34a26a148f66d5ccc4838",
+    "work_moved_into_C_is_still_charged": true
+  },
+  "combined_performance_receipt": "validation/COMBINED-GATE.json",
+  "combined_performance_target": "COMBINED_15_PERCENT_BOTH_METRICS_AND_NOISE_PASS",
+  "evidence_revision": "Final census source arithmetic is now bound to v4qual-C1; original prequalification pilot census remains CALL-CENSUS-PILOTS.json",
+  "kind": "Source-derived hot-path arithmetic tied to live bounded controls and complete native/lease receipts; not an instrumented call profile or standalone saving",
+  "overhead_and_exclusions": [
+    "Private ownership/source/Fraction/admission scans",
+    "Every distinct runtime freshness predicate and all failure paths",
+    "New encoder owner/entry checks, two cold native builds, conversion/formatting/bytes",
+    "Old independent dense/original controls plus complete new union",
+    "Same independent arithmetic, witnesses, full certificate/stdout/types/order",
+    "No inter-call batching, cached PASS, loop fusion or changed hash/schema"
+  ],
+  "pilot_receipts": [
+    "validation/P1-PILOT.json",
+    "validation/P2-PILOT.json",
+    "validation/P3-PILOT.json"
+  ],
+  "schema": "h25-bookkeeping-source-and-live-boundary-census-v1"
+}

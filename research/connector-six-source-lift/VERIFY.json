@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/connector-depth-blocks/README.md",
+    "research/connector-five-halves-growth/README.md",
+    "research/connector-five-halves-growth/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 63 integer mask identities, c=8..40 lift transfers, complete dirty words, noncommuting matrices, composition and failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same exact proof-relevant checks with assertions disabled."
+    }
+  ]
+}

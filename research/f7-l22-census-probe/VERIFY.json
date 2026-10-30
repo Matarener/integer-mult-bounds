@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-weight-parity-census-correction/SOURCES.json",
+    "research/f7-weight-parity-census-correction/TASK.json",
+    "research/f7-weight-parity-census-correction/MATH.md",
+    "research/f7-weight-parity-census-correction/engine/corrected_census.c",
+    "research/f7-weight-parity-census-correction/engine/README.md",
+    "research/f7-weight-parity-census-correction/engine/SUMMARIES.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_10.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_9.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_8.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_9_9.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_7.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l18_9_9.json",
+    "research/f7-weight-parity-census-correction/math/check_math.py",
+    "research/f7-weight-parity-census-correction/validation/check_corrected_c.py",
+    "research/f7-weight-parity-census-correction/validation/brute_validation.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--skip-probe"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Engine-integrity diff against the pinned corrected_census.c (only the documented L<=22 gate lines may differ), the predecessor package's own math check, the predecessor's brute-force cross-check of the extended engine over all small splits and all four budget modes with cap and fail-closed controls, and node-exact replay of all six recorded L20/L18 receipts of the pinned package with the extended binary."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--probe-split",
+        "11,7"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Fresh length-22 census replay of the completed exclusion split (11,7) against the committed RESULT.json receipt: must exit 0 with complete=true, zero hits, and the identical node count (8,784,744 nodes). A capped abort or any node drift fails."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--probe-split",
+        "10,8"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Fresh length-22 census replay of the completed exclusion split (10,8) against the committed RESULT.json receipt: must exit 0 with complete=true, zero hits, and the identical node count (597,933,297 nodes). A capped abort or any node drift fails."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--probe-split",
+        "11,8"
+      ],
+      "timeout_seconds": 480,
+      "checks": "Fresh length-22 census replay of the completed exclusion split (11,8) against the committed RESULT.json receipt: must exit 0 with complete=true, zero hits, and the identical node count (1,349,702,650 nodes). A capped abort or any node drift fails."
+    }
+  ],
+  "notes": "C11 compiler with unsigned __int128 required (clang or GCC). No Python dependencies. The three completed split exclusions (11,7), (10,8) and (11,8) are replayable by the registered commands; each runs one split under its own timeout. The six capped lower-bound probes (2e9-node cap each, the remaining splits) are NOT re-run by CI: reproduce them with the documented opt-in command `{python} -I -B {package}/verify.py --probe-all-splits` (about 1.4e10 nodes; long). `--probe-cap` lowers the cap for the opt-in measurement (must stay at or below the recorded cap). RESULT.json is the committed receipt and is never rewritten; each run writes LAST-RUN.json. Timing fields are excluded from all equality checks."
+}

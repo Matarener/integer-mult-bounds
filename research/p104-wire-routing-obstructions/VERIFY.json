@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-carrier-code-uniqueness/e8/ports.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate pinned ports; V1 E8 root model and conflict <=> orthogonal; V2 sign lemma on all 4992 pairs; V3 triangle lemma on all 19712 triples (704 A2); V4 cover pairs = A2 triangles, |P(Q_j cap Q_a)| <= 24; V5 6-dim subframes of the 2112 triangle frames hold <= 16 ports; V6 23:1 ratio split at the third vertex; controls (perturbed port, flipped Gram sign); RESULT.json equality."
+    }
+  ]
+}

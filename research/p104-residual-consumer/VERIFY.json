@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-residual-consumer/inputs/PR3882_geometry.json",
+    "research/p104-residual-consumer/inputs/PR3882_RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hashes, full original prefix and cleanup factor, relocated tail and 280-column endpoint, exact original frames/nesting, returned sources, fixed result, and conditional budget."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimised repeat of the complete source-bound checker; explicit checks remain active."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate integer-matrix reconstruction of roots, actual prefix, literal cleanup factor, full endpoint and legacy source return, without primary or predecessor executable imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Sixteen semantic/control groups including dirty-state and chronology mutants, 96 information separators, budget scope checks, and actual isolated CLI corruption and missing-source failures."
+    }
+  ]
+}

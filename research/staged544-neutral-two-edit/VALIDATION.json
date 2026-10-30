@@ -1,0 +1,108 @@
+{
+  "git_source_history_and_hosted_CI": "Not run by the author at submission. Official metadata/pin checking and registered replay passed in the explicitly shallow authenticated fixture described below; full source-history preflight remains separate. See PR for later hosted CI.",
+  "metadata": "Official current-main scripts/research_package.py --check-only passes in an isolated fixture with the exact authenticated canonical commit, three trees and task catalogue. Older missing history is explicitly marked shallow.",
+  "new_selected_frontier": false,
+  "normal_full_runs": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/staged544-neutral-two-edit/verify.py",
+        "--provider",
+        "base",
+        "--write"
+      ],
+      "provider": "base",
+      "seconds": 635.689,
+      "status": "PASS",
+      "whole_word_first_checks": 122
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "research/staged544-neutral-two-edit/verify.py",
+        "--provider",
+        "extra",
+        "--write"
+      ],
+      "provider": "extra",
+      "seconds": 540.046,
+      "status": "PASS",
+      "whole_word_first_checks": 122
+    }
+  ],
+  "optimized_controls": {
+    "full_search_repeated": false,
+    "providers": {
+      "base": {
+        "dirty_positive_control_words": 3,
+        "literal_recovery": "pinned source",
+        "positive_control_sha256": "2628d0a4cbc76eebd00e04fa0ab32d8fe1436100dfee49fab0294f0a0b377785",
+        "rejection_controls": [
+          "source byte drift",
+          "wrong scalar after refreshed cleanup",
+          "illegal gate frame",
+          "omitted cleanup on arbitrary dirt",
+          "false declared invoice",
+          "noncommuting scalar barrier",
+          "own dirty-block checker rejects noncommuting swap",
+          "profitable 2+2 to 1+3 rejected by non-improvement certificate"
+        ],
+        "retained_delta_certificate_rows": 45
+      },
+      "extra": {
+        "dirty_positive_control_words": 3,
+        "literal_recovery": "pinned source",
+        "positive_control_sha256": "2628d0a4cbc76eebd00e04fa0ab32d8fe1436100dfee49fab0294f0a0b377785",
+        "rejection_controls": [
+          "source byte drift",
+          "wrong scalar after refreshed cleanup",
+          "illegal gate frame",
+          "omitted cleanup on arbitrary dirt",
+          "false declared invoice",
+          "noncommuting scalar barrier",
+          "own dirty-block checker rejects noncommuting swap",
+          "profitable 2+2 to 1+3 rejected by non-improvement certificate"
+        ],
+        "retained_delta_certificate_rows": 45
+      }
+    },
+    "seconds": 14.862,
+    "status": "PASS_NEUTRAL_TWO_EDIT_CONTROLS"
+  },
+  "optimized_coverage": "Exact source authentication, positive two-step fixture, dirty-state rejection controls and retained sign certificates; complete enumerations were not repeated under -O.",
+  "platform": {
+    "machine": "x86_64",
+    "release": "7.0.0-38-generic",
+    "system": "Linux"
+  },
+  "publication": "Prepared for focused GitHub PR after user-authorized retry. Earlier publication attempts failed automatic approval-service capacity/timeouts. Publication does not add scientific verification.",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "registered_replay": {
+    "command": [
+      "python3",
+      "-B",
+      "scripts/research_package.py",
+      "--package",
+      "research/staged544-neutral-two-edit"
+    ],
+    "fixture": "Isolated Git fixture with authenticated exact canonical objects, explicitly shallow; scientific source and manifest bytes equal the delivered package.",
+    "log_sha256": "3080e56eaa9140683fe3d7a10b86ab2dab50d85fc84fac6849899a5926950630",
+    "optimized_control_seconds": 14.553,
+    "provider_seconds": {
+      "base": 302.488,
+      "extra": 303.229
+    },
+    "runner_git_blob": "404823640a4506cc363d5e999b724553a41a39a2",
+    "status": "PASS_REGISTERED_RESEARCH_PACKAGE"
+  },
+  "schema_version": 1,
+  "unrun_obligations": [
+    "Fresh native Gaussian/Clifford realization",
+    "Fresh physical hosting and global allocation/owner chronology",
+    "Uniform coefficient/precision/tape and bit-operation costs",
+    "All-size/compiler and full outer/supplier admission",
+    "Analytic transfer and BIT H1-H5"
+  ]
+}

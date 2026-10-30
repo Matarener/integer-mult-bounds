@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+    "research/native-rank8-helper-provider/WORD.json.gz",
+    "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+    "research/coded-native-caller/NORMALIZERS.json",
+    "research/native-rank8-helper-provider/PROVIDER.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/phase_audit.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent retained Clifford/tableau/absolute-phase comparison of147456 native columns and36864 product columns, with phase/orientation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/phase_audit.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent retained Clifford/tableau/absolute-phase comparison of147456 native columns and36864 product columns, with phase/orientation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify_kernel.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Fresh actual-signed full native history kernel in all three frozen words; exact all-width ambiguity K_Y=I, HK=0; four target/compensator/sign/side-information controls. No width-one sum or rank inference."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify_kernel.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Fresh actual-signed full native history kernel in all three frozen words; exact all-width ambiguity K_Y=I, HK=0; four target/compensator/sign/side-information controls. No width-one sum or rank inference."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_kernel.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent native/frame/group replay and Fraction-derived kernel, then original operator-coefficient HK=0 over all4891 histories, target and compensation controls. Does not import primary native/monomial/search code or consume the module decomposition."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_kernel.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent native/frame/group replay and Fraction-derived kernel, then original operator-coefficient HK=0 over all4891 histories, target and compensation controls. Does not import primary native/monomial/search code or consume the module decomposition."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/formal_kernel.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Same complete history invariant over72 formal free generators, cancelling only adjacent inverses. No actual-operator identifications, matrix independence or width-one linear relations; verifies all three cases."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/formal_kernel.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Same complete history invariant over72 formal free generators, cancelling only adjacent inverses. No actual-operator identifications, matrix independence or width-one linear relations; verifies all three cases."
+    }
+  ]
+}

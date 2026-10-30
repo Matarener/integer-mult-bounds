@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independent proof audit of PR5526 Sections 2\u20135: projective Clifford/stabilizer overlap counts, universal rational Gram bounds, and fixed-program four-phase implication.",
+  "scope_change_reason": "Handoff-first override: Discussion1166 comment19174354 explicitly requests an independent proof audit of PR5526. This is an informal mathematical audit before formalization, not the historical formal-interface card's already-covered arithmetic or a Lean theorem.",
+  "bottleneck_link": "An algebraic tensor-separation acceptance gap is already consumed by PR5531 and passive-history proposals. Independently checking this implication supports scoped interface review; no physical caller or selected assumption is discharged.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after one bounded core-proof audit and exact corroboration, or report a precise gap/counterexample. No larger-family or sharp-threshold search.",
+  "outcome": "completed",
+  "evidence": "AUDIT.md; exact literal matrices, exhaustive binary symplectic census, rational tails, phase/domain controls; see VERIFY.json and VALIDATION.json.",
+  "author": "DLamdata, with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex lead assistance, one independently deriving native verifier subagent and one skeptical native review subagent. Not independent human or formal-kernel review.",
+  "open_questions": [
+    {
+      "question": "Does the complete frozen PR5526 passive-caller observation alphabet meet the core theorem's hypotheses?",
+      "why_it_matters": "This audit resolves only the core algebraic implication; its source-bound passive application is a separate portion of the handoff.",
+      "first_step": "Pin the latest application and source heads, then independently bind every permitted observation/operator and all excluded internal prefixes to the stated columnwise Clifford contract.",
+      "blocked_by": "Requires a separate source/caller audit; no conclusion follows from the small-group census."
+    },
+    {
+      "question": "Does the later 104-return repair theorem retain its quotient, capacity and original-input premises at the actual caller?",
+      "why_it_matters": "The later repair and invoice claims are explicitly outside this core proof audit.",
+      "first_step": "Check live overlap and independently review REPAIR.md at a pinned head, starting with its initial observation module and arbitrary-new-return step.",
+      "blocked_by": "Additional source-bound algebra/cost review; this package does not supply it."
+    }
+  ],
+  "overlap": {
+    "initial_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+    "task_picker_seed": "c99288522c14b979d3a20ee526fcea65",
+    "canonical_thread": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5236",
+    "handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19174354",
+    "discussion_status": "Direct API claim attempt rejected FORBIDDEN: Resource not accessible by integration; copyable claim supplied to donor. No public reservation is claimed.",
+    "nearest_predecessors": [
+      5526,
+      5531,
+      5521,
+      5376,
+      2880
+    ],
+    "initial_coverage": {
+      "open_prs": 403,
+      "closed_prs": 4682,
+      "discussion_records": 4828,
+      "local_records": 7402,
+      "complete_pagination": true,
+      "complete_local_note_inventory": true
+    },
+    "limits": "Titles/bodies, Discussion comments/replies, top-level local README/TASK and ledger; no arbitrary diffs, nested source histories or unpublished work. Snapshots non-atomic."
+  }
+}

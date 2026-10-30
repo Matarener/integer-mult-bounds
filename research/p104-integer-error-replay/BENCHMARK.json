@@ -1,0 +1,124 @@
+{
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "code_sha256": {
+    "integer.py": "82a73e4bcf1835bfdd510c7ad5538625c1b380c559b671e6a67be490615a743a",
+    "contract.py": "ecf1f000e4aef11d5d5e1191a8e6fa44518ba8736e14505071f4ebc32d1409ce",
+    "verify.py": "aaa392ca9aa9aead0eee0ac6c64ff44ea66e1f251b0a79d18cd60baa946261a1",
+    "benchmark.py": "59c451bd1fcb1e8fcaebe5d6d7002bb85ccbd68c2f0f8d14e70de8fbcf949c69",
+    "inputs/source.tar": "f8252a90dc504ce8a77d781e558691fe8d21014b0f3f720d8dfd5274b5e8aadc"
+  },
+  "order": [
+    "baseline",
+    "candidate",
+    "candidate",
+    "baseline",
+    "baseline",
+    "candidate"
+  ],
+  "runs": [
+    {
+      "mode": "baseline",
+      "wall_seconds": 31.14853112504352,
+      "internal_seconds": 31.07993,
+      "receipt": {
+        "coordinates": 799,
+        "events": 25984,
+        "guards": {
+          "owned": 22,
+          "prefix": 26,
+          "public": 23
+        },
+        "source_controls": 6,
+        "source_result_sha256": "cc7739703ed23532d187949c8507d09c13ac4c152e07a930f0087cde0d7a3d98"
+      }
+    },
+    {
+      "mode": "candidate",
+      "wall_seconds": 9.81022679200396,
+      "internal_seconds": 9.748412,
+      "receipt": {
+        "coordinates": 799,
+        "events": 25984,
+        "guards": {
+          "owned": 22,
+          "prefix": 26,
+          "public": 23
+        },
+        "source_controls": 6,
+        "source_result_sha256": "cc7739703ed23532d187949c8507d09c13ac4c152e07a930f0087cde0d7a3d98"
+      }
+    },
+    {
+      "mode": "candidate",
+      "wall_seconds": 3.2594693331047893,
+      "internal_seconds": 3.213043,
+      "receipt": {
+        "coordinates": 799,
+        "events": 25984,
+        "guards": {
+          "owned": 22,
+          "prefix": 26,
+          "public": 23
+        },
+        "source_controls": 6,
+        "source_result_sha256": "cc7739703ed23532d187949c8507d09c13ac4c152e07a930f0087cde0d7a3d98"
+      }
+    },
+    {
+      "mode": "baseline",
+      "wall_seconds": 24.090562083059922,
+      "internal_seconds": 24.048647,
+      "receipt": {
+        "coordinates": 799,
+        "events": 25984,
+        "guards": {
+          "owned": 22,
+          "prefix": 26,
+          "public": 23
+        },
+        "source_controls": 6,
+        "source_result_sha256": "cc7739703ed23532d187949c8507d09c13ac4c152e07a930f0087cde0d7a3d98"
+      }
+    },
+    {
+      "mode": "baseline",
+      "wall_seconds": 19.79097054200247,
+      "internal_seconds": 19.715903,
+      "receipt": {
+        "coordinates": 799,
+        "events": 25984,
+        "guards": {
+          "owned": 22,
+          "prefix": 26,
+          "public": 23
+        },
+        "source_controls": 6,
+        "source_result_sha256": "cc7739703ed23532d187949c8507d09c13ac4c152e07a930f0087cde0d7a3d98"
+      }
+    },
+    {
+      "mode": "candidate",
+      "wall_seconds": 4.3006944169756025,
+      "internal_seconds": 4.239551,
+      "receipt": {
+        "coordinates": 799,
+        "events": 25984,
+        "guards": {
+          "owned": 22,
+          "prefix": 26,
+          "public": 23
+        },
+        "source_controls": 6,
+        "source_result_sha256": "cc7739703ed23532d187949c8507d09c13ac4c152e07a930f0087cde0d7a3d98"
+      }
+    }
+  ],
+  "baseline_median_seconds": 24.090562083059922,
+  "candidate_median_seconds": 4.3006944169756025,
+  "speedup": 5.601551690808398,
+  "wall_reduction_fraction": 0.8214780376585825,
+  "cold_processes": true,
+  "parallel_replays": false,
+  "scope": "Complete contract with source authentication, extraction, all original endpoint/error/guard/control checks. Local shared-host timings; no Linux or hosted speed claim. Qualification is a separate cost."
+}

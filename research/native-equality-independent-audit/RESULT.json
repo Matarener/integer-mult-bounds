@@ -1,0 +1,182 @@
+{
+  "authenticated_inputs": 3,
+  "contracts": {
+    "cached_history": {
+      "additional_paid_calls": 0,
+      "available_rows": [
+        "x",
+        "T*x",
+        "T*x"
+      ],
+      "exact_target_cut_rank": 1,
+      "joint_cut_rank": 1,
+      "rejected_control": "omit initial availability map J",
+      "sum_individual_cut_ranks": 2
+    },
+    "changed_alphabet": {
+      "crossing_rank": 1,
+      "inter_column_permutation": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "rejected_control": "grant inter-column CNOT as a zero-rank free map",
+      "repeated_one_column_positive_controls": 2
+    },
+    "chronological": {
+      "endpoint": [
+        "2*x + T*y",
+        "T*x + y",
+        "d",
+        "0"
+      ],
+      "endpoint_cut_rank": 2,
+      "feedback_paid_input_index": 3,
+      "field_dimension": 4,
+      "missing_first_charge": {
+        "mutant_prefix_budget": 0,
+        "observed_prefix_rank": 1
+      },
+      "operations": 18,
+      "original_and_dirty_input_columns": 12,
+      "owned_zero_registers": 1,
+      "paid_overwrites": 4,
+      "prefix_bounds": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "prefix_cut_ranks": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        2
+      ],
+      "rejected_controls": [
+        "omit dirty-response subtraction",
+        "omit final CLEAR",
+        "omit first paid crossing charge"
+      ]
+    },
+    "endpoint_codes": {
+      "coded_target_cut_rank": 2,
+      "left_and_right_code_ranks": [
+        8,
+        8
+      ],
+      "rejected_control": "retain unit error floor after nonunitary scaling",
+      "scaled_target_cut_rank": 1,
+      "zero_program_operator_error": "1/8",
+      "zero_program_paid_calls": 0
+    },
+    "paid_updates": {
+      "cases": [
+        {
+          "coefficient": "0",
+          "self_update_cut_rank": 0,
+          "self_update_full_rank": 4,
+          "two_bank_cut_rank": 0
+        },
+        {
+          "coefficient": "1",
+          "self_update_cut_rank": 1,
+          "self_update_full_rank": 2,
+          "two_bank_cut_rank": 1
+        },
+        {
+          "coefficient": "-1",
+          "self_update_cut_rank": 1,
+          "self_update_full_rank": 2,
+          "two_bank_cut_rank": 1
+        },
+        {
+          "coefficient": "1/2",
+          "self_update_cut_rank": 1,
+          "self_update_full_rank": 4,
+          "two_bank_cut_rank": 1
+        },
+        {
+          "coefficient": "-3/2",
+          "self_update_cut_rank": 1,
+          "self_update_full_rank": 4,
+          "two_bank_cut_rank": 1
+        }
+      ],
+      "self_update_cases": 5,
+      "two_bank_cases": 5,
+      "two_bank_independent_input_columns_per_case": 8
+    }
+  },
+  "new_kappa_or_supplier_admission": false,
+  "reviewed_source_head": "97db3fb45cd93a350e300781d75440d14e6a1f73",
+  "scope": "PR5588 PROOF.md sections3\u20135; written all-size proof plus finite exact controls",
+  "source_verifier_imported": false,
+  "stabilizers": {
+    "controls": {
+      "k2_f4_cut_rank": 3,
+      "k2_f5_cut_rank": 6,
+      "mismatched_factor_control": 1,
+      "rejected_frame_controls": 3
+    },
+    "n1": {
+      "fourier_rank_counts": {
+        "0": 2,
+        "1": 4
+      },
+      "frames_with_imaginary_Pauli_entries": 2,
+      "image_subgroups": 3,
+      "literal_projectors": 9,
+      "signed_ordered_frames": 6
+    },
+    "n2": {
+      "fourier_rank_counts": {
+        "0": 24,
+        "1": 144,
+        "2": 192
+      },
+      "frames_with_imaginary_Pauli_entries": 216,
+      "image_subgroups": 15,
+      "literal_projectors": 45,
+      "signed_ordered_frames": 360
+    },
+    "signed_matrix_controls": {
+      "conjugated_factor_intersection": "Bell plus",
+      "exact_Gaussian_integer_controls": 3,
+      "noncolumnwise_unitary_endpoint_cut_gram": "I/2",
+      "same_factor_intersection": "Bell minus"
+    }
+  },
+  "status": "PASS_NATIVE_EQUALITY_INDEPENDENT_AUDIT"
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "For the unsigned dirty connector of PR4231 over a ring of characteristic c, answer open question 1 of PR6035 (research/connector-five-halves-growth) for large c: generalize PR6035's lifted integer criterion to any base multiplicity u (valid for c>=u-1), give depth-two templates on six sources (u=9, every c>=8), seven sources (u=13, every c>=12) and eight sources (u=28, every c>=27), and conclude N(c)>=k*floor(c/2)+2*(c mod 2) with k=6,7,8 in those ranges via PR4248's concatenation and deletion lemmas.",
+  "scope_change_reason": "Same scope change as PR6035: the PR4231 alphabet is kept and the source count grows, a scope-change trigger on the card. This answers the predecessor's recorded open question 1 directly (a six-source depth-two block valid for all large c).",
+  "bottleneck_link": "Side result on the complete-call interface floor: it raises the batch size at which a characteristic-c connector consumer can pay exactly c calls per operator. No physical consumer, admission or transfer is supplied, so no kappa change follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after uniform six-, seven- and eight-source depth-two templates with an all-large-c proof, direct block checks over a finite range of c and literal floor words for small cases. Report other searches only as local search notes.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json gives three base walks with per-source cuts. verify.py checks each integer two-prefix identity (63, 127 and 255 masks, the finite core of the proof), checks each expanded block directly modulo c and through the lifted readouts for u-1<=c<=64 (six and seven sources) and 27<=c<=40 (eight), simulates eight literal floor words (up to 196,764 calls) with generic coefficients, checks the corollary table against PR4248's counting condition for 8<=c<=128, and rejects nine mutation controls.",
+  "author": "Claude (Anthropic) session for JosieElliston",
+  "ai_assistance": "Produced by Claude Opus 5.5 in an unattended session. Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Do six-source depth-two blocks exist for c=5,6,7, seven-source ones for 8<=c<=11, and eight-source ones for 12<=c<=26?",
+      "why_it_matters": "It fixes the best depth-two density at small characteristics, where the five-source bound of PR6035 still applies.",
+      "first_step": "Exhaust or SAT-encode the mod-c criterion at c=7 for six sources; local annealing reached 62 of 63 masks there.",
+      "blocked_by": "Only local annealing was run (best 52/63 at c=5, 58/63 at c=6, 62/63 at c=7; lifted u=8 also 62/63)."
+    },
+    {
+      "question": "Is there a depth-two block on k sources for every k once c is large enough?",
+      "why_it_matters": "Depth-two counting allows k up to about 2*log2(kc). A family with k ~ a*log c would give N(c) >= (a/2) c log c, matching the O(c log c) counting bound up to a constant and answering PR6035 open question 3 (N(c)/c unbounded).",
+      "first_step": "Run the lifted criterion for k=9 at larger base multiplicity, then look for an explicit recursive template (e.g. a product of two smaller lifted walks). Minimum characteristics found so far: 8, 12, 27 for k=6, 7, 8.",
+      "blocked_by": "Templates are found by search only; no general construction is known."
+    },
+    {
+      "question": "Is there a depth-three block on more than 3k/2 sources, where k is the best depth-two block size at the same c?",
+      "why_it_matters": "Only such a block would beat concatenated depth-two blocks; PR6035's 8/3 > 5/2 threshold is superseded by the 3, 7/2 and 4 densities here.",
+      "first_step": "Search lifted base walks under the integer three-prefix criterion at the base multiplicities used here.",
+      "blocked_by": "PR4248 reports a 125-of-127 search failure for seven sources at depth three in characteristic four only; no large-c depth-three search is recorded."
+    },
+    {
+      "question": "Does any concrete consumer use a characteristic-c batch at a favorable complete invoice?",
+      "why_it_matters": "The abstract call counts change no recursive supplier or kappa by themselves.",
+      "first_step": "Identify an immutable-source, unobserved-output caller with coefficients of characteristic c and price every primitive, admission and dispatch.",
+      "blocked_by": "No selected-supplier consumer is instantiated."
+    }
+  ],
+  "predecessor_handoff": {
+    "pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/6035",
+    "author": "Nick Petalas",
+    "usage": "Lifted integer template criterion, expansion and Theorem T proof (generalized here from base multiplicity 6 to any u), open question 1; PR4248 prefix criterion, concatenation and deletion lemmas; word builder and generic simulation adapted from research/connector-five-halves-growth/verify.py. No executable dependency."
+  },
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19232907",
+    "upstream_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+    "overlap_scope": "Merged README grep for six-source / depth-two statements across research/connector-*; open PR search for connector depth blocks; handoff thread 1166 grep for six-source, N(c) and #6035. Related packages: connector-five-halves-growth (PR6035), connector-depth-blocks (PR4248), connector-char4-floor-bounds (PR4255), connector-char4-floor-obstructions (PR4271).",
+    "family_decision": "Local interface result; stop. No construction round is justified without a consumer."
+  }
+}

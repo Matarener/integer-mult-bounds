@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/capped-phase-fusion/CAPPED-GAUGE-AUDIT.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Cut identities, the shared majorant, and the gap comparison for every integer p >= 2."
+    }
+  ]
+}

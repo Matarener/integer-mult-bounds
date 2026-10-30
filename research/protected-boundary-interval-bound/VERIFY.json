@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact generic block counts, strict gain, full formal dirty endpoints, both literal inverse orders, all intervals of six fixed words, boundary and capacity controls; generated six-file SHA256 receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact generic block counts, strict gain, full formal dirty endpoints, both literal inverse orders, all intervals of six fixed words, boundary and capacity controls; generated six-file SHA256 receipt."
+    }
+  ]
+}

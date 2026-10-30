@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/partial-helper-capture/SOURCE-EXPORT.json",
+    "research/partial-helper-capture/LICENSE",
+    "research/partial-helper-capture/predecessor4061/README.md",
+    "research/partial-helper-capture/predecessor4061/SOURCES.json",
+    "research/partial-helper-capture/predecessor4061/TASK.json",
+    "research/partial-helper-capture/predecessor4061/VERIFY.json",
+    "research/partial-helper-capture/predecessor4061/verify.py",
+    "research/partial-helper-capture/predecessor4061/frozen/WORD-base.json.gz",
+    "research/partial-helper-capture/predecessor4061/frozen/WORD-extra.json.gz",
+    "research/partial-helper-capture/source4076/vendor/audit_core.py",
+    "research/partial-helper-capture/source4076/NOTICE.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/construction/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Both frozen words;723 dirty coordinates, forward/inverse-transpose/reverse traversals, literal and canceled cleanup, native profile and rejection witnesses."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-O",
+        "{package}/construction/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Both frozen words;723 dirty coordinates, forward/inverse-transpose/reverse traversals, literal and canceled cleanup, native profile and rejection witnesses. Optimized Python control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent/check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate exact6x6 dirty-input matrices, RREF full frame/width ledger, sharp fixed-boundary4H1 floor and defect-sensitive controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-O",
+        "{package}/independent/check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate exact6x6 dirty-input matrices, RREF full frame/width ledger, sharp fixed-boundary4H1 floor and defect-sensitive controls. Optimized Python control."
+    }
+  ]
+}

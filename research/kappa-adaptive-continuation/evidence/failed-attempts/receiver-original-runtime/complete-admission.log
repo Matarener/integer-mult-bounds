@@ -1,0 +1,13 @@
+PASS owners
+PASS parent-lift
+PASS rebind
+Traceback (most recent call last):
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admit_receiver_share.py", line 420, in <module>
+    main()
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admit_receiver_share.py", line 367, in main
+    run('discovery', runtime / 'replay.py', '--data', data, '--work', work / 'discovery',
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admit_receiver_share.py", line 228, in run
+    need(result.returncode == 0, 'failed ' + name + '; see ' + str(log))
+  File "/workspace/scratch/1a12211da438/adaptive-receiver-full-release/admit_receiver_share.py", line 86, in need
+    raise RuntimeError(why)
+RuntimeError: failed discovery; see /workspace/scratch/1a12211da438/adaptive-receiver-full-release/admission/discovery.log

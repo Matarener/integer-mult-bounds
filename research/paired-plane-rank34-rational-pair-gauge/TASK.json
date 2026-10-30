@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "For the exact PR3335 rank-34 P112 scalar factorization, does any single arbitrary rational change of basis on any one of the 561 unordered channel pairs lower the complete-plane one-total invoice?",
+  "scope_change_reason": "The preceding exact invoice is 224, while the favorable plane-port allowance is 160. A finite signed-coefficient census can miss even-denominator two-channel gauges. I replace a finite matrix alphabet with a complete projective support-cell enumeration for every GL2(Q) pair, keeping the scalar fit and tariff fixed.",
+  "bottleneck_link": "A cheaper pair gauge would be the smallest direct escape from the 224 invoice. Exhausting all rational pair gauges removes that isolated move from the search; any remaining gauge improvement must involve simultaneous interaction among at least three channels or a sequence that crosses a higher-cost state.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after deriving and checking the finite slope-cell characterization, pricing every candidate projective pair for all 561 channel pairs, and checking the dense determinant-two preservation fixture and wrong-inverse control. Do not claim a sequential or global gauge lower bound.",
+  "outcome": "completed",
+  "evidence": "CERTIFICATE.json and RESULT.json; 561 pairs, six distinct projective support cases per pair on the published basis (3,366 total), minimum delta zero for every pair; exact determinant-two fixture over all 12,544 scalar entries.",
+  "author": "OpenAI Codex",
+  "ai_assistance": "Substantial OpenAI Codex assistance in research framing, exact projective argument, verifier implementation and validation. No subagents, independent human review or formal proof assistant are claimed.",
+  "open_questions": [
+    {
+      "question": "Can an arbitrary rational simultaneous gauge on three channels, or an overlapping sequence that leaves the pairwise-local minimum plateau, lower the invoice?",
+      "why_it_matters": "A tariff below 160 would pass the inherited optimistic copy screen and justify a next physical integration attempt; 224 still fails it.",
+      "first_step": "Use exact finite hyperplane arrangements for three-channel source and inverse-reader support cells, first on a small interaction-selected triple and compare with the signed-ternary census.",
+      "blocked_by": "The coupled projective flag enumeration for GL3(Q) is not supplied, and even a cheaper algebraic invoice would not provide native realization, restoration, consumer or supplier admission."
+    }
+  ],
+  "boundary": {
+    "source": "The authenticated 112 selected P112 ports, the exact PR3335 matching and its 34 disjoint scalar supports, with K=A A^T.",
+    "operation": "Choose any two of the 34 latent channels and replace their source columns by A G and reader rows by G^-1 A^T for arbitrary G in GL2(Q); other channels remain fixed.",
+    "preserved": "The complete rational 112x112 scalar fitting matrix K and its dirty scalar endpoint.",
+    "priced": "For both changed rank-one terms, the exact F2 pairing rank between complete source-plane and reader-plane spans; every term occurrence is counted.",
+    "not_supplied": "Sequential or overlapping changes, simultaneous blocks of size three or more, other scalar factorizations, a physical native word, dirty-helper restoration, supplier admission or a new kappa."
+  },
+  "obligation_ledger": {
+    "proved": [
+      "For each channel pair, support changes occur only at finitely many exact rational projective slopes; the critical slopes, infinity and two distinct generic representatives cover every GL2(Q) tariff pattern.",
+      "All 561 unordered pairs and their complete projective support cases have minimum local invoice delta zero.",
+      "A determinant-two rational basis fixture preserves all 12,544 scalar K entries with the exact inverse; a wrong inverse is rejected."
+    ],
+    "unknown": [
+      "Whether a sequence of overlapping pair gauges or a simultaneous rational block of size at least three lowers the invoice.",
+      "Whether any lower-tariff factorization admits a physical dirty-state decoder and complete supplier."
+    ],
+    "not_zero_cost_claim": "This is an algebraic tariff screen only; no physical, compiler, restoration, hosting or supplier cost is assigned zero."
+  },
+  "validation": {
+    "environment": "CPython 3.12",
+    "registered_replay": "PASS_REGISTERED_RESEARCH_PACKAGE on CPython 3.12.15; normal and optimized exact census plus six focused tests",
+    "checks": [
+      "Exact source authentication and full scalar mask reconstruction.",
+      "Complete arbitrary-rational GL2(Q) projective support-cell census.",
+      "Focused controls for generic-slope multiplicity, random rational directions, singular gauges and wrong inverse."
+    ]
+  },
+  "overlap": {
+    "searched_at": "2026-10-19T09:16:12Z",
+    "open_prs": 721,
+    "discussion_records": 2590,
+    "complete_pagination": true,
+    "warnings": [
+      "Fresh complete body/comment pagination found no remote item matching the exact rational-pair/projective-cell terms. The relevant live PR3335/PR4004 and paired-plane threads were checked directly. This does not search every code diff or prove novelty."
+    ],
+    "nearest_work": [
+      "PR3335 supplies the exact rank-34 factorization.",
+      "PR3345 and the retained paired-plane copy audit price the base invoice and close orthogonal-local reweightings.",
+      "PR4004 exhausts signed-ternary 3x3 gauges on every triple; the present work instead exhausts all rational 2x2 gauges on every pair.",
+      "PR3463 pair-span gauges and PR3472 common external-query perturbations study different objects."
+    ],
+    "terms": [
+      "arbitrary rational pair gauge",
+      "GL2(Q)",
+      "projective support cells",
+      "rank34 latent channel basis change"
+    ]
+  },
+  "handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19036373",
+  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19036174"
+}

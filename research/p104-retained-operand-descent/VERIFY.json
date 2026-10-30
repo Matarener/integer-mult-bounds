@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_portability.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Accept changed gzip headers and compression for generated output. Reject changed payloads, type substitutions, corrupt containers and altered immutable source bytes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 500,
+      "checks": "Authenticate all source bytes; regenerate the full word; check arbitrary inputs, ownership, transpose, native maps and phases, physical caller, complete invoice, two rational engines, completion, compiler, outer inequalities and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 500,
+      "checks": "Run the same complete check with Python assertions disabled and compare the exact retained result."
+    }
+  ]
+}

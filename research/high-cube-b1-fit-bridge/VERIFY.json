@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit2234-stock-threshold/README.md",
+    "research/bit2234-stock-threshold/RESULT.json",
+    "research/bit2234-stock-threshold/verify.py",
+    "research/high-cube-paid-composition/PROOF.md",
+    "research/high-cube-paid-composition/README.md",
+    "research/physical-ordinary-interchange/PROOF.md",
+    "research/physical-ordinary-interchange/SOURCES.json",
+    "research/selected-bit-fast-primitives/SOURCES.json",
+    "research/selected-bit-fast-primitives/high_route.py",
+    "research/selected-bit-fast-primitives/inputs/pr2899.tar",
+    "research/selected-bit-fast-primitives/stage.py",
+    "research/selected-bit-fast-primitives/stage_sources.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source pins, PR2915 route/adapter bindings, exact nested radix division, PR2899 endpoint theorem scope, 972 symbolic extent identities, strict fitted-domain boundary, prime-domain witness and seven semantic rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same proof-relevant checks with Python assertions disabled; all acceptance checks use explicit exceptions."
+    }
+  ]
+}

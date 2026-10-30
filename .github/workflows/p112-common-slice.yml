@@ -15,9 +15,9 @@ jobs:
     if: github.repository == 'CrocSwap/integer-mult-bounds'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
-    env:
-      TMPDIR: ${{ runner.temp }}/p112-common-slice
     steps:
+      - name: Initialise P112 work directory
+        run: echo "TMPDIR=$RUNNER_TEMP/p112-common-slice" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0

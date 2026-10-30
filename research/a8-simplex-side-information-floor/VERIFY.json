@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/a8-simplex-decoder-floor/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Pinned predecessor CERTIFICATE.json hash; rebuilt 120-line A8 simplex model; both #1248 sharp witnesses satisfy D T^t = 2G and reproduce invoices (0,9^8) and (1,8,9^7); per term an invertible fooling block of size rho_k (no side information), an induced Petersen+(rho_k-5) witness or rho_k-line non-orthogonal set (orthogonal side information), and the exact largest non-orthogonal set; totals 72, 72 and 64 on each witness; stored RESULT.json equals the rebuild and is re-checked as given."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Twelve rejecting controls: singular fooling block, fooling line outside the term, Petersen labels swapped, isolated line orthogonal to the witness, duplicated witness line, Petersen+3 against rank 9, non-independent set, independence-only claim on a rank-9 term, invoice mismatch, broken all-pairs identity, tampered stored certificate, drifted predecessor input."
+    }
+  ]
+}

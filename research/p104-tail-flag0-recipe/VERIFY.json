@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/check_native.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-tail-side-correction-seed749717/AUGMENTED-WITNESS.json.gz",
+    "research/p104-tail-side-correction-seed749717/SIDE-TRANSPORTS.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Compare target 34's promote recipe with the operator of its physical frames."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Reject a circuit that differs by one phase gate."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove an all-n lower bound on the pointwise tensor-independence threshold T(n) of the full n-qubit Gaussian-dyadic Clifford group: its projective tensor Gram is singular at every width f <= 2n, so 2n+1 <= T(n) <= 4n+4 for n >= 2.",
+  "scope_change_reason": "The formal-interface card is narrowed away from proof-assistant formalization and selected callers to the explicit open question of MatShep PR5675 (does the sharp threshold 4n+1 continue beyond two qubits). This is a written native-interface side result, not a discharge of a selected framework assumption.",
+  "bottleneck_link": "Side result. Exact native interface tests need widths at or above the Clifford threshold; this proves that any such test window must grow at least like 2n+1 with the qubit count, complementing the 4n+4 sufficient window of PR5526. No kappa or invoice changes.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first all-n lower bound; do not attempt the three-qubit character computation.",
+  "outcome": "completed",
+  "evidence": "PROOF.md; verify.py exact finite corroboration (code step for n=2,3,4, cuspidal cosets for n=2,3, literal two-qubit Gram null vectors at widths 1..4, rejection controls)",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the exact three-qubit threshold T(3), now known to lie in [7,16]?",
+      "why_it_matters": "It decides whether the 4n+1 pattern of n=1,2 continues, and fixes the sharp native test window at three qubits.",
+      "first_step": "Compute the centre action of the 3-qubit Clifford group (order 4*92,897,280) on class functions at widths 7..13, as #5675 did at two qubits, or find which irreducible characters are absent from the 12th tensor power.",
+      "blocked_by": "No class or character table of the 3-qubit Clifford group is available in the repository; naive enumeration is far beyond the two-qubit method."
+    },
+    {
+      "question": "Can Hadamard-type Clifford elements raise the all-n lower bound above 2n+1, toward 4n+1?",
+      "why_it_matters": "The present residual lives in the Hadamard-free monomial subgroup, whose own threshold is only about 2n+3; the gap to the n=2 value 9 comes from the full group.",
+      "first_step": "At n=2, identify the 1-dimensional determinant-character null vector of #5675 at width 8 and look for an all-n analogue supported on the full group (the determinant itself is trivial for n>=3).",
+      "blocked_by": "No candidate full-group residual is known beyond n=2."
+    }
+  ],
+  "question_source": "PR #5675",
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19221825"
+}

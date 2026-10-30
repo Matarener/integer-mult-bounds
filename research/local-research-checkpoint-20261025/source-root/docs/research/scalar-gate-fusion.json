@@ -1,0 +1,144 @@
+{
+  "status": "REJECTED specified common-frame fusion; no stronger supplier",
+  "source_sha256": {
+    "research/coordinated-frames-and-entrance-banks/selected/complex/word.json.gz": "0c4b720c57717c7e55e88f86a9e17ed75b3891f9d2e7ed29df0a188f8dfee67a",
+    "research/coordinated-frames-and-entrance-banks/selected/complex/frames.json.gz": "b516b59e7bd7e68c56c02e0041e7455b2eff445e81ac5fb69570d424cf0178a1",
+    "research/coordinated-frames-and-entrance-banks/selected/complex/graph.json.gz": "9f73a6a7f1a4410e954246c6ff95d9cad0582d0057f707a693cc2fd170995ead",
+    "research/coordinated-frames-and-entrance-banks/selected/complex/physical-frames.json.gz": "0e92261dbedacb1174ee58712f0a86dab00a4f2411e377faab7c08f54f8307f0",
+    "research/coordinated-frames-and-entrance-banks/selected/complex/physical-pairs.json.gz": "869b852cbfd63ef691336ea398280ef57896dd876f6a6c78edac88a2a304fffb",
+    "research/coordinated-frames-and-entrance-banks/selected/complex/sinks.json": "498f7ccc51db7d09d9dc191f0b0d44fd70f3f8bf374cf3f52548880bd42f04ec",
+    "notes/general-clifford-frames.tex": "c9bb9655b594583c6b4bab8cb485233f1d1e588f83858cf1e4c3530cee8fed54"
+  },
+  "region": {
+    "operation_ids": [
+      16579,
+      16580
+    ],
+    "region_kind": "Two consecutive retained auxiliary gates in the forward rest phase",
+    "roles": {
+      "y": 6795,
+      "x": 6766,
+      "z": 6983
+    },
+    "gates": [
+      "y += x at U",
+      "x += z at V"
+    ],
+    "local_dimension": 22,
+    "ambient_dimension": 66,
+    "U": [
+      524545,
+      262401,
+      33025,
+      16641,
+      768
+    ],
+    "V": [
+      524352,
+      262208,
+      32832,
+      16448,
+      576,
+      320,
+      192,
+      1
+    ],
+    "U_dimension": 5,
+    "V_dimension": 8,
+    "transition_rank": 3,
+    "input_frames": [
+      "U",
+      "U",
+      "V"
+    ],
+    "output_frames": [
+      "U",
+      "V",
+      "V"
+    ],
+    "untouched_alias_and_sink_boundaries": true,
+    "intervening_compensation_deadline": false,
+    "boundary_scope": "Incoming and outgoing edge endpoints fixed; outside movements and future restoration retained"
+  },
+  "operator": {
+    "exact_endpoint": [
+      "y_out = y + x",
+      "x_out = R*x + z",
+      "z_out = z"
+    ],
+    "full_operator": [
+      [
+        {
+          "0": "1"
+        },
+        {
+          "0": "1"
+        },
+        {}
+      ],
+      [
+        {},
+        {
+          "1": "1"
+        },
+        {
+          "0": "1"
+        }
+      ],
+      [
+        {},
+        {},
+        {
+          "0": "1"
+        }
+      ]
+    ],
+    "R": "T_V T_U^(-1), actual exact relative Clifford; no involution assumption",
+    "both_common_frame_schedules_equal_baseline": true,
+    "every_input_and_inverse_checked_symbolically": true,
+    "rejected_controls": [
+      "omit_restore",
+      "pretend_involution",
+      "omit_other_input_alignment",
+      "commute_without_alignment"
+    ],
+    "borrowed_workspace_roles": 0,
+    "copied_control_schedule_checked": true,
+    "temporary_copy": "One dependent stream, cleared by a scan; no new independent role or extra normalization volume"
+  },
+  "small_complex_check": {
+    "exact_rational_realification_columns": 12,
+    "complex_C_not_an_involution": true,
+    "scope": "Small operator check, not a construction of the ambient-66 circuit"
+  },
+  "paid_comparison": {
+    "baseline_positive_children": [
+      3
+    ],
+    "best_common_frame_positive_children": [
+      3,
+      3
+    ],
+    "inplace_common_frame_positive_children": [
+      3,
+      3,
+      3
+    ],
+    "comparison": "Aligned-register model with untouched z bypass: 3*A^sigma+2*B^sigma >= 2*d^sigma",
+    "assumptions": "Both updated streams align to K and return; unchanged z may be copied. A=distance(L_U,L_K), B=distance(L_V,L_K), A+B>=d; 0<sigma<=1; fixed boundary frames and role volumes. General coded boundary adapters are not covered.",
+    "best_common_frame_to_baseline_ratio": "2",
+    "baseline_rank": 3,
+    "minimum_fused_rank": 6,
+    "even_unproved_cross_role_pooling_child": 6,
+    "pooling_to_baseline_ratio_lower": "1898684241901038418590877761981780560979657973/1000000000000000000000000000000000000000000000",
+    "pooling_to_baseline_ratio_upper": "29666941279703725291239705728891820984497833/15625000000000000000000000000000000000000000",
+    "tested_saving": "3/40",
+    "scalar_gates_and_restoration": "Both scalar gates and all boundary returns retained; original future cleanup unchanged"
+  },
+  "conclusion": "Stop this common-frame region. Different distributed or typed recursive operations remain untested.",
+  "published_control": {
+    "status": "PASS existing published arithmetic and real numeric bridge",
+    "kappa": "330942774629799/500000000000000000",
+    "strict_constraint_count": 47
+  }
+}

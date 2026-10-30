@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/NOTICE.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-pinned declared-width whole-tree caller, literal idles, all padded endpoints, inverse and semantic/admission controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source-pinned declared-width whole-tree caller, literal idles, all padded endpoints, inverse and semantic/admission controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_mixed_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Preimplementation separate FIFO compiler/brute scaled-CRT oracle on both complete padded rectangles."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_mixed_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Preimplementation separate FIFO compiler/brute scaled-CRT oracle on both complete padded rectangles."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/cross_check.py",
+        "{package}/verify.py",
+        "{package}/independent_mixed_oracle.py",
+        "research/unconditional-batched-crt/check_batched_crt.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned source-bound direct comparison of rows, literal idles, endpoints and inverse on mixed/wide/micro and identity callers."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cross_check.py",
+        "{package}/verify.py",
+        "{package}/independent_mixed_oracle.py",
+        "research/unconditional-batched-crt/check_batched_crt.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned source-bound direct comparison of rows, literal idles, endpoints and inverse on mixed/wide/micro and identity callers."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+--- PR5580/pricing.py
++++ pricing.py
+@@ -2,8 +2,9 @@
+ 
+ The interval and compiler bounds follow zxv and Cao Yifan. The productive
+ recursion is by Jacob Alan Sussman. The controller is by Cinna Davis.
+-Adapted from Ali Romman's PR5544/5545 for the two coupled contact changes.
+-Successor choices prepared for thu-nmrc with substantial OpenAI Codex assistance.
++The contact versions are by thu-nmrc, DreamingOfClouds, GamingPuzzled and
++Ali Romman. The coupled-basis counts and compiler power are by Ali Romman
++with substantial OpenAI Codex assistance.
+ Ali Romman's complete caller/price proof and all predecessor credit are retained.
+ Apache-2.0.
+ """
+@@ -11,8 +12,8 @@
+ from fractions import Fraction as Q
+ import local as L
+ 
+-KAPPA, TESTED = Q('.00308189'), Q('.0030818905')
+-PREVIOUS = Q('.00308181')
++KAPPA, TESTED = Q('.00309980'), Q('.0030998005')
++PREVIOUS = Q('.00308189')
+ 
+ 
+ def encode(x):
+@@ -61,7 +62,7 @@
+             second_p[8*(j+1)] += 208
+     L.need((targets,paid) == (second_t,second_p), 'Independent full invoice')
+     L.need(max(targets) == 145 and max(paid) == 72, 'Maximum recursive ranks')
+-    L.need(sum(targets.values()) == 12814 and sum(paid.values()) == 66852, 'Complete field and call counts')
++    L.need(sum(targets.values()) == 12976 and sum(paid.values()) == 66726, 'Complete field and call counts')
+     L.need(sum(r*n for r,n in targets.items())-sum(r*n for r,n in paid.items()) == 760, 'Complete rank surplus')
+     return targets,paid,counts
+ 
+@@ -96,7 +97,7 @@
+     L.need(decay**128 < Q(1,16), 'Both tail decay blocks')
+     normalized = 1/(1+v*reserve)+Q(4,2**32)
+     L.need(normalized < 1 and c**64 < b**63, 'Full completion, splitting and rounding charges')
+-    theta,power = Q(63,64),1000
++    theta,power = Q(63,64),1024
+     eta = E.scale(E.power(145,-v*TESTED),t)
+     L.need(2*(c**v)**64 <= (145**v)**63 and eta[0] > theta**power, 'Shifted exits and complement capacity')
+     L.need(E.power(145,v*TESTED)[1] < 2**power, 'Compiler initial range')
+@@ -139,7 +140,7 @@
+     L.need(wrong_cutoff[0] > 1, 'Old cutoff fails with this helper inventory')
+     bad=outer_module.ledger(dict(params,bit_saving=Q('.0027')))
+     L.need(any(x <= 0 for x in bad['strict_checks'].values()), 'Insufficient BIT contract rejected')
+-    return encode({'kappa':KAPPA,'kappa_decimal':'.00308189','previous_open_pr5569':PREVIOUS,'gain':KAPPA-PREVIOUS,
++    return encode({'kappa':KAPPA,'kappa_decimal':'.00309980','previous_open_pr5580':PREVIOUS,'gain':KAPPA-PREVIOUS,
+                    'relative_gain_percent':100*(KAPPA/PREVIOUS-1),'raw_root_interval':[lower,upper],
+                    'raw_headroom':[lower-KAPPA,upper-KAPPA],'margin_at_previous':E.display(margin(PREVIOUS)),
+                    'targets':T,'paid':P,'productive_fields':sum(T.values()),'paid_calls':sum(P.values()),

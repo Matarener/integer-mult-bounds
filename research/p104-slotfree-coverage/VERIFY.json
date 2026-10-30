@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-role-exchange-residue/geometry.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Tail frames stay 104 full and 104 hyperplane, the 208 linear forms match (w, q, v_N), FULL banks match neither x nor -y, and the paired-chain screen passes only for credit above 1544/9."
+    }
+  ]
+}

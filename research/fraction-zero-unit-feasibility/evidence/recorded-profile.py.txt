@@ -1,0 +1,67 @@
+"""Observe complete frozen PR5848 qualification, excluding timing from benchmarks."""
+from collections import defaultdict
+import importlib.util
+import json
+import runpy
+import sys
+import time
+from frozen import baseline, require
+
+rows = defaultdict(lambda: [0, 0.0])
+def observe(obj, name, label):
+    original = getattr(obj, name)
+    def wrapped(*args, **kwargs):
+        started = time.perf_counter()
+        try:
+            return original(*args, **kwargs)
+        finally:
+            rows[label][0] += 1
+            rows[label][1] += time.perf_counter()-started
+    setattr(obj, name, wrapped)
+
+with baseline() as package:
+    sys.path.insert(0, str(package))
+    import candidate, observe as observation
+    observe(observation, 'deepcopy', 'observation.deepcopy')
+    observe(observation.Observation, 'take', 'observation.take')
+    observe(observation.Observation, '_call', 'observation.calls.inclusive')
+    native_spec = importlib.util.spec_from_file_location
+    def spec(name, path, *args, **kwargs):
+        value = native_spec(name, path, *args, **kwargs)
+        if name == 'single_pass_source':
+            execute = value.loader.exec_module
+            def observed_execute(module):
+                execute(module)
+                load = module.load
+                def observed_load(n, p):
+                    m = load(n, p)
+                    if n == 'frozen_contract':
+                        factory = m.module
+                        def observed_factory(n2, p2):
+                            a = factory(n2, p2)
+                            if n2 == 'noisy_precision':
+                                for f in ('ideal','error_trace','reverse_all','reverse_cut','execute'):
+                                    observe(a, f, 'Fraction.'+f)
+                            return a
+                        m.module = observed_factory
+                        observe(m, 'calculate', 'Fraction.calculate.inclusive')
+                    elif n == 'frozen_precision':
+                        observe(m,'digest','reference.digest')
+                    elif n == 'integer_backend':
+                        for f in ('ideal','error_trace','reverse_all'):
+                            observe(m.Engine,f,'integer.'+f)
+                    elif n == 'explicit_contract':
+                        observe(m,'calculate','integer.calculate.inclusive')
+                    return m
+                module.load = observed_load
+            value.loader.exec_module = observed_execute
+        return value
+    importlib.util.spec_from_file_location = spec
+    started = time.perf_counter()
+    try:
+        sys.argv = [str(package/'verify.py')]
+        runpy.run_path(sys.argv[0], run_name='__main__')
+    finally:
+        importlib.util.spec_from_file_location = native_spec
+    seconds = time.perf_counter()-started
+    print(json.dumps({'status':'PASS_FULL_QUALIFIER_PROFILE','seconds':seconds,'inclusive_profiles':dict(rows)},sort_keys=True))

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-fiber-tag-seam/README.md",
+    "research/p104-fiber-tag-seam/verify.py",
+    "research/p104-phase-uniform-gauge/PROOF.md",
+    "research/p104-phase-uniform-gauge/source/RESULT.json",
+    "research/p104-two-axis-compatibility/PROOF.md",
+    "research/p104-two-axis-compatibility/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned #3966 source RESULT.json and #4154 labels; #3966 correction text; #3954 witness lines decoded as 386(x)386 and 405(x)386; gauge facts on F2^9; orientation-free census; witness in source orientation; row-label helper rule; transposed control reproducing #4154's numbers; #4154 code line."
+    }
+  ]
+}

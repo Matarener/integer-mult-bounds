@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/paired-diagonal-borel-gauge/PROOF.md",
+    "research/paired-diagonal-borel-gauge/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All two-vertex valuation graphs, four rational charts, four block placements where invertible, original-matrix certificate checks, Walsh separation and rejecting controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same exact corroboration and rejecting controls under optimized Python."
+    }
+  ]
+}

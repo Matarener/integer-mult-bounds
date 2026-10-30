@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "notes/three-stage-cover-assembly.tex",
+    "notes/paired-cube-assembly.tex",
+    "research/complex-t16-rare-pattern-exchanges/upstream1087.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Compare the three published degree gaps with the 51/25 formulas."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that 10^6 minus 51*20161/25 is 23971789/25."
+    }
+  ]
+}

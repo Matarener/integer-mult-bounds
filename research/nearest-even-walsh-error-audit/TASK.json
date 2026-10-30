@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one of the selected record's five inherited assumptions be proved at its actual caller?",
+    "starting_points": [
+      "docs/research/current-priorities.md",
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md"
+    ],
+    "methods": [
+      "Construct and independently check one source-bound instance of the stated first experiment.",
+      "Seek an exact counterexample or target-specific complete-budget obstruction to that same proposed change."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read revision 8, the selected review and live exact-source handoffs. Then follow this card's bounded first_experiment.",
+      "scope": "Source-bound orientation only, not a supplier replay or theorem proof."
+    },
+    "first_experiment": "Choose one assumption ID (native_all_columns, owned_erasure, compiler, precision_tape, analytic_recovery), one quantified implication and exact dependency closure. Check current handoffs, including #5625 row reentry and #5707 root-prefix lowering, without treating their partial scope as the whole theorem. Prove or falsify that implication with a caller-bound argument; stop at the chosen obligation. Finite tests or root digits do not discharge an all-size statement.",
+    "bottleneck_link": "Judge the actual current supplier contract and complete signed target/paid bill; frozen-profile ceilings require an applicability proof.",
+    "allowed_variations": [
+      "One exact source head, helper/cut region or quantified proposition and changed hypothesis; check live handoffs first. Different seeds are not different scopes."
+    ],
+    "scope_change_triggers": [
+      "Changing source head, helper/cut domain, operation alphabet or caller boundary without recording the new scope.",
+      "Treating an archived proposal or local numerical pass as complete supplier admission."
+    ],
+    "overlap_terms": [
+      "native_all_columns",
+      "owned_erasure",
+      "compiler",
+      "precision_tape",
+      "analytic_recovery"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "Selected PR5599: complete helper-subspace construction and independent caller replay; five framework assumptions remain.",
+        "evidence": "docs/research/pr-intake-evidence/pr5599-completion/PROOF-REVIEW.md",
+        "remaining": "The next experiment must identify uncovered source-specific work. Successor archive intake does not transfer this admission.",
+        "status": "reviewed",
+        "source_commit": "09dd0965711ca7eeb169057a420abab1c9052137",
+        "selected_record_sha256": "2a0220e866417774606e0f991e41b9c1d26b1f43b97857238cf478dbc7d330b5"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independent adversarial audit of open PR #6129 (head f496734450c346468c66818c1c35521165b0cdda): sharp nearest-even normalized Walsh-stage error h(J/3+(1-(-1/2)^J)/9), its odd-output refinement, and its all-grid 3h/4 application to PR #6119 (head bdfe5a10d488b5f774e906d8d4588dc8da25e7ba).",
+  "scope_change_reason": "The card asks for a proof of an inherited assumption; #6129 claims one precision implication under this card, and a fresh, unreviewed proof is most useful checked independently before anyone relies on it.",
+  "bottleneck_link": "Side result for precision obligations: confirms (or would refute) a deterministic rounding budget that a deferred-row/Walsh supplier could cite. No supplier, invoice or kappa changes.",
+  "budget_minutes": 40,
+  "stop_rule": "Stop after a step-by-step proof review plus independent exact engines reproduce or refute each stated number; report any gap found rather than repairing #6129.",
+  "outcome": "completed",
+  "evidence": "PROOF.md reviewed step by step: no error. verify.py: residue-tracking tree sets J<=7 (all 2^J sign patterns for J<=4) give even/odd maxima a_J/a_(J-1); literal 8-point network exhaustive on [-3,0]^8 in three orders gives 9/8; rebuilt #6119 surrogate exhaustive per fiber mod 8h gives 3h/4 with #6129's witness; controls: ties-to-odd same law, floor and ties-away reach J/2, ties-to-odd leaves #6119's echo dirty. Local-only: rebuild agrees with #6119 forward() on 3000 random grid inputs.",
+  "author": "Josie Elliston with Claude Opus 5.5 (Anthropic) assistance",
+  "ai_assistance": "Claude Opus 5.5 (Anthropic) wrote the review and verifier under Josie Elliston's donated session; no code from #6129 or #6119 is imported.",
+  "open_questions": [
+    {
+      "question": "Which retained rounded compilers rely on a ties-to-even half-tie cancellation like #6119's m=1/2 lower inverse?",
+      "why_it_matters": "Engine D shows the cancellation fails under ties-to-odd although the Walsh law does not; a tie-rule change would silently dirty such echoes.",
+      "first_step": "Search retained rounded shear/echo packages for m=1/2 cancellations and test each under ties-to-odd.",
+      "blocked_by": "none"
+    },
+    {
+      "question": "Does the sharp a_J law survive one intervening grid shear between rounded Walsh stages?",
+      "why_it_matters": "#6129 excludes intervening gates; real suppliers interleave them.",
+      "first_step": "Add one integer shear stage to engine A's residue-tracking enumeration.",
+      "blocked_by": "none"
+    }
+  ]
+}

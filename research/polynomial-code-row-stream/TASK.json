@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Incremental exact XOR row traversal for the four retained polynomial-code witness streams inside the complete nine-screen affine/vector certificate.",
+  "scope_change_reason": "Answer PR2210 Open next question 1 with one measured replay improvement. Preserve the original scientific source, compare the prior PR1075 cached-mask implementation, and add only a scoped opt-in adapter.",
+  "bottleneck_link": "Cheaper exact research replays preserve scientific coverage. This is historical verification engineering and does not change the selected P104 supplier, paid invoice or kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first verified complete-command improvement over both the original and published cached comparator; stop with a handoff if the incremental change is inconclusive.",
+  "outcome": "completed",
+  "evidence": "Complete nine-screen outputs agree for all three engines; every production row is compared exactly; finite independent permutation controls and five fresh-process samples per engine support the bounded claim.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can the incremental row engine be adopted in the production polynomial-code caller after a source-bound compatibility review?",
+      "why_it_matters": "The opt-in command accelerates a complete replay but does not change the default production import.",
+      "first_step": "Make one explicit caller substitution and regenerate every affected source pin and downstream certificate.",
+      "blocked_by": "Production integration and all dependent source manifests are outside this scoped package."
+    }
+  ],
+  "source_question": "https://github.com/CrocSwap/integer-mult-bounds/pull/2210; research/leech-minor-production/README.md Open next question 1",
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19272230",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  }
+}

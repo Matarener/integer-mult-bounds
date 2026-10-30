@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/fresh-stage-code-separation/MARKERS.json",
+    "research/fresh-stage-code-separation/PROOF.md",
+    "research/fresh-stage-code-separation/README.md",
+    "research/fresh-stage-code-separation/RESULT.json",
+    "research/fresh-stage-code-separation/SOURCES.json",
+    "research/fresh-stage-code-separation/TASK.json",
+    "research/fresh-stage-code-separation/inputs/CODE.json",
+    "research/fresh-stage-code-separation/inputs/GAUGE.json",
+    "research/fresh-stage-code-separation/inputs/GAUGE.md",
+    "research/fresh-stage-code-separation/inputs/LICENSE",
+    "research/fresh-stage-code-separation/inputs/NORMALIZERS.json",
+    "research/fresh-stage-code-separation/inputs/NOTICE",
+    "research/fresh-stage-code-separation/inputs/ORIGINS.json",
+    "research/fresh-stage-code-separation/inputs/TERMINAL.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact inverse-scope counterexample, signed normalizers and Q orientation, independent layered-constraint audit of thirteen marker certificates and all sixteen negative banks, semantic controls and full deterministic receipt."
+    }
+  ]
+}

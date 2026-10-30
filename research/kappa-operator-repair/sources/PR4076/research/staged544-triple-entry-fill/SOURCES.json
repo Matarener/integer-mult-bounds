@@ -1,0 +1,55 @@
+{
+ "schema_version": 1,
+ "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+ "files": [
+  {
+   "git_blob": "67f085acd86acd7d4e03922d9cf4b26bca66fed5",
+   "path": "docs/research/agent-task-catalog.json",
+   "sha256": "47b42433f5a85809a3aadd29c2c339da2c6ed728e4f7762df6b88bccb7874cf0",
+   "usage": "provenance"
+  },
+  {
+   "git_blob": "b1fea0c94436b236cc2b7d41a7be032811b94c81",
+   "path": "certificates/selected-result.json",
+   "sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+   "usage": "provenance"
+  }
+ ],
+ "external_public_inputs": [
+  {
+   "local_path": "inputs/OLD-base.json.gz",
+   "origin": "PR3945 research/staged544-terminal-gap-fill/inputs/NEW-base.json.gz, head 91f81d131",
+   "coverage": "Byte-identical source word; its own construction is PR3945's."
+  },
+  {
+   "local_path": "inputs/OLD-extra.json.gz",
+   "origin": "PR3945 research/staged544-terminal-gap-fill/inputs/NEW-extra.json.gz, head 91f81d131",
+   "coverage": "Byte-identical source word."
+  },
+  {
+   "local_path": "owner/inputs/PR3945-FILL.json.gz",
+   "origin": "PR3945 owner/FILL.json.gz",
+   "coverage": "Byte-identical literal fill; moves are relative to it."
+  },
+  {
+   "local_path": "owner/inputs/ORDER.json, DISPATCH.json, TEMPLATE.json.gz, PLAN.json.gz, old-NATIVE-*.json.gz",
+   "origin": "PR3945 owner/inputs (PR3815 clock and placement, PR3734 native helper order)",
+   "coverage": "Byte-identical."
+  },
+  {
+   "local_path": "native/**",
+   "origin": "PR3945 native/ (Tekalign runner, PR3734 closure)",
+   "coverage": "Byte-identical native runner and vendor closure."
+  },
+  {
+   "local_path": "vendor/audit_core.py, vendor/audit_verify.py, vendor/staged_pair.py",
+   "origin": "PR3734 source closure (Sagar Thakrar PR3687, roger-sato PR3693, Ross Richardson PR3605)",
+   "coverage": "Byte-identical."
+  },
+  {
+   "local_path": "admission/pr3945/**",
+   "origin": "PR3945 admission/ and inputs/ files used by the reconstruction",
+   "coverage": "Byte-identical; see admission/pr3945/SOURCES.json."
+  }
+ ]
+}

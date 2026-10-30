@@ -1,0 +1,67 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/run.py",
+        "--part",
+        "author"
+      ],
+      "checks": "Serial exact source geometry/native replay and unchanged files.",
+      "timeout_seconds": 450
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/run.py",
+        "--part",
+        "author"
+      ],
+      "checks": "Serial exact source geometry/native replay and unchanged files.",
+      "timeout_seconds": 450
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/run.py",
+        "--part",
+        "peer"
+      ],
+      "checks": "Independent1440-block affine phase interpretation, exact geometry and conditional rational budget; no author imports.",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/run.py",
+        "--part",
+        "peer"
+      ],
+      "checks": "Independent1440-block affine phase interpretation, exact geometry and conditional rational budget; no author imports.",
+      "timeout_seconds": 120
+    }
+  ],
+  "inputs": [],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

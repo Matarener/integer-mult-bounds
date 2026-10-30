@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Every new engine check, complete source syntax binding, full actual replay, all old rejection controls and exact scientific result equality"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Every new engine check, complete source syntax binding, full actual replay, all old rejection controls and exact scientific result equality"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cross.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Every actual native state and absolute-phase control compared entry by entry with literal vectors; complete source receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cross.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Every actual native state and absolute-phase control compared entry by entry with literal vectors; complete source receipt"
+    }
+  ]
+}

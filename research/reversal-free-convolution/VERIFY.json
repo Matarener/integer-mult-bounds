@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-ring-product/PROOF.md",
+    "research/physical-ring-product/README.md",
+    "research/physical-ring-product/convolution_engine.py",
+    "research/physical-ring-product/fft_arithmetic.py",
+    "research/physical-ring-product/inputs/fourier-export.tar",
+    "research/physical-ring-product/product_plan.py",
+    "research/physical-ring-product/ring_engine.py",
+    "research/physical-ring-product/ring_sources.py",
+    "research/physical-ring-product/ring_words.py",
+    "research/physical-ring-product/twiddle_setup.py",
+    "research/physical-ring-product/word_product.py",
+    "research/physical-synthetic-fourier/PROOF.md",
+    "research/physical-synthetic-fourier/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--mode",
+        "algebra"
+      ],
+      "timeout_seconds": 30,
+      "checks": "24 exact rounded cases, six asymmetric omission counterexamples, 25 enumerated routing batches and five invalid geometries."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--mode",
+        "algebra"
+      ],
+      "timeout_seconds": 30,
+      "checks": "The same mathematical and boundary controls with Python assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py",
+        "--mode",
+        "physical"
+      ],
+      "timeout_seconds": 550,
+      "checks": "Changed complete fixed-tape convolution with nonidentity frequency reversal, exact original endpoint oracle, all borrowed ports, scratch erasure, protected width port and actual zero reversal count."
+    }
+  ]
+}

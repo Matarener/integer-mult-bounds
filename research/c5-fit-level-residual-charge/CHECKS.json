@@ -1,0 +1,30 @@
+{
+  "status": "author-checked; no independent human or proof-kernel review",
+  "base": "463113d675af7410ac91d53a4fed51ec6494eb9a",
+  "branch_base_crocswap_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "claim": "uniform residual/local-opt fit-level C5 charging sum_C Cost_opt(K|_C) <= Cost_opt(K) fails on K=I_112 (460 > 224); no decoder optimum or new kappa",
+  "results": {
+    "primary": "23 cycles; diagonal tariff 224; local floor sum 460; inequality_holds=false",
+    "independent": "dense elimination + chordless-path census; same 460>224",
+    "registered": "CPython 3.12: all 3 commands PASS; 9 optimized behavioral controls PASS"
+  },
+  "environment": {
+    "registered_python": "Python 3.12.3",
+    "platform": "Linux x86_64"
+  },
+  "commands": [
+    "python3.12 -W error -B scripts/research_package.py --package research/c5-fit-level-residual-charge",
+    "python3 -I -W error -B research/c5-fit-level-residual-charge/verify.py",
+    "python3 -I -W error -B research/c5-fit-level-residual-charge/independent.py",
+    "python3 -I -O -W error -B research/c5-fit-level-residual-charge/test_verify.py"
+  ],
+  "unrun": [
+    "Selected full cold replay",
+    "Lean/Docker",
+    "human/proof-kernel review",
+    "true global decoder optimum",
+    "cancellation-identity fit-level charging beyond residual local-opt"
+  ],
+  "source_status": "Both scientific inputs canonical retained PR2782/PR1825 files; no pending executable dependency. Local 20 floors granted, not replayed.",
+  "attribution": "Wentao Li <wentaol4@illinois.edu>; substantial AI assistance; no Co-authored-by Victor Li"
+}

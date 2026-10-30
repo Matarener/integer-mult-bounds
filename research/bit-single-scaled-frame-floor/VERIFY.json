@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-fifth-frame-determinant-obstruction/README.md",
+    "research/bit-fifth-rational-frame-every-rational-t/README.md",
+    "research/bit-four-register-rational-frame-floor-seed3573e12e/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hashes; integer-circle and pair-support reductions; independent exact multiplicity/support/rank certificate; full group-algebra words and semantic failure controls. No assertions or predecessor executable imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hashes; integer-circle and pair-support reductions; independent exact multiplicity/support/rank certificate; full group-algebra words and semantic failure controls. No assertions or predecessor executable imports."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-accumulation-trace-audit/inputs/before-WORD.json.gz",
+    "research/p104-accumulation-trace-audit/inputs/before-RESULT.json",
+    "research/p104-accumulation-trace-audit/inputs/before-NOTICE",
+    "research/p104-accumulation-trace-audit/inputs/after-WORD.json.gz",
+    "research/p104-accumulation-trace-audit/inputs/after-RESULT.json",
+    "research/p104-accumulation-trace-audit/inputs/after-NOTICE",
+    "research/p104-accumulation-trace-audit/inputs/after-PLAN.json",
+    "research/p104-accumulation-trace-audit/inputs/after-WITNESS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Eight source hashes; every formal input coefficient; all three pending-sum traces and 23 COPY values; full signed invoices; 200 independent dense oracle pairs and 13 failure controls."
+    }
+  ]
+}

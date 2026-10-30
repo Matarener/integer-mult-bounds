@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independent adversarial audit of PR3960: complete colored completion graph, alternative all-pairs annihilator enumeration, characteristic-zero/distance implication and two quotient transfers.",
+  "scope_change_reason": "Explicit user-requested parallel follow-up to the C5 stream; one agent owns the PR3960 acceptance gap while other agents investigate different callers.",
+  "bottleneck_link": "The common24 theorem excludes two literal callers only if every common cut and every characteristic-zero direction are covered. A full colored matching certificate replaces the prior special candidate-case argument.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the complete graph and written transfer are verified, or report a counterexample/missing implication. Do not expand the cut threshold or rerun inherited global-capacity censuses.",
+  "outcome": "completed",
+  "evidence": "Fresh 43435-space annihilator enumeration and all5212200 normal-space pairs match PR3960 complete digests. The full6216-vertex different-color compatibility graph has2884 edges and448 isolates, hence no triangle. Explicit field/distance and coefficient/quotient audit found no defect.",
+  "author": "Chris R / Clear1nsight with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in the same donor/assistant context as PR3960. Separate executable implementation; no claim of independent human or formal-kernel review.",
+  "open_questions": [
+    {
+      "question": "Can an independent human or proof-kernel review accept the chamber/rational-kernel and quotient implications?",
+      "why_it_matters": "Exact finite matching checks still connect to all characteristic-zero fields through written mathematics.",
+      "first_step": "Review PROOF.md sections3-4 and challenge the explicit support-distance and quotient hypotheses.",
+      "blocked_by": "No independent human or formal-kernel acceptance is supplied."
+    },
+    {
+      "question": "What additional structure decides a literal caller requiring a common30 support allowance?",
+      "why_it_matters": "This audit only certifies the common24 theorem and cannot extend it to another caller.",
+      "first_step": "Use the separate current common30 investigation and its exact quotient binding after checking overlap.",
+      "blocked_by": "Outside this audit; assigned to a different agent in the same session."
+    }
+  ],
+  "freshness": {
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "entry_open_PR_bodies": 671,
+    "entry_PR_snapshot_UTC": "2026-10-19 07:22 UTC",
+    "Discussion_coverage": "Parent reviewed rendered C5/start-here/handoff/active board at07:24 UTC; partial, not all-Discussion API coverage. No overlapping common24 audit found.",
+    "selected_frontier_unchanged": true,
+    "final_open_PR_bodies": 673,
+    "final_PR_snapshot_UTC": "2026-10-19 07:30:28 UTC",
+    "local_records": 2492,
+    "local_snapshot_UTC": "2026-10-19 07:30:05 UTC",
+    "final_target_head": "7e8d98e351ac153d81943218bf168dc8548b1cea",
+    "publication_main_refresh_UTC": "2026-10-19 07:29 UTC"
+  }
+}

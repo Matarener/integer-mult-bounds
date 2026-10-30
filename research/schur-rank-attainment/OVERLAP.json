@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "question": "All-field and all-d attainment of PR6031's exact dimension lower bound for each Schur-commutator rank.",
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "initial_snapshot": {
+    "status": "POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE",
+    "searched_at": "2026-10-28T03:04:21.841951+00:00",
+    "terms": [
+      "schur-intermediate-ranks",
+      "nonmaximal Schur",
+      "intermediate Schur",
+      "n_min(rho)",
+      "rank/dimension trade"
+    ],
+    "coverage": {
+      "local": {
+        "head": "721c03822c421b7f7fcbb2598993b947c4d88419",
+        "records": 8350,
+        "head_records": 8348,
+        "complete_head_inventory": true,
+        "unsearched_head_paths": []
+      },
+      "open_prs": {
+        "fetched_at": "2026-10-28T02:58:52.008345+00:00",
+        "complete_pagination": true,
+        "records": 318
+      },
+      "discussions": {
+        "fetched_at": "2026-10-28T03:02:29.570584+00:00",
+        "complete_pagination": true,
+        "records": 5703
+      },
+      "closed_prs": {
+        "fetched_at": "2026-10-28T03:03:32.167844+00:00",
+        "complete_pagination": true,
+        "records": 5222
+      }
+    },
+    "local_records": 8350,
+    "warnings": [
+      "open_prs: offline; cached data may miss current changes",
+      "discussions: offline; cached data may miss current changes",
+      "closed_prs: offline; cached data may miss current changes"
+    ],
+    "reference_terms": [],
+    "limits": "Remote PR scope includes open and closed/merged titles and bodies, with separate coverage and timestamps. State changes are deduplicated by latest PR update; snapshots are not atomic. Local coverage compares searched working-tree notes with regular note paths at coverage.local.head; it does not certify HEAD contents or historical coverage. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
+    "matches_total": 8,
+    "matches": [
+      {
+        "kind": "local-readme",
+        "title": "research/schur-intermediate-ranks/README.md",
+        "path": "research/schur-intermediate-ranks/README.md",
+        "sha256": "6c351f071a3ea6b5f92a2dd122a5613a18e4dd340153d4a1c9ab92db7cd7462e",
+        "matched_terms": [
+          "schur-intermediate-ranks",
+          "nonmaximal schur",
+          "n_min(rho)"
+        ],
+        "score": 5,
+        "excerpt": "# Nonmaximal Schur-commutator ranks for prescribed pivots\n\n**Scoped all-field proof plus an exact finite certificate. No new kappa.**\nProduced by Nick Petalas. Apache-2.0.\n\nKrzysztof Wojt's [PR #5128](https://github.com/CrocSwap/integer-mult-bounds/pull/5128)\n(`research/arbitrary-pivot-schur-minimum`) finds the least dimension n at which\ncommuting idempotents P,Q with prescribed invertible pivots `P11=A`, `Q11=B`\nand product block `(PQ)11=H` reach Schur-commutator rank 2d. Its Open next\nquestion"
+      },
+      {
+        "kind": "local-task",
+        "title": "research/schur-intermediate-ranks/TASK.json",
+        "path": "research/schur-intermediate-ranks/TASK.json",
+        "sha256": "27abe9dc1e3485f83d59b5ffb307d1ee55e19014d76b6908fe62843f7eb4e348",
+        "matched_terms": [
+          "schur-intermediate-ranks",
+          "n_min(rho)",
+          "rank/dimension trade"
+        ],
+        "score": 5,
+        "excerpt": "coder request. It does not price a decoder.\",\n  \"bottleneck_link\": \"Side result. It gives the exact rank/dimension trade-off for one Schur deletion request, which a header or decoder design would need before pricing. It does not change any supplier bill or kappa.\",\n  \"budget_minutes\": 60,\n  \"stop_rule\": \"Stop at an all-field lower bound and an exact d=2 F2 certificate; list general attainment as open rather than extending the search.\",\n  \"outcome\": \"partial\",\n  \"evidence\": \"PROOF.md proves, over"
+      },
+      {
+        "kind": "pr",
+        "number": 6031,
+        "title": "Prove nonmaximal Schur-commutator ranks form an interval with a sharp binary dimension law (no new κ)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/6031",
+        "head": "acc000f4edfa0b0c4a90b505c6e02a4c3572f74c",
+        "base": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+        "updated_at": "2026-10-28T00:39:50Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "schur-intermediate-ranks",
+          "nonmaximal schur",
+          "n_min(rho)"
+        ],
+        "score": 5,
+        "excerpt": "forced to rho0 at n0. For n >= n0 the feasible ranks form the interval `[rho0, rhomax(n)]`, and\n   `n_min(rho) >= max(n0 + rho - rho0, nmax - 2(2d - rho))`.\n   The second term uses a new deficiency identity: `rank R = 2d - a` and `rank L = 2d - b`, where a and b are the sector-image and sector-kernel deficiencies.\n2. For d=2 over F2, equality holds for all 576 triples (288 with AB != BA). rho0 is 0, 2 or 4 for 408, 144 and 24 triples, with 16 profiles. Rank two is feasible at n exactly when rho0"
+      },
+      {
+        "number": 1166,
+        "title": "Handoffs and requests for independent checks",
+        "kind": "discussion-comment",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19230733",
+        "updated_at": "2026-10-28T00:39:51Z",
+        "matched_terms": [
+          "schur-intermediate-ranks",
+          "n_min(rho)"
+        ],
+        "score": 2,
+        "excerpt": "scussions/1166#discussioncomment-19230456). Both hosted checks passed, `plan` and `replay (research/schur-intermediate-ranks)`, in [run 40607943406](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/40607943406).\n\nResult: for prescribed invertible pivots A,B and product block H (Open next question 1 of #5128), over every field the feasible Schur-commutator ranks at each n >= n0 form an interval [rho0, rhomax(n)], and n_min(rho) >= max(n0+rho-rho0, nmax-2(2d-rho)). The second term come"
+      },
+      {
+        "number": 5121,
+        "title": "DONE: exact Schur minima for arbitrary invertible pivots (#5128)",
+        "kind": "discussion",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5121",
+        "updated_at": "2026-10-23T10:23:40Z",
+        "matched_terms": [
+          "nonmaximal schur"
+        ],
+        "score": 1,
+        "excerpt": "mission or new kappa. The selected frontier is unchanged.\n\nThe next useful mathematical question is nonmaximal Schur ranks at fixed A,B,H; a bounded d=2 binary rank-two classification is an initial test, not another replay of the maximal-rank theorem. Physical realization of the ternary witness requires an actual caller and a complete resource bill. Neither follow-up is claimed.\n\nNick Petalas #4774/#4785 supplies the open questions; #4771/#4746 the scalar/identity predecessors; #4597/#4278 the o"
+      },
+      {
+        "number": 1166,
+        "title": "Handoffs and requests for independent checks",
+        "kind": "discussion-comment",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19230456",
+        "updated_at": "2026-10-28T00:14:51Z",
+        "matched_terms": [
+          "nonmaximal schur"
+        ],
+        "score": 1,
+        "excerpt": "CLAIM / complex-rank-shape-decoder, changed scope: nonmaximal Schur-commutator ranks for prescribed arbitrary pivots\n\nQuestion: Krzysztof Wojt's merged [PR #5128](https://github.com/CrocSwap/integer-mult-bounds/pull/5128) (research/arbitrary-pivot-schur-minimum) gives the least dimension for commutator rank 2d with prescribed invertible A,B and product block H. Its Open next question 1 asks which smaller Schur-commutator ranks are feasible at each ambient dimension, starting with d=2 over F2. Th"
+      },
+      {
+        "kind": "local-task",
+        "title": "research/arbitrary-pivot-schur-minimum/TASK.json",
+        "path": "research/arbitrary-pivot-schur-minimum/TASK.json",
+        "sha256": "d18615b9ee1af54cc3e107c779edf9441572efa0a32432aad4ef19bdd4055413",
+        "matched_terms": [
+          "nonmaximal schur"
+        ],
+        "score": 1,
+        "excerpt": "  \"open_questions\": [\n    {\n      \"question\": \"For prescribed invertible A,B and arbitrary H, which nonmaximal Schur-commutator ranks are feasible at each ambient dimension?\",\n      \"why_it_matters\": \"The six-map equivalence determines the maximal-rank boundary only; smaller ranks could have different dimension obstructions.\",\n      \"first_step\": \"Classify rank-two residual commutators for d=2 over F_2 at fixed noncommuting A,B,H, with explicit finite scope before seeking a general theorem.\",\n  "
+      },
+      {
+        "kind": "pr",
+        "number": 5128,
+        "title": "Prove exact Schur minima for arbitrary invertible block pivots (no new κ)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5128",
+        "head": "2839d35e58b3285a1992a3ecbae2809ebef7661b",
+        "base": "20a1e31bc6009b9b3f4d084bbaadc6350e34fcba",
+        "updated_at": "2026-10-23T10:40:45Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "nonmaximal schur"
+        ],
+        "score": 1,
+        "excerpt": "a3ecbae2809ebef7661b/research/arbitrary-pivot-schur-minimum/README.md#open-next-questions) separate nonmaximal Schur ranks from physical realization. A bounded next step is a fixed-boundary d=2 binary rank-two classification; the maximal-rank criterion does not decide it. Turning the ternary n=6 witness into a useful header first requires an actual caller and a complete resource bill. Neither follow-up is claimed here.\n"
+      }
+    ]
+  },
+  "interpretation": "Initial remote snapshots were fetched live this session, then searched offline without a second download. The offline warnings describe cache use. The 8 hits are predecessor notes, PR6031 and its handoffs, plus PR5128/5121 lineage; no matching successor was identified. This is a bounded overlap search, not a novelty certificate.",
+  "selected_handoff": {
+    "pr": 6031,
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/6031",
+    "head": "acc000f4edfa0b0c4a90b505c6e02a4c3572f74c",
+    "question": "Open next question 1: is the dimension lower bound attained for all fields and all d?",
+    "done_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19230733"
+  },
+  "credit": [
+    "Nick Petalas: PR6031 sector reduction, deficiency lifts and lower bounds.",
+    "Krzysztof Wojt: PR5128 ordered factorization and full-rank endpoint."
+  ],
+  "limitations": "PR titles/bodies and Discussion records, plus tracked README/TASK notes; not arbitrary source diffs, unpublished work or an atomic snapshot. A final live recheck is recorded separately in VALIDATION.json.",
+  "final_live_snapshot": {
+    "status": "POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE",
+    "searched_at": "2026-10-28T03:41:37.743722+00:00",
+    "terms": [
+      "schur-intermediate-ranks",
+      "Schur rank",
+      "nonmaximal Schur",
+      "intermediate Schur",
+      "rank attainment",
+      "defect pairing",
+      "coordinate-minor"
+    ],
+    "coverage": {
+      "local": {
+        "head": "721c03822c421b7f7fcbb2598993b947c4d88419",
+        "records": 8350,
+        "head_records": 8348,
+        "complete_head_inventory": true,
+        "unsearched_head_paths": []
+      },
+      "open_prs": {
+        "fetched_at": "2026-10-28T03:36:27.854921+00:00",
+        "complete_pagination": true,
+        "records": 326
+      },
+      "discussions": {
+        "fetched_at": "2026-10-28T03:40:15.455619+00:00",
+        "complete_pagination": true,
+        "records": 5709
+      },
+      "closed_prs": {
+        "fetched_at": "2026-10-28T03:41:36.142891+00:00",
+        "complete_pagination": true,
+        "records": 5222
+      }
+    },
+    "local_records": 8350,
+    "warnings": [],
+    "reference_terms": [],
+    "limits": "Remote PR scope includes open and closed/merged titles and bodies, with separate coverage and timestamps. State changes are deduplicated by latest PR update; snapshots are not atomic. Local coverage compares searched working-tree notes with regular note paths at coverage.local.head; it does not certify HEAD contents or historical coverage. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
+    "matches_total": 31,
+    "matches": [
+      {
+        "kind": "local-readme",
+        "title": "research/schur-intermediate-ranks/README.md",
+        "path": "research/schur-intermediate-ranks/README.md",
+        "sha256": "6c351f071a3ea6b5f92a2dd122a5613a18e4dd340153d4a1c9ab92db7cd7462e",
+        "matched_terms": [
+          "schur-intermediate-ranks",
+          "nonmaximal schur"
+        ],
+        "score": 4,
+        "excerpt": "# Nonmaximal Schur-commutator ranks for prescribed pivots\n\n**Scoped all-field proof plus an exact finite certificate. No new kappa.**\nProduced by Nick Petalas. Apache-2.0.\n\nKrzysztof Wojt's [PR #5128](https://github.com/CrocSwap/integer-mult-bounds/pull/5128)\n(`research/arbitrary-pivot-schur-minimum`) finds the least dimension n at which\ncommuting idempotents P,Q with prescribed invertible pivots `P11=A`, `Q11=B`\nand product block `(PQ)11=H` reach Schur-commutator rank 2d. Its Open next\nquestion"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/schur-rank-attainment/README.md",
+        "path": "research/schur-rank-attainment/README.md",
+        "sha256": "1d3a7cfe74a9f2f32b5b399637e522f96b9eb74a82b136baea93ba1483f574e0",
+        "matched_terms": [
+          "schur rank",
+          "intermediate schur",
+          "defect pairing",
+          "coordinate-minor"
+        ],
+        "score": 4,
+        "excerpt": "# Every intermediate Schur rank attains the dimension lower bound\n\n**Scoped all-field proof with exact reproducible corroboration. No new kappa.**\nPrepared for SHIN09-git with substantial OpenAI Codex assistance. Apache-2.0.\n\nThis follows [Nick Petalas's PR6031](https://github.com/CrocSwap/integer-mult-bounds/pull/6031),\nOpen next question 1, and [Krzysztof Wojt's PR5128](https://github.com/CrocSwap/integer-mult-bounds/pull/5128).\nTheir sector reduction, ordered maps, deficiency lifts and lower "
+      },
+      {
+        "kind": "pr",
+        "number": 6031,
+        "title": "Prove nonmaximal Schur-commutator ranks form an interval with a sharp binary dimension law (no new κ)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/6031",
+        "head": "acc000f4edfa0b0c4a90b505c6e02a4c3572f74c",
+        "base": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+        "updated_at": "2026-10-28T00:39:50Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "schur-intermediate-ranks",
+          "nonmaximal schur"
+        ],
+        "score": 4,
+        "excerpt": "nk two is feasible at n exactly when rho0 <= 2 and `n >= max(n0+2-rho0, nmax-4)`.\n\nProof: `research/schur-intermediate-ranks/PROOF.md`.\n\n## Evidence and reproduction\n\n`verify.py` uses only the standard library. For every triple it enumerates every admissible block-subspace pair and computes the exact least dimension for each rank. On every pair it checks the rank R/L identities and the sandwich bound, and it checks the closed law. It then builds 2,496 literal commuting idempotent pairs, one for "
+      },
+      {
+        "number": 2372,
+        "title": "CLAIM: P112 arbitrary cross forms, Schur rank tradeoff and a formal COPY-floor interface (PR2294 open question 1)",
+        "kind": "discussion",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2372",
+        "updated_at": "2026-10-23T10:04:11Z",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 3,
+        "excerpt": "CLAIM: PR2294's open two-call P112 arbitrary-cross-form problem: a Schur rank tradeoff and kernel-checked arithmetic interface for the 128 COPY floor\n\n**Status / UTC update / priority revision:** DONE / 2026-10-15 07:24 UTC / revision 4. Details in the comment below.\n**Concrete question and changed premise:** PR #2294's open question: for arbitrary cross forms, does a Schur rank tradeoff strengthen the two-call 128 COPY floor, with a kernel-checked count interface?\n**Established result and evide"
+      },
+      {
+        "number": 2372,
+        "title": "CLAIM: P112 arbitrary cross forms, Schur rank tradeoff and a formal COPY-floor interface (PR2294 open question 1)",
+        "kind": "discussion-comment",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2372#discussioncomment-18943441",
+        "updated_at": "2026-10-15T07:24:54Z",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 3,
+        "excerpt": "DONE: [PR #2395](https://github.com/CrocSwap/integer-mult-bounds/pull/2395), head `361de309e5fc05f83862f0b6c611210eda9837a1` on base `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`.\n\n**Result:** a stronger answer to PR #2294's open arbitrary-cross-form question. If the two cross forms have global binary ranks r01, r10 and minimum allowed support ranks c01, c10, then `c01 + c10 ≥ min(8, r01, r10)` implies the exact minimum COPY cost **128** for every two-call root-code factorization. The new Schur-com"
+      },
+      {
+        "number": 2372,
+        "title": "CLAIM: P112 arbitrary cross forms, Schur rank tradeoff and a formal COPY-floor interface (PR2294 open question 1)",
+        "kind": "discussion-comment",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2372#discussioncomment-19143434",
+        "updated_at": "2026-10-23T10:50:08Z",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 3,
+        "excerpt": "DONE / FINDING — [PR #5141](https://github.com/CrocSwap/integer-mult-bounds/pull/5141), exact published head `b75399c455aa24f21ec9c78c337c3c277efd177d`. 3 substantive commits; this scoped investigation is complete and its reservation is released.\n\nSharp COPY floor128 for every directed binary rank-(1,1) P112 cross-form pair, including both zero support minima, by a written equality-case proof and actual source rigidity. Source census, normal/optimized checks, official export and Git-free cold co"
+      },
+      {
+        "kind": "local-task",
+        "title": "research/schur-intermediate-ranks/TASK.json",
+        "path": "research/schur-intermediate-ranks/TASK.json",
+        "sha256": "27abe9dc1e3485f83d59b5ffb307d1ee55e19014d76b6908fe62843f7eb4e348",
+        "matched_terms": [
+          "schur-intermediate-ranks"
+        ],
+        "score": 3,
+        "excerpt": "{\n  \"schema_version\": 1,\n  \"task_id\": \"complex-rank-shape-decoder\",\n  \"priority_revision\": 8,\n  \"base_commit\": \"19fdb086ea96af9a9f87936a2b888e10af4ed810\",\n  \"original_card\": {\n    \"id\": \"complex-rank-shape-decoder\",\n    \"question\": \"Can a legal decoder or coframe change improve the full signed moment, including changed helper targets?\",\n    \"starting_points\": [\n      \"docs/research/current-priorities.md\",\n      \"docs/research/research-family-status.md\",\n      \"certificates/selected-result.json\","
+      },
+      {
+        "kind": "pr",
+        "number": 6053,
+        "title": "Prove the exact Schur rank–dimension law over every field (no new κ)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/6053",
+        "head": "12385ca23315181e3d15eb23a2d9ffec65d9a909",
+        "base": "721c03822c421b7f7fcbb2598993b947c4d88419",
+        "updated_at": "2026-10-28T03:27:51Z",
+        "draft": false,
+        "state": "open",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 3,
+        "excerpt": "with the formula checker. Literal witnesses recheck idempotence, commutation, prescribed blocks and Schur rank. Eight controls reject omitted/equated cross blocks, forced evenness, a wrong minimum, corrupted witness, wrong product block, slope-one-only law and reordered products. Coverage inventories and expected result digest are checked:\n\n`c38f9ced06db3ecf1bc4c7f8802df7f1b3228f3435946700e7340b115d3156db`\n\n**Known base CI issue:** the unchanged base fails two of six `test_research_current_statu"
+      },
+      {
+        "number": 5121,
+        "title": "DONE: exact Schur minima for arbitrary invertible pivots (#5128)",
+        "kind": "discussion",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5121",
+        "updated_at": "2026-10-23T10:23:40Z",
+        "matched_terms": [
+          "schur rank",
+          "nonmaximal schur"
+        ],
+        "score": 2,
+        "excerpt": "mission or new kappa. The selected frontier is unchanged.\n\nThe next useful mathematical question is nonmaximal Schur ranks at fixed A,B,H; a bounded d=2 binary rank-two classification is an initial test, not another replay of the maximal-rank theorem. Physical realization of the ternary witness requires an actual caller and a complete resource bill. Neither follow-up is claimed.\n\nNick Petalas #4774/#4785 supplies the open questions; #4771/#4746 the scalar/identity predecessors; #4597/#4278 the o"
+      },
+      {
+        "kind": "pr",
+        "number": 5128,
+        "title": "Prove exact Schur minima for arbitrary invertible block pivots (no new κ)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5128",
+        "head": "2839d35e58b3285a1992a3ecbae2809ebef7661b",
+        "base": "20a1e31bc6009b9b3f4d084bbaadc6350e34fcba",
+        "updated_at": "2026-10-23T10:40:45Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "schur rank",
+          "nonmaximal schur"
+        ],
+        "score": 2,
+        "excerpt": "a3ecbae2809ebef7661b/research/arbitrary-pivot-schur-minimum/README.md#open-next-questions) separate nonmaximal Schur ranks from physical realization. A bounded next step is a fixed-boundary d=2 binary rank-two classification; the maximal-rank criterion does not decide it. Turning the ternary n=6 witness into a useful header first requires an actual caller and a complete resource bill. Neither follow-up is claimed here.\n"
+      },
+      {
+        "number": 4653,
+        "title": "DONE: nilpotent Schur residual extension and weights",
+        "kind": "discussion-comment",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4653#discussioncomment-19151335",
+        "updated_at": "2026-10-23T18:28:20Z",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "nd six controls. The checks construct full original projectors and headers, verify the actual sharp Schur rank, and compare every explicit basis with independent residual kernels and complete central invariants. Four actual code mutations fail in both modes. Committed bytes, all source-pin direct ancestry checks, official export integrity, both read-only Git-free replays and publication body/rendered HTML pass. All 18 exported files remain unchanged. Hosted [run 39999280092](https://github.com/C"
+      },
+      {
+        "number": 1166,
+        "title": "Handoffs and requests for independent checks",
+        "kind": "discussion-comment",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19230456",
+        "updated_at": "2026-10-28T00:14:51Z",
+        "matched_terms": [
+          "nonmaximal schur"
+        ],
+        "score": 1,
+        "excerpt": "CLAIM / complex-rank-shape-decoder, changed scope: nonmaximal Schur-commutator ranks for prescribed arbitrary pivots\n\nQuestion: Krzysztof Wojt's merged [PR #5128](https://github.com/CrocSwap/integer-mult-bounds/pull/5128) (research/arbitrary-pivot-schur-minimum) gives the least dimension for commutator rank 2d with prescribed invertible A,B and product block H. Its Open next question 1 asks which smaller Schur-commutator ranks are feasible at each ambient dimension, starting with d=2 over F2. Th"
+      },
+      {
+        "number": 1166,
+        "title": "Handoffs and requests for independent checks",
+        "kind": "discussion-comment",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19230733",
+        "updated_at": "2026-10-28T00:39:51Z",
+        "matched_terms": [
+          "schur-intermediate-ranks"
+        ],
+        "score": 1,
+        "excerpt": "scussions/1166#discussioncomment-19230456). Both hosted checks passed, `plan` and `replay (research/schur-intermediate-ranks)`, in [run 40607943406](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/40607943406).\n\nResult: for prescribed invertible pivots A,B and product block H (Open next question 1 of #5128), over every field the feasible Schur-commutator ranks at each n >= n0 form an interval [rho0, rhomax(n)], and n_min(rho) >= max(n0+rho-rho0, nmax-2(2d-rho)). The second term come"
+      },
+      {
+        "number": 1267,
+        "title": "DONE: nine-root obstruction for a fixed P112 co-star decoder",
+        "kind": "discussion-reply",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1267#discussioncomment-18932969",
+        "updated_at": "2026-10-14T19:47:27Z",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "very block 4-clique and every frame meets enough groups. Closing these needs value-level algebra (a Schur rank-1 identity: M − ¼M[:,Q]M[Q,:] has rank ≤ 1 for a frame Q).\n- **Numerics (suggestive only).** Least-squares fits on the propagated supports of every survivor tried stall at a residual of 848–976, meaning at least 53 diagonal entries are unmet. The same solver reaches about 0 once the capacity is raised to 27. Nothing points to a cost-≤63 decoder.\n\nCertificates replay with the same indepe"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/cex19-exact-pairing/README.md",
+        "path": "research/cex19-exact-pairing/README.md",
+        "sha256": "04bcde608f1510a6565a5766952bf70b4586e5eeafa82c32c2a5a64bf81d6d44",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "nd and a standalone relocation without Git;\n- the witness's ranks by separate column elimination;\n- Schur rank identities on 64 admissible pairings;\n- a complete satisfying assignment at cost 21 when the budget is raised;\n- rejection of the lower refutation when the essential budget clauses are removed;\n- all gate truth tables and propagation comparisons on 960 small cases;\n- the **entire 1,301-step proof again**, using an independent bit-mask,\n  repeated-whole-clause-scan propagation implementa"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/five-cube-three-totals/README.md",
+        "path": "research/five-cube-three-totals/README.md",
+        "sha256": "d1ed740cb7ffa96f776a5723438fb21f4e45ed638a15c208982ba1214b121b81",
+        "matched_terms": [
+          "rank attainment"
+        ],
+        "score": 1,
+        "excerpt": "ges and different\ncopy/stage accounting remain outside scope. Neither mask construction nor\npairing-rank attainment proves an actual gather/COPY implementation.\nAll-size/compiler, common-label/mutable-source, whole-call hosting,\nprecision/tape, bit H1-H5 and analytic obligations remain inherited.\nThis is a written finite proof with executable evidence, not a formal\nmultiplication theorem or independent human review.\n\nExact base: `c0e3631dc24e3c24a861f7d3d79e0608481cccec`. Assignment seed 46,\nstr"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/idempotent-factor-invariant/README.md",
+        "path": "research/idempotent-factor-invariant/README.md",
+        "sha256": "fae88ccbea3a16d041666f5956d0416b6a21ef57a21f1a0996c7c3a74f7fa3d1",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "ivot dimension theorem to arbitrary\nfields. It studies a prescribed product compression and maximal Schur rank;\nthis note classifies arbitrary ordered, possibly noncommuting residual pairs.\nNo dimension-minimum or header-count number from that proposal is claimed here.\n\n## Open next questions\n\n1. Can this complete descriptor yield a useful higher-rank transition table\n   for one actual residual ensemble? The invariant controls state identity,\n   which is needed to avoid merging states with diffe"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/identity-pivot-sector-bound/README.md",
+        "path": "research/identity-pivot-sector-bound/README.md",
+        "sha256": "c997446a1fc4683694987feea5f2a8423b57d48d5513a27e178f84ecf56ffc12",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": " decomposition and enumerate complete invertible headers,\nchecking the six-map count against direct Schur ranks. Any density claim must\nspecify its ensemble and preserve dependencies among the six events; a product\nof marginal counts is not justified. No claim is held on that follow-up, and no\nphysical implementation should be inferred from such a count alone.\n"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/p104-defect-output-channels/README.md",
+        "path": "research/p104-defect-output-channels/README.md",
+        "sha256": "65cd0ed43ce612475b0b034ceec1ea4891b8cee23fef614c07e39d5c113a355e",
+        "matched_terms": [
+          "rank attainment"
+        ],
+        "score": 1,
+        "excerpt": "ions, not optimal widths or total live storage. No rank-seven\ndefect-image census is performed; all-rank attainment beyond rank 7 is unproved.\n\nThe source-authenticated primary checker uses prime 65537 and one source\nschedule. The separate internal checker imports no primary or predecessor\nexecutable, uses prime 65521 and a different source schedule, and independently\nchecks all seven dimensions and bounds. Nonzero modular minors give exact\ninteger/real independence. The universal upper proof pl"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/p112-cross-form-rank-tradeoff/README.md",
+        "path": "research/p112-cross-form-rank-tradeoff/README.md",
+        "sha256": "3661d9edddb7abc82940ed053c85f3bd885e6af03461f1cebfdd66fa1b2b7e14",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "# P112 cross forms: a Schur rank tradeoff and formal COPY-floor interface\n\nTwo independent P112 root-code decoders still require **COPY cost 128**\nunder a broader class of arbitrary cross-call binary forms. If their global\nranks are r01,r10 and their minimum support-restricted ranks are c01,c10,\nthe sufficient condition is\n\n    c01 + c10 >= min(8, r01, r10).\n\nThis follows by charging a term touching both calls at least\n`16-min(8,r01,r10)`, then using the exact coefficient identity to count\nterms"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/p112-diagonal-rank-boundary/README.md",
+        "path": "research/p112-diagonal-rank-boundary/README.md",
+        "sha256": "77f3c0cbf3587c8ade05581d54cbba46330c1f0278ff2f73f1b815ff6805cf9b",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "l Pulikkan #620, icekylinx and the retained E8/Hamming lineage for their\npredecessor contributions. Schur rank inequalities and the difference-of-\nprojections identity are classical. The new application gives the sharp\ndiagonal-completion threshold. Predecessor files and credit are unchanged.\n\nIndependent human and formal proof-kernel review are unclaimed. The proof\nretains the cited geometric premises. No copied-information optimum,\narbitrary off-diagonal mask, rounded identity, physical source"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/schur-header-count/README.md",
+        "path": "research/schur-header-count/README.md",
+        "sha256": "472295f32ebf3fcdc8daa4137af63db70d9943de7cbb97e47ed272823b2a227e",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "s, **all 496 scalar split pairs** are checked\n  by constructing a header and directly computing the Schur rank for each\n  identity-pivot pair. No six-map test is used to select the positive pairs.\n- All G4 completions of the resulting 3 and 9 positive split pairs are\n  explicitly formed, inverted and checked by literal conjugation and Schur\n  multiplication: **241,920 positive complete-header cases**, distinct for each fixed pair. This is\n  not a raw enumeration of every GL5 header; completeness"
+      },
+      {
+        "kind": "local-readme",
+        "title": "research/schur-nilpotent-extension/README.md",
+        "path": "research/schur-nilpotent-extension/README.md",
+        "sha256": "7e5e74f4e5ddc1793ac6e427a80492d8d978aa78f01f189e33d2831147c9639a",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "omplete headers.\nThe complete split inventory contains 19,602 splits; the verifier computes\nliteral Schur ranks on every identity-pivot H=0 candidate and constructs an\nactual ordered-pair intertwiner for every sharp one. Over F2 the count is\n3 splits / 60,480 headers, recovering the earlier ssafwann\n[PR4678](https://github.com/CrocSwap/integer-mult-bounds/pull/4678) fixture,\nnot claiming it as new. Binary padding in sectors 00,10,11 gives respectively\n18,18,21 splits; padding 11 to dimension 3 c"
+      },
+      {
+        "kind": "local-task",
+        "title": "research/arbitrary-pivot-schur-minimum/TASK.json",
+        "path": "research/arbitrary-pivot-schur-minimum/TASK.json",
+        "sha256": "d18615b9ee1af54cc3e107c779edf9441572efa0a32432aad4ef19bdd4055413",
+        "matched_terms": [
+          "nonmaximal schur"
+        ],
+        "score": 1,
+        "excerpt": "  \"open_questions\": [\n    {\n      \"question\": \"For prescribed invertible A,B and arbitrary H, which nonmaximal Schur-commutator ranks are feasible at each ambient dimension?\",\n      \"why_it_matters\": \"The six-map equivalence determines the maximal-rank boundary only; smaller ranks could have different dimension obstructions.\",\n      \"first_step\": \"Classify rank-two residual commutators for d=2 over F_2 at fixed noncommuting A,B,H, with explicit finite scope before seeking a general theorem.\",\n  "
+      },
+      {
+        "kind": "local-task",
+        "title": "research/binary-schur-minimal-dimension/TASK.json",
+        "path": "research/binary-schur-minimal-dimension/TASK.json",
+        "sha256": "17d40d59f49eb45be0e9f085a051b1caf7b158c80dc2626cbc2a03811fb6e3f0",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "597,\n      \"head\": \"dfeb8ca729a04aea4aa290438f2ed50a37a9c7cb\",\n      \"credit\": \"Nick Petalas: block-Schur rank bound and predecessor PR4278.\"\n    },\n    {\n      \"pr\": 4609,\n      \"head\": \"eb5ccf9288808d973551e6264300d30d2f6e48a0\",\n      \"credit\": \"Ryanson Jonathan: binary witnesses and small minimal-dimension classification.\"\n    },\n    {\n      \"pr\": 4617,\n      \"head\": \"96c01a2124e234d798e9e97643c20fb5b430840d\",\n      \"credit\": \"Ryanson Jonathan: uniform binary n=5d construction and minimal-dim"
+      },
+      {
+        "kind": "local-task",
+        "title": "research/p112-cross-form-rank-tradeoff/TASK.json",
+        "path": "research/p112-cross-form-rank-tradeoff/TASK.json",
+        "sha256": "3a042ab09a0315efbb77d0ea5c0977f39e44f5debfadf400eabc84b55ab307a7",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "scope_status\": \"refined\",\n  \"actual_scope\": \"PR2294 arbitrary two-call P112 cross forms: a stronger Schur rank price, the exact conditional COPY128 count interface in Lean, and its finite source binding.\",\n  \"scope_change_reason\": \"Take the named open cross-form interface in PR2294 rather than repeat a selected-supplier arithmetic proof. The formalization covers the natural-number implication only; matrix premises remain explicit.\",\n  \"bottleneck_link\": \"Eliminates additional two-call cross-form"
+      },
+      {
+        "kind": "local-task",
+        "title": "research/schur-rank-attainment/TASK.json",
+        "path": "research/schur-rank-attainment/TASK.json",
+        "sha256": "47dfc3c95ec582cc879849a85071852229f53286202d3e1c3c6b7ccaae7dda83",
+        "matched_terms": [
+          "defect pairing"
+        ],
+        "score": 1,
+        "excerpt": "d_at\": \"2026-10-28T03:02:42Z\",\n  \"initial_hypothesis\": \"A maximal nonsingular minor of the baseline defect pairing gives efficient single deletions, followed by nested nonsingular minor deletions. Because these delete basis vectors within original sector blocks, the block constraints do not obstruct attainment.\",\n  \"publication_status\": \"local-only; this new research is not part of PR6046\",\n  \"predecessors\": [\n    {\n      \"pr\": 6031,\n      \"author\": \"Nick Petalas\",\n      \"head\": \"acc000f4edfa0b0"
+      },
+      {
+        "kind": "pr",
+        "number": 5267,
+        "title": "Prove nilpotent Schur residual normal form and fixed-H weights (no κ)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5267",
+        "head": "8ab280c8a3ef0544f13ff23a1c69df4757cd4900",
+        "base": "ff3cc58e370d0f678e529246f8c73e8094e18fcf",
+        "updated_at": "2026-10-23T18:37:53Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "nt Jordan blocks.\n- **Five exhaustive split inventories** test the sector criterion against literal Schur ranks and transport every one of the **188 sharp outcomes** to its canonical ordered pair. The ternary scalar case has 128 passing splits and 3,105,423,360 complete headers.\n- **Six independent sector-factor censuses** check the stabilizer denominator; **nine rejection controls** cover the characteristic-two overclaim, omitted extended chain/exponents, nonsquare/nonnilpotent H, negative padd"
+      },
+      {
+        "kind": "pr",
+        "number": 4634,
+        "title": "Prove optimal binary Schur sharpness dimension n = 3d for d >= 2",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4634",
+        "head": "9f053f7051e5fc3327d4337bb4bd8ac52cf5fcd0",
+        "base": "fbc9ea0249746acca4f504d4fda2b84e0e36cf0d",
+        "updated_at": "2026-10-22T19:28:28Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "ple in #4609; the new formula also realizes them. Nick Petalas's #4597 supplies the preceding block-Schur rank bound and #4278 the precursor setting; Ryanson's #4617 supplies the uniform n=5d construction and open question. Exact inspected heads are recorded in the README and TASK.json. The new theorem requires invertible pivots, not identity pivots; its equal pivots are generally nonidentity. The d=1 classification is credited to #4609 rather than re-proved here.\n\nOnly the five-file package [re"
+      },
+      {
+        "kind": "pr",
+        "number": 4746,
+        "title": "Prove the exact identity-pivot Schur minimum over every field (no κ)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4746",
+        "head": "5f014560d6225cae17598ac479fb29d2947d8e6b",
+        "base": "b58ad9ef4d4e861b0eaa5dba41742bdc072dca51",
+        "updated_at": "2026-10-22T19:31:50Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": " over F2,F3,F4,F5: **18+84+260+630 = 992 cases**. Direct idempotence, commutation, pivots, product, Schur ranks, sector minima and ordered factors pass. It also checks 18 deficient-map controls, 12 nonbinary 4d witnesses, 12 nondiagonal size-three blocks, three invalid-input rejections and two unsigned-sector rejections.\n\nBoth registered commands passed locally in **0.67 s / 0.70 s**, including optimized Python with explicit checks. CPython 3.12.15, macOS arm64. Committed package replay, exact c"
+      },
+      {
+        "kind": "pr",
+        "number": 4278,
+        "title": "Prove the exact one-step Schur commutator criterion",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4278",
+        "head": "e38f8e9477a49689122ed11a83d163595b366460",
+        "base": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+        "updated_at": "2026-10-21T19:24:12Z",
+        "draft": false,
+        "state": "closed",
+        "matched_terms": [
+          "schur rank"
+        ],
+        "score": 1,
+        "excerpt": "sting single-request Schur/rank framework and densities. The sharp F5 example has input ranks 2 and Schur ranks 1, agreeing numerically with its rank-drop lemma. No marginal density is computed here.\n- #4240, head `9f9c89ed75e9fdae6b6762925b080fb308824858`: classifies nonorthogonal rank-one header counts. This treats the Schur commutator of a previously commuting pair, without a shared count to compare.\n- #4246 / #4239: orthogonal full-chain and rank-one laws. Those preserved subclasses are cont"
+      }
+    ]
+  },
+  "final_interpretation": "A direct same-theorem successor, PR6053, appeared during the session. No novelty claim is retained. Final scope is an independent audit at its exact head, using the coordinate-minor derivation and complete ternary d=2 coverage; this is additional corroboration, not a competing theorem submission."
+}

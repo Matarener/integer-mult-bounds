@@ -1,0 +1,79 @@
+"""Hash-bound reuse of successful scientific subruns; execute exact corrected closures.
+No completed source or output is edited. Only literal count/report bindings change.
+"""
+from setup_admission import *
+import ast,os,subprocess,sys,time,threading,types,gzip
+from fractions import Fraction
+OLD=ROOT/'release-resumed'
+OUT=ROOT/'control-closure'
+
+def source_tail(path,marker):
+ text=path.read_text(encoding='utf8');need(text.count(marker)==1,'unique exact closure boundary');return text[text.index(marker):]
+def execute(text,path,scope):exec(compile(text,str(path),'exec'),scope)
+class View:
+ def __init__(self,base,mapping,relative=''):self.base,self.mapping,self.relative=base,mapping,relative
+ def __truediv__(self,part):return View(self.base,self.mapping,(self.relative+'/'+str(part)).lstrip('/'))
+ def target(self):return self.mapping.get(self.relative,self.base/self.relative)
+ def __fspath__(self):return str(self.target())
+ def __str__(self):return str(self.target())
+ def __getattr__(self,name):return getattr(self.target(),name)
+
+def main():
+ need(__debug__,'assertions required');sys.set_int_max_str_digits(0);need(not OUT.exists(),'fresh closure output');OUT.mkdir();begin=time.monotonic()
+ original=ROOT/'complete/package';oldmanifest=json.loads((original/'MANIFEST.json').read_bytes());need(tree(original,('MANIFEST.json',))==oldmanifest,'original sealed package entire inventory')
+ need(sha(original/'MANIFEST.json')=='2f2d76aa6cc187456e93601ae125695017a24e83c826bdb8ef9c78e747d89634','original final manifest pin')
+ need(tree(ROOT/'source',('MANIFEST.json',))==json.loads((ROOT/'source/MANIFEST.json').read_bytes()) and sha(ROOT/'source/MANIFEST.json')=='3d2ee0175b0cd8aec80c12fef82c2da3a3a54785ca9113140762fd5c41979608','unchanged initial666 source')
+ snapshot=tree(OLD);strict=OLD/'verify/strict';scientific=json.loads((strict/'STAGES.json').read_bytes());need([z['name'] for z in scientific]==['bind','emit','audit','invoice','assembly','admission','bit','independent'] and all(z['exit_code']==0 for z in scientific),'all eight fresh scientific subruns passed')
+ for z in scientific:need(sha(strict/(z['name']+'.log'))==z['log_sha256'],'successful scientific log '+z['name'])
+ expected_runtime=['replay.py','freeze_spec.py','audit_mixed.py','independent_core.py','geometry_controls.py','audit_fast.py','blocknorm_certificate.py']
+ runtime=OLD/'verify/parent/layout/packing74'
+ for rel in expected_runtime:need(sha(runtime/rel)==oldmanifest[rel],'runtime engine exact source '+rel)
+ for dirname in ['code','construction']:
+  for rel,digest in tree(runtime/dirname).items():need(digest==oldmanifest[dirname+'/'+rel],'runtime engine source '+dirname+'/'+rel)
+ for rel in ['PLAN.json','SPEC.json','PROFILE.json','OWNERS.json.gz','DISPATCH.json','CONSTRUCTION.json','GLOBAL-TEMPLATE.json.gz']:
+  expected=original/('new/'+rel if rel in ['PLAN.json','SPEC.json','PROFILE.json'] else rel);need(sha(runtime/'candidate'/rel)==sha(expected),'strict candidate source input '+rel)
+ need(sha(runtime/'inputs/PR589-EXPECTED.json')==sha(original/'inputs/PR589-EXPECTED.json'),'strict retained BIT source input')
+ need(tree(ROOT/'native-cache-corrected')==json.loads((ROOT/'NATIVE-RECEIPT-CORRECTED.json').read_bytes())['cache_files'],'all source-bound native input bytes unchanged before reuse')
+ original_spec=json.loads((strict/'runtime/data/SPEC.json').read_bytes());need(original_spec==json.loads((original/'new/SPEC.json').read_bytes()),'strict frozen SPEC exact')
+ controls=json.loads((strict/'ADMISSION-CONTROLS.json').read_bytes());bit=json.loads((strict/'BIT-CONTROLS.json').read_bytes());derived=37+sum(17+len(p['inventory'])*(len(p['inventory'])-1)+len(original_spec['width_spot_helpers']) for p in original_spec['providers'].values());need(derived==original_spec['expected']['assembly_controls_rejected']==len(controls['rejected_controls'])==119 and controls['discovery_accepted_controls']==[],'all generated distinct-width controls pinned and rejected');need(len(bit['rejected_controls'])==12,'unchanged BIT twelve controls')
+ write(OUT/'SUCCESSFUL-SUBRUN-CHECKPOINT.json',{'original_final_manifest_sha256':sha(original/'MANIFEST.json'),'outputs':snapshot,'strict_stages':scientific,'strict_control_formula':{'base':37,'providers':2,'distinct_widths_each':5,'provider_fixed':17,'cold_spots_each':4,'derived_total':derived},'runtime_engine_sha256':{r:oldmanifest[r] for r in expected_runtime},'scope':'Original strict scientific subruns fresh; only failed literal139 final count closure is resumed.'})
+ package=OUT/'package';shutil.copytree(original,package);patches=[]
+ for rel,old,new in [('replay.py',"len(rd(work/'ADMISSION-CONTROLS.json')['rejected_controls'])==139","len(rd(work/'ADMISSION-CONTROLS.json')['rejected_controls'])==rd(spec)['expected']['assembly_controls_rejected']"),('verify.py','controls=dict(admission=139,bit=12,controller=15,independent_owner=8,geometry=6)',"controls=dict(admission=rd(P/'new/SPEC.json')['expected']['assembly_controls_rejected'],bit=12,controller=15,independent_owner=8,geometry=6)")]:
+  target=package/rel;text=target.read_text(encoding='utf8');need(text.count(old)==1,'literal closure-count preimage '+rel);before=sha(target);target.write_text(text.replace(old,new),encoding='utf8',newline='\n');patches.append({'path':rel,'before_sha256':before,'after_sha256':sha(target),'replacements':[[old,new]]})
+ write(OUT/'COUNT-CLOSURE-PATCHES.json',patches);write(package/'MANIFEST.json',tree(package,('MANIFEST.json',)));newmanifest=json.loads((package/'MANIFEST.json').read_bytes());need(set(newmanifest)==set(oldmanifest) and {r for r in oldmanifest if oldmanifest[r]!=newmanifest[r]}=={'replay.py','verify.py'},'only count/report code changes')
+ shutil.copy2(ROOT/'complete/RUNTIME-PATCHES.json',OUT/'RUNTIME-PATCHES-ORIGINAL.json');write(OUT/'RUNTIME-PATCHES.json',json.loads((ROOT/'complete/RUNTIME-PATCHES.json').read_bytes())+patches)
+ env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1',PYTHONINTMAXSTRDIGITS='0',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',PYTHONPYCACHEPREFIX=str(OUT/'pycache-prefix'));(OUT/'tmp').mkdir()
+ for key in ['PYTHONOPTIMIZE','WITNESS_DISCOVER','WITNESS_RECORD','WITNESS_SPEC']:env.pop(key,None);os.environ.pop(key,None)
+ env['TMP']=env['TEMP']=env['TMPDIR']=str(OUT/'tmp');os.environ.update(env)
+ # Execute the exact replay.py receipt closure, with all science outputs immutable.
+ strict_result=OUT/'STRICT-RESULT.json';strict_view=View(strict,{'RESULT.json':strict_result});scope=dict(json=json,work=strict_view,g=strict/'global',plan=json.loads((runtime/'candidate/PLAN.json').read_bytes()),rd=lambda p:json.loads(p.read_text()),spec=strict/'runtime/data/SPEC.json',a=types.SimpleNamespace(discover=False),stages=scientific)
+ execute(source_tail(package/'replay.py',"asm=rd(work/'ASSEMBLY.json')"),package/'replay.py',scope);need(strict_result.exists(),'actual strict closure wrote receipt')
+ # Recheck both completed owner/parent reconstruction equality assertions exactly.
+ verify_work=OLD/'verify';verify_stages=json.loads((verify_work/'STAGES.json').read_bytes());need(verify_stages[-1]['name']=='strict-t74' and verify_stages[-1]['exit_code']!=0 and all(z['exit_code']==0 for z in verify_stages[:-1]),'preserved failed closure after successful source reviews')
+ completed={z['name']:z for z in verify_stages[:-1]};
+ def read(p):
+  b=p.read_bytes();return json.loads(gzip.decompress(b) if str(p).endswith('.gz') else b)
+ def replay_completed(name,script,*args):
+  need(name in ['reconstruct-owners','lift-parent'] and name in completed,'whitelisted completed chain stage');need(sha(script)==oldmanifest[Path(script).relative_to(package).as_posix()],'completed chain script binding');need(sha(verify_work/(name+'.log'))==completed[name]['log_sha256'],'completed chain log binding')
+ vscope=dict(P=package,work=verify_work,run=replay_completed,rd=read)
+ module=ast.parse((package/'verify.py').read_text());function=next(n for n in module.body if isinstance(n,ast.FunctionDef) and n.name=='rebuild_chain');execute(ast.unparse(function),package/'verify.py',vscope);vscope['rebuild_chain']()
+ # The remainder performs fresh geometry controls and all supplier receipt assertions.
+ final_verify=OUT/'VERIFY-RESULT.json';view=View(verify_work,{'strict/RESULT.json':strict_result,'RESULT.json':final_verify,'STAGES.json':OUT/'VERIFY-STAGES.json','geometry-controls.log':OUT/'geometry-controls.log','GEOMETRY-CONTROLS.json':OUT/'GEOMETRY-CONTROLS.json'})
+ stages=verify_stages[:-1]+[{'name':'strict-t74','exit_code':0,'reused_scientific_subruns':True,'closure_receipt_sha256':sha(strict_result),'checkpoint_sha256':sha(OUT/'SUCCESSFUL-SUBRUN-CHECKPOINT.json')}]
+ retained=sha(package/'vendor/pr1297/MANIFEST.json');pr=read(ROOT/'native-cache-corrected/_receipts'/retained/'RESULT.json')
+ vscope=dict(P=package,work=view,env=env,stages=stages,lock=threading.Lock(),rd=read,sha=sha,time=time,json=json,subprocess=subprocess,sys=sys,runtime=runtime,layout=verify_work/'parent/layout',chain=types.SimpleNamespace(join=lambda:None),chain_err=[],pr=pr,a=types.SimpleNamespace(base_native_from=True,extra_native_from=True))
+ run_function=next(n for n in module.body if isinstance(n,ast.FunctionDef) and n.name=='run');execute(ast.unparse(run_function),package/'verify.py',vscope)
+ execute(source_tail(package/'verify.py',"run('geometry-controls'"),package/'verify.py',vscope);need(final_verify.exists(),'actual supplier tail wrote receipt')
+ # Re-run the unchanged complete outer branch and stale-bytecode checks freshly.
+ outer=OUT/'outer';log=OUT/'outer.log'
+ with log.open('w',encoding='utf8',newline='\n') as f:r=subprocess.run([sys.executable,'-B',str(package/'outer/run_outer.py'),str(outer)],env=env,stdout=f,stderr=subprocess.STDOUT)
+ need(r.returncode==0,'fresh unchanged outer branch');sys.path.insert(0,str(package/'code'));import pyc_guard;pyc_guard.guard(package);pyc_guard.selftest()
+ # Execute every unchanged release binding and its own actual receipt constructor.
+ release=OUT/'RELEASE-RECEIPT.json';releaseview=View(OUT,{'verify/RESULT.json':final_verify,'verify/strict/ASSEMBLY.json':strict/'ASSEMBLY.json','RELEASE-RECEIPT.json':release});text=(package/'verify_release.py').read_text();mark="    res = json.loads((work / 'verify/RESULT.json').read_text(encoding='utf-8'))";need(text.count(mark)==1,'unique release closure boundary');tail=text[text.index(mark):text.index("\n\nif __name__ == '__main__':")];import textwrap
+ rscope=dict(work=releaseview,PACKAGE=package,digest=sha,Fraction=Fraction,json=json,msha=sha(package/'MANIFEST.json'),time=time,t=begin,reused={'base':'same-session source-bound native cache','extra':'same-session source-bound native cache'})
+ execute(textwrap.dedent(tail),package/'verify_release.py',rscope)
+ need(tree(OLD)==snapshot,'all original failed-attempt outputs unchanged');need(tree(original,('MANIFEST.json',))==oldmanifest,'original sealed source unchanged');need(tree(package,('MANIFEST.json',))==newmanifest,'corrected sealed source unchanged');need(tree(ROOT/'native-cache-corrected')==json.loads((ROOT/'NATIVE-RECEIPT-CORRECTED.json').read_bytes())['cache_files'],'native cache unchanged')
+ result=read(release);need(result['status']=='PASS_RELEASE' and Fraction(result['kappa_decimal'])==Fraction('0.001730663236534549309146')-Fraction(1,10**46)-Fraction(1,10**70),'exact complete release endpoint')
+ write(OUT/'RESULT.json',{'status':'PASS_HASH_BOUND_COUNT_CLOSURE_RELEASE','kappa':str(Fraction(result['kappa_decimal'])),'release_receipt_sha256':sha(release),'original_final_manifest_sha256':sha(original/'MANIFEST.json'),'final_package_manifest_sha256':sha(package/'MANIFEST.json'),'count_closure_patches_sha256':sha(OUT/'COUNT-CLOSURE-PATCHES.json'),'successful_subruns_checkpoint_sha256':sha(OUT/'SUCCESSFUL-SUBRUN-CHECKPOINT.json'),'scientific_subruns_reused':[z['name'] for z in scientific],'fresh_tail_checks':['strict-all-invoice-profile-independent-closure','parent-owner-equalities','geometry-controls','complete-outer','stale-bytecode-isolation','all-release-bindings'],'adapter_sha256':sha(Path(__file__)),'scope':'Scientific subruns fresh in prior same-session attempt; unchanged source/input/output-bound scientific checkpoints reused. Exact corrected closure and remaining checks executed from authenticated source. Initial failed139 attempt immutable.'});print('PASS_HASH_BOUND_COUNT_CLOSURE_RELEASE',flush=True)
+
+if __name__=='__main__':main()

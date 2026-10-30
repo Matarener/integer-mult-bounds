@@ -1,0 +1,36 @@
+Uniform strict gain from terminal promotion and literal idle-cell replacement
+
+Let 0 < κ ≤ 1/500 and α = 1 − κ. Suppose a source-bound supplier has
+3240 local calls, each admitting the checked profile replacement
+  ΔH = 42 H₁ − 13 H₂ − 6 H₃ + 7 H₄,
+and a literal caller construction replaces exactly 84240 paid idle H₁ cells
+without changing the other owner or outer costs. Then its paid α-moment
+strictly decreases by at least 2916 κ.
+
+Proof. Since 84240 = 26 · 3240, the decrease per local call is
+  G(κ) = 13 · 2^(1−κ) + 6 · 3^(1−κ) − 7 · 4^(1−κ) − 16.
+Here G(0) = 0. For 0 ≤ κ ≤ 1/500,
+  G′(κ) = 56 log(2) · 4^(−κ)
+           − 26 log(2) · 2^(−κ) − 18 log(3) · 3^(−κ).
+Use exp(−x) ≥ 1 − x, 2^(−κ) ≤ 1, 3^(−κ) ≤ 1, and
+  6931/10000 < log(2) < 6932/10000,
+  log(3) < 10987/10000.
+The logarithm bounds follow directly from the positive series
+  log(m) = 2 Σ(j≥0) z^(2j+1)/(2j+1),  z = (m−1)/(m+1),
+with remainder after N terms at most
+  2 z^(2N+1) / ((2N+1)(1−z²)); N = 12 suffices for m = 2, 3.
+Consequently,
+  G′(κ) ≥ 56(6931/10000)(1 − 2(6932/10000)/500)
+           − 26(6932/10000) − 18(10987/10000)
+         = 707951289/781250000 > 9/10.
+Integrating from 0 to κ gives G(κ) > (9/10) κ. Multiplying by 3240
+proves a strict decrease greater than 2916 κ. ∎
+
+Scope. This is a sufficient assembly theorem for the exact stated profile
+and literal idle replacement. It does not by itself establish the owner
+allocation, native phases, inherited outer theorem, or a numerical κ endpoint.
+Those are separate concrete verification gates. The standard concavity and
+logarithm facts are not claimed as new; the source-bound profile and its
+physical realization carry the research contribution.
+
+Dugongue, with substantial OpenAI Codex assistance. Apache-2.0.

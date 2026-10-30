@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-helper-lattice/CONTROLLER.json",
+    "research/kappa-backward-controller-20261023/CONTROLLER.json",
+    "research/p104-productive-controller/CONTROLLER.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate the three pinned controllers; independent exact Laurent replay (own engine, no caller.py import) from the constant right boundary through the constant left boundary, outputs equal the declared odd diagonal; both boundary programs exact and invertible; per-stage determinant identity (output stage counts = row lifts) and net Q_POWER = sum of central exponents; income 17 = 18 - 1; even-part rank after every event under Q^2 -> 13/7, 19/11 with random nonzero stage values: free events never change it, first paid shear 0, each shear <= 1, trace 32,32,31,...,0; scope controls: Laurent entry boundary 2 odd rows from 2 shears, paid odd translation 1 from 1, two-row job 2 from 1; random one-destination words (n = 2, 4, 6) never exceed the bound on the even-rank deficit and reach it; RESULT.json compared in full."
+    }
+  ]
+}

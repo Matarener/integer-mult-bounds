@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Review PR #4029's many-axis prime producer at the encoded TensorPlan.production_axis boundary: which predicates the method enforces, which tape operations it does not perform, and whether the stated prime band meets those predicates.",
+  "scope_change_reason": "Discussion #1166 comment 19037887 asks for a review of the many-axis prime producer at the actual encoded caller boundary. The catalogue card's scatter/export example is a different obligation. This package audits the vendored PR #3935 guard instead of reproducing the #2977 duplicate-scatter mutant.",
+  "bottleneck_link": "A prime-length producer changes a supplier only if it meets the encoded axis guard, including the factor-of-two period test and the odd-source gate. Knowing that production_axis is not itself a tape scheduler stops a lowering that would drop that factor or skip head return.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the production_axis contract, the band inclusions and the two witnesses. Do not reprove the prime-number estimate or build an encoded tape runtime.",
+  "outcome": "completed",
+  "evidence": "verify.py prints PASS_MANY_AXIS_ENCODED_AXIS_GUARD. It checks fixture SHA-256 474730f42fcd2bd24720af4e08c71fb51cc374c3e16b8b6d7e565900f1a9e7c3, the AST contract, 1783 band integers, and the even and factor-2 controls.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Substantial Cursor Grok assistance for the proof writeup, AST checker and witnesses.",
+  "open_questions": [
+    {
+      "question": "Can the prime queue be written as the odd read_fixed source tape that TensorPlan.__init__ loads before production_axis, including head return?",
+      "why_it_matters": "production_axis only tests Counts that are already loaded, so the predicate review does not admit a producer.",
+      "first_step": "Emit one odd fixed-width source word, run the authenticated guard on those Counts, and rewind the sources, flags and axis-row tapes.",
+      "blocked_by": "No encoded Count runtime is executed in this package."
+    },
+    {
+      "question": "After the oddness gate deletes even and composite band integers, does the imported prime-count cutoff still leave D primes in each band?",
+      "why_it_matters": "The band contains even integers, such as 14 at t=16 and d=2, which __init__ rejects before the axis guard.",
+      "first_step": "Apply the oddness predicate inside the PR #4029 prime-count estimate and restate the cutoff.",
+      "blocked_by": "The Fiori\u2013Kadiri\u2013Swidinsky input is not reproved here."
+    }
+  ]
+}

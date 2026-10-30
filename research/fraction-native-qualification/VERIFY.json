@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/fraction-native-qualification/inputs/PR5848.tar",
+    "research/fraction-native-qualification/slot_parent.py",
+    "research/fraction-native-qualification/slot_finite.py",
+    "research/fraction-native-qualification/compact_parent.py",
+    "research/fraction-native-qualification/compact_finite.py",
+    "research/fraction-native-qualification/entry_parent.py",
+    "research/fraction-native-qualification/entry_finite.py",
+    "research/fraction-native-qualification/table_parent.py",
+    "research/fraction-native-qualification/parent_finite.py",
+    "research/fraction-native-qualification/frozen.py",
+    "research/fraction-native-qualification/slot_binding.py",
+    "research/fraction-native-qualification/GETTER-SHAPES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh964 complete comparisons,73 inherited+45 native controls and all4 unchanged custody controls. Cold C build requires existing cc/Python3.12 headers; no dependency installation. Finite/source/native coverage only; full replay and performance remain separate opt-in evidence."
+    }
+  ]
+}

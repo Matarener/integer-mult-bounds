@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/connector-depth-blocks/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source pin; floor-word shape and depth two of every literal word (k=5 c=5 and k=6 c=8 controls), weight identity s+t=|m| mod c on every realizing pair (the search pruning), four rejected controls. Does not replay the local SAT exclusion."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat under optimized Python; checks use explicit exceptions, not assert."
+    }
+  ]
+}

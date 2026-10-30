@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/idle-star-paired-axis-census/SOURCES.json",
+    "research/idle-star-paired-axis-census/vendor/BASE-FILL.json.gz",
+    "research/idle-star-paired-axis-census/vendor/EXCHANGE.json",
+    "research/idle-star-paired-axis-census/vendor/PR3133-CREDITS.md",
+    "research/idle-star-paired-axis-census/vendor/PR3133-NOTICE",
+    "research/idle-star-paired-axis-census/vendor/PROVIDERS.json",
+    "research/idle-star-paired-axis-census/verify.py",
+    "research/rank7-joint-endframes/allocation/DISPATCH.json",
+    "research/rank7-joint-endframes/allocation/ORDER.json",
+    "research/rank7-joint-endframes/allocation/vendor/PLAN.json.gz",
+    "research/rank7-joint-endframes/allocation/vendor/TEMPLATE.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--ports",
+        "0:56",
+        "--receipt",
+        "RESULT-00-56.json"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact source authentication; all 56 port receipts compare all 72 isolated axes, every balanced per-axis occupancy pattern and every exact MITM meet; includes 16 direct replay masks and journal mutation rejection."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--ports",
+        "56:112",
+        "--receipt",
+        "RESULT-56-112.json"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact source authentication; all 56 port receipts compare all 72 isolated axes, every balanced per-axis occupancy pattern and every exact MITM meet."
+    }
+  ]
+}

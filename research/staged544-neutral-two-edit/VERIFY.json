@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base",
+        "--compositional-dirty"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate sources; regenerate the complete baseline and both declared two-edit domains; prove every first edit on arbitrary dirty state by exact rational block equality and full baseline replay; full positive-control, boundary, ledger and mutation checks. Full per-first-word interpreter replay remains available without --compositional-dirty."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra",
+        "--compositional-dirty"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate sources; regenerate the complete baseline and both declared two-edit domains; prove every first edit on arbitrary dirty state by exact rational block equality and full baseline replay; full positive-control, boundary, ledger and mutation checks. Full per-first-word interpreter replay remains available without --compositional-dirty."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat exact source authentication, both three-word dirty positive fixtures, all sixteen rejection/sensitivity controls and retained sign-certificate arithmetic with assertions disabled; this command does not repeat the full search."
+    }
+  ]
+}

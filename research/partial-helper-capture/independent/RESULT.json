@@ -1,0 +1,2235 @@
+{
+  "contract_reference": "source4076/vendor/audit_core.py was read for BORROW-WORD frame/cleanup semantics; no project module imported. RREF arithmetic and local matrix evaluation implemented separately.",
+  "coverage": "Two pinned finite words; exact rational local operator on arbitrary dirty inputs; complete native-frame and helper-width invoice under the BORROW-WORD contract.",
+  "implementation_sha256": "8ae562ae150866e1c8920c112b14ca7d5d0963527c2599d1edb43864006a8687",
+  "physical_lift": "All eight replaced ADDs and all eight candidate ADDs use the identical [45] representative; exact logical matrix equality gives exact physical equality for any fixed invertible T_[45].",
+  "result": "EXACT_PARTIAL_CAPTURE_WITH_ZERO_NATIVE_PROFILE_GAIN",
+  "schema_version": 1,
+  "source_export_sha256": "c436ab59a73ea967782912955787e1f83ce18a14d1a1baa3a6d2520f57ab5b23",
+  "universal_cost_comparison_scope": "The explicit rewrite retains every positive native climb and endpoint width, so every price depending on that invoice is unchanged. More generally, monotone scalar rewrites at the same six block-boundary frames require all four ZERO-to-[45] target climbs, hence at least four rank-1 children. The original and explicit capture attain that local minimum. No global claim with changed external boundaries or paid itinerary is made.",
+  "unresolved": "Changed entrances or terminals, larger source sets, cross-block retiming, other child/hosting contracts, and global resynthesis are not excluded. No physical supplier, full recurrence improvement or new kappa is established.",
+  "words": {
+    "base": {
+      "added_cleanup_pair": [
+        [
+          "add",
+          600,
+          601,
+          1,
+          1,
+          [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          "add",
+          600,
+          601,
+          -1,
+          1,
+          [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        ]
+      ],
+      "added_cleanup_pair_index": 1225,
+      "all_external_frames_unchanged": true,
+      "all_positive_climbs_per_register_unchanged": true,
+      "block_boundary_frames": {
+        "entry": {
+          "123": [],
+          "175": [],
+          "183": [],
+          "202": [],
+          "600": [
+            45
+          ],
+          "601": [
+            45
+          ]
+        },
+        "exit": {
+          "123": [
+            45
+          ],
+          "175": [
+            45
+          ],
+          "183": [
+            45
+          ],
+          "202": [
+            45
+          ],
+          "600": [
+            45
+          ],
+          "601": [
+            45
+          ]
+        }
+      },
+      "block_minimum_profile_under_fixed_monotone_boundaries": {
+        "1": 4
+      },
+      "block_paid_climbs_after": [
+        [
+          202,
+          "B",
+          77,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          123,
+          "B",
+          78,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          183,
+          "B",
+          82,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          175,
+          "B",
+          83,
+          1,
+          [],
+          [
+            45
+          ]
+        ]
+      ],
+      "block_paid_climbs_before": [
+        [
+          183,
+          "B",
+          77,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          202,
+          "B",
+          78,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          175,
+          "B",
+          79,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          123,
+          "B",
+          80,
+          1,
+          [],
+          [
+            45
+          ]
+        ]
+      ],
+      "canceled_cleanup_records_after": 5225,
+      "candidate_block": [
+        [
+          "add",
+          202,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          202,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          600,
+          601,
+          1,
+          1,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          183,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          175,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          600,
+          601,
+          -1,
+          1,
+          [
+            45
+          ]
+        ]
+      ],
+      "defect_sensitive_controls": {
+        "clean_zero_sources_do_not_detect_missing_undo": true,
+        "missing_undo_rejected_on_arbitrary_dirty_sources": true,
+        "unpaid_read_only_source_frame_rejected": true,
+        "wrong_agreeing_target_sign_rejected": true,
+        "wrong_capture_sign_rejected": true,
+        "wrong_cleanup_inverse_sign_rejected": true,
+        "wrong_common_frame_rejected": true
+      },
+      "helper_width_inventory": {
+        "5": 28,
+        "6": 18,
+        "7": 53,
+        "8": 96,
+        "9": 213
+      },
+      "literal_cleanup_records_after": 5227,
+      "literal_cleanup_records_before": 5225,
+      "local_operation_counts": {
+        "after": {
+          "adds": 8,
+          "source_reads": {
+            "600": 4,
+            "601": 4
+          },
+          "source_writes": {
+            "600": 2,
+            "601": 0
+          },
+          "target_writes": 6
+        },
+        "before": {
+          "adds": 8,
+          "source_reads": {
+            "600": 4,
+            "601": 4
+          },
+          "source_writes": {
+            "600": 0,
+            "601": 0
+          },
+          "target_writes": 8
+        }
+      },
+      "matrix": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1/4",
+          "1/4",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1/4",
+          "1/4",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "matrix_coordinates": [
+        600,
+        601,
+        123,
+        175,
+        183,
+        202
+      ],
+      "matrix_entry_coverage": 36,
+      "native_profile": {
+        "1": 2482,
+        "2": 712,
+        "3": 218,
+        "4": 109,
+        "5": 20,
+        "8": 8
+      },
+      "old_cleanup_equals_unsimplified_literal_recipe": false,
+      "old_cleanup_semantically_sufficient_after_exact_pair_cancellation": true,
+      "operation_invoice": {
+        "canceled_capture": {
+          "A": {
+            "operations": {
+              "add": 3557,
+              "scale": 498,
+              "warp": 24
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "B": {
+            "operations": {
+              "add": 1796,
+              "scale": 74
+            },
+            "source_access": {
+              "600": {
+                "reads": 6,
+                "writes": 7
+              },
+              "601": {
+                "reads": 6,
+                "writes": 5
+              }
+            }
+          },
+          "cleanup": {
+            "operations": {
+              "add": 4633,
+              "scale": 520,
+              "warp": 72
+            },
+            "source_access": {
+              "600": {
+                "reads": 1,
+                "writes": 5
+              },
+              "601": {
+                "reads": 1,
+                "writes": 5
+              }
+            }
+          },
+          "compensation": {
+            "operations": {
+              "add": 5736
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "cut": {
+            "operations": {
+              "add": 176
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "initial_corrections": 36,
+          "native_warps": 72,
+          "precondition": {
+            "operations": {
+              "add": 136,
+              "scale": 56
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "restore": {
+            "operations": {
+              "add": 196,
+              "scale": 16
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "source_reads_and_writes": {
+            "600": {
+              "reads": 7,
+              "writes": 12
+            },
+            "601": {
+              "reads": 7,
+              "writes": 10
+            }
+          },
+          "total_executed_records": 17598,
+          "totals_excluding_native_warps_and_corrections": {
+            "add": 16230,
+            "scale": 1164,
+            "warp": 96
+          }
+        },
+        "literal_capture": {
+          "A": {
+            "operations": {
+              "add": 3557,
+              "scale": 498,
+              "warp": 24
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "B": {
+            "operations": {
+              "add": 1796,
+              "scale": 74
+            },
+            "source_access": {
+              "600": {
+                "reads": 6,
+                "writes": 7
+              },
+              "601": {
+                "reads": 6,
+                "writes": 5
+              }
+            }
+          },
+          "cleanup": {
+            "operations": {
+              "add": 4635,
+              "scale": 520,
+              "warp": 72
+            },
+            "source_access": {
+              "600": {
+                "reads": 1,
+                "writes": 7
+              },
+              "601": {
+                "reads": 3,
+                "writes": 5
+              }
+            }
+          },
+          "compensation": {
+            "operations": {
+              "add": 5736
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "cut": {
+            "operations": {
+              "add": 176
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "initial_corrections": 36,
+          "native_warps": 72,
+          "precondition": {
+            "operations": {
+              "add": 136,
+              "scale": 56
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "restore": {
+            "operations": {
+              "add": 196,
+              "scale": 16
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "source_reads_and_writes": {
+            "600": {
+              "reads": 7,
+              "writes": 14
+            },
+            "601": {
+              "reads": 9,
+              "writes": 10
+            }
+          },
+          "total_executed_records": 17600,
+          "totals_excluding_native_warps_and_corrections": {
+            "add": 16232,
+            "scale": 1164,
+            "warp": 96
+          }
+        },
+        "original": {
+          "A": {
+            "operations": {
+              "add": 3557,
+              "scale": 498,
+              "warp": 24
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "B": {
+            "operations": {
+              "add": 1796,
+              "scale": 74
+            },
+            "source_access": {
+              "600": {
+                "reads": 6,
+                "writes": 5
+              },
+              "601": {
+                "reads": 6,
+                "writes": 5
+              }
+            }
+          },
+          "cleanup": {
+            "operations": {
+              "add": 4633,
+              "scale": 520,
+              "warp": 72
+            },
+            "source_access": {
+              "600": {
+                "reads": 1,
+                "writes": 5
+              },
+              "601": {
+                "reads": 1,
+                "writes": 5
+              }
+            }
+          },
+          "compensation": {
+            "operations": {
+              "add": 5736
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "cut": {
+            "operations": {
+              "add": 176
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "initial_corrections": 36,
+          "native_warps": 72,
+          "precondition": {
+            "operations": {
+              "add": 136,
+              "scale": 56
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "restore": {
+            "operations": {
+              "add": 196,
+              "scale": 16
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "source_reads_and_writes": {
+            "600": {
+              "reads": 7,
+              "writes": 10
+            },
+            "601": {
+              "reads": 7,
+              "writes": 10
+            }
+          },
+          "total_executed_records": 17598,
+          "totals_excluding_native_warps_and_corrections": {
+            "add": 16230,
+            "scale": 1164,
+            "warp": 96
+          }
+        }
+      },
+      "original_block": [
+        [
+          "add",
+          183,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          202,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          175,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          183,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          202,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          175,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ]
+      ],
+      "paid_source_visits": {
+        "600": {
+          "entrance": [
+            45
+          ],
+          "paid_visits": [
+            [
+              600,
+              "B",
+              936,
+              4,
+              [
+                45
+              ],
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "B",
+              948,
+              1,
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ],
+              [
+                385,
+                72,
+                40,
+                24,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "B",
+              1470,
+              1,
+              [
+                385,
+                72,
+                40,
+                24,
+                5,
+                2
+              ],
+              [
+                257,
+                128,
+                72,
+                40,
+                24,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "B",
+              1472,
+              1,
+              [
+                257,
+                128,
+                72,
+                40,
+                24,
+                5,
+                2
+              ],
+              [
+                257,
+                128,
+                65,
+                33,
+                17,
+                9,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "terminal",
+              null,
+              1,
+              [
+                257,
+                128,
+                65,
+                33,
+                17,
+                9,
+                5,
+                2
+              ],
+              [
+                256,
+                128,
+                64,
+                32,
+                16,
+                8,
+                4,
+                2,
+                1
+              ]
+            ]
+          ],
+          "terminal": [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        },
+        "601": {
+          "entrance": [
+            45
+          ],
+          "paid_visits": [
+            [
+              601,
+              "B",
+              937,
+              4,
+              [
+                45
+              ],
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ]
+            ],
+            [
+              601,
+              "B",
+              949,
+              1,
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ],
+              [
+                408,
+                80,
+                40,
+                4,
+                2,
+                1
+              ]
+            ],
+            [
+              601,
+              "B",
+              1474,
+              1,
+              [
+                408,
+                80,
+                40,
+                4,
+                2,
+                1
+              ],
+              [
+                280,
+                128,
+                80,
+                40,
+                4,
+                2,
+                1
+              ]
+            ],
+            [
+              601,
+              "B",
+              1476,
+              1,
+              [
+                280,
+                128,
+                80,
+                40,
+                4,
+                2,
+                1
+              ],
+              [
+                272,
+                128,
+                80,
+                32,
+                8,
+                4,
+                2,
+                1
+              ]
+            ],
+            [
+              601,
+              "terminal",
+              null,
+              1,
+              [
+                272,
+                128,
+                80,
+                32,
+                8,
+                4,
+                2,
+                1
+              ],
+              [
+                256,
+                128,
+                64,
+                32,
+                16,
+                8,
+                4,
+                2,
+                1
+              ]
+            ]
+          ],
+          "terminal": [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        }
+      },
+      "positive_climb_signature_sha256": "807c3a6384ae6d6670388070b2c1ce7525c33c5ba4ce5e7523c3e8d729435bce",
+      "positive_native_climb_count": 3549,
+      "positive_native_rank_mass": 5160,
+      "source": {
+        "git_blob": "806784bf99d9d15004d2d227d06268556a0726c8",
+        "head": "f977a8a3dcb2983829d066a80420b7ded42d3e09",
+        "original_path": "research/staged544-helper600-sign-columns/frozen/WORD-base.json.gz",
+        "sha256": "08e6c96fbe3dfec96cb8451b3867ef8c1a214109ecd1e5af7fcc28e0f05728d0"
+      }
+    },
+    "extra": {
+      "added_cleanup_pair": [
+        [
+          "add",
+          600,
+          601,
+          1,
+          1,
+          [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          "add",
+          600,
+          601,
+          -1,
+          1,
+          [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        ]
+      ],
+      "added_cleanup_pair_index": 1225,
+      "all_external_frames_unchanged": true,
+      "all_positive_climbs_per_register_unchanged": true,
+      "block_boundary_frames": {
+        "entry": {
+          "123": [],
+          "175": [],
+          "183": [],
+          "202": [],
+          "600": [
+            45
+          ],
+          "601": [
+            45
+          ]
+        },
+        "exit": {
+          "123": [
+            45
+          ],
+          "175": [
+            45
+          ],
+          "183": [
+            45
+          ],
+          "202": [
+            45
+          ],
+          "600": [
+            45
+          ],
+          "601": [
+            45
+          ]
+        }
+      },
+      "block_minimum_profile_under_fixed_monotone_boundaries": {
+        "1": 4
+      },
+      "block_paid_climbs_after": [
+        [
+          202,
+          "B",
+          77,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          123,
+          "B",
+          78,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          183,
+          "B",
+          82,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          175,
+          "B",
+          83,
+          1,
+          [],
+          [
+            45
+          ]
+        ]
+      ],
+      "block_paid_climbs_before": [
+        [
+          183,
+          "B",
+          77,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          202,
+          "B",
+          78,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          175,
+          "B",
+          79,
+          1,
+          [],
+          [
+            45
+          ]
+        ],
+        [
+          123,
+          "B",
+          80,
+          1,
+          [],
+          [
+            45
+          ]
+        ]
+      ],
+      "canceled_cleanup_records_after": 5225,
+      "candidate_block": [
+        [
+          "add",
+          202,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          202,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          600,
+          601,
+          1,
+          1,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          183,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          175,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          600,
+          601,
+          -1,
+          1,
+          [
+            45
+          ]
+        ]
+      ],
+      "defect_sensitive_controls": {
+        "clean_zero_sources_do_not_detect_missing_undo": true,
+        "missing_undo_rejected_on_arbitrary_dirty_sources": true,
+        "unpaid_read_only_source_frame_rejected": true,
+        "wrong_agreeing_target_sign_rejected": true,
+        "wrong_capture_sign_rejected": true,
+        "wrong_cleanup_inverse_sign_rejected": true,
+        "wrong_common_frame_rejected": true
+      },
+      "helper_width_inventory": {
+        "5": 28,
+        "6": 18,
+        "7": 53,
+        "8": 96,
+        "9": 213
+      },
+      "literal_cleanup_records_after": 5227,
+      "literal_cleanup_records_before": 5225,
+      "local_operation_counts": {
+        "after": {
+          "adds": 8,
+          "source_reads": {
+            "600": 4,
+            "601": 4
+          },
+          "source_writes": {
+            "600": 2,
+            "601": 0
+          },
+          "target_writes": 6
+        },
+        "before": {
+          "adds": 8,
+          "source_reads": {
+            "600": 4,
+            "601": 4
+          },
+          "source_writes": {
+            "600": 0,
+            "601": 0
+          },
+          "target_writes": 8
+        }
+      },
+      "matrix": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1/4",
+          "1/4",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1/4",
+          "1/4",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "matrix_coordinates": [
+        600,
+        601,
+        123,
+        175,
+        183,
+        202
+      ],
+      "matrix_entry_coverage": 36,
+      "native_profile": {
+        "1": 2482,
+        "2": 712,
+        "3": 218,
+        "4": 109,
+        "5": 20,
+        "8": 8
+      },
+      "old_cleanup_equals_unsimplified_literal_recipe": false,
+      "old_cleanup_semantically_sufficient_after_exact_pair_cancellation": true,
+      "operation_invoice": {
+        "canceled_capture": {
+          "A": {
+            "operations": {
+              "add": 3557,
+              "scale": 498,
+              "warp": 24
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "B": {
+            "operations": {
+              "add": 1796,
+              "scale": 74
+            },
+            "source_access": {
+              "600": {
+                "reads": 6,
+                "writes": 7
+              },
+              "601": {
+                "reads": 6,
+                "writes": 5
+              }
+            }
+          },
+          "cleanup": {
+            "operations": {
+              "add": 4633,
+              "scale": 520,
+              "warp": 72
+            },
+            "source_access": {
+              "600": {
+                "reads": 1,
+                "writes": 5
+              },
+              "601": {
+                "reads": 1,
+                "writes": 5
+              }
+            }
+          },
+          "compensation": {
+            "operations": {
+              "add": 5736
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "cut": {
+            "operations": {
+              "add": 176
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "initial_corrections": 36,
+          "native_warps": 72,
+          "precondition": {
+            "operations": {
+              "add": 136,
+              "scale": 56
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "restore": {
+            "operations": {
+              "add": 196,
+              "scale": 16
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "source_reads_and_writes": {
+            "600": {
+              "reads": 7,
+              "writes": 12
+            },
+            "601": {
+              "reads": 7,
+              "writes": 10
+            }
+          },
+          "total_executed_records": 17598,
+          "totals_excluding_native_warps_and_corrections": {
+            "add": 16230,
+            "scale": 1164,
+            "warp": 96
+          }
+        },
+        "literal_capture": {
+          "A": {
+            "operations": {
+              "add": 3557,
+              "scale": 498,
+              "warp": 24
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "B": {
+            "operations": {
+              "add": 1796,
+              "scale": 74
+            },
+            "source_access": {
+              "600": {
+                "reads": 6,
+                "writes": 7
+              },
+              "601": {
+                "reads": 6,
+                "writes": 5
+              }
+            }
+          },
+          "cleanup": {
+            "operations": {
+              "add": 4635,
+              "scale": 520,
+              "warp": 72
+            },
+            "source_access": {
+              "600": {
+                "reads": 1,
+                "writes": 7
+              },
+              "601": {
+                "reads": 3,
+                "writes": 5
+              }
+            }
+          },
+          "compensation": {
+            "operations": {
+              "add": 5736
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "cut": {
+            "operations": {
+              "add": 176
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "initial_corrections": 36,
+          "native_warps": 72,
+          "precondition": {
+            "operations": {
+              "add": 136,
+              "scale": 56
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "restore": {
+            "operations": {
+              "add": 196,
+              "scale": 16
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "source_reads_and_writes": {
+            "600": {
+              "reads": 7,
+              "writes": 14
+            },
+            "601": {
+              "reads": 9,
+              "writes": 10
+            }
+          },
+          "total_executed_records": 17600,
+          "totals_excluding_native_warps_and_corrections": {
+            "add": 16232,
+            "scale": 1164,
+            "warp": 96
+          }
+        },
+        "original": {
+          "A": {
+            "operations": {
+              "add": 3557,
+              "scale": 498,
+              "warp": 24
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "B": {
+            "operations": {
+              "add": 1796,
+              "scale": 74
+            },
+            "source_access": {
+              "600": {
+                "reads": 6,
+                "writes": 5
+              },
+              "601": {
+                "reads": 6,
+                "writes": 5
+              }
+            }
+          },
+          "cleanup": {
+            "operations": {
+              "add": 4633,
+              "scale": 520,
+              "warp": 72
+            },
+            "source_access": {
+              "600": {
+                "reads": 1,
+                "writes": 5
+              },
+              "601": {
+                "reads": 1,
+                "writes": 5
+              }
+            }
+          },
+          "compensation": {
+            "operations": {
+              "add": 5736
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "cut": {
+            "operations": {
+              "add": 176
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "initial_corrections": 36,
+          "native_warps": 72,
+          "precondition": {
+            "operations": {
+              "add": 136,
+              "scale": 56
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "restore": {
+            "operations": {
+              "add": 196,
+              "scale": 16
+            },
+            "source_access": {
+              "600": {
+                "reads": 0,
+                "writes": 0
+              },
+              "601": {
+                "reads": 0,
+                "writes": 0
+              }
+            }
+          },
+          "source_reads_and_writes": {
+            "600": {
+              "reads": 7,
+              "writes": 10
+            },
+            "601": {
+              "reads": 7,
+              "writes": 10
+            }
+          },
+          "total_executed_records": 17598,
+          "totals_excluding_native_warps_and_corrections": {
+            "add": 16230,
+            "scale": 1164,
+            "warp": 96
+          }
+        }
+      },
+      "original_block": [
+        [
+          "add",
+          183,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          202,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          175,
+          600,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          600,
+          -1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          183,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          202,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          175,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ],
+        [
+          "add",
+          123,
+          601,
+          1,
+          4,
+          [
+            45
+          ]
+        ]
+      ],
+      "paid_source_visits": {
+        "600": {
+          "entrance": [
+            45
+          ],
+          "paid_visits": [
+            [
+              600,
+              "B",
+              936,
+              4,
+              [
+                45
+              ],
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "B",
+              948,
+              1,
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ],
+              [
+                385,
+                72,
+                40,
+                24,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "B",
+              1470,
+              1,
+              [
+                385,
+                72,
+                40,
+                24,
+                5,
+                2
+              ],
+              [
+                257,
+                128,
+                72,
+                40,
+                24,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "B",
+              1472,
+              1,
+              [
+                257,
+                128,
+                72,
+                40,
+                24,
+                5,
+                2
+              ],
+              [
+                257,
+                128,
+                65,
+                33,
+                17,
+                9,
+                5,
+                2
+              ]
+            ],
+            [
+              600,
+              "terminal",
+              null,
+              1,
+              [
+                257,
+                128,
+                65,
+                33,
+                17,
+                9,
+                5,
+                2
+              ],
+              [
+                256,
+                128,
+                64,
+                32,
+                16,
+                8,
+                4,
+                2,
+                1
+              ]
+            ]
+          ],
+          "terminal": [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        },
+        "601": {
+          "entrance": [
+            45
+          ],
+          "paid_visits": [
+            [
+              601,
+              "B",
+              937,
+              4,
+              [
+                45
+              ],
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ]
+            ],
+            [
+              601,
+              "B",
+              949,
+              1,
+              [
+                409,
+                80,
+                40,
+                5,
+                2
+              ],
+              [
+                408,
+                80,
+                40,
+                4,
+                2,
+                1
+              ]
+            ],
+            [
+              601,
+              "B",
+              1474,
+              1,
+              [
+                408,
+                80,
+                40,
+                4,
+                2,
+                1
+              ],
+              [
+                280,
+                128,
+                80,
+                40,
+                4,
+                2,
+                1
+              ]
+            ],
+            [
+              601,
+              "B",
+              1476,
+              1,
+              [
+                280,
+                128,
+                80,
+                40,
+                4,
+                2,
+                1
+              ],
+              [
+                272,
+                128,
+                80,
+                32,
+                8,
+                4,
+                2,
+                1
+              ]
+            ],
+            [
+              601,
+              "terminal",
+              null,
+              1,
+              [
+                272,
+                128,
+                80,
+                32,
+                8,
+                4,
+                2,
+                1
+              ],
+              [
+                256,
+                128,
+                64,
+                32,
+                16,
+                8,
+                4,
+                2,
+                1
+              ]
+            ]
+          ],
+          "terminal": [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ]
+        }
+      },
+      "positive_climb_signature_sha256": "8bef883b7c40043c8d05f55417b2e19e03e0d09abfd33952679b50b36fa99e31",
+      "positive_native_climb_count": 3549,
+      "positive_native_rank_mass": 5160,
+      "source": {
+        "git_blob": "c531be7383ad3ba941600c7ced14e5e10d6d1c67",
+        "head": "f977a8a3dcb2983829d066a80420b7ded42d3e09",
+        "original_path": "research/staged544-helper600-sign-columns/frozen/WORD-extra.json.gz",
+        "sha256": "d83c2ec9cecc0ad092d34ea4080b28a4fd7199579356b6d5a8fc6cd53ff93299"
+      }
+    }
+  }
+}

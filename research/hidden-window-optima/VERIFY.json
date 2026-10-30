@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Author exact optimizer, full coefficient/divisor/largest-c oracles, profiles, padding and controls under normal Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Author exact optimizer, full coefficient/divisor/largest-c oracles, profiles, padding and controls under optimized Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_check.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate reviewer signed-quartic/Sturm, Farey-root and malformed-certificate checks under normal Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/independent_check.py",
+        "--package",
+        "{package}"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate reviewer signed-quartic/Sturm, Farey-root and malformed-certificate checks under optimized Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/endpoint_coordinate_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate adversarial reviewer endpoint-coordinate census, thresholds, boundaries and complete ties under normal Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/endpoint_coordinate_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate adversarial reviewer endpoint-coordinate census, thresholds, boundaries and complete ties under optimized Python"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "python": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "commands": [
+    {
+      "command": "python3 -I -B verify.py",
+      "exit_code": 0,
+      "result": {
+        "status": "PASS_COORDINATE_KERNEL_CLOSURE",
+        "pools": 24,
+        "data_placements": 96,
+        "formal_words": 2800,
+        "inverse_controls": 7,
+        "negative_controls": 4,
+        "positive_calls": 9,
+        "positive_address_span": 6,
+        "inherited_lemma_reproved": false
+      }
+    },
+    {
+      "command": "python3 -I -O -B verify.py",
+      "exit_code": 0,
+      "result": {
+        "status": "PASS_COORDINATE_KERNEL_CLOSURE",
+        "pools": 24,
+        "data_placements": 96,
+        "formal_words": 2800,
+        "inverse_controls": 7,
+        "negative_controls": 4,
+        "positive_calls": 9,
+        "positive_address_span": 6,
+        "inherited_lemma_reproved": false
+      }
+    }
+  ],
+  "review": "Single-agent written proof and exact finite checks. No independent human, agent, or proof-kernel review.",
+  "source_checks": "Three predecessor texts fetched at the pinned canonical commit. Full predecessor suites were not rerun.",
+  "publication_validation": {
+    "python": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "source_pins": "API-fetched canonical commit; all five Git blob IDs recomputed and all declared live input SHA256 values checked.",
+    "metadata": "Upstream validate(check_pins=False) passed in a local Git fixture. Full canonical-history metadata replay and source-history preflight were not run locally; shell network DNS is unavailable.",
+    "replay": "Updated source-authenticating verify.py passed normal and optimized direct commands. Hosted Python 3.12 replay is pending.",
+    "overlap": "Bounded live PR title/body searches; no complete Discussion or arbitrary diff coverage; no exclusivity claim."
+  }
+}

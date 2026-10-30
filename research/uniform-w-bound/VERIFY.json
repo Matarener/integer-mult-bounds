@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/audit.md",
+    "docs/research/community-transfer-review.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Evaluate the normalized recurrence on four half-width children and on one strict child list."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the one-child value at width 4 and the half-width Psi square."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "recorded_utc": "2026-10-19T05:52:38.562754+00:00",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "export": {
+    "git_free": true,
+    "regular_copied_files": 18,
+    "unchanged_after_successful_replays": true,
+    "normal_and_optimized_receipt_mutants_rejected": true,
+    "commands": [
+      {
+        "script": "verify.py",
+        "isolated": true,
+        "optimized": false,
+        "warnings_as_errors": true,
+        "bytecode_writes": false,
+        "exit_code": 0,
+        "seconds": 1.229,
+        "stdout_sha256": "4f4d203ab38df939dab2a1e4f056f2e9de1ca5fbf7227a961ddeb57c8ca85b24",
+        "stderr": ""
+      },
+      {
+        "script": "verify.py",
+        "isolated": true,
+        "optimized": true,
+        "warnings_as_errors": true,
+        "bytecode_writes": false,
+        "exit_code": 0,
+        "seconds": 1.321,
+        "stdout_sha256": "4f4d203ab38df939dab2a1e4f056f2e9de1ca5fbf7227a961ddeb57c8ca85b24",
+        "stderr": ""
+      },
+      {
+        "script": "test_verify.py",
+        "isolated": true,
+        "optimized": false,
+        "warnings_as_errors": true,
+        "bytecode_writes": false,
+        "exit_code": 0,
+        "seconds": 9.889,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 9.699s\n\nOK\n"
+      },
+      {
+        "script": "test_verify.py",
+        "isolated": true,
+        "optimized": true,
+        "warnings_as_errors": true,
+        "bytecode_writes": false,
+        "exit_code": 0,
+        "seconds": 13.626,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 12.653s\n\nOK\n"
+      }
+    ]
+  },
+  "scientific_file_sha256": {
+    "PREDECESSORS.json": "6f46104ccdcad56ef1025b1a7eae63c1814c6183f80260d35812e67b75165cb3",
+    "PROOF.md": "a90a1d77b717908b64b25509f6a57c5d63b5ba8cf5539519e393258caa163f9c",
+    "README.md": "5fa713475152249d052a3dff418e423c8aeed26ad95a170afc056fa2e60ded50",
+    "RESULT.json": "4f4d203ab38df939dab2a1e4f056f2e9de1ca5fbf7227a961ddeb57c8ca85b24",
+    "SOURCES.json": "1bdbd986f6814713dea567c6ae80ec808d21883c60521a0fae3f78a976ba0a65",
+    "TASK.json": "90c2928314832bbcb2fe7112d5c7abf4f406c3fbcb749c5626f5e853d1e22e48",
+    "VERIFY.json": "aa7f6e385bf3ff9aea622ae30269ea8479d9c0019f8159995a9d30ced1dd866f",
+    "test_verify.py": "9e0eaf41d1398416770e96be30970fe0aab633b4b25fbe185df55d89f71d155f",
+    "vendor/PR3908.tar.gz": "9ccaf27da52f96a5701d8d7f9e9934a64f8bbc15f0aa12bd45c7168785d6966d",
+    "verify.py": "e12f3d810a6f659e4b2453d251e323aa5e2c4693c4b28a9cec611796cc2dd94a"
+  },
+  "predecessor_registered_replay": {
+    "status": "passed locally",
+    "head": "0d8880e38ed7c88d70eec6a48e5aa829d0fb22f3",
+    "committed_byte_and_source_history_preflight": "PASS; 12 files; base20ecf2891d80b5acf18d980b2164fb44ea7faa90 ancestor"
+  },
+  "new_registered_replay": "Passed locally on CPython3.12.3; metadata/pins and warning-strict compilation passed. Exact-head publication preflight and hosted CI recorded separately.",
+  "limitations": [
+    "No inherited full native/bridge/decoder algebra replay",
+    "No full selected cold replay or all-depth payload allocation",
+    "No physical consumer, complete recursive supplier or new selected kappa",
+    "No independent human or proof-kernel review",
+    "No Ruff run for this package"
+  ]
+}

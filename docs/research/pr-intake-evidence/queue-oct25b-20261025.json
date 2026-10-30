@@ -1,0 +1,2528 @@
+{
+  "schema_version": 1,
+  "baseline": "d99b37998150aa3719496e2a1d6287bc88c48249",
+  "scope": "6 exact heads; source/integrity intake only, with separately reviewed shared-tooling changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 5546,
+      "head": "d91b568b54bba63f1c15a34560afb78b0c7b02cf",
+      "merge_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "title": "Verify the L300/L301 fixed-cut shared-handoff obstruction (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjIyNjMwMzU0",
+        "is_bot": false,
+        "login": "Clear1nsight",
+        "name": "Chris R"
+      },
+      "files": [
+        {
+          "path": "research/shared-crossing-cut9047-20261025/HANDOFF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d6253df351ac7db36f60f2628c89d009a7e221e7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "38395686d9dc743dc1d10da2811565327ac2cbf2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "72dc3ef5943336fe140edcb4dc5b073c2e629807"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "36a2342deb5767293c7723860c6e1b0e07f667f2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "99058859870728df873ac7c3f11013161183ce91"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "305fbbf1162477bbd2dc8b1fec2e256c92a5baf7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "63f92a95167cb8af07e42cedf7861fb5f8809ee3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/cut9047.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "05afd402effa096aeb5bd59a1be37951426984f0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/expected/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ee8a91838b4deabe9a35147c7c8a960dbe7bf819"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/shared-crossing-cut9047-20261025/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "035d591de74e77e8b5bf511cd06837660ddffad1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 2,
+        "json": 4
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/shared-crossing-cut9047-20261025/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/shared-crossing-cut9047-20261025/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/shared-crossing-cut9047-20261025/SOURCES.json",
+          "path": "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [
+        {
+          "author": {
+            "login": "Clear1nsight"
+          },
+          "body": "**HANDOFF \u2014 actual L19/L300/L301 shared-crossing qualification (no new \u03ba)**\r\n\r\n**Research discussion / PR / artifact:** Source-bound follow-up to #5472. Public replay/proof package: [shared-crossing-cut9047-20261025](https://github.com/Clear1nsight/integer-mult-bounds/tree/d91b568b54bba63f1c15a34560afb78b0c7b02cf/research/shared-crossing-cut9047-20261025). This is a scoped negative result, not a new supplier or frontier claim.\r\n\r\n**Exact commit:** Artifact `d91b568b54bba63f1c15a34560afb78b0c7b02cf`, directly based on canonical `32890bc5de034ab8fc93ac88ead7279a6a416d04`. Conceptual predecessor #5472 head `f560065151f924838a80ac720fb4c55c6ffc0201`. Live native source and catalogue/selected provenance are pinned in `SOURCES.json`; no pending-head evaluator is imported.\r\n\r\n**What is established:** L300/L301 read the same L19 historical value at forward events 9045/9047, frame 21. At the ORIGINAL unmodified cut, the only coframed owners are L19/L300/L301. Pure e300/e301 are outside their rational scalar span, even with two independent successors. Exact witnesses `(L300=u,L505=-4u)` and `(L301=u,L226=u)` preserve every available row but change the required pure target. The retained next anchors intersect only at frame 21. An independent stdlib checker and complete evidence are supplied; normal/O outputs agree exactly. The proposed split reward receives no credit for this local premise.\r\n\r\n**What remains uncertain:** Earlier prefix rewrites, changed helper bases, other cuts/anchors, operator-valued ordinary recoding, new transports or larger shared words. Witness admissibility in a different caller's restricted/owned input domain was not checked. Full suffix/owned return, phases/raw inverse transpose, changed relations, complete caller costs and compiler/outer funding remain open. No complete profile gain, \u03ba ceiling or funded \u03ba is established; the local matched re-flag identity is not promoted to a universal shared-cost barrier.\r\n\r\n**Smallest useful next task:** After checking current contributor scope, specify one literal prefix/basis rewrite or relocated-anchor recipe that changes the exact witness conditions, with all input/target/cost transfers and one bounded falsifier. A novel unproved paper recipe is eligible; a successful upstream construction is not a prerequisite. Repeating unchanged scalar purification at this cut with more samples or coefficients cannot defeat the exact span result. Our round stopped; no ongoing claim on such a redesign is made.\r\n\r\n**Reproduction command and expected runtime:** Python 3.12/stdlib, from repository root: `python3 -B scripts/research_package.py --package research/shared-crossing-cut9047-20261025`. Registered timeout 150 s; original exact pair 0.906 s / 81.0625 MiB; portable registered replay also passed locally. Expected `PASS_SHARED_CROSSING_CUT9047_SCALAR_OBSTRUCTION`. Metadata/source pins and committed-byte/source-history preflight passed. Agent review and local replay are not human/formal admission; no full caller/compiler replay was run.\r\n\r\n**Predecessor credit:** Cao Yifan/#4610; zxv/productive helpers/native rules; GamingPuzzled/Joel Pulikkan/#5472; Cinna Davis; Matarener; aliromman/#5383 and later audits; Dillon Amburgey; Clear1nsight/Chris R and the retained provider/completion/controller lineage. Substantial OpenAI Codex assistance (Astra design, separate Sol checker/physical/invoice/custody/execution roles); new material Apache-2.0.\r\n\r\n```json\r\n{\r\n  \"schema\": \"integer-mult-coordination/v1\",\r\n  \"kind\": \"HANDOFF\",\r\n  \"task\": \"complex-new-helper-inventory\",\r\n  \"scope\": \"Original-prefix L19/L300/L301 cut9047 frame21 rational-scalar purification obstruction and retained-anchor restriction; no new kappa\",\r\n  \"base\": \"32890bc5de034ab8fc93ac88ead7279a6a416d04\",\r\n  \"expiry\": null,\r\n  \"artifact\": \"https://github.com/Clear1nsight/integer-mult-bounds/tree/d91b568b54bba63f1c15a34560afb78b0c7b02cf/research/shared-crossing-cut9047-20261025\"\r\n}\r\n```\r\n"
+        }
+      ],
+      "claim_excerpt": "## Change and mathematical scope\n\nAdds one opt-in research package, `research/shared-crossing-cut9047-20261025/`, proving and replaying a scoped obstruction to an original shared-helper hand-off proposal. **No new physical word, paid-profile gain, \u03ba ceiling or funded \u03ba is claimed.**\n\nThe actual L300/L301 helpers read the same L19 historical value at forward events 9045/9047, frame 21. At the original unmodified cut, the complete coframed inventory is L19/L300/L301. Neither pure original helper input is in their rational scalar span, even with two arbitrary independent successors and zero scratch. Two exact input variations witness this: `(L300=u,L505=-4u)` and `(L301=u,L226=u)` preserve every available row but change the required pure output. A separate retained-anchor intersection argument leaves only the existing frame 21 in the chosen first window.\n\nThe result **does not exclude an earlier prefix rewrite**, changed helper basis, other cuts/anchors, operator-valued ordinary recoding, new transport or a larger shared word. Witness admissibility under a different caller's restricted/owned input domain is unproved. Protected suffixes, owned returns, phases/raw dual, complete caller and compiler/outer funding remain open. The tentative `2H1+2H8-2H9` reward is unadmitted for this rejected immediate-purification premise.\n\n## Task and overlap\n\nUser-assigned scope key: `shared-crossing-L19-L300-L301-cut9047`. Catalogue provenance: `complex-new-helper-inventory`, **changed scope / negative-result**; the original card's positive complete-supplier acceptance gate is expressly not cl",
+      "roots": [
+        "research/shared-crossing-cut9047-20261025"
+      ],
+      "installed": [
+        "research/shared-crossing-cut9047-20261025/HANDOFF.md",
+        "research/shared-crossing-cut9047-20261025/PROOF.md",
+        "research/shared-crossing-cut9047-20261025/README.md",
+        "research/shared-crossing-cut9047-20261025/REVIEW.md",
+        "research/shared-crossing-cut9047-20261025/SOURCES.json",
+        "research/shared-crossing-cut9047-20261025/TASK.json",
+        "research/shared-crossing-cut9047-20261025/VERIFY.json",
+        "research/shared-crossing-cut9047-20261025/cut9047.py",
+        "research/shared-crossing-cut9047-20261025/expected/RESULT.json",
+        "research/shared-crossing-cut9047-20261025/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5547,
+      "head": "1c1c04d1302d109a838faf96b925e4020b215b24",
+      "merge_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "title": "Independently audit Clifford pointwise overlap and phase bounds",
+      "author": {
+        "id": "MDQ6VXNlcjc3NDM5ODA3",
+        "is_bot": false,
+        "login": "DLamdata",
+        "name": "D Lam"
+      },
+      "files": [
+        {
+          "path": "research/clifford-pointwise-audit/AUDIT.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e033bd1ff7132c152de01f9e588e9344a58bc86e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/MATRIX-RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ff42c130dc77dae8eb96aed9e5a917f01988d3ef"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "84465d3ef3719397b75cf606a268e5445c443849"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "78fa91430819e64a18830cb2f3a832852778f2de"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/SOURCE-RECEIPT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "89a3f2405a9468596b546507d654d69416661c60"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "300446bf5b559f0af364220bfc967da2977d3862"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "10139d84ff4f51af321803d1624a2b5599f440ff"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/VALIDATION.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "64d87d27d2096b728b5d589192d52f48f5772270"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "72f22f7b9b01a85993320eed07f0e7a733fb72cf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/audit_matrix_mutations.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1debe4e02f03072d5a5d3e696150a2f45a5a505f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/audit_mutations.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "636dadcb3d6f96eaebf028a92d2ac6745d149849"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/source/PR5526-PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "465009d9d1b6947e80e6f1e868022f47ddab1f3c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/source/PR5526-README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a250d034c5e7b9ac98e9049e039754b6b0c38158"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "297e693697f9aee1848234eaf210d22c3864fb6b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/clifford-pointwise-audit/verify_symplectic.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "27d0781745c209b8b6d59fdd35c615af98c42da3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 4,
+        "json": 6
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/clifford-pointwise-audit/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/clifford-pointwise-audit/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "This adds an independent audit of PR #5526\u2019s core pointwise Clifford tensor theorem in `research/clifford-pointwise-audit/`. No substantive gap was found in PROOF.md Sections 2\u20135 under the stated hypotheses. The contribution adds proof clarifications and complementary exact checks; the theorem and constants remain Ali Romman\u2019s and the credited predecessors\u2019 work.\n\nThe audit makes the Gaussian-dyadic phase lifts explicit, checks the residual-form counting argument, and distinguishes fixed coefficients from width-dependent coefficients. Separate literal-matrix and exhaustive binary-symplectic checkers corroborate the overlap counts and Gram bounds.\n\nExact pins:\n\n- Canonical base: `32890bc5de034ab8fc93ac88ead7279a6a416d04`\n- Contribution: `1c1c04d1302d109a838faf96b925e4020b215b24`\n- Reviewed PR #5526 source: `45f7de73b168721cdf7ec8c1769b1b594493716a`\n\nVerification on Python 3.12.14, using only the standard library:\n\n```sh\npython3.12 -B scripts/research_package.py --package research/clifford-pointwise-audit\npython3.12 -B scripts/check_research_commit.py --package research/clifford-pointwise-audit --check-source-history\n```\n\nBoth passed. All six registered commands pass, including 22 deliberate-defect/corruption rejections. Export integrity passed, and all six final committed commands also passed in a read-only export without Git, with identical outputs and unchanged files. Reproduction details and results are recorded in the package.\n\nInternal review used an independently deriving verifier and a separate skeptical reviewer. No blocking findings remain; phase and quantifier clar",
+      "roots": [
+        "research/clifford-pointwise-audit"
+      ],
+      "installed": [
+        "research/clifford-pointwise-audit/AUDIT.md",
+        "research/clifford-pointwise-audit/MATRIX-RESULT.json",
+        "research/clifford-pointwise-audit/README.md",
+        "research/clifford-pointwise-audit/REVIEW.md",
+        "research/clifford-pointwise-audit/SOURCE-RECEIPT.json",
+        "research/clifford-pointwise-audit/SOURCES.json",
+        "research/clifford-pointwise-audit/TASK.json",
+        "research/clifford-pointwise-audit/VALIDATION.json",
+        "research/clifford-pointwise-audit/VERIFY.json",
+        "research/clifford-pointwise-audit/audit_matrix_mutations.py",
+        "research/clifford-pointwise-audit/audit_mutations.py",
+        "research/clifford-pointwise-audit/source/PR5526-PROOF.md",
+        "research/clifford-pointwise-audit/source/PR5526-README.md",
+        "research/clifford-pointwise-audit/verify.py",
+        "research/clifford-pointwise-audit/verify_symplectic.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5548,
+      "head": "b038f9d9b5cf0ce92184da909e57a3be476fc812",
+      "merge_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "title": "Independently verify P104 contact phases and bound repeated H5 retiming (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjIyNjMwMzU0",
+        "is_bot": false,
+        "login": "Clear1nsight",
+        "name": "Chris R"
+      },
+      "files": [
+        {
+          "path": "research/p104-contact-independent-audit/CAPSULE-INVENTORY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "82ea6df8300198401ccd67bc586847e62ba9605a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/CEILING.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0f7e2ba26e53c4f9d199eaa6ddfcf09bf2fb82d6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/HANDOFF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ae88854f6053a9468a3fb1fad179f2e277eea933"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/NATIVE-PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d968f3c93a1ffd6d9f33d17a3471af760b7af7b0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c7bca6099b3d1c3c21b5e991853d06fc9274187d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f279181993e06a98a6a3933237d9f8803c77a691"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0dda084ca5fa6caa1258d77ffc289e45fe6f4a32"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "17d4a1cf7cfdc9e0cf58fb8076b66f0b0979e6db"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/UPSTREAM.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "37a64433cb5bf1d184ef42a77abdfac9f0bd5a96"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5c702a9b0318d9d81e24b1cca6ff1b6d4aaf02d6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/economic-sensitivity-feasibility-20261025/interval_math.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b06ce47be836a663498915d23b953290ebf1509a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/INPUTS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "60a33c22f714279abbf3ee74a093d95fa80e20d7"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/PAIR-RECEIPT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1dda421219f229b90ac9471bc30b02cc42d49f2b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/RESULT-normal.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "05cb6fa03502696857586cafc5672f5477200379"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d6110d34f526a38def77fcf5116205f441dc3d9d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "013734fb2c57e520a147d99a19bd38b88347a13e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ace72d1358d21b5924fea3acdfe158de0436c4fd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a4daa8e3f1d90ba8f103f4cdf0abe5bff8b4986e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5c136e714dd740982ea66e6bd9ac062fcb6db58f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c917d3fc0cf6f13eae3ddba3c8407528d41001d5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e6d663d6fd78427a4442dc5fc9ead5aeab5ca34f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1ce96b0130daeea46ef53fdbd32bca2727aa6b35"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/construct.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "416e5f584563793262ac2047082e37b88c7c8e15"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c88c425a2f4d4864ecc8093844a70144aede2733"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fb2d7f1a310af779334e481ad8dab9cd81b72a43"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/CONTROLLER.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cc539db709cf7a6c42872c4380902736ad453af3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e0bb34fbef6b412b572818d669150b54a13ea30d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5637130d4a3884948eda39c185e3b6e8f4b4717b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "70f954b346dcf5ee27d394f74d0804731deafd86"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/caller.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6ac5e735691555ecafe2afbcff71edd923178113"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/local.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dbb3d56a4f5b733bb0c32a91249d1f6a7e1ab5d2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/price.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6c856e173c58f2f201064a88745bb80052cd3875"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/INPUTS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9f02abfb4329be24885ac59c86d675b3eb6706c2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e7e663bebaf13f44c95fb8eb118b472cf377e137"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/clifford_exact.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "166841a037f069249f6f7f6dedb89248812f59e2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/native_verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2c209dfa9cfade3bc20ac5fc9d876b433a147f8c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/capsule/swarm-price-plane-20261023T112711Z/coordination/run_guarded.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "84af5ed23588511cefd1e03766bff031357198aa"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/expected/contact-ceiling.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "05cb6fa03502696857586cafc5672f5477200379"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/expected/native.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "44eb3b3a9ce0a2297186da5ea8c541091cbc3e91"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-contact-independent-audit/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e860bf532d84df5a8e0fabfddbba25b0baab8bf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 13,
+        "json": 17
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/p104-contact-independent-audit/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/clifford_exact.py",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/p104-native-channel/vendor/clifford_exact.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/native_verify.py",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/p104-native-channel/vendor/native_verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/CONTROLLER.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/CONTROLLER.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/RESULT.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/RESULT.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/WORD.json.gz",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/WORD.json.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/caller.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/caller.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/local.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/local.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/price.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/price.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/compose.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/compose.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/predecessor2152.tar.gz",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/predecessor2152.tar.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/complex-block-rank-optimum/inputs/selected.json.gz",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/complex-block-rank-optimum/inputs/selected.json.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/frame-sa504/inputs/hamming/PROTOTYPE.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/frame-sa504/inputs/hamming/PROTOTYPE.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-native-channel/inputs/P104-FIXTURE.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-native-channel/inputs/P104-FIXTURE.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/clifford_exact.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-native-channel/vendor/clifford_exact.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/native_verify.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-native-channel/vendor/native_verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/joint-helper-lattice/CONTROLLER.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/joint-helper-lattice/CONTROLLER.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/higher-moment-strictification/verify.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/higher-moment-strictification/verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/kappa-rebuild/architecture/mixed_target_probe.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/kappa-rebuild/architecture/mixed_target_probe.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/query-thinned-controllers/RESULT.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/query-thinned-controllers/RESULT.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/pr4359-p7-padding/native_inventory.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/pr4359-p7-padding/native_inventory.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/RESULT.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/RESULT.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/SOURCES.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/SOURCES.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [
+        {
+          "author": {
+            "login": "Clear1nsight"
+          },
+          "body": "**HANDOFF \u2014 reproducible P104 contact/native audit and scoped edit-family ceiling (no new \u03ba)**\r\n\r\n**Research discussion / PR / artifact:** This PR and [the complete public package](https://github.com/Clear1nsight/integer-mult-bounds/tree/b038f9d9b5cf0ce92184da909e57a3be476fc812/research/p104-contact-independent-audit) are canonical. It supports #5545 and makes the previously local focused checks and ceiling inspectable and replayable.\r\n\r\n**Exact commit:** Publication `b038f9d9b5cf0ce92184da909e57a3be476fc812`, directly based on canonical `32890bc5de034ab8fc93ac88ead7279a6a416d04`. Reviewed source #5545 `18968423711fd902aaee1099979497d55603e1dc`; predecessor #5544 `e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581`. The vendored data, exact checkers and outputs are byte-pinned; no pending Git object or network is required.\r\n\r\n**What is established:** Separate contact/endpoint/invoice checker; all 743 normalized rows and owned returns; unchanged targets and exact `-18H1-18H5+18H6` paid delta. New dense exact native interpreter checks all columns of the actual rank-1/5/6 lowered maps and old/direct composition, including absolute phase: 1,048,576 complex entries per mode. Twelve native faults and two source corruptions reject, including phase-only faults with unchanged signed tableaux. The explicit replacement lemma tensors factorwise with scalar coefficients outside tensor powers. The frozen-target H1+H5\u2192H6 repetition family has optimistic raw ceiling (.003106074473,.003106074474), below .0033; no P104-wide ceiling is claimed.\r\n\r\n**What remains uncertain:** Other parent native maps, full 265-axis physical caller, archived-source regeneration, precision/tape and complete compiler/58-outer-predicate conjunction. Five source framework assumptions remain. Broad rank-mass packing is only a relaxation. No new funded \u03ba, selected promotion or independent human/formal acceptance.\r\n\r\n**Smallest useful next task:** After current overlap review, validate one missing parent physical-caller/funding layer, or nominate one genuinely broader chronological paid-path change with complete optimistic accounting and one small falsifier. This completed audit is stopped and reserves no new construction scope.\r\n\r\n**Reproduction command and expected runtime:** Python 3.12/stdlib:\r\n`python3 -B scripts/research_package.py --package research/p104-contact-independent-audit`.\r\nRegistered normal/optimized replay passed in 19.017 s / 94.82 MiB under the shared guard, cap 150 s / 512 MiB; full frozen-output equality and no exclusions. Git-free read-only optimized export with empty PATH passed in 9.468 s / 69.41 MiB, all 42 files unchanged. On-disk input and expected-receipt corruptions reject before science. Exact published-commit/source-history preflight passed for 42 files. Hosted CI is reported separately. Reused compiler/definitions and interval engine retain credit; mode equality is reproducibility, not a second implementation.\r\n\r\n**Predecessor credit:** Ali Romman/#5544/#5545, Gareth Davidson/#2305, David Arias/#2152, Cinna Davis/#2219/controller, Jacob Alan Sussman, zxv, Cao Yifan and retained Clifford/native-review, shared-chart/dual-ADD, geometry/COPY/compiler/analytic lineage. New focused audit, scoped ceiling and publication for Chris R/Clear1nsight with substantial OpenAI Codex assistance; Apache-2.0.\r\n\r\n```json\r\n{\r\n  \"schema\": \"integer-mult-coordination/v1\",\r\n  \"kind\": \"HANDOFF\",\r\n  \"task\": \"scalar-to-moment\",\r\n  \"scope\": \"Public source-pinned P104 contact/native phase audit and frozen H5-edit ceiling; no new kappa; full parent admission remains open\",\r\n  \"base\": \"32890bc5de034ab8fc93ac88ead7279a6a416d04\",\r\n  \"expiry\": null,\r\n  \"artifact\": \"https://github.com/CrocSwap/integer-mult-bounds/pull/5548\"\r\n}\r\n```\r\n"
+        }
+      ],
+      "claim_excerpt": "## Change and mathematical scope\n\nAdds one source-pinned, reproducible supporting audit of [PR #5545](https://github.com/CrocSwap/integer-mult-bounds/pull/5545), plus a ceiling on repeating only its `H1+H5\u2192H6` edit. **No new construction, \u03ba gain, selected update or complete parent admission is claimed.**\n\nThe contact moves the subtraction/sign on registers 341/345 to a full common chart. A separately written interpreter checks all 743 normalized endpoint rows, owned returns, source-read windows and complete before/after invoices. The exact paid delta is `-18H1-18H5+18H6`, with every productive target retained.\n\nA new dense Gaussian-dyadic interpreter verifies every column of the three actual lowered rank-1/5/6 transports and their old-route/direct-route composition: **1,048,576 complex entries per mode**, including absolute phase. It uses neither vendor state interpreter for matrix comparison. The pinned source compiler and credited literal chart/recipe descriptions are reused. [NATIVE-PROOF.md](https://github.com/Clear1nsight/integer-mult-bounds/blob/b038f9d9b5cf0ce92184da909e57a3be476fc812/research/p104-contact-independent-audit/NATIVE-PROOF.md) states the conditional positive-width tensor/substitution implication, with exterior scalar coefficients kept outside tensor powers.\n\nEven granting all 1,926 remaining global H5 jobs legal independent replacements without added cost, the frozen-target edit family has raw ceiling **(.003106074473, .003106074474)** and cannot fund .0033. [CEILING.md](https://github.com/Clear1nsight/integer-mult-bounds/blob/b038f9d9b5cf0ce92184da909e",
+      "roots": [
+        "research/p104-contact-independent-audit"
+      ],
+      "installed": [
+        "research/p104-contact-independent-audit/CAPSULE-INVENTORY.json",
+        "research/p104-contact-independent-audit/CEILING.md",
+        "research/p104-contact-independent-audit/HANDOFF.md",
+        "research/p104-contact-independent-audit/NATIVE-PROOF.md",
+        "research/p104-contact-independent-audit/README.md",
+        "research/p104-contact-independent-audit/REVIEW.md",
+        "research/p104-contact-independent-audit/SOURCES.json",
+        "research/p104-contact-independent-audit/TASK.json",
+        "research/p104-contact-independent-audit/UPSTREAM.json",
+        "research/p104-contact-independent-audit/VERIFY.json",
+        "research/p104-contact-independent-audit/capsule/outputs/economic-sensitivity-feasibility-20261025/interval_math.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/INPUTS.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/PAIR-RECEIPT.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/RESULT-normal.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/check.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/PROOF.md",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/README.md",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/RESULT.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/TASK.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/VERIFY.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/WORD.json.gz",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/construct.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/pricing.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/verify.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/CONTROLLER.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/PROOF.md",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/RESULT.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/WORD.json.gz",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/caller.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/local.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/price.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/INPUTS.json",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/clifford_exact.py",
+        "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/native_verify.py",
+        "research/p104-contact-independent-audit/capsule/swarm-price-plane-20261023T112711Z/coordination/run_guarded.py",
+        "research/p104-contact-independent-audit/expected/contact-ceiling.json",
+        "research/p104-contact-independent-audit/expected/native.json",
+        "research/p104-contact-independent-audit/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5549,
+      "head": "7f104c00852346f0d07c4e87e830284e8daab67b",
+      "merge_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "title": "Sharp one-qubit full-Clifford tensor threshold: width 5",
+      "author": {
+        "id": "MDQ6VXNlcjI3MTgyMzM2",
+        "is_bot": false,
+        "login": "MatShep",
+        "name": "Shep"
+      },
+      "files": [
+        {
+          "path": "research/full-clifford-one-qubit/.gitattributes",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8243dc42fcdd12aed6877b468b5321d51604a850"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/full-clifford-one-qubit/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e71833693e73c2d865d179ca74bac6d781f20949"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/full-clifford-one-qubit/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0f0fbdc778470de47bce5e8c8a6d3c1e16604e1c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/full-clifford-one-qubit/clifford-experiment.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "31142a3fc92fd908998d46eed580fc6cc371f574"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 1
+      },
+      "pin_checks": [],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "The full one-qubit Gaussian-dyadic Clifford alphabet has sharp pointwise tensor-independence threshold **5**. This improves the n=1 sufficient threshold 8 of Ali Romman's #5526, pinned at `45f7de73b168721cdf7ec8c1769b1b594493716a`.\n\nThe isolated `research/full-clifford-one-qubit` package contains a standalone exact verifier, its saved output and the short argument: 96 lifts / 24 projective classes; Gram ranks `4,10,20,23,24,24,24,24,24` at widths 1..9; positive-definiteness propagation by Schur products; an explicit width-4 null witness. Applying the predecessor's phase Fourier step gives the fixed-residual test window **5..8**, and the same-residue witness excludes any universal test confined below width 8.\n\nSol's normal and optimized CPython 3.12.10 runs agree byte-for-byte. They include 1,152 independently constructed literal tensor Gram entries at widths 4 and 5, all 96 unitarity checks, and the width-4/width-8 witness. Reproduce with `python -I -O -W error research/full-clifford-one-qubit/clifford-experiment.py`. Astra checked the frozen implementation and existing evidence briefly for obvious errors; no full replay or deep theorem audit is claimed. The package does not opt into registered replay CI.\n\nScope is algebra only: no new kappa, supplier, physical invoice, selected cold replay, formal-kernel or independent human acceptance. The README gives exact source pins, limitations and the next question. The smaller monomial results #5521/#5522/#5529/#5542 and DLamdata's #5547 general audit retain credit. Canonical coordination: [Discussion #5236](https://github.com/Croc",
+      "roots": [
+        "research/full-clifford-one-qubit"
+      ],
+      "installed": [
+        "research/full-clifford-one-qubit/.gitattributes",
+        "research/full-clifford-one-qubit/README.md",
+        "research/full-clifford-one-qubit/RESULT.json",
+        "research/full-clifford-one-qubit/clifford-experiment.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5550,
+      "head": "6125c07ae8ba4b8550e2a0a28a2c6be503153059",
+      "merge_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "title": "Independently verify the P104 forward caller and target bindings (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjIyNjMwMzU0",
+        "is_bot": false,
+        "login": "Clear1nsight",
+        "name": "Chris R"
+      },
+      "files": [
+        {
+          "path": "research/p104-caller-independent-audit/CAPSULE-INVENTORY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "07c7b818f02c2aabab4798c3e8203ffd2fe1e827"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/HANDOFF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f7ec966f8225ea7f3ff435c1984e5c971b9f035f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3a74b71a55753a6e7cb372d98b0074cf98dc8708"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8a46572b2b6dbb5fc6e681faf5abaef0510fdc9a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/REVIEW.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f669b57c1327ca3a8398e91042112c55e624243e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "34d630da7d5dfb6494adf3086c9d93fc09705a11"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "436d00431439898ac5ea5734908c4e61765ce495"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "727e4ba8cc8b58272372d70f43425271f1196ffd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-20261025/CLOSEOUT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "93d8e9dd203e856a33d53102d2db11867c88e1fa"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-20261025/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1bb5f6f359c12319ccb4d1813c73f2db8ee70db4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/INPUTS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f536924d81d748efc1f2690b9a858f3504e9b763"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "506882c655d02cbf1ce6a61aabc8ea15982561e8"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/sources/DATA-PHASES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d9a4f84211182ca200c081ea061d724c8a2cfb70"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/sources/native_inventory.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8d2d96e3998254c2333c43fe47cdfd074cbd811e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/RESULT-normal.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "05cb6fa03502696857586cafc5672f5477200379"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a4daa8e3f1d90ba8f103f4cdf0abe5bff8b4986e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5c136e714dd740982ea66e6bd9ac062fcb6db58f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1ce96b0130daeea46ef53fdbd32bca2727aa6b35"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/CONTROLLER.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cc539db709cf7a6c42872c4380902736ad453af3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/caller.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6ac5e735691555ecafe2afbcff71edd923178113"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/local.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dbb3d56a4f5b733bb0c32a91249d1f6a7e1ab5d2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/RESULT-normal.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "44eb3b3a9ce0a2297186da5ea8c541091cbc3e91"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e7e663bebaf13f44c95fb8eb118b472cf377e137"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/clifford_exact.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "166841a037f069249f6f7f6dedb89248812f59e2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/native_verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2c209dfa9cfade3bc20ac5fc9d876b433a147f8c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/capsule/swarm-price-plane-20261023T112711Z/coordination/run_guarded.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "84af5ed23588511cefd1e03766bff031357198aa"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/expected/caller.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "812ef403ffb149c6230e4a58f29bea75c38f9ba2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/original-evidence/CLOSEOUT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9e446a7c072d1185c4c11ecc8f7cd17298e0f196"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/original-evidence/GUARD-RECEIPT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "97fb18a544e41c828cf4e36bd9095b57b54a2783"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/original-evidence/PAIR-RECEIPT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c381995768d073f063f27008c0b2515ec6e5e5ce"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/original-evidence/REQUEST.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "24f55096adeb8b80a6e2b4ec0952b91f655ceb32"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/original-evidence/TRACE-normal.jsonl",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e298245fc645182b600408efbe250f2a0e8e17a3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/original-evidence/TRACE-optimized.jsonl",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "76b4a6a063a2934185d3ad8efb8ddcbed0ebd2c6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-caller-independent-audit/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f28644eca26a96328ae80f17f2c8f6a698146b2b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 10,
+        "json": 16
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/p104-caller-independent-audit/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/clifford_exact.py",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/p104-native-channel/vendor/clifford_exact.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/native_verify.py",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/p104-native-channel/vendor/native_verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/SOURCES.json",
+          "path": "research/pr4359-p7-padding/native_inventory.py",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/pr4359-p7-padding/native_inventory.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/SOURCES.json",
+          "path": "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/CONTROLLER.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/CONTROLLER.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/RESULT.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/RESULT.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/WORD.json.gz",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/WORD.json.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/caller.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/caller.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/local.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/local.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-productive-controller/price.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-productive-controller/price.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/compose.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/compose.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/predecessor2152.tar.gz",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/predecessor2152.tar.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/complex-block-rank-optimum/inputs/selected.json.gz",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/complex-block-rank-optimum/inputs/selected.json.gz",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/frame-sa504/inputs/hamming/PROTOTYPE.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/frame-sa504/inputs/hamming/PROTOTYPE.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-native-channel/inputs/P104-FIXTURE.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-native-channel/inputs/P104-FIXTURE.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/clifford_exact.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-native-channel/vendor/clifford_exact.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-native-channel/vendor/native_verify.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-native-channel/vendor/native_verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/joint-helper-lattice/CONTROLLER.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/joint-helper-lattice/CONTROLLER.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/higher-moment-strictification/verify.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/higher-moment-strictification/verify.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/kappa-rebuild/architecture/mixed_target_probe.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/kappa-rebuild/architecture/mixed_target_probe.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/query-thinned-controllers/RESULT.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/query-thinned-controllers/RESULT.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/pr4359-p7-padding/native_inventory.py",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/pr4359-p7-padding/native_inventory.py",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/RESULT.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/RESULT.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+          "path": "research/p104-coalesced-private-reuse/SOURCES.json",
+          "source_spec": "e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581:research/p104-coalesced-private-reuse/SOURCES.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [
+        {
+          "author": {
+            "login": "Clear1nsight"
+          },
+          "body": "**HANDOFF \u2014 public P104 forward caller and target-binding validation (no new \u03ba)**\r\n\r\n**Research discussion / PR / artifact:** This PR and [the complete package](https://github.com/Clear1nsight/integer-mult-bounds/tree/6125c07ae8ba4b8550e2a0a28a2c6be503153059/research/p104-caller-independent-audit) are canonical. This publishes the previously local caller layer supporting #5545; #5548 remains the separate preceding contact/native/ceiling contribution.\r\n\r\n**Exact commit:** Publication `6125c07ae8ba4b8550e2a0a28a2c6be503153059`, directly based on canonical `32890bc5de034ab8fc93ac88ead7279a6a416d04`. Reviewed #5545 `18968423711fd902aaee1099979497d55603e1dc`; predecessor #5544 `e2a6cce2f9db5a2c5f9714f4b9e5292dd3a10581`. Exact source/compiler/circuit/phase inputs, successful checker, full expected output and original receipts are authenticated. No pending Git object or network is required at runtime.\r\n\r\n**What is established:** 7,488 actual265-axis contact phases and composed local coefficients; complete32-bank free-Laurent endpoint;3,328 main input/output aliases and final corrections;527 native helper normalizers and208 main adapters;9,486 fresh helper identities without double credit;3,120 whole-idle jobs and1,560 corrected positive-child query recipes. Complete invoice remains69,912 paid jobs and12,814 productive fields. The separate127,292,680 ordinary figure is an abstract pass bound under retained costs, not a new precision theorem or recursive budget. The previous repeated-H5 ceiling is unchanged; no \u03ba improvement.\r\n\r\n**What remains uncertain:** Untouched native paid maps and all-input/all-width foundation, actual complete-caller raw inverse transpose required by the compiler, owned-erasure framework, uniform precision/tape/storage, compiler reserve and complete outer conjunction. Contact inverses do not certify the whole-caller dual. Five framework assumptions remain; no independent human/formal acceptance or full parent admission.\r\n\r\n**Smallest useful next task:** Review target input aliases and ordinary-cost applicability, then select one missing native/dual admission obligation against this exact source with actual phases, restoration and costs. A broader.0033 construction requires a distinct complete optimistic bill and smallest physical falsifier; this unchanged profile does not lift the scoped repeated-H5 ceiling. This layer is completed and stopped; no further construction scope is reserved.\r\n\r\n**Reproduction command and expected runtime:** Python3.12/stdlib: `python3 -B scripts/research_package.py --package research/p104-caller-independent-audit`. Expected marker `PASS_P104_FORWARD_CALLER_INDEPENDENT_AUDIT`. Original normal/-O pair100.917s/82.35MiB; registered portable pair103.299s/123.77MiB, within150s/512MiB. Every5,990,419 scientific bytes equals the original frozen output, zero scientific exclusions, SHA256 `b51a7d19c10faea7d569a48e9536db8ba1e7418f8dd8dfb25646cc87cc9c4009`. Read-only Git-free optimized export with empty PATH passed47.173s/90.91MiB, all39 files unchanged. Canonical-source/expected-receipt corruptions reject before science. Exact published-commit/source-history preflight passed38 files. The earlier memory failure remains visible. Mode equality is reproducibility; hosted CI is separate.\r\n\r\n**Predecessor credit:** Ali Romman/#5544/#5545; Gareth Davidson/#2305, David Arias/#2152, Cinna Davis/#2219/controller; Jacob Alan Sussman, zxv, Cao Yifan and retained native/Clifford/geometry/tensor/compiler/analytic authors. New independent checker and publication for Chris R/Clear1nsight with substantial OpenAI Codex assistance; Apache-2.0.\r\n\r\n```json\r\n{\r\n  \"schema\": \"integer-mult-coordination/v1\",\r\n  \"kind\": \"HANDOFF\",\r\n  \"task\": \"scalar-to-moment\",\r\n  \"scope\": \"Published P104 forward caller/target verification; unchanged invoice, no new kappa; remaining native/dual/precision/funding admission explicit\",\r\n  \"base\": \"32890bc5de034ab8fc93ac88ead7279a6a416d04\",\r\n  \"expiry\": null,\r\n  \"artifact\": \"https://github.com/CrocSwap/integer-mult-bounds/pull/5550\"\r\n}\r\n```\r\n"
+        },
+        {
+          "author": {
+            "login": "Clear1nsight"
+          },
+          "body": "**Next-stage applicability note:** The retained [PR5544 proof, section 3](https://github.com/aliromman/integer-mult-bounds/blob/18968423711fd902aaee1099979497d55603e1dc/research/p104-productive-controller/PROOF.md#3-a-forward-source-supplies-both-caller-orientations) already supplies the sixteen backward main interfaces with ordinary wrappers around forward calls. It explicitly avoids instruction-level transposition of COPY/CLEAR. That is credited source work, and the fixed forward chronology is covered here.\r\n\r\nThis audit makes no complete-caller raw inverse-transpose claim. Its absence should not automatically be turned into a new prerequisite for this all-forward assembly: first identify the actual downstream compiler/consumer requirement. The proposed next review is the exact **uncovered native paid-map inventory**, reusing #5548 and this package's coverage, followed by one bounded qualification if justified. Precision/tape and full funding applicability remain separate. No additional experiment or construction scope has started."
+        }
+      ],
+      "claim_excerpt": "## Change and mathematical scope\n\nPublishes an independent, source-bound audit of the **265-axis forward P104 caller and its productive target bindings** in [PR #5545](https://github.com/CrocSwap/integer-mult-bounds/pull/5545). This closes one finite validation layer under retained premises. **No new construction, paid-profile change, \u03ba gain, global ceiling or full parent admission is claimed.**\n\nThe checker covers 7,488 actual entry/exit contacts and their composed local block coefficients, the complete 32-bank free-Laurent caller, 3,328 main input/output canonicalizers and final corrections, 527 native helper normalizers, 208 intrinsic main adapters, and 9,486 fresh helper identities. It emits all 3,120 whole-idle jobs and 1,560 corrected positive-child query recipes. The complete invoice is unchanged: **69,912 paid jobs and 12,814 independent productive fields**.\n\nThe [proof/accounting argument](https://github.com/Clear1nsight/integer-mult-bounds/blob/6125c07ae8ba4b8550e2a0a28a2c6be503153059/research/p104-caller-independent-audit/PROOF.md) binds actual route phases and target input aliases. It keeps scalar signs outside digit-column tensor powers and excludes scratch and spectators from productive credit. Signed-Pauli equality plus an independently executed exact dense phase anchor checks the native target maps. Source compiler and literal circuit definitions are credited reuse.\n\nThe separate 127,292,680 ordinary figure is an **abstract address/phase/scalar pass bound under retained per-pass/tape costs**, below the source allowance 184,647,552. It is not newly funded mac",
+      "roots": [
+        "research/p104-caller-independent-audit"
+      ],
+      "installed": [
+        "research/p104-caller-independent-audit/CAPSULE-INVENTORY.json",
+        "research/p104-caller-independent-audit/HANDOFF.md",
+        "research/p104-caller-independent-audit/PROOF.md",
+        "research/p104-caller-independent-audit/README.md",
+        "research/p104-caller-independent-audit/REVIEW.md",
+        "research/p104-caller-independent-audit/SOURCES.json",
+        "research/p104-caller-independent-audit/TASK.json",
+        "research/p104-caller-independent-audit/VERIFY.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-20261025/CLOSEOUT.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-20261025/check.py",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/INPUTS.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/check.py",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/sources/DATA-PHASES.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-caller-route-audit-v2-20261025/sources/native_inventory.py",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/RESULT-normal.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/RESULT.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/SOURCES.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/contact/WORD.json.gz",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/CONTROLLER.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/caller.py",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-contact-reassessment-20261025/sources/predecessor/local.py",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/RESULT-normal.json",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/clifford_exact.py",
+        "research/p104-caller-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/sources/native_verify.py",
+        "research/p104-caller-independent-audit/capsule/swarm-price-plane-20261023T112711Z/coordination/run_guarded.py",
+        "research/p104-caller-independent-audit/expected/caller.json.gz",
+        "research/p104-caller-independent-audit/original-evidence/CLOSEOUT.json",
+        "research/p104-caller-independent-audit/original-evidence/GUARD-RECEIPT.json",
+        "research/p104-caller-independent-audit/original-evidence/PAIR-RECEIPT.json",
+        "research/p104-caller-independent-audit/original-evidence/REQUEST.json",
+        "research/p104-caller-independent-audit/original-evidence/TRACE-normal.jsonl",
+        "research/p104-caller-independent-audit/original-evidence/TRACE-optimized.jsonl",
+        "research/p104-caller-independent-audit/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 5551,
+      "head": "1123635a6f63f23638df9459c994160e5e649d30",
+      "merge_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "title": "Improve complete conditional \u03ba to 0.00304153 via coupled P104 contacts",
+      "author": {
+        "id": "U_kgDODYmVSQ",
+        "is_bot": false,
+        "login": "thu-nmrc",
+        "name": "THU New Media Research Center\u00b7 Prof. Shen Yang"
+      },
+      "files": [
+        {
+          "path": "research/p104-joint-contact/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d1c5fb2211e95c3528b0b5ab99567012e73f98ef"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "7b0420abcb758289f81ec74e5d241bb7734c6dcf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a83db6d025b3755176449e679e58f8a2e16f3e5c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/SEARCH.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3d5944002a7188ac4547484134699e1b47aa771c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8d83feec6ebc2078811a69d9c838d212e20cfb4f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "db403c85c60659c234db5471a3aee151e702fbe6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/VALIDATION.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "558f5dae134139f76e9c0702afff5c49546947c4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "38d16ae9961906cee7cf646ebe3c8a9da85d9e26"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/common.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4e3e9f8a04eb3a2ed9c44b63a4c01f9a179de656"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/construct.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "eaf0c11b399b0787da61f5ecfbece4f4407e27b6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/FILES.sha256",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ed83b6696b69f18d279355a1a54431c6b59b2f34"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/INTERVAL-PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "14a4ef27a3f6583ffb975f5143e6d47a2757843a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "20e76eeb0d4d25c1c6c9958a902ec523a59911e5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/RECEIPT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8de2c5230cfe63beb23526aaea10c07e6298ef8f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fb481670d850f79055d56aeb4d577c3ef753f5d2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/AUDITED-CANDIDATE-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bb4064cdef28cffbd81f555920fec600faffd628"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/PUBLIC-PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aab8a124f5eb5c2cba0627f31f2a48f49ab6b53e"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/PUBLIC-README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "4f2263a2516aaac582945a2b76d41e9e12a1956a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/PUBLIC-RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a83db6d025b3755176449e679e58f8a2e16f3e5c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/PUBLIC-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8d83feec6ebc2078811a69d9c838d212e20cfb4f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/complete_cost.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9841f5415563ff83607238a4ade0bafb92a7bf78"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/controller.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cc539db709cf7a6c42872c4380902736ad453af3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/local-peer-RECEIPT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "529e1545cd3cc0a764d877a216822ec432ffa66f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/local.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b85ce258a0f6faca12b2f83a84454ee7b633d5cb"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/native.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2cb84211207705eeb852e9ebf7c18ec199afd50d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/physical.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e8f5aa076b9f2793e48943008750757bcb14690b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/pr5545-source-closure.tar.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3084088544d1e3136e1f38b8011b9e24edc969c6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/predecessor_pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c88c425a2f4d4864ecc8093844a70144aede2733"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding-peer/inputs/successor_pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ef78de99ffe678dcf762bab0e784eab46d9331cf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/funding_review.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0d518232b31c1080647ffb0951ebf2004c0c1a01"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/inputs/pr5545-source-closure.tar.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3084088544d1e3136e1f38b8011b9e24edc969c6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/FILES.sha256",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a52aa1b68680e07bd6de17629acb5806bac72f88"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/LICENSE",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/MAPS-PROGRAM.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ac297e9e76de15d0dd26f480b831e92d6ac6e8b1"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "44860697e770415794f79e89e94fe2115d4aea36"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "97f62a16b5be25fe1fa38c91d17571e0bf0fe2d5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f421d36900032248bf3833ebb873904d83a5f494"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/FETCH-PINS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6145bc46e4f11962fc5dff59dad2b80f9a59eecd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/INPUT-PINS.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c87b71b8564838fcbaef85e0edd9cba35b318224"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/PR5545-EXPORT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8941635631a3b4b438cbbbd47136975f505bb1de"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/PR5548-CAPSULE-INVENTORY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "82ea6df8300198401ccd67bc586847e62ba9605a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/PR5548-NATIVE-PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d968f3c93a1ffd6d9f33d17a3471af760b7af7b0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/PR5548.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "34a899cc81a7a94b6c5ee48e575af4f9aed48ba0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/PR5550.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "cec8a0b5acfc8c5d57040a3040a410eb8d6f2a6a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/PUBLIC-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c04a815c2662bcd0c48ce9c3067a0fe4a041573a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/SOURCE-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1ce96b0130daeea46ef53fdbd32bca2727aa6b35"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/clifford_exact.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "166841a037f069249f6f7f6dedb89248812f59e2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/native_verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2c209dfa9cfade3bc20ac5fc9d876b433a147f8c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/inputs/pr5548_dense_check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e7e663bebaf13f44c95fb8eb118b472cf377e137"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/run.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "70d3df583c5b75bfe3b9a175015b2541aebdd391"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/verification/REPLAY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b7d5506f9cdc6c771d4c76a973156dc99a051cc5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/verification/normal.stderr.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/verification/normal.stdout.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d1da986c71b1f10d76fb3e69893ebb9b94e82dd5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/verification/optimized.stderr.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native-peer/verification/optimized.stdout.txt",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d1da986c71b1f10d76fb3e69893ebb9b94e82dd5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/native_review.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d9eb72e76f9b34068146a871145cb8c24db80b9c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/FILES.sha256",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3e0327cef317c97a12ec9f031bf7b269e39563c0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/PROOF.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fad50d4ae12120f7144d77f3cf13c3e5f5cf93d3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c38e06c409bb989f7421c1360cd0749dfbac68fd"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/RECEIPT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "529e1545cd3cc0a764d877a216822ec432ffa66f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/check.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bdd6a828e052d7c37c7eb7b1dab2359ef73294ea"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/inputs/CANDIDATE-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bb4064cdef28cffbd81f555920fec600faffd628"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/inputs/CANDIDATE.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f54fa5aadf8b0266c0f55df0c915cb346c9e91a5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/peer/inputs/SOURCE-WORD.json.gz",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "1ce96b0130daeea46ef53fdbd32bca2727aa6b35"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/pricing.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ef78de99ffe678dcf762bab0e784eab46d9331cf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/p104-joint-contact/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "349faeac2666eae8dd4d52116833a028b8387c3c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 14,
+        "json": 24
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/p104-joint-contact/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-joint-contact/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-joint-contact/funding-peer/inputs/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/p104-joint-contact/funding-peer/inputs/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "32890bc5de034ab8fc93ac88ead7279a6a416d04:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "This changes two coupled frame itineraries in Ali Romman's complete P104 candidate [#5545](https://github.com/CrocSwap/integer-mult-bounds/pull/5545), raising its **conditional \u03ba from 0.00304117 to 0.00304153**. Six ADDs and fifteen commuting SCALE chart annotations move; every scalar coefficient and its order remain identical.\n\nThe new local paid delta is `+2H1 \u22123H2 +H3 \u2212H4 +H5`, repeated at all eighteen supplier invocations. Strict concavity proves a gain for every exponent in (0,1). All 735 arbitrary public inputs, all 527 productive helpers, all 743 endpoint rows and the eight owned lifetimes remain. The complete invoice still has **69,912 paid calls  / 12,814 productive fields**, rank surplus 760; no helper, query, restoration or ordinary work is omitted.\n\nThis is a different paid-path change from the existing single `H1+H5\u2192H6` contact and its narrow repetition ceiling. No new general optimizer or global optimum is claimed. [PROOF.md](https://github.com/thu-nmrc/integer-mult-bounds/blob/codex/p104-joint-contact/research/p104-joint-contact/PROOF.md) gives the literal sites, all-positive-width typed implication, full price and limits; [SEARCH.md](https://github.com/thu-nmrc/integer-mult-bounds/blob/codex/p104-joint-contact/research/p104-joint-contact/SEARCH.md) describes discovery scope.\n\nThe exact raw crossing is in **(.00304153116714,.00304153116715)**, tested at .0030415305. Cutoff 17 / floor 18, both inherited rational engines, completion/compiler/BIT stock and all 58 outer predicates pass. A separately written third rational log/exp engine independently proves the d",
+      "roots": [
+        "research/p104-joint-contact"
+      ],
+      "installed": [
+        "research/p104-joint-contact/PROOF.md",
+        "research/p104-joint-contact/README.md",
+        "research/p104-joint-contact/RESULT.json",
+        "research/p104-joint-contact/SEARCH.md",
+        "research/p104-joint-contact/SOURCES.json",
+        "research/p104-joint-contact/TASK.json",
+        "research/p104-joint-contact/VALIDATION.md",
+        "research/p104-joint-contact/VERIFY.json",
+        "research/p104-joint-contact/WORD.json.gz",
+        "research/p104-joint-contact/common.py",
+        "research/p104-joint-contact/construct.py",
+        "research/p104-joint-contact/funding-peer/FILES.sha256",
+        "research/p104-joint-contact/funding-peer/INTERVAL-PROOF.md",
+        "research/p104-joint-contact/funding-peer/README.md",
+        "research/p104-joint-contact/funding-peer/RECEIPT.json",
+        "research/p104-joint-contact/funding-peer/check.py",
+        "research/p104-joint-contact/funding-peer/inputs/AUDITED-CANDIDATE-WORD.json.gz",
+        "research/p104-joint-contact/funding-peer/inputs/PUBLIC-PROOF.md",
+        "research/p104-joint-contact/funding-peer/inputs/PUBLIC-README.md",
+        "research/p104-joint-contact/funding-peer/inputs/PUBLIC-RESULT.json",
+        "research/p104-joint-contact/funding-peer/inputs/PUBLIC-WORD.json.gz",
+        "research/p104-joint-contact/funding-peer/inputs/SOURCES.json",
+        "research/p104-joint-contact/funding-peer/inputs/complete_cost.json",
+        "research/p104-joint-contact/funding-peer/inputs/controller.json",
+        "research/p104-joint-contact/funding-peer/inputs/local-peer-RECEIPT.json",
+        "research/p104-joint-contact/funding-peer/inputs/local.json",
+        "research/p104-joint-contact/funding-peer/inputs/native.json",
+        "research/p104-joint-contact/funding-peer/inputs/physical.json",
+        "research/p104-joint-contact/funding-peer/inputs/pr5545-source-closure.tar.gz",
+        "research/p104-joint-contact/funding-peer/inputs/predecessor_pricing.py",
+        "research/p104-joint-contact/funding-peer/inputs/successor_pricing.py",
+        "research/p104-joint-contact/funding_review.py",
+        "research/p104-joint-contact/inputs/pr5545-source-closure.tar.gz",
+        "research/p104-joint-contact/native-peer/FILES.sha256",
+        "research/p104-joint-contact/native-peer/LICENSE",
+        "research/p104-joint-contact/native-peer/MAPS-PROGRAM.json",
+        "research/p104-joint-contact/native-peer/PROOF.md",
+        "research/p104-joint-contact/native-peer/README.md",
+        "research/p104-joint-contact/native-peer/RESULT.json",
+        "research/p104-joint-contact/native-peer/inputs/FETCH-PINS.json",
+        "research/p104-joint-contact/native-peer/inputs/INPUT-PINS.json",
+        "research/p104-joint-contact/native-peer/inputs/PR5545-EXPORT.json",
+        "research/p104-joint-contact/native-peer/inputs/PR5548-CAPSULE-INVENTORY.json",
+        "research/p104-joint-contact/native-peer/inputs/PR5548-NATIVE-PROOF.md",
+        "research/p104-joint-contact/native-peer/inputs/PR5548.json",
+        "research/p104-joint-contact/native-peer/inputs/PR5550.json",
+        "research/p104-joint-contact/native-peer/inputs/PUBLIC-WORD.json.gz",
+        "research/p104-joint-contact/native-peer/inputs/SOURCE-WORD.json.gz",
+        "research/p104-joint-contact/native-peer/inputs/clifford_exact.py",
+        "research/p104-joint-contact/native-peer/inputs/native_verify.py",
+        "research/p104-joint-contact/native-peer/inputs/pr5548_dense_check.py",
+        "research/p104-joint-contact/native-peer/run.py",
+        "research/p104-joint-contact/native-peer/verification/REPLAY.json",
+        "research/p104-joint-contact/native-peer/verification/normal.stderr.txt",
+        "research/p104-joint-contact/native-peer/verification/normal.stdout.txt",
+        "research/p104-joint-contact/native-peer/verification/optimized.stderr.txt",
+        "research/p104-joint-contact/native-peer/verification/optimized.stdout.txt",
+        "research/p104-joint-contact/native_review.py",
+        "research/p104-joint-contact/peer/FILES.sha256",
+        "research/p104-joint-contact/peer/PROOF.md",
+        "research/p104-joint-contact/peer/README.md",
+        "research/p104-joint-contact/peer/RECEIPT.json",
+        "research/p104-joint-contact/peer/check.py",
+        "research/p104-joint-contact/peer/inputs/CANDIDATE-WORD.json.gz",
+        "research/p104-joint-contact/peer/inputs/CANDIDATE.json",
+        "research/p104-joint-contact/peer/inputs/SOURCE-WORD.json.gz",
+        "research/p104-joint-contact/pricing.py",
+        "research/p104-joint-contact/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct25b-20261025-checks.txt",
+  "selected_frontier_changed": false
+}

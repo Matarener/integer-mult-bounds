@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "roots"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Reconstruct all120 exact root-line partitions and full receipts, source pins,438 semantic columns and every causal mask."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "frames"
+      ],
+      "timeout_seconds": 360,
+      "checks": "Reconstruct all153 actual rank-two frame partitions and complete receipts;876 colored helper copies per plane."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "check-roots"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Original source-bound certificate verifier over every root plane, including true duplicate-owner rejection; independent of augmentation only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "check-frames"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Original source-bound verifier over every rank-two frame, including exact coverage, incidence, capacity and cut equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "independent"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Separate raw semantic dirty map, causal propagation and rational geometry; every complete partition and actual defect controls; written all-subset proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Full typed receipts and plane/mask/partition coverage, source authentication, normalized-path collision and poisoned nested-cache controls."
+    }
+  ]
+}

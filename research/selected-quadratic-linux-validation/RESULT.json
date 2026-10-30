@@ -1,0 +1,309 @@
+{
+  "canonical_main_at_start": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "cold_reproduction": "Explicit reproduce.py all in a new external work directory; not run by the recorded-evidence CI check.",
+  "limitations": [
+    "One Linux x86_64 shared host and Python3.12.3; fresh processes, OS caches not flushed.",
+    "Descriptive three-sample medians per timed engine; no universal speed claim.",
+    "Normal and optimized full controls/oracle costs are additional to the timed complete replay.",
+    "Five framework assumptions remain; no new engine, physical multiplier, kappa or selected-result change.",
+    "AI-assisted independent execution/source inspection, not independent human or proof-kernel acceptance."
+  ],
+  "measurements": {
+    "additional_qualification_seconds": 806.9204223280249,
+    "aggregate_scientific_seconds": 2217.067612388986,
+    "all_kernel_peak_rss_mib": 516.87890625,
+    "all_sampled_process_group_peak_rss_mib": 513.62109375,
+    "benchmark_seconds": 1410.1471900609613,
+    "median_cpu_seconds": {
+      "literal": 338.35999999999996,
+      "quadratic": 130.26
+    },
+    "median_seconds": {
+      "literal": 339.4943462359952,
+      "quadratic": 130.58059848699486
+    },
+    "median_speedup": 2.599883521515695,
+    "normal_registered_commands_seconds": 402.8754163310223,
+    "optimized_qualification_seconds": 404.0450059970026,
+    "ranges_seconds": {
+      "literal": [
+        331.022690118989,
+        349.64399307698477
+      ],
+      "quadratic": [
+        127.26778754999395,
+        132.13777459200355
+      ]
+    },
+    "timed_kernel_peak_rss_mib": {
+      "literal": 475.05078125,
+      "quadratic": 492.71875
+    }
+  },
+  "runs": [
+    {
+      "exit": 0,
+      "label": "sample-1-literal",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 499478528,
+      "script": "research/p104-helper-subspace-splits/verify.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 369,
+      "stdout_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 486320,
+        "system_seconds": 0.42,
+        "user_seconds": 347.95
+      },
+      "wall_seconds": 349.64399307698477
+    },
+    {
+      "exit": 0,
+      "label": "sample-2-quadratic",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 518074368,
+      "script": "research/selected-quadratic-replay/run.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 369,
+      "stdout_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 504544,
+        "system_seconds": 0.32,
+        "user_seconds": 129.94
+      },
+      "wall_seconds": 130.58059848699486
+    },
+    {
+      "exit": 0,
+      "label": "sample-3-quadratic",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 517779456,
+      "script": "research/selected-quadratic-replay/run.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 369,
+      "stdout_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 504192,
+        "system_seconds": 0.3,
+        "user_seconds": 126.52
+      },
+      "wall_seconds": 127.26778754999395
+    },
+    {
+      "exit": 0,
+      "label": "sample-4-literal",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 499613696,
+      "script": "research/p104-helper-subspace-splits/verify.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 369,
+      "stdout_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 486452,
+        "system_seconds": 0.38,
+        "user_seconds": 330.04
+      },
+      "wall_seconds": 331.022690118989
+    },
+    {
+      "exit": 0,
+      "label": "sample-5-literal",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 499482624,
+      "script": "research/p104-helper-subspace-splits/verify.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 369,
+      "stdout_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 486324,
+        "system_seconds": 0.46,
+        "user_seconds": 337.9
+      },
+      "wall_seconds": 339.4943462359952
+    },
+    {
+      "exit": 0,
+      "label": "sample-6-quadratic",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 517918720,
+      "script": "research/selected-quadratic-replay/run.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 369,
+      "stdout_sha256": "1975d01770a017b3f0b3a98a54c7c79b887d90ba0a2e1a77c37db05c385fa42b",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 504332,
+        "system_seconds": 0.36,
+        "user_seconds": 131.17
+      },
+      "wall_seconds": 132.13777459200355
+    },
+    {
+      "exit": 0,
+      "label": "qualification-normal",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 517824512,
+      "script": "research/selected-quadratic-replay/verify.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 409,
+      "stdout_sha256": "311294ae4311f9668487882dbeadf8750324b91eeb3546545cc2d8fa2ba880ee",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 504236,
+        "system_seconds": 0.33,
+        "user_seconds": 127.58
+      },
+      "wall_seconds": 128.1334265540063
+    },
+    {
+      "exit": 0,
+      "label": "qualification-cross-optimized",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": true,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 538570752,
+      "script": "research/selected-quadratic-replay/cross.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 702,
+      "stdout_sha256": "f4c811b22ed856202b5a2607b108dec04b2adaa4607e0bc94b3bf84c5d69a594",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 529224,
+        "system_seconds": 0.44,
+        "user_seconds": 275.86
+      },
+      "wall_seconds": 277.04934580100235
+    },
+    {
+      "exit": 0,
+      "label": "qualification-optimized",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": true,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 518270976,
+      "script": "research/selected-quadratic-replay/verify.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 409,
+      "stdout_sha256": "311294ae4311f9668487882dbeadf8750324b91eeb3546545cc2d8fa2ba880ee",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 504672,
+        "system_seconds": 0.32,
+        "user_seconds": 126.52
+      },
+      "wall_seconds": 126.99566019600024
+    },
+    {
+      "exit": 0,
+      "label": "qualification-cross-normal",
+      "manifest_sha256": "7be632febc51fa5040cdd06a86c1c4f8b95c2632cc885b49af05bba838b672be",
+      "optimized": false,
+      "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "runner_sha256": "ae67bb805b68ed5d4c610c7ac427e955681b39faee398bffd3caf2d73ac574f2",
+      "sampled_process_group_rss_bytes": 537706496,
+      "script": "research/selected-quadratic-replay/cross.py",
+      "source_bytes_and_modes_unchanged": true,
+      "source_inventory_sha256": "95719901778f8c6651f9cab2bf171d87d6fb015569d6d22897e0d40e3e385fc5",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 702,
+      "stdout_sha256": "f4c811b22ed856202b5a2607b108dec04b2adaa4607e0bc94b3bf84c5d69a594",
+      "termination": null,
+      "usage": {
+        "exit": 0,
+        "kernel_max_rss_kib": 529284,
+        "system_seconds": 0.42,
+        "user_seconds": 273.95
+      },
+      "wall_seconds": 274.741989777016
+    }
+  ],
+  "scope": "Recorded Linux qualification of exact PR5757; no new kappa",
+  "source_head": "53006fe6031dab5c23d5b7d1cf6a92f411a04a68",
+  "status": "PASS_COMPLETE_FIXED_SOURCE_LINUX_QUALIFICATION",
+  "subject_pr": 5757
+}

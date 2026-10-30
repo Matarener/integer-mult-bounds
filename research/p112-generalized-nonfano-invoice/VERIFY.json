@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/p112-rational-decoder-gate/CANONICAL-SHARP-PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact rational endpoint and coefficient mutations; full source/reader masks; authenticated pair/J/foreign-triad span premises and analytic accounting."
+    }
+  ]
+}

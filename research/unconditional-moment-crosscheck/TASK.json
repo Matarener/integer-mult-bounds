@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Not one all-size implication but the finite arithmetic substrate underneath them: an independent re-implementation of the exact-root certificate, paid-power ledger and headline comparison gap of PR4100 at its retained head 337d04939571a637aeab54a0f58f54fde811663a. Established as finite numerical facts under a second implementation: the moment root of the pinned profile lies strictly inside (b, b+1e-48) with b = .001730979115670792472760579929302792893760378764 (localized at b + 6.363e-49); bill(kappa) <= 1 - 2.815e-26; all twelve paid-power slacks, fifteen side slacks positive and five obsolete-route rejects negative as exact rationals; a1, a2 and the 7^16 < 2^45 bound reproduce; kappa - PR4088 conditional_kappa = 5.700000000000000000001e-25 > 5.7e-25.",
+  "scope_change_reason": "The card's quantified implications (CRT total repair, free-algebra lift, precision/conditioning, fixed-tape cost) are universal statements; the CRT repair was independently claimed in #4169 before this session. This session instead discharges the precondition every such audit leans on: that the package's own exact-root and cost-margin arithmetic reproduces under an independent implementation, so a later implication audit is not built on unrechecked numbers. The deliverable is explicitly finite, not an implication proof.",
+  "bottleneck_link": "PR4100 is the only retained proposal claiming to discharge the transfer premises for an exponent above the selected result. Its headline rests on an exact-root certificate and a twelve-row paid ledger; this audit shows those stated numbers are internally reproducible (finite layer), while the universal premises remain open and unaddressed here.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the endpoint sign certificates, the localized root interval, the exact rational ledger reproduction, the gap and truncation checks, and four rejected controls. Do not attempt the CRT repair, the free-algebra lift, any all-size proof, or any kappa claim.",
+  "outcome": "partial",
+  "evidence": "verify.py prints PASS_UNCONDITIONAL_MOMENT_CROSSCHECK with the JSON receipt: root_bracket_independent [b+6.363e-49 to 52 decimals], bill margins -1.800e-48 at b and +1.030e-48 at b+1e-48, kappa margin 2.815e-26, full slack dictionaries, gap 5700000000000000000001e-25, four controls rejected. Enclosures: own atanh/Taylor rational interval arithmetic rounded outward at 50 significant digits, far below the 1e-26..1e-48 margins resolved; 90-digit Decimal bisection used only for informational root placement.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the free-algebra lift of COMPLEX.md hold as a quantified proposition at its actual caller?",
+      "why_it_matters": "It is the remaining unclaimed all-size proposition of the audited package; the finite layer checked here is necessary but far from sufficient.",
+      "first_step": "State the lift as one explicit implication with its quantifier domain over widths and read the caller in COMPLEX.md around the arbitrary-width recursion.",
+      "blocked_by": "Independent acceptance of the lift statement itself."
+    },
+    {
+      "question": "Is the localized model root attainable chronologically, or only by pooled inventory?",
+      "why_it_matters": "Determines whether the reproduced arithmetic corresponds to any executable schedule; connects to #4170's remaining-headroom measurement.",
+      "first_step": "Reuse #4170's transfer-audit framing against the profile localized here.",
+      "blocked_by": "Chronological fill model for the 1090-call fourth entry."
+    }
+  ]
+}

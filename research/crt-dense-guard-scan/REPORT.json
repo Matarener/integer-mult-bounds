@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "status": "PASS_INDEPENDENT_LITERAL_DENSE_GUARD_COST_INTERFACE_REVIEW",
+  "reviewer": "Independent OpenAI Codex agent; not human or formal-kernel review",
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "scope": "Admitted ordered finite-alphabet stencil to complete ordered BAD mask, literal counter and all head/ownership tariffs",
+  "primary_package": "research/crt-dense-guard-scan",
+  "primary_files_reviewed": [
+    {
+      "path": "research/crt-dense-guard-scan/machine.py",
+      "sha256": "1cb27312932914eb631078bd56e85feb1dc6c4191e9d1962b2cc3a7e1cfb8df7"
+    },
+    {
+      "path": "research/crt-dense-guard-scan/verify.py",
+      "sha256": "40794cd2e2936f0f5e42fac1bb51b65c951a2ab56b7e88824e8c2d09a3dbf40e"
+    },
+    {
+      "path": "research/crt-dense-guard-scan/PROOF.md",
+      "sha256": "c075a3c261bb824884f0da9f99fed227b15f9fac087bbdeb2c2cb861d4091f11"
+    },
+    {
+      "path": "research/crt-dense-guard-scan/README.md",
+      "sha256": "912595166aded8591819c1f4fccdd7bfa44361906a1466057f838a656e85f329"
+    },
+    {
+      "path": "research/crt-dense-guard-scan/RESULT.json",
+      "sha256": "afb527f5f654d7888ca654ea4504258cdc0def8e952d7db67f66aeb3b292ae1a"
+    },
+    {
+      "path": "research/crt-dense-guard-scan/SOURCE-PINS.json",
+      "sha256": "e8e5c7320fb0bd1494e063eaa5aaf5f2f08562b80b72750081ea5a409eea5b1e"
+    }
+  ],
+  "review_files": [
+    {
+      "path": "INDEPENDENT-COST-REVIEW.md",
+      "sha256": "33a5f11a119ee40fcc9c5439e61ecefc96ab178a8e084a678b70f29f36b7122f"
+    },
+    {
+      "path": "cost_check.py",
+      "sha256": "f78e0cc3faaad793241c1b11690033dc3ffa34f15b37217fa650c79e36a168bc"
+    },
+    {
+      "path": "COST-CHECK-RESULT.json",
+      "sha256": "17d746168ae62b15efd66490d60b1f83546a030a47c0ccdcc6ceb2dac8da2ab6"
+    }
+  ],
+  "exact_quantified_counts": {
+    "read_actions": "(4L+6)M+5L+9",
+    "write_actions": "3M+2L+1",
+    "move_actions": "(4L+6)M+6L+8",
+    "total_cell_head_actions": "8ML+15M+13L+18",
+    "visited_cells_including_all_markers": "M+2L+6",
+    "carry_bit_changes": "2M-2",
+    "M": "2^L",
+    "L": "any positive admitted stencil length"
+  },
+  "bounds": {
+    "time": "O(ML), including a fixed finite-control compilation factor",
+    "visited_space": "O(M+L), including protected stencil and owned mask",
+    "source_linear_payload_bound": "O(V) only under L=Theta(p), R=Theta(p), V=MR"
+  },
+  "ownership": "Protected stencil unchanged; private data/right-marker blank; permanent left infrastructure retained; all three heads returned; mask owned",
+  "independent_checks": {
+    "cases": 14,
+    "complete_addresses": 2058,
+    "observer_tariff_faults": [
+      {
+        "detected_by": "independently derived read/write/move invoice",
+        "name": "one READ omitted from observer tariff; mask and ownership preserved"
+      }
+    ],
+    "structural_guardrail": {
+      "functions_inspected": [
+        "rewind",
+        "compare_flag",
+        "predicate",
+        "increment_and_return",
+        "erase_counter",
+        "transduce"
+      ],
+      "observer_accesses": 0,
+      "scope": "AST guardrail plus manual finite-control review, not a complete program proof"
+    }
+  },
+  "replays": [
+    {
+      "command": "python3 -B cost_check.py --machine PACKAGE/machine.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.043,
+      "result": "PASS_INDEPENDENT_LITERAL_GUARD_COST",
+      "cases": 14,
+      "complete_addresses": 2058,
+      "stderr": ""
+    },
+    {
+      "command": "python3 -B -O cost_check.py --machine PACKAGE/machine.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.098,
+      "result": "PASS_INDEPENDENT_LITERAL_GUARD_COST",
+      "cases": 14,
+      "complete_addresses": 2058,
+      "stderr": ""
+    }
+  ],
+  "primary_unchanged_during_review": true,
+  "material_defects_remaining": [],
+  "remaining_obligations": [
+    "Uniform encoded geometry/stencil generation and admission",
+    "Transported full caller descriptors",
+    "Exceptional E evaluation and keyed repair",
+    "Extraction/sorting/reinsertion and payload routing",
+    "Ordinary callees, precision/native/outer composition",
+    "Human or formal-kernel acceptance"
+  ],
+  "credit": [
+    "Cinna Davis: predicate and proposed ordered counter/three-state scan",
+    "Hiroki KUMAZAKI PR4169/4174: arbitrary-source repair and reservoir descriptors",
+    "Douglas Colkitt/OpenAI and retained source notices: compact/stream framework"
+  ],
+  "metadata_addenda": [
+    {
+      "kind": "Required research-package README heading",
+      "path": "research/crt-dense-guard-scan/README.md",
+      "original_reviewed_sha256": "feb63f8391b49ee55332568bb8392b38c2c993fb31124902fd22c90987511b6b",
+      "retained_integrated_sha256": "912595166aded8591819c1f4fccdd7bfa44361906a1466057f838a656e85f329",
+      "exact_change": "Insert literal ## Open next questions followed by a blank line immediately before the existing The next obligation paragraph.",
+      "independent_confirmation": "Byte-for-byte equality after exactly one heading insertion; every other retained primary file matches its original reviewed pin.",
+      "mathematical_or_executable_change": false,
+      "new_mathematical_replay": "Not needed for this heading-only metadata insertion."
+    }
+  ]
+}

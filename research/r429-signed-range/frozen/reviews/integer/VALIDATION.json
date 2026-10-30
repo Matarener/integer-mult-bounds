@@ -1,0 +1,78 @@
+{
+  "complete_endpoint_export_digests": {
+    "parent_forward": "fb1a055931d7344c66e958e8a73a18b6fdcaa48eac97dada7bcfd204c5847d4c",
+    "parent_inverse": "f40e143c64a0a04c93643d2f910b35321e496c59fb3a37f84c16bd0ec6771214",
+    "signed_forward": "e153a170456b6aa06022234ccb1d7cdbed64a6703b8e6ed3257cd794d299b079",
+    "signed_inverse": "de9764a5d03a609ff8f71cbda97c74cb713bfc8cd1c29bea00843c39d1852eba"
+  },
+  "final_run": {
+    "checker_sha256": "96e6fe96e72111e691dac904fc3991b2ddca440509ffaf5bf4a990d27c33e522",
+    "command": [
+      "/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-I",
+      "-O",
+      "-B",
+      "-Werror",
+      "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-integer-review/check_integer.py",
+      "--parent-word",
+      "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-staging/frozen/parent/WORD.json.gz",
+      "--signed-word",
+      "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-staging/frozen/candidate/WORD.json.gz",
+      "--raw-word",
+      "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-staging/frozen/geometry/WORD.json.gz",
+      "--matrices",
+      "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-staging/frozen/geometry/MATRICES.json.gz",
+      "--out",
+      "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-integer-review/CHECKS.json",
+      "--endpoint-out",
+      "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-integer-review/ENDPOINTS.json"
+    ],
+    "elapsed_seconds": 5.489738,
+    "exit_code": 0,
+    "python_version": "3.12.14",
+    "receipt_sha256": "c887cf32e5640221e038e4358df6422fbc1f32d3f3c5b6ab3b14cc1723bce1fd",
+    "stderr": "",
+    "stdout": "{\"negative_controls\": 9, \"no_new_kappa\": true, \"parent_prefixes\": [34285, 5839860], \"signed_prefixes\": [80639, 239014], \"status\": \"PASS_FIXED_SIGNED_QUOTIENT_ALL_COLUMNS_LOCAL_ONLY\"}\n",
+    "timeout_seconds": 60,
+    "working_directory": "/Users/ross/git/math/.research-automation/runs/unpublished-round2-20261020T1106Z/b04-integer-review"
+  },
+  "git_free_portability": {
+    "all_inputs_compressed": true,
+    "command": [
+      "/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-I",
+      "-O",
+      "-B",
+      "-Werror",
+      "checker.py",
+      "--parent-word",
+      "parent.gz",
+      "--signed-word",
+      "signed.gz",
+      "--raw-word",
+      "raw.gz",
+      "--matrices",
+      "matrices.gz"
+    ],
+    "cwd_has_git": false,
+    "elapsed_seconds": 3.958536,
+    "exit_code": 0,
+    "input_paths_have_spaces": true,
+    "isolated_optimized_no_bytecode_warnings_as_errors": true,
+    "optional_out_omitted": true,
+    "receipt_byte_identical": true,
+    "stdout_sha256": "c887cf32e5640221e038e4358df6422fbc1f32d3f3c5b6ab3b14cc1723bce1fd"
+  },
+  "not_run": [
+    "No sign optimization",
+    "No native-vector/precision/controller/supplier replay",
+    "No formal-kernel proof",
+    "No hosted CI"
+  ],
+  "schema": "b04-independent-integer-validation-v1",
+  "tampered_input_authentication": {
+    "detected": true,
+    "exit_code": 1,
+    "expected_error": "authentication: signed_word"
+  }
+}

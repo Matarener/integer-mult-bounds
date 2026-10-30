@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-pooled-cut-independent/verify.py",
+    "research/p104-pooled-cut-independent/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Recompute the required coefficient of X102 in Y71 and whether the two paths share a frame."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that equal frames count as a contact and that -4/8 equals -1/2."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-rank34-copy-invoice/predecessor/PR3335-CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source/mask/dirty columns, all 34 full-port tariffs with two independent rank methods, expanded I224, 11 rejection controls and receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat scientific acceptance and controls with assertions disabled."
+    }
+  ]
+}

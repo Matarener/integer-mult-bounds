@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/encoded-minimum-root-prefix/PROOF.md",
+    "research/encoded-minimum-root-prefix/SOURCE-INDEX.json",
+    "research/encoded-minimum-root-prefix/SOURCES.json",
+    "research/encoded-minimum-root-prefix/planner.py",
+    "research/encoded-minimum-root-prefix/retained.py",
+    "research/encoded-minimum-root-prefix/source-snapshot.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual source cold/warm histories, arithmetic oracle, every-write envelope and three lifecycle/history controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Same obligations with assertions disabled; checks explicitly raise."
+    }
+  ]
+}

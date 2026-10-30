@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md",
+      "research/scatter-export-parity-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2977 reported duplicate-scatter counterexample and its opt-in repair. The archive is not a production fix or an independently validated selected-result failure; the selected generator emits unique rows.",
+      "scope": "Source-binding orientation only; does not replay or validate the reported bug."
+    },
+    "first_experiment": "First check whether the scatter repair has been adopted. If still open, independently reproduce #2977 symbolic-versus-exported parity on the tiny duplicate fixture, compare the selected unique-row positive control, and define either enforced uniqueness or consistent multiplicity semantics. A bounded guard-adoption patch must preserve valid inputs and test the actual exported action. Stop after this obligation; no full historical replay or frontier change follows from the mutant alone.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug.",
+      "Calling a malformed mutant a failure of the selected construction, or importing an opt-in repair without testing the exporter boundary."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting",
+      "2977",
+      "scatter export",
+      "duplicate index",
+      "parity semantics"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently reproduce the #2977 paired-null scatter counterexample and the selected unique-row control from the pinned bytes, then decide and test whether a successor checker/exporter must enforce simple supports or parity-consistent multiplicity semantics.",
+  "scope_change_reason": "The card question is answered only at one named obligation: the archived #2977 duplicate-scatter counterexample and the successor boundary decision its open question asks for. The wider owner-boundary question is not re-derived here.",
+  "bottleneck_link": "The selected bit supplier depends on both symbolic and native column checks; the exporter is the boundary between them. This audit fixes the exact word class on which symbolic acceptance and exported membership diverge, and pins which layer can close it.",
+  "budget_minutes": 60,
+  "stop_rule": "One pinned baseline, the multiplicity-class sweep, the archived record-byte receipt, the producer census and the guard battery. No supplier search, no full historical replay and no frontier change.",
+  "outcome": "completed",
+  "evidence": "RESULT.json, verify.py, test_verify.py and the two registered replay commands",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does a successor exporter adopt the decision with a regression fixture?",
+      "why_it_matters": "Symbolic acceptance and membership lowering differ exactly on positive even multiplicities; a versioned successor should reject or parity-canonicalise them and prove the selected baseline bytes are unchanged.",
+      "first_step": "Patch a successor copy of export_records.py with simple-support rejection, run the selected baseline, single and pair fixtures, and require the baseline record bytes to stay identical.",
+      "blocked_by": "No successor checker/exporter is versioned yet; frozen packages stay unchanged."
+    },
+    {
+      "question": "Do other retained archive words contain repeated scatter indices?",
+      "why_it_matters": "The producer guarantee here is measured on the two words in the selected tuned chain only.",
+      "first_step": "Extend the live-input set with the earlier PR543/PR555/PR589 lineage words and rerun the row census.",
+      "blocked_by": "Additional source pins and a bounded replay budget."
+    }
+  ],
+  "method": "Run the pinned checker and exporter as unchanged black boxes; interpret the six-int32 record stream with a locally written reader derived from the exporter docstring; sweep appended multiplicities 0..6 of one index; normalize each mutant to parity and compare exported bytes; census row multiplicities on the tuned and untuned words; verify the producer chain by AST and source-shape checks; test the guard battery including type probes.",
+  "canonical_discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2976",
+  "overlap": {
+    "checked_at_utc": "2026-10-18T21:23:09.634236+00:00",
+    "coverage": "503 open PRs and 2515 discussion records with complete pagination; PR bodies, discussions and local package notes; no code diffs.",
+    "result": "No competing claim on the scatter multiplicity boundary. Matches are dominated by the predecessor package research/scatter-export-parity-audit (#2977) and the card text. Coverage statement only; no matches is not proof of novelty.",
+    "limitations": "Metadata and package notes only; a peer claim opened after the fetch is not covered."
+  }
+}

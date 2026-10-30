@@ -1,0 +1,87 @@
+{
+  "source_commit": "553d26d796fde9871ff2661a49ac7732e945410f",
+  "source_path": "docs/research/agent-task-catalog.json",
+  "source_sha256": "f7a48bfa2659b88378282a8eee7d9fe52cdf505594124c4d1686b58510fffd72",
+  "scope": "Two exact revision-7 cards. The test carrier is not a research allocation.",
+  "cards": [
+    {
+      "id": "centre-path-sharing",
+      "question": "Can the 64-per-call centre path (eight rank-8 COPY/ERASE totals through the private temporary) be shared across calls or shrunk?",
+      "starting_points": [
+        "docs/research/research-family-status.md",
+        "research/complex-local-word-ceiling/README.md",
+        "research/split-centres-global/proofs/PR386-BIT-GEOMETRY.txt",
+        "certificates/selected-result.json"
+      ],
+      "methods": [
+        "Derive a fully charged favorable relaxation for sharing one centre path across k calls, including restoration, hosting and precision.",
+        "Prove a lower bound on copied information per call for the selected decoder contract."
+      ],
+      "acceptance_gate": "Show the changed centre charge and copy profile per call with every added restoration or hosting cost charged, and its ceiling via ceiling.ceiling(centre=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+      "first_step": {
+        "command": [
+          "python3",
+          "-B",
+          "research/complex-local-word-ceiling/verify.py"
+        ],
+        "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+        "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+        "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+      },
+      "first_experiment": "Write the per-call centre charge and copy children for sharing across k = 2 calls, charge the sharing overhead, and screen it; stop this route if even the ideal sharing gains under 10%. Ideal budgets: free 2.80x, shared by two 1.90x (levers.py).",
+      "bottleneck_link": "The centre path consumes 64 of about 99.6 unpaid coordinates per call, i.e. about 64% of the raw deficit.",
+      "allowed_variations": [
+        "One sharing pattern across a fixed number of calls.",
+        "One reduced copied-total contract for the existing decoder.",
+        "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+      ],
+      "scope_change_triggers": [
+        "Removing copies without a replacement contract for the decoder's copied totals.",
+        "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+      ],
+      "overlap_terms": [
+        "centre path",
+        "copied totals",
+        "private temporary",
+        "shared centre",
+        "batching"
+      ]
+    },
+    {
+      "id": "portable-replay",
+      "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+      "starting_points": [
+        "research/gzip-container-reproducibility/README.md",
+        "docs/ci-verification.md"
+      ],
+      "methods": [
+        "Reproduce one portability failure and add a minimal cross-environment fix.",
+        "Audit one canonical-payload comparison for omitted proof-relevant fields."
+      ],
+      "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+      "first_step": {
+        "command": [
+          "python3",
+          "-B",
+          "scripts/research_baseline.py"
+        ],
+        "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+        "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+        "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+      },
+      "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+      "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+      "allowed_variations": [
+        "One interpreter/version mismatch or one payload field comparison."
+      ],
+      "scope_change_triggers": [
+        "Removing immutable-source pins because generated compressed bytes differ."
+      ],
+      "overlap_terms": [
+        "gzip container",
+        "reproducibility",
+        "canonical payload"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/encoded-strict-borrowing/PR3503-PROOF.md",
+    "research/encoded-strict-borrowing/PREDECESSOR.json",
+    "research/encoded-strict-borrowing/PROOF.md",
+    "research/encoded-strict-borrowing/pr3518.tar",
+    "research/encoded-strict-borrowing/strict_selector.py",
+    "research/physical-ordinary-interchange/physical_words.py",
+    "research/physical-ordinary-interchange/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Actual selector-to-consumer full Boolean endpoints, source toy, geometry and fallback/failure controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Complete replay with optimized acceptance checks"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/control_cli.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Actual Git-free CLI unknown argument, cold namespace and corrupted input controls"
+    }
+  ]
+}

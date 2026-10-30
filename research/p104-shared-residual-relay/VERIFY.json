@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-shared-residual-relay/inputs/pr5580-WORD.json.gz",
+    "research/p104-shared-residual-relay/inputs/pr5580-pricing.py",
+    "research/p104-shared-residual-relay/inputs/pr5545-source-closure.tar.gz",
+    "research/p104-shared-residual-relay/common.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate source bytes and33 archive payloads; reconstruct the complete word; check all arbitrary-input rows, dense transpose,2918 signed native maps, physical caller, complete invoice, two rational engines, compiler,58 outer predicates, fixed-invoice ceiling and five rejection controls; compare complete receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate source bytes and33 archive payloads; reconstruct the complete word; check all arbitrary-input rows, dense transpose,2918 signed native maps, physical caller, complete invoice, two rational engines, compiler,58 outer predicates, fixed-invoice ceiling and five rejection controls; compare complete receipt."
+    }
+  ]
+}

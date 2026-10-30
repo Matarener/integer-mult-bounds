@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/levi-adaptive-gauges/PROOF.md",
+    "research/levi-adaptive-gauges/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "New coupled-gauge source-elimination theorem: exact bounded shortest paths, full arbitrary-input matrix and inverse-dual endpoints, sharp star witnesses, invalid-contract and changed-premise controls; source authentication."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "New coupled-gauge source-elimination theorem: exact bounded shortest paths, full arbitrary-input matrix and inverse-dual endpoints, sharp star witnesses, invalid-contract and changed-premise controls; source authentication."
+    }
+  ]
+}

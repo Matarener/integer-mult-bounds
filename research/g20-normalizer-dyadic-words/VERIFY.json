@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All111 source normalizers/inverses, unit-only RIGHT words, six controls, chosen address/spectator law, positive named coefficient bill and exact canonical RESULT receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized full primary replay with explicit guards and strict canonical receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent elementary products/basis-row execution/roundtrips, all18 layouts, flat addresses and counts, complete canonical ORACLE receipt."
+    }
+  ]
+}

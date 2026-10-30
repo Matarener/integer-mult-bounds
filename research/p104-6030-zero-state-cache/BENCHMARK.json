@@ -1,0 +1,148 @@
+{
+  "command": "python3.12 -I -B [-O] research/p104-6030-zero-state-cache/run.py --mode original|fast",
+  "conditions": "Serial fresh processes in the order original, original -O, fast, fast -O, repeated twice, on 2026-10-28 08:26-08:35 UTC. Host shared with two other research sessions; the first original run overlapped the differential run below. seconds = in-process wall time of runpy.run_path(verify.py), excluding interpreter start-up and the pin check.",
+  "differential": {
+    "counters": {
+      "clifford_loads": 1,
+      "differential_calls": 32766,
+      "patched_loads": 1,
+      "permutation_table_hits": 50570,
+      "permutation_table_misses": 13812,
+      "phase_table_hits": 73738,
+      "phase_table_misses": 14020
+    },
+    "optimize_flag": 0,
+    "pinned_inputs": 14,
+    "python": "3.12.14",
+    "seconds": 131.11,
+    "status": "PASS_6030_PRIMARY_DIFFERENTIAL",
+    "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+  },
+  "fixture": "research/p104-helper470-twin-rung-removal/verify.py (unchanged, in place) at base 721c03822c421b7f7fcbb2598993b947c4d88419",
+  "host": {
+    "cpu": "Apple M5",
+    "logical_cpus": 10,
+    "machine": "arm64",
+    "release": "25.6.0",
+    "system": "Darwin"
+  },
+  "not_claimed": "No platform-independent ratio; no correctness check depends on timing.",
+  "runs": [
+    {
+      "counters": {
+        "clifford_loads": 1
+      },
+      "optimize_flag": 0,
+      "order_label": "original",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 120.38,
+      "status": "PASS_6030_PRIMARY_ORIGINAL",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "counters": {
+        "clifford_loads": 1
+      },
+      "optimize_flag": 1,
+      "order_label": "original -O",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 62.94,
+      "status": "PASS_6030_PRIMARY_ORIGINAL",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "counters": {
+        "clifford_loads": 1,
+        "patched_loads": 1,
+        "permutation_table_hits": 50570,
+        "permutation_table_misses": 13812,
+        "phase_table_hits": 73738,
+        "phase_table_misses": 14020
+      },
+      "optimize_flag": 0,
+      "order_label": "fast",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 47.31,
+      "status": "PASS_6030_PRIMARY_FAST",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "counters": {
+        "clifford_loads": 1,
+        "patched_loads": 1,
+        "permutation_table_hits": 5928,
+        "permutation_table_misses": 13654,
+        "phase_table_hits": 21312,
+        "phase_table_misses": 9958
+      },
+      "optimize_flag": 1,
+      "order_label": "fast -O",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 42.03,
+      "status": "PASS_6030_PRIMARY_FAST",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "counters": {
+        "clifford_loads": 1
+      },
+      "optimize_flag": 0,
+      "order_label": "original",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 107.01,
+      "status": "PASS_6030_PRIMARY_ORIGINAL",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "counters": {
+        "clifford_loads": 1
+      },
+      "optimize_flag": 1,
+      "order_label": "original -O",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 62.16,
+      "status": "PASS_6030_PRIMARY_ORIGINAL",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "counters": {
+        "clifford_loads": 1,
+        "patched_loads": 1,
+        "permutation_table_hits": 50570,
+        "permutation_table_misses": 13812,
+        "phase_table_hits": 73738,
+        "phase_table_misses": 14020
+      },
+      "optimize_flag": 0,
+      "order_label": "fast",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 47.64,
+      "status": "PASS_6030_PRIMARY_FAST",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    },
+    {
+      "counters": {
+        "clifford_loads": 1,
+        "patched_loads": 1,
+        "permutation_table_hits": 5928,
+        "permutation_table_misses": 13654,
+        "phase_table_hits": 21312,
+        "phase_table_misses": 9958
+      },
+      "optimize_flag": 1,
+      "order_label": "fast -O",
+      "pinned_inputs": 14,
+      "python": "3.12.14",
+      "seconds": 41.68,
+      "status": "PASS_6030_PRIMARY_FAST",
+      "target_marker": "PASS_P104_BASE5907_EDIT_KAPPA_312580400"
+    }
+  ]
+}

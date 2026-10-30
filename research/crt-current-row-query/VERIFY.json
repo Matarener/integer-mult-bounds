@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/crt-dense-guard-scan/machine.py",
+    "research/crt-encoded-benes-rom-producer/PROOF.md",
+    "research/crt-encoded-benes-rom-producer/SOURCES.json",
+    "research/crt-encoded-benes-rom-producer/microcode.py",
+    "research/crt-encoded-benes-rom-producer/vendor/pr4192-NOTICE.md",
+    "research/crt-encoded-benes-rom-producer/vendor/pr4192-PROOF.md",
+    "research/crt-encoded-benes-rom-producer/vendor/pr4192-verify.py",
+    "research/crt-mask-repair-bridge/key_subroutine.py",
+    "research/crt-mixed-row-entry/PROOF.md",
+    "research/crt-mixed-row-entry/SOURCES.json",
+    "research/crt-mixed-row-entry/bridge.py",
+    "research/crt-mixed-row-entry/verify.py",
+    "research/crt-mixed-width-caller/README.md",
+    "research/crt-mixed-width-caller/verify.py",
+    "research/crt-paid-key-service/PROOF.md",
+    "research/crt-paid-key-service/service.py",
+    "research/crt-paid-key-service/verify.py",
+    "research/crt-uniform-rom-query/PROOF.md",
+    "research/crt-uniform-rom-query/machine.py",
+    "research/encoded-crt-entry-lifecycle/PROOF.md",
+    "research/encoded-crt-entry-lifecycle/entry.py",
+    "research/encoded-current-crt/PROOF.md",
+    "research/encoded-current-crt/producer.py",
+    "research/r437-preparation-composition/predecessor4025/source/records.py",
+    "research/r437-preparation-composition/predecessor4025/source/words.py",
+    "research/unconditional-batched-crt/NOTICE.md",
+    "research/unconditional-batched-crt/check_batched_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Small actual numerical-output to encoded ROM/query cases, padded-coordinate semantics, complete retirement, four falsifying controls, exact source and typed receipt checks. The optional h4 four-axis replay is separately budgeted."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Small actual numerical-output to encoded ROM/query cases, padded-coordinate semantics, complete retirement, four falsifying controls, exact source and typed receipt checks. The optional h4 four-axis replay is separately budgeted."
+    }
+  ]
+}

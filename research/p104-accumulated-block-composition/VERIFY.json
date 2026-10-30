@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 590,
+      "checks": "Complete source-bound construction, all799 input coordinates, native phases, physical caller, exact invoice, two interval engines, compiler and controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 590,
+      "checks": "Same complete scientific replay with assertions disabled and isolated imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/integrity_check.py"
+      ],
+      "timeout_seconds": 10,
+      "checks": "Source-byte, complete inventory, path and Git-blob authentication with eleven rejecting corruptions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/check_total_gain.py"
+      ],
+      "timeout_seconds": 10,
+      "checks": "Independent source-bound word and full-invoice recount, exact interval-wide total-gain proof and four rejecting receipt controls."
+    }
+  ]
+}

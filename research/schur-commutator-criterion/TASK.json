@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove the exact commutator factorization, zero criterion and sharp rank trichotomy after one common scalar Schur deletion of a commuting matrix or projector pair.",
+  "scope_change_reason": "The assignment requires original work rather than an audit. This takes PR4259 open question 1 as a side structural theorem, replacing the card's actual-caller audit premise; it does not claim to discharge PR4100's all-size construction.",
+  "bottleneck_link": "Side result for the BIT complete-header interface: identifies exactly when the commuting-projector state class survives deletion; caller and physical costs remain unpriced.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first proved one-step criterion after bounded exhaustive corroboration; do not pursue the full orbit transition law.",
+  "outcome": "completed",
+  "evidence": "README.md contains the field-algebra proof and sharp projector examples. verify.py directly checks exhaustive commuting-pair domains, a complete GL4(F2) header orbit, vector degeneracies and four controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Classify simultaneous Schur-pair orbits and transition weights for nonnested commuting projectors.",
+      "why_it_matters": "A header-count recursion needs the full changing state class, beyond the commutator rank.",
+      "first_step": "Classify the two rank-two requests in dimension three and coordinate with active corank-one counting work.",
+      "blocked_by": "The vector criterion does not determine a simultaneous conjugacy orbit."
+    },
+    {
+      "question": "Find the exact factorization and sharp rank bound for a common block pivot.",
+      "why_it_matters": "Wider deletion may produce a low-rank noncommutative defect with a bounded state description.",
+      "first_step": "Expand the two block Schur products with invertible block pivots.",
+      "blocked_by": "The scalar commuting rearrangements in this proof do not extend directly."
+    }
+  ]
+}

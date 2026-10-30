@@ -1,0 +1,568 @@
+[     0.1s] $ nproc; free -g; df -h /tmp | tail -1; python3 --version
+[     0.1s]   4
+[     0.1s]                  total        used        free      shared  buff/cache   available
+[     0.1s]   Mem:              31           0          26           0           4          30
+[     0.1s]   Swap:              0           0           0
+[     0.1s]   overlay         8.0T  7.0T  1.1T  88% /
+[     0.1s]   Python 3.13.15
+[     0.1s] exit 0 after 0.0s
+[     0.1s] $ pip install -q networkx==3.4.2 2>&1 | tail -2; python3 -c 'import numpy, networkx; print(numpy.__version__, networkx.__version__)'
+[     9.4s]   2.1.3 3.4.2
+[     9.4s] exit 0 after 9.3s
+[     9.4s] $ python3 -B hand/check_hand_rootfact.py
+[     9.7s]   A: removed lines = two frames: PASS
+[     9.7s]   B: every root line is non-orthogonal to exactly 57 lines (itself included): PASS
+[     9.7s]   C: frame counts 1 (own frame) / 4 (other frame): PASS
+[     9.7s]   D: |Phi_J^+| after deleting node i: {1: 42, 2: 28, 3: 22, 4: 14, 5: 16, 6: 23, 7: 37, 8: 63}
+[     9.7s]   D: E7 parabolic = highest-root-perp: PASS
+[     9.7s]   E: N(root) = 49 on ports, 52 on removed lines: PASS
+[     9.7s]   ALL PASS
+[     9.7s] exit 0 after 0.3s
+[     9.7s] $ python3 -B hand/check_hand_spanfact.py
+[    50.0s] heartbeat
+[    98.9s]   G: labels <-> the 120 vectors of weight 2/6 in E; orthogonal <=> B(u,u') = 0: PASS
+[    98.9s]   Gauss: sum_E (-1)^Q = 16: PASS
+[    98.9s]   F: min |O(z)| = 44, and O(z) = {B(u,a) != eps}: PASS
+[    98.9s]   D': only E7 (63) and D7 (42) exceed 37; D7 normal = norm-4 vector = sum of two orthogonal roots: PASS
+[    98.9s]   H: 14 lines with ip +-2 per norm-4 vector, <= 4 of them removed: PASS
+[    98.9s]   corroboration: SpanFact holds on all 120 root and 1080 norm-4 hyperplane normals: PASS
+[    98.9s]   ALL PASS
+[    99.0s] exit 0 after 89.2s
+[    99.0s] $ python3 -B /tmp/repo/research/p104-bform-hand-closures/checks/fk.py
+[   100.0s] heartbeat
+[   100.0s]   distinct labels 104 mult [1] zero label? 0
+[   100.0s]   f(1)= 1
+[   100.0s]   f(2)= 2
+[   100.8s]   f(3)= 4
+[   131.7s]   f(4)= 8
+[   131.8s] exit 0 after 32.8s
+[   131.8s] $ python3 -B /tmp/repo/research/p104-bform-hand-closures/checks/f56.py
+[   150.0s] heartbeat
+[   200.0s] heartbeat
+[   250.0s] heartbeat
+[   262.7s]   3-dim Z count 788035 f(6) 20 f(5) 12 hist [(0, 10797), (3, 32), (4, 128), (5, 576), (6, 2968), (7, 5856), (8, 15809), (9, 37440), (10, 87440), (11, 85664), (12, 93256), (13, 90048), (14, 142136), (15, 97440), (16, 54541), (17, 22464), (18, 25056), (19, 12736), (20, 3648)] 130 s
+[   262.7s] exit 0 after 131.0s
+[   262.7s] $ python3 -B /tmp/repo/research/p104-bform-hand-closures/checks/planes.py
+[   262.9s]   START planes
+[   278.3s]   flats loaded 15444 15 s
+[   278.4s]   planes 43435 max |L| 36
+[   300.0s] heartbeat
+[   310.9s]   HEARTBEAT flat 127 / 15444 pairs 508 48 s
+[   347.8s]   HEARTBEAT flat 258 / 15444 pairs 1143 85 s
+[   350.0s] heartbeat
+[   381.1s]   HEARTBEAT flat 517 / 15444 pairs 1778 118 s
+[   400.0s] heartbeat
+[   413.8s]   HEARTBEAT flat 805 / 15444 pairs 2286 151 s
+[   446.5s]   HEARTBEAT flat 1026 / 15444 pairs 2794 184 s
+[   450.0s] heartbeat
+[   483.4s]   HEARTBEAT flat 1271 / 15444 pairs 3429 221 s
+[   500.0s] heartbeat
+[   516.1s]   HEARTBEAT flat 1348 / 15444 pairs 3937 253 s
+[   550.0s] heartbeat
+[   553.1s]   HEARTBEAT flat 1797 / 15444 pairs 4572 290 s
+[   585.6s]   HEARTBEAT flat 1934 / 15444 pairs 5080 323 s
+[   600.0s] heartbeat
+[   618.3s]   HEARTBEAT flat 2286 / 15444 pairs 5588 355 s
+[   650.0s] heartbeat
+[   650.7s]   HEARTBEAT flat 2428 / 15444 pairs 6096 388 s
+[   687.6s]   HEARTBEAT flat 2717 / 15444 pairs 6731 425 s
+[   700.0s] heartbeat
+[   720.5s]   HEARTBEAT flat 2945 / 15444 pairs 7366 458 s
+[   750.0s] heartbeat
+[   753.3s]   HEARTBEAT flat 3188 / 15444 pairs 7874 490 s
+[   786.1s]   HEARTBEAT flat 3410 / 15444 pairs 8382 523 s
+[   800.0s] heartbeat
+[   823.1s]   HEARTBEAT flat 3706 / 15444 pairs 9017 560 s
+[   850.0s] heartbeat
+[   855.9s]   HEARTBEAT flat 3893 / 15444 pairs 9652 593 s
+[   888.6s]   HEARTBEAT flat 4457 / 15444 pairs 10160 626 s
+[   900.0s] heartbeat
+[   921.5s]   HEARTBEAT flat 4938 / 15444 pairs 10668 659 s
+[   950.0s] heartbeat
+[   954.6s]   HEARTBEAT flat 5523 / 15444 pairs 11303 692 s
+[   987.5s]   HEARTBEAT flat 5772 / 15444 pairs 11811 725 s
+[  1000.0s] heartbeat
+[  1020.2s]   HEARTBEAT flat 5942 / 15444 pairs 12319 757 s
+[  1050.0s] heartbeat
+[  1054.3s]   HEARTBEAT flat 6682 / 15444 pairs 12954 791 s
+[  1087.5s]   HEARTBEAT flat 7590 / 15444 pairs 13462 825 s
+[  1100.0s] heartbeat
+[  1120.3s]   HEARTBEAT flat 8187 / 15444 pairs 13970 857 s
+[  1150.0s] heartbeat
+[  1153.1s]   HEARTBEAT flat 8703 / 15444 pairs 14478 890 s
+[  1190.1s]   HEARTBEAT flat 9435 / 15444 pairs 15113 927 s
+[  1199.2s]   compatible plane pairs 15240 936 s
+[  1199.3s] exit 0 after 936.6s
+[  1199.3s] $ python3 -B /tmp/repo/research/p104-bform-hand-closures/checks/cliq.py
+[  1199.9s]   vertices 23340 edges 15240
+[  1199.9s]   degree hist [(1, 16200), (2, 7140)]
+[  1199.9s]   pairs by shared classes [(1, 15240)]
+[  1199.9s]   maximal clique sizes [(2, 11880), (3, 1120)]
+[  1199.9s] exit 0 after 0.6s
+[  1199.9s] $ python3 -B /tmp/repo/research/p104-bform-hand-closures/checks/sizes.py
+[  1200.0s] heartbeat
+[  1201.0s]   plane |L| hist [(0, 255), (14, 8), (16, 18), (18, 432), (20, 2812), (22, 5088), (24, 8909), (26, 8784), (28, 8900), (30, 4824), (32, 2805), (34, 576), (36, 24)]
+[  1201.0s]   compatible pair (|L1|,|L2|,|L1&L2|,|union|) [((18, 30, 0, 48), 480), ((20, 28, 0, 48), 4032), ((20, 32, 0, 52), 48), ((22, 26, 0, 48), 4512), ((22, 30, 0, 52), 768), ((24, 24, 0, 48), 4184), ((24, 28, 0, 52), 448), ((26, 26, 0, 52), 768)]
+[  1201.1s] exit 0 after 1.2s
+[  1201.1s] $ curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh && sh /tmp/elan-init.sh -y --default-toolchain none
+[  1201.3s]   info: downloading installer
+[  1201.7s] exit 0 after 0.6s
+[  1201.7s] $ lake --version
+[  1202.8s]   info: downloading https://releases.lean-lang.org/lean4/v4.33.0-rc1/lean-4.33.0-rc1-linux.tar.zst
+[  1212.7s]   info: installing /root/.elan/toolchains/leanprover--lean4---v4.33.0-rc1
+[  1231.7s]   Lake version 5.0.0-src+62eed1d (Lean version 4.33.0-rc1)
+[  1231.7s] exit 0 after 30.0s
+[  1231.7s] $ lake exe cache get
+[  1231.8s]   info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+[  1250.0s] heartbeat
+[  1291.1s]   info: mathlib: checking out revision '55b7917b472489c7c56a0fa6393af05cfd536599'
+[  1294.8s]   info: plausible: cloning https://github.com/leanprover-community/plausible
+[  1295.5s]   info: plausible: checking out revision 'b1c4a69a7e247ab7df20460212001673d74f08c0'
+[  1295.5s]   info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+[  1296.2s]   info: LeanSearchClient: checking out revision '0498c7c070c143a3bf7379f4d99a2c63bb9d9715'
+[  1296.2s]   info: importGraph: cloning https://github.com/leanprover-community/import-graph
+[  1296.9s]   info: importGraph: checking out revision '18a90119a5d316358fde6c86e0ca24e59212e32c'
+[  1296.9s]   info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+[  1298.0s]   info: proofwidgets: checking out revision 'b1436dc749e722c9920036b52cdc43b3451d0b69'
+[  1299.1s]   info: aesop: cloning https://github.com/leanprover-community/aesop
+[  1300.0s] heartbeat
+[  1300.5s]   info: aesop: checking out revision '57d3325be72a842920813bcb40f96a6f7393c185'
+[  1300.5s]   info: Qq: cloning https://github.com/leanprover-community/quote4
+[  1301.3s]   info: Qq: checking out revision 'ee41917ae11d38479fb8fb24745f7ca4bf0a784d'
+[  1301.3s]   info: batteries: cloning https://github.com/leanprover-community/batteries
+[  1306.3s]   info: batteries: checking out revision '2c810760f0a0c4536b397dbe30ca9b2f2f467366'
+[  1306.4s]   info: Cli: cloning https://github.com/leanprover/lean4-cli
+[  1307.1s]   info: Cli: checking out revision 'da07ca808b6718cb2aed14dba154e5a08b8f8ecf'
+[  1307.7s]   ✔ [1/5] Built Cache.Cli (539ms)
+[  1307.8s]   ✔ [2/5] Built Cache.Lean (642ms)
+[  1314.4s]   ✔ [7/26] Built Cache.Cli:c.o (289ms)
+[  1314.5s]   ✔ [9/26] Built Cache.Lean:c.o (349ms)
+[  1314.8s]   ✔ [10/26] Built Cache.Infra (726ms)
+[  1315.2s]   ✔ [11/26] Built Cache.Infra:c.o (350ms)
+[  1316.4s]   ✔ [12/26] Built Cache.IO (2.3s)
+[  1317.8s]   ✔ [13/26] Built Cache.Hashing (1.3s)
+[  1318.8s]   ✔ [14/26] Built Cache.Hashing:c.o (1.1s)
+[  1319.2s]   ✔ [15/26] Built Cache.IO:c.o (2.8s)
+[  1321.4s]   ✔ [16/26] Built Cache.Requests (3.6s)
+[  1322.3s]   ✔ [17/26] Built Cache.Marker (921ms)
+[  1322.5s]   ✔ [18/26] Built Cache.Marker:c.o (258ms)
+[  1323.5s]   ✔ [19/26] Built Cache.Query (1.2s)
+[  1324.2s]   ✔ [20/26] Built Cache.Query:c.o (720ms)
+[  1324.8s]   ✔ [21/26] Built Cache.Warning (1.3s)
+[  1325.5s]   ✔ [22/26] Built Cache.Warning:c.o (626ms)
+[  1326.4s]   ✔ [23/26] Built Cache.Requests:c.o (4.9s)
+[  1327.1s]   ✔ [24/26] Built Cache.Main (2.3s)
+[  1328.7s]   ✔ [25/26] Built Cache.Main:c.o (1.6s)
+[  1329.8s]   ✔ [26/26] Built cache:exe (1.0s)
+[  1334.7s]   Current branch: HEAD
+[  1334.7s]   Using cache from origin: (some leanprover-community/mathlib4)
+[  1334.7s]   Attempting to download 8653 file(s) from leanprover-community/mathlib4 cache at https://lakecache.blob.core.windows.net/mathlib4-master
+[  1337.2s]   Downloaded: 1 file(s) [attempted 1/8653 = 0%, 7 KB/s], Decompressed: 0
+[  1337.4s]   Downloaded: 25 file(s) [attempted 25/8653 = 0%, 22 KB/s], Decompressed: 8
+[  1337.5s]   Downloaded: 53 file(s) [attempted 53/8653 = 0%, 8 KB/s], Decompressed: 19
+[  1337.6s]   Downloaded: 82 file(s) [attempted 82/8653 = 0%, 128 KB/s], Decompressed: 32
+[  1337.7s]   Downloaded: 113 file(s) [attempted 113/8653 = 1%, 88 KB/s], Decompressed: 62
+[  1337.8s]   Downloaded: 144 file(s) [attempted 144/8653 = 1%, 320 KB/s], Decompressed: 62
+[  1337.9s]   Downloaded: 181 file(s) [attempted 181/8653 = 2%, 160 KB/s], Decompressed: 62
+[  1338.0s]   Downloaded: 219 file(s) [attempted 219/8653 = 2%, 1014 KB/s], Decompressed: 108
+[  1338.1s]   Downloaded: 258 file(s) [attempted 258/8653 = 2%, 117 KB/s], Decompressed: 108
+[  1338.2s]   Downloaded: 296 file(s) [attempted 296/8653 = 3%, 218 KB/s], Decompressed: 108
+[  1338.3s]   Downloaded: 338 file(s) [attempted 338/8653 = 3%, 173 KB/s], Decompressed: 108
+[  1338.4s]   Downloaded: 378 file(s) [attempted 378/8653 = 4%, 304 KB/s], Decompressed: 108
+[  1338.5s]   Downloaded: 418 file(s) [attempted 418/8653 = 4%, 530 KB/s], Decompressed: 108
+[  1338.6s]   Downloaded: 451 file(s) [attempted 451/8653 = 5%, 272 KB/s], Decompressed: 197
+[  1338.7s]   Downloaded: 496 file(s) [attempted 496/8653 = 5%, 93 KB/s], Decompressed: 197
+[  1338.8s]   Downloaded: 535 file(s) [attempted 535/8653 = 6%, 313 KB/s], Decompressed: 197
+[  1338.9s]   Downloaded: 577 file(s) [attempted 577/8653 = 6%, 90 KB/s], Decompressed: 197
+[  1339.0s]   Downloaded: 622 file(s) [attempted 622/8653 = 7%, 90 KB/s], Decompressed: 197
+[  1339.1s]   Downloaded: 666 file(s) [attempted 666/8653 = 7%, 93 KB/s], Decompressed: 197
+[  1339.2s]   Downloaded: 704 file(s) [attempted 704/8653 = 8%, 93 KB/s], Decompressed: 197
+[  1339.3s]   Downloaded: 748 file(s) [attempted 748/8653 = 8%, 101 KB/s], Decompressed: 197
+[  1339.4s]   Downloaded: 793 file(s) [attempted 793/8653 = 9%, 294 KB/s], Decompressed: 197
+[  1339.5s]   Downloaded: 835 file(s) [attempted 835/8653 = 9%, 842 KB/s], Decompressed: 197
+[  1339.6s]   Downloaded: 877 file(s) [attempted 877/8653 = 10%, 255 KB/s], Decompressed: 197
+[  1339.7s]   Downloaded: 917 file(s) [attempted 917/8653 = 10%, 98 KB/s], Decompressed: 197
+[  1339.8s]   Downloaded: 958 file(s) [attempted 958/8653 = 11%, 186 KB/s], Decompressed: 197
+[  1339.9s]   Downloaded: 1001 file(s) [attempted 1001/8653 = 11%, 594 KB/s], Decompressed: 428
+[  1340.1s]   Downloaded: 1046 file(s) [attempted 1046/8653 = 12%, 204 KB/s], Decompressed: 428
+[  1340.2s]   Downloaded: 1088 file(s) [attempted 1088/8653 = 12%, 370 KB/s], Decompressed: 428
+[  1340.3s]   Downloaded: 1130 file(s) [attempted 1130/8653 = 13%, 176 KB/s], Decompressed: 428
+[  1340.4s]   Downloaded: 1175 file(s) [attempted 1175/8653 = 13%, 139 KB/s], Decompressed: 428
+[  1340.5s]   Downloaded: 1219 file(s) [attempted 1219/8653 = 14%, 69 KB/s], Decompressed: 428
+[  1340.6s]   Downloaded: 1263 file(s) [attempted 1263/8653 = 14%, 538 KB/s], Decompressed: 428
+[  1340.7s]   Downloaded: 1308 file(s) [attempted 1308/8653 = 15%, 109 KB/s], Decompressed: 428
+[  1340.8s]   Downloaded: 1350 file(s) [attempted 1350/8653 = 15%, 54 KB/s], Decompressed: 428
+[  1340.9s]   Downloaded: 1390 file(s) [attempted 1390/8653 = 16%, 153 KB/s], Decompressed: 428
+[  1341.0s]   Downloaded: 1430 file(s) [attempted 1430/8653 = 16%, 86 KB/s], Decompressed: 428
+[  1341.1s]   Downloaded: 1470 file(s) [attempted 1470/8653 = 16%, 444 KB/s], Decompressed: 428
+[  1341.2s]   Downloaded: 1514 file(s) [attempted 1514/8653 = 17%, 56 KB/s], Decompressed: 428
+[  1341.3s]   Downloaded: 1556 file(s) [attempted 1556/8653 = 17%, 243 KB/s], Decompressed: 428
+[  1341.4s]   Downloaded: 1593 file(s) [attempted 1593/8653 = 18%, 63 KB/s], Decompressed: 428
+[  1341.5s]   Downloaded: 1635 file(s) [attempted 1635/8653 = 18%, 328 KB/s], Decompressed: 428
+[  1341.6s]   Downloaded: 1680 file(s) [attempted 1680/8653 = 19%, 142 KB/s], Decompressed: 428
+[  1341.7s]   Downloaded: 1722 file(s) [attempted 1722/8653 = 19%, 541 KB/s], Decompressed: 428
+[  1341.8s]   Downloaded: 1769 file(s) [attempted 1769/8653 = 20%, 107 KB/s], Decompressed: 428
+[  1341.9s]   Downloaded: 1813 file(s) [attempted 1813/8653 = 20%, 529 KB/s], Decompressed: 428
+[  1342.0s]   Downloaded: 1858 file(s) [attempted 1858/8653 = 21%, 306 KB/s], Decompressed: 428
+[  1342.2s]   Downloaded: 1902 file(s) [attempted 1902/8653 = 21%, 331 KB/s], Decompressed: 428
+[  1342.3s]   Downloaded: 1947 file(s) [attempted 1947/8653 = 22%, 736 KB/s], Decompressed: 428
+[  1342.4s]   Downloaded: 1986 file(s) [attempted 1986/8653 = 22%, 827 KB/s], Decompressed: 428
+[  1342.5s]   Downloaded: 2026 file(s) [attempted 2026/8653 = 23%, 154 KB/s], Decompressed: 428
+[  1342.6s]   Downloaded: 2068 file(s) [attempted 2068/8653 = 23%, 306 KB/s], Decompressed: 428
+[  1342.7s]   Downloaded: 2110 file(s) [attempted 2110/8653 = 24%, 73 KB/s], Decompressed: 428
+[  1342.8s]   Downloaded: 2155 file(s) [attempted 2155/8653 = 24%, 89 KB/s], Decompressed: 428
+[  1342.9s]   Downloaded: 2199 file(s) [attempted 2199/8653 = 25%, 228 KB/s], Decompressed: 428
+[  1343.0s]   Downloaded: 2244 file(s) [attempted 2244/8653 = 25%, 602 KB/s], Decompressed: 428
+[  1343.1s]   Downloaded: 2286 file(s) [attempted 2286/8653 = 26%, 229 KB/s], Decompressed: 428
+[  1343.2s]   Downloaded: 2328 file(s) [attempted 2328/8653 = 26%, 161 KB/s], Decompressed: 428
+[  1343.3s]   Downloaded: 2372 file(s) [attempted 2372/8653 = 27%, 48 KB/s], Decompressed: 428
+[  1343.4s]   Downloaded: 2412 file(s) [attempted 2412/8653 = 27%, 94 KB/s], Decompressed: 428
+[  1343.5s]   Downloaded: 2452 file(s) [attempted 2452/8653 = 28%, 787 KB/s], Decompressed: 428
+[  1343.6s]   Downloaded: 2494 file(s) [attempted 2494/8653 = 28%, 55 KB/s], Decompressed: 428
+[  1344.2s]   Downloaded: 2539 file(s) [attempted 2539/8653 = 29%, 43 KB/s], Decompressed: 428
+[  1344.3s]   Downloaded: 2543 file(s) [attempted 2543/8653 = 29%, 57 KB/s], Decompressed: 428
+[  1344.5s]   Downloaded: 2595 file(s) [attempted 2595/8653 = 29%, 145 KB/s], Decompressed: 428
+[  1344.6s]   Downloaded: 2644 file(s) [attempted 2644/8653 = 30%, 200 KB/s], Decompressed: 428
+[  1344.7s]   Downloaded: 2693 file(s) [attempted 2693/8653 = 31%, 101 KB/s], Decompressed: 428
+[  1344.8s]   Downloaded: 2740 file(s) [attempted 2740/8653 = 31%, 49 KB/s], Decompressed: 428
+[  1344.9s]   Downloaded: 2787 file(s) [attempted 2787/8653 = 32%, 342 KB/s], Decompressed: 428
+[  1345.0s]   Downloaded: 2833 file(s) [attempted 2833/8653 = 32%, 257 KB/s], Decompressed: 999
+[  1345.1s]   Downloaded: 2876 file(s) [attempted 2876/8653 = 33%, 76 KB/s], Decompressed: 999
+[  1345.2s]   Downloaded: 2908 file(s) [attempted 2908/8653 = 33%, 147 KB/s], Decompressed: 999
+[  1345.3s]   Downloaded: 2953 file(s) [attempted 2953/8653 = 34%, 91 KB/s], Decompressed: 999
+[  1345.4s]   Downloaded: 3000 file(s) [attempted 3000/8653 = 34%, 1150 KB/s], Decompressed: 999
+[  1345.5s]   Downloaded: 3046 file(s) [attempted 3046/8653 = 35%, 338 KB/s], Decompressed: 999
+[  1345.6s]   Downloaded: 3093 file(s) [attempted 3093/8653 = 35%, 913 KB/s], Decompressed: 999
+[  1345.7s]   Downloaded: 3131 file(s) [attempted 3131/8653 = 36%, 256 KB/s], Decompressed: 999
+[  1345.8s]   Downloaded: 3170 file(s) [attempted 3170/8653 = 36%, 178 KB/s], Decompressed: 999
+[  1346.0s]   Downloaded: 3201 file(s) [attempted 3201/8653 = 36%, 1338 KB/s], Decompressed: 999
+[  1346.1s]   Downloaded: 3243 file(s) [attempted 3243/8653 = 37%, 264 KB/s], Decompressed: 999
+[  1346.2s]   Downloaded: 3287 file(s) [attempted 3287/8653 = 37%, 33 KB/s], Decompressed: 999
+[  1346.3s]   Downloaded: 3332 file(s) [attempted 3332/8653 = 38%, 1021 KB/s], Decompressed: 999
+[  1346.4s]   Downloaded: 3376 file(s) [attempted 3376/8653 = 39%, 47 KB/s], Decompressed: 999
+[  1346.5s]   Downloaded: 3417 file(s) [attempted 3417/8653 = 39%, 78 KB/s], Decompressed: 999
+[  1346.6s]   Downloaded: 3460 file(s) [attempted 3460/8653 = 39%, 130 KB/s], Decompressed: 999
+[  1346.7s]   Downloaded: 3503 file(s) [attempted 3503/8653 = 40%, 77 KB/s], Decompressed: 999
+[  1346.8s]   Downloaded: 3542 file(s) [attempted 3542/8653 = 40%, 666 KB/s], Decompressed: 999
+[  1346.9s]   Downloaded: 3580 file(s) [attempted 3580/8653 = 41%, 521 KB/s], Decompressed: 999
+[  1347.0s]   Downloaded: 3622 file(s) [attempted 3622/8653 = 41%, 242 KB/s], Decompressed: 999
+[  1347.1s]   Downloaded: 3666 file(s) [attempted 3666/8653 = 42%, 238 KB/s], Decompressed: 999
+[  1347.2s]   Downloaded: 3708 file(s) [attempted 3708/8653 = 42%, 374 KB/s], Decompressed: 999
+[  1347.3s]   Downloaded: 3755 file(s) [attempted 3755/8653 = 43%, 890 KB/s], Decompressed: 999
+[  1347.4s]   Downloaded: 3802 file(s) [attempted 3802/8653 = 43%, 49 KB/s], Decompressed: 999
+[  1347.5s]   Downloaded: 3835 file(s) [attempted 3835/8653 = 44%, 911 KB/s], Decompressed: 999
+[  1347.6s]   Downloaded: 3877 file(s) [attempted 3877/8653 = 44%, 306 KB/s], Decompressed: 999
+[  1347.7s]   Downloaded: 3921 file(s) [attempted 3921/8653 = 45%, 374 KB/s], Decompressed: 999
+[  1347.8s]   Downloaded: 3966 file(s) [attempted 3966/8653 = 45%, 120 KB/s], Decompressed: 999
+[  1347.9s]   Downloaded: 4010 file(s) [attempted 4010/8653 = 46%, 2531 KB/s], Decompressed: 999
+[  1348.0s]   Downloaded: 4054 file(s) [attempted 4054/8653 = 46%, 275 KB/s], Decompressed: 999
+[  1348.2s]   Downloaded: 4095 file(s) [attempted 4095/8653 = 47%, 59 KB/s], Decompressed: 999
+[  1348.3s]   Downloaded: 4144 file(s) [attempted 4144/8653 = 47%, 141 KB/s], Decompressed: 999
+[  1348.4s]   Downloaded: 4190 file(s) [attempted 4190/8653 = 48%, 862 KB/s], Decompressed: 999
+[  1348.5s]   Downloaded: 4237 file(s) [attempted 4237/8653 = 48%, 108 KB/s], Decompressed: 999
+[  1348.6s]   Downloaded: 4279 file(s) [attempted 4279/8653 = 49%, 1097 KB/s], Decompressed: 999
+[  1348.7s]   Downloaded: 4324 file(s) [attempted 4324/8653 = 49%, 416 KB/s], Decompressed: 999
+[  1348.8s]   Downloaded: 4364 file(s) [attempted 4364/8653 = 50%, 423 KB/s], Decompressed: 999
+[  1348.9s]   Downloaded: 4406 file(s) [attempted 4406/8653 = 50%, 299 KB/s], Decompressed: 999
+[  1349.0s]   Downloaded: 4445 file(s) [attempted 4445/8653 = 51%, 417 KB/s], Decompressed: 999
+[  1349.1s]   Downloaded: 4485 file(s) [attempted 4485/8653 = 51%, 114 KB/s], Decompressed: 999
+[  1349.2s]   Downloaded: 4530 file(s) [attempted 4530/8653 = 52%, 115 KB/s], Decompressed: 999
+[  1349.3s]   Downloaded: 4569 file(s) [attempted 4569/8653 = 52%, 134 KB/s], Decompressed: 999
+[  1349.4s]   Downloaded: 4612 file(s) [attempted 4612/8653 = 53%, 120 KB/s], Decompressed: 999
+[  1349.5s]   Downloaded: 4661 file(s) [attempted 4661/8653 = 53%, 526 KB/s], Decompressed: 999
+[  1349.6s]   Downloaded: 4705 file(s) [attempted 4705/8653 = 54%, 386 KB/s], Decompressed: 999
+[  1349.8s]   Downloaded: 4736 file(s) [attempted 4736/8653 = 54%, 161 KB/s], Decompressed: 999
+[  1349.9s]   Downloaded: 4768 file(s) [attempted 4768/8653 = 55%, 620 KB/s], Decompressed: 999
+[  1350.0s]   Downloaded: 4813 file(s) [attempted 4813/8653 = 55%, 199 KB/s], Decompressed: 999
+[  1350.0s] heartbeat
+[  1350.1s]   Downloaded: 4862 file(s) [attempted 4862/8653 = 56%, 123 KB/s], Decompressed: 999
+[  1350.2s]   Downloaded: 4896 file(s) [attempted 4896/8653 = 56%, 378 KB/s], Decompressed: 999
+[  1350.3s]   Downloaded: 4913 file(s) [attempted 4913/8653 = 56%, 592 KB/s], Decompressed: 999
+[  1350.4s]   Downloaded: 4960 file(s) [attempted 4960/8653 = 57%, 472 KB/s], Decompressed: 999
+[  1350.5s]   Downloaded: 5002 file(s) [attempted 5002/8653 = 57%, 91 KB/s], Decompressed: 999
+[  1350.6s]   Downloaded: 5023 file(s) [attempted 5023/8653 = 58%, 303 KB/s], Decompressed: 999
+[  1350.7s]   Downloaded: 5070 file(s) [attempted 5070/8653 = 58%, 422 KB/s], Decompressed: 999
+[  1350.8s]   Downloaded: 5117 file(s) [attempted 5117/8653 = 59%, 77 KB/s], Decompressed: 999
+[  1350.9s]   Downloaded: 5166 file(s) [attempted 5166/8653 = 59%, 248 KB/s], Decompressed: 999
+[  1351.0s]   Downloaded: 5209 file(s) [attempted 5209/8653 = 60%, 986 KB/s], Decompressed: 999
+[  1351.1s]   Downloaded: 5250 file(s) [attempted 5250/8653 = 60%, 122 KB/s], Decompressed: 999
+[  1351.2s]   Downloaded: 5285 file(s) [attempted 5285/8653 = 61%, 107 KB/s], Decompressed: 999
+[  1351.3s]   Downloaded: 5321 file(s) [attempted 5321/8653 = 61%, 540 KB/s], Decompressed: 999
+[  1351.5s]   Downloaded: 5360 file(s) [attempted 5360/8653 = 61%, 357 KB/s], Decompressed: 999
+[  1351.6s]   Downloaded: 5407 file(s) [attempted 5407/8653 = 62%, 313 KB/s], Decompressed: 999
+[  1351.7s]   Downloaded: 5454 file(s) [attempted 5454/8653 = 63%, 72 KB/s], Decompressed: 999
+[  1351.8s]   Downloaded: 5498 file(s) [attempted 5498/8653 = 63%, 127 KB/s], Decompressed: 999
+[  1352.0s]   Downloaded: 5547 file(s) [attempted 5547/8653 = 64%, 179 KB/s], Decompressed: 999
+[  1352.1s]   Downloaded: 5594 file(s) [attempted 5594/8653 = 64%, 175 KB/s], Decompressed: 999
+[  1352.2s]   Downloaded: 5641 file(s) [attempted 5641/8653 = 65%, 624 KB/s], Decompressed: 999
+[  1352.3s]   Downloaded: 5688 file(s) [attempted 5688/8653 = 65%, 1159 KB/s], Decompressed: 999
+[  1352.4s]   Downloaded: 5732 file(s) [attempted 5732/8653 = 66%, 1192 KB/s], Decompressed: 999
+[  1352.5s]   Downloaded: 5760 file(s) [attempted 5760/8653 = 66%, 192 KB/s], Decompressed: 999
+[  1352.7s]   Downloaded: 5802 file(s) [attempted 5802/8653 = 67%, 39 KB/s], Decompressed: 999
+[  1352.9s]   Downloaded: 5807 file(s) [attempted 5807/8653 = 67%, 610 KB/s], Decompressed: 999
+[  1353.0s]   Downloaded: 5856 file(s) [attempted 5856/8653 = 67%, 152 KB/s], Decompressed: 999
+[  1353.1s]   Downloaded: 5908 file(s) [attempted 5908/8653 = 68%, 154 KB/s], Decompressed: 999
+[  1353.2s]   Downloaded: 5957 file(s) [attempted 5957/8653 = 68%, 204 KB/s], Decompressed: 999
+[  1353.3s]   Downloaded: 6006 file(s) [attempted 6006/8653 = 69%, 144 KB/s], Decompressed: 999
+[  1353.5s]   Downloaded: 6025 file(s) [attempted 6025/8653 = 69%, 392 KB/s], Decompressed: 999
+[  1353.6s]   Downloaded: 6067 file(s) [attempted 6067/8653 = 70%, 237 KB/s], Decompressed: 999
+[  1353.8s]   Downloaded: 6116 file(s) [attempted 6116/8653 = 70%, 2075 KB/s], Decompressed: 999
+[  1353.9s]   Downloaded: 6165 file(s) [attempted 6165/8653 = 71%, 93 KB/s], Decompressed: 999
+[  1354.0s]   Downloaded: 6214 file(s) [attempted 6214/8653 = 71%, 125 KB/s], Decompressed: 999
+[  1354.1s]   Downloaded: 6259 file(s) [attempted 6259/8653 = 72%, 1020 KB/s], Decompressed: 999
+[  1361.3s]   Downloaded: 6310 file(s) [attempted 6310/8653 = 72%, 722 KB/s], Decompressed: 999
+[  1361.5s]   Downloaded: 6338 file(s) [attempted 6338/8653 = 73%, 548 KB/s], Decompressed: 999
+[  1361.6s]   Downloaded: 6390 file(s) [attempted 6390/8653 = 73%, 309 KB/s], Decompressed: 999
+[  1361.7s]   Downloaded: 6439 file(s) [attempted 6439/8653 = 74%, 481 KB/s], Decompressed: 999
+[  1361.8s]   Downloaded: 6486 file(s) [attempted 6486/8653 = 74%, 381 KB/s], Decompressed: 999
+[  1361.9s]   Downloaded: 6535 file(s) [attempted 6535/8653 = 75%, 655 KB/s], Decompressed: 999
+[  1362.0s]   Downloaded: 6567 file(s) [attempted 6567/8653 = 75%, 77 KB/s], Decompressed: 999
+[  1362.1s]   Downloaded: 6598 file(s) [attempted 6598/8653 = 76%, 305 KB/s], Decompressed: 999
+[  1362.2s]   Downloaded: 6642 file(s) [attempted 6642/8653 = 76%, 204 KB/s], Decompressed: 999
+[  1362.3s]   Downloaded: 6689 file(s) [attempted 6689/8653 = 77%, 845 KB/s], Decompressed: 999
+[  1362.4s]   Downloaded: 6717 file(s) [attempted 6717/8653 = 77%, 1573 KB/s], Decompressed: 999
+[  1362.5s]   Downloaded: 6752 file(s) [attempted 6752/8653 = 78%, 240 KB/s], Decompressed: 999
+[  1362.6s]   Downloaded: 6802 file(s) [attempted 6802/8653 = 78%, 147 KB/s], Decompressed: 999
+[  1362.7s]   Downloaded: 6851 file(s) [attempted 6851/8653 = 79%, 1785 KB/s], Decompressed: 999
+[  1362.9s]   Downloaded: 6886 file(s) [attempted 6886/8653 = 79%, 34 KB/s], Decompressed: 999
+[  1363.0s]   Downloaded: 6914 file(s) [attempted 6914/8653 = 79%, 55 KB/s], Decompressed: 999
+[  1363.2s]   Downloaded: 6965 file(s) [attempted 6965/8653 = 80%, 173 KB/s], Decompressed: 999
+[  1363.3s]   Downloaded: 7014 file(s) [attempted 7014/8653 = 81%, 161 KB/s], Decompressed: 999
+[  1363.5s]   Downloaded: 7061 file(s) [attempted 7061/8653 = 81%, 729 KB/s], Decompressed: 999
+[  1363.6s]   Downloaded: 7110 file(s) [attempted 7110/8653 = 82%, 42 KB/s], Decompressed: 999
+[  1363.7s]   Downloaded: 7160 file(s) [attempted 7160/8653 = 82%, 2086 KB/s], Decompressed: 999
+[  1363.8s]   Downloaded: 7192 file(s) [attempted 7192/8653 = 83%, 899 KB/s], Decompressed: 999
+[  1363.9s]   Downloaded: 7225 file(s) [attempted 7225/8653 = 83%, 315 KB/s], Decompressed: 999
+[  1364.1s]   Downloaded: 7274 file(s) [attempted 7274/8653 = 84%, 135 KB/s], Decompressed: 999
+[  1364.2s]   Downloaded: 7323 file(s) [attempted 7323/8653 = 84%, 1478 KB/s], Decompressed: 999
+[  1364.3s]   Downloaded: 7372 file(s) [attempted 7372/8653 = 85%, 88 KB/s], Decompressed: 999
+[  1364.4s]   Downloaded: 7408 file(s) [attempted 7408/8653 = 85%, 292 KB/s], Decompressed: 999
+[  1364.5s]   Downloaded: 7431 file(s) [attempted 7431/8653 = 85%, 295 KB/s], Decompressed: 999
+[  1364.6s]   Downloaded: 7480 file(s) [attempted 7480/8653 = 86%, 209 KB/s], Decompressed: 999
+[  1364.8s]   Downloaded: 7529 file(s) [attempted 7529/8653 = 87%, 167 KB/s], Decompressed: 999
+[  1364.9s]   Downloaded: 7578 file(s) [attempted 7578/8653 = 87%, 227 KB/s], Decompressed: 999
+[  1365.0s]   Downloaded: 7606 file(s) [attempted 7606/8653 = 87%, 96 KB/s], Decompressed: 999
+[  1365.1s]   Downloaded: 7649 file(s) [attempted 7649/8653 = 88%, 319 KB/s], Decompressed: 999
+[  1365.2s]   Downloaded: 7698 file(s) [attempted 7698/8653 = 88%, 355 KB/s], Decompressed: 999
+[  1365.4s]   Downloaded: 7722 file(s) [attempted 7722/8653 = 89%, 304 KB/s], Decompressed: 999
+[  1365.5s]   Downloaded: 7756 file(s) [attempted 7756/8653 = 89%, 1648 KB/s], Decompressed: 999
+[  1365.6s]   Downloaded: 7770 file(s) [attempted 7770/8653 = 89%, 117 KB/s], Decompressed: 999
+[  1365.7s]   Downloaded: 7810 file(s) [attempted 7810/8653 = 90%, 161 KB/s], Decompressed: 999
+[  1365.8s]   Downloaded: 7859 file(s) [attempted 7859/8653 = 90%, 138 KB/s], Decompressed: 999
+[  1366.0s]   Downloaded: 7908 file(s) [attempted 7908/8653 = 91%, 152 KB/s], Decompressed: 999
+[  1366.1s]   Downloaded: 7957 file(s) [attempted 7957/8653 = 91%, 103 KB/s], Decompressed: 999
+[  1366.2s]   Downloaded: 8007 file(s) [attempted 8007/8653 = 92%, 433 KB/s], Decompressed: 999
+[  1366.3s]   Downloaded: 8053 file(s) [attempted 8053/8653 = 93%, 27 KB/s], Decompressed: 999
+[  1366.4s]   Downloaded: 8093 file(s) [attempted 8093/8653 = 93%, 860 KB/s], Decompressed: 999
+[  1366.5s]   Downloaded: 8116 file(s) [attempted 8116/8653 = 93%, 861 KB/s], Decompressed: 999
+[  1366.6s]   Downloaded: 8163 file(s) [attempted 8163/8653 = 94%, 2098 KB/s], Decompressed: 999
+[  1366.7s]   Downloaded: 8210 file(s) [attempted 8210/8653 = 94%, 477 KB/s], Decompressed: 999
+[  1366.8s]   Downloaded: 8257 file(s) [attempted 8257/8653 = 95%, 665 KB/s], Decompressed: 999
+[  1366.9s]   Downloaded: 8304 file(s) [attempted 8304/8653 = 95%, 133 KB/s], Decompressed: 999
+[  1367.0s]   Downloaded: 8350 file(s) [attempted 8350/8653 = 96%, 26 KB/s], Decompressed: 999
+[  1367.1s]   Downloaded: 8397 file(s) [attempted 8397/8653 = 97%, 307 KB/s], Decompressed: 999
+[  1367.2s]   Downloaded: 8444 file(s) [attempted 8444/8653 = 97%, 378 KB/s], Decompressed: 999
+[  1367.3s]   Downloaded: 8488 file(s) [attempted 8488/8653 = 98%, 641 KB/s], Decompressed: 999
+[  1367.4s]   Downloaded: 8533 file(s) [attempted 8533/8653 = 98%, 72 KB/s], Decompressed: 999
+[  1367.5s]   Downloaded: 8567 file(s) [attempted 8567/8653 = 99%, 143 KB/s], Decompressed: 999
+[  1367.7s]   Downloaded: 8603 file(s) [attempted 8603/8653 = 99%, 458 KB/s], Decompressed: 999
+[  1367.9s]   Downloaded: 8624 file(s) [attempted 8624/8653 = 99%, 1423 KB/s], Decompressed: 999
+[  1367.9s]   Downloaded: 8652 file(s) [attempted 8652/8653 = 99%, 233 KB/s], Decompressed: 999
+[  1367.9s]   Downloaded: 8653 file(s) [attempted 8653/8653 = 100%, 233 KB/s], Decompressed: 999
+[  1400.0s] heartbeat
+[  1433.2s]   Decompressed 8653 file(s)
+[  1433.2s]   Already decompressed 8653 file(s)
+[  1433.3s] exit 0 after 201.6s
+[  1433.3s] $ lake build BForm.Main
+[  1450.0s] heartbeat
+[  1462.6s]   ✔ [8669/8676] Built BForm.Rank (17s)
+[  1470.9s]   ✔ [8670/8676] Built BForm.NormalForm (8.2s)
+[  1471.9s]   ✔ [8671/8676] Built BForm.Cost (9.2s)
+[  1472.3s]   ✔ [8672/8676] Built BForm.MJ (9.7s)
+[  1479.0s]   ✔ [8673/8676] Built BForm.CaseI (7.1s)
+[  1486.9s]   ✔ [8674/8676] Built BForm.YZero (7.9s)
+[  1495.3s]   ✔ [8675/8676] Built BForm.CaseII (8.4s)
+[  1500.0s] heartbeat
+[  1502.7s]   ✔ [8676/8676] Built BForm.Main (7.2s)
+[  1502.7s]   Build completed successfully (8676 jobs).
+[  1502.8s] exit 0 after 69.5s
+[  1502.8s] TARGET BForm.Main OK (max child RSS so far 7.2 GB)
+[  1502.8s] $ lake build BForm.E8h.ChecksProof
+[  1524.2s]   ✔ [8669/8673] Built BForm.E8h.Data (20s)
+[  1550.0s] heartbeat
+[  1600.0s] heartbeat
+[  1650.0s] heartbeat
+[  1700.0s] heartbeat
+[  1722.4s]   ✔ [8670/8673] Built BForm.E8.Data (210s)
+[  1730.1s]   ✔ [8671/8673] Built BForm.E8.Defs (7.8s)
+[  1736.2s]   ✔ [8672/8673] Built BForm.E8h.Checks (6.1s)
+[  1750.0s] heartbeat
+[  1779.4s]   ✔ [8673/8673] Built BForm.E8h.ChecksProof (43s)
+[  1779.4s]   Build completed successfully (8673 jobs).
+[  1779.4s] exit 0 after 276.6s
+[  1779.4s] TARGET BForm.E8h.ChecksProof OK (max child RSS so far 8.6 GB)
+[  1779.4s] $ lake build BForm.E8h.SpanChecksProof
+[  1788.3s]   ✔ [8023/8104] Built BForm.E8h.SpanData (7.6s)
+[  1797.2s]   ✔ [8674/8675] Built BForm.E8h.SpanChecks (6.7s)
+[  1800.0s] heartbeat
+[  1850.0s] heartbeat
+[  1872.1s]   ✔ [8675/8675] Built BForm.E8h.SpanChecksProof (74s)
+[  1872.1s]   Build completed successfully (8675 jobs).
+[  1872.1s] exit 0 after 92.7s
+[  1872.1s] TARGET BForm.E8h.SpanChecksProof OK (max child RSS so far 10.8 GB)
+[  1872.1s] $ lake build BForm.E8h.RootSpan0
+[  1900.0s] heartbeat
+[  1948.1s]   ✔ [8675/8675] Built BForm.E8h.RootSpan0 (66s)
+[  1948.1s]   Build completed successfully (8675 jobs).
+[  1948.1s] exit 0 after 76.0s
+[  1948.1s] TARGET BForm.E8h.RootSpan0 OK (max child RSS so far 10.8 GB)
+[  1948.1s] $ lake build BForm.E8h.RootSpan1
+[  1950.0s] heartbeat
+[  2000.0s] heartbeat
+[  2036.2s]   ✔ [8675/8675] Built BForm.E8h.RootSpan1 (78s)
+[  2036.2s]   Build completed successfully (8675 jobs).
+[  2036.3s] exit 0 after 88.2s
+[  2036.3s] TARGET BForm.E8h.RootSpan1 OK (max child RSS so far 10.8 GB)
+[  2036.3s] $ lake build BForm.E8h.RootSpan2
+[  2050.0s] heartbeat
+[  2100.0s] heartbeat
+[  2121.6s]   ✔ [8675/8675] Built BForm.E8h.RootSpan2 (74s)
+[  2121.6s]   Build completed successfully (8675 jobs).
+[  2121.6s] exit 0 after 85.3s
+[  2121.6s] TARGET BForm.E8h.RootSpan2 OK (max child RSS so far 10.8 GB)
+[  2121.6s] $ lake build BForm.E8h.RootSpan3
+[  2150.0s] heartbeat
+[  2200.0s] heartbeat
+[  2202.1s]   ✔ [8675/8675] Built BForm.E8h.RootSpan3 (69s)
+[  2202.1s]   Build completed successfully (8675 jobs).
+[  2202.1s] exit 0 after 80.5s
+[  2202.1s] TARGET BForm.E8h.RootSpan3 OK (max child RSS so far 10.8 GB)
+[  2202.1s] $ lake build BForm.E8h.D7Span0
+[  2250.0s] heartbeat
+[  2300.0s] heartbeat
+[  2350.0s] heartbeat
+[  2400.0s] heartbeat
+[  2450.0s] heartbeat
+[  2466.4s]   ✔ [8675/8675] Built BForm.E8h.D7Span0 (254s)
+[  2466.5s]   Build completed successfully (8675 jobs).
+[  2466.5s] exit 0 after 264.4s
+[  2466.5s] TARGET BForm.E8h.D7Span0 OK (max child RSS so far 10.8 GB)
+[  2466.5s] $ lake build BForm.E8h.D7Span1
+[  2500.0s] heartbeat
+[  2550.0s] heartbeat
+[  2600.0s] heartbeat
+[  2650.0s] heartbeat
+[  2700.0s] heartbeat
+[  2744.1s]   ✔ [8675/8675] Built BForm.E8h.D7Span1 (267s)
+[  2744.1s]   Build completed successfully (8675 jobs).
+[  2744.1s] exit 0 after 277.6s
+[  2744.1s] TARGET BForm.E8h.D7Span1 OK (max child RSS so far 10.8 GB)
+[  2744.1s] $ lake build BForm.E8h.D7Span2
+[  2750.0s] heartbeat
+[  2800.0s] heartbeat
+[  2850.0s] heartbeat
+[  2900.0s] heartbeat
+[  2950.0s] heartbeat
+[  3000.0s] heartbeat
+[  3008.4s]   ✔ [8675/8675] Built BForm.E8h.D7Span2 (253s)
+[  3008.4s]   Build completed successfully (8675 jobs).
+[  3008.4s] exit 0 after 264.3s
+[  3008.4s] TARGET BForm.E8h.D7Span2 OK (max child RSS so far 10.8 GB)
+[  3008.4s] $ lake build BForm.E8h.D7Span3
+[  3050.0s] heartbeat
+[  3100.0s] heartbeat
+[  3150.0s] heartbeat
+[  3200.0s] heartbeat
+[  3250.0s] heartbeat
+[  3281.0s]   ✔ [8675/8675] Built BForm.E8h.D7Span3 (262s)
+[  3281.1s]   Build completed successfully (8675 jobs).
+[  3281.1s] exit 0 after 272.7s
+[  3281.1s] TARGET BForm.E8h.D7Span3 OK (max child RSS so far 10.8 GB)
+[  3281.1s] $ lake build
+[  3300.0s] heartbeat
+[  3310.4s]   ✔ [8693/8705] Built BForm.E8h.SpanAll (10s)
+[  3312.9s]   ✔ [8694/8705] Built BForm.E8.Normal (13s)
+[  3315.5s]   ⚠ [8695/8705] Built BForm.E8h.Cert (15s)
+[  3315.5s]   warning: BForm/E8h/Cert.lean:65:23: this constant has no effect on the linear combination; it can be dropped from the term
+[  3325.4s]   ⚠ [8696/8705] Built BForm.E8.Bridge (12s)
+[  3325.4s]   warning: BForm/E8/Bridge.lean:64:0: automatically included section variable(s) unused in theorem `BForm.E8.frame_id`:
+[  3325.4s]     [CharZero K]
+[  3325.4s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[  3325.4s]     omit [CharZero K] in theorem ...
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:239:37: This simp argument is unused:
+[  3325.4s]     all_range
+[  3325.4s]   Hint: Omit it from the simp argument list.
+[  3325.4s]     [apply] simp only [ptOK, Bool.and_eq_true, beq_iff_eq, List.all_eq_true, List.any_eq_true, List.mem_range] at h
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:243:0: automatically included section variable(s) unused in theorem `BForm.E8.dotK_cast`:
+[  3325.4s]     [CharZero K]
+[  3325.4s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[  3325.4s]     omit [CharZero K] in theorem ...
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:247:0: automatically included section variable(s) unused in theorem `BForm.E8.pt_span`:
+[  3325.4s]     [CharZero K]
+[  3325.4s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[  3325.4s]     omit [CharZero K] in theorem ...
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:268:0: automatically included section variable(s) unused in theorem `BForm.E8.nOK_spec`:
+[  3325.4s]     [CharZero K]
+[  3325.4s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[  3325.4s]     omit [CharZero K] in theorem ...
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:268:8: Overlapping instance parameters in `nOK_spec`:
+[  3325.4s]   ⚠️ There are 2 `[CharZero K]` instances; one is sufficient.
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:303:0: automatically included section variable(s) unused in theorem `BForm.E8.cls_dot`:
+[  3325.4s]     [CharZero K]
+[  3325.4s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[  3325.4s]     omit [CharZero K] in theorem ...
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:303:30: Variable name `hp` is not explicitly referenced.
+[  3325.4s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[  3325.4s]     [apply] _hp
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[  3325.4s]   warning: BForm/E8/Bridge.lean:303:8: Overlapping instance parameters in `cls_dot`:
+[  3325.4s]   ⚠️ There are 2 `[CharZero K]` instances; one is sufficient.
+[  3325.4s]   Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+[  3334.1s]   ✔ [8697/8705] Built BForm.E8.Labels (8.5s)
+[  3334.4s]   ✔ [8698/8705] Built BForm.E8h.Refl (8.9s)
+[  3343.7s]   ✔ [8699/8705] Built BForm.E8h.LvEq (9.3s)
+[  3350.0s] heartbeat
+[  3351.8s]   ✔ [8700/8705] Built BForm.E8h.Dom (8.2s)
+[  3360.4s]   ⚠ [8701/8705] Built BForm.E8h.RootH (8.6s)
+[  3360.4s]   warning: BForm/E8h/RootH.lean:66:60: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+[  3360.4s]   Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[  3374.9s]   ⚠ [8702/8705] Built BForm.E8h.SpanH (14s)
+[  3374.9s]   warning: BForm/E8h/SpanH.lean:181:60: This simp argument is unused:
+[  3374.9s]     bne_iff_ne
+[  3374.9s]   Hint: Omit it from the simp argument list.
+[  3374.9s]     [apply] simp only [Bool.and_eq_true, beq_iff_eq, Bool.or_eq_true, ne_eq] at h2
+[  3374.9s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[  3374.9s]   warning: BForm/E8h/SpanH.lean:181:72: This simp argument is unused:
+[  3374.9s]     ne_eq
+[  3374.9s]   Hint: Omit it from the simp argument list.
+[  3374.9s]     [apply] simp only [Bool.and_eq_true, beq_iff_eq, Bool.or_eq_true, bne_iff_ne] at h2
+[  3374.9s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[  3374.9s]   warning: BForm/E8h/SpanH.lean:203:29: Variable name `ha` is not explicitly referenced.
+[  3374.9s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[  3374.9s]     [apply] _ha
+[  3374.9s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[  3374.9s]   warning: BForm/E8h/SpanH.lean:203:44: Variable name `hb` is not explicitly referenced.
+[  3374.9s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[  3374.9s]     [apply] _hb
+[  3374.9s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[  3382.5s]   ✔ [8703/8705] Built BForm.E8h.FinalH (7.5s)
+[  3389.1s]   ✔ [8704/8705] Built BForm (6.4s)
+[  3389.1s]   Build completed successfully (8705 jobs).
+[  3389.1s] exit 0 after 108.1s
+[  3389.1s] $ lake env lean BForm/E8h/AxiomsH.lean
+[  3397.5s]   'BForm.E8h.rootFact_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+[  3397.5s]   'BForm.E8h.spanFact_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+[  3397.5s]   'BForm.E8h.bform_floor_P104_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+[  3397.8s] exit 0 after 8.7s
+[  3397.8s] LEAN BUILD OK
+[  3397.8s] $ rm -rf /tmp/repo/research/p104-bform-hand-closures/lean/.lake
+[  3400.0s] heartbeat
+[  3402.7s] exit 0 after 4.9s
+[  3402.7s] DONE p104-bform-hand-pkg

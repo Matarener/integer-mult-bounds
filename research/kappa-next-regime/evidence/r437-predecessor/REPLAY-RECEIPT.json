@@ -1,0 +1,186 @@
+{
+  "status": "PASS_COLD_REPLAY_CANONICAL_WORD_ACTUAL_PROGRAM_FULL_INVOICE_AND_BIT_RECORD",
+  "at_utc": "2026-10-19T08:32:35.919410+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "seconds": 68.458681807002,
+  "commands": [
+    {
+      "script": "code/generate.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold"
+      ],
+      "exit_code": 0,
+      "seconds": 0.24682338799902936
+    },
+    {
+      "script": "vendor/xcheck_p.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/WORD.json.gz",
+        "--json",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/UPSTREAM-XCHECK.json"
+      ],
+      "exit_code": 0,
+      "seconds": 1.3733203369993134
+    },
+    {
+      "script": "code/word_audit.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold"
+      ],
+      "exit_code": 0,
+      "seconds": 1.2735968820052221
+    },
+    {
+      "script": "code/catalog_check.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold"
+      ],
+      "exit_code": 0,
+      "seconds": 0.16267149399936898
+    },
+    {
+      "script": "code/source_history_scope.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold"
+      ],
+      "exit_code": 0,
+      "seconds": 0.12633553599880543
+    },
+    {
+      "script": "vendor/export_records.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/WORD.json.gz",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/records"
+      ],
+      "exit_code": 0,
+      "seconds": 0.5393182459956734
+    },
+    {
+      "script": "code/local_counter.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold"
+      ],
+      "exit_code": 0,
+      "seconds": 0.189910303997749
+    },
+    {
+      "script": "vendor/global_k.py",
+      "arguments": [
+        "--word",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/WORD.json.gz",
+        "--local-check",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold",
+        "--out",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/nine",
+        "--isometries",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018/data/residual-isometries.json",
+        "--no-banks",
+        "--stages",
+        "9",
+        "--replicas",
+        "32"
+      ],
+      "exit_code": 0,
+      "seconds": 1.4609729239964508
+    },
+    {
+      "script": "code/match.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold"
+      ],
+      "exit_code": 0,
+      "seconds": 0.43568808100098977
+    },
+    {
+      "script": "vendor/emit_k.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/nine",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/hosted",
+        "--selection",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/SELECTION.json",
+        "--key",
+        "bit",
+        "--host-all",
+        "--depth",
+        "2",
+        "--version-tag",
+        "r437-public470-plus-464GL"
+      ],
+      "exit_code": 0,
+      "seconds": 22.560196200000064
+    },
+    {
+      "script": "vendor/audit_hosted_k.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/hosted",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/HOSTING-AUDIT.json"
+      ],
+      "exit_code": 0,
+      "seconds": 36.30833644900122
+    },
+    {
+      "script": "vendor/assemble9.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/hosted",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/HOSTING-AUDIT.json",
+        "/workspace/scratch/1a12211da438/evaluation/integer-mult-bounds/research/kappa-next-regime/sources/PR3647/research/bit-p111-r437-gl464-470-20261018",
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold/ASSEMBLY-BIT-AND-HISTORICAL-CONTROL.json",
+        "pr548"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3032307169996784
+    },
+    {
+      "script": "code/invoice_audit.py",
+      "arguments": [
+        "/workspace/scratch/1a12211da438/kappa-next-r437-cold"
+      ],
+      "exit_code": 0,
+      "seconds": 3.4586431150019052
+    }
+  ],
+  "word_content_sha256": "da77deaf11368d016622348227657b98404b6afbc7e4f3d6fe9a246baae0dcce",
+  "program_sha256": "a777373994bd84681d6c2be75251ba6a04a1521580910f23afe09bb50db632b2",
+  "BIT_c": "1736646042038446578551/1000000000000000000000000",
+  "whole_kappa_changed": false,
+  "hosted_CI": false,
+  "scope": "Conditional finite supplier under unchanged selected all-size/SOURCE/field/PR442 interfaces; no unconditional multiplication theorem.",
+  "outputs": {
+    "06-local_counter.log": "0153e010e66ec865651d06aecef87a2d47e49523970e1648d12542d2103d36de",
+    "12-invoice_audit.log": "d16abacc05f46aafb0611e213680a2133016eee84888152defeecbe2078b3f2e",
+    "04-source_history_scope.log": "f8fb89cba1647bb9bc88b335b4eb3bd345a33ea4bd80db6f18e904cd2d333bd7",
+    "RESULT.json": "33f202f250e3af57b056ca45a28b43f27f32ad1609ea01413398019e525f7cb3",
+    "10-audit_hosted_k.log": "5c443c3a24f191555b2e3ed5ff51d05fbb94aba47f52d489a9761f1847c9149a",
+    "CATALOG-RESULT.json": "8e7186ded25dde9b55c62a6a224354f99726d4f4c140264a641fc43aaaf47312",
+    "00-generate.log": "031f10da29eee5bdff8bb7135153e453da54354ce7ad9cd3a2b141ac607437c2",
+    "HOSTING-AUDIT.json": "fa6db9fe44abe977228c31cbda9dbc3e74feec84c4bc99491a23d7c9b63abc0b",
+    "UPSTREAM-XCHECK.json": "17a88e4845aa298adb2f441f571c52d0ea2a98abb8894b0cebb164cd20b59c48",
+    "02-word_audit.log": "4ccb73d93e12ced60552db06953ae9dec1af880eab66c4a90bd0b9538373f037",
+    "MATCHING.json": "9263e7a0a5edfe131316597ae2ac734e3659912549c8e2b4e60c247551f544d5",
+    "ASSEMBLY-BIT-AND-HISTORICAL-CONTROL.json": "ff2a1b474d90b57546c2d47cbe4b353ed8cb3d5cd1c52bcc6dc9b7181457de82",
+    "INVOICE-INDEPENDENT.json": "bea887bd124c10d36091ca24955f4cd66162c56439292b34c22d377f887a7053",
+    "SOURCE-HISTORY-SCOPE.json": "4f30906e5f4f69cee907073669d7b4474806079e9ac0a1702780f3cc8817e2c8",
+    "05-export_records.log": "e97c913a295a70dc03d6c7dacdf0264cee6e02320b4e39f5d82b2ddef0a5f0da",
+    "07-global_k.log": "456ea34da650b170c42b31dc152aadc24eaadd9cbe42a8db6cc83c56bf52d108",
+    "08-match.log": "9263e7a0a5edfe131316597ae2ac734e3659912549c8e2b4e60c247551f544d5",
+    "11-assemble9.log": "095316352a9c7bb54d42eaf0ed138127a3501ba4706b0869d5f513f2e9c76b0d",
+    "WORD.json.gz": "e432182d5b62c8bbefeb871fce30317234d707e5e18d4295e65ac21f7fd8365e",
+    "SELECTION.json": "bbcfa766b1236d037cbf43e98c6f135161edab4cff1a0bcd36217e0eaa0260d5",
+    "03-catalog_check.log": "23bedc8890b2382ea8a74c65090e7229f13ccfd18b59fff6952bee66940d3511",
+    "09-emit_k.log": "efb3814778715ae7f355e58ea34ceb6cf7812d9c5ed4da5355e007e1dc601bd5",
+    "01-xcheck_p.log": "42187339c1090886b3986a0c9dec2bc3fb8f0150052594e9119117319101a406",
+    "records/frames.json": "d006b3bfe0c04afecfea7aecfa59dfe4298b99501c70da3938e40289bc2f5010",
+    "records/249-records.bin": "caeb2eb0e417992788c32c1f5812ada60b46d1dfdba9f4ac376299b2dede13cb",
+    "records/249-states.json": "434309bb40829a4fd4afaa84f8b999a85ed0edf02d1317716a6d85465e5bc258",
+    "hosted/GLOBAL.json": "e6dabf26290fc98c81d32d73b12a66b0ac920457d469915b9fcb83f311b9cac9",
+    "hosted/GLOBAL-TEMPLATE.json.gz": "08b7d766d3b545bc1d10f3300703d7a5280712451c2231940e99ccd35038ea79",
+    "nine/GLOBAL.json": "b3bf6cd7e9ba7fdda8fe383be4c8dd9790b4cea4398dd7a6a25fb81fa0a00bb4",
+    "nine/GLOBAL-TEMPLATE.json.gz": "e12626df641c8e30e217d46b8e2105ee7b9b81abdcd680b0ff3738fb1064193e",
+    "nine/GEOMETRY.json": "b9ed0e5e0084dcd285f33bfc71aab833ddcfa1062bd80c9c83da8244276d6830",
+    "cout/legality.json": "43ed3518ce16b078ed76729353019c90ef52ddd12970aca017466c8403269c24",
+    "cout/columns.json": "3fd05b8b5488f65b10c5328660a64ed3fc03021deef6f46669325af764d340d7"
+  }
+}

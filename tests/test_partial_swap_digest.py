@@ -14,9 +14,10 @@ PACKAGE = ROOT / "research" / "partial-swap-digest"
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from partial_swap import shared as production  # noqa: E402
+from partial_swap.graph import graph  # noqa: E402
 
 ORIGINAL_SHA256 = "81e9af92cdf38243a540cdcff2062778e449467848d444da37a9553c12ca4c34"
-OPTIMIZED_SHA256 = "7290bd639600aecff11941d3faf95c9ce95589125cc6a7f7440fb86af7a0f17c"
+OPTIMIZED_SHA256 = "5a0646a50b9f3e8ea55168620a78e8853b0ab810517cefc8cfb8696aedee278a"
 
 
 def load_baseline():
@@ -73,6 +74,30 @@ class PartialSwapDigestTests(unittest.TestCase):
                 self.baseline.SharedPointCircuit.verify(circuit),
                 circuit.verify(),
             )
+
+    def test_retained_total_receipts_match(self):
+        # graph() adds an empty-exclusion local output, lifted to (common,).
+        for h in (6, 8, 10, 25):
+            with self.subTest(h=h):
+                circuit = graph(h)
+                self.assertEqual(sum(len(t) == 1 for _, t in circuit.outputs), h)
+                receipt = circuit.verify()
+                self.assertEqual(self.baseline.SharedPointCircuit.verify(circuit), receipt)
+                if h == 25:
+                    frozen = json.loads((ROOT / "research/copied-fixed-reversed/producer-input-25.json").read_text())
+                    self.assertEqual(receipt, frozen["scalar"])
+
+    def test_wrong_retained_total_rejected(self):
+        circuit = graph(8)
+        key = next(key for key in circuit.outputs if len(key[1]) == 1)
+        common = key[0]
+        # A proper excluded-pair sum cannot replace the full retained total.
+        circuit.outputs[key] = next(node for (c, t), node in circuit.outputs.items()
+                                    if c == common and len(t) == 3)
+        with self.assertRaises(AssertionError):
+            circuit.verify()
+        with self.assertRaises(AssertionError):
+            self.baseline.SharedPointCircuit.verify(circuit)
 
     def test_support_rejection_preserved(self):
         circuit = production.SharedPointCircuit(8)

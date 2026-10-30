@@ -1,0 +1,252 @@
+{
+  "status": "PASS_SCOPED_PORTABLE_REPLAY",
+  "scope": "Finite local native operators, exact complete cost arithmetic, physical owner audit, and a finite terminal inverse. No new kappa, selected certificate, all-size supplier, or full uniform precision/tape admission.",
+  "manifest_sha256": "43b8ff053e4fc63586ecdbf78d701c9b81c53d102de3d23754a12d8fe7521d22",
+  "started_utc": "2026-10-18T23:18:35.727457+00:00",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "assertions_enabled": true,
+    "isolated_bytecode_cache": true
+  },
+  "authenticated_files": 130,
+  "commands": [
+    {
+      "name": "modern_native",
+      "script": "recovered-involutory/modern_native_component.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/modern_native_component.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "f6769f1ecd6b2e582748805b3afcf4c65824ba108ce7f23a4d011c45f8b724de",
+      "exit_code": 0,
+      "elapsed_seconds": 8.646,
+      "log": "replay-logs/modern_native.log",
+      "log_sha256": "2c0d4b3920e0ff062ed9e327ce26d993d9e433f9418daf9a1e67b770e6d4b066",
+      "stdout_and_stderr": "PASS_MODERN_INVOLUTION_LOCAL_NATIVE_BOUNDARIES base columns=632 helpers=408 zero_buffers=91 native_line_columns=8192 mass=5078 scalar_primitives=179900\nPASS_MODERN_INVOLUTION_LOCAL_NATIVE_BOUNDARIES extra columns=632 helpers=408 zero_buffers=91 native_line_columns=8192 mass=5078 scalar_primitives=179900\n"
+    },
+    {
+      "name": "baseline_outer_and_symmetric",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/baseline/replay.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/baseline/replay.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "dc04e06291eb2f94149d72492932e9491976bffb06d26e738953b2adc633ce35",
+      "exit_code": 0,
+      "elapsed_seconds": 42.868,
+      "log": "replay-logs/baseline_outer_and_symmetric.log",
+      "log_sha256": "8b13f6dea360654927f262bdd095d553655ec20ad57183907fddceb332ad6613",
+      "stdout_and_stderr": "PASS audit.py\nPASS review_native.py\nPASS symmetric_extended.py\nPASS complete_contract_budget.py\nPASS_SCOPED_BASELINE_AND_LOCAL_COMPONENT_REPLAY\n"
+    },
+    {
+      "name": "rational_inverse",
+      "script": "recovered-involutory/rational_inverse_component.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/rational_inverse_component.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "a172f70fbe8736dbb9d53f420c199ffd0ec495df0453c41481f6fd7d0cbb0604",
+      "exit_code": 0,
+      "elapsed_seconds": 8.174,
+      "log": "replay-logs/rational_inverse.log",
+      "log_sha256": "4e72aa1ae11fba5896a45b399d764b6628c14d64cc05164b2d353a13676b1a39",
+      "stdout_and_stderr": "PASS_RATIONAL_LOCAL_COMPONENT base columns=632 mass=5070 new_H1=0 scalar=173532 backward_real_div13=16\nPASS_RATIONAL_LOCAL_COMPONENT extra columns=632 mass=5070 new_H1=0 scalar=173532 backward_real_div13=16\n"
+    },
+    {
+      "name": "retained_controller",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/controller/check_controller.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/controller/check_controller.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "ca47061ee90e5aadd971ab672a52735d1eb3b695459751121d0c7693ac9315a5",
+      "exit_code": 0,
+      "elapsed_seconds": 7.929,
+      "log": "replay-logs/retained_controller.log",
+      "log_sha256": "c5214992c49bd1781dcf042b3e84b845e198a20b26b25686b92241490bb3dc1e",
+      "stdout_and_stderr": "PASS_CONTROLLER_AND_DIRTY_RETENTION: nine ordered bank factors, zero factors supported only in physical FULL banks; both PR3734 words, 632 columns, 8 added ADDs, mass5078, scalar179964; no supplier/kappa admission.\n"
+    },
+    {
+      "name": "dirty_core_pair",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/controller/dirty_core_component.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/controller/dirty_core_component.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "4b2df5766fc0b445e7116ecb0e177f7fb5a99c2156290b847d9a8394a8f33dfa",
+      "exit_code": 0,
+      "elapsed_seconds": 10.928,
+      "log": "replay-logs/dirty_core_pair.log",
+      "log_sha256": "e4895bdb85cd199ebb3d07cf72c53fe6df7a9a92975380f2b42e4b635d808aa5",
+      "stdout_and_stderr": "PASS_ZERO_REPAIR_PAIRED_DIRTY_CORE: both orientations and actual providers; 632 columns; profile5070; no supplier/kappa admission.\n"
+    },
+    {
+      "name": "physical_owner_audit",
+      "script": "integer-mult-bounds/research/kappa-consumer-followup/controller/check_retention_owners.py",
+      "argv": [
+        "python3",
+        "-B",
+        "integer-mult-bounds/research/kappa-consumer-followup/controller/check_retention_owners.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "6b57bf69a80726dcb573a5c18d697c9a30db65a9d39d8cdac39d5a1602cfe47c",
+      "exit_code": 0,
+      "elapsed_seconds": 5.708,
+      "log": "replay-logs/physical_owner_audit.log",
+      "log_sha256": "5bad3e75529c81c3e41af86a4b2ab1e93cdac3334b27b12c03d0a3731add2d13",
+      "stdout_and_stderr": "PASS_ACTUAL_T360_RETENTION_OWNER_SCREEN: 1321920 parent roles, 25920 selected trajectories; no unchanged nine-stage retained bank admitted.\n"
+    },
+    {
+      "name": "independent_symmetric_review",
+      "script": "recovered-involutory/review_symmetric_extension.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/review_symmetric_extension.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "ca1125141a609f29ee40643c863b8a988c08417c918dbe792016158eba40abfa",
+      "exit_code": 0,
+      "elapsed_seconds": 38.523,
+      "log": "replay-logs/independent_symmetric_review.log",
+      "log_sha256": "dbabbdf354057607ea74069039ec63a9182e98a9e778a28d5a6ef3944b06c082",
+      "stdout_and_stderr": "PASS_SYMMETRIC_EXTENDED base forward columns632 data256 helpers376 rank5070 prefixbits 124\nPASS_SYMMETRIC_EXTENDED base backward columns632 data256 helpers376 rank5070 prefixbits 128\nPASS_SYMMETRIC_EXTENDED extra forward columns632 data256 helpers376 rank5070 prefixbits 124\nPASS_SYMMETRIC_EXTENDED extra backward columns632 data256 helpers376 rank5070 prefixbits 128\nPASS_FINITE_SYMMETRIC_128_PORT_COMPONENT\nPASS_FOCUSED_SYMMETRIC_EXTENSION_REVIEW\n"
+    },
+    {
+      "name": "terminal_decoder",
+      "script": "recovered-involutory/terminal_native_decoder.py",
+      "argv": [
+        "python3",
+        "-B",
+        "recovered-involutory/terminal_native_decoder.py"
+      ],
+      "cwd": "integer-mult-bounds",
+      "source_sha256": "9c6d634fc8c9b4e7a3fc075c65f9992c748644a1bbec0c2096f1ea52abee1e4f",
+      "exit_code": 0,
+      "elapsed_seconds": 10.462,
+      "log": "replay-logs/terminal_decoder.log",
+      "log_sha256": "8464e566aeb95052ef1e940bfc5da46093908812819344ce669d266e161b0be4",
+      "stdout_and_stderr": "PASS_NATIVE_TERMINAL_DECODER base lines=896 exact_line_columns=114688 phase_identities=4032\nPASS_NATIVE_TERMINAL_DECODER extra lines=896 exact_line_columns=114688 phase_identities=4032\n"
+    }
+  ],
+  "regenerated_artifacts": [
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/baseline/symmetric-extended-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/baseline/symmetric-extended-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-BACKWARD-base.json.gz",
+      "canonical_json_sha256": "d954be6827589326bc9a0e4fda2e4d18a72a3f89d108a22906d781c2d1961f59",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-BACKWARD-extra.json.gz",
+      "canonical_json_sha256": "d954be6827589326bc9a0e4fda2e4d18a72a3f89d108a22906d781c2d1961f59",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-FORWARD-base.json.gz",
+      "canonical_json_sha256": "0daef2b22a6c76abd6c982c49c220ec4e442785bb379c22ad01c4c12893d355b",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/DIRTY-CORE-FORWARD-extra.json.gz",
+      "canonical_json_sha256": "0daef2b22a6c76abd6c982c49c220ec4e442785bb379c22ad01c4c12893d355b",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/RETAINED-OWNER-TRAJECTORIES.json.gz",
+      "canonical_json_sha256": "9044fc4704318f0f87fb746f0b75af9d88eac288ccc355e7d99d480eb3b5839c",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/RETAINED-PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "f2b62df291c188dd24949f63159abb64a8ec1c59999ed720e9767ac6e66f16bf",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "integer-mult-bounds/research/kappa-consumer-followup/controller/evidence/RETAINED-PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "f2b62df291c188dd24949f63159abb64a8ec1c59999ed720e9767ac6e66f16bf",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/modern-native-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "766f39fad69fd5a4e87ebd7a74284997f2ef8869203d9e676d55307738e7a60d",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/modern-native-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "766f39fad69fd5a4e87ebd7a74284997f2ef8869203d9e676d55307738e7a60d",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/rational-inverse-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "9a02686a90038709b1d382f57c0c94f9309746cb43caea6bbcf0fb1dae88304c",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/rational-inverse-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "9a02686a90038709b1d382f57c0c94f9309746cb43caea6bbcf0fb1dae88304c",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/symmetric-extension-review/symmetric-extended-results/PROGRAMS-base.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/symmetric-extension-review/symmetric-extended-results/PROGRAMS-extra.json.gz",
+      "canonical_json_sha256": "ca72b8ded2b12a842b3781cc6741084eb7136d20480d0a597e563eca776d85a3",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/terminal-native-results/DECODER-base.json.gz",
+      "canonical_json_sha256": "88da0634351816dac293c9b958dd1fdac85e1c9558effcb1d8794f5700185a65",
+      "matches_delivered_payload": true
+    },
+    {
+      "path": "recovered-involutory/terminal-native-results/DECODER-extra.json.gz",
+      "canonical_json_sha256": "88da0634351816dac293c9b958dd1fdac85e1c9558effcb1d8794f5700185a65",
+      "matches_delivered_payload": true
+    }
+  ],
+  "elapsed_seconds": 134.396,
+  "finished_utc": "2026-10-18T23:20:50.123545+00:00",
+  "integration_review": {
+    "status": "ACCEPTED_SCOPED_CLAIMS",
+    "review": "Separate AI review of final README and verifier; no additional mathematical replay claimed by that review.",
+    "readme_sha256": "65d2e21de2e5f0ef937872f5050ea4322caffa0b63a5cc4b080dac51e5256c51",
+    "verifier_sha256": "e1367e71cfa86b6881892ca28e27b72f76e09cce3beeabbb705ed579522df701",
+    "checked": [
+      "fixed-m tariff normalization",
+      "m81 changed-dimension assumptions",
+      "eight-command coverage",
+      "17 canonical proof-payload comparisons",
+      "finite versus complete supplier scope"
+    ]
+  },
+  "final_delivery_authentication": {
+    "status": "PASS_EXACT_SOURCE_EXPORT_AUTHENTICATION",
+    "manifest_sha256": "ffe88f38232d3825b3380fc65ef65862193530cb442d86847d8c49eceffe201f",
+    "authenticated_files": 131,
+    "mathematical_replay_files_identical_to_original_run": true,
+    "change_since_replay": "Added package-specific Git attributes to preserve pinned source bytes under checkout. All130 previously authenticated files and all17 proof payloads are unchanged. No mathematical replay was repeated for this packaging-only change."
+  }
+}

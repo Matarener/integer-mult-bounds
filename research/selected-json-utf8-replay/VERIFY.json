@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/verify_selected_result.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Source-pinned selected JSON locale failure, unchanged-source UTF-8 workaround, temporary explicit-read repair, raw-byte corruption controls and native cp1252 corroboration where available."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "The same audit with an optimized driver; source-checker child processes deliberately retain assertions and explicitly selected UTF-8 modes."
+    }
+  ]
+}

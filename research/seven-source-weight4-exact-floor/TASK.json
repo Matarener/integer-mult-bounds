@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independent audit of PR #4079 (head 39a1fd620d1c702b72ab080ec11b090ea9ce98b7) and exact complete-call minimum for the 98 nonzero seven-source masks of weight <= 4 in the fixed dirty F2 connector contract.",
+  "scope_change_reason": "PR #4079 had no independent check; its verifier did not replay the L=16 maximum or the 14-event (4,2^5) projection ceiling behind its L=18 exclusion. Extending its census by one length settles its open question and corrects the stated floor from 216 to the exact 218.",
+  "bottleneck_link": "Side result in the excluded fixed connector alphabet; it changes no supplier, interface price or kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the exact minimum is bracketed: all L<=20 profiles excluded, an L=22 cover exhibited, and the cost floor checked with any even readout count per mask.",
+  "outcome": "completed",
+  "evidence": "verify.py (stdlib, about 2 s) recomputes the 48/56 and 54/56 projection ceilings and the L=14 census, matching native histograms, and checks all witnesses and the floor arithmetic. run_census.py --check rebuilds CENSUS.json byte-identically from census.c (about 1.5 min).",
+  "author": "Nick Petalas",
+  "ai_assistance": "Substantial AI assistance for the enumerators, verifier and text.",
+  "open_questions": [
+    {
+      "question": "Does a second native implementation reproduce the (4,4,4,2^4) length-20 exclusion (max 95/98 over 41,550,720 lifts)?",
+      "why_it_matters": "The L=20 step, and so the 218 floor, rests on one implementation.",
+      "first_step": "Project two 4-sources away (5-source (4,2^4), 51,975 classes), keep full-30 words and lift twice.",
+      "blocked_by": "None."
+    },
+    {
+      "question": "Does any package rely on PR #4079's 216-call floor?",
+      "why_it_matters": "The floor is 218, so a downstream comparison using 216 would be off by two calls.",
+      "first_step": "Run the overlap search for seven-source weight-<=4 connector work.",
+      "blocked_by": "None."
+    }
+  ]
+}

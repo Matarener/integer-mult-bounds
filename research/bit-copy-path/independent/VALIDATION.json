@@ -1,0 +1,37 @@
+{
+  "status": "PASS_INDEPENDENT_COPY_PATH_NORMAL_OPTIMIZED_GIT_FREE_AND_CONTROL_SENSITIVITY",
+  "checker": "review_check.py",
+  "checker_sha256": "66f19765e975bc98e2b62ed2ce1a91a951c86f6a96682e8fc4f036353855aaba",
+  "receipt": "review-result.json",
+  "receipt_sha256": "00ca7891a5758e5c82b11149fb0f2c145ce814c70c8424d686395aa0dcfca171",
+  "runs": [
+    {
+      "environment": "owned checkout",
+      "python": "3.14",
+      "modes": ["-I -B", "-I -B -O"],
+      "byte_identical": true
+    },
+    {
+      "environment": "temporary Git-free package containing only checker and its six pinned inputs",
+      "python": "3.12.12",
+      "modes": ["-I -B", "-I -B -O"],
+      "byte_identical_to_checkout": true
+    }
+  ],
+  "disabled_guard_controls": [
+    {
+      "disabled_expression": "need(rows == expected, \"complete original binary endpoint\")",
+      "result": "unexpected acceptance: omitted actual private read",
+      "nonzero_exit_required": true
+    },
+    {
+      "disabled_expression": "need(0 in matrix[3], \"native witness code edge\")",
+      "result": "unexpected acceptance: delete native witness edge",
+      "nonzero_exit_required": true
+    }
+  ],
+  "producer_checkers_executed_by_independent_checker": false,
+  "formal_kernel_proof": false,
+  "physical_supplier_admission": false,
+  "new_kappa": false
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--quick"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source hashes, full candidate regeneration, exact arbitrary-input/frame replay and unchanged productive targets."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Dense transpose, every signed native map/global phase, full caller, two exact moment engines, complete compiler/BIT stock/58 outer conditions and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/audit.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separately implemented three-column A2 identity, complete scalar-word delta, fixed boundaries and exact child-profile change."
+    }
+  ]
+}

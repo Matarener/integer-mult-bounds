@@ -1,0 +1,176 @@
+{
+  "status": "PASS_CRT_SHARED_ROW_BANKS",
+  "claim_type": "scoped construction and composition proof",
+  "implementation_sha256": {
+    "shared.py": "058da49c5270076753953ba231e4a858d0981fa3b388e9183f62bb7eace5eb02",
+    "verify.py": "843f1e8dc11db825867b8927d64b2c558fabb768c79001036bb1b104552e3022",
+    "SOURCES.json": "95a9df81a00290e8dfe4369a0eeffcb1721887ae706f1a15ecfb892733e4b1d6"
+  },
+  "case": {
+    "rows": 10,
+    "active_rows": 6,
+    "producer_calls": 12,
+    "precision": 11,
+    "height": 2,
+    "bank_roles": 52,
+    "bank_cells": 3084,
+    "distinct_bank_baseline_cells": 24314,
+    "shared_bank_cells": 8894,
+    "saved_cells": 15420,
+    "trace": [
+      {
+        "row": 0,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 4051
+      },
+      {
+        "row": 1,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 4051
+      },
+      {
+        "row": 2,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 0,
+        "row_backing_cells": 0
+      },
+      {
+        "row": 3,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 0,
+        "row_backing_cells": 0
+      },
+      {
+        "row": 4,
+        "state": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 4051
+      },
+      {
+        "row": 4,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 4051
+      },
+      {
+        "row": 3,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 0,
+        "row_backing_cells": 0
+      },
+      {
+        "row": 2,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 0,
+        "row_backing_cells": 0
+      },
+      {
+        "row": 1,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 4051
+      },
+      {
+        "row": 0,
+        "state": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 4051
+      }
+    ]
+  },
+  "mixed_height_control": {
+    "rows": 2,
+    "active_rows": 2,
+    "producer_calls": 4,
+    "precision": 11,
+    "height": 3,
+    "bank_roles": 52,
+    "bank_cells": 9086,
+    "distinct_bank_baseline_cells": 20127,
+    "shared_bank_cells": 11041,
+    "saved_cells": 9086,
+    "trace": [
+      {
+        "row": 1,
+        "state": [
+          1,
+          4,
+          7,
+          3
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 10059
+      },
+      {
+        "row": 1,
+        "state": [
+          1,
+          4,
+          7,
+          3
+        ],
+        "producer_calls": 2,
+        "row_backing_cells": 10059
+      }
+    ]
+  },
+  "controls": [
+    "overlapping_lease",
+    "wrong_release",
+    "dirty_historical_tail",
+    "changed_extent",
+    "source_drift"
+  ]
+}

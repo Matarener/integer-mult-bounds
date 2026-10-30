@@ -1,0 +1,126 @@
+{
+ "command": "python3 tools/gate_disable_demo.py OWNERS_DIR LITERAL_DIR NATIVE_DIR PYTHON REPO WORK_DIR (run twice, with identical results)",
+ "conclusion": "Every variant exits 0 with PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE and reports the same five controls: the controls do not detect a disabled gate. The unmodified run reproduces PR3633's owner audit on this machine (roles 1791936, idle {1:114192,3:31842,5:6954,48:186782}, physical 437757).",
+ "inputs": {
+  "environment": "Linux x86_64, CPython 3.14.4, numpy 2.5.4",
+  "literal_dir": "FILL/ORDER/DISPATCH/PROFILE from PR3633 owners/portable_expand.py (FILL payload sha256 20662cc64df34cab409fdf31ed0f0222462530922a01308a46964d661d2374cf; FILL.json.gz sha256 a93f1baa8d1a2eda216fff54708ef6a32586428cbb9ccf5f75fb053e290b7050, equal to PR3633 EXPECTED literal_files)",
+  "native_dir": "checked-{base,extra}/CANONICAL-WORD.json.gz = this machine's fresh native rebuild with gzip byte 9 set to 0x13; sha256 equal to PR3633 SOURCE-PINS native_canonical (b87f174c..., 8276f3d7...)"
+ },
+ "label": "LOCAL-ONLY evidence (not replayed by verify.py or CI): PR3633 code run as the object under study",
+ "method": "tools/gate_disable_demo.py: each variant copies owners/ and replaces the condition of one need(...) gate (identified by its exact message) with True; the copy's ARTIFACTS.json self-pin is updated; nothing else changes. Variants: original, each of the five gates the controls are named after, and all five at once.",
+ "object": {
+  "commit": "72c268f113368ea0387d188225e3f81ba6d6ef73",
+  "path": "research/staged-width-t488/owners/independent_literal.py",
+  "pr": 3633,
+  "sha256": "8517c0d6c7cbe73438885135ac7fd9781dd5120113c9721002346dca603f5ed9"
+ },
+ "results": [
+  {
+   "controls_reported": [
+    "duplicate helper",
+    "strict lower endpoint used as available",
+    "same-call family reused",
+    "unpaid chronological hole",
+    "one unpaid rank1 child"
+   ],
+   "disabled_gates": [],
+   "exit_code": 0,
+   "status": "PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE",
+   "variant": "original"
+  },
+  {
+   "controls_reported": [
+    "duplicate helper",
+    "strict lower endpoint used as available",
+    "same-call family reused",
+    "unpaid chronological hole",
+    "one unpaid rank1 child"
+   ],
+   "disabled_gates": [
+    "helper_identity"
+   ],
+   "exit_code": 0,
+   "status": "PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE",
+   "variant": "no-helper_identity"
+  },
+  {
+   "controls_reported": [
+    "duplicate helper",
+    "strict lower endpoint used as available",
+    "same-call family reused",
+    "unpaid chronological hole",
+    "one unpaid rank1 child"
+   ],
+   "disabled_gates": [
+    "window"
+   ],
+   "exit_code": 0,
+   "status": "PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE",
+   "variant": "no-window"
+  },
+  {
+   "controls_reported": [
+    "duplicate helper",
+    "strict lower endpoint used as available",
+    "same-call family reused",
+    "unpaid chronological hole",
+    "one unpaid rank1 child"
+   ],
+   "disabled_gates": [
+    "family"
+   ],
+   "exit_code": 0,
+   "status": "PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE",
+   "variant": "no-family"
+  },
+  {
+   "controls_reported": [
+    "duplicate helper",
+    "strict lower endpoint used as available",
+    "same-call family reused",
+    "unpaid chronological hole",
+    "one unpaid rank1 child"
+   ],
+   "disabled_gates": [
+    "prefix"
+   ],
+   "exit_code": 0,
+   "status": "PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE",
+   "variant": "no-prefix"
+  },
+  {
+   "controls_reported": [
+    "duplicate helper",
+    "strict lower endpoint used as available",
+    "same-call family reused",
+    "unpaid chronological hole",
+    "one unpaid rank1 child"
+   ],
+   "disabled_gates": [
+    "histogram"
+   ],
+   "exit_code": 0,
+   "status": "PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE",
+   "variant": "no-histogram"
+  },
+  {
+   "controls_reported": [
+    "duplicate helper",
+    "strict lower endpoint used as available",
+    "same-call family reused",
+    "unpaid chronological hole",
+    "one unpaid rank1 child"
+   ],
+   "disabled_gates": [
+    "helper_identity",
+    "window",
+    "family",
+    "prefix",
+    "histogram"
+   ],
+   "exit_code": 0,
+   "status": "PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE",
+   "variant": "no-gates"
+  }
+ ]
+}

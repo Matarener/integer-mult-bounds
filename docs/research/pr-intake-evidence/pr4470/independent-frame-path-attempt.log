@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/private/tmp/pr4470-review/research/pr4470-frame-audit/verify.py", line 410, in <module>
+    main()
+    ~~~~^^
+  File "/private/tmp/pr4470-review/research/pr4470-frame-audit/verify.py", line 351, in main
+    emitted = emit_source(rows)
+  File "/private/tmp/pr4470-review/research/pr4470-frame-audit/verify.py", line 330, in emit_source
+    need(target.resolve().is_relative_to(root), 'invalid upstream snapshot path')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/pr4470-review/research/pr4470-frame-audit/verify.py", line 30, in need
+    raise ValueError(message)
+ValueError: invalid upstream snapshot path

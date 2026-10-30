@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Explicit donor requested profile and finite feasibility before construction. Full actual kernel comparison found insufficient saving; stop before a complete optimization candidate or performance PR.",
+  "actual_scope": "PR5848/frozen-66fb6c6/Fraction-zero-unit-small-feasibility",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Gate stopped after one full actual trace comparison:20.180\u219219.943s does not justify15% complete38-second qualification saving. No full candidate or six-run benchmark. Original180s science cap,600s finite/profile stage,1GiB sampled group RSS and zero automatic retries; pre-arithmetic diagnosed corrections labelled and charged.",
+  "time_budget_minutes": 90,
+  "outcome": "negative-result",
+  "evidence": "RESULT.json, PROOF.md, README.md and evidence/: exact241-case/10164-event equality,16 controls, full actual25984-event/799-coordinate trace and typed witness equality, measured insufficient headroom, two preserved pre-arithmetic wrapper binding failures and diagnoses.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex assistance for source review, execution, tooling and report; no subagents, independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Which Fraction primitive dominates the remaining20-second trace?",
+      "why_it_matters": "This zero/unit micro-optimization did not change the complete-cost decision.",
+      "first_step": "Under a separately authorized budget, profile arithmetic primitives with complete source-bound output checks before nominating another algorithm.",
+      "blocked_by": "New bounded nomination and overlap check; no authorization inferred from this checkpoint."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

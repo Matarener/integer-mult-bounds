@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [],
+ "inputs": [
+  "research/p104-helper470-twin-rung-removal/EDIT.json.gz",
+  "research/p104-helper470-twin-rung-removal/EXPECT.json",
+  "research/p104-helper470-twin-rung-removal/PRICING-EDITS.json",
+  "research/p104-helper470-twin-rung-removal/SOURCES.json",
+  "research/p104-helper470-twin-rung-removal/WORD.json.gz",
+  "research/p104-helper470-twin-rung-removal/construct.py",
+  "research/p104-helper470-twin-rung-removal/inputs/pr5827-source.tar",
+  "research/p104-helper470-twin-rung-removal/inputs/pr5907-WORD.json.gz",
+  "research/p104-helper470-twin-rung-removal/pricing.py",
+  "research/p104-helper470-twin-rung-removal/sources.py",
+  "research/p104-helper470-twin-rung-removal/verify.py",
+  "research/p104-helper470-twin-rung-removal/test_portability.py"
+ ],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-I",
+    "-O",
+    "-B",
+    "{package}/test_portability.py"
+   ],
+   "timeout_seconds": 30,
+   "checks": "Accept alternate gzip headers/compression for regenerated outputs; reject changed payloads, bool/integer substitutions and corrupt containers; immutable base input still requires exact size/SHA256/Git blob."
+  },
+  {
+   "argv": [
+    "{python}",
+    "-I",
+    "-B",
+    "{package}/verify.py"
+   ],
+   "timeout_seconds": 600,
+   "checks": "Authenticate the pinned PR5907 word and the PR5827 package and source chain; assert pricing.py = PR5827 pricing.py + declared edits; regenerate WORD.json.gz from the edit list; replay, all input columns, native maps, physical caller, complete price, two interval engines, compiler, outer checks, controls and the committed receipt."
+  }
+ ]
+}

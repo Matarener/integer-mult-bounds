@@ -1,0 +1,152 @@
+{
+  "AST_binding": {
+    "Driver": {
+      "all_other_AST_nodes_unchanged": true,
+      "bound_AST_sha256": "d6a3bb36ad656052fb2337b791d2a570fae26df9d294f3facc691bfab8f6e59d",
+      "idle_lookup_substitutions": 1,
+      "source": "research/selected-bit-physical-caller/inputs/pr2753/predecessor/driver.py",
+      "source_AST_sha256": "fe66da9b8e5f2bd97cbc71d8a5d4c666cd90595c35051ea5f91e9c445e49e276",
+      "source_sha256": "ee9e42fe95ab28fdd5e927c2d46fd480305aaad610eb2ca7ae514a5d22d9f0ac"
+    },
+    "compile_node": {
+      "all_other_AST_nodes_unchanged": true,
+      "bound_AST_sha256": "4efd0d1a1a3c2288965579241a3e48d63460f7a46c6f008c8e582bd6995e7620",
+      "idle_lookup_substitutions": 1,
+      "source": "research/selected-bit-physical-caller/macro_code.py",
+      "source_AST_sha256": "664040d0eebfe7ac82de865876c622e1a4b281ac095db108cc4c28f3833cfa57",
+      "source_sha256": "f626b018124747a5f17c1603bea36cd74c00a69a0647fd7b10e9c4e2964caea8"
+    }
+  },
+  "complete": {
+    "checkpoints": 29,
+    "complete_xor_count": 7563465,
+    "final_family_terms_sha256": "28e045c314c534e49493614842c52172632fef3f115b90286ca365c12420c418",
+    "macros": {
+      "block": 2962575,
+      "checkpoint": 29,
+      "clear": 280665,
+      "copy": 2835,
+      "exchange": 15540,
+      "family_xor": 69930,
+      "gather": 69930,
+      "gather_route": 207585,
+      "move": 2835,
+      "node": 1,
+      "residual_begin": 987525,
+      "residual_end": 987525,
+      "return": 1,
+      "route_scatter": 207585,
+      "scatter": 69930,
+      "xor": 7493535
+    },
+    "residuals": 987525,
+    "source_residual_trace_sha256": "49bf41c3bbf45422326e9018826d829d17285a0cd98ff4eab428053bbcb2008e",
+    "staged_roles": 660,
+    "xor_trace_sha256": "dc2e454db36fb4238df1a92ca6b3c488c977f684aa2752cc59b807665442e6ae"
+  },
+  "controls": {
+    "duplicate_owner_guard_gap": {
+      "conclusion": "Compiler success alone does not imply source-domain admission.",
+      "finite_compiler": "ACCEPTED",
+      "logical_driver": "REJECTED: disjoint complete owned low packets"
+    },
+    "lost_private_output": "read a live complete abstract packet",
+    "move_instead_of_clone": "read a live complete abstract packet",
+    "omit_disposal": "every emitted disposal completed",
+    "reverse_XOR_roles": "all ordered local and family XOR inputs and outputs",
+    "stale_family_scatter": "all ordered local and family XOR inputs and outputs"
+  },
+  "elapsed_seconds": 117.15532194899424,
+  "formal_low_labels": 1,
+  "local_calls": 315,
+  "native_binding": {
+    "actual_local_programs": {
+      "forward": {
+        "copies": 9,
+        "events": 26711,
+        "paid_requests": 2913,
+        "profile": {
+          "1": 1330,
+          "2": 1327,
+          "3": 79,
+          "4": 49,
+          "5": 90,
+          "6": 20,
+          "7": 18
+        },
+        "sha256": "bd67411fea708c5da059020b0089f1a29ef442f97d32f9b211ad007aa4cd284f",
+        "source_record_sha256": "91d74ab960e882aa7f5236265c3f4427735c4b8019f509758a33a238c05901fe"
+      },
+      "reverse": {
+        "copies": 9,
+        "events": 26711,
+        "paid_requests": 2913,
+        "profile": {
+          "1": 1330,
+          "2": 1327,
+          "3": 79,
+          "4": 49,
+          "5": 90,
+          "6": 20,
+          "7": 18
+        },
+        "sha256": "ca0f7933ba45d9855cb72eaaec3c1d4ac234dc6a63c81c46c3d96fd09cf78ac2",
+        "source_record_sha256": "91d74ab960e882aa7f5236265c3f4427735c4b8019f509758a33a238c05901fe"
+      }
+    },
+    "actual_word_content_sha256": "f84bdf9b2d4e8758584e3a4759519acc2307e3723fb23568bb7ed4fde617a908",
+    "base_labels": 546,
+    "binding_sha256": "88c84088263813185899a6392b04d801a1e1e649309090320086add782bd73a2",
+    "canonical_ERASE_guards": 2835,
+    "canonical_requests": 987525,
+    "chart_labels": 1235,
+    "full_paid_requests": 987525,
+    "rank_histogram": {
+      "1": 418950,
+      "2": 433104,
+      "3": 24885,
+      "4": 30975,
+      "5": 28350,
+      "6": 21840,
+      "7": 28980,
+      "42": 441
+    },
+    "replicas": 35,
+    "request_kinds": {
+      "COPY": 2835,
+      "IDLE": 69930,
+      "MOVE": 914760
+    },
+    "status": "PASS_REPLICA_INDEXED_NATIVE_REQUEST_CATALOGUE"
+  },
+  "physical_payload_executed": false,
+  "primitive_contracts_proved": false,
+  "run_loop_contract_checks": [
+    {
+      "depth": 0,
+      "macros": 4
+    },
+    {
+      "depth": 1,
+      "macros": 8
+    },
+    {
+      "depth": 2,
+      "macros": 12
+    },
+    {
+      "depth": 17,
+      "macros": 72
+    }
+  ],
+  "source_sha256": {
+    "research/kappa-next-regime/native-catalogue/adapter.py": "f5f3d254ce3ac10af0cc79c133b6c6a15b6dbd68a50e561a364373fee2ee2bf8",
+    "research/kappa-next-regime/native-catalogue/compiler_binding.py": "446f777001f251c58d736c6762acb6a6b02619ddc71d70d00a18b65b93fdb86b",
+    "research/kappa-next-regime/native-catalogue/whole_word.py": "5e791dc74b56f8bedbc7d62d6f5caf1bdf151f14bd883e38c8e0d8cfa00c5a8f",
+    "research/kappa-next-regime/sources/PR3986/research/r437-whole-word-refinement/check.py": "fa4d0894f3c77779e25c6531700ce94760a4c9aaef957a1fb35ceac07206c24e",
+    "research/selected-bit-physical-caller/macro_machine.py": "7bc6e42072a09a08ac961e05c3da01cde012d740d4b4c605f298d994f2ad7c5a",
+    "research/selected-bit-physical-caller/residual_blocks.py": "ab7f3df8906decd2efecfb138eac1456c106bb520b2598761f699f80680d8331"
+  },
+  "status": "PASS_REPLICA_INDEXED_COMPLETE_SYMBOLIC_WORD",
+  "symbolic_low_scope": "One formal arbitrary low; the all-low statement is the retained loop induction, not physical GL64 enumeration."
+}

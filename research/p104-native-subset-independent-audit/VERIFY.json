@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exact byte-preserved182-map native subset; original complete output equality, source custody and scoped controls, no new kappa or full parent admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exact byte-preserved182-map native subset; original complete output equality, source custody and scoped controls, no new kappa or full parent admission."
+    }
+  ]
+}

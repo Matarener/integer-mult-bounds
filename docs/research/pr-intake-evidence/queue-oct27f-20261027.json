@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "baseline": "1d0176d7872db60b1e82a8591cc7c2ca3219dbab",
+  "scope": "1 exact heads; source/integrity intake only, with separately reviewed shared-tooling changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 6034,
+      "head": "d27351424186a70b06cf3dae0eb87e425acd5f2d",
+      "merge_base": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+      "title": "Prove two-helper shears gain nothing from target feedback at any target count (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "files": [
+        {
+          "path": "research/two-helper-zero-frame-feedback/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a3e85de146371a25f1908421f476fdcdf3058ef3"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/two-helper-zero-frame-feedback/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c2ca68f7b79d165a1e840994b7dc2e4017320fb6"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/two-helper-zero-frame-feedback/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e86ca02ae9718bfedd8492dcae486c14dd3a351a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/two-helper-zero-frame-feedback/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f511c1d6df9590e6cdb94df68e7f7b60352b5331"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/two-helper-zero-frame-feedback/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fdf21b6f823ee6bc5b3d1161fdb3280cf4b5ea10"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 3
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/two-helper-zero-frame-feedback/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/two-helper-zero-frame-feedback/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/two-helper-zero-frame-feedback/SOURCES.json",
+          "path": "research/bit-zero-frame-feedback-to-8-registers/CERTIFICATE.json",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:research/bit-zero-frame-feedback-to-8-registers/CERTIFICATE.json",
+          "result": "match"
+        }
+      ],
+      "declared_input_checks": [
+        {
+          "manifest": "research/two-helper-zero-frame-feedback/VERIFY.json",
+          "scope": "Canonical input spelling and regular tracked blob presence at exact PR head only; no generic-package or scientific replay.",
+          "errors": [],
+          "inputs": [
+            {
+              "path": "research/bit-zero-frame-feedback-to-8-registers/CERTIFICATE.json",
+              "mode": "100644",
+              "oid": "9bda10dad1646ec2003b56dcd5fb9376d3c35e94"
+            }
+          ]
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Result\n\nClaim type: **scoped proof for every target count, with finite corroboration**. No new supplier, \u03ba or selected-frontier change.\n\nIn the zero-frame dirty-shear model of PR #1306 and PR #2567, take two helpers and `T` targets with unit-cost single-source XORs and no extra registers. Let `a`, `b`, `c` count the rows `(1,0)`, `(0,1)`, `(1,1)` of `K`. For every `T \u2265 1` and every `K`, the restricted and unrestricted minima are equal:\n\n`d_P(K) = d_full(K) = a + b + c + min(c, 2)`.\n\nSo target-to-helper feedback never helps for a two-helper shear. This answers the 2\u00d77 part of Open next question 1 in rtyu193-rgb's PR #2567. Through that package's duality it also covers T\u00d72, including 7\u00d72. The 3\u00d76 and 4\u00d75 shapes stay open.\n\nThe upper bound is an explicit restricted word: direct reads, plus one shared `h0 ^= h1 \u2026 h0 ^= h1` block when `c \u2265 2`. The lower bound counts destinations and allows feedback:\n1. every nonzero row needs its target as a destination;\n2. if no helper is ever a destination, a target modified once can only receive a pure row;\n3. a helper modified once cannot end unchanged.\n\nThe full proof is in `research/two-helper-zero-frame-feedback/README.md`.\n\n## Evidence and reproduction\n\n`verify.py` uses only the standard library and imports no predecessor code. It checks:\n- explicit restricted witnesses for every `K` with `T = 1..8` (87,380 matrices), replayed exactly; the gates are linear, so this covers all dirty inputs;\n- exact unrestricted and restricted BFS for `T = 1..3` (84 matrices) against the formula;\n- the formula against PR #2567's pinned 2\u00d74, 2\u00d75 and 2\u00d76 ",
+      "roots": [
+        "research/two-helper-zero-frame-feedback"
+      ],
+      "installed": [
+        "research/two-helper-zero-frame-feedback/README.md",
+        "research/two-helper-zero-frame-feedback/SOURCES.json",
+        "research/two-helper-zero-frame-feedback/TASK.json",
+        "research/two-helper-zero-frame-feedback/VERIFY.json",
+        "research/two-helper-zero-frame-feedback/verify.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct27f-20261027-checks.txt",
+  "selected_frontier_changed": false
+}

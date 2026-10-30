@@ -1,0 +1,110 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "factor"
+      ],
+      "checks": "All 665856 polynomial coefficients, 30960 port rows, two 208-column orientations, 18 controls and complete rank differential. Frozen source assertions are retained with optimize=0.",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "native"
+      ],
+      "checks": "Regenerate all 548 new recipes with 34 signed Paulis and 131072 exact Gaussian coordinates each; inverse/chain checks and seven defect classes. Frozen source assertions are retained with optimize=0.",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "replay"
+      ],
+      "checks": "Replay all 820 frozen new/baseline operators without lowering; 120 small all-basis checks and three global-phase mutations. Frozen source assertions are retained with optimize=0.",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "adapters"
+      ],
+      "checks": "Regenerate 272 baseline recipes, compare exact serialized bytes, and reproduce forward/dual adapter and scalar invoices. Frozen source assertions are retained with optimize=0.",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "precision"
+      ],
+      "checks": "Reproduce exact-child formulas, full pure-bank source census, standalone f+19 grid and conditional range ledger. Frozen source assertions are retained with optimize=0.",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--stage",
+        "composition"
+      ],
+      "checks": "Reproduce both 1316-column integrated fixtures, six controls and complete full-bucket histogram. Frozen source assertions are retained with optimize=0.",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "checks": "Reject changed source/recipe/math receipt and omitted coverage; bypass matching stale caches through nested imports; retain original dimension assertion.",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "checks": "Reject changed source/recipe/math receipt and omitted coverage; bypass matching stale caches through nested imports; retain original dimension assertion.",
+      "timeout_seconds": 30
+    }
+  ],
+  "inputs": [],
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.3.5"
+  ],
+  "schema_version": 1,
+  "status": "ready"
+}

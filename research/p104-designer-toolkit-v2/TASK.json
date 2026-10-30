@@ -1,0 +1,73 @@
+{
+ "schema_version": 1,
+ "task_id": "replay-runtime",
+ "priority_revision": 8,
+ "base_commit": "3f0152a32eeebac0df11946dbd50cabe5a7f7839",
+ "original_card": {
+  "id": "replay-runtime",
+  "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+  "starting_points": [
+   "scripts/run_isolated_tests.py",
+   "scripts/verify_replay_coverage.py",
+   "certificates/selected-result.json"
+  ],
+  "methods": [
+   "Profile one isolated replay and optimize the measured bottleneck.",
+   "Design source-bound reuse with explicit dependency invalidation and negative controls."
+  ],
+  "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+  "first_step": {
+   "command": [
+    "python3",
+    "-B",
+    "scripts/research_selected_baseline.py"
+   ],
+   "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+   "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+   "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+  },
+  "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "allowed_variations": [
+   "Profile one stage or design one source-bound cache boundary."
+  ],
+  "scope_change_triggers": [
+   "Skipping coverage or comparing different fixtures to claim speedup."
+  ],
+  "overlap_terms": [
+   "replay runtime",
+   "cache invalidation",
+   "isolated tests"
+  ]
+ },
+ "scope_status": "changed",
+ "actual_scope": "Package the P104 designer toolkit (exact pricing and legality oracle, verifier-profile adoption, the #6030 rebuild pipeline with the fold/hoist/retain constructor passes, the gen2/gen3 generators, sub-circuit extract/splice/re-solve tools, bulk evaluation and the floor LPs) as one reviewable tool with a regression suite. No word and no kappa claim.",
+ "scope_change_reason": "The replay-runtime card asks for a measured replay speed-up; this package ships the tooling and its exact-replay regression suite, including the rebuild chain and native replay kernels that were sped up while it was built, but makes no new performance claim. Recorded as changed.",
+ "bottleneck_link": "Side result (tooling). Comparing and extending frontier words requires the same exact invoice, localised legality verdict and constructor passes to be recomputed on any P104-family word; this makes the #6030 -> #6144 -> #6167 constructor steps reproducible by one command.",
+ "budget_minutes": 60,
+ "stop_rule": "Keep the package only if tests/regress.py --fast reproduces every exact number it wraps (kappa of the PR5545/5551/5553/5561/5907/5827 words, localised mutants, native replay equality) and the rebuild smoke reproduces #6030 at exact kappa; otherwise report the failing check instead of shipping.",
+ "outcome": "completed",
+ "evidence": "VERIFY.json runs tests/regress.py --fast (exact prices of six published words, localised legality mutants, native replay equality, screens executed on #5660, shipcheck, surgery round trip, rebuild mini chain at exact kappa .003125811557911897) and the retain pass on #6144 -> #6167.",
+ "author": "DreamingOfClouds, with Claude Opus 5.5 (Anthropic), via Claude Code",
+ "ai_assistance": "Prepared with Claude Opus 5.5 via Claude Code: Claude wrote and edited the tooling and tests under DreamingOfClouds' direction. Every command reproduces numbers published by the PRs it wraps or by exact recomputation; no independent human or proof-kernel acceptance is claimed.",
+ "open_questions": [
+  {
+   "question": "Can the unshipped model inputs of planbuild (plan search population and class-break picks) be packaged so plan.py/build.py run from a fresh clone?",
+   "why_it_matters": "planbuild is shipped as source only; its published totals are not replayed in CI.",
+   "blocked_by": "Vendoring the PAIRMIX/HUBCOST/SKELGEN model trees.",
+   "first_step": "List the modules plan.py and build.py import and vendor the minimal closure."
+  },
+  {
+   "question": "Can the fold pass (about 15 minutes per site) be made fast enough for generic CI to replay #6030 -> #6144 end to end?",
+   "why_it_matters": "CI currently replays the retain pass and the rebuild smoke only.",
+   "blocked_by": "Runtime of the exact IOROOT-style solve per site.",
+   "first_step": "Profile alignbuild/iob2.py on one site and cache the rule matrices."
+  },
+  {
+   "question": "Are free helper start/final frames and the owned-inventory pins accepted by maintainers as part of the caller contract?",
+   "why_it_matters": "retime/evretime/rebuild gains are judged under the adopted profile's literals, which are conventions, not specification.",
+   "blocked_by": "Maintainer review.",
+   "first_step": "Run tk retime 5551 --free starts and compare with the finals-free word using tk diff."
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+research/lever-mixed-targets-2979
+Copyright 2026 Jacob Sussman. Licensed under the Apache License, Version 2.0 (the repository's LICENSE).
+
+The new files were written by AI agents (Claude) under my direction. No person outside this project has
+reviewed them.
+
+Read in place, not copied: the ten files of PR #2979 (Marius-Paul Dumitrean, research/rank7-joint-endframes,
+Apache-2.0) listed in SOURCES.json. Their notices remain in force.
+
+Copied into this package:
+- network/Gates.lean: unmodified copy of lean/complex588/Work/Bridge401/Gates.lean of Ryan Shea's repository
+  https://github.com/shea256/fourier-transform-below-nlogn, commit 52394849c7ecf3412d39b925d75fc7fdb98994d8,
+  Apache-2.0 (sha256 077bcf0362a06cdf222477ae8fb68a1c556aa740119df50520efaa6705715d3f). Its header credits
+  Dugongue (#401), Lydakis (#275), jacklightChen (#377), DaysSky (#363) and me.
+- network/XHost/HStage.lean, HCert.lean, HostK.lean: my files, from my repository
+  https://github.com/jacobalansussman/wht-power-saving-lean (Apache-2.0).
+- tools/*.py: my files, from the same repository (tools/README.md says what each one comes from and whose
+  work it implements).
+- controls/t74/: data derived by my programs from the files of PR #1839 (Jeremy Kothe; its PLAN, DISPATCH and
+  owner table) and from my earlier lowering of #1839's two words; the same files are in my repository.
+
+The second instance (PR #3945, Dugongue, research/staged544-terminal-gap-fill) is not copied; instances/3945.json
+records the sha256 of the files its replay reads.
+
+- fills/3945H/FILL.json.gz: a table of hosts for the words of PR #3945 (Dugongue, Apache-2.0), made from #3945's
+  own files by the allocation programs that #3945 uses (Erwan Secousses / ChaloupeMusic, PR #3815), run by me with
+  one added condition (every block that can be a head stays empty). The same file is in my repository
+  (package/leverB/fill/FILL.json.gz). instances/3945H.json records its sha256 and those of #3945's files.
+- fills/2979Fc/FILL.json.gz and PROFILE.json: a table of hosts and its paid profile for the words of PR #2979
+  (Marius-Paul Dumitrean, Apache-2.0), made by me from a class solution of my own mixed-integer program and a
+  placement with the construction of PR #3815 (Erwan Secousses / ChaloupeMusic) run on #2979's files in a
+  tolerant mode (README section 9). The same files are in my repository
+  (research/record-track/data/a-fc/design/). instances/2979Fc.json records their sha256.

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Every residue modulo 2^w for w from 2 through 12 fits in w bits, and every pair of residues reduces by at most one subtraction of the modulus.",
+  "scope_change_reason": "The residue-step rollout is a different question. This package checks the field width. It does not run the middle-map consumer.",
+  "bottleneck_link": "Five axis fields store residues with no spare bit, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record this width. Do not run the middle-map consumer.",
+  "outcome": "partial",
+  "evidence": "For every width from 2 through 12, each residue fits in that many bits and all 22,369,616 pairs reduce by at most one subtraction.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "The widths and the pairs are finite. A middle-map replay would leave this package."
+}

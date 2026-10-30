@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-W", "error", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Independent F_p collision relaxation: zero survivors for all F2 tuples of length 0-5 (9331) and all F3 tuples of length 0-4 (22621); projector inventories; rule authentication; subset vs free-monoid expansion; six-call endpoint over F2/F3; acceptance of six-call and #6038 four-call words; #6097 controls; exact no-cancellation counts 20, 938 (F2) and 84 (F3)."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-W", "error", "-B", "{package}/verify.py"],
+      "timeout_seconds": 300,
+      "checks": "Same checks under -O (explicit require(), no assert)."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+ "environment": "CPython 3.12.14, numpy 2.5.4, scipy 1.18.1 (HiGHS), macOS arm64",
+ "files": {
+  "CONTROL-PRE3605-base.json.gz": {
+   "command": "python3.12 code/pass5.py <PRE3605-base.json.gz extracted from PR3734 REPLAY-INPUTS.tar.gz> 24 644,660",
+   "helpers": 2,
+   "ok_helpers": [
+    644,
+    660
+   ],
+   "rows": 336,
+   "sha256": "af41c0412e933d9f5e48dbdad63082aeebae96df34a4b3ec66e369c2270b1232",
+   "statuses": {
+    "no-identity": 314,
+    "ok": 22
+   }
+  },
+  "CONTROL-PRE544-base.json.gz": {
+   "command": "python3.12 code/pass5.py research/staged544-producer-return/staged544/PRE-base.json.gz 24 544",
+   "helpers": 1,
+   "ok_helpers": [
+    544
+   ],
+   "rows": 72,
+   "sha256": "1cfb678c8958b366cf0cfc5cf2edc05762eaac4cde440886bda06f5d5eb686a0",
+   "statuses": {
+    "no-identity": 56,
+    "ok": 16
+   }
+  },
+  "FIXED-FRAMES-base.json.gz": {
+   "command": "python3.12 code/pass5.py base 24 \"\"",
+   "helpers": 92,
+   "ok_helpers": [],
+   "rows": 9862,
+   "sha256": "c2b761bdc87e48657804d36ca3e75f2bfd69e1ec784ef07c80ed4b592bc3c30b",
+   "statuses": {
+    "no-identity": 9862
+   }
+  },
+  "FIXED-FRAMES-extra.json.gz": {
+   "command": "python3.12 code/pass5.py extra 24 \"\"",
+   "helpers": 92,
+   "ok_helpers": [],
+   "rows": 9862,
+   "sha256": "e988b53cd521b8930431ad077e9c78c039187cc32e3b3b2e7391f9edef83064c",
+   "statuses": {
+    "no-identity": 9862
+   }
+  },
+  "RESOLVED-A-WINDOWS-base.json.gz": {
+   "command": "python3.12 code/pass8.py base 5 4 \"\"",
+   "helpers": 52,
+   "ok_helpers": [],
+   "rows": 414,
+   "sha256": "66bade0152257f03ce4af053e6ce59eb4c399dacc776345423fa0a8ef16bef3d",
+   "statuses": {
+    "-:no-vector": 128,
+    "dense:infeasible": 5,
+    "dense:no-slot": 18,
+    "strict:infeasible": 254,
+    "strict:no-slot": 9
+   }
+  },
+  "RESOLVED-B-WINDOWS-base.json.gz": {
+   "command": "python3.12 code/pass7.py base 6 4 \"\"",
+   "helpers": 40,
+   "ok_helpers": [
+    472
+   ],
+   "rows": 2160,
+   "sha256": "e633cd9a11f37e4f75d8c392ca7115eafd64c8203079ea6feaa978e488928c3d",
+   "statuses": {
+    "retime:infeasible": 1992,
+    "strict:infeasible": 164,
+    "strict:ok": 4
+   }
+  }
+ },
+ "note": "Each file is the canonical JSON (sorted keys) of the script output, gzip level 9, mtime 0. Row = (helper, raise P, cut) with its status.",
+ "schema": 1
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Prove and independently verify the sharp sup-norm rounding error for two distinct normalized real Walsh axes with one intervening integer grid shear on four coordinates, for every directed shear and every integer coefficient.",
+  "scope_change_reason": "The donor assigned seed 83 to independent verification/formalization. Among three narrow candidates, seed 83 modulo 3 selected the explicit unclaimed interleaved-shear question in PR6140. This is a written scoped theorem and independent exact implementation, not a proof-assistant formalization or a completed selected-caller interface proof. The original card is retained verbatim for provenance.",
+  "bottleneck_link": "Precision side result: establishes when a pure-Walsh rounding guarantee cannot be carried across an exact grid-preserving gate. It may inform a later precision_tape caller audit, but does not discharge that assumption or improve a paid supplier profile.",
+  "budget_minutes": 120,
+  "stop_rule": "One experiment only: all 12 distinct ordered coordinate pairs, two distinct Walsh axes, one integer coefficient. Stop after a universal upper proof, fixed-source affine witnesses for both coefficient signs, complete mod-8 input and mod-4 coefficient census, and independent negative controls. Do not expand to more stages or multiple shears.",
+  "outcome": "completed",
+  "evidence": "PROOF.md proves sharp error h*(abs(m)+3)/4 for every integer m; WITNESSES.json supplies 24 fixed inputs. RESULT.json records independent complete-vector comparisons on 196608 residue cases, 768 large signed cases, 2916 reverse-axis cases, and 16 rejected controls. This is a scoped mathematical proof with finite corroboration, not formal verification of the multiplication theorem.",
+  "author": "Jerry Chen (@CubeJerry)",
+  "ai_assistance": "Prepared for Jerry Chen (@CubeJerry) with substantial OpenAI Codex assistance in task selection, mathematical derivation, implementation, proof review, testing and packaging. No independent human review or proof-assistant kernel check claimed.",
+  "open_questions": [
+    {
+      "question": "Does an actual selected precision_tape caller contain an interleaved shear with the exact normalization, rounding points and coordinate contract proved here?",
+      "why_it_matters": "Only an exact caller binding could turn this local error classification into a relevant precision obligation; the theorem alone does not change the multiplication result.",
+      "first_step": "Extract one complete rounded caller trace, identify its actual grid and exact comparison map, and test the unit-shear witness before proposing a new precision allocation.",
+      "blocked_by": "No such caller binding is supplied here. Nonintegral coefficients, more stages, complex mixing and range/overflow require separate proofs."
+    }
+  ],
+  "selection": {
+    "track": "Independent verification or formalization",
+    "os_random_method": "secrets.randbelow(100)",
+    "os_random_integer": 83,
+    "catalogue_task": "formal-interface-lemma",
+    "picker_seed": "00000000000000000000000000000053",
+    "scope_key": "636f26dec98e26b296e8",
+    "three_candidates": [
+      "PR6106: independently check affine phase composition against native operation semantics.",
+      "PR6110: check one stopped-recursion source binding; existing source-binding work made this less distinct.",
+      "PR6140: answer the explicitly open integer-shear interleaving question for the PR6129 Walsh rounding law."
+    ],
+    "diversification": "83 modulo 3 selected the third candidate; odd parity selected initial coefficient -1. Random(83) fixes the later signed stress cases. Novelty comes from the excluded interleaving mechanism, not the random seed."
+  },
+  "coordination": {
+    "claim_utc": "2026-10-28T14:22:00Z",
+    "expected_finish_utc": "2026-10-28T16:16:00Z",
+    "claim_location": "Local claim recorded before the experiment; no public reservation issue.",
+    "reason_local": "Connected GitHub tools have no Discussions write method, the inspected GitHub browser is signed out, and shell gh is absent. Donor explicitly permits a local claim when posting is unavailable.",
+    "handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19243168",
+    "overlap": "Read Discussions1163/1166, latest 60 PRs, targeted all-state PR searches (Walsh/shear, nearest-even, intervening/round), central review ledger and nearby negative results before selection. No same-scope successor found in that coverage; not a novelty certificate.",
+    "local_helper": "find_overlap.py offline at 2026-10-28T14:25:25Z: complete HEAD README/TASK inventory (8348 files), no usable remote cache. Live plugin/browser inspection supplies the limited remote coverage separately.",
+    "nearby_distinct_work": [
+      "PR5912 nearest-even-shear-history: information/history contract, not two-stage forward error.",
+      "PR1631 shear-equivariant-rounding: a global equivariance obstruction, not this error classification.",
+      "equivariant-grid-frame-classification: frame contract, not this two-stage program."
+    ]
+  },
+  "checkpoints": [
+    {
+      "utc": "2026-10-28T14:17:00Z",
+      "canonical_main": "721c03822c421b7f7fcbb2598993b947c4d88419",
+      "priority_revision": 8,
+      "decision": "Read current entry instructions, selected certificate and actual source/review; continue with the explicitly open side question."
+    },
+    {
+      "utc": "2026-10-28T14:24:00Z",
+      "canonical_main": "721c03822c421b7f7fcbb2598993b947c4d88419",
+      "priority_revision": 8,
+      "decision": "Refreshed canonical main before creating the isolated branch; unchanged guidance and selected frontier. Frozen research inputs retained."
+    },
+    {
+      "utc": "2026-10-28T14:49:49Z",
+      "canonical_main": "721c03822c421b7f7fcbb2598993b947c4d88419",
+      "priority_revision": 8,
+      "decision": "Fetched canonical main during verification; no guidance/catalogue/selected/review-ledger/bottleneck changes. Live PR6129/6140 heads unchanged. Latest 30 open PRs and first 30 of 100 all-state search hits inspected for related scope; Discussion1166 re-read, no successor claim seen. Continue the same package with frozen inputs."
+    }
+  ],
+  "selected_baseline": {
+    "certificate": "certificates/selected-result.json",
+    "selected_pr": 6030,
+    "kappa": "781451/250000000 = 0.003125804",
+    "construction": "research/p104-helper470-twin-rung-removal",
+    "review": "docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md",
+    "source_manifest": "certificates/frontier6030-source.json",
+    "claim": "certificates/frontier6030/CLAIM.json",
+    "orientation_check": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY; no selected cold replay claimed.",
+    "remaining_assumptions": [
+      "native_all_columns",
+      "owned_erasure",
+      "compiler",
+      "precision_tape",
+      "analytic_recovery"
+    ],
+    "new_kappa": false
+  },
+  "coverage": {
+    "universal_claim": "h>0, every integer m, all x in (h Z)^4, all 12 off-diagonal shears, exactly two distinct normalized real Walsh axes; reversed axes by conjugacy.",
+    "finite_census": "All x in {0,...,7}^4, all 12 directed pairs and coefficient residues 0,...,3: 196608 complete-vector comparisons. Written period and affine-residue lemmas explain the domain.",
+    "witness_search": "Lexicographic x in {-1,0,1}^4, then output 0,...,3; stop at first valid witness for each pair and sign. Completed all 24 keys. No unsuccessful search is used as an impossibility claim.",
+    "unresolved": "No finite-width/range guard, complex/multiple-shear/more-stage theorem, reversible restoration, bit or tape costs, recursive supplier, selected-caller binding, Lean proof, or independent human review."
+  },
+  "validation": {
+    "environment": "CPython 3.12.14; Linux 6.18.55 x86_64; Git 2.51.1; standard library only.",
+    "executed": [
+      "Normal and optimized full scientific replay through the registered runner: PASS; combined elapsed 30.827 s (descriptive check time, not a speed claim).",
+      "Relocated Git-free optimized CLI with empty PATH: PASS, all bytes and modes unchanged.",
+      "Actual CLI rejects four private-copy corruptions: changed context bytes, missing context, missing witness, Boolean receipt replaced by integer one.",
+      "Witness regeneration byte-identical to WITNESSES.json."
+    ],
+    "not_claimed": [
+      "Hosted CI",
+      "selected frontier cold replay",
+      "independent human review",
+      "formal proof-kernel acceptance"
+    ]
+  }
+}

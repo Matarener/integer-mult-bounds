@@ -1,0 +1,62 @@
+--- engine/corrected_census.c
++++ engine/union_census.c
+@@ -1,3 +1,4 @@
+-/* Corrected finite canonical restored-word census.
+- * Derived from Nicholas Stone's audit-f7/f7_census.c and session2/agent-a/
+- * f7_census_revisit.c; preserves their restricted-growth word scope.
++/* Corrected finite canonical restored-word census with a union-support budget.
++ * Derived from Nicholas Stone's corrected_census.c (research/
++ * f7-weight-parity-census-correction, sha256 265ead91...) and the L<=22 gate
++ * extension recorded in PR #3731; preserves the restricted-growth word scope.
+@@ -4,0 +6,3 @@
++ * (The preceding attribution line is retained verbatim from the pinned
++ * predecessor. The union-budget port, the length-22 probes and their
++ * verification were produced by Nick Petalas with AI assistance.)
+@@ -11,0 +16,8 @@
++ * UNION BUDGET (from research/f7-union-support-audit, PR #3005): let
++ * U = supp EE union supp OO. A completion adds at most
++ * C(S,2)+C(T,2)-C(e,2)-C(o,2) further same-parity pairs, each contributing
++ * at most one new mask, so |U| + that quantity >= 2^(N-1)-1 is necessary.
++ * Because |U| <= |supp EE|+|supp OO|, this dominates the even excess budget
++ * above (the excess form charges an overlapping mask twice). Enabled by
++ * default; --no-union-budget restores the predecessor's even-side test.
++ *
+@@ -15 +27 @@
+- * N in [1,7], positive even L<=20. See README.md for proof and commands.
++ * N in [1,7], positive even L<=22. See README.md for proof and commands.
+@@ -35,2 +47,2 @@
+-#if N < 1 || N > 7 || L < 2 || L > 20 || L % 2
+-#error "Requires 1 <= N <= 7 and positive even 2 <= L <= 20"
++#if N < 1 || N > 7 || L < 2 || L > 22 || L % 2
++#error "Requires 1 <= N <= 7 and positive even 2 <= L <= 22"
+@@ -42 +54 @@
+-    uint64_t nodes, candidate_leaves, hits, even_prunes, odd_prunes;
++    uint64_t nodes, candidate_leaves, hits, even_prunes, odd_prunes, union_prunes;
+@@ -46 +58 @@
+-static int S,T, even_on=1,odd_on=1,even_budget,odd_budget;
++static int S,T, even_on=1,odd_on=1,union_on=1,even_budget,odd_budget,union_budget;
+@@ -93,0 +106,5 @@
++            if (union_on) {
++                mask_t nu=(p?oo:ee)|add_same, nc=(p?ee:oo);
++                int future_same=S*(S-1)/2+T*(T-1)/2-ns*(ns-1)/2-nt*(nt-1)/2;
++                if (pop(nu|nc)+future_same<(1<<(N-1))-1) { run.union_prunes++; continue; }
++            }
+@@ -152 +169 @@
+-    fprintf(f,",\"hits\":%" PRIu64 ",\"even_budget_prunes\":%" PRIu64 ",\"odd_budget_prunes\":%" PRIu64 ",\"aborted\":%s,\"complete\":%s,\"seconds\":%.6f}%s\n",r->hits,r->even_prunes,r->odd_prunes,r->aborted?"true":"false",(!r->aborted&&!io_error)?"true":"false",r->seconds,comma?",":"");
++    fprintf(f,",\"hits\":%" PRIu64 ",\"even_budget_prunes\":%" PRIu64 ",\"odd_budget_prunes\":%" PRIu64 ",\"union_budget_prunes\":%" PRIu64 ",\"aborted\":%s,\"complete\":%s,\"seconds\":%.6f}%s\n",r->hits,r->even_prunes,r->odd_prunes,r->union_prunes,r->aborted?"true":"false",(!r->aborted&&!io_error)?"true":"false",r->seconds,comma?",":"");
+@@ -160 +177 @@
+-        if (!strcmp(arg,"--no-budgets")) { even_on=odd_on=0; continue; }
++        if (!strcmp(arg,"--no-budgets")) { even_on=odd_on=union_on=0; continue; }
+@@ -162,0 +180 @@
++        if (!strcmp(arg,"--no-union-budget")) { union_on=0; continue; }
+@@ -183,0 +202 @@
++    union_budget=S*(S-1)/2+T*(T-1)/2-((1<<(N-1))-1);
+@@ -199 +218 @@
+-        if (!(even_on&&even_budget<0) && !(odd_on&&odd_budget<0)) rec(0);
++        if (!(even_on&&even_budget<0) && !(odd_on&&odd_budget<0) && !(union_on&&union_budget<0)) rec(0);
+@@ -204 +223 @@
+-        total.even_prunes+=run.even_prunes; total.odd_prunes+=run.odd_prunes;
++        total.even_prunes+=run.even_prunes; total.odd_prunes+=run.odd_prunes; total.union_prunes+=run.union_prunes;
+@@ -211 +230 @@
+-        fprintf(jsonout,"{\n  \"schema\":1,\"n\":%d,\"length\":%d,\"split\":[%d,%d],\"groups\":\"hamming_weight_parity\",\"even_budget\":%d,\"odd_budget\":%d,\"even_budget_enabled\":%s,\"odd_budget_enabled\":%s,\n  \"complete\":%s,\"aborted\":%s,\"requested_shards\":%d,\"completed_or_partial_shards\":%d,\n  \"shards\":[\n",N,L,S,T,even_budget,odd_budget,even_on?"true":"false",odd_on?"true":"false",(!total.aborted&&!io_error)?"true":"false",total.aborted?"true":"false",nshards,done);
++        fprintf(jsonout,"{\n  \"schema\":1,\"n\":%d,\"length\":%d,\"split\":[%d,%d],\"groups\":\"hamming_weight_parity\",\"even_budget\":%d,\"odd_budget\":%d,\"union_budget\":%d,\"even_budget_enabled\":%s,\"odd_budget_enabled\":%s,\"union_budget_enabled\":%s,\n  \"complete\":%s,\"aborted\":%s,\"requested_shards\":%d,\"completed_or_partial_shards\":%d,\n  \"shards\":[\n",N,L,S,T,even_budget,odd_budget,union_budget,even_on?"true":"false",odd_on?"true":"false",union_on?"true":"false",(!total.aborted&&!io_error)?"true":"false",total.aborted?"true":"false",nshards,done);

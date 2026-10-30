@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/delta-cross-cell-independent-audit/README.md",
+    "research/halo-locality-witness-audit/README.md",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact scalar recurrence, ordered nonnormal error, LDL operator bound, section locality, coefficient and invalid-input controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same complete exact checks under optimized Python."
+    }
+  ]
+}

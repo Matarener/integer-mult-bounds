@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "The composed coefficient is 4283584 when the 17/16 factor is used, while the line-156 bounds alone give 8033584, and the witness n=1023683 exceeds the stated bound by more than 17/16.",
+  "scope_change_reason": "The cutoff location is a different question. This package checks this coefficient gap. It does not rerun the moment certificates.",
+  "bottleneck_link": "The constant 4283584 stands from n <= e/w, and the selected kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Record this gap. Do not rerun the moment certificates.",
+  "outcome": "partial",
+  "evidence": "4283584 uses the factor 17/16. The line-156 factor 2 gives 8033584. The witness comparison is an integer inequality.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "This coefficient pair is the exposition gap. A moment enclosure would leave it."
+}

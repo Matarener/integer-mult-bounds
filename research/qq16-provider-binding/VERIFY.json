@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/joint-query/certificate.json.gz",
+    "research/joint-query/evidence/BRIDGE-REVIEW.md",
+    "research/joint-query/evidence/JOINT-QUERY-TRANSFER.md",
+    "research/joint-query/evidence/SCALAR-REVIEW.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py",
+        "--controls"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned literal source, all712 symbols, independent QQ16 formula, exact trace/rank and coefficient mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Git-free read-only export replay and source/receipt/type rejection controls."
+    }
+  ]
+}

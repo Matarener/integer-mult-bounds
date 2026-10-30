@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/frontier6030-source.json",
+    "docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md",
+    "notes/batched-complex-rows.tex",
+    "research/capped-phase-fusion/review20261014/REVIEW-RESPONSE.md",
+    "research/complex-stopped-recursion-cost/PROOF.md",
+    "research/kappa-observation-integration/release-work/current/package/vendor/pr1673/capped-phase-fusion/SUPPLIER-SUPPORT-AUDIT.md",
+    "research/kappa-rebuild/architecture/FINITE-PRECOMPILATION.md",
+    "research/kappa-rebuild/transfer-audit/FINITE-TEMPLATE-CLOSURE.md",
+    "research/kappa-rebuild/transfer-audit/OUTER-TRANSFER-AUDIT.md",
+    "research/p104-helper470-twin-rung-removal/RESULT.json",
+    "research/query-thinned-controllers/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source/selected bindings, current rational moment margins, symbolic stock threshold fixtures and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact source/selected bindings, current rational moment margins, symbolic stock threshold fixtures and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately derived induction and exact floor/remainder/deferred toy models, parameter and eager-cost controls; finite corroboration only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately derived induction and exact floor/remainder/deferred toy models, parameter and eager-cost controls; finite corroboration only."
+    }
+  ]
+}

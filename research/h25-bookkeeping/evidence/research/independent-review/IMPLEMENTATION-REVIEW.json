@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-28",
+  "review_kind": "source-only",
+  "scientific_execution_by_reviewer": false,
+  "lane_sources": {
+    "P1": {
+      "set_reuse.py": "eeeead34731e73f74dff250f354e57b72314c4e18670848bfa9f48c87de1305d",
+      "initial_finite_set_controls.py": "2c481c74cbf85edc1734b3d139cc665ec731b0910317cb2636da57b423844231",
+      "finite_set_controls.py": "760f151efd18b281c7045e979d2c3f95ce58c5d8bb1340e34d2afa68bd072919",
+      "revision_3_set_reuse.py": "d375bb352ddff7a922bf1413d2911935b977d3bcce670db4954f6939afa15f29",
+      "revision_3_finite_set_controls.py": "9fbe76c6d5ce123d12fc3c231786a9a85996fad41102835e08112768dd75738d"
+    },
+    "P2": {
+      "guard_candidate.py": "320435ec4125544f2b2aedf74f21469b232d08683fe76f0913607516254bbd29",
+      "guard_controls.py": "514e3d08793323cf216c7a1f76cafdc8dbba4ab4656e64167c788985f9e63291"
+    },
+    "P3": {
+      "trace_encoder.c": "57d6f0f71d5bfd2145397ac0159837d32990b276fead2ec1b1d6854d8913bd7e",
+      "trace_adapter.py": "4bdb401271ffd049c52eff0edc28d8d604a11faf66fec419555a82cbd3b32d60",
+      "trace_controls.py": "527bb08e870dc2ee19bebf101e7353c6db8422a5702a80bca231b54d2a4af447"
+    }
+  },
+  "integration_sources": {
+    "integration/adapters.py": "f7ca7f4f03ac63c1a95ba42f06149543211566de5e29f487a3dc4d08c5ee9b94",
+    "integration/full_driver.py": "5b963a5f108b334a627e68001c80b9843fb300c7394693e72f34ce0a6050e6f1",
+    "integration/derive_driver.py": "a18d312e6992786fa7b2cf8a613eea068e0ad282ff684d03781a5928bde2692a",
+    "integration/DERIVATION.json": "6a1b9148c48fe9016a3dc98c1aec339fba3efe73f421ecac2d3cb12d87c53256",
+    "run_guarded.py": "b74366a925dd44c0e95a7ad87aa1505cbdcad9fefcb9360d77d6459679f102be"
+  },
+  "source_decisions": {
+    "P1": "ADMIT_REVISION_4_SERIAL_COMBINED_NORMAL_AND_OPTIMIZED_FINITE_UNION",
+    "P2": "ADMIT_COMPLETE_PILOT_AFTER_REPORTED_FINITE_PASSES",
+    "P3": "ADMIT_COMPLETE_PILOT_AFTER_REPORTED_FINITE_PASSES",
+    "combination": "ADMIT_SERIAL_FINITE_UNION_ON_FRESH_IMMUTABLE_REVISION_4_SOURCES"
+  },
+  "integration_invariants": [
+    "Both arms original native C configuration",
+    "Actual derived driver digest separate from original reference driver pin",
+    "Original scientific anchor unchanged",
+    "Original observer retained for old finite controls",
+    "Candidate trace explicit before bind",
+    "ExtendedGuard entries set before base constructor checks",
+    "Five pre-arithmetic encoder drift actions including wide fallback",
+    "P1 installed before phase wrappers and sealed afterward",
+    "Private constructor identity captures and CLI arm/disarm",
+    "Timed new-source custody before imports and finite/full receipts",
+    "Finite original/copied inventories rechecked",
+    "Parent serial lock and immutable stage ledger"
+  ],
+  "reported_observations": {
+    "provenance": "Parent messages; not independently replayed or receipt-audited by this reviewer",
+    "P2_finite": {
+      "normal": "PASS",
+      "optimized": "PASS",
+      "normal_wall_seconds_approx": 1.78,
+      "optimized_wall_seconds_approx": 2.04
+    },
+    "P2_complete_pilot": {
+      "status": "PASS",
+      "wall_seconds": {
+        "B": 27.9081,
+        "C": 25.7346
+      },
+      "cpu_seconds": {
+        "B": 27.79,
+        "C": 25.62
+      },
+      "exact_science_equal": true,
+      "qualified_factor": false
+    },
+    "P3_finite": {
+      "normal": "PASS",
+      "optimized": "PASS",
+      "normal_wall_seconds_approx": 1.85,
+      "optimized_wall_seconds_approx": 2.22
+    },
+    "P3_complete_pilot": {
+      "status": "PASS",
+      "wall_seconds": {
+        "B": 27.0782,
+        "C": 25.0697
+      },
+      "cpu_seconds": {
+        "B": 27.01,
+        "C": 24.98
+      },
+      "qualified_factor": false
+    },
+    "P1_finite": {
+      "normal": "PASS",
+      "normal_wall_seconds": 2.419,
+      "optimized_initial": "STOP",
+      "optimized_initial_wall_seconds": 2.8227,
+      "failure": "Collision fixture did not reach custom equality",
+      "failure_retained_and_charged": true,
+      "revision_3": {
+        "normal": "PASS",
+        "optimized": "PASS",
+        "normal_wall_seconds": 2.4495,
+        "optimized_wall_seconds": 2.5654
+      }
+    },
+    "P1_revision_3_complete_pilot": {
+      "status": "PASS",
+      "wall_seconds": {
+        "B": 28.38259,
+        "C": 25.1397
+      },
+      "qualified_factor": false,
+      "qualifies_revision_4": false
+    }
+  },
+  "P1_repair": {
+    "status": "SOURCE_APPROVED_AND_PARENT_REPORTED_BOTH_FINITE_MODES_PASS",
+    "scope": "control only",
+    "reason": "Original collision-triggering tail lookup is inside assert and disappears under -O",
+    "minimal_change": "Require nonempty callback log only when not sys.flags.optimize; retain unconditional original/candidate outcome, event-sequence, fallback and token comparisons",
+    "new_immutable_stage_required": true,
+    "complete_pilot_before_finite_passes": false,
+    "sha256": "9fbe76c6d5ce123d12fc3c231786a9a85996fad41102835e08112768dd75738d",
+    "additional_static_repair": "All original verify_map Q calls are assertion-only; logging-Q fixture likewise requires nonempty normal events and explicitly empty optimized events with unconditional parity checks retained",
+    "implementation_changed": false
+  },
+  "remaining": [
+    "Fresh immutable revision 4 combined source freeze",
+    "Combined normal and optimized old/new finite-control union",
+    "Complete combined outputs and coverage",
+    "All new and historical costs with integration call budget",
+    "Fresh predeclared BCCBBC wall/CPU target and noise qualification",
+    "Actual hosted runtime and Fraction digest with complete correctness replay",
+    "Delivery and publication obligations"
+  ],
+  "performance_boundary": {
+    "individual_15_percent_requirement": false,
+    "combined_wall_reduction_minimum": 0.15,
+    "combined_cpu_reduction_minimum": 0.15,
+    "saving_must_exceed_max_within_arm_range_each_metric": true,
+    "add_component_percentages": false,
+    "goal_achieved": false
+  },
+  "P1_portability_revision_4": {
+    "status": "SOURCE_APPROVED_FOR_COMBINED_FINITE_UNION",
+    "adapter_sha256": "eeeead34731e73f74dff250f354e57b72314c4e18670848bfa9f48c87de1305d",
+    "controls_sha256": "760f151efd18b281c7045e979d2c3f95ce58c5d8bb1340e34d2afa68bd072919",
+    "allowed_sources": [
+      {
+        "sha256": "cf33568f7b767f66896995a7a81cc662e8be226f2e58efb61d2028f64eb5d231",
+        "bytes": 38067,
+        "profile": "recorded-local-cpython-3.12.3"
+      },
+      {
+        "sha256": "d52d1ab9d5be26924e4914a5e40069c992bbfa68f773694c2e5ee8452d0766a0",
+        "bytes": 38147,
+        "profile": "official-cpython-3.12.15-e848e4b09ca4bc67c0041c9ce7526dae471d4c36"
+      }
+    ],
+    "reviewer_checks": [
+      "Exact hashes of active local file and retained official-reference file",
+      "Inert AST comparison changes only Fraction.__pow__",
+      "Whole adapter/control diff versus immutable revision 3",
+      "Exact source pins and actual selected digest/profile receipt",
+      "All prior code/descriptor/global/class/function/freshness checks unchanged",
+      "Integration and runner hashes unchanged",
+      "Existing CPython 3.12 family gate retained"
+    ],
+    "official_retrieval_provenance": "Worker retained tag/commit evidence; no second reviewer network retrieval",
+    "new_policy_controls": {
+      "known_pins": 2,
+      "rejected_unknown_or_nonexact": 3,
+      "binding_receipt_consistency": true
+    },
+    "alternate_Fraction_source_loaded": false,
+    "reviewer_runtime_execution": false,
+    "new_costs": [
+      "Fixed two-pin selection",
+      "Selected profile receipt allocation",
+      "New policy controls",
+      "38,147-byte retained reference source custody read/hash"
+    ],
+    "hosted_runtime_compatibility": "PENDING_ACTUAL_RUNTIME_DIGEST_NORMAL_OPTIMIZED_AND_COMPLETE_ASSERTION_ON_REPLAY",
+    "prior_pilot_transfer_to_revision_4": false,
+    "supporting_sha256": {
+      "PORTABILITY.md": "8f2e5b95ade7b100634d1d875d7ac8fbef608ed74e2539f340a22d0c17a212e1",
+      "PORTABILITY-SOURCE.json": "2c385ad61b64fb7e58d915ac597eb223d65365fcf1737dbd6320a2b438f3cc82",
+      "SOURCE-READINESS.json": "4ac8964004938d4d02840e135254b3bc1a57c0cc3f1018ed50909bf79a1cb556"
+    },
+    "reference_source_custody_scope": "Selected P1 or combined candidate; baseline lanes=none does not select that directory"
+  },
+  "execution_gate": {
+    "owner": "parent only",
+    "combined_complete_after_both_finite_modes_pass": true,
+    "per_process_wall_seconds": 180,
+    "per_process_memory_bytes": 1073741824,
+    "initial_campaign_wall_seconds": 600,
+    "total_campaign_wall_seconds": 1500,
+    "preserve_and_charge_failed_or_superseded_runs": true
+  }
+}

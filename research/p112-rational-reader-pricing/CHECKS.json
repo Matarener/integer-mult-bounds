@@ -1,0 +1,91 @@
+{
+  "status": "PASS_AUTHOR_CHECKS",
+  "utc": "2026-10-18T00:50:15.932544+00:00",
+  "environment": {
+    "python": "3.15.0 (main, Oct  9 2026, 11:16:41) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "platform": "darwin",
+    "registered_python": "CPython3.12.15 macOS arm64",
+    "ruff": "0.17.1"
+  },
+  "registered_receipt": "Python3.12.15 registered replay passed all3commands; commands in VERIFY.json.",
+  "checks": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-rational-reader-pricing/verify.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"errors\": 0, \"expanded_identity_entries\": 50176, \"literal_global_tariff\": 224, \"no_native_supplier_or_kappa_claim\": true, \"pair_geometry_histogram\": {\"10:8\": 8, \"10:9\": 16, \"12:6\": 2, \"12:8\": 12, \"12:9\": 124, \"14:9\": 88, \"16:8\": 11, \"16:9\": 220, \"8:4\": 3, \"8:7\": 8, \"8:8\": 4}, \"pairs\": 496, \"status\": \"PASS_P112_RATIONAL_THREE_QUERY_FLOOR\", \"support_classification\": {\"inventory_sha256\": \"9eea7cfe63264eaef0e7711cca1b00703f6d13d3496c75ea938a8ba5d1388268\", \"patterns_per_coordinate\": 37, \"reader_pattern_histogram\": {\"1\": 294, \"2\": 546, \"3\": 169}}}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-rational-reader-pricing/independent.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"errors\": 0, \"pairs\": 496, \"pattern_histogram\": {\"1\": 294, \"2\": 546, \"3\": 169}, \"rational_fixtures\": 18, \"status\": \"PASS_SEPARATE_RATIONAL_READER_CHECK\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "research/p112-rational-reader-pricing/test_controls.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 2.738s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "{ruff}",
+        "check",
+        "--no-cache",
+        "--select",
+        "E,F,B,UP",
+        "research/p112-rational-reader-pricing"
+      ],
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{ruff}",
+        "format",
+        "--check",
+        "--no-cache",
+        "research/p112-rational-reader-pricing"
+      ],
+      "returncode": 0,
+      "stdout": "6 files already formatted\n",
+      "stderr": ""
+    }
+  ],
+  "reviewed_file_sha256": {
+    "SOURCES.json": "d5f277d35da44f723b0789a59682257e9bc5dcb0eab1f5bd8629473462536de4",
+    "PROOF.md": "10140d79a4dff6ae581a559be7d4654bbe7cffeeeb670b1a189118c146fdb092",
+    "VERIFY.json": "3509f81fbe74af97c6b707d281d4a3ec41538a8ff747fb49abab1fe7e80446e9",
+    "RESULT.json": "1b805f73acb72e864573d956496277dd8e4b8e5cc6b74d5d40074440193d820e",
+    "TASK.json": "3087c3285b82041975c8ef4ab2ec1cf020c47536b607b897af9025311c829a19",
+    "VALIDATION.md": "66e8fe5e080dc50ea14bf09d49418f4aae9ed651f1b7420f584f0624cd9dcfb6",
+    "test_controls.py": "90c0fa40fce83cf7ab16ca5c147fcc4f6c40b27a3862a33bc82bc83451e44ae9",
+    "independent.py": "ee26463f058fe35bb326a60ff9c8e97947c95740260e15afec6ebe2747635d64",
+    "README.md": "92920502ad556e501b3060345f86882fd342123bdaeae31ea15786fc3947c9f5",
+    "verify.py": "945c02cda3253349cf5e417b9eae8938b2daa14dd68d3370dcd97e5093837d69",
+    "RETAINED-RANK32.json": "2e990b02186660c68d9d38cabc864d662b01458b3eafeab774a8b8406bbfb57b"
+  },
+  "limits": "Author checks only; no human, formal-kernel, native or supplier approval."
+}

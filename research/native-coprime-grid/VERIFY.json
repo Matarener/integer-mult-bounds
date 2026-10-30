@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Exact grid, source-bound axis guards, CRT, modular DFT and convolution checks; no kappa claim.",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Optimized replay preserves explicit rejection guards and generated receipt.",
+      "timeout_seconds": 120
+    }
+  ],
+  "package_local_inputs": [
+    "research/native-coprime-grid/.gitattributes",
+    "research/native-coprime-grid/LICENSE",
+    "research/native-coprime-grid/MANIFEST.json",
+    "research/native-coprime-grid/NOTICE.txt",
+    "research/native-coprime-grid/PROOF.md",
+    "research/native-coprime-grid/README.md",
+    "research/native-coprime-grid/RESULT.json",
+    "research/native-coprime-grid/SOURCES.json",
+    "research/native-coprime-grid/TASK.json",
+    "research/native-coprime-grid/VERIFY.json",
+    "research/native-coprime-grid/grid.py",
+    "research/native-coprime-grid/source/tensor_plan.py",
+    "research/native-coprime-grid/source_guard.py",
+    "research/native-coprime-grid/verify.py"
+  ]
+}

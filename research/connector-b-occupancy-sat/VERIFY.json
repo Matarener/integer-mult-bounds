@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/connector-caller-exhaustion-audit/README.md",
+    "research/connector-covering-code/README.md",
+    "research/connector-covering-code/TASK.json",
+    "research/connector-covering-code/cycle_search.cpp",
+    "research/connector-domain-completeness/README.md",
+    "research/connector-search-exhaustion-audit/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/check_formula.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Source pins, all77 independently generated low orbits and exact fresh CNF byte bindings for the four named cases. Bindings only; no SAT solve or UNSAT proof acceptance. Full science uses the separate pinned REPLAY.json and dedicated native workflow."
+    }
+  ]
+}

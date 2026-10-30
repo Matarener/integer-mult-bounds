@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/vendor/SHALLOW-TOEPLITZ.md",
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py",
+    "research/cubic-cyclic-inverse/vendor/PR628-PROOF.md",
+    "research/cubic-cyclic-inverse/vendor/PR628-NOTICE.md",
+    "research/cubic-cyclic-inverse/vendor/interval_kernel.py",
+    "research/cubic-cyclic-inverse/vendor/check.py",
+    "research/physical-ring-product/README.md",
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_exact_algebra.py",
+    "research/rational-unitary-fft/vendor/stein_rational.py",
+    "research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+    "research/certified-gaussian-recovery/intervals.py",
+    "research/certified-gaussian-recovery/NOTICE.md",
+    "research/certified-gaussian-recovery/PROOF.md",
+    "research/capped-fusion-t74-k554/outer/check_gaugefree.py",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md",
+    "research/capped-phase-fusion/BILATERAL-LDU.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/capped-phase-fusion/PHASE-LAYOUT-AUDIT.md",
+    "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
+    "research/rational-unitary-fft/vendor/boundary_adapter.py",
+    "research/rational-unitary-fft/vendor/BOUNDARY-PROVENANCE.json",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/check_constructions.py",
+    "research/capped-phase-fusion/evidence/gaussian_fast_ultra/check_capped_gauges.py",
+    "research/capped-phase-fusion/evidence/phase_layout_audit_ultra/check_union.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 20,
+      "checks": "Authenticate and adapt the actual FFT/shear schedule, certify rational phases and unitary gates, prepare charged spectral coefficients, execute fixed-grid dirty data, compare independent Fourier/Toeplitz references and reject schedule/precision controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 20,
+      "checks": "Repeat the complete gate/rounding certificate under optimized Python, keeping authenticated source assertions and exact typed receipt comparison."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify_triangle.py"],
+      "timeout_seconds": 30,
+      "checks": "Execute the retained parity recursion and exact stored inverse on one grid; check macro identities, independent exact endpoint inverses, global error/width budgets, reversed indices, nonunitary leaves and adversarial controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_triangle.py"],
+      "timeout_seconds": 30,
+      "checks": "Repeat the complete recursive forward/inverse certificate under optimized Python with authenticated source assertions and complete typed receipt comparison."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify_generator.py"],
+      "timeout_seconds": 50,
+      "checks": "Execute the exact rational producer and retained compensated generator gate program on actual Schur fixtures; check paired spectral coefficients, additive endpoint defects, dirty-source rounding, intermediate widths and cancellation controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_generator.py"],
+      "timeout_seconds": 50,
+      "checks": "Repeat the complete generator program with source assertions enabled under optimized Python and compare its full typed receipt."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw", "--with-core"],
+      "timeout_seconds": 500,
+      "checks": "Run full, normalized and raw verifiers sequentially, preserving their receipts. Then execute the retained finite-core carve and factor words with shared-reference Schur pages, raw interiors and prepared boundary pages. Check each actual stage input, complete narrow residual and broad product, incoming grids, arithmetic widths and 13 controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw", "--with-core"],
+      "timeout_seconds": 500,
+      "checks": "Repeat full, normalized, raw and finite-core verification sequentially under optimized Python. Preserve source assertions and compare four complete typed receipts, including exact child-plan hashes, prepared-page equivalence and corrupted-page rejection."
+    }
+  ]
+}

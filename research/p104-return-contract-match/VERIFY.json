@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate five exports; reconstruct B; replay two original literal adapters with independent arithmetic on280encoded inputs, frames, helper return and complete counts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate symbolic block reconstruction, explicit rational examples and destructive formal-word/source-binding controls, active under optimization."
+    }
+  ]
+}

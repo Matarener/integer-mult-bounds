@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py",
+    "research/unconditional-batched-crt/NOTICE.md",
+    "research/schur-majorant-closure/source/PR4205-README.md.txt",
+    "research/schur-majorant-closure/source/PR4205-TRIANGLE-PROOF.md.txt",
+    "research/schur-majorant-closure/source/PR4205-triangular.py.txt",
+    "research/schur-majorant-closure/source/predecessor_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/primary_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact majorant/slack, principal restriction/Schur quotient and local Toeplitz corroboration."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/primary_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact majorant/slack, principal restriction/Schur quotient and local Toeplitz corroboration."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint frozen bordered-determinant oracle and hypothesis boundaries."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint frozen bordered-determinant oracle and hypothesis boundaries."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/source_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated original five algebra functions; algebra-only callbacks; no gate/factory execution."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/source_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated original five algebra functions; algebra-only callbacks; no gate/factory execution."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/cross_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Hash-bound Gaussian elimination versus bordered-minor algorithm agreement."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cross_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Hash-bound Gaussian elimination versus bordered-minor algorithm agreement."
+    }
+  ]
+}

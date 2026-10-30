@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On both pinned orientations of the selected gauge44 local program, identify rank-4 child groups sharing a target frame, retime only intervening scalar L-register additions across those independent calls, and replace groups of four or three by exact block-diagonal rank-16 or rank-12 calls. Recompute the fixed-word zero-charge ceiling; also compose the profile arithmetically with the pinned rank-2/rank-3 screen as a joint relaxation.",
+  "scope_change_reason": "The card's broad block-climb question is narrowed to one source-bound rank-4 pattern absent from the predecessor rank-1 and strict rank-2/rank-3 screens: fourteen same-target-frame groups containing either four or seven calls. The verifier proves the register-level retiming and block-diagonal identity, but waives the physical block-input/output layout and complete supplier bill. The joint profile is only the arithmetic composition of two zero-charge screens.",
+  "bottleneck_link": "At fixed paid rank mass, replacing four rank-4 calls by one rank-16 call, or three by one rank-12 call, lowers the recursive moment for every positive saving exponent. Whether that ceiling headroom survives input layout, routing, frames, hosting, precision and dirty restoration is the unresolved mechanism.",
+  "budget_minutes": 50,
+  "stop_rule": "Stop construction expansion at this screen. The standalone rank-4 profile gains only 2.02% in the ideal ceiling and misses the card's 5% gate. The arithmetic composition with the earlier rank-2/rank-3 zero-charge profile clears 5%, but supplies no physical interface or total cost. Resume only after a source-bound operand/owner/restoration contract is available for one concrete fused block and a complete bill shows the omitted costs can fit.",
+  "outcome": "completed",
+  "evidence": "RESULT.json and verify.py pin the selected archive and both orientations, enumerate 22 blocks covering 80 rank-4 calls, preserve rank mass 5,586, symbolically verify the rank-12/rank-16 block-diagonal identities, and check exact rational ceiling brackets. The standalone zero-charge ceiling gain is 2.0187%; the composed zero-charge profile is 6.6289% above the selected-word ceiling. No supplier or new kappa is claimed.",
+  "author": "Gonzalo Mier",
+  "ai_assistance": "Substantial OpenAI Codex assistance in source analysis, mathematical screening, verifier implementation and package writing; no independent human review is claimed.",
+  "predecessors": [
+    {
+      "reference": "CrocSwap/integer-mult-bounds#1779",
+      "relationship": "Selected-word direct-sum batching of rank-one climbs; this package changes the child rank to four and retimes only within verified same-target-frame groups."
+    },
+    {
+      "reference": "CrocSwap/integer-mult-bounds#1960 and #2014",
+      "relationship": "Strict chronological rank-2/rank-3 block screens; this package's separate rank-4 groups may be composed only as a zero-charge profile relaxation."
+    },
+    {
+      "reference": "research/complex-mixed-rank-diagonal-seed8433",
+      "relationship": "Pinned predecessor profile whose independent verifier is rerun by this package before the joint arithmetic screen."
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "Can one concrete rank-4 group (for example target frame 431) be emitted as an actual rank-16 child with its left/right operands, output owners, scratch lifetime and arbitrary-dirty restoration fully specified?",
+      "why_it_matters": "The positive ceiling is only useful if constructing and consuming the block-diagonal inputs costs less than the moment saved; unknown interface costs are not zero.",
+      "first_step": "Trace the four exact child recipes and their source/output banks through the selected producer and consumer, write the 16-by-16 block inputs and output map, then price every copy, frame conversion, hosted slot, precision term and restoration operation.",
+      "blocked_by": "The frozen local event trace records child rank, register, source/target frame and scalar references, but not the physical ownership and lifetime contract for a fused block call."
+    }
+  ]
+}

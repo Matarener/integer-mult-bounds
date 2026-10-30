@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-productive-controller/caller.py",
+    "research/p104-productive-controller/CONTROLLER.json",
+    "research/joint-helper-lattice/CONTROLLER.json",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/pr4359-p7-padding/native_inventory.py",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+    "research/higher-moment-strictification/verify.py",
+    "research/kappa-rebuild/architecture/mixed_target_probe.py",
+    "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py",
+    "research/query-thinned-controllers/RESULT.json",
+    "research/p104-helper-subspace-splits/inputs/PR5580-WORD.json.gz",
+    "research/p104-helper-subspace-splits/inputs/PR5565-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Check all 13 independent cuts, every rational row and reverse column, native maps, complete caller and invoice, two moment engines, compiler and outer predicates; reject false inputs, outputs, target credit and cost."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Check all 13 independent cuts, every rational row and reverse column, native maps, complete caller and invoice, two moment engines, compiler and outer predicates; reject false inputs, outputs, target credit and cost."
+    }
+  ]
+}

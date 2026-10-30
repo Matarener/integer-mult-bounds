@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/rank7-joint-endframes/README.md",
+    "research/rank7-joint-endframes/producer.py",
+    "research/rank7-joint-endframes/construction/STAGE-PRICES.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Rebuild the V45 intersection from the parity test and recompute every declared subset margin."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that vector 1 leaves a hyperplane and that the one-helper and four-helper margins have opposite signs."
+    }
+  ]
+}

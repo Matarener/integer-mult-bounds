@@ -1,0 +1,68 @@
+vars 6440 rows 6922 V 2643 arcs 3560 hubs 56 const 2409.628225694342 t 17.56764268875122
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+MIP has 6922 rows; 6440 cols; 16172 nonzeros; 6203 integer variables (6203 binary)
+Coefficient ranges:
+  Matrix  [1e+00, 1e+00]
+  Cost    [1e+00, 9e+00]
+  Bound   [1e+00, 1e+00]
+  RHS     [1e+00, 1e+00]
+Assessing feasibility of MIP using primal feasibility and integrality tolerance of       1e-06
+WARNING: Row   2132 has         infeasibility of           1 from [lower, value, upper] = [              1;               0;               1]
+Solution has               num          max          sum
+Col     infeasibilities      0            0            0
+Integer infeasibilities      0            0            0
+Row     infeasibilities   2352            1         2352
+Row     residuals            0            0            0
+Attempting to find feasible solution by solving LP for user-supplied values of discrete variables
+Presolving model
+Problem status detected on presolve: Infeasible
+Model status        : Infeasible
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+1076 rows, 1270 cols, 3228 nonzeros 0s
+248 rows, 462 cols, 1247 nonzeros 0s
+175 rows, 378 cols, 1031 nonzeros 0s
+129 rows, 307 cols, 859 nonzeros 0s
+127 rows, 224 cols, 625 nonzeros 0s
+92 rows, 188 cols, 466 nonzeros 0s
+68 rows, 119 cols, 345 nonzeros 0s
+57 rows, 95 cols, 270 nonzeros 0s
+32 rows, 55 cols, 156 nonzeros 0s
+26 rows, 46 cols, 129 nonzeros 0s
+20 rows, 0 cols, 0 nonzeros 0s
+0 rows, 0 cols, 0 nonzeros 0s
+Presolve reductions: rows 0(-6922); columns 0(-6440); nonzeros 0(-16172) - Reduced to empty
+Presolve: Optimal
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   2843.488766     2843.488766        0.00%        0      0      0         0     0.0s
+
+Solving report
+  Status            Optimal
+  Primal bound      2843.48876587
+  Dual bound        2843.48876587
+  Gap               0% (tolerance: 1e-05%)
+  P-D integral      0
+  Solution status   feasible
+                    2843.48876587 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.01
+                    0.01 (Presolve)
+                    0.00 (Solve)
+                    0.00 (Postsolve)
+  Max sub-MIP depth 0
+  Nodes             0
+  Repair LPs        0
+  LP iterations     0
+status Optimal cost 5253.116991559382 bound 5253.1169915593855 current 5253.116991559385

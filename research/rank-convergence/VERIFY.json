@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/direct-mixed-flow/flow.py",
+    "research/direct-mixed-flow/README.md",
+    "research/direct-mixed-flow/vendor/FINITE-PRECOMPILATION.md",
+    "research/direct-mixed-flow/vendor/theorem-1g.md",
+    "research/higher-moment-strictification/RESULT.json",
+    "research/native-lattice-retiming/RESULT.json",
+    "research/joint-helper-lattice/RESULT.json",
+    "research/compact-joint-compiler/arithmetic/RESULT.json",
+    "research/net-tax-rank-compiler/RESULT.json",
+    "research/net-tax-rank-compiler/intervals.py",
+    "research/direct-mixed-flow/vendor/SUSSMAN-LICENSE",
+    "research/direct-mixed-flow/vendor/SUSSMAN-NOTICE"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticate exact raw profiles, baseline and native-flow source; certify four adaptive-height witnesses across three profiles, uniform exponent/mirror covers and funded ranks; compare independent literal/window oracles and rejection controls. Native and outer producers are inherited receipts, not replayed."
+    }
+  ]
+}

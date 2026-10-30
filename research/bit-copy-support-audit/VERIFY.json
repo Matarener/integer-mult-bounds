@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-copy-support-audit/source/WORD.json.gz",
+    "research/bit-copy-support-audit/source/GEOMETRY.json.gz",
+    "research/bit-copy-support-audit/source/PR4200-PROOF.md.txt",
+    "research/bit-copy-support-audit/source/NOTICE.md.txt",
+    "research/bit-copy-support-audit/source/RELATED-WORK.md.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/source_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated literal public frame/suffix audit and independent paired-execution premise controls; no full scalar endpoint/K/R replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/source_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated literal public frame/suffix audit and independent paired-execution premise controls; no full scalar endpoint/K/R replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint finite rational/coordinate frame oracle, arbitrary dirty columns, cancellations and explicit forbidden-relaxation counterexamples."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_oracle.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Code-disjoint finite rational/coordinate frame oracle, arbitrary dirty columns, cancellations and explicit forbidden-relaxation counterexamples."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/frame_rank_cross.py",
+        "--source-dir",
+        "{package}/source",
+        "--source-receipt",
+        "{package}/RESULT.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate Fraction elimination corroborates636 rational frame ranks,2904 MOVE differences and111 cap equalities against the committed primary receipt; no producer or primary checker import."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/frame_rank_cross.py",
+        "--source-dir",
+        "{package}/source",
+        "--source-receipt",
+        "{package}/RESULT.json"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate Fraction elimination corroborates636 rational frame ranks,2904 MOVE differences and111 cap equalities against the committed primary receipt; no producer or primary checker import."
+    }
+  ]
+}

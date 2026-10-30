@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/centre-history-innovation/RESULT.json",
+    "research/centre-history-innovation/SOURCES.json",
+    "research/centre-history-innovation/VERIFY.json",
+    "research/centre-history-innovation/verify.py",
+    "research/centre-native-observation-dimension/PROOF.md",
+    "research/centre-native-terminal-factor/README.md",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/idle-axis-hosting/PROOF.md",
+    "research/selected-centre-native-lift/README.md",
+    "research/split-centres-global/proofs/INHERITED-COMPLEX-GEOMETRY.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Source pins; unchanged predecessor centre-history-innovation replay and receipt; Kronecker packing sharpness on six grids; exact ceiling brackets for 2/4/8-total and ideal packing with mass conservation; four controls; RESULT.json byte match."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same replay under optimisation (all checks use explicit exceptions, not assert)."
+    }
+  ]
+}

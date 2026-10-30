@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/runtime-quarter-carry/inputs/machine.py",
+    "research/runtime-quarter-carry/inputs/counters.py",
+    "research/runtime-quarter-carry/inputs/shear.py",
+    "research/runtime-quarter-carry/inputs/independent.py",
+    "research/runtime-quarter-carry/inputs/route-RESULT.json",
+    "research/runtime-quarter-carry/inputs/descriptor.py",
+    "research/runtime-quarter-carry/inputs/offset.py",
+    "research/runtime-quarter-carry/inputs/descriptor-PROOF.md",
+    "research/runtime-quarter-carry/inputs/prior-README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "All444 source routes and3552 carry columns; exact ledgers; both literal interpreters; full owner, head and private restoration; all29 runtime packets; fixed tables and semantic controls"
+    }
+  ]
+}

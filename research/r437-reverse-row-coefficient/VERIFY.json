@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "SHA-256 of both vendored words, forward coefficient 49347, reverse coefficients 1113998 and 1123650, add counts 24208 and 24211, forward children 2915, shared reverse peak register 158 source 223 norm 8689, delta 9652 already in the destination, and bit length 21."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate numeric-opcode reverse walk, without importing verify.py, recomputes the same coefficients, add counts and peak address."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Synthetic two-register orientation, rejection of an unchanged candidate word, and a duplicated peak add 158 += 223 that moves the reverse coefficient."
+    }
+  ]
+}

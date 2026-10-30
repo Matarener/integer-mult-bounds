@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/frobenius-tensor-characters/README.md",
+    "research/frobenius-algebra-recognition/PROOF.md",
+    "research/etale-tensor-determinant-image/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact split-product models, independent finite automorphism enumeration, determinant witnesses, supplied tensor certificates and failure controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "The same explicit checks with isolated imports and Python optimizations enabled."
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+# Synthetic cache-key pilot: independent source review
+
+Date: 2026-10-28. Status: SOURCE-ONLY CLEARANCE FOR ONE FIXED GUARDED PILOT.
+No remaining source blocker was found at the final hashes below. This reviewer
+read source and recorded hashes only; no compiler, extension import, numerical
+workload, benchmark, network/browser/Git action or new hypothesis search was
+performed. Only this new review report was written.
+
+This clearance concerns a synthetic key-table comparison. Neither arm implements
+the production Cache/Event/Fraction contract. The further 15% complete PR5864
+wall AND CPU target remains unmet; the standalone GC route remains closed.
+
+## C representation, ownership and control flow
+
+keypilot.c:111-141 validates exact integer selectors/capacities/failure controls,
+exact outer/inner tuples, width seven and exact PyLong fields before allocation
+or hashing. Bool, subclasses and foreign objects cannot reach hash/equality
+callbacks. Capacity is 1..16384 and row count is at most 3,000,000; allocation-size,
+ring-index, table-size and miss-ID arithmetic remain within these fixed bounds.
+
+The custom table owns seven references and one opaque result reference per
+resident entry. Stack probe fields borrow from the still-live immutable input.
+Hits acquire a result reference; misses create a monotone PyLong ID. Transferring
+a result to the output tuple clears the local owner. Baseline dictionary/ring
+ownership is separate, and each receives/releases the references it owns.
+
+All hash mixing uses uint64_t arithmetic, including conversion from Py_hash_t;
+wraparound is defined. Numeric hashing uses the public API. Equal field values
+therefore have equal combined hashes, but the implementation never substitutes
+hash or pointer equality for complete seven-field numeric equality. Linear
+probing passes tombstones and stops at EMPTY. Size is a power of two, at least
+twice capacity and at least eight. The occupied-plus-tomb threshold triggers a
+same-size rehash before a miss proceeds, preserving empty slots for termination.
+
+FIFO entry indices stay fixed during rehash. A new table is constructed before
+publication; every live entry's slot is then refreshed. Eviction marks the old
+slot as a tombstone, clears the old entry, and inserts at the FIFO head. Tombstone
+reuse decrements the tomb count. Hits do not advance the head. There is no shared
+cache state across calls and no state carried between B/C samples.
+
+Every allocation/error/fault exit reaches common cleanup. Partially initialized
+output and prefix tuples, local lookup/result ownership, baseline dictionary and
+ring, custom entries, and old/new rehash tables are covered. The pre-publication
+rehash failure leaves the original table available for cleanup. All owned key
+fields/results are exact integers, so the private C storage introduces no
+arbitrary finalizer or cyclic-object domain. These are source findings, not a
+claim that runtime ownership has already been tested.
+
+## Independent finite comparisons and failure coverage
+
+The driver uses a separate literal Python dict/deque oracle. Every ordered miss
+ID, hit/miss/eviction flag, 80-operation prefix and core statistic must match.
+Custom rehash counts are metadata, not compared to oracle core counters: B must
+report zero; C must exercise natural rehashing in the finite suite and timed
+corpus. No digest replaces full equality.
+
+Fixed controls cover zero, signs, 8192-bit values, separately allocated equal
+integers, deliberately identical per-field/tuple hashes, table collisions,
+capacities 1/2/3/16/16384, no FIFO refresh on hits, turnover and tombstones.
+Malformed row/type/bounds controls reject both arms where applicable. Declared
+miss faults cover temporary ownership, value creation, eviction, stored ownership,
+output transfer and custom rehash failure before publication. Fixed repeated-key
+faults additionally cover hit-result ownership at phases 1 and 5 in both arms.
+Success and failure controls compare raw reference counts for row/key objects
+and noncached integers. Small cached integers are excluded because retained
+receipts may legitimately reference them. This is bounded cleanup coverage,
+explicitly not exhaustive allocator-fault or production-callback coverage.
+
+Two review gaps were closed before freeze: hit cleanup now has reachable fixed
+fault cases, and the loader explicitly verifies its compiler-input snapshot
+against the manifest before compilation and again afterward. Baseline rehash-zero
+checking and precise inner/outer destruction wording are also present.
+
+## Corpus, timing fairness and retained evidence
+
+The frozen synthetic corpus has 32,768 contexts, 80 lookups/context, 2,621,440
+lookups, 327,680 misses, 2,293,760 hits and 311,296 evictions at capacity 16,384.
+It has small normalized dyadic fields, one small q/context, bounded tokens and
+alternating independently allocated equal tuples. Broad 8192-bit and forced
+collision cases stay in the separate finite suite. The corpus is generated by
+fixed arithmetic, source-pinned and hashed before timing, with no data search,
+workload choice, warmup loop or adaptive repetition.
+
+Both arms run in the same compiled extension with the same flags and identical
+input validation/output/prefix work. B allocates a fresh seven-int tuple and
+uses PyDict plus FIFO; C probes the custom table and owns fields on insertion.
+Both exclude Fraction arithmetic, descriptor extraction, callback/result-type
+checks, Event.apply, score additions and row updates. Private cache destruction
+is inside each C-call interval. Returned-output destruction, exact comparison
+and persistence occur outside inner timing but remain in the outer command.
+The fixed order is B1,C1,C2,B2 with fresh private state. Required finite controls
+precede these samples; this does not make each inner call a cold process.
+
+All four samples are retained. The oracle and each sample preserve full ordered
+64-bit ID files, flag bytes, prefix JSON and core counters. Byte order and the
+eight-byte ID format are recorded. The comparison uses the smaller of the two
+predeclared paired differences separately for wall and CPU; no unfavorable
+sample can be replaced. A mismatch or other failure aborts without retry.
+
+## Source binding and the outer bill
+
+The manifest pins the C, loader, driver, stage entry, plan and reproduction text,
+plus the cited diagnostic/reference sources. The loader rejects absent/symlinked
+or mismatched inputs, uses a fresh build directory, binds its copied C bytes
+before and after compilation, records the built extension hash, and rechecks
+source pins. The final PyModuleDef explicitly initializes its trailing fields.
+Both arms use -O3/-std=c11/-Wall/-Wextra/-Werror; any compiler output or nonzero
+return is retained and rejected. The production loader uses -O2, which is another
+reason not to transfer the pilot delta directly into a production timing claim.
+
+stage_entry.py requires the exact stages/cache-key-pilot-v1 location and a fresh
+artifact destination. The reproduction command uses the parent's existing serial
+guard, with 180-second wall and 1-GiB sampled process-group RSS caps and the shared
+1,500-second ledger. The compiler has its own 60-second subprocess timeout. The
+parent guard remains authoritative for whole-process startup/exit, final writes,
+compiler-child CPU, finite controls, corpus/oracle construction, all samples and
+output persistence. The child's partial cold clock explicitly excludes startup,
+exit and its last write. This review did not execute or independently validate
+those runtime receipts.
+
+## What the synthetic budget can and cannot establish
+
+Multiplying the synthetic per-call difference by 2,579,750 actual calls is an
+ILLUSTRATIVE CONDITIONAL TRANSFER. It is not a measured actual-trace saving, a
+measured upper bound on actual-trace savings, or complete PR5864 performance.
+The transfer assumes favorable correspondence in key sizes, identity reuse,
+hit distance, collision distribution, allocator/cache behavior and compiler
+context that the pilot does not demonstrate.
+
+The 34.661785392 wall / 34.47 CPU medians are fixed historical screen anchors,
+not universal runtime bounds. Adding the earlier 4.684712576 wall / 4.683428715
+CPU integer diagnostic region assumes zero retained integer cost; that region
+also includes diagnostic overhead and is not measured removable time. The
+0.5-second reserve is provisional, not the complete paid new bill.
+
+A failed illustrative screen can justify stopping this nomination under those
+assumptions; it cannot prove that every actual-source route is impossible.
+Passing preserves only an unpriced hypothesis. Actual key behavior, nonzero
+retained integer/key work, production callback/ownership compatibility, source
+qualification, cold builds and complete validation remain required. No micro
+result admits construction, publication, a complete speedup or mathematical gain.
+
+## Final frozen source identities
+
+Paths are relative to cache-key-pilot/. These were read directly after the final
+worker readiness signal and the parent's compiler-hygiene correction.
+
+| File | SHA-256 |
+| --- | --- |
+| keypilot.c | ee3fb2af131878fa2065d1b50d02f2f865c0ac61c9ec0a3d66b15c910f3d9cf6 |
+| load_pilot.py | d6912e01fafa7a79a635812e4884d776757f2e24996850b692f0eb8825bf7968 |
+| run_pilot.py | e02ebb21c4985001f57d947414c52366de77e8db5dfe713440a921e5f4cb1c8e |
+| FROZEN-SOURCE.json | b8f843524f62ed239927db894c4699b3d945900cd9681b78f6d32dfa06e1f3de |
+| stage_entry.py | 3784002e1299e038f848ff591101c056114901571f44a09ec1c3b6b1056779b9 |
+| PLAN.md | 18e9528867b4b72c3a8834deacda559c7fef7c4d514695d829d35c08b81f16f5 |
+| REPRODUCE.md | 167111998682babc725092257dd47038395b4a6e2ff420fb3de30460c8e85941 |
+
+## Post-run receipt interpretation and engineering decision
+
+Added 2026-10-28 after the parent's single guarded execution. This addendum reads
+retained receipts only; it is not an independent numerical replay or a new
+benchmark. No reviewed source or raw output was changed.
+
+The authoritative runtime/runs/cache-key-pilot-v1/receipt.json reports PASS,
+exit 0, 6.57319842200377 outer wall seconds, 6.30 user plus 0.21 system seconds,
+303,071,232 bytes sampled process-group RSS, empty stderr and unchanged source
+bytes/modes. Source inventory SHA-256 is
+eccda3323288ff1dc4e80b97e6cd16572ceebd87ffbaaff075236b4087e07227.
+The retained compiler receipt binds the reviewed C source, reports exit 0 with
+empty compiler logs under -Werror, and identifies extension SHA-256
+3f7af5c42da7a9c5287488227fbb3027761b700657e18c4cc532f067f3609b0d.
+
+runtime/cache-key-pilot-v1-artifacts/FINITE-CONTROLS.json records
+PASS_FINITE_KEY_ONLY, 82 retained control receipts and 50 natural rehashes.
+RESULT.json records PASS_FINITE_KEY_COMPARISON_ONLY, zero retries and the fixed
+B1,C1,C2,B2 order. Each sample has 2,621,440 calls, 2,293,760 hits, 327,680 misses,
+311,296 evictions and 16,384 residents. Both C samples report 26 natural rehashes;
+both B samples report zero. All ordered IDs, flags and prefixes were compared
+exactly to the independent oracle, with full_output_equality true for all four
+samples. The full output artifacts remain retained; this reviewer inspected the
+receipts rather than recomparing their binary contents.
+
+| Retained sample | Wall seconds | CPU seconds |
+| --- | ---: | ---: |
+| B1 | 0.487316342 | 0.487164264 |
+| C1 | 0.357074977 | 0.356983922 |
+| C2 | 0.338865159 | 0.338782096 |
+| B2 | 0.513840729 | 0.513694743 |
+
+The predeclared smaller paired difference is 0.130241365 wall / 0.130180342 CPU
+seconds. The driver's illustrative transfer to the actual call count is only
+0.1281700749812126 wall / 0.12811002245883943 CPU seconds. These are conditional
+translations of synthetic results, not observed PR5864 savings or upper bounds.
+
+Even granting ZERO retained integer runtime and ZERO incremental new bill, the
+same diagnostic integer gross region plus that illustrative key saving gives
+4.812882651253644 wall / 4.811538737458823 CPU seconds, below the fixed anchors'
+required 5.199267808800505 wall / 5.1705 CPU savings. With the declared provisional
+0.5-second reserve, the driver reports 4.312882651253644 / 4.311538737458823 and
+REJECT_THIS_OPTIMISTIC_NOMINATION. Thus the negative decision does not depend on
+claiming that 0.5 seconds is an actual measured bill. Correct finite behavior and
+a faster synthetic key loop do not fund the complete target.
+
+### Decision under the unchanged objective
+
+No further scientific action is presently justified by these retained findings.
+The new result closes the nominated key-plus-private-integer cost premise under
+its declared illustrative assumptions. It does not prove a universal obstruction,
+and it does not establish that the actual trace could never differ. However,
+uncertainty about that transfer is not positive cost evidence. Integrating a full
+production cache, constructing a private integer owner, provisioning GMP, taking
+a favorable repeat or substituting a new synthetic workload would spend work
+past a failed nomination gate without a demonstrated complete budget.
+
+The parent's reported shared spend is 702.875387315 of 1,500 seconds. The present
+engineering impasse is therefore failed demonstrated headroom under the retained
+contract, not exhaustion of the execution cap or missing user permission. The
+primary complete PR5864 target remains unmet. A separately successful matrix
+workload and completion/publication of the four opportunity assessments do not
+satisfy it. No mathematical or kappa conclusion follows from this pilot.
+
+A concrete reopening condition is new source-specific evidence that changes the
+cost premise. For example, an independently supplied, source-pinned actual-key
+corpus and replay result could show that actual value widths, identity reuse,
+hit distances and collision behavior yield materially greater savings than this
+synthetic corpus. It would need exact FIFO/output/counter preservation and an
+honest account of the actual capture/replay and validation costs. Another
+qualifying input would be an independently supplied candidate or implementation
+with a complete owner/callback contract and a measured nonzero retained-runtime
+and new-build/control bill demonstrating enough combined headroom. Merely having
+an available dependency or a large cumulative profile number would not qualify.
+These are requirements on new evidence, not authorization to launch those runs
+now or a new hypothesis search.
+
+An explicit user change to the performance target, workload or allowed operation
+boundary would instead define a revised task and acceptance contract; it would
+not retroactively complete this one. Until new evidence or such a changed task
+exists, the justified next work is evidence closeout and a candid status handoff.
+There is no supported next optimization experiment to recommend solely because
+the stated target remains unfinished.

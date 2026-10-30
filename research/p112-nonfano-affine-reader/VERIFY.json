@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete affine support family,800 plane-equivalence classes and185031864 ternary assignments; exact per-class minima and full4960-row digest."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "No primary imports: raw rectangular Gram ranks, two-half assignment enumeration of all4960 triples without symmetry shortcut,1084757832 assignments,12544 literal operator entries."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Five real optimized CLI corruptions reject; restored positive case; owned regular inode-disjoint byte copies and immutable sources."
+    }
+  ]
+}

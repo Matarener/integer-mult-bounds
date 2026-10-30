@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/three-stage-cover-bit.tex",
+    "research/community-round8-audit/pr185-proof-reviewed.md",
+    "research/bootstrap-depth-audit/sources/pr387/PROOF.md",
+    "research/stock-margin-chain/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the pinned routing paragraph does not name a constant width factor, while the published stage-2 room remains cited."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that an explicit width bound or a named c_R is detected and a big-O width is not."
+    }
+  ]
+}

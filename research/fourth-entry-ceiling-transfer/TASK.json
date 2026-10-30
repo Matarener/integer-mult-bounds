@@ -1,0 +1,107 @@
+{
+  "actual_scope": "Finite source-bound transfer audit of the PR4091 fixed-inventory pooled ceiling against the retained PR4088 head: word/capacity/stock premise equivalence, per-coordinate re-derivation of the fourth-call counts, and fresh Decimal-bisection reproduction of the ceiling root, the pinned literal root and the later-head root, with exact remaining headroom 1.140318244487202e-9.",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "author": "Nick Petalas",
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "bottleneck_link": "Revision 7 requires verifying model equivalence before the ceiling can constrain work on the later fill; this audit establishes that conclusion at the premise level and states the exact remaining headroom.",
+  "budget_minutes": 60,
+  "evidence": "verify.py fresh Decimal(prec 60) bisection of sum n_r (r/73)^(1-a)/(896*360)=1; sha256 of gzip payloads and canonical JSON for the four shared word files; regex-parsed literal residual profile from PR4091 PROOF.md; five rejecting controls in test_verify.py; RESULT.json snapshot. Scripts complete in about 0.5 s each.",
+  "open_questions": [
+    {
+      "blocked_by": "PR4091 open question 1: owner/phase and physical-family constraints on residual-bin exchanges are unvalidated.",
+      "first_step": "Inspect the later fill's residual-bin assignment (idle 22,783 rank-3, 1,625 rank-5, 138,492 rank-48) against the pooled optimum {22,788, 1,620, 138,492} and name the exchange that moves five rank-3 idles to rank-5.",
+      "question": "Can a legal chronological exchange reach the pooled eight-pattern idle multiset at x=1090?",
+      "why_it_matters": "If yes, up to the exact remaining headroom 1.140318244487202e-9 becomes attainable inside the fixed two-provider invoice; if no, the transfer ceiling is not the operative bound for the retained head."
+    },
+    {
+      "blocked_by": "None locally; the audit is rerunnable per head.",
+      "first_step": "Re-run this package's verify.py word-file hash comparison against each new retained PR4088 head.",
+      "question": "Do subsequent PR4088 revisions change any word, capacity or stock premise, invalidating this ceiling transfer for later fills?",
+      "why_it_matters": "PR4091's scope note says changed words, capacities or stock conventions require a new model; knowing whether the premise set drifted decides whether the same screening tool stays applicable."
+    }
+  ],
+  "original_card": {
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls. Name the existing checks and the missing coverage. More digits or another equivalent evaluation of an unchanged root is not by itself new verification coverage.",
+    "allowed_variations": [
+      "Reconstruct either a source ledger or a numeric enclosure with a different method."
+    ],
+    "bottleneck_link": "Independent pricing prevents unsupported frontier claims and can reveal genuine accounting slack.",
+    "existing_checks": [
+      {
+        "evidence": "research/staged544-mixed-fourth-entry/README.md",
+        "remaining": "Independent binding of changed construction to paid histogram, distinct from full admission.",
+        "scope": "PR #4088: mixed local/owner/phase ledger and moment reported.",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+        "source_commit": "72d7efc181edb21806a878f174847c96dd410ab0",
+        "status": "author-checked"
+      },
+      {
+        "evidence": "research/staged-fourth-mixture-ceiling/README.md",
+        "remaining": "Validate dual, exhaustive pattern scope and exact source equivalence before applying to newer fills.",
+        "scope": "PR #4091: sharp pooled ceiling proposed for fixed THREE/FOUR words and inventory.",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+        "source_commit": "a29bdd8f56cd18b805917775cdec09ff935eddc4",
+        "status": "author-checked"
+      },
+      {
+        "evidence": "research/r437-two-window-carrier/README.md",
+        "remaining": "Independent full cost delta; remaining caller/precision/stock obligations are separate.",
+        "scope": "PR #4067: paid (2,2) to (1,3) exchange and fixed OQ4 host reported.",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+        "source_commit": "a95f11c52e3ca1e4c5171b3c20d8f4b0815aee2e",
+        "status": "author-checked"
+      }
+    ],
+    "first_experiment": "Independently reconstruct one changed ledger or pooled certificate with a positive case and a semantic failure control. Compare exact sources and name what existing checks miss. Keep this separate from supplier-boundary-audit (ordinary/outer dispatch) and uniform-transfer-audit (all-size proof). Stop after the chosen implication; more digits of an unchanged root are not additional mechanism coverage.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Choose one uncovered implication in #4088 literal mixed fill, #4091 pooled dual/model binding or #4067 changed frame/host bill. #4091 pins an earlier #4088 head: validate word, capacity and stock equivalence before applying that ceiling to the later fill.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "id": "independent-moment",
+    "methods": [
+      "Independently reconstruct one changed paid ledger or pooled dual with exact source and model binding.",
+      "Check a genuinely uncovered moment implication with a different enclosure method and semantic controls."
+    ],
+    "overlap_terms": [
+      "independent moment",
+      "rank histogram",
+      "exact enclosure",
+      "2979",
+      "rank7 joint endframes",
+      "paired extraction",
+      "joint lowering",
+      "4088",
+      "4091",
+      "4067",
+      "staged544-mixed-fourth-entry",
+      "staged-fourth-mixture-ceiling",
+      "r437-two-window-carrier"
+    ],
+    "question": "Does a new paid-profile or mixture-ceiling claim have independent source-bound coverage of its actual changed ledger?",
+    "scope_change_triggers": [
+      "Importing the primary function and calling its output independent verification.",
+      "Calling an aggregate histogram or source archive an independently accepted physical supplier."
+    ],
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/staged544-mixed-fourth-entry/README.md",
+      "research/staged-fourth-mixture-ceiling/README.md",
+      "research/r437-two-window-carrier/README.md"
+    ]
+  },
+  "outcome": "completed",
+  "priority_revision": 7,
+  "result_summary": "TRANSFER_SUPPORTED_AT_MODEL_PREMISES: four shared word files byte-identical, identical capacity inventory and stock convention, word law gives x=1080/1090 from three independent coordinates each, all three published roots independently reproduced within their brackets, later root below the ceiling by exactly 1.140318244487202e-9 (58.45 percent of the original margin remains).",
+  "schema_version": 1,
+  "scope_change_reason": "Card question refined to one named ceiling claim (PR4091) and its transfer condition onto the retained later PR4088 head, as required by priority revision 7; the card's general question about new ceiling claims is unchanged.",
+  "scope_status": "refined",
+  "stop_rule": "Stop at the first premise mismatch with the exact differing field, or finish the three-root reproduction with the exact headroom. No replay of the 841-pattern coverage proof and no new construction search.",
+  "task_id": "independent-moment"
+}

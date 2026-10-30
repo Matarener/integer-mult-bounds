@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-tail-side-correction-seed749717/AUGMENTED-WITNESS.json.gz",
+    "research/p104-tail-side-correction-seed749717/SIDE-TRANSPORTS.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Match events 5758 and 5807 to the compiled compressed frames for target 34."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Accept one matching record and reject a record of the wrong rank."
+    }
+  ]
+}

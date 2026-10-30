@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/reversible-cnf-independent-audit/PROOF.md",
+    "research/reversible-cnf-independent-audit/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact exhaustive endpoints, concrete witnesses, frontier capacity, 128-sign families and rejecting controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact exhaustive endpoints, concrete witnesses, frontier capacity, 128-sign families and rejecting controls."
+    }
+  ]
+}

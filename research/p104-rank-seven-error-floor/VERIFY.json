@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-contractive-gram-deflation/MISSING.json",
+    "research/p104-contractive-gram-deflation/PROOF.md",
+    "research/p104-contractive-gram-deflation/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact orthogonal frame, real null-vector norm inequality, attaining projections, arbitrary rank-seven factors outside the carrier code, and hypothesis/rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact orthogonal frame, real null-vector norm inequality, attaining projections, arbitrary rank-seven factors outside the carrier code, and hypothesis/rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately written Fraction-root corroboration: 147 directions, literal full matrices for sixteen attaining projectors, an oblique projector and a candidate outside fixed carrier factorization."
+    }
+  ]
+}

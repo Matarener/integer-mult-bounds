@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "references/semantic-bulk/rad20/LICENSE",
+    "references/semantic-bulk/rad20/NOTICE",
+    "references/semantic-bulk/rad20/reports/downstream-phase-cell-inverse.md",
+    "research/factor-perturbation-margin/README.md",
+    "research/physical-gaussian-core/PROOF.md",
+    "research/physical-gaussian-core/README.md",
+    "research/physical-gaussian-core/gaussian_axis.py",
+    "research/physical-gaussian-core/gaussian_boundary.py",
+    "research/physical-gaussian-core/gaussian_check_boundary.py",
+    "research/physical-gaussian-core/gaussian_check_window.py",
+    "research/physical-gaussian-core/gaussian_convolution.py",
+    "research/physical-gaussian-core/gaussian_core.py",
+    "research/physical-gaussian-core/gaussian_exponentials.py",
+    "research/physical-gaussian-core/gaussian_interior.py",
+    "research/physical-gaussian-core/gaussian_matrix.py",
+    "research/physical-gaussian-core/gaussian_page.py",
+    "research/physical-gaussian-core/gaussian_prepare.py",
+    "research/physical-gaussian-core/gaussian_rationals.py",
+    "research/physical-gaussian-core/gaussian_rows.py",
+    "research/physical-gaussian-core/gaussian_sources.py",
+    "research/physical-gaussian-core/gaussian_window.py",
+    "research/physical-gaussian-core/inputs/branchfree-source.tar",
+    "research/physical-gaussian-core/inputs/word-export.tar",
+    "research/schur-boundary-residual/PROOF.md",
+    "research/schur-boundary-residual/fixture.py",
+    "research/tensor-compression-error-refinement/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Actual encoded old-H setup, every Doolittle write, independent Schur/factor oracle and analytic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same source-bound setup and typed receipt with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Cold Git-free algebra control, mandatory typed receipt and source corruption rejection in normal and optimized modes; no extra physical replay."
+    }
+  ]
+}

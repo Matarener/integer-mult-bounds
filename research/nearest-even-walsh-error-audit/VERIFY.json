@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Engines A-D: residue-tracking tree sets J<=7 (all sign patterns J<=4), literal J=3 box exhaustion in three stage orders, #6119 surrogate fiber exhaustion mod 8h with period samples, rounding-rule controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same exact checks with assertions disabled (the verifier uses explicit raises)."
+    }
+  ]
+}

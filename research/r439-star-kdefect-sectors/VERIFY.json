@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/r439-helper-stars-seed19/candidate.json.gz",
+    "research/r439-bsection-stars-seed01/composition.json.gz",
+    "research/r439-bsection-stars-seed01/candidate.json.gz",
+    "research/e8-bit-p111-tuned/code/xcheck_p.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Per-helper-sector census of the literal K_equals_D defect on three retained R439 helper-star words; independent GF(2) replay cross-agreement with the pinned owner checker; exhaustive single-operation repair enumeration; H2 clause decomposition; cross-word localization; five controls including SHA-256 source bindings. No native or hosted replay."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/plane-port-copy-budgets/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 500,
+      "checks": "48 x 7 sharp certified copy budgets for u=1..6; u=2 equals plane-port-copy-budgets; u=1 budget 64; a=1/9 opens at u=6 for rank 32; equality with RESULT.json"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "environment": "3.12.3",
+  "status": "local-author-checked",
+  "commands": [
+    {
+      "command": "python3 -B scripts/research_package.py --package research/p104-coverage-gate",
+      "outcome": "PASS_REGISTERED_RESEARCH_PACKAGE; all three registered commands passed"
+    },
+    {
+      "command": "python3 -O -B research/p104-coverage-gate/verify.py",
+      "outcome": "PASS_P104_WHOLE_FIBER_COVERAGE_GATE"
+    },
+    {
+      "command": "python3 -O -B research/p104-coverage-gate/independent.py",
+      "outcome": "PASS_INDEPENDENT_INCIDENCE:21844 explicit masks"
+    }
+  ],
+  "independent_review": "Coordinating Codex agent read proof and independently corroborated21844 incidence masks before receipt; not independent human review.",
+  "limits": [
+    "No native execution of either global orientation",
+    "No actual shared-helper schedule or dangling physical completion",
+    "No all-size, signed-floor, precision or supplier admission",
+    "Hosted CI must be checked on the eventual published head"
+  ],
+  "result_sha256": "06fd419d46b6b439543cdc523ed2666f2188d0d648bd45866c8cd39b571dc5f9"
+}

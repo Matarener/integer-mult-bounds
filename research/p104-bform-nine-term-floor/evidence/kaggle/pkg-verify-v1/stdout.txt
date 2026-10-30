@@ -1,0 +1,116 @@
+START verify driver 14:34:12
+numpy 2.1.3 python 3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]
+HEARTBEAT 30
+[   0.0s] START verify p104-bform-nine-term-floor
+[   7.3s] PASS S0 (f(7) = 36, f(8) = 60), S1 (<= 55 ports per E7/D7 hyperplane, |N(y)| >= 49), S2' (exactly the 104 port exceptions)
+[   8.7s] PASS S3 (closed bicliques with |A| >= 13 have |B| <= 4)
+[  53.6s] PASS lbz self-test (flat list complete on random port hyperplanes; fast = exhaustive)
+[  53.6s] PASS census logs: {"cnt9c_V0": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9c_V1": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9c_V2": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9c_V3": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9b_control": {"configurations": 701, "alive": 0}, "cnt104z_pairs": 415, "cnt9z_pairs": {"repo": 413, "lbz": 415, "union": 740}, "cnt9z_V3": {"configurations": 446, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "lbz_selftest_mismatches": 0}
+[  53.6s] PASS Lean sources: no sorry / admit / axiom declarations (build: lake build in lean/, not run here)
+[  53.6s] wrote RESULT.json
+[  53.6s] PASS_P104_BFORM_NINE_TERM_FLOOR
+  EXIT 0
+HEARTBEAT 60
+HEARTBEAT 90
+[   0.0s] START verify p104-bform-nine-term-floor
+[   7.4s] PASS S0 (f(7) = 36, f(8) = 60), S1 (<= 55 ports per E7/D7 hyperplane, |N(y)| >= 49), S2' (exactly the 104 port exceptions)
+[   8.8s] PASS S3 (closed bicliques with |A| >= 13 have |B| <= 4)
+[  53.1s] PASS lbz self-test (flat list complete on random port hyperplanes; fast = exhaustive)
+[  53.1s] PASS census logs: {"cnt9c_V0": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9c_V1": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9c_V2": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9c_V3": {"configurations": 701, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "cnt9b_control": {"configurations": 701, "alive": 0}, "cnt104z_pairs": 415, "cnt9z_pairs": {"repo": 413, "lbz": 415, "union": 740}, "cnt9z_V3": {"configurations": 446, "sigma_ge_8": 0, "with_port_class": 0, "alive": 0}, "lbz_selftest_mismatches": 0}
+[  53.1s] PASS Lean sources: no sorry / admit / axiom declarations (build: lake build in lean/, not run here)
+[  53.1s] PASS RESULT.json matches; controls rejected (tampered census log, corrupted hash)
+[  53.1s] PASS_P104_BFORM_NINE_TERM_FLOOR
+  EXIT 0
+RESULT.json BEGIN
+{
+ "census": {
+  "cnt104z_pairs": 415,
+  "cnt9b_control": {
+   "alive": 0,
+   "configurations": 701
+  },
+  "cnt9c_V0": {
+   "alive": 0,
+   "configurations": 701,
+   "sigma_ge_8": 0,
+   "with_port_class": 0
+  },
+  "cnt9c_V1": {
+   "alive": 0,
+   "configurations": 701,
+   "sigma_ge_8": 0,
+   "with_port_class": 0
+  },
+  "cnt9c_V2": {
+   "alive": 0,
+   "configurations": 701,
+   "sigma_ge_8": 0,
+   "with_port_class": 0
+  },
+  "cnt9c_V3": {
+   "alive": 0,
+   "configurations": 701,
+   "sigma_ge_8": 0,
+   "with_port_class": 0
+  },
+  "cnt9z_V3": {
+   "alive": 0,
+   "configurations": 446,
+   "sigma_ge_8": 0,
+   "with_port_class": 0
+  },
+  "cnt9z_pairs": {
+   "lbz": 415,
+   "repo": 413,
+   "union": 740
+  },
+  "lbz_selftest_mismatches": 0
+ },
+ "claim": "every nine-term decoder of a rank-9 B-form realisation of the P104 pattern costs >= 56",
+ "finite_facts": {
+  "S2_exceptions": 104,
+  "biclique_max_B": 4,
+  "f7": 36,
+  "f8": 60,
+  "max_ports_E7_D7_hyperplane": 55
+ },
+ "lean": {
+  "files": [
+   "lean/BForm.lean",
+   "lean/BForm/CaseI.lean",
+   "lean/BForm/CaseII.lean",
+   "lean/BForm/Cost.lean",
+   "lean/BForm/MJ.lean",
+   "lean/BForm/Main.lean",
+   "lean/BForm/NormalForm.lean",
+   "lean/BForm/Rank.lean",
+   "lean/BForm/YZero.lean"
+  ],
+  "theorem": "BForm.bform_floor"
+ },
+ "log_sha256": {
+  "evidence/kaggle/census-v1/aut104.log": "45755bdc4997e118ba077abad0a45d1de3f3841a9787289008225f8ba6647d9a",
+  "evidence/kaggle/census-v1/cliques.log": "68edeafface8260f1757de568478b42bd348cf8e9e87786d497d029f6a845aa9",
+  "evidence/kaggle/census-v1/cnt9b.log": "1c3d7231b1df72a65c37ccd583fb123e837395de6c446f5b71ea4ce4e6ab6946",
+  "evidence/kaggle/census-v1/cnt9c_V0.log": "69ca86822888c4e89c45384f812d07580f7032b38205b2e5dbf24003afdd3bb9",
+  "evidence/kaggle/census-v1/cnt9c_V1.log": "5d565ba99eeb67a3b56bc6a3f13452d7571aeb0a737a89254faec33bb6d2e2c4",
+  "evidence/kaggle/census-v1/cnt9c_V2.log": "b565277983cf1d8959095d2189a793742dbbebfdcdadece3f5cf728042dda693",
+  "evidence/kaggle/census-v1/cnt9c_V3.log": "4f697d31daa75f2530ca37fb7131a0343a15c67c02996688708f1ec9154d447c",
+  "evidence/kaggle/census-v1/mkcnt.log": "308007139f3da50af6415372f248903082ff9861a2576f00d3e5fdc5947a45e2",
+  "evidence/kaggle/census-v1/p104-bform-census.log.gz": "1a33a5343df49b9c42dba36685ff94626535b8337b9b0164b9a7c77623d9c2f3",
+  "evidence/kaggle/census-v1/pairs.log": "ed48ffa9ae0cd9c2c0e2bd4c9a63dd31ea9a8dcd8625b5c635b90bc63617dd45",
+  "evidence/kaggle/floor-v2/bicliques.log": "5f2a7d1eeb869d0a30fcc1f05a1a0046203a57f290960439fb490c32496b59f3",
+  "evidence/kaggle/floor-v2/spanlemma.log": "140338311ce96e2429e03afcdb038cccd7cc138e011cc915b71cbf2aeff5bb9b",
+  "evidence/kaggle/singular-v1/aut104.log": "45755bdc4997e118ba077abad0a45d1de3f3841a9787289008225f8ba6647d9a",
+  "evidence/kaggle/singular-v1/cliques.log": "68edeafface8260f1757de568478b42bd348cf8e9e87786d497d029f6a845aa9",
+  "evidence/kaggle/singular-v1/cnt104z.log.gz": "c98d9c50b049625153039d6c1149e6a71ebd353841d25c55a79def2bfb7118b2",
+  "evidence/kaggle/singular-v1/cnt9z_V3.log": "f5c7662ee0543a1dfc8956f6b1fbfec6c5dc91a4a464138375de2b69399073e9",
+  "evidence/kaggle/singular-v1/lbz_selftest.log": "22aae6c1a7e877b9548817140f2d1d38ff72839e39c61ff546328e79dd86f4fb",
+  "evidence/kaggle/singular-v1/mkcnt.log": "308007139f3da50af6415372f248903082ff9861a2576f00d3e5fdc5947a45e2",
+  "evidence/kaggle/singular-v1/p104-bform-singular.log.gz": "76530a1327ecadd482fcb858ded2904fd9926e9895a2017163ea0d6696286d5a",
+  "evidence/kaggle/singular-v1/pairs.log": "ae01cdaff9853338689404371f734be73b62c0226123e42c6f42f6118626d4f4"
+ }
+}
+
+RESULT.json END
+DONE

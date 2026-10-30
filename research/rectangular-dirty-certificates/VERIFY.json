@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/inverse-dirty-certificates/README.md",
+    "research/universal-dirty-certificates/PROOF.md",
+    "research/universal-dirty-phase-identities/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Typed closure equations, explicit-word differential oracle, literal rectangular counterexamples, zero/unequal dimensions, dirty-return and corruption controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Typed closure equations, explicit-word differential oracle, literal rectangular counterexamples, zero/unequal dimensions, dirty-return and corruption controls."
+    }
+  ]
+}

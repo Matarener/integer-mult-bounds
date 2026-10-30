@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "baseline": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "scope": "1 exact heads; source/integrity intake only, with separately reviewed shared-tooling changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 5703,
+      "head": "475cfff509e3369926c5b2ee258fc8f1f9c3c6a1",
+      "merge_base": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+      "title": "Restore selected review and source links in the CI guide",
+      "author": {
+        "id": "MDQ6VXNlcjIyNjMwMzU0",
+        "is_bot": false,
+        "login": "Clear1nsight",
+        "name": "Chris R"
+      },
+      "files": [
+        {
+          "path": "docs/ci-verification.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "006bf5a3d5db20fdb14b9ab5943c1f4a2d3c341a"
+          },
+          "old_oid": "f700630922179a7f6e228c1724f3d66ab56648ab",
+          "change": "M"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 0,
+        "json": 0
+      },
+      "pin_checks": [],
+      "shared": [
+        "docs/ci-verification.md"
+      ],
+      "conflicts": [
+        "docs/ci-verification.md"
+      ],
+      "independent_scientific_execution": false,
+      "observed_reviews": [
+        {
+          "author": {
+            "login": "Clear1nsight"
+          },
+          "body": "HANDOFF / DONE \u2014 selected CI navigation repair; hosted tooling CI succeeds.\r\n\r\n**Research discussion / PR / artifact:** [PR #5703](https://github.com/CrocSwap/integer-mult-bounds/pull/5703), restoring the selected review and source-manifest links in `docs/ci-verification.md`.\r\n\r\n**Exact commit:** Published head `475cfff509e3369926c5b2ee258fc8f1f9c3c6a1`, tree `2f4eb8e0d19c534151ced6ce9e5f5b0ab1feee3b`, base `df0137efd35e11b4445734bf612bdd4c7ebc330c`. One document changes, with three added lines and one removed line. Remote bytes match the independently reviewed file, SHA256 `444974912971766b3f0352f47ef402877b31a8ec061cdfc5e9205ba7ebb494af`.\r\n\r\n**What is established:** The existing current-status tests reproduced both missing-link failures before the repair and pass afterward. Separate local AI review accepted the exact patch. Hosted [run 40283629569](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/40283629569) succeeds: [plan job 121442173908](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/40283629569/job/121442173908) ran all 449 onboarding tests with zero failures and 21 platform-dependent skips, then produced an empty package matrix. Tests, workflow definitions, historical sections and selected metadata are unchanged.\r\n\r\n**What remains uncertain:** Maintainer integration and actual reruns or base updates of affected research PRs. This documentation-only change selects no registered package, so its replay job was skipped. It provides no scientific replay, theorem audit, \u03ba gain or selected-frontier update. Earlier failed plans and skipped replays retain their historical status.\r\n\r\n**Smallest useful next task:** Integrate this focused repair, then rerun [PR #5682](https://github.com/CrocSwap/integer-mult-bounds/pull/5682), [PR #5685](https://github.com/CrocSwap/integer-mult-bounds/pull/5685), [PR #5695](https://github.com/CrocSwap/integer-mult-bounds/pull/5695) and [PR #5701](https://github.com/CrocSwap/integer-mult-bounds/pull/5701) against the repaired base and inspect each actual package-replay result.\r\n\r\n**Reproduction command and expected runtime:** `python3 -B -m unittest discover -s tests -p test_research_current_status.py -v` gives six passing tests; 0.005 seconds in the local Python 3.12.3 receipt. `git diff --check` passes. The complete hosted onboarding suite took 164.063 seconds on its runner. No full planning suite or scientific replay was rerun locally.\r\n\r\n**Predecessor credit:** Ali Romman's selected [PR #5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599) construction, source closure and community lineage remain credited. This is navigation maintenance by Clear1nsight with substantial OpenAI Codex assistance, including separate local AI review. Conditional \u03ba remains 0.00310045. No merge or selected-record change is claimed.\r\n"
+        }
+      ],
+      "claim_excerpt": "## Change and mathematical scope\n\nRestore the selected proof-review and source-manifest links in the current section of `docs/ci-verification.md`. Routine registered-package planning currently fails the existing `CurrentCiNavigationTests` guard because those two links were omitted when the document moved to selected [PR #5599](https://github.com/CrocSwap/integer-mult-bounds/pull/5599). This is a one-document navigation repair; conditional \u03ba = 0.00310045 and all scientific obligations are unchanged.\n\n## Task and overlap\n\nExplicit workflow repair against canonical main `df0137efd35e11b4445734bf612bdd4c7ebc330c`. The raw plan log for [PR5695](https://github.com/CrocSwap/integer-mult-bounds/pull/5695), [run 40278348787](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/40278348787), records exactly the missing review and source-manifest links, with package replay skipped. The same pair was reported for [PR5682](https://github.com/CrocSwap/integer-mult-bounds/pull/5682), [PR5685](https://github.com/CrocSwap/integer-mult-bounds/pull/5685) and [PR5701](https://github.com/CrocSwap/integer-mult-bounds/pull/5701). Scope is unchanged: fix their shared navigation gate without altering any research package.\n\n## Validation\n\nBefore the repair, `python3 -B -m unittest discover -s tests -p test_research_current_status.py -v` reproduces both missing-link failure subtests. After the repair, all six tests pass on Python 3.12.3; `git diff --check` also passes. The existing test module is unchanged and still checks each selected path and file. The linked review matches its hash in the",
+      "roots": [],
+      "installed": [
+        "docs/ci-verification.md"
+      ],
+      "resolutions": {},
+      "lane": "reviewed_tooling",
+      "reason": "Reviewed exact two-link navigation repair; selected record and frozen scientific sources unchanged. Six existing current-status tests pass; repairs the shared planner navigation gate.",
+      "historical_only": false
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct26r-20261026-checks.txt",
+  "selected_frontier_changed": false
+}

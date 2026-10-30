@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 8,
+  "base_commit": "a2b4b0395e293dded1cb17b4e78910b364af2343",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Taken from Nick Petalas's released HANDOFF (discussion 1166, comment 19230525): does the one-relation register obstruction of research/bit-one-relation-seed04 survive register coefficients in F3 (and characteristic zero)? Delivered: a written proof over every coefficient field and every register count, plus an exhaustive F3/F5 census including W=3, k<=6.",
+  "scope_change_reason": "The card's alphabet is fixed by the handoff: seed04's abelian model with a larger scalar coefficient field. The handoff named the failing steps and the next finite test; that is a concrete, released, unclaimed obligation.",
+  "bottleneck_link": "Side result for the BIT track: it closes one proposed escape (changing the scalar coefficient field) from the one-relation paid-rank obstruction, so a paid-rank saving still needs two frame relations whatever field the scalar registers use.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first counterexample word, or at a written proof checked against an exhaustive census; do not search two-relation words.",
+  "outcome": "negative-result",
+  "evidence": "README proof (Step 1 of seed04 made field-independent; new Lemmas 0, A, B, C); verify.py replays unpruned and pruned exhaustive censuses over F3/F5 and checks the lemma structure on every diagonal pair; CERTIFICATE.json.",
+  "author": "Josie Elliston",
+  "ai_assistance": "Claude (Anthropic) assisted with the derivation, code and writing; an OpenAI Codex read-only review was requested.",
+  "open_questions": [
+    {
+      "question": "Can two independent frame relations defeat disjoint assignment over some field?",
+      "why_it_matters": "It is now the only remaining escape from the obstruction in this abelian rank-one model.",
+      "first_step": "Classify projector pools satisfying Lemmas A and B for each of two relations separately, then test interleavings.",
+      "blocked_by": "No uniform two-relation kernel argument; the pair slices give one condition per relation vector."
+    },
+    {
+      "question": "Does the theorem hold over coefficient rings that are not fields, such as Z/4?",
+      "why_it_matters": "Only relevant if a supplier would use such a ring; Lemma 0 and the domain step use a field.",
+      "first_step": "Adapt census.py to Z/4 with the free-rank-one definition of a paid projector.",
+      "blocked_by": "Idempotents over Z/4 need not have the form x y^T with y^T x = 1."
+    },
+    {
+      "question": "Formalize Lemmas 0, A and B.",
+      "why_it_matters": "They are short finite statements about rank-one matrices and carry the new part of the proof.",
+      "first_step": "State them over an arbitrary field in a proof assistant.",
+      "blocked_by": "The pair-slice step needs Laurent-polynomial evaluation."
+    }
+  ]
+}

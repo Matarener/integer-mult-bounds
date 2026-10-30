@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/batched-bit-rows.tex",
+    "notes/three-stage-cover-bit.tex",
+    "research/three-swap-cap2-physical-ceiling/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source phrases, one-role bill B=2F, strict direct-recipe failure on the #5099 screen, positive below-threshold control, and break-even rejection."
+    }
+  ]
+}

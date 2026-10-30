@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/selected-bootstrap-scope-map.md",
+    "research/selected-bootstrap-stock-audit/RESULT.json",
+    "research/selected-coarse-depth-stock/PROOF.md",
+    "research/selected-stock-shape-a-zero/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Recompute the finite stock bit length, both exact parent terms, the factor-80 gap, null coefficients, and the one-digit leaf obstruction to rho=0"
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Same certificate with assertions removed; the explicit require() checks still run"
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Reject a zero prime floor and confirm the bootstrap term matches the factored formula"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+# This section's polynomial-inverse error is strictly below 2^{-513}
+
+At `p=19`, `beta0=-1/2`, bandwidth 2, and `t_i=i`, the error of
+`P = p^{-20} sum_{j<J} Q^j H*` on the normalized Schur section
+`0,1,2,7,8,9` is strictly below `(319/100) exp(-361)`. The degree-320
+Taylor sum of `exp(361)` equals
+`6730219751588178786809398377238214693192871102181595044105143835091495325813620934019364031112177254679248399693373945512423017234253189944621257074970366003750352301253973647816728070552208313497815708912625929745718471152881326652439490327168683233836493551059249588098968666309461054155337896988015849464388191648843012521713166250023987004409934443471783951714425403737233550634310371475943775307824886601295403648968851080200585456610984050087298462525101765799183717799018895227974771541009347010153697713901185477798472845008585571014135353476096323211862234866721718951428943994094642345979740924317175537680903352192603866195277381434216934439664508458257093524870004209275805912886811754700426246315869027555187904371590582728607183157216541713123795835295193089708885489844975495237910721/73363367660904935356365756503419105410501392968640412117316417648189387372150115809652837665126292021071425386730970036331071700904761318710832470305335328289708195009716645120388497648500228474332529306050270577933169654665853172123100081336494174923614115691977306378371459784352878214645510008417774569851434657829008352873960392209271610543566833164234096896381729447092875253223865523306577397148162972423637233820033810760302443432238668164641414364214642603146630415542445513060530568693772305969317612503332669853852722478927150585873338228230811539445121024000000000000000000000000000000000000000000000000000000000000000000000000000000`.
+That sum is strictly greater than
+`2138545364825844237382056987213832457332958848384486743746908050273621362796730742799898950557621096716560081380744525111173744308505477906456167016470413312/25 = 2^{513} * (319/100)`,
+and the next Taylor term is positive, so
+
+`(319/100) exp(-361) < 2^{-513}`.
+
+The degree-319 partial sum is strictly below that same target, so this
+comparison uses degree 320. The section error is therefore strictly below
+`2^{-513}`. No new kappa is claimed. The selected record is unchanged.
+This is the case `C=27` on one normalized section, not the note's claim
+for every fixed `C`. The matrix `Q` is not formed. The majorant and the
+`2^{-494}` comparison are the preceding audits; this package replays
+those proofs and adds the `2^{-513}` comparison.
+
+## The Taylor comparison
+
+`FINE-PRIME.md` says the polynomial error is below `2^{-Cp}` for every
+fixed `C` eventually. The preceding audit puts this section below
+`2^{-494}`. Every term of the exponential series is positive, so
+`exp(361)` is strictly larger than its degree-320 partial sum, and that
+partial sum already exceeds `2^{513} * (319/100)`.
+
+Upstream main `12fa8c5c844be21bfefb38a19503fbd867a11244` was fetched at
+`2026-10-21T15:50:48Z`. Priority revision 7 and the selected kappa were
+unchanged, so this comparison continues the open question of the
+preceding package.
+
+## Reproduce
+
+From the repository root, standard-library Python 3.12 or newer:
+
+```sh
+python3 -I -B research/gaussian-origin-two-power-c27/verify.py
+python3 -B scripts/research_package.py --package research/gaussian-origin-two-power-c27
+```
+
+The verifier authenticates the pinned notes, replays the preceding
+bound, and checks the Taylor comparison.
+
+## Open next questions
+
+The same majorant has not been compared with `2^{-532}`.
+
+## Credit
+
+Cinna Davis wrote the narrow kernel in the PR4100 Gaussian note. Nick
+Petalas's HALO audit records the identity `P - H^{-1} = -Q^J H^{-1}`.
+The bound by `2^{-494}` is the preceding audit. This `C=27`
+comparison is this audit.
+
+Prepared by jwr with substantial Cursor agent assistance. No independent
+human review is claimed. Apache-2.0.

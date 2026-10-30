@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-conservative-outer/packing.py",
+    "research/synthetic-layout-independent/physical.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete exact packet receipt, signed/wide headers, failure cleanup, and rounded named-slot transforms against retained engine."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Optimized actual CLI valid smoke and seven semantic/source corruptions in an owned source-only copy."
+    }
+  ]
+}

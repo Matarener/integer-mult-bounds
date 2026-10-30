@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Integer two-prefix template identities for the six- (u=9), seven- (u=13) and eight-source (u=28) templates; expanded depth-two blocks directly modulo c and through the lifted readouts (u-1<=c<=64; eight sources 27<=c<=40); eight literal floor words with generic coefficients; corollary table and PR4248 counting consistency for 8<=c<=128; nine rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat every check under optimized Python; checks use explicit exceptions."
+    }
+  ]
+}

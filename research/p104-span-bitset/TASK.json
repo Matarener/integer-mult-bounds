@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Replace repeated scalar label parity counts by exact incidence bitsets in the complete P104 span-fact command; measure its complete enclosing bounded verifier with all inherited checks retained.",
+  "scope_change_reason": "The replay-runtime card permits one profiled stage; this package optimizes the complete retained PR6188 span-fact command and measures its enclosing bounded verifier.",
+  "bottleneck_link": "The profiled S0 loop dominates the span-fact command. Retaining its complete caller makes the measured gain relevant to the bounded B-form replay.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first verified complete-command improvement; stop after the incidence substitution. Do not optimize the other replay stages.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, verify.py and the generated BENCHMARK.json record the scoped equivalence, complete output comparisons and timings.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can the same source-bound incidence representation help another explicit finite-fact consumer?",
+      "why_it_matters": "Further gains require a measured consumer; this package changes only the S0 stage.",
+      "first_step": "Profile a different complete command and specify its full retained output and checks before implementing reuse.",
+      "blocked_by": "No other consumer is measured or adapted here."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19279602"
+}

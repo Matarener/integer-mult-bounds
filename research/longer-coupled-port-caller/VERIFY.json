@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper-subspace-splits/RESULT.json",
+    "research/productive-controller-basis-search/algebra.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticate inputs; independently expand all 75600 free-algebra witnesses; check coupled matrices, a complete positive word, corruption controls and an exact positive relaxed bill."
+    }
+  ]
+}

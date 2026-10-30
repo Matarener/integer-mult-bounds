@@ -1,0 +1,49 @@
+--- k2search.inc.bak-heur	2026-10-27 11:33:24
++++ k2search.inc	2026-10-27 11:52:41
+@@ -656,6 +656,7 @@
+     case 5: return mvKill(I,S,E); case 6: return mvIns(I,S,E); case 7: return HOPSLOT7?mvHop(I,S,E):mvSplit(I,S,E); case 8: return mvRehost(I,S,E);
+     case 9: return mvHubSwitch(I,S,E); case 10: return mvRelabel(I,S,E); case 11: return mvLift(I,S,E); case 12: return mvHubPeel(I,S,E); case 13: return mvKillSw(I,S,E); case 14: return mvHop(I,S,E); case 15: return mvKillSlide(I,S,E); case 16: return mvDrel(I,S,E,0); case 17: return mvDrel(I,S,E,1); } return false; }
+ static const int NMV=18; static const char*MVN[NMV]={"shift","mshift","ret","cadd","cdel","kill","ins","split","rehost","hubsw","relab","lift","hubpl","killsw","hop","kslide","fnew","own"};
++#include "k2phi.inc"   // HEURISTICS lane: potentials + shaped acceptance (default OFF)
+ static int searchMain(const char*path,const char*mode){
+   Net N; if(!loadNet(path,N)){ fprintf(stderr,"cannot load %s\n",path); return 1; }
+   for(int r=1;r<64;r++) RL[r]=r*log((double)r); RL[0]=0; buildDY();
+@@ -720,9 +721,12 @@
+   FILE*lg=getenv("K2S_LOG")?fopen(getenv("K2S_LOG"),"w"):nullptr; long acc[32]={0},prop[32]={0},lgl[32]={0},imp[32]={0}; Res cur=R; State best=S; Res bestR=R; long dumpEvery=getenv("K2S_DUMPEVERY")?atol(getenv("K2S_DUMPEVERY")):0;
+   double SECS=getenv("K2S_SECS")?atof(getenv("K2S_SECS")):0, tStart=nowS();   // K2S_SECS: wall-clock budget, temperature schedule follows elapsed time (not reproducible); iters then only caps
+   long stall=0, lastDump=-1000000; int dirty=0; map<string,long> rej;
++  PhiCtx PH; if(getenv("K2S_PHI")||getenv("K2S_FLOG")||getenv("K2S_FSNAP")||getenv("K2S_PHILA")||getenv("K2S_PHISEG")) phiInit(PH,S,cur,I);   // HEURISTICS
+   for(long it=0;it<iters;it++){
+     double frac=(double)it/max(1L,iters); if(SECS>0){ frac=(nowS()-tStart)/SECS; if(frac>=1) break; }
+     if(it%PERIODIC==0&&it>0){ Res F=verify(S); if(!F.ok||F.kap!=cur.kap||F.nev!=cur.nev||F.scalar!=cur.scalar||F.budget!=cur.budget||F.lt!=cur.lt||memcmp(F.paid,cur.paid,sizeof F.paid)||memcmp(F.hel,cur.hel,sizeof F.hel)||fabs(F.R0-cur.R0)>1e-6){ printf("PERIODIC FULL VERIFY MISMATCH at it %ld: full ok=%d (%s) kap %.15f nev %ld | incremental kap %.15f nev %ld\n",it,F.ok,F.why,F.kap,F.nev,cur.kap,cur.nev); fflush(stdout); abort(); } else cur=F; }   // periodic exact re-anchoring
++    if(PH.la&&it>=PH.nla&&phiLookahead(PH,it,I,S,cur,best,bestR,lg)) dirty=1;
++    if(PH.seg&&it>=PH.nseg) phiSegment(PH,it,I,S,cur);   // HEURISTICS (d) segment tie-break   // HEURISTICS (c) ready-kill look-ahead
+     double u=urand()*Wt; int ty=0; while(ty<NMV-1&&u>=W[ty]){ u-=W[ty]; ty++; }
+     double tp0=nowS(); Edit E; bool pr=propose(ty,I,S,E); double tp1=nowS(); TPR[0]+=tp1-tp0; if(!pr) continue; prop[ty]++;
+     // fast path: the edit only moves ADDs and empties no stop (S clean) => cleanup is the identity: verify the virtual T without materialising it
+@@ -737,19 +741,24 @@
+     if(!Q.ok){ rej[string(MVN[ty])+":"+Q.why]++; continue; } lgl[ty]++;
+     double dE=(Q.obj-cur.obj)*1e7; double Tm=T0*pow(T1/T0,frac);
+     double dK=dE; if(EVPEN>0&&dK<=1e-9){ auto ov=[&](long v){ return (double)max(0L,v-EVT); }; dE-=EVPEN*(ov(Q.nev)-ov(cur.nev)); }   // never penalise a real kappa gain   // K2PUSH: soft event pressure above EVT (search bias only; best tracked on exact kappa)
+-    bool ok=walk||dE>1e-9||(dE>=-1e-9&&urand()<NEUTP)||(dE<-1e-9&&urand()<exp(dE/Tm));
++    double dPhi=0; bool tieN=false; if(PH.on){ if(fast&&T.P.empty()) T=applyEdit(S,E); dPhi=phiDelta(PH,T,Q); tieN=PH.tie&&!walk&&fabs(dE)<=1e-9; if(!tieN&&PH.a>0&&dK<=1e-9) dE+=PH.a*(1-frac)*PH.c*dPhi; }   // HEURISTICS (a) tie-break / (b) annealed shaping
++    bool ok=tieN?phiTieAcc(PH,dPhi,NEUTP):(walk||dE>1e-9||(dE>=-1e-9&&urand()<NEUTP)||(dE<-1e-9&&urand()<exp(dE/Tm)));
++    if(ok&&PH.on) phiAccepted(PH);
+     if(dK>1e-6) imp[ty]++;
+     if(ok){ acc[ty]++; if(fast&&T.P.empty()) T=applyEdit(S,E); long hp0=(T.init==S.init)?T.p0:-1; long cj=LCV_j, cdl=LCV_delta; vector<char> otch; if(hp0>=0&&cj>=0&&cdl==0){ otch.assign(S.init.size(),0); for(long a=hp0;a<cj&&a<(long)S.P.size();a++){ const Ev&e=S.P[a]; otch[e.d]=1; if(e.k=='A'||e.k=='C') otch[e.s]=1; } } TENT=-1; SCLEAN=true; S.P.swap(T.P); S.init.swap(T.init); cur=Q; { double tb=nowS(); buildIndex(S,I,hp0,(hp0>=0)?cj:-1,cdl,otch.empty()?nullptr:&otch); TPR[3]+=nowS()-tb; } GDIRTY=true;
+       if(FULLV){ Index J; buildIndex(S,J); const char*wh; if(!indexEqual(I,J,&wh)||!ckValid(S,I,&wh)){ printf("INDEX MISMATCH after accepted %s at it %ld: %s (hp0 %ld)\n",MVN[ty],it,wh,hp0); fflush(stdout); abort(); } }
+       if(cur.obj>bestR.obj+1e-14){ best=S; bestR=cur; if(out&&(it-lastDump>20000||urand()<0.001)){ dumpBest(best,out,bestR); lastDump=it; dirty=0; } else dirty=1;
+         if(lg){ fprintf(lg,"%ld %s kappa %.13f R0 %.4f nev %ld nhel %ld T %.4g\n",it,MVN[ty],cur.kap,cur.R0,cur.nev,cur.nhel,Tm); fflush(lg); } } }
+     if(dirty&&out&&it-lastDump>20000){ dumpBest(best,out,bestR); lastDump=it; dirty=0; }
++    if(PH.flog||PH.snap) phiTick(PH,it,S,cur,I);
+     if(dumpEvery&&it%dumpEvery==0){ string o=string(out?out:"walk.net")+".cur"; dumpNet(S,o.c_str(),cur); }
+     if(it%20000==0){ printf("it %ld kappa %.13f R0 %.4f nev %ld best %.13f |",it,cur.kap,cur.R0,cur.nev,bestR.kap); for(int k=0;k<NMV;k++) printf(" %s %ld/%ld/%ld",MVN[k],acc[k],lgl[k],prop[k]); printf("\n"); fflush(stdout); }
+     (void)stall;
+   }
+   if(dirty&&out) dumpBest(best,out,bestR);
+   if(getenv("K2S_PROFILE")){ printf("BUILDPH sim %.2f merge %.2f rest(ckpt..) %.2f\n",TBI[4],TBI[5],TBI[0]-TBI[4]-TBI[5]); printf("BUILDS resumed %ld spliced %ld full %ld\n",BR_RES,BR_SPL,BR_FULL); printf("FALLBACKS nohint %ld init %ld other %ld bigregion %ld | builds resumed %ld full %ld avg events/build %.0f\n",FB[0],FB[1],FB[2],FB[3],BR_RES,BR_FULL,(double)BR_EV/max(1L,BR_RES+BR_FULL)); printf("VERIFYINC full %ld inc %ld converged %ld simulated events/call %.0f\n",VI_FULL,VI_INC,VI_CONV,VI_INC?(double)VI_SIMEV/VI_INC:0.0); printf("BUILD sec events %.2f occ %.2f inv %.2f hash %.2f\n",TBI[0],TBI[1],TBI[2],TBI[3]); printf("PROFILE sec propose %.2f apply+cleanup %.2f verify %.2f buildIndex %.2f\n",TPR[0],TPR[1],TPR[2],TPR[3]); }
++  if(PH.seg) printf("PHISEG segments %ld reverted %ld\n",PH.segN,PH.segRev);
++  if(PH.la) printf("PHILA refreshes %ld ready-stops %ld kills-tried %ld cached %ld taken %ld\n",PH.nref,PH.nready,PH.nforced,PH.nskip,PH.ntook);
+   printf("FINAL kappa %.13f R0 %.4f nev %ld | best kappa %.13f R0 %.4f\n",cur.kap,cur.R0,cur.nev,bestR.kap,bestR.R0);
+   for(int k=0;k<NMV;k++) printf("  %-6s proposed %ld legal %ld improving %ld accepted %ld\n",MVN[k],prop[k],lgl[k],imp[k],acc[k]);
+   for(auto&p:rej) printf("  reject %s %ld\n",p.first.c_str(),p.second);

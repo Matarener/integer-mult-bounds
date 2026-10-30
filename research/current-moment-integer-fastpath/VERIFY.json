@@ -1,0 +1,28 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Complete exact pricing and invocation trace equality, unrounded Taylor and remainder oracle, signed powers, source/fixture tampering, paid-charge and executed kernel mutations.",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Same explicit checks under optimized Python; frozen source compiles with optimize=0.",
+      "timeout_seconds": 120
+    }
+  ],
+  "inputs": [],
+  "python": "3.12",
+  "requirements": [],
+  "schema_version": 1,
+  "status": "ready"
+}

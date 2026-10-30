@@ -1,0 +1,100 @@
+{
+  "changed_words": {
+    "base": {
+      "candidate_sha256": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e",
+      "parent_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699"
+    },
+    "extra": {
+      "candidate_sha256": "82d4c962e0b2c6790d361364b02b5b7c53790a80747e814800c85bec112db791",
+      "parent_sha256": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e"
+    }
+  },
+  "current_manifest_sha256": "18acd9411cbca007d37c5058ecb12b45cc3b82c15ddd0833444fede8fc14473e",
+  "exact_patches": [
+    {
+      "after_sha256": "21c1276b33799cb723250bd725765365a36f8757d6cfa87adda904239aeca6a5",
+      "before_sha256": "56a5b32eedbf82606126ca70e3da22d8c72d905732be48c54b62e586f5a35260",
+      "new": "    import receiver_share\n    assert chain[-1]==json.loads(gzip.decompress((D/'receiver-share-parent'/f'BORROW-WORD-43{wt}.json.gz').read_bytes()))\n    chain.append(receiver_share.apply(chain[-1]));steps.append('receiver-share-672-676-v1')\n    final=json.loads(gzip.decompress(shipped.read_bytes()))",
+      "old": "    final=json.loads(gzip.decompress(shipped.read_bytes()))",
+      "path": "new/rebuild_borrow.py"
+    },
+    {
+      "after_sha256": "29729d0e90f2589f76af71a4f8add9d3449acf9e872222ae7499f2c30b2b5c60",
+      "before_sha256": "d3eebdb2f87b4eb3c891b4666fab3c2e2e8a58f928f3191e89bbfbd8c9bb329f",
+      "new": "w=load(P/'receiver-share-parent'/f'BORROW-WORD-43{tag}.json.gz')",
+      "old": "w=load(P/'words'/f'BORROW-WORD-43{tag}.json.gz')",
+      "path": "new/borrow/review_staged544.py"
+    },
+    {
+      "after_sha256": "aa64dadeafd0c8d41ae1a2112f107d38e2b6a37cd4cfa27aa13a10730c2f87f8",
+      "before_sha256": "196cf2d1cda601b7d88929cb17cbebbe3d4d06bc66d9e0d4b5edca750861d3ee",
+      "new": "run('staged544-independent-word-review',P/'new/borrow/review_staged544.py')\nrun('receiver-sharing-independent-word-review',P/'new/borrow/review_receiver_share.py')",
+      "old": "run('staged544-independent-word-review',P/'new/borrow/review_staged544.py')",
+      "path": "verify.py"
+    }
+  ],
+  "files": {
+    "audit_fast.py": {
+      "after": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+      "before": "26950da76589b13cd9c452fdee1b0c354806977f881299bd94073f00e4646fcd"
+    },
+    "new/BORROW-PROVIDERS.json": {
+      "after": "e249ce874cffa12ba9016565464ae8994d6e784b4c87410633bbcb186870dc31",
+      "before": "d0ea0e4920f3d9c75701e037c961e9598b60e57e99940cb35e4b1b7309187f73"
+    },
+    "new/borrow/receiver-share-parent/BORROW-WORD-43base.json.gz": {
+      "after": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "before": null
+    },
+    "new/borrow/receiver-share-parent/BORROW-WORD-43extra.json.gz": {
+      "after": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e",
+      "before": null
+    },
+    "new/borrow/receiver_share.py": {
+      "after": "6ef3255e91f42cb78eb194c761c02568e0230a9cfab40387f257d7a4bd38ccc4",
+      "before": null
+    },
+    "new/borrow/review_receiver_share.py": {
+      "after": "bbf28e17a657b8d1eaf63f33d811682720afb393ee2ab9a4bb46661fef1ed996",
+      "before": null
+    },
+    "new/borrow/review_staged544.py": {
+      "after": "29729d0e90f2589f76af71a4f8add9d3449acf9e872222ae7499f2c30b2b5c60",
+      "before": "d3eebdb2f87b4eb3c891b4666fab3c2e2e8a58f928f3191e89bbfbd8c9bb329f"
+    },
+    "new/borrow/words/BORROW-WORD-43base.json.gz": {
+      "after": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e",
+      "before": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699"
+    },
+    "new/borrow/words/BORROW-WORD-43extra.json.gz": {
+      "after": "82d4c962e0b2c6790d361364b02b5b7c53790a80747e814800c85bec112db791",
+      "before": "965268a9be73d3f62e7ef680d18f108cf064bfe1f44b82157baa61443232904e"
+    },
+    "new/rebuild_borrow.py": {
+      "after": "21c1276b33799cb723250bd725765365a36f8757d6cfa87adda904239aeca6a5",
+      "before": "56a5b32eedbf82606126ca70e3da22d8c72d905732be48c54b62e586f5a35260"
+    },
+    "verify.py": {
+      "after": "aa64dadeafd0c8d41ae1a2112f107d38e2b6a37cd4cfa27aa13a10730c2f87f8",
+      "before": "196cf2d1cda601b7d88929cb17cbebbe3d4d06bc66d9e0d4b5edca750861d3ee"
+    }
+  },
+  "predecessor_manifest_sha256": "4c4f7067b1b5404b59213f480e9d91c96ffc79b5458e2736b159f5a522ed2dc3",
+  "runtime_adapter": {
+    "after_sha256": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+    "before_sha256": "26950da76589b13cd9c452fdee1b0c354806977f881299bd94073f00e4646fcd",
+    "control_mode": "fork",
+    "equivalent_streamed_digest_assertions": 1,
+    "failure_mode_fixtures_sha256": "4f6185125ddb38b7ab02a349829aae434e7707e804ca8c6c4ab8c086cd63635e",
+    "original_scientific_auditor_sha256": "fa3488b62efdf8a0c37de0ca0caba587b4b036c5f068e002eb04c71c12b9e9b4",
+    "path": "audit_fast.py",
+    "preserved_mutator_call_sites": 27,
+    "preserved_scientific_assertions": 76,
+    "scope": "Pinned runtime-only source transformation: release unused ancestral owner tails, stream the identical payload hash, remove dead bookkeeping and isolate unchanged mutators. Actual current owners and all scientific assertions remain checked; abnormal children fail.",
+    "unchanged_emitter_sha256": "549603ca6d28b163a43b2dfaaaa788161c73d7952ab9190289407caca5418c71"
+  },
+  "scope": "Appends the new word edit and new independent review; preceding staged544 review runs on its retained exact parent word. The pinned bulk-audit wrapper changes memory lifetime and mutation isolation only. Every scientific and release check remains.",
+  "source_file_count": 664,
+  "source_label": "receiver-share-672-676-v1",
+  "status": "PASS_EXPLICIT_SOURCE_EXTENSION_WITH_PREDECESSOR_REVIEWS_RETAINED"
+}

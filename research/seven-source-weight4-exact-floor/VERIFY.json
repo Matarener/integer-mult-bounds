@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Projection ceilings 48/56 and 54/56 and the L=14 census recomputed in Python and matched to the native histograms; every L<=20 profile excluded; L=22 cover; 218-call floor with any even readout count; class-count, predecessor and mutation controls."
+    }
+  ]
+}

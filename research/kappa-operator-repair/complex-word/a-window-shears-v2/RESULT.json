@@ -1,0 +1,46 @@
+{
+  "cases": [],
+  "census": {
+    "constructed": 518,
+    "eligible_helpers": 210,
+    "global_frame_feasible": 114,
+    "global_frame_infeasible": 404,
+    "joint_optimized": 100,
+    "optimization_budget_skipped": 14,
+    "pairs": 83
+  },
+  "exact_translator_basis_checks": 324,
+  "infeasibility_histogram": {
+    "('infeasible', ('B', 1749), (256, 128, 64, 32, 16, 8, 4, 2, 1), (257, 129, 65, 33, 16, 9, 4, 3))": 8,
+    "('infeasible', ('B', 1781), (256, 128, 64, 32, 16, 8, 4, 2, 1), (256, 136, 64, 32, 24, 4, 2, 1))": 12,
+    "('infeasible', ('B', 1809), (256, 128, 64, 32, 16, 8, 4, 2, 1), (256, 128, 64, 32, 18, 8, 6, 1))": 8,
+    "('infeasible', ('B', 1812), (256, 128, 64, 32, 16, 8, 4, 2, 1), (256, 128, 65, 32, 16, 8, 4, 3))": 8,
+    "('infeasible', ('B', 1841), (256, 128, 64, 32, 16, 8, 4, 2, 1), (264, 128, 72, 32, 16, 4, 2, 1))": 16,
+    "('infeasible', ('B', 1844), (256, 128, 64, 32, 16, 8, 4, 2, 1), (272, 128, 64, 48, 8, 4, 2, 1))": 38,
+    "('infeasible', ('B', 1845), (256, 128, 64, 32, 16, 8, 4, 2, 1), (257, 128, 65, 33, 17, 9, 4, 3))": 48,
+    "('infeasible', ('B', 1905), (256, 128, 64, 32, 16, 8, 4, 2, 1), (257, 129, 64, 33, 16, 9, 5, 3))": 24,
+    "('infeasible', ('B', 1908), (256, 128, 64, 32, 16, 8, 4, 2, 1), (257, 129, 65, 32, 17, 8, 5, 3))": 36,
+    "('infeasible', ('B', 1909), (256, 128, 64, 32, 16, 8, 4, 2, 1), (258, 130, 64, 32, 16, 8, 4, 1))": 70,
+    "('infeasible', ('B', 1937), (256, 128, 64, 32, 16, 8, 4, 2, 1), (257, 128, 64, 33, 17, 9, 5, 3))": 8,
+    "('infeasible', ('B', 1940), (256, 128, 64, 32, 16, 8, 4, 2, 1), (260, 128, 64, 32, 16, 12, 2, 1))": 36,
+    "('infeasible', ('B', 1941), (256, 128, 64, 32, 16, 8, 4, 2, 1), (258, 128, 64, 32, 18, 8, 4, 1))": 50,
+    "('infeasible', ('restore', 100), (256, 128, 64, 32, 16, 8, 4, 2, 1), (256, 128, 68, 32, 16, 12, 2, 1))": 4,
+    "('infeasible', ('restore', 209), (256, 128, 64, 32, 16, 8, 4, 2, 1), (256, 128, 64, 32, 16, 8, 5, 3))": 38
+  },
+  "max_common": 10000,
+  "min_common": 1,
+  "positives": [],
+  "scope": "Zero-entrance/full-exit helper pairs with a shared A producer and no A warp/COPY. Baseline global A-end compatibility is a catalogue prefilter. Insert P at the first common producer, conjugate all later A gates, and insert P^-1 at A-end; B/restore unchanged. t=\u00b11 or an exact dyadic cancellation ratio with absolute value\u22644. All native scalar frames and both new shears are repriced jointly. This does not exhaust all cuts, arbitrary GL, or pairs newly compatible only after resynthesis.",
+  "seconds": 129.98346530400158,
+  "source_sha256": {
+    "research/kappa-1745-continuation/complex-birth/exact_rows.py": "55cb0b963a66c1e87a3c538744e9b7ec895c19aaef45cb4dfe1ef35a859ffc18",
+    "research/kappa-adaptive-continuation/native-alternatives/candidate/BORROW-WORD-43base.json.gz": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e",
+    "research/kappa-adaptive-continuation/native-alternatives/fanout_search.py": "30dc1f037ab6deccccc0eb4668b2a8b2aaa36e170e0d9b103f343470d929b41a",
+    "research/kappa-adaptive-continuation/native-alternatives/opt_frames.py": "08980a898e2e6c2b06c31c77a69f98a5fa2c0e320f9be17ef6f6146831c7b4f8",
+    "research/kappa-operator-repair/complex-word/a_window_shear.py": "d68937c522f202dfbbe16c8a699e7ae0ff8d7b703ab15bad22fc32cc8b536912",
+    "research/kappa-operator-repair/complex-word/network_search.py": "1610de2afbafc4a64d47aea0092bf0b6271a043b05c3cec9796a9f9b99f3d5bd",
+    "research/kappa-operator-repair/complex-word/response_global_frames.py": "9269124738654f3b408faabe8a213c27d13ad4e236baad9dd5d53304fdbcb4cf",
+    "research/kappa-operator-repair/complex-word/response_routes.py": "b83d4fa041fb4f32f1d5289f0b35533a6a8399ae4b28888a34dc1c4a1a60608e"
+  },
+  "status": "LATE_A_PREFIX_BASIS_WITH_A_END_INVERSE_SEARCH"
+}

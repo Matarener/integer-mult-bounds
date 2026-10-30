@@ -1,0 +1,13 @@
+# Bounded one-cut feasibility result
+
+**The nominated six-field interface has exactly one independent dyadic channel. The published split already uses it, so there is no additional channel in this support. No construction or kappa gain follows.**
+
+The exact source is PR5612 at `faa9f6dbe6b8cc4a996d3edeca71823056453e1a`, reconstructed after delayed preparation and its first twelve splits, before record13 and later PR5601/573/5613 edits. Its canonical stage hash is `0ba81142bc47457490996c88d88c74849c7648922ff696e496f95bfb7afcf801`. The stage has747 public inputs and25,492 events. The derived complete invoice has66,690 paid jobs and13,030 targets, with rank masses241,268 and242,028. The actual cut is after event12626, frame267, support E={57,81,92,224,225,234}, with no live owned field. Strict boundary ranks8+1, both nominated carriers and the known prefix/suffix unit pair passed.
+
+The left module over D=Z[1/2] is Dq, where q=(1,1,1,-1,-2,4). Its right module has dimension5. The pairing [1,1,-1,-2,4] has one unit Smith factor. The already-published row is a0=q/4, paired to b0=-2e225 with a0*b0=1. Every eligible left row is t*q, so two independent rows are impossible; retaining the old pair also forces4t=0 on an orthogonal new row. Residual capacity is zero.
+
+Root ran one normal/optimized pair in9.576948seconds, sampled60,301,312bytes, under the unchanged150s/512MiB guard and60s child limits. All scientific JSON bytes agree. Five controls reject invalid width, odd denominator, nonunit transform, rank-as-capacity and double-credit cases; a saturation positive control passes. Result SHA256 is `ca4b71b20a3c1cf35aa0985cb6d4aeed05385bceaf66f1c1a5d5e8e21ad5db90`. Static v1 was corrected before execution and preserved unrun; only v2 ran. Independent static pre-run review and read-only post-result proof review are preserved under review/; no independent scientific implementation or formal proof is claimed.
+
+Scope is this exact stage and restricted E. This does not exclude a larger bank, another cut, changed boundaries, the final PR5613/5627 words or other consumer models. The after-known13 target count13,048 is a comparator;13,066 remains an unrealized hypothetical extra. No new paid/target saving, native all-width admission, ordinary-cost funding or kappa improvement was obtained.
+
+Stop construction on this object. The useful contribution is a focused source-bound ceiling and verification certificate. A portable upstream package is being prepared; publication requires its own integrity/export/source-history checks and a fresh overlap gate. Any further research requires a new bounded nomination and ownership review, not an automatic neighbouring-support or cut scan. Scheduled automations and the broader peer campaign remain paused.

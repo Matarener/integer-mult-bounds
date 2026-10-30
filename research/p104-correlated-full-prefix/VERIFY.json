@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz",
+    "research/p104-rounded-collector/inputs/WORD.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete 512-column full-prefix congruence matrix and Gaussian elementary divisors"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same exact checks with Python assertions disabled"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Separate forward dependencies, ideal integer butterflies and subgroup index"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/fixtures.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All 2,040 literal physical events, nonzero dirty baseline and strict private erasure"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exhaustive small Z4 ring and pair oracles; actual optimized Git-free accept/reject CLIs"
+    }
+  ]
+}

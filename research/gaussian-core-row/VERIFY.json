@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The bandwidth gap p^26 - (2 p^24 - 1)(p - 1) equals the factored form and is positive; ceil(p^48) = p^48 exceeds p^26; distance p^25 fails the loose radius at p = 2."
+    }
+  ]
+}

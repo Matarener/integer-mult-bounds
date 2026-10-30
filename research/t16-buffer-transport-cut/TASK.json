@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task_id": "selected-packing",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "selected-packing",
+    "question": "Is there a genuinely unsearched, explicitly bounded improvement to the selected packing?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/heterogeneous-owner-assembly/README.md",
+      "research/complex-local-word-ceiling/README.md"
+    ],
+    "methods": [
+      "Search a named unclaimed canonical candidate domain with a reproducible partition.",
+      "Prove a stronger scoped relaxation or exact optimum for one named residual subproblem."
+    ],
+    "acceptance_gate": "Check live PR overlap first, price both suppliers and distinguish a search best from an optimum. Report the word's packing cap from ceiling.ceiling() and the fraction of it realized; label packing gains as such.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Locate the selected packing source in the review and check live PRs for the same residual problem.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Define an unclaimed canonical domain and a favorable bound before starting a new search.",
+    "bottleneck_link": "An actual paid-profile gain can improve the frontier up to the other supplier cap.",
+    "allowed_variations": [
+      "One bounded residual packing instance or exact relaxation.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Rerunning an existing search with only a different seed as a separate mathematical contribution."
+    ],
+    "overlap_terms": [
+      "T16",
+      "owner exchange",
+      "packing"
+    ],
+    "existing_checks": [
+      {
+        "scope": "Packing-independent ceiling for the selected paid profile under the one-unpaid-coordinate coverage and halving guard.",
+        "evidence": "docs/research/community-efficient1000-review.md",
+        "remaining": "A changed word or model requires new pricing; a local packing search must name uncovered scope.",
+        "status": "reviewed",
+        "source_commit": "836b19bfa309ceafbc8ee32a15e8c4b10dde7e11",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Exact PR3388 neutral equal-capacity whole-bin transport at fixed chronology, then one full48 split into the rank16 and rank32 buffers.",
+  "scope_change_reason": "PR3388 explicitly asks whether its remaining16/32 buffers can support48 consolidation. This proves an all-length obstruction for neutral whole-bin transport, rather than repeating a local cycle search.",
+  "bottleneck_link": "The desired paid delta -H16-H32+H48 would strictly reduce every moment at 0<a<1. The cut proves that this concrete transport strategy cannot realize it at the fixed chronology.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after one source-bound closure proof, independent event reconstruction and semantic controls. Do not launch a changed-chronology or partial-bin construction round.",
+  "outcome": "negative-result",
+  "evidence": "RESULT.json and PROOF.md: relaxed rank16 buffer closure has896 bins and four windows; every one of2288 full48 bundles offers at most9 eligible width, below16.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Substantial OpenAI Codex assistance with source analysis, proof development, implementation and verification.",
+  "open_questions": [
+    {
+      "question": "Can nonneutral or partial-bin exchanges realize the same -H16-H32+H48 delta at fixed chronology?",
+      "why_it_matters": "This changes the exact premise excluded here and could improve the complete recursive cost.",
+      "first_step": "Nominate one literal simultaneous redistribution from exact PR3388 and run the unchanged owner and strict physical admission.",
+      "blocked_by": "No capacity-valid, family-valid witness is supplied here."
+    },
+    {
+      "question": "Can a changed causal paired chronology admit a full48 bundle to the rank16 buffer?",
+      "why_it_matters": "The obstruction uses the fixed first-ten-call eligibility cut.",
+      "first_step": "Name one changed paired order and recompute actual source-event windows before pricing a literal owner map.",
+      "blocked_by": "Changed order, chart stock, physical invoice and both supplier/outer checks remain required."
+    }
+  ]
+}

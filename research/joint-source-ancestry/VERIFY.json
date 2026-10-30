@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-d0-root-swaps/EXTENSION.md",
+    "research/e8-d0-root-swaps/PROOF.md",
+    "research/e8-d0-root-swaps/README.md",
+    "research/e8-d0-root-swaps/RESULT.json",
+    "research/e8-d0-root-swaps/SOURCES.json",
+    "research/e8-d0-root-swaps/TASK.json",
+    "research/e8-d0-root-swaps/VERIFY.json",
+    "research/e8-d0-root-swaps/algebra_check.py",
+    "research/e8-d0-root-swaps/extension_check.py",
+    "research/e8-d0-root-swaps/formal/RootSwapConnectedCover.lean",
+    "research/e8-d0-root-swaps/formal/RootSwapOneExceptional.lean",
+    "research/e8-d0-root-swaps/formal/RootSwapQuartet.lean",
+    "research/e8-d0-root-swaps/geometry_audit.py",
+    "research/e8-d0-root-swaps/verify.py",
+    "scripts/check_research_commit.py",
+    "scripts/research_package.py",
+    "tests/test_research_source_history.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete real 14-file/five-source publication receipt, measured implementation binding and all 18 source-history tests, including multi-parent, object-type, mixed-invalid, graft/replacement, protocol/error and timeout controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same complete checks with optimization enabled, including optimized child rejection controls."
+    }
+  ]
+}

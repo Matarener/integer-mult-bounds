@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Adversarial audit of PR6097 (JoyboyBrian, head 0a24101a977a652a306dd252b009d54840e4fdc9): independent soundness review of its PROOF.md, an independent stdlib engine for the same collision relaxation restated over F_p, a local method-independent SAT cross-check over F2, and the F3 instance of PR6097 open question 2 (width two).",
+  "scope_change_reason": "Adversarial-audit effort on a recent unaudited finite claim, as the coordinator directed; the card is PR6097's own card. The F3 run answers PR6097's open question 2 for F3 at width two.",
+  "bottleneck_link": "Confirms (or refutes) a scoped all-group lower bound that closes a shared-call saving route for diagonal pair targets; the F3 row removes one field restriction. No supplier, native or kappa consequence.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at agreement or a concrete disagreement (survivor, unsound rule) with PR6097 on F2, and at the first F3 survivor or a complete F3 length-five refutation.",
+  "outcome": "completed",
+  "evidence": "README.md; verify.py (stdlib) reproduces F2 lengths 0..5 and F3 lengths 0..4 by default and F3 length 5 under --f3-full; controls listed in VERIFY.json.",
+  "author": "Josie Elliston (Claude Opus 5.5 via Claude Code)",
+  "ai_assistance": "Audit, verifier and package prepared by Claude Opus 5.5 via Claude Code for JosieElliston. No human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Can the F3 length-five refutation be given a stdlib-replayable or proof-checked certificate?",
+      "why_it_matters": "Removes the local-SAT label from the F3 six-call floor.",
+      "first_step": "Reduce by conjugation by diag(1,-1), by the swap, and by reversal-transpose (G to G^op), then emit DRAT proofs for the heavy tuples.",
+      "blocked_by": "The symmetry reductions need their own soundness argument."
+    },
+    {
+      "question": "Does the six-call floor hold over F5 and F4 at width two?",
+      "why_it_matters": "The rest of #6097's field question at width two.",
+      "first_step": "Run the SAT encoding on F5 (30 projectors, 24.3M length-five tuples) after symmetry reduction; F4 needs GF(4) arithmetic.",
+      "blocked_by": "Compute."
+    }
+  ]
+}

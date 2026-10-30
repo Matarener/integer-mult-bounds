@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/NATIVE-RECIPES.json.gz",
+    "research/p104-native-channel/check_native.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-joint-unit-flags/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Applies repairs R0 and R1 to the published witness in memory, runs the published check_native.validate() on each (every native edge incl. 9 committed new-edge recipes, 208 endpoint adapters, all 280 framed rows and dirty-helper restorations), recomputes the bill, head co-hosting, X21 delivery into Y59 and the forced-hosting closure of all 15 Y59 updates, and requires equality with CERTIFICATE.json"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately written replay with XOR-closure frames and exact rational rows: common-chart ADDs, nested transports with paid rank equal to frame gap, 280/280 final rows equal to the published rows, bill and profile delta, majorization, head co-hosting and delivery, forward-sweep forced closure, direct native check of each new recipe"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Temp-tree clean pass with byte-identical tree; 14 rejections by both scanners under -O: certificate field corruptions, duplicate JSON key, witness byte flip, new-recipe phase corruption, three truncated cascades rejected at the common-chart rule, and an undercharged transport"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-architecture-frontier/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Literal equation (1) with QUERY price w on every mask with p<=6: canonical minimal for 1<=w<=g_1, n=6 merge witness above g_1, g_k monotone, 00-pair gain below w=1; source PROOF.md bytes pinned."
+    }
+  ]
+}

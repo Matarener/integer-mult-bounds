@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independent encoded Machin/Taylor growth and decay coefficient contract at actual Axis arguments.",
+  "scope_change_reason": "Released production coefficient question; distinct encoded backend and growth/shift domain from prior normalized host decay audit.",
+  "bottleneck_link": "Discharges actual scalar coefficient enclosure premise upstream of old-H perturbation and rowgap.",
+  "budget_minutes": 60,
+  "stop_rule": "20-minute proof/source feasibility gate; never infer uniform enclosure or global rowgap from finite checks.",
+  "outcome": "completed",
+  "evidence": "Quantified PROOF.md, frozen independent oracle, actual encoded Axis and boundary-call receipts.",
+  "author": "JoyboyBrian",
+  "ai_assistance": "Substantial OpenAI Codex assistance.",
+  "open_questions": [
+    {
+      "question": "Can actual weighted ratios and cross-cell coefficient errors be composed into the production original-H perturbation bound?",
+      "why_it_matters": "Scalar enclosures alone do not prove the matrix rowgap.",
+      "first_step": "Bind positive rounded weights and every actual ratio to ideal coefficient intervals.",
+      "blocked_by": "Global matrix ideal gap and full production composition remain separate."
+    }
+  ],
+  "resumption": {
+    "upstream_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+    "priority_revision": 8,
+    "selected_record_pr": 6030,
+    "checked_at": "2026-10-28T05:05:36.727564+00:00",
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/3664#discussioncomment-19233742",
+    "previous_local_head": "b4596aa6d30f70ed160bf7f39b9f7ac7d62e2249",
+    "decision": "Complete and validate preserved result; all thirteen scientific input blobs unchanged. Keep frozen provenance and oracle.",
+    "review_scope": "Rechecked source-directed Machin signs/tail, positive Taylor early/fixed tails, squaring width, reciprocal direction, final rounding, Axis half ties and wrapped cross-cell domain; no scientific change required. Same-contributor review.",
+    "validation_obligation": "Both normal and optimized actual-source cold Git-free replays; oracle-only and source-binding checks are not substitutes.",
+    "overlap_coverage": {
+      "open_prs": 341,
+      "open_prs_fetched_at": "2026-10-28T04:53:27.931656+00:00",
+      "discussion_records": 5722,
+      "discussions_fetched_at": "2026-10-28T04:54:38.413598+00:00",
+      "local_notes": 8348,
+      "limits": "No exact duplicate found; no remote closed-PR body or arbitrary code-diff scan; not a novelty certificate."
+    }
+  }
+}

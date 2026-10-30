@@ -1,0 +1,65 @@
+{
+  "status": "PASS_INDEPENDENT_LOCAL_LITERAL_660_COLUMNS_QQ_FRAME_NESTING",
+  "at_utc": "2026-10-25T05:11:54.469154+00:00",
+  "inputs": [
+    {
+      "path": "vendor/g20/inputs/BASELINE-LOCAL.json.gz",
+      "sha256": "4535dde53162b426e597aea9d0106fb1405358f775d9370bd36bfb5686ed21df"
+    },
+    {
+      "path": "vendor/g20/inputs/FRAMES.json",
+      "sha256": "0d99fc6b8f45c03dfba5252a03dd9e7fe23be3a7593dfe15368e34da6629a654"
+    },
+    {
+      "path": "vendor/g20/provider/data/INVERSE.json.gz",
+      "sha256": "29fb50d17a58e18988df2bdb1f7c65f7a12328ac75c676d34dd31a036aeaf483"
+    },
+    {
+      "path": "WORD.json.gz",
+      "sha256": "5738bfc74b5aa2fa005a11b29fcc63c553a585423261d76caf65b51fbf961838"
+    },
+    {
+      "path": "local_relations.py",
+      "sha256": "f2b46b0989ecf8cadb668ddc8164ee436fb92646d05b4f05bb30e896efa97250"
+    }
+  ],
+  "retained_originals": 649,
+  "owned_allocated": 11,
+  "owned_live_nonzero_upper": 10,
+  "paid": {
+    "1": 1309,
+    "2": 1342,
+    "3": 77,
+    "4": 40,
+    "5": 102,
+    "6": 10,
+    "7": 9
+  },
+  "operation_counts": {
+    "ERASE": 39,
+    "ADD": 19595,
+    "Q": 2889,
+    "ZERO_Q": 9,
+    "INIT": 1
+  },
+  "rational_frames": 636,
+  "rational_nested_edges": 2385,
+  "partial_helper_roles": [
+    462,
+    463,
+    466,
+    468
+  ],
+  "negative_controls": {
+    "missing_pivot_entry_clear": "Free Q on nonzero function",
+    "missing_pivot_exit_clear": "All660 raw/dirty input-column endpoint",
+    "changed_relation": "Free Q on nonzero function"
+  },
+  "proof": "Exact QQ orthogonal frame decomposition + nesting proves decoded row induction at every native Q. Same-frame XOR preserves it; paid owned ERASE gives whole-function zero, so ZERO_Q is valid. All660 independent symbols prove all retained arbitrary functions and arbitrary initial owned storage. Tensor I_f preserves these identities for every f. For main ports D_P D_K=D_I and each D is involutive, giving the same symmetric 2x2 physical endpoint forward/reverse; each partial helper D_P is likewise involutive.",
+  "remaining": [
+    "Global caller must bind swapped inverse headers/routes explicitly for all18calls.",
+    "Recompute complete target debit, owned lifetime/allocation, all fees and ordinary compiler/cover/bootstrap constants.",
+    "No full global cold replay or ordinary acceptance performed here."
+  ],
+  "evidence_kind": "Separate internal AI audit, not external verification."
+}

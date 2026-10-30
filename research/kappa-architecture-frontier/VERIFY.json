@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate retained source bytes; rebuild four complete invoices; prove six all-n/all-larger-saving gates and thirteen all-n per-FULL price gates; run exact finite controls; compare all scientific fields."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Repeat the same explicit predicates with Python optimization enabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Reject corrupted sources and forged Git trees end-to-end; isolate semantic rejection of omitted query/idle/helper bills and changed profile under an obsolete cap; reject a false admission receipt. Repeat normal/optimized."
+    }
+  ]
+}

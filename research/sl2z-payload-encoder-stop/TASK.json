@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "bb4bccbf42844d2801487450727c2f63e10d1d0f",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Does PR #3947's one-XOR carrier already implement a lossless payload for B=X^2 Y^2, and what does a legal exact address caller cost instead?",
+  "scope_change_reason": "The card asks for a new nonabelian register alphabet that might escape the three-register bound. This package does not search a new word. It takes the payload-encoder half of the #3947 handoff (discussion reply 19032401), which is item 5 of this session's ordered open-handoff list, and stops where that handoff says to stop: the one-XOR endpoint is not a lossless implementation of the integer target. The separate moment inequality M(a)<1 for faithful shear words is a different piece and is not redone.",
+  "bottleneck_link": "Side result. A three-bit image of B does not become a cheaper bit primitive unless a lossless payload encoder is priced. This prices that encoder as absent for integer addresses and records the four-addition bill. No selected-supplier term changes.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop when the one-XOR carrier either implements a named injective payload or is shown not to. Do not search a larger formal word, and do not treat the mod-4 quotient as the integer target.",
+  "outcome": "negative-result",
+  "evidence": "Independent standard-library checks: B^2-I has trivial integer kernel, the recomputed carrier is the single XOR b^=c of order 2, identity packing of (1,0) to (5,2) has Hamming distance 2, no wiring into the six-bit caller realizes B mod 4, and four fixed-width additions realize exact B.",
+  "author": "unpaidmoon",
+  "ai_assistance": "Cursor Grok 4.7 drafted the package, the obstruction argument, and the verifier. The mathematics was checked by running that verifier.",
+  "open_questions": [
+    {
+      "question": "Can the low two bits of an exact m-bit address use the mod-4 two-XOR map while a carry into the high half replaces one of the four additions?",
+      "why_it_matters": "The mod-4 quotient costs two XORs and no ANDs. If its carry into the remaining bits still costs an addition, the split does not beat the four-addition bill.",
+      "first_step": "Write the high-half recurrence for one shear, with the low limb reduced mod 4, and count additions plus the two XORs on a single m=4 witness.",
+      "blocked_by": "A carry that is itself an m-bit addition makes the split pointless; that comparison has not been expanded into a second package."
+    }
+  ]
+}

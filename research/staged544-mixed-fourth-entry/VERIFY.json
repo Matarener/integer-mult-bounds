@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--controls"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All four exact words, native receipts, independent frame ledger, source guards and semantic mutants"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/owner_verify.py",
+        "--controls"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All literal roles, bins, mixed provider invoices and owner mutants"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/operator_verify.py",
+        "--controls"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Every original phase-axis cell, exact scalar observation windows, all112 symbolic Z4 phase identities and controller mutants"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/price.py",
+        "--controls"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Rational complete-profile bracket, strict predecessor improvement and price mutants"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--controls"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Optimized-mode exact semantics and rejection controls"
+    }
+  ]
+}

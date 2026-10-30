@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 7,
+  "base_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Replace exponential exact Clifford state vectors with polynomial affine-support and quadratic-phase certificates in the full pinned PR5698 replay.",
+  "scope_change_reason": "Pin the actual PR5698 replay and replace its measured exponential state-evaluation bottleneck. Preserve the complete source proof and compare with the existing PR662 tables on identical inputs.",
+  "bottleneck_link": "Faster exact phase replay makes wider native constructions and candidate checks feasible while preserving every source acceptance obligation.",
+  "budget_minutes": 120,
+  "stop_rule": "Complete the full source integration, all-amplitude differential checks, normal/optimized and portable verification, and alternating same-fixture timing. Do not change the word or expand a physical construction.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, RESULT.json, CROSS.json, BINDING.json and BENCHMARK.json. Complete source-result equality, classical polynomial-state proof, independent literal amplitude checks and exact large-width inverse controls.",
+  "author": "Ali Romman with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance for source profiling, classical algorithm implementation, proof, verification, benchmarking and publication. No subagents.",
+  "open_questions": [
+    {
+      "question": "Can this engine accelerate another actual admitted gate grammar without losing a proof obligation?",
+      "why_it_matters": "Exact native search and independent review can avoid exponential vector storage.",
+      "first_step": "Pin a named replay and retain its full signed tableau, global-phase and result checks; bind the explicit integration and measure identical inputs.",
+      "blocked_by": "A separate consumer and gate-contract audit."
+    },
+    {
+      "question": "Can a wider physical construction use the improved verification capacity?",
+      "why_it_matters": "Polynomial verification removes one computational barrier but gives no paid supplier benefit alone.",
+      "first_step": "Specify the native interface, independent and owned inputs, full paid/target bill and complete caller before a new search.",
+      "blocked_by": "The complete physical contract and invoice."
+    }
+  ]
+}

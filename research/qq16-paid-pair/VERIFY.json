@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1042-audit/selected-replay.tar.gz",
+    "research/joint-query/certificate.json.gz",
+    "research/joint-query/evidence/BRIDGE-REVIEW.md",
+    "research/joint-query/evidence/QQ16-COVER-ACTION-ADDENDUM.md",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r715-eleven-stage-whole/code/global_k.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticated literal pair and decoder replay, actual73D owner witness, independent cost audit and owner-collapse rejection control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Normal and optimized Git-free read-only export, source/predecessor/manifest mutation, typed receipt and overwrite rejection controls."
+    }
+  ]
+}

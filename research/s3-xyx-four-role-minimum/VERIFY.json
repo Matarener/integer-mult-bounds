@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/s3-three-role-xyx/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Isomorphism check, three-role calibration against the pinned PR #4084 layers, independent M4(F2[S3]) ball(I,2) under Phi, zero length<=5 meet-in-the-middle hits, positive length-4/5 controls, direct witness and omission controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same checks under -O; admission uses need(), not assert."
+    }
+  ]
+}

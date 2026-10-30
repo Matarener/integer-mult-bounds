@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/plane-port-copy-budgets/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Check the 112-frame cover, the 32-plane witness, and the fixed block costs."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that four times weight 14 is 56 and the size-56 cost is 184."
+    }
+  ]
+}

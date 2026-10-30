@@ -1,0 +1,1 @@
+Verbatim output excerpts from PR3154 by DreamingOfClouds, prepared with Anthropic Claude assistance, under Apache-2.0. Source commit and original paths are recorded in SOURCES.json. These retained lists identify nine applications; their global completeness and normalization assumptions are not imported.

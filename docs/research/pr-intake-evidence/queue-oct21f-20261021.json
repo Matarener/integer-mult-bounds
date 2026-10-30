@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "baseline": "bbde3b0bedb8f7ce17159dfbe913b7e3e5194bab",
+  "scope": "2 exact heads; source/integrity intake only, with separately reviewed configuration changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 4506,
+      "head": "210ad368fcb971cb0e30ff41379608b846e462a4",
+      "merge_base": "2a13eb1827784206202db90e5dc8327cf8a250db",
+      "title": "Absorb the face factor 2 on the coefficient-9 approximant (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjkxNzkyOQ==",
+        "is_bot": false,
+        "login": "jwr404",
+        "name": "James Reed"
+      },
+      "files": [
+        {
+          "path": "research/gaussian-tensor-nine-faces/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "03ac0ffa1ed344a62902cd9b2320e26d60cca003"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/gaussian-tensor-nine-faces/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "b6dd82035cab2bdb4f498a34016c3826663519e4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/gaussian-tensor-nine-faces/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0fe78540e076a4ccfc90940e52582309d9ab153a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/gaussian-tensor-nine-faces/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "75eca22e82cd02d8400a11fd65b953ce8658db25"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/gaussian-tensor-nine-faces/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ecd40c414f4695afdc8556a22849300d22a4f4f0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 3
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/gaussian-tensor-nine-faces/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "2a13eb1827784206202db90e5dc8327cf8a250db:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/gaussian-tensor-nine-faces/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "2a13eb1827784206202db90e5dc8327cf8a250db:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/gaussian-tensor-nine-faces/SOURCES.json",
+          "path": "research/unconditional-batched-crt/HALO.md",
+          "source_spec": "2a13eb1827784206202db90e5dc8327cf8a250db:research/unconditional-batched-crt/HALO.md",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Summary\n\nUnder the same gate `p \u2265 max(64, 4K + 2C)` and `16 g ceil(log2 p) \u2264 p`,\n\n```text\n2 g (9 p^2 + p^6 exp(-p^2))^{g-1} p^6 exp(K p - p^2) < 2^{-C p}\n```\n\nfor integers `p \u2265 2`, `g \u2265 1`, `K \u2265 0` and `C \u2265 0`. The approximant exponent without this factor is at most `-C p - 4`. The factor 2 is one bit, so the remaining slack is 3 and the exponent above is at most `-C p - 3`.\n\nThe base stays strictly below `16 p^2` because `p^6 exp(-p^2) < 1/2` for `p \u2265 64` and `9 p^2 + 1 < 16 p^2`. This does not identify HALO's `2g` rectangles with the tensor difference. The section ceiling and the section error stay hypotheses. At `g = p^2` the monomial is still greater than 1. No new \u03ba. The selected record remains `23/10000`.\n\nThis answers the open question of #4497. It does not replay #4497. #4487 spends the same bit on the coefficient 10. One tensor axis is left open.\n\n## Test plan\n\n- [x] `python3.12 -B scripts/research_package.py --package research/gaussian-tensor-nine-faces`\n- [x] Prints `PASS_GAUSSIAN_TENSOR_NINE_FACES` and `outcome=completed`\n- [ ] Maintainer replay was not run\n\nBase `2a13eb1827784206202db90e5dc8327cf8a250db`, priority revision 7. Upstream fetched at 2026-10-22T02:42:08Z was still that commit, and the pre-submit fetch was unchanged.\n\nPrepared by James Reed with substantial Cursor Grok 4.7 assistance.\n",
+      "roots": [
+        "research/gaussian-tensor-nine-faces"
+      ],
+      "installed": [
+        "research/gaussian-tensor-nine-faces/README.md",
+        "research/gaussian-tensor-nine-faces/SOURCES.json",
+        "research/gaussian-tensor-nine-faces/TASK.json",
+        "research/gaussian-tensor-nine-faces/VERIFY.json",
+        "research/gaussian-tensor-nine-faces/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 4507,
+      "head": "98b9f9e1b96940c0c405638afa974e378436fc55",
+      "merge_base": "2a13eb1827784206202db90e5dc8327cf8a250db",
+      "title": "Reduce direct-flow batch widths while preserving chronological calls",
+      "author": {
+        "id": "U_kgDOBmEn_g",
+        "is_bot": false,
+        "login": "mihir-s-05",
+        "name": ""
+      },
+      "files": [
+        {
+          "path": "research/chronological-batch-width/.gitattributes",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fa1385d99a319b43c06f5309d1aae9fdd3adea46"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "c85304a601f858774f425d5f3869ac0a6f85ec29"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2dd0cda6507acf81f72603151de62826a90a4fe5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "9124bb10fe889a583982b0f5228776c779f092bf"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e0d6c74126f7ba2e985f841a75c32d9c1661e05c"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/VENDOR.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "6a36ee08a74055be7e941d223fe7eee28ea2e779"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f42374020b671a9e13d20f725eb7f3cd2a367181"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/batches.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "98feaef4156223829971089765bd483518c3b754"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/vendor/direct-flow-README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "3be00f754b9ffa23e64b3eafe7706e3ac139993a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/vendor/direct-flow-RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e657f58b5a276b57b472a814a8559aede853f55a"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/vendor/flow.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "07175cd6e1f2c2367c2e78eca7f163fef18d301d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/vendor/p7-RESULT.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ebb30a9b3b94fb159a316350f7da57bde4a30c25"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/chronological-batch-width/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2e24e27e446a9406512cfcc85aab9dfa341529a5"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 3,
+        "json": 7
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/chronological-batch-width/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "2a13eb1827784206202db90e5dc8327cf8a250db:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/chronological-batch-width/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "2a13eb1827784206202db90e5dc8327cf8a250db:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "PR #4436's direct compiler chooses nested widths so every recursive batch is integral. This contribution derives the least common replication factor **for a fixed chronological batching policy and prescribed smaller supplier widths**, then constructs smaller widths while preserving every source, exit and normalized recursive cost.\n\nFor raw p7 at rank 1,000, productive width falls from a **17,504-bit integer to a 2,524-bit integer**. The old width is an exact multiple of the new one; the reduction factor lies in `[2^14980, 2^14981)`. This is a constructive finite-width result, **not a new kappa or practical runtime claim**.\n\nThere is also a small counterexample to a tempting relaxation. For the source equality fixture at rank 12, pooling equal-rank exits across different calls accepts multiplier **175**. Eight separate leaf cuts each require a width-700 child, so the correct least multiplier is **700**. No bug is alleged in #4436's valid nested construction.\n\nStart with the [proof and scope](https://github.com/mihir-s-05/integer-mult-bounds/blob/98b9f9e1b96940c0c405638afa974e378436fc55/research/chronological-batch-width/README.md), [independent implementation](https://github.com/mihir-s-05/integer-mult-bounds/blob/98b9f9e1b96940c0c405638afa974e378436fc55/research/chronological-batch-width/batches.py), and [exact receipt](https://github.com/mihir-s-05/integer-mult-bounds/blob/98b9f9e1b96940c0c405638afa974e378436fc55/research/chronological-batch-width/RESULT.json). Only the new `research/chronological-batch-width/` package is added.\n\n**Proof boundary.** Each batch `(e,q)` requ",
+      "roots": [
+        "research/chronological-batch-width"
+      ],
+      "installed": [
+        "research/chronological-batch-width/.gitattributes",
+        "research/chronological-batch-width/README.md",
+        "research/chronological-batch-width/RESULT.json",
+        "research/chronological-batch-width/SOURCES.json",
+        "research/chronological-batch-width/TASK.json",
+        "research/chronological-batch-width/VENDOR.json",
+        "research/chronological-batch-width/VERIFY.json",
+        "research/chronological-batch-width/batches.py",
+        "research/chronological-batch-width/vendor/direct-flow-README.md",
+        "research/chronological-batch-width/vendor/direct-flow-RESULT.json",
+        "research/chronological-batch-width/vendor/flow.py",
+        "research/chronological-batch-width/vendor/p7-RESULT.json",
+        "research/chronological-batch-width/verify.py"
+      ],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct21f-20261021-checks.txt",
+  "selected_frontier_changed": false
+}

@@ -1,0 +1,49 @@
+{
+  "actual_owner0_port0_first_order_slot_xors": {
+    "10": "4722420526065173659648",
+    "12": "67553994410557440",
+    "14": "4722366482869645213696",
+    "15": "4722366482869645213696",
+    "8": "4722379993668527325184"
+  },
+  "conclusion": "Every slot phase difference delta_c(character) must vanish modulo4 for every character. With arbitrary added linear translations, any replacement orthonormal frame has the same orthogonal projector and hence the same rank at each slot. Constant Gaussian bridge dressing cannot repair a nonzero rank transfer.",
+  "fixed_hypotheses": [
+    "The same twenty phase-slot positions and local endpoint/gauge interface",
+    "Every scalar prefix reduces to the retained prefix modulo pi",
+    "Scalar gates and their inverses have coefficients integral at pi",
+    "The complete zero-character scalar operator is exactly I"
+  ],
+  "independently_reconstructed_projectors": 20,
+  "input_files": {
+    "research/kappa-1745-continuation/complex/CELLMAP-INVARIANCE.json": "32a10aff786f3a673ca19ef5189c98e8a2a32708a0dc73a47eeee2bd44fd100b",
+    "research/kappa-1745-continuation/complex/SLOT-PROJECTOR-RIGIDITY.json": "3d3484162446a813aaf52d09afc3543545ff88fa1c2a23a72734340999867990",
+    "research/kappa-1745-continuation/operator-audit/checkout/research/adaptive-kernel-demotion/inputs/DATA-PHASES.json": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa",
+    "research/kappa-1745-continuation/operator-audit/checkout/research/rank7-joint-endframes/allocation/vendor/TEMPLATE.json.gz": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e",
+    "research/kappa-1745-continuation/operator-audit/independent_witness.py": "de44470a6680252090246eafbc6e0544784f31d30f64c21c79c1321e2f5c43bf",
+    "research/kappa-next-regime/sources/PR3959/research/rank7-idle-frame-select/MOVES.json.gz": "01e8417b90783f707cd18871be7c615eb9162f356460f07963b5198522aa692b",
+    "research/kappa-operator-repair/operator-correction/correction.py": "60a86a1e3ae60647c4b1a608d492923bc625c01616f083e8b68db8a4a45f1be6",
+    "research/kappa-operator-repair/operator-correction/full_operator.py": "06f9f5128e19b6ea07756a9a11fcc9a9757a440a8048b5210422d12f183dfac3",
+    "research/kappa-operator-repair/operator-correction/gaussian_bridge_rigidity.py": "4817f51c5bb193a792a6d69cd2b93839d3d5101482855e7b40c893f18c3e2c43"
+  },
+  "left_inverse_identity_entries": 400,
+  "new_coefficient_scope": "Arbitrary constant Gaussian-integer coefficients with the same graph modulo pi, including replacing nonzero signed coefficients by +/-i or any other coefficient congruent to1. Extra scalar factors congruent toI modulo pi are also covered. No bound on coefficient magnitude is used.",
+  "new_kappa": false,
+  "new_supplier": false,
+  "old_fixed_slot_census_rerun": false,
+  "outside_scope": [
+    "coefficients with a denominator divisible by pi, including1/2",
+    "changed scalar topology modulo pi",
+    "new phase slots or changed local endpoints",
+    "coordinate-dependent scalar/operator coefficients",
+    "changed stock/width/local supplier interfaces"
+  ],
+  "prime": "pi=1-i in the local Gaussian-integer ring; i reduces to1 modulo pi",
+  "proof_steps": [
+    "Write the normalized discrepancy as a product of I+(i^delta_c-1)K_c, with K_c=M_c^-1 E_c M_c.",
+    "Modulo pi^2, identity and the twenty-column left inverse force delta_c even separately for each slot and character.",
+    "All phase perturbations now lie in (pi^2). Modulo pi^3 their cross terms vanish, and K_c may be replaced by its mod-pi value.",
+    "The same left inverse forces delta_c/2 even. Thus delta_c=0 modulo4 at every slot.",
+    "The exact Z4 phase polynomial fixes off-diagonal entries of sum aa^T, and the linear coefficients modulo2 fix its diagonal. Orthogonal-frame rank equals projector rank."
+  ],
+  "status": "PASS_UNBOUNDED_GAUSSIAN_COEFFICIENT_RIGIDITY_PREMISE"
+}

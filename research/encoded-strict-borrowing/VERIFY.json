@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "990 literal full plans,4096 strict boundaries,seven ownership/rejection controls and complete million-width selector; exact typed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Identical scientific and resource checks with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent no-runtime inverse-depth/slab oracle reconstructs all2880 exact cases."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Seven actual optimized public CLI mutants:strictness,final rows,compatibility,predicate,source/proof drift and Boolean receipt."
+    }
+  ]
+}

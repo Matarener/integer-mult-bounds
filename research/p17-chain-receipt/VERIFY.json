@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Receipt for 10 p17-chain PRs: nothing retained at base; the five kappa PRs agree on all shared paths except two pin-only SOURCES.json; #4440 stacked in #4441/#4446/#4447; identical docs edits conflicting with #4436; unique packages per PR."
+    }
+  ]
+}

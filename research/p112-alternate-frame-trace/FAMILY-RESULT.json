@@ -1,0 +1,444 @@
+{
+  "status": "PASS_COMPLETE_TWO_PARAMETER_FAMILY_OBSTRUCTION",
+  "input_sha256": {
+    "research/p112-alternate-frame-trace/FIXTURE.json": "13e1f33aa04e417968535d2b2fd4eb2b90672e117b95c0d449d3796563883578",
+    "research/p112-rational-decoder-gate/CANDIDATE.json": "dc5fbe51f9cd3a14361256ac136736bffb18971d0247b891accf0d2ee060d06b",
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa"
+  },
+  "helper_sha256": "63c47724a3a70916c8bcf6a01d97c3296f1e8e92a8a406bb618e911272b5a2bf",
+  "physical_tariffs": {
+    "22,22": 6,
+    "28,28": 7,
+    "34,34": 4,
+    "5,28": 5
+  },
+  "scope": "Fixed rank8 asymmetric anchor and H_t=<C0+tC1,A1,D2>, K_s=<C0+sC1,A1,D2>, 1+ts!=0. All rational rank9 extensions in this common-complement family fail physical tariffs. Other complement flags and other anchors remain open; no decoder bound changes.",
+  "source_flag": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "-1",
+    "0"
+  ],
+  "reader_flag": [
+    "-1",
+    "0",
+    "0",
+    "-1",
+    "0",
+    "0",
+    "1",
+    "0"
+  ],
+  "automorphisms": {
+    "dimension": 7,
+    "blocks": "GA=diag(l,l,a); GB=GC=diag(l,M2); GD=diag(l,l,d); l,a,d nonzero and M2 invertible"
+  },
+  "generic": {
+    "parameter_domain": "c=1+ts !=0; d=2+ts !=0",
+    "flag_pairing": "-d/c",
+    "invariant": "tr(Pi Z_A Pi Z_C)=1/c",
+    "common_projection": "F=I-Pi-b4 a4+(c/d)b3 a3",
+    "source_frame": "F V_B (I+u v^t)",
+    "reader_frame": "U_B F",
+    "cap28_operator": "diag(I3+(e0-u/d)e0^t,0)",
+    "determinants": [
+      "det(S4)=c(1-tr R)",
+      "det(I3-A)=(c+2)(1-tr R)+tr(E R)"
+    ],
+    "trace_identity": "tr((W4-I)Q)=R00-d^2/c+c det(I3-A)-(d^2/c)det(S4)",
+    "conclusion": "R00=d^2/c!=0, but either ER=0 forces x0=0 or RE=0 forces y0=0."
+  },
+  "exceptional": {
+    "canonical_parameters": {
+      "t": 1,
+      "s": -2
+    },
+    "all_parameters_covered": "(t,s)->(alpha*t,s/alpha), alpha=1/t, valid because ts=-2",
+    "coordinate_change": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ]
+    ],
+    "source_frames": [
+      [
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "1",
+        "0",
+        "0",
+        "-1"
+      ],
+      [
+        "0",
+        "2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2",
+        "0",
+        "0",
+        "-1"
+      ],
+      [
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "-1"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "reader_frames": [
+      [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "-1/2",
+        "0",
+        "-1",
+        "-1/2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "0",
+        "0",
+        "0",
+        "-1/2",
+        "0",
+        "-1",
+        "-1/2",
+        "0",
+        "1",
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "-2",
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "0"
+      ]
+    ],
+    "cap28_operator": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "-1",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "flag_form": "P=diag(1,P5), rank(P5)=2, P5 e0=0, e4^t P5=0",
+    "cap34_left": [
+      [
+        "1",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "cap34_right": [
+      [
+        "3",
+        "-1",
+        "0"
+      ],
+      [
+        "-2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "rank_drop": "rank(F)=2, F^2=F, rank(F+e1(e0-e1)^t)<=1 imply F e1=e1",
+    "forced_image": "b3+mu*external lies in im(P5); mu!=0",
+    "minor_rows_physical": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8
+    ],
+    "minor_anchor_columns": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minor_added_columns": [
+      "b4",
+      "b3+mu*external"
+    ],
+    "minor": [
+      [
+        "1",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "-1"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-2"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "2"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "determinant": -1,
+    "tariff": 5,
+    "conclusion": "Every exceptional projector satisfying masks34 and28 violates rectangle(5,28)."
+  },
+  "coefficient_samples": 0,
+  "geometry_samples": 0,
+  "mutation_controls_rejected": 2
+}

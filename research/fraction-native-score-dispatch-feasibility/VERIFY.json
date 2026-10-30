@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/fraction-native-score-dispatch-feasibility/inputs/PR5864.tar",
+    "research/fraction-native-score-dispatch-feasibility/native_parent.c",
+    "research/fraction-native-score-dispatch-feasibility/table_parent.py",
+    "research/fraction-native-score-dispatch-feasibility/runtime_binding.py",
+    "research/fraction-native-score-dispatch-feasibility/RUNTIME-SHAPES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh C compile; exact parent source/loop authentication; all33 prefix values/types and10 native binding/fallback/error controls. Does not rerun timings, integrate the full118-control parent chain, execute an actual word or claim complete speedup/kappa."
+    }
+  ]
+}

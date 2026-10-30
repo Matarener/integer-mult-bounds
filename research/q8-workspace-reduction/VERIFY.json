@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/q8-mixed-uniform-tariff/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Uniform reduction fixtures and complete short-word domains; direct words/omissions; retained exact C++ exclusions; independently generated Hamilton balls/probes and pair meets; source/receipt binding."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual quotient/idempotence/native-action faults; full dirty restoration; noncommuting order; resource/label/type/source boundaries and overwrite refusal."
+    }
+  ]
+}

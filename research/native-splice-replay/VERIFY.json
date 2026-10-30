@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-causal-continuation/buffer-borrowing/verify_buffers.py",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/kappa-rebuild/complex/rebuild_native.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Full two-orientation 633-variable ideal replay, strict scalar savings, unchanged prefix/stock/profile, semantic generated artifact, retained-event mapping and full-word malformed controls."
+    }
+  ]
+}

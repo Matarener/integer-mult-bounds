@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fifty matched-layout calls equal the frozen tensor and the closed bill; old descriptor, disk, one-shot, bridge and toward-zero controls reject or disagree as stated."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same identity and failure controls with assertions disabled, so the result does not depend on assert statements."
+    }
+  ]
+}

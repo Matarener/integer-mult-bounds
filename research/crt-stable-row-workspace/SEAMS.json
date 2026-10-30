@@ -1,0 +1,8 @@
+{
+  "program, source, dirty, widths, ell, level, start, row, fault=None):": "program, source, dirty, widths, ell, level, start, row, workspace, fault=None):",
+  "        self.w, self.records, self.source = w, records, source": "        workspace.begin((tuple(widths), ell, level, start), source, dirty)\n        entry_module = workspace.entry_facade(w, entry_module)\n        self.workspace = workspace\n        self.w, self.records, self.source = w, records, source",
+  "headers = {name: Tape() for name in names}": "headers = {name: Tape(workspace.cells('rom.' + name)) for name in names}",
+  "coordinate, countdown, output = Tape(), Tape(), Tape()": "coordinate, countdown, output = (Tape(workspace.cells('query.' + name))\n                                         for name in ('coordinate', 'countdown', 'output'))",
+  "self.service = {name: ['_'] for name in rom_module.REGS+('arena','spool','layers','rom')}": "self.service = {name: workspace.cells('rom.' + name)\n                        for name in rom_module.REGS+('arena','spool','layers','rom')}",
+  "        self.closed=True": "        self.closed=True\n        self.workspace.end(self.entry.active)"
+}

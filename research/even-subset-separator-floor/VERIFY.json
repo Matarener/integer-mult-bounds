@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/parity-side.md",
+    "research/complex-parity-frames-seed35/README.md",
+    "research/even-subset-dyadic-kernels/PROOF.md",
+    "research/even-subset-dyadic-kernels/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact rational ranks, Walsh spectra, complete small support census, independent subspace oracle, attaining hulls and negative controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same exact checks with Python assertions disabled."
+    }
+  ]
+}

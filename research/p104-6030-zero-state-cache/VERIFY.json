@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/clifford-state-performance/fast_state.py",
+    "research/p104-helper470-twin-rung-removal/EDIT.json.gz",
+    "research/p104-helper470-twin-rung-removal/EXPECT.json",
+    "research/p104-helper470-twin-rung-removal/PRICING-EDITS.json",
+    "research/p104-helper470-twin-rung-removal/RESULT.json",
+    "research/p104-helper470-twin-rung-removal/SOURCES.json",
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz",
+    "research/p104-helper470-twin-rung-removal/construct.py",
+    "research/p104-helper470-twin-rung-removal/inputs/pr5827-source.tar",
+    "research/p104-helper470-twin-rung-removal/inputs/pr5907-WORD.json.gz",
+    "research/p104-helper470-twin-rung-removal/pricing.py",
+    "research/p104-helper470-twin-rung-removal/sources.py",
+    "research/p104-helper470-twin-rung-removal/verify.py",
+    "research/p104-native-channel/vendor/clifford_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 400,
+      "checks": "Random-circuit equivalence of research/clifford-state-performance/fast_state.zero_state with the pinned clifford_exact.Op.zero_state (n=1..9, lowered children, canonical frames); three mutants rejected by the differential wrapper with its mismatch error; changed clifford_exact.py bytes refused by the loader hook; each of the 14 changed input pins and each one-byte change to an input file refused; then PR6030's unchanged verify.py in place with the gate tables (which itself requires its committed RESULT.json byte for byte), requiring replacement calls and every registered clifford_exact copy patched."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/run.py",
+        "--mode",
+        "differential"
+      ],
+      "timeout_seconds": 600,
+      "checks": "PR6030's unchanged verify.py in place, running both the original and the fast_state.zero_state on every one of its calls (32766 on CPython 3.12) and requiring identical results; the run returns the original values, so its own RESULT.json check is unaffected by the replacement."
+    }
+  ]
+}

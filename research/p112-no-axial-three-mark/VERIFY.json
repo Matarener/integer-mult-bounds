@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate2inputs,112port partitions,37orthonormaltriads,666triadpairs,70criticalthird-triadunions,18roles/153rolepairs and53ordinary invoices. Geometry premises of written12+n proof only; prior\u22645theorem not replayed."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent annihilator-set reconstruction of the geometric premises and all7770triadtriples, no producer imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/fixed_three_mark_source_span.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "All441fixed-placementtariffs,uniqueoff-axisprice2type,41singletonprice3types,axialmerge subadditivity and canonical18baseline; finitepremises for normalized\u22645reduction only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_fixed_source_span.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent binaryspan/annihilator reconstruction of all441tariffs and identical complete-table digest; no producerimports. Prior\u22645theorem is separatelycited, not rerun."
+    }
+  ]
+}

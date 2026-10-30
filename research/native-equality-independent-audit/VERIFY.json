@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "research/native-equality-cut/PROOF.md",
+    "research/native-equality-cut/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent signed-Pauli projector matrices, tensor-pair ranks, exact Gaussian-integer Bell/frame controls, full chronological dirty-feedback endpoint and all prefixes, joint cache rank and code/error controls; source pins and deterministic receipt."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/find_overlap.py",
+    "scripts/research_package.py",
+    "tests/test_research_overlap_terms.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "39,216 exact offset comparisons; eight complete search comparisons; literal, boundary, prefix and work-elision controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The same deterministic comparisons and controls with optimization enabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_research_overlap_terms.py",
+        "-v"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Eleven actual CLI and predicate tests covering numeric references, literal overrides, scoring, excerpts, Unicode and all-term search."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-joint-dirty-pair/inputs/WORD.json.gz",
+    "research/bit-joint-dirty-pair/inputs/GEOMETRY.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Focused source binding, complete source-prefix columns, local retiming and finite defect/Sylvester/uniformity controls; full receipts and file hashes. Written proof is not kernel-checked."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The same coverage with assertions disabled; canonical JSON receipts must still match, including Boolean types."
+    }
+  ]
+}

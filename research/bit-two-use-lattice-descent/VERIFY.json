@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-fifth-frame-determinant-obstruction/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact candidate filters, two-use block identities, full stated finite censuses, two polynomial engines, dirty-register positive constructions and failure controls; compare RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The identical exact replay with Python assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/test_replay.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Seven CLI test methods, each in normal and optimized mode: isolated empty-PATH source export and source, repinning, manifest, rank, profile and Boolean/integer receipt rejection."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-joint-unit-flags/CERTIFICATE.json",
+    "research/p104-pooled-cut-independent/verify.py",
+    "research/p104-pooled-cut-independent/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Count the compatible departures on X102's initial line and the readers they give at each dimension."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that a dimension-1 contact requires the size-2 frame to equal the bound."
+    }
+  ]
+}

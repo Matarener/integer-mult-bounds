@@ -1,0 +1,92 @@
+"""Lightweight whole-call timing; preserve every PR5818 scientific output."""
+from collections import Counter, defaultdict
+import json
+from pathlib import Path
+import runpy
+import sys
+from time import perf_counter_ns
+
+HERE = Path(__file__).resolve().parent
+PACKAGE = HERE.parent / 'single-pass-qualification-20261027/repo/research/selected-single-pass-qualification'
+sys.path.insert(0, str(PACKAGE))
+from source import prepared
+
+timings = defaultdict(lambda: {'calls': 0, 'seconds': 0.0})
+circuits = Counter()
+gate_visits = Counter()
+restores = []
+
+
+def timed(label, function):
+    def call(*args, **kwargs):
+        started = perf_counter_ns()
+        try:
+            return function(*args, **kwargs)
+        finally:
+            timings[label]['calls'] += 1
+            timings[label]['seconds'] += (perf_counter_ns() - started) / 1e9
+    return call
+
+
+with prepared() as root:
+    entry = root / 'research/selected-quadratic-replay'
+    sys.path.insert(0, str(entry))
+    import checks
+    import state_adapter as adapter
+    original_load = checks.load
+    original_support = adapter.support
+    adapter.support = timed('quadratic_support_all_phases', original_support)
+
+    def load(name, path):
+        module = original_load(name, path)
+        if name == 'selected_cross_literal_compiler':
+            original = module.Op.zero_state
+            module.Op.zero_state = timed('cross_dense_literal', original)
+            restores.append((module.Op, 'zero_state', original))
+        elif name == 'selected_cross_literal_native':
+            original = module.tableau
+            timer = timed('cross_circuit_tableau', original)
+
+            def tableau(circuit, n=9):
+                circuits[(n, adapter.frozen(circuit))] += 1
+                gate_visits.update(gate[0] for gate in circuit)
+                return timer(circuit, n)
+
+            module.tableau = tableau
+            restores.append((module, 'tableau', original))
+            original = module.state
+            module.state = timed('cross_sparse_literal', original)
+            restores.append((module, 'state', original))
+        return module
+
+    checks.load = load
+    joint = runpy.run_path(str(PACKAGE / 'joint.py'))
+    original_qualify = joint['run'].__globals__['qualify']
+
+    def qualify(verify, cross, source, state):
+        original_main = source.main
+        source.main = timed('complete_source_replay', original_main)
+        try:
+            return original_qualify(timed('verify_entry_inclusive', verify),
+                                    timed('cross_entry_inclusive', cross), source, state)
+        finally:
+            source.main = original_main
+
+    joint['run'].__globals__['qualify'] = qualify
+    try:
+        joint['run'](root)
+    finally:
+        checks.load = original_load
+        adapter.support = original_support
+        for owner, name, value in restores:
+            setattr(owner, name, value)
+
+result = {'method': 'Whole-function perf_counter timings; nested totals overlap. No per-amplitude profiler.',
+          'timings': dict(timings), 'tableau_calls': sum(circuits.values()),
+          'unique_width_circuits': len(circuits),
+          'repeated_tableau_calls': sum(circuits.values()) - len(circuits),
+          'gate_visits_across_literal_state_circuits': dict(gate_visits),
+          'largest_circuit_repeat': max(circuits.values()),
+          'source_head': 'a0171b8d2f942cdfc5295307548fe484c570b1ba',
+          'coverage': 'Both original RESULT/CROSS, full actual trace, both literal interpreters and all original controls executed.'}
+(HERE / 'PROFILE.json').write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')

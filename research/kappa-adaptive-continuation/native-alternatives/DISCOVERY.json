@@ -1,0 +1,602 @@
+{
+  "additive_claim_rejected": "All four alternatives replace the same receiver pair and remove the same single rank-2 stop on one receiver. Their individual deltas cannot be counted as four disjoint savings.",
+  "completed_searches": {
+    "fanout-base": {
+      "candidates": [],
+      "max_gap": 24,
+      "scope": "Local exact covector rewrite and full native frame price only; each candidate needs full arbitrary-column/native replay and whole invoice.",
+      "section": "all",
+      "source_word_name": "BORROW-WORD-43base.json.gz",
+      "source_word_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "status": "PASS_BOUNDED_LITERAL_COVECTOR_SEARCH",
+      "tried": 3407
+    },
+    "joint-B": {
+      "candidates": [],
+      "limit": 100000,
+      "permanent_tail": false,
+      "section": "B",
+      "source_name": "BORROW-WORD-43base.json.gz",
+      "source_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "start": 0,
+      "stats": {
+        "attempted": 736,
+        "feasible": 385,
+        "infeasible": 351
+      },
+      "status": "BOUNDED_CHANGED_COVECTOR_GRAPH_SEARCH",
+      "total_indexed": 736
+    },
+    "joint-permanent-A": {
+      "candidates": [],
+      "limit": 100000,
+      "permanent_tail": true,
+      "section": "A",
+      "source_name": "BORROW-WORD-43base.json.gz",
+      "source_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "start": 0,
+      "stats": {
+        "attempted": 140,
+        "feasible": 116,
+        "infeasible": 24
+      },
+      "status": "BOUNDED_CHANGED_COVECTOR_GRAPH_SEARCH",
+      "total_indexed": 140,
+      "transpose": false
+    },
+    "joint-restore": {
+      "candidates": [],
+      "limit": 100000,
+      "permanent_tail": false,
+      "section": "restore",
+      "source_name": "BORROW-WORD-43base.json.gz",
+      "source_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "start": 0,
+      "stats": {
+        "attempted": 243,
+        "feasible": 241,
+        "infeasible": 2
+      },
+      "status": "BOUNDED_CHANGED_COVECTOR_GRAPH_SEARCH",
+      "total_indexed": 243
+    },
+    "joint-transpose-B": {
+      "candidates": [
+        {
+          "aggregate_before_frames": [
+            "add",
+            676,
+            672,
+            -1,
+            1,
+            []
+          ],
+          "ar": 676,
+          "before_events": {
+            "1239": [
+              "add",
+              544,
+              676,
+              -1,
+              2,
+              [
+                414,
+                51
+              ]
+            ],
+            "1240": [
+              "add",
+              544,
+              672,
+              1,
+              2,
+              [
+                414,
+                51
+              ]
+            ],
+            "775": [
+              "add",
+              229,
+              676,
+              -1,
+              1,
+              [
+                413,
+                72,
+                48,
+                3
+              ]
+            ],
+            "777": [
+              "add",
+              229,
+              672,
+              1,
+              1,
+              [
+                413,
+                72,
+                48,
+                3
+              ]
+            ],
+            "778": [
+              "add",
+              234,
+              676,
+              -1,
+              1,
+              [
+                413,
+                72,
+                48,
+                3
+              ]
+            ],
+            "780": [
+              "add",
+              234,
+              672,
+              1,
+              1,
+              [
+                413,
+                72,
+                48,
+                3
+              ]
+            ]
+          },
+          "br": 672,
+          "chosen": [
+            {
+              "drop": 777,
+              "hi": 777,
+              "keep": 775,
+              "lo": 775,
+              "target": 229
+            },
+            {
+              "drop": 780,
+              "hi": 780,
+              "keep": 778,
+              "lo": 778,
+              "target": 234
+            },
+            {
+              "drop": 1240,
+              "hi": 1240,
+              "keep": 1239,
+              "lo": 1239,
+              "target": 544
+            }
+          ],
+          "coefficient": "-1",
+          "hi": 1241,
+          "id": "B-172-676-672-775-1241",
+          "index": 172,
+          "lo": 775,
+          "optimization": {
+            "attempts": 57581,
+            "changed_frames": 2,
+            "components": 212,
+            "delta": {
+              "1": -1,
+              "2": -1,
+              "3": 1
+            },
+            "saving": 0.0033006328126503615,
+            "variables": 733
+          },
+          "permanent_tail": false,
+          "section": "B",
+          "transpose": true,
+          "undo_before_frames": [
+            "add",
+            676,
+            672,
+            1,
+            1,
+            []
+          ],
+          "word": "WORD-B-172-676-672-775-1241.json.gz",
+          "word_payload_sha256": "01725e373ebd1b8d0d6b40c1093a7fe149fb1fb90fdf27274b8fe4a3f1eae9f0"
+        },
+        {
+          "aggregate_before_frames": [
+            "add",
+            676,
+            672,
+            -1,
+            1,
+            []
+          ],
+          "ar": 676,
+          "before_events": {
+            "1239": [
+              "add",
+              544,
+              676,
+              -1,
+              2,
+              [
+                414,
+                51
+              ]
+            ],
+            "1240": [
+              "add",
+              544,
+              672,
+              1,
+              2,
+              [
+                414,
+                51
+              ]
+            ],
+            "778": [
+              "add",
+              234,
+              676,
+              -1,
+              1,
+              [
+                413,
+                72,
+                48,
+                3
+              ]
+            ],
+            "780": [
+              "add",
+              234,
+              672,
+              1,
+              1,
+              [
+                413,
+                72,
+                48,
+                3
+              ]
+            ]
+          },
+          "br": 672,
+          "chosen": [
+            {
+              "drop": 780,
+              "hi": 780,
+              "keep": 778,
+              "lo": 778,
+              "target": 234
+            },
+            {
+              "drop": 1240,
+              "hi": 1240,
+              "keep": 1239,
+              "lo": 1239,
+              "target": 544
+            }
+          ],
+          "coefficient": "-1",
+          "hi": 1241,
+          "id": "B-174-676-672-778-1241",
+          "index": 174,
+          "lo": 778,
+          "optimization": {
+            "attempts": 57589,
+            "changed_frames": 2,
+            "components": 212,
+            "delta": {
+              "1": -1,
+              "2": -1,
+              "3": 1
+            },
+            "saving": 0.0033006328126503615,
+            "variables": 734
+          },
+          "permanent_tail": false,
+          "section": "B",
+          "transpose": true,
+          "undo_before_frames": [
+            "add",
+            676,
+            672,
+            1,
+            1,
+            []
+          ],
+          "word": "WORD-B-174-676-672-778-1241.json.gz",
+          "word_payload_sha256": "f8b2aa21d54f508b4f846f5bc7c30098465821d9d873dddbfc21363ea5458ae2"
+        },
+        {
+          "aggregate_before_frames": [
+            "add",
+            676,
+            672,
+            -1,
+            1,
+            []
+          ],
+          "ar": 676,
+          "before_events": {
+            "1239": [
+              "add",
+              544,
+              676,
+              -1,
+              2,
+              [
+                414,
+                51
+              ]
+            ],
+            "1240": [
+              "add",
+              544,
+              672,
+              1,
+              2,
+              [
+                414,
+                51
+              ]
+            ]
+          },
+          "br": 672,
+          "chosen": [
+            {
+              "drop": 1240,
+              "hi": 1240,
+              "keep": 1239,
+              "lo": 1239,
+              "target": 544
+            }
+          ],
+          "coefficient": "-1",
+          "hi": 1241,
+          "id": "B-175-676-672-1239-1241",
+          "index": 175,
+          "lo": 1239,
+          "optimization": {
+            "attempts": 57697,
+            "changed_frames": 2,
+            "components": 212,
+            "delta": {
+              "1": -1,
+              "2": -1,
+              "3": 1
+            },
+            "saving": 0.0033006328126503615,
+            "variables": 735
+          },
+          "permanent_tail": false,
+          "section": "B",
+          "transpose": true,
+          "undo_before_frames": [
+            "add",
+            676,
+            672,
+            1,
+            1,
+            []
+          ],
+          "word": "WORD-B-175-676-672-1239-1241.json.gz",
+          "word_payload_sha256": "792d86fc0e960978474726c0d66bb0c946689466ac6f0360e398acdc64b3e36a"
+        },
+        {
+          "aggregate_before_frames": [
+            "add",
+            672,
+            676,
+            -1,
+            1,
+            []
+          ],
+          "ar": 672,
+          "before_events": {
+            "1239": [
+              "add",
+              544,
+              676,
+              -1,
+              2,
+              [
+                414,
+                51
+              ]
+            ],
+            "1240": [
+              "add",
+              544,
+              672,
+              1,
+              2,
+              [
+                414,
+                51
+              ]
+            ]
+          },
+          "br": 676,
+          "chosen": [
+            {
+              "drop": 1239,
+              "hi": 1240,
+              "keep": 1240,
+              "lo": 1239,
+              "target": 544
+            }
+          ],
+          "coefficient": "-1",
+          "hi": 1241,
+          "id": "B-179-672-676-1239-1241",
+          "index": 179,
+          "lo": 1239,
+          "optimization": {
+            "attempts": 57697,
+            "changed_frames": 2,
+            "components": 212,
+            "delta": {
+              "1": -1,
+              "2": -1,
+              "3": 1
+            },
+            "saving": 0.0033006328126503615,
+            "variables": 735
+          },
+          "permanent_tail": false,
+          "section": "B",
+          "transpose": true,
+          "undo_before_frames": [
+            "add",
+            672,
+            676,
+            1,
+            1,
+            []
+          ],
+          "word": "WORD-B-179-672-676-1239-1241.json.gz",
+          "word_payload_sha256": "29cbafdd2ae7c3e36744863898a4bb3e2fcb3836be885b6554b6ed19e63f48a6"
+        }
+      ],
+      "limit": 100000,
+      "permanent_tail": false,
+      "section": "B",
+      "source_name": "BORROW-WORD-43base.json.gz",
+      "source_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "start": 0,
+      "stats": {
+        "attempted": 1410,
+        "feasible": 1004,
+        "infeasible": 406
+      },
+      "status": "BOUNDED_CHANGED_COVECTOR_GRAPH_SEARCH",
+      "total_indexed": 1410,
+      "transpose": true
+    },
+    "joint-transpose-restore": {
+      "candidates": [],
+      "limit": 100000,
+      "permanent_tail": false,
+      "section": "restore",
+      "source_name": "BORROW-WORD-43base.json.gz",
+      "source_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "start": 0,
+      "stats": {
+        "attempted": 32,
+        "feasible": 32
+      },
+      "status": "BOUNDED_CHANGED_COVECTOR_GRAPH_SEARCH",
+      "total_indexed": 32,
+      "transpose": true
+    },
+    "permanent-base": {
+      "candidates": [],
+      "max_gap": 150,
+      "permanent_tail": true,
+      "scope": "Local exact covector rewrite and full native frame price only; each candidate needs full arbitrary-column/native replay and whole invoice.",
+      "section": "all",
+      "source_word_name": "BORROW-WORD-43base.json.gz",
+      "source_word_sha256": "5ca4be99851f8878cbfe0fd6c454df926b11218f17feefa1664721cf03156699",
+      "status": "PASS_BOUNDED_LITERAL_COVECTOR_SEARCH",
+      "tried": 232
+    }
+  },
+  "interrupted_A_search": {
+    "emitted_candidates": 0,
+    "last_reported_attempted": 1850,
+    "last_reported_feasible": 1848,
+    "last_reported_infeasible": 2,
+    "observed_prefix_indices": [
+      0,
+      1849
+    ],
+    "replay_prefix_command": "python3 -B research/kappa-adaptive-continuation/native-alternatives/joint_fanout_search.py --word SOURCE_WORD --section A --out FRESH_OUTPUT --limit 1850",
+    "scope": "The ongoing discovery process was interrupted after the complete native candidate passed. Its last reported counters are preserved; later unreported work is excluded. This is not an exhaustive A search.",
+    "status": "PARTIAL_INTERRUPTED_AFTER_SUCCESSFUL_PRODUCTION_CANDIDATE_SELECTED"
+  },
+  "positive_control": {
+    "exact_inputs": 632,
+    "mechanism": "Known PR2979 receiver consumers of the shared covector X40-2X54",
+    "providers_tested": 1,
+    "receipt": "positive-control/LOCAL-AUDIT.json",
+    "status": "PASS_INDEPENDENT_EXACT_BORROWING_WORD"
+  },
+  "selected_variant": 175,
+  "shared_original_B_preimages": [
+    692,
+    693
+  ],
+  "status": "PASS_BOUNDED_DISCOVERY_SCOPE_AND_OVERLAPPING_VARIANT_CHECK",
+  "variants": [
+    {
+      "B_scalar_delta": -1,
+      "delta": {
+        "1": -1,
+        "2": -1,
+        "3": 1
+      },
+      "index": 172,
+      "original_B_preimages": [
+        692,
+        693,
+        1112,
+        1114,
+        1115,
+        1117
+      ],
+      "word": "joint-transpose-B/WORD-B-172-676-672-775-1241.json.gz",
+      "word_sha256": "7bea43ced81199c05d76cbe5788e84199b1024b49bedc6a86ea048e7b02b5507"
+    },
+    {
+      "B_scalar_delta": 0,
+      "delta": {
+        "1": -1,
+        "2": -1,
+        "3": 1
+      },
+      "index": 174,
+      "original_B_preimages": [
+        692,
+        693,
+        1112,
+        1114
+      ],
+      "word": "joint-transpose-B/WORD-B-174-676-672-778-1241.json.gz",
+      "word_sha256": "8e1d3f5e70ad4f4703c96cd4b3b6d2c4fd842aae42095ba4a302895f58c2d929"
+    },
+    {
+      "B_scalar_delta": 1,
+      "delta": {
+        "1": -1,
+        "2": -1,
+        "3": 1
+      },
+      "index": 175,
+      "original_B_preimages": [
+        692,
+        693
+      ],
+      "word": "joint-transpose-B/WORD-B-175-676-672-1239-1241.json.gz",
+      "word_sha256": "1bb5636161aeae11b9a681fc16d4c8a1b99da803e2391d40c68e01f0a7237f4e"
+    },
+    {
+      "B_scalar_delta": 1,
+      "delta": {
+        "1": -1,
+        "2": -1,
+        "3": 1
+      },
+      "index": 179,
+      "original_B_preimages": [
+        692,
+        693
+      ],
+      "word": "joint-transpose-B/WORD-B-179-672-676-1239-1241.json.gz",
+      "word_sha256": "28d05a0445bf018535c7ac7c110f376e2d747b814e7af94a0e380ce4258020d7"
+    }
+  ]
+}

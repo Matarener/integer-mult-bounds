@@ -1,0 +1,6 @@
+{
+  "status": "FAILED_BEFORE_ADMISSION",
+  "reason": "Source guard detected candidate word rollback and a synchronization temporary file containing the predecessor runtime adapter during dependency preflight.",
+  "diagnosis": "The affected replacements used shutil.copy2, restoring old source mtimes; unchanged live source files and write_text patches did not roll back. New runner writes replacement contents with current timestamps and preserves source guards. Workspace synchronization is the inferred mechanism, not a scientific failure.",
+  "claim_admitted": false
+}

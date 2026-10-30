@@ -1,0 +1,52 @@
+{
+  "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
+  "date_utc": "2026-10-30",
+  "command": "python3.12 scripts/research_package.py --package research/selected-windows-lf-grammar",
+  "environment_adjustment": "TEMP and TMP point to writable workspace parent; sandbox default TEMP failed before execution.",
+  "normal_archived_grammar": {
+    "status": "PASS_ARCHIVED_OUTER_GRAMMAR_ONLY",
+    "negative_count": 129,
+    "counterexample_count": 8,
+    "positive_count": 1
+  },
+  "optimized_fresh_replay": {
+    "authenticated_raw_edges_per_side": 30,
+    "checked_files": 105,
+    "inner_logs": 11,
+    "native_stage_seconds": 31.937,
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.11 (main, Jul 23 2025, 00:32:20) [MSC v.1944 64 bit (AMD64)]",
+    "raw_file_differences": 17,
+    "scope": "Selected final stage with authenticated archived local inputs; not cold ancestry",
+    "status": "PASS_SELECTED_WINDOWS_LF_GRAMMAR"
+  },
+  "inherited_controls": {
+    "positive_count": 6,
+    "negative_count": 203,
+    "receipt": "CONTROLS.json",
+    "sha256": "1fd02c4b6d8e28e0e425a684a9653fd29b1aa41a7572a745a9fba765b67e8cf7"
+  },
+  "new_grammar_controls": {
+    "positive_count": 1,
+    "negative_count": 129,
+    "historical_counterexample_count": 8,
+    "receipt": "GRAMMAR-CONTROLS.json",
+    "sha256": "6a73988a649aa7757b4dcf72c9276b8c25f28003e470d7a74df97a1731b53f0c"
+  },
+  "source_review": {
+    "reviewer": "Separate OpenAI Codex agent",
+    "status": "No blocking issue found in source review",
+    "checked": "All11 vendors, unchanged controls and predecessor manifest byte-identical;53 source pins and43 live inputs match; exact caller delta, proof and scope reviewed.",
+    "limits": "No heavy execution or final validation receipt independently replayed; not independent human review."
+  },
+  "reviewed_sources": {
+    "compare_logs.py": "55171591c78c7c3ab0080b742f3e654a969a6f5117c65ab78fbf24802e9c824f",
+    "verify.py": "49941a9c8e1bd61a30cd35e77f57c81378323b48273dc2c55972feaf92ffb19b",
+    "test_outer_grammar.py": "3de9bc315ff0d1dee9352684ceb1a994e596a214a5e2003a0d5c8a9d4a5f719c",
+    "CALLER-DELTA.patch": "b95f948a05c3440b7eb7079c6c647362d2ec74d36be02fca9da1bcbff7b83cb9"
+  },
+  "limitations": [
+    "Historical1094 final-stage replay with archived ancestor inputs, not current6030 or cold ancestry.",
+    "No hosted CI, independent human review or selected-frontier change claimed."
+  ]
+}

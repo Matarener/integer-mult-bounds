@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-functional-independent-check/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Min-sumset lemma and cap exhaustive in F_2^k (k <= 4); cap threshold scan vs closed form (5 <= n <= 22); split-range condition; explicit firing walks at L*(n) - 2 (n = 5..11) simple, closed, universal and firing, with canonical relabeling; length-L* controls; #3733 (4,12) on main."
+    }
+  ]
+}

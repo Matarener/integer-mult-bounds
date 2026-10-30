@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/inplace-runtime-affine/inputs/machine.py",
+    "research/inplace-runtime-affine/inputs/counters.py",
+    "research/inplace-runtime-affine/inputs/shear.py",
+    "research/inplace-runtime-affine/inputs/source-kernel.py",
+    "research/inplace-runtime-affine/inputs/independent.py",
+    "research/inplace-runtime-affine/inputs/source-PROOF.md",
+    "research/inplace-runtime-affine/inputs/source-README.md",
+    "research/inplace-runtime-affine/inputs/scaling-README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Four complete physical tables, exact unchanged default tables, two interpreters, every owner/descriptor/private/head, exact resource deltas, round trips and controls"
+    }
+  ]
+}

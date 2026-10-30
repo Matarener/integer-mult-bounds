@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper468-rung-removal/RESULT.json",
+    "research/p104-helper468-rung-removal/WORD.json.gz",
+    "research/p104-unread-path-resynthesis/local.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate pinned inputs; regenerate the compressed word with compress.py and compare the decompressed payload; own exact replay of both words with identical MOVE/INIT/CLEAR sequences, rows of every moved field and all 799 endpoint rows; PR5827 local.py unmodified: equal paid/helper profiles, inventory, rank mass, passing dense transpose; two rejected controls; RESULT.json compared in full."
+    }
+  ]
+}

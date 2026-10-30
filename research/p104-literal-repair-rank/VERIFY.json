@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-literal-slot-defect/PROOF.md",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-two-axis-compatibility/PROOF.md",
+    "research/p104-two-axis-compatibility/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "All 512 character blocks, 143360 literal and postprocessor columns, complete minor/kernel, 72 dirty returns and seven semantic rejecting controls; full typed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same complete source-bound acceptance under optimized Python; all requirements explicit."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/algebra.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate dense rational general-rank verification on 2048 cases; noncommuting address blocks and dropped-hypothesis controls."
+    }
+  ]
+}

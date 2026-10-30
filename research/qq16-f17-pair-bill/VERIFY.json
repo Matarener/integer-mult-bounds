@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/qq16-producer-entry-contract/README.md",
+    "research/qq16-finite-dyadic-format/README.md",
+    "research/qq16-rounded-pair-bit-circuit/README.md",
+    "research/qq16-rounded-producer-envelope/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-Werror", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Recompute the exact-producer F17 width, pair-kernel coefficient and field-bit coefficient, and authenticate the dirty-ledger obstruction."
+    },
+    {
+      "argv": ["{python}", "-Werror", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Repeat the primary check with assertions disabled."
+    },
+    {
+      "argv": ["{python}", "-Werror", "-I", "-B", "{package}/independent.py"],
+      "timeout_seconds": 60,
+      "checks": "Recompute the same integers and source obligations in a separate program."
+    },
+    {
+      "argv": ["{python}", "-Werror", "-I", "-B", "{package}/test_package.py"],
+      "timeout_seconds": 120,
+      "checks": "Reject certificate corruption, duplicate JSON keys and drifted source bytes, including under -O."
+    }
+  ]
+}

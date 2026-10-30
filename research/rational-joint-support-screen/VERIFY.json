@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-port-matching-seed6c563a/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Authenticates both pinned external sources; enumerates all 4x4 support graphs; cross-checks structural nonsingularity by permutation search and subset DP; derives generic inverse supports from 3x3 minors; checks the binary determinant control and prices every generic pattern on all 1540 plane pairs. Validates all signed-ternary witnesses against exact Python adjugates and, when a C11 compiler is available, recompiles and reruns the exhaustive 3^16 matrix census and byte-compares its output receipt. Reproduces RESULT.json. Expected output: PASS_GENERIC_RATIONAL_JOINT_SUPPORT_SCREEN."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeats the exact screen with optimized Python so correctness does not rely on assert statements; the optional C11 exhaustive replay also runs when a compiler is available."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "LICENSE",
+    "research/native-tensor-cutoff/PROOF.md",
+    "research/native-tensor-cutoff/README.md",
+    "research/native-tensor-cutoff/TASK.json",
+    "research/native-tensor-cutoff/source/NOTICE.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact two-axis minimum formula against complete count normal forms; independent literal phase/sign residuals, all four threshold witnesses and semantic controls; deterministic receipt."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-conjugation-admission/LOCAL-RESULT.json",
+    "research/g20-conjugation-admission/MATCHER.json",
+    "research/g20-conjugation-admission/WORD.json.gz",
+    "research/g20-conjugation-admission/prior/prior/prior/source/vendor/g20/inputs/FRAMES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Rational frame and residual identities; actual local chronology and all685 scalar columns; both normalizers; modulus guard; semantic rejection controls."
+    }
+  ]
+}

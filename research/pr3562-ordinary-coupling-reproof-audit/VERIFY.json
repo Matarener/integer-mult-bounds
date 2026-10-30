@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/lean-bit-moment-discharge/lean/Selected.lean"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Two exact moment engines inside PR3562's enclosure; source binding to the selected bit supplier; P5 coefficient composition; parametric (c)-(d) arithmetic; line-158 witness; fallback-inclusive root binding; seven negative controls rejected through audit(). Frozen verify.py sha256 e91884740bd07b208d6b735f5c46b6b024f3e857be9ba1f0a239eadbcbca7e15"
+    }
+  ]
+}

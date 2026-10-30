@@ -1,0 +1,69 @@
+{
+  "scope": "Actual final local proof-checking transcripts and semantic test results; not hosted CI or a full theorem audit.",
+  "environment": {
+    "python": "Python 3.12.15",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "solver_distribution": "python-sat1.8.dev24 / Cadical195",
+    "platform": "macOS arm64"
+  },
+  "scientific_replay": {
+    "command": "python -I -Werror -B research/connector-b-occupancy-sat/verify.py --controls --retain NEW_EXTERNAL_DIRECTORY",
+    "result": "PASS_CONNECTOR_B_OCCUPANCY_SAT; B1..B4"
+  },
+  "ordinary_tests": ".............\n----------------------------------------------------------------------\nRan 13 tests in 2.573s\n\nOK\n",
+  "optimized_tests": ".............\n----------------------------------------------------------------------\nRan 13 tests in 2.455s\n\nOK\n",
+  "generic_binding_hook": "CHECK Source pins, all77 independently generated low orbits and exact fresh CNF byte bindings for the four named cases. Bindings only; no SAT solve or UNSAT proof acceptance. Full science uses the separate pinned REPLAY.json and dedicated native workflow.\nPASS_CONNECTOR_B_FORMULA_BINDINGS_ONLY no_UNSAT_replay\nPASS_REGISTERED_RESEARCH_PACKAGE research/connector-b-occupancy-sat outcome=completed\n",
+  "proof_and_compiler_transcripts": {
+    "B01/check.log": {
+      "sha256": "9437cfd3964502c30bc7bd3c0ca8b9166f660598b50eb7fccad50f13657d692d",
+      "text": "\nc turning on binary mode checking\n\nc parsing input formula with 25969 variables and 278978 clauses\n\nc finished parsing, read 66584140 bytes from proof file\n\nc detected empty clause; start verification via backward checking\n\nc 94319 of 278978 clauses in core                            \n\nc 53081 of 161217 lemmas in core using 13253932 resolution steps\n\nc 0 RAT lemmas in core; 234038 redundant literals in core lemmas\n\ns VERIFIED\n\nc verification time: 2.601 seconds\n"
+    },
+    "B01/solver.log": {
+      "sha256": "89ca5cf1ef1307b9cd8e0a7d03fe5c062e2d546024ae80b64484aeddb08f238f",
+      "text": "{\"clauses\": 278978, \"cnf_sha256\": \"8e59775ef13582e9ff9f1ef55b3bab8668ed833f3b2016483718c6e60cf0f107\", \"low\": [0, 0, 0, 1, 0, 1, 2, 3, 2, 3], \"proof_bytes\": 66584140, \"proof_sha256\": \"6e4650230d2eddeed2b23664a05ed6d1f83bd7d0ff15c4e1ac39ecc4b3972e08\", \"status\": \"UNSAT\", \"template\": 1, \"variables\": 25969}\n"
+    },
+    "B02/check.log": {
+      "sha256": "face047c4e70130dc97da35f40faadf62166458c9d0800975da4c27d58a14a4a",
+      "text": "\nc turning on binary mode checking\n\nc parsing input formula with 25969 variables and 278962 clauses\n\nc finished parsing, read 133390109 bytes from proof file\n\nc detected empty clause; start verification via backward checking\n\nc 124945 of 278962 clauses in core                            \n\nc 114117 of 288011 lemmas in core using 41641692 resolution steps\n\nc 0 RAT lemmas in core; 576734 redundant literals in core lemmas\n\ns VERIFIED\n\nc verification time: 7.043 seconds\n"
+    },
+    "B02/solver.log": {
+      "sha256": "bb6cc34837bbb62b8f84db7310f25668e7d7836aaf2efc14946da492033afac8",
+      "text": "{\"clauses\": 278962, \"cnf_sha256\": \"8416643b7a6b1c9dae415e2a8dc082d34a6d2ed1057dd3342a6bef2db7c4c292\", \"low\": [0, 0, 0, 1, 0, 2, 1, 3, 2, 3], \"proof_bytes\": 133390109, \"proof_sha256\": \"2948ea0a94d827eb167e100ca94ff3fbb912a1c8b09b5241c2b978e73c8a3ae7\", \"status\": \"UNSAT\", \"template\": 2, \"variables\": 25969}\n"
+    },
+    "B03/check.log": {
+      "sha256": "efe4ac1aa9a45ab0cb6f10c4b4f28043a50e34f5329e6683e6aee868a1336350",
+      "text": "\nc turning on binary mode checking\n\nc parsing input formula with 25969 variables and 278962 clauses\n\nc finished parsing, read 87890493 bytes from proof file\n\nc detected empty clause; start verification via backward checking\n\nc 120473 of 278962 clauses in core                            \n\nc 88365 of 208884 lemmas in core using 37749828 resolution steps\n\nc 0 RAT lemmas in core; 441001 redundant literals in core lemmas\n\ns VERIFIED\n\nc verification time: 5.278 seconds\n"
+    },
+    "B03/solver.log": {
+      "sha256": "5a89685eb2ce069d92c909d46ef831c7f6de22c232a9d344ba1d2c1e924ad241",
+      "text": "{\"clauses\": 278962, \"cnf_sha256\": \"5300a0544dbfc2c2c3409e7e4cbed7d9d687ed14d5ed4916faed3c641bd949fe\", \"low\": [0, 0, 0, 1, 0, 2, 3, 1, 2, 3], \"proof_bytes\": 87890493, \"proof_sha256\": \"60b867d237d739caf7a9c4838901a6f6bcef608a5dcda90638d6a54748024b01\", \"status\": \"UNSAT\", \"template\": 3, \"variables\": 25969}\n"
+    },
+    "B04/check.log": {
+      "sha256": "37acab816d801eb613cf6b2b72a2ccd1ff0d74816ac3eb7c8f25d5d08cdbcda1",
+      "text": "\nc turning on binary mode checking\n\nc parsing input formula with 25969 variables and 278962 clauses\n\nc finished parsing, read 91837165 bytes from proof file\n\nc detected empty clause; start verification via backward checking\n\nc 114236 of 278962 clauses in core                            \n\nc 96743 of 255251 lemmas in core using 36882608 resolution steps\n\nc 0 RAT lemmas in core; 474297 redundant literals in core lemmas\n\ns VERIFIED\n\nc verification time: 6.030 seconds\n"
+    },
+    "B04/solver.log": {
+      "sha256": "3491ba875494cb5556258d910ca43a8fd09e4a7bd831cf86e9b50fb6c9a04dbd",
+      "text": "{\"clauses\": 278962, \"cnf_sha256\": \"5222329964a0f983634bad42ae9f2f20167cef216ad592027f0319c5f825f515\", \"low\": [0, 0, 0, 1, 0, 2, 3, 2, 1, 3], \"proof_bytes\": 91837165, \"proof_sha256\": \"4546aea7c43ad8d67ca376e618065c06263a5b3e44df047b1dfc045e5bbe2bb3\", \"status\": \"UNSAT\", \"template\": 4, \"variables\": 25969}\n"
+    },
+    "compiler.log": {
+      "sha256": "ffe5a294fb187620d22e9117676eea881f7446c72d6b37c5ab92691f7c1c0c0a",
+      "text": "/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:194:38: warning: unused parameter 'init' [-Wunused-parameter]\n  194 | int propagate (struct solver* S, int init, int mark) { // Performs unit propagation (init not used?)\n      |                                      ^\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:266:10: warning: unused variable 'j' [-Wunused-variable]\n  266 |   int i, j;\n      |          ^\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:328:12: warning: unused variable 'lemmas' [-Wunused-variable]\n  328 |       int *lemmas = S->DB + (ad >> INFOBITS);\n      |            ^~~~~~\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:364:9: warning: unused variable 'flag' [-Wunused-variable]\n  364 |     int flag = 0;\n      |         ^~~~\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:459:64: warning: unused parameter 'RATflag' [-Wunused-parameter]\n  459 | void printDependenciesFile (struct solver *S, int* clause, int RATflag, int mode) {\n      |                                                                ^\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:560:11: warning: unused variable 'id' [-Wunused-variable]\n  560 |       int id = watched[ID] >> 1;\n      |           ^~\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:770:7: warning: unused variable 'top_flag' [-Wunused-variable]\n  770 |   int top_flag = 1;\n      |       ^~~~~~~~\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:895:7: warning: variable 'checked' set but not used [-Wunused-but-set-variable]\n  895 |   int checked = 0, skipped = 0;\n      |       ^\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:895:20: warning: variable 'skipped' set but not used [-Wunused-but-set-variable]\n  895 |   int checked = 0, skipped = 0;\n      |                    ^\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:1141:21: warning: comparison of integers of different signs: 'int' and 'unsigned long' [-Wsign-compare]\n 1141 |       for (i = 0; i < sizeof ignore; i++) { if (ignore[i] == '\\n') break; }\n      |                   ~ ^ ~~~~~~~~~~~~~\n/Users/nick/git/imb-research-1/research/connector-b-occupancy-sat/vendor/drat-trim.c:1330:16: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]\n 1330 | void printHelp ( ) {\n      |                ^\n      |                  void\n11 warnings generated.\n"
+    },
+    "empty-control.log": {
+      "sha256": "7aef6828b6a2fa3071ed9dbb39ae51d9d8f7fa72a8fe3f8bc2f0259c8f056128",
+      "text": "\nc parsing input formula with 2 variables and 4 clauses\n\nc finished parsing\n\nc ERROR: no conflict\n\ns NOT VERIFIED\n\nc verification time: 0.014 seconds\n"
+    },
+    "forged-control.log": {
+      "sha256": "37964009e2caaf27240034ede4f63cfe6db462b83e2a8ca25e874c5143b40436",
+      "text": "\nc parsing input formula with 2 variables and 4 clauses\n\nc finished parsing\n\nc conflict claimed, but not detected\n\ns NOT VERIFIED\n\nc verification time: 0.013 seconds\n"
+    },
+    "valid-control.log": {
+      "sha256": "ff8c320d43eb7c6ebf3ecf1235849dae62c2ac6e10d1ee20335b5e8ed3c0318c",
+      "text": "\nc parsing input formula with 2 variables and 4 clauses\n\nc finished parsing\n\nc detected empty clause; start verification via backward checking\n\nc 4 of 4 clauses in core                            \n\nc 2 of 3 lemmas in core using 5 resolution steps\n\nc 0 RAT lemmas in core; 0 redundant literals in core lemmas\n\ns VERIFIED\n\nc verification time: 0.016 seconds\n"
+    }
+  },
+  "proof_artifact_policy": "Replays regenerate exact source-bound CNFs and checked proof traces. Large raw traces are not committed; hashes and full checker transcripts are preserved here and OBSERVED.json. --retain preserves small transcripts and removes each verified raw proof/CNF.",
+  "lint_command": "ruff check --select E,F,B,UP,PLE,PLW,RUF,C4 research/connector-b-occupancy-sat",
+  "lint_result": "all checks passed; ruff format check passed"
+}

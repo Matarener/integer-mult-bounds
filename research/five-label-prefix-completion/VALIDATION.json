@@ -1,0 +1,65 @@
+{
+  "recorded_at": "2026-10-23T06:54:14.223597+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "registered_replay": "PASS: normal and optimized, complete deterministic receipt equality",
+  "registered_log_sha256": "69e4d53fc52a6d1ea80cccfa6f65f373cb373e3852881eb2448fd15be2c3db30",
+  "source_only_optimized_and_mutations": {
+    "positive_source_only_optimized": "PASS",
+    "controls": [
+      {
+        "name": "independent_future_pairs",
+        "rejected": true,
+        "last_error": "ValueError: simplified/literal pair envelope equality"
+      },
+      {
+        "name": "drop_old_pairs",
+        "rejected": true,
+        "last_error": "ValueError: complete universal word set: one_vertex"
+      },
+      {
+        "name": "drop_old_new_pairs",
+        "rejected": true,
+        "last_error": "ValueError: complete universal word set: one_vertex"
+      },
+      {
+        "name": "strict_vertex_boundary",
+        "rejected": true,
+        "last_error": "ValueError: complete universal word set: one_vertex"
+      },
+      {
+        "name": "omit_closing_edge",
+        "rejected": true,
+        "last_error": "ValueError: complete universal word set: one_vertex"
+      },
+      {
+        "name": "omit_return_distance",
+        "rejected": true,
+        "last_error": "ValueError: simplified/literal pair envelope equality"
+      },
+      {
+        "name": "disable_geometric_traversal_filter",
+        "rejected": true,
+        "last_error": "ValueError: paired-envelope traversal counts"
+      },
+      {
+        "name": "typed_receipt_boolean",
+        "rejected": true
+      },
+      {
+        "name": "proof_byte_binding",
+        "rejected": true
+      }
+    ]
+  },
+  "fresh_processes": 147,
+  "timed_sources_match": true,
+  "reference5001_github_head": "fe3226ea4e36469f43c6b116c5b98cc221a9b1af",
+  "reference5001_live_pr_blobs_matched": {
+    "verify.py": "d09ac1fe4364b4f25b16f42483ada0cb331496df",
+    "README.md": "f5251a7b370d791c1aff734ef805271b807eadfb"
+  },
+  "scope": "Local bounded proof/finite differential/runtime evidence. No maintained engine, hosted CI, seven-label census, selected cold replay, supplier, full theorem or independent human/formal-kernel review.",
+  "history": "Checkout is shallow. Optional full-history wrapper is not claimed; declared source commits are explicitly checked as publication ancestors in the external final record.",
+  "publication_whitespace": "Git diff --check with core.whitespace=-blank-at-eof; final empty source lines are retained to preserve the exact verified and timed bytes."
+}

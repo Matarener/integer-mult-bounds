@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/paired-plane-scalar-mask-obstruction/PR1825-CERTIFICATE.json",
+    "research/paired-plane-minrank-bracket-audit/CERTIFICATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "primary"
+      ],
+      "timeout_seconds": 120,
+      "checks": "1024 exact constructions over three fields, 80 large recipes, directed noncommuting charts and actual unequal P112 principal mask."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--suite",
+        "independent"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate exhaustive edge-capacity enumeration and all 17859 directed binary fitting matrices in the stated domain; independent source geometry."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-O",
+        "{package}/verify.py",
+        "--suite",
+        "controls"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Incomplete formulas, invalid dimensions, omitted coordinates, one-direction forbidden blocks, false source geometry and corrupted inputs fail."
+    }
+  ]
+}

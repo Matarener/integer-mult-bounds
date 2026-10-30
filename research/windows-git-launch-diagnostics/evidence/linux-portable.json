@@ -1,0 +1,44 @@
+{
+  "status": "PASS_PORTABLE_CONTROLS_WINDOWS_NOT_RUN",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "optimized": false,
+  "native_windows_executed": false,
+  "sources": [
+    {
+      "local": "vendor/research_package.py",
+      "commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+      "path": "scripts/research_package.py",
+      "sha256": "84a45190a6a96c20993a0d4a1045fbf24de660d2e6fef8f8a447bb3d1aa78db6",
+      "repository": "CrocSwap/integer-mult-bounds",
+      "git_blob": "48fe9feb4699c09e95505d95c327ea998ac8b3a7"
+    },
+    {
+      "local": "vendor/owned_pipe.py",
+      "commit": "991da9010925914ec64a5293286edb10a7910218",
+      "path": "research/windows-git-stream-ownership/owned_pipe.py",
+      "sha256": "01f597c8ecb955b2ef7faa8f0650e67c0eca5c0d5f6a817a181c536bef9c37aa",
+      "repository": "mihir-s-05/integer-mult-bounds",
+      "git_blob": "8150b9a79df8fa59997caffe96f28889a3452c6e"
+    },
+    {
+      "local": "vendor/NOTICE",
+      "commit": "991da9010925914ec64a5293286edb10a7910218",
+      "path": "research/windows-git-stream-ownership/NOTICE",
+      "sha256": "cf3d9fe806ac9ae186e72a0f03f2af252494fcfaf7aa9f05520aff471fd6db8d",
+      "repository": "mihir-s-05/integer-mult-bounds",
+      "git_blob": "5bcd61591094c7efb48ac36b41da28602f32502d"
+    }
+  ],
+  "cases": [
+    {
+      "case": "portable-report-controls",
+      "rejected": 7,
+      "accepted": 1
+    }
+  ],
+  "implementation_hashes": {
+    "verify.py": "c7b5077b5c1318a0ae46c116f0def67772726f1359901ff921e364c2572c9dc7",
+    "spawn_checked.py": "52eac55c0f49804409284ae1af7779cfbcc76573d7b069abfcfb82367f42cb24"
+  }
+}

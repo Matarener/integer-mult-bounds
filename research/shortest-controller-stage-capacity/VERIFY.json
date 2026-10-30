@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-productive-controller/RESULT.json",
+    "research/productive-controller-basis-search/GLOBAL-PROOF.md",
+    "research/productive-controller-basis-search/algebra.py",
+    "research/p104-helper-subspace-splits/RESULT.json",
+    "research/native-equality-cut/cuts.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact operator words, query Gram and rank controls, joint-axis packing, complete P104 concave and rational-power bounds, and committed receipt equality"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Optimized isolated replay must equal the same committed scientific result"
+    }
+  ]
+}

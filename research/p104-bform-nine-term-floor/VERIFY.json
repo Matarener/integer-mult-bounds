@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.3.5"
+  ],
+  "inputs": [
+    "research/nine-term-outside-colspace/checks/common2.py",
+    "research/nine-term-outside-colspace/checks/frames_data.py",
+    "research/nine-term-outside-colspace/checks/lib.py",
+    "research/nine-term-outside-colspace/data/p104_frames.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Re-run finite facts S0 (f(7) = 36, f(8) = 60), S1 (<= 55 ports in an E7/D7 hyperplane), S2' (the span input fails exactly on the 104 port pairs), S3 (bicliques); lbz self-test (flat list complete on random port hyperplanes, fast = exhaustive); authenticate the Kaggle census logs (repo control 701/0, V0-V3 0 alive, singular census 740 pairs / 446 configurations / 0 alive) against RESULT.json; Lean sources free of sorry/admit/axiom; controls: a tampered census log and a corrupted hash are rejected."
+    }
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "cubic": {
+    "exact_cubic_fixtures": [
+      {
+        "f": 1,
+        "native_rank": 1,
+        "quadratic": true
+      },
+      {
+        "f": 2,
+        "native_rank": 2,
+        "quadratic": false
+      },
+      {
+        "f": 3,
+        "native_rank": 3,
+        "quadratic": false
+      },
+      {
+        "f": 4,
+        "native_rank": 4,
+        "quadratic": false
+      }
+    ],
+    "scalar_swap_all_input_matrix": true,
+    "written_trace_gate_review": "Q(i) trace forces equal primitive multiplicities; nonzero Pauli fixed-character sum then rank(S-I)=2 and B-rank<=2."
+  },
+  "executed_source_hashes": {
+    "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/stabilizer-escape/full_stabilizer_bound.py": "f073a00ad4831616e873eb110fd33ad7226010a7c2f6cfa6a6b63167bf58ef75",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/free_ops.py": "5806fe91b9fda162d5986b12e085b14eb3df9a4703f749f61c1f10363138ca77",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/nested_family.py": "88f425d12baf8a4f849cccd24605f21680eb8ce8d199054db4b4e7734eca72b6",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/nested_prefix.py": "9ec10cb0243c0c829475ad7290f4953cdff27cb0f90f70b687c4bbee98af676b",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/pivot_plane_probe.py": "fcd0a4a0a301c4fddfb8b132894e8b5b751b08cacdb0e5ed41e80b0d4903d499",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/conjugated_reflection.py": "6b68a4a60b160fe28227c31909ed86bd7f80b1f3e07591032cd001dbeb242f6f",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/even_parity_source.py": "961f136e4bc1b5da930bdd4ba9bbb594892b9e27f7ab44749d747d4fe16b4cb3",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/lifted_algebra.py": "3b9a58a2048a762ab520ac7fdbb28cbfeb7b30345aaeb777d8dabdd9fb1034d9",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/native_model.py": "6397a86bd3d1461be182fcfa8602b0c70c489964a8c14f12436ba2506e11d9e3",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/orthogonal_source_normalizer.py": "c6373762bd15763625cc9237bb280a5e26ab8e53d6bfb034474f068b1525e6fa",
+    "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/quadratic_charts.py": "de2a36f6a6b567360c90477b58da44e2f1b618fd006d058ab1ea04e983952c3f",
+    "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/caller-joint/joint_algebra.py": "5782033e347c9b10ad47c01ed12a0a52ea07e901fa9e8f7aa9d3a2a928327232",
+    "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/fusion-audit/audit_fusions.py": "26c35f6d61ad6568da1c650a343b82caea174330ff8054c4cdab1fe183ad2173",
+    "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/joint-native/joint_coefficient_gate.py": "43bc5229a10e7ed6af3d5bff057c61cfd6d37a222cc0a2eb2e88cbe0ac410d07",
+    "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/joint-native/literal_inverse_binding.py": "74bdbc9c35db4153e00ed15c8d9df27b63e1c50cd76fcd33f987f3f97d412d96",
+    "/Users/ross/git/math/integer-mult-bounds/research/kernel92-frame-composition/vendor/pr531/vendor/clifford/clifford_exact.py": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962"
+  },
+  "kernel": {
+    "actual_q2_q3_transport_bindings": [
+      {
+        "L_rank": 4,
+        "R_rank": 0,
+        "actual_original_columns": 6,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "rankzero_Pauli",
+        "literal_inverse_orders": 2,
+        "mass": 60,
+        "q": 2,
+        "stock": 60
+      },
+      {
+        "L_rank": 8,
+        "R_rank": 2,
+        "actual_original_columns": 8,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "rankzero_Pauli",
+        "literal_inverse_orders": 2,
+        "mass": 112,
+        "q": 3,
+        "stock": 112
+      },
+      {
+        "L_rank": 4,
+        "R_rank": 2,
+        "actual_original_columns": 6,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "original_ranktwo_J",
+        "literal_inverse_orders": 2,
+        "mass": 76,
+        "q": 2,
+        "stock": 72
+      },
+      {
+        "L_rank": 8,
+        "R_rank": 6,
+        "actual_original_columns": 8,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "original_ranktwo_J",
+        "literal_inverse_orders": 2,
+        "mass": 132,
+        "q": 3,
+        "stock": 128
+      },
+      {
+        "L_rank": 4,
+        "R_rank": 1,
+        "actual_original_columns": 6,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "odd_rankone_involution",
+        "literal_inverse_orders": 2,
+        "mass": 66,
+        "q": 2,
+        "stock": 66
+      },
+      {
+        "L_rank": 8,
+        "R_rank": 4,
+        "actual_original_columns": 8,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "odd_rankone_involution",
+        "literal_inverse_orders": 2,
+        "mass": 120,
+        "q": 3,
+        "stock": 120
+      },
+      {
+        "L_rank": 4,
+        "R_rank": 4,
+        "actual_original_columns": 6,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "address_swap_rankzero_J",
+        "literal_inverse_orders": 2,
+        "mass": 80,
+        "q": 2,
+        "stock": 60
+      },
+      {
+        "L_rank": 8,
+        "R_rank": 6,
+        "actual_original_columns": 8,
+        "default_full_target_all_f": true,
+        "isolated_bank": 1,
+        "kernel": "address_swap_rankzero_J",
+        "literal_inverse_orders": 2,
+        "mass": 144,
+        "q": 3,
+        "stock": 112
+      }
+    ],
+    "all_q_scope": "Written proof conditional on displayed repeating scalar/isolation transport and fixed two-site edits; no all-q serialized physical compiler or selected-new-native admission.",
+    "controls": [
+      "wrong whole-field phase differs",
+      "completed address kernel rank changes 0 to 4",
+      "odd native rank one retained"
+    ],
+    "finite_rank_identity_grid": [
+      {
+        "a": 0,
+        "b": 0,
+        "deficit": 0,
+        "ell": 4,
+        "kernel": "rankzero_Pauli",
+        "mass": 60,
+        "q": 2,
+        "rho": 0,
+        "stock": 60,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "deficit": 0,
+        "ell": 8,
+        "kernel": "rankzero_Pauli",
+        "mass": 112,
+        "q": 3,
+        "rho": 2,
+        "stock": 112,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "deficit": 0,
+        "ell": 12,
+        "kernel": "rankzero_Pauli",
+        "mass": 180,
+        "q": 4,
+        "rho": 4,
+        "stock": 180,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "deficit": 0,
+        "ell": 16,
+        "kernel": "rankzero_Pauli",
+        "mass": 264,
+        "q": 5,
+        "rho": 6,
+        "stock": 264,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "deficit": 0,
+        "ell": 20,
+        "kernel": "rankzero_Pauli",
+        "mass": 364,
+        "q": 6,
+        "rho": 8,
+        "stock": 364,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "deficit": 0,
+        "ell": 24,
+        "kernel": "rankzero_Pauli",
+        "mass": 480,
+        "q": 7,
+        "rho": 10,
+        "stock": 480,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "deficit": 0,
+        "ell": 28,
+        "kernel": "rankzero_Pauli",
+        "mass": 612,
+        "q": 8,
+        "rho": 12,
+        "stock": 612,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 2,
+        "b": 2,
+        "deficit": -4,
+        "ell": 4,
+        "kernel": "original_ranktwo_J",
+        "mass": 76,
+        "q": 2,
+        "rho": 2,
+        "stock": 72,
+        "v": 4,
+        "w": 4
+      },
+      {
+        "a": 2,
+        "b": 2,
+        "deficit": -4,
+        "ell": 8,
+        "kernel": "original_ranktwo_J",
+        "mass": 132,
+        "q": 3,
+        "rho": 6,
+        "stock": 128,
+        "v": 4,
+        "w": 4
+      },
+      {
+        "a": 2,
+        "b": 2,
+        "deficit": -4,
+        "ell": 12,
+        "kernel": "original_ranktwo_J",
+        "mass": 204,
+        "q": 4,
+        "rho": 10,
+        "stock": 200,
+        "v": 4,
+        "w": 4
+      },
+      {
+        "a": 2,
+        "b": 2,
+        "deficit": -4,
+        "ell": 16,
+        "kernel": "original_ranktwo_J",
+        "mass": 292,
+        "q": 5,
+        "rho": 14,
+        "stock": 288,
+        "v": 4,
+        "w": 4
+      },
+      {
+        "a": 2,
+        "b": 2,
+        "deficit": -4,
+        "ell": 20,
+        "kernel": "original_ranktwo_J",
+        "mass": 396,
+        "q": 6,
+        "rho": 18,
+        "stock": 392,
+        "v": 4,
+        "w": 4
+      },
+      {
+        "a": 2,
+        "b": 2,
+        "deficit": -4,
+        "ell": 24,
+        "kernel": "original_ranktwo_J",
+        "mass": 516,
+        "q": 7,
+        "rho": 22,
+        "stock": 512,
+        "v": 4,
+        "w": 4
+      },
+      {
+        "a": 2,
+        "b": 2,
+        "deficit": -4,
+        "ell": 28,
+        "kernel": "original_ranktwo_J",
+        "mass": 652,
+        "q": 8,
+        "rho": 26,
+        "stock": 648,
+        "v": 4,
+        "w": 4
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "deficit": 0,
+        "ell": 4,
+        "kernel": "odd_rankone_involution",
+        "mass": 66,
+        "q": 2,
+        "rho": 1,
+        "stock": 66,
+        "v": 3,
+        "w": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "deficit": 0,
+        "ell": 8,
+        "kernel": "odd_rankone_involution",
+        "mass": 120,
+        "q": 3,
+        "rho": 4,
+        "stock": 120,
+        "v": 3,
+        "w": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "deficit": 0,
+        "ell": 12,
+        "kernel": "odd_rankone_involution",
+        "mass": 190,
+        "q": 4,
+        "rho": 7,
+        "stock": 190,
+        "v": 3,
+        "w": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "deficit": 0,
+        "ell": 16,
+        "kernel": "odd_rankone_involution",
+        "mass": 276,
+        "q": 5,
+        "rho": 10,
+        "stock": 276,
+        "v": 3,
+        "w": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "deficit": 0,
+        "ell": 20,
+        "kernel": "odd_rankone_involution",
+        "mass": 378,
+        "q": 6,
+        "rho": 13,
+        "stock": 378,
+        "v": 3,
+        "w": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "deficit": 0,
+        "ell": 24,
+        "kernel": "odd_rankone_involution",
+        "mass": 496,
+        "q": 7,
+        "rho": 16,
+        "stock": 496,
+        "v": 3,
+        "w": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "deficit": 0,
+        "ell": 28,
+        "kernel": "odd_rankone_involution",
+        "mass": 630,
+        "q": 8,
+        "rho": 19,
+        "stock": 630,
+        "v": 3,
+        "w": 1
+      },
+      {
+        "a": 0,
+        "b": 4,
+        "deficit": -20,
+        "ell": 4,
+        "kernel": "address_swap_rankzero_J",
+        "mass": 80,
+        "q": 2,
+        "rho": 4,
+        "stock": 60,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 4,
+        "deficit": -32,
+        "ell": 8,
+        "kernel": "address_swap_rankzero_J",
+        "mass": 144,
+        "q": 3,
+        "rho": 6,
+        "stock": 112,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 4,
+        "deficit": -44,
+        "ell": 12,
+        "kernel": "address_swap_rankzero_J",
+        "mass": 224,
+        "q": 4,
+        "rho": 8,
+        "stock": 180,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 4,
+        "deficit": -56,
+        "ell": 16,
+        "kernel": "address_swap_rankzero_J",
+        "mass": 320,
+        "q": 5,
+        "rho": 10,
+        "stock": 264,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 4,
+        "deficit": -68,
+        "ell": 20,
+        "kernel": "address_swap_rankzero_J",
+        "mass": 432,
+        "q": 6,
+        "rho": 12,
+        "stock": 364,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 4,
+        "deficit": -80,
+        "ell": 24,
+        "kernel": "address_swap_rankzero_J",
+        "mass": 560,
+        "q": 7,
+        "rho": 14,
+        "stock": 480,
+        "v": 2,
+        "w": 2
+      },
+      {
+        "a": 0,
+        "b": 4,
+        "deficit": -92,
+        "ell": 28,
+        "kernel": "address_swap_rankzero_J",
+        "mass": 704,
+        "q": 8,
+        "rho": 16,
+        "stock": 612,
+        "v": 2,
+        "w": 2
+      }
+    ]
+  },
+  "negative_controls": [
+    {
+      "control": "legacy checker live under -O",
+      "error": "nonsymmetric Clifford phase rejected"
+    },
+    {
+      "control": "omitted trajectory edge",
+      "error": "trajectory edge incidence"
+    },
+    {
+      "control": "f2-only wrong holonomy phase",
+      "error": "independent exact all-f literal holonomy circuit and tensor phase traversal"
+    }
+  ],
+  "no_new_kappa": true,
+  "status": "PASS_INDEPENDENT_COMPLETED_GATES_REVIEW",
+  "trajectory": [
+    {
+      "edges": 90,
+      "family": "PAULI-DEFAULT",
+      "floor": 60,
+      "mass": 60,
+      "paths": 6,
+      "q": 2,
+      "stock": 60
+    },
+    {
+      "edges": 132,
+      "family": "PAULI-DEFAULT",
+      "floor": 112,
+      "mass": 112,
+      "paths": 8,
+      "q": 3,
+      "stock": 112
+    },
+    {
+      "edges": 90,
+      "family": "PAULI-ISOLATED",
+      "floor": 60,
+      "mass": 60,
+      "paths": 6,
+      "q": 2,
+      "stock": 60
+    },
+    {
+      "edges": 132,
+      "family": "PAULI-ISOLATED",
+      "floor": 112,
+      "mass": 112,
+      "paths": 8,
+      "q": 3,
+      "stock": 112
+    },
+    {
+      "edges": 90,
+      "family": "REPAIRED-SIMPLIFIED",
+      "floor": 62,
+      "mass": 80,
+      "paths": 6,
+      "q": 2,
+      "stock": 72
+    },
+    {
+      "edges": 132,
+      "family": "REPAIRED-SIMPLIFIED",
+      "floor": 118,
+      "mass": 136,
+      "paths": 8,
+      "q": 3,
+      "stock": 128
+    },
+    {
+      "edges": 90,
+      "family": "ADMITTED-TWO-SITE",
+      "floor": 62,
+      "mass": 76,
+      "paths": 6,
+      "q": 2,
+      "stock": 72
+    },
+    {
+      "edges": 132,
+      "family": "ADMITTED-TWO-SITE",
+      "floor": 118,
+      "mass": 132,
+      "paths": 8,
+      "q": 3,
+      "stock": 128
+    }
+  ]
+}

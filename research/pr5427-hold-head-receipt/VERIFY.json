@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "docs/research/pr-intake-evidence/queue-oct24a-20261024.json",
+    "docs/research/pr-ledger.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Four waiting_revision heads remain unretained in the pinned ledger and queue-oct24a snapshot; #5427's repair commit is the child of the recorded head and is not in the base; the false modular implication stays on the old proof; the repaired Span accepts 1 in the rational span of 2^61-1 and rejects an off-axis target."
+    }
+  ]
+}

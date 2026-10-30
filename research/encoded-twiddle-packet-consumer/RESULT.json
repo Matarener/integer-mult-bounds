@@ -1,0 +1,432 @@
+{
+  "complete_residue_cases": 56,
+  "controls": [
+    {
+      "detected": "signed polynomial endpoint",
+      "name": "wrong_wrap_sign",
+      "sha256": "2580b4ea1b30f3eb9c7af64369edcfc3d1d70c2d81bd222fef027d19eface701"
+    },
+    {
+      "detected": "signed polynomial endpoint",
+      "name": "wrong_unwrapped_sign",
+      "sha256": "558bd9c3cae21ccb762887616f7831f4a1e17ea5f349ae07a70e038132116bf9"
+    },
+    {
+      "detected": "complete physical operation invoice",
+      "name": "uncharged_physical_move",
+      "sha256": "102004dba3ae011f3a0cdf70f5c970a3433b20177ed1bb7bd4f51a717a41d7e3"
+    },
+    {
+      "detected": "signed polynomial endpoint",
+      "name": "reversed_segments",
+      "sha256": "f65f048b30734ca8cb40767c4ebcb6de033ac29cff82d96f31511327c74680ee"
+    },
+    {
+      "detected": "input changed: inputs/pr3593/controller.py",
+      "name": "changed_producer_rejected"
+    },
+    {
+      "detected": "header sign bit",
+      "name": "nonbinary_header_sign"
+    },
+    {
+      "detected": "header exponent bit",
+      "name": "nonbinary_header_shift"
+    },
+    {
+      "detected": "borrowed tape aliases private role",
+      "name": "owned_role_alias"
+    }
+  ],
+  "countdown": {
+    "cases": 83,
+    "control": "Actual countdown, including wide zero padding; static runtime Tape-API boundary guard",
+    "sha256": "a616170cbd3ac47a2a9c006fa4b351821421a8a30aa9275ffce5cb7da68ef0d9"
+  },
+  "minimum_negation_rejected": "signed minimum cannot be negated",
+  "producer_examples": [
+    {
+      "address_sha256": "1f10f44f6d25c8c353661f824fe153a4dbb53de2cfcc81ca08d2bc95a382c319",
+      "canonical_address": false,
+      "consumer": {
+        "cells": 20586,
+        "gates": {
+          "complement-add": 9,
+          "distinct-borrows": 1,
+          "entry": 1,
+          "segment-sign": 1,
+          "signed-minimum-flag": 5120,
+          "signed-negate": 4960,
+          "success": 1,
+          "test": 127556,
+          "toggle-high": 1
+        },
+        "invoice": {
+          "a.move": 1066,
+          "a.read": 1544,
+          "a.write": 553,
+          "b.move": 114,
+          "b.read": 124,
+          "b.write": 63,
+          "descriptor.move": 36,
+          "descriptor.read": 42,
+          "gate": 137650,
+          "header.move": 16,
+          "header.read": 9,
+          "output.move": 20486,
+          "output.read": 10245,
+          "output.write": 10244,
+          "prefix.move": 40332,
+          "prefix.read": 30997,
+          "prefix.write": 20328,
+          "source.move": 20484,
+          "source.read": 25609,
+          "suffix.move": 21132,
+          "suffix.read": 15877,
+          "suffix.write": 15528,
+          "width.move": 22550,
+          "width.read": 24603,
+          "word.move": 22576,
+          "word.read": 27542,
+          "word.write": 10629
+        },
+        "operations": {
+          "move": 148792,
+          "read": 136592,
+          "write": 57345
+        },
+        "output_sha256": "de363cb7ebad902eae70929b388ad81f0aa7bdceceb62f36cde53eefdbc70f00"
+      },
+      "exponent": 264,
+      "joined_cells": 21537,
+      "joined_operations": 1520455,
+      "joined_tapes": 34,
+      "opposite": false,
+      "producer_invoice": {
+        "control_cells": 819,
+        "control_tape_actions": 1033768,
+        "data": {
+          "address": {
+            "move": 178,
+            "read": 90
+          },
+          "bank": {
+            "move": 386,
+            "read": 60,
+            "write": 120
+          },
+          "output": {
+            "move": 16,
+            "write": 9
+          },
+          "total": {
+            "move": 380,
+            "read": 252,
+            "write": 252
+          }
+        },
+        "data_cells": 141,
+        "descriptor_actions": 4007,
+        "descriptor_cells": 37,
+        "gates": {
+          "and": 306,
+          "xor": 252
+        }
+      },
+      "roundtrip_sha256": "c09c95ef5142e1f11f3845de02991cb88d027dbd9e91a26f8ee2a17b4a3dfc43",
+      "shared_descriptor_cells": 37,
+      "shared_header_cells": 9
+    },
+    {
+      "address_sha256": "1f10f44f6d25c8c353661f824fe153a4dbb53de2cfcc81ca08d2bc95a382c319",
+      "canonical_address": false,
+      "consumer": {
+        "cells": 20586,
+        "gates": {
+          "complement-add": 9,
+          "distinct-borrows": 1,
+          "entry": 1,
+          "segment-sign": 1,
+          "signed-minimum-flag": 5120,
+          "signed-negate": 4960,
+          "success": 1,
+          "test": 127556,
+          "toggle-high": 1
+        },
+        "invoice": {
+          "a.move": 114,
+          "a.read": 112,
+          "a.write": 73,
+          "b.move": 1066,
+          "b.read": 1556,
+          "b.write": 543,
+          "descriptor.move": 36,
+          "descriptor.read": 42,
+          "gate": 137650,
+          "header.move": 16,
+          "header.read": 9,
+          "output.move": 20486,
+          "output.read": 10245,
+          "output.write": 10244,
+          "prefix.move": 21132,
+          "prefix.read": 15877,
+          "prefix.write": 15528,
+          "source.move": 20484,
+          "source.read": 25609,
+          "suffix.move": 40332,
+          "suffix.read": 30997,
+          "suffix.write": 20328,
+          "width.move": 22550,
+          "width.read": 24603,
+          "word.move": 22576,
+          "word.read": 27542,
+          "word.write": 10629
+        },
+        "operations": {
+          "move": 148792,
+          "read": 136592,
+          "write": 57345
+        },
+        "output_sha256": "0cfd7e43eafe8650af66d74f69b1a7dbbf53512d3a8bf4ef69ec085374820195"
+      },
+      "exponent": 248,
+      "joined_cells": 21537,
+      "joined_operations": 1510337,
+      "joined_tapes": 34,
+      "opposite": true,
+      "producer_invoice": {
+        "control_cells": 819,
+        "control_tape_actions": 1023690,
+        "data": {
+          "address": {
+            "move": 178,
+            "read": 90
+          },
+          "bank": {
+            "move": 386,
+            "read": 60,
+            "write": 120
+          },
+          "output": {
+            "move": 16,
+            "write": 9
+          },
+          "total": {
+            "move": 370,
+            "read": 246,
+            "write": 246
+          }
+        },
+        "data_cells": 141,
+        "descriptor_actions": 4007,
+        "descriptor_cells": 37,
+        "gates": {
+          "and": 300,
+          "xor": 240
+        }
+      },
+      "roundtrip_sha256": "c09c95ef5142e1f11f3845de02991cb88d027dbd9e91a26f8ee2a17b4a3dfc43",
+      "shared_descriptor_cells": 37,
+      "shared_header_cells": 9
+    },
+    {
+      "address_sha256": "a9ff0a4f6c73d325bce5e439dde8c0124111462a0e973efd84bb70e17ff333b5",
+      "canonical_address": true,
+      "consumer": {
+        "cells": 20586,
+        "gates": {
+          "complement-add": 9,
+          "distinct-borrows": 1,
+          "entry": 1,
+          "segment-sign": 1,
+          "signed-minimum-flag": 5120,
+          "signed-negate": 1760,
+          "success": 1,
+          "test": 127562,
+          "toggle-high": 1
+        },
+        "invoice": {
+          "a.move": 430,
+          "a.read": 588,
+          "a.write": 234,
+          "b.move": 750,
+          "b.read": 1080,
+          "b.write": 385,
+          "descriptor.move": 36,
+          "descriptor.read": 42,
+          "gate": 134456,
+          "header.move": 16,
+          "header.read": 9,
+          "output.move": 20486,
+          "output.read": 10245,
+          "output.write": 10244,
+          "prefix.move": 27532,
+          "prefix.read": 20917,
+          "prefix.write": 17128,
+          "source.move": 20484,
+          "source.read": 25609,
+          "suffix.move": 33932,
+          "suffix.read": 25957,
+          "suffix.write": 18728,
+          "width.move": 22550,
+          "width.read": 24603,
+          "word.move": 22576,
+          "word.read": 24662,
+          "word.write": 7429
+        },
+        "operations": {
+          "move": 148792,
+          "read": 133712,
+          "write": 54148
+        },
+        "output_sha256": "f8d4114f27596d2e3c1325f3d709768634ecde24965b36b1fefd3ec2a1e25665"
+      },
+      "exponent": 424,
+      "joined_cells": 21537,
+      "joined_operations": 1511184,
+      "joined_tapes": 34,
+      "opposite": false,
+      "producer_invoice": {
+        "control_cells": 819,
+        "control_tape_actions": 1033768,
+        "data": {
+          "address": {
+            "move": 178,
+            "read": 90
+          },
+          "bank": {
+            "move": 386,
+            "read": 60,
+            "write": 120
+          },
+          "output": {
+            "move": 16,
+            "write": 9
+          },
+          "total": {
+            "move": 380,
+            "read": 252,
+            "write": 252
+          }
+        },
+        "data_cells": 141,
+        "descriptor_actions": 4007,
+        "descriptor_cells": 37,
+        "gates": {
+          "and": 306,
+          "xor": 252
+        }
+      },
+      "roundtrip_sha256": "c09c95ef5142e1f11f3845de02991cb88d027dbd9e91a26f8ee2a17b4a3dfc43",
+      "shared_descriptor_cells": 37,
+      "shared_header_cells": 9
+    },
+    {
+      "address_sha256": "a9ff0a4f6c73d325bce5e439dde8c0124111462a0e973efd84bb70e17ff333b5",
+      "canonical_address": true,
+      "consumer": {
+        "cells": 20586,
+        "gates": {
+          "complement-add": 9,
+          "distinct-borrows": 1,
+          "entry": 1,
+          "segment-sign": 1,
+          "signed-minimum-flag": 5120,
+          "signed-negate": 1760,
+          "success": 1,
+          "test": 127562,
+          "toggle-high": 1
+        },
+        "invoice": {
+          "a.move": 750,
+          "a.read": 1068,
+          "a.write": 395,
+          "b.move": 430,
+          "b.read": 600,
+          "b.write": 224,
+          "descriptor.move": 36,
+          "descriptor.read": 42,
+          "gate": 134456,
+          "header.move": 16,
+          "header.read": 9,
+          "output.move": 20486,
+          "output.read": 10245,
+          "output.write": 10244,
+          "prefix.move": 33932,
+          "prefix.read": 25957,
+          "prefix.write": 18728,
+          "source.move": 20484,
+          "source.read": 25609,
+          "suffix.move": 27532,
+          "suffix.read": 20917,
+          "suffix.write": 17128,
+          "width.move": 22550,
+          "width.read": 24603,
+          "word.move": 22576,
+          "word.read": 24662,
+          "word.write": 7429
+        },
+        "operations": {
+          "move": 148792,
+          "read": 133712,
+          "write": 54148
+        },
+        "output_sha256": "50808a66a38072ee1c9767db464b6749a660a9c091480d6ac39ba244c363d5c2"
+      },
+      "exponent": 88,
+      "joined_cells": 21537,
+      "joined_operations": 1501066,
+      "joined_tapes": 34,
+      "opposite": true,
+      "producer_invoice": {
+        "control_cells": 819,
+        "control_tape_actions": 1023690,
+        "data": {
+          "address": {
+            "move": 178,
+            "read": 90
+          },
+          "bank": {
+            "move": 386,
+            "read": 60,
+            "write": 120
+          },
+          "output": {
+            "move": 16,
+            "write": 9
+          },
+          "total": {
+            "move": 370,
+            "read": 246,
+            "write": 246
+          }
+        },
+        "data_cells": 141,
+        "descriptor_actions": 4007,
+        "descriptor_cells": 37,
+        "gates": {
+          "and": 300,
+          "xor": 240
+        }
+      },
+      "roundtrip_sha256": "c09c95ef5142e1f11f3845de02991cb88d027dbd9e91a26f8ee2a17b4a3dfc43",
+      "shared_descriptor_cells": 37,
+      "shared_header_cells": 9
+    }
+  ],
+  "scope": "Actual one-header signed packet consumption; four unchanged encoded producer joins and opposite round trips. No address enumeration, normalized root or full layer invoice.",
+  "signed_word_cases": 8,
+  "small_operations": {
+    "move": 250004,
+    "read": 231080,
+    "write": 93174
+  },
+  "small_sha256": "a40f6b14c5f9a433b0511ee7cf8398594fb1859bc21b29d0af9cb9708c52c3c7",
+  "source_sha256": {
+    "inputs/pr3593/PROOF.md": "cd3f5b4d1ebbabb3f185c13fa56c9c4391f236472594fdafbb6db35e8ba91f8a",
+    "inputs/pr3593/SOURCES.json": "b822a16537a7ab0c16aef4f684dc414df16e43c15aba7e18a5b9c262a272972f",
+    "inputs/pr3593/controller.py": "680146c712a9d547cd5b2b28b62748724c29e701c691fb304dd2bd652fd66c31"
+  },
+  "status": "PASS_ENCODED_TWIDDLE_PACKET_CONSUMER",
+  "total_success_cases": 64
+}

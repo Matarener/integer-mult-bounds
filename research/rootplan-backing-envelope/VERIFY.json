@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/encoded-minimum-root-prefix/SOURCE-INDEX.json",
+    "research/encoded-minimum-root-prefix/SOURCES.json",
+    "research/encoded-minimum-root-prefix/planner.py",
+    "research/encoded-minimum-root-prefix/retained.py",
+    "research/encoded-minimum-root-prefix/source-snapshot.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Seven complete caller executions, every owned write and per-tape history, borrowed preservation, 29 canonical fields, both branches, warm backing, parameter and address controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Seven complete caller executions, every owned write and per-tape history, borrowed preservation, 29 canonical fields, both branches, warm backing, parameter and address controls."
+    }
+  ]
+}

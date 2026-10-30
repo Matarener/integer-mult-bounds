@@ -1,0 +1,122 @@
+{
+  "task": "Profile Fraction primitives in frozen PR5848; nominate at most one feasible source-bound optimization.",
+  "source": "66fb6c6b8683b37967e9d7f313b3df99a49d2406",
+  "canonical_main": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "previous_negative": "71f22c77b393e5cc14925c771894dc1a92c8443c; zero/unit shortcuts did not show15% complete-stage headroom.",
+  "gates": [
+    "One complete unchanged qualification, cProfile only the Fraction actual error_trace. Report primitive calls/self/cumulative costs and instrumentation overhead; profile is not a benchmark.",
+    "Declare mathematical domain, source/runtime bindings, independence and coverage before a small finite/actual feasibility test. Construct no complete candidate before this gate.",
+    "At most one complete candidate; first fresh complete B/C pair >=15% less wall AND CPU, then all six B,C,C,B,B,C medians.",
+    "All original25984 events/799 coordinates, actual full witnesses/metadata/weights, independent arithmetic/oracles,120 finite programs/4240 events,6 semantic/3 integer/4 custody/27 observation controls preserved.",
+    "Normal/O/sealed checks, portable finite failures, exact committed bytes/modes/input ancestry, fresh upstream overlap and hosted exact-head CI before performance PR handoff."
+  ],
+  "limits": {
+    "initial_profile_feasibility_seconds": 600,
+    "shared_all_local_seconds": 1500,
+    "per_complete_precision_seconds": 180,
+    "group_rss_bytes": 1073741824,
+    "serial_runs": true,
+    "automatic_retries": 0
+  },
+  "stop": [
+    "Incomplete required source/fixture/runtime binding, numerical/typed/witness/control/receipt mismatch, stderr or resource failure. Preserve and diagnose any pre-target launcher error separately.",
+    "No credible full-stage15% headroom, first-pair/median threshold failure, lost coverage/independence or active duplicate upstream work. No construction expansion after a closed gate."
+  ],
+  "kappa_research": "PAUSED",
+  "agents": 0,
+  "profile_gate": {
+    "status": "PASS",
+    "whole_profiled_seconds": 86.79358924200642,
+    "trace_profiled_seconds": 65.73670392399072,
+    "counts": {
+      "Fraction_results": 26030845,
+      "add": 10396952,
+      "mul": 7892384,
+      "coefficient_updates": 2579750
+    },
+    "timing_not_benchmark": true
+  },
+  "nomination": "Per-trace bounded FIFO tabulation of exact Fraction coefficient transition and weighted increments, keyed by canonical values of old,q,v,weightA,weightC. Original Fraction arithmetic on misses; no cross-backend/run cache.",
+  "finite_gate": {
+    "status": "PASS",
+    "cases": 241,
+    "events_per_capacity": 10164,
+    "capacities": [
+      0,
+      1,
+      2,
+      16384
+    ],
+    "complete_comparisons": 964,
+    "controls": 34,
+    "normal_and_optimized": true
+  },
+  "initial_table_feasibility": {
+    "capacity": 2048,
+    "all_values_types_inputs_equal": true,
+    "baseline_trace_seconds": 19.996063037018757,
+    "derived_trace_seconds": 16.578300290973857,
+    "statistics": {
+      "bypasses": 0,
+      "calls": 2579750,
+      "capacity": 2048,
+      "evictions": 643166,
+      "hits": 1934536,
+      "misses": 645214,
+      "resident": 2048
+    },
+    "decision": "Insufficient whole-stage headroom after new controls; no complete construction."
+  },
+  "bounded_feasibility_reassessment": {
+    "question": "Does one16,384-entry FIFO table with O(1) OrderedDict eviction remove enough recomputation to justify complete construction?",
+    "reason": "2048-entry table evicted643166 entries, with25% misses. Current iterator/pop eviction also does not guarantee O(1) oldest removal.",
+    "unchanged": [
+      "exact local formula and complete keys",
+      "original Fraction misses and independent integer backend",
+      "full event/witness/typed/negative coverage",
+      "180s per source command,1GiB RSS,600s initial and1500s shared caps"
+    ],
+    "new_bounds": {
+      "entries": 16384,
+      "capacity_trials_remaining": 1
+    },
+    "stop": "No further capacity/algorithm trial if this actual screen lacks credible15% complete-stage headroom."
+  },
+  "actual_gate": {
+    "status": "PASS_VALUES_TYPES_INPUTS",
+    "actual": {
+      "all_values_types_and_inputs_preserved": true,
+      "baseline_trace_seconds": 20.251469953014748,
+      "coordinates": 799,
+      "derived_trace_seconds": 14.599537244997919,
+      "events": 25984,
+      "full_output_sha256": "954c7448ff74d78753828e9623ad44c46da9e5ce459420b6e50a5d47294250b9",
+      "observed_seconds_removed": 5.65193270801683,
+      "profile_whole_qualifier_seconds": 38.31372155799181,
+      "status": "PASS_FULL_ACTUAL_FRACTION_TRACE_EQUIVALENCE",
+      "table_statistics": {
+        "bypasses": 0,
+        "calls": 2579750,
+        "capacity": 16384,
+        "evictions": 310400,
+        "hits": 2252966,
+        "misses": 326784,
+        "resident": 16384
+      },
+      "weights_sha256": "cf98bf5da5df28ec1ca3ca7e8723d740b98e142f31e94ff7ec36815cc387c373"
+    }
+  },
+  "complete_cost_gate": {
+    "decision": "STOP_BEFORE_COMPLETE_CONSTRUCTION",
+    "prior_complete_wall_median": 39.01491572102532,
+    "within_process_trace_seconds_removed": 5.65193270801683,
+    "extra_new_finite_wall_observation": 1.6209555940004066,
+    "optimistic_fraction_ignoring_new_checks": 0.14486594687095472,
+    "modeled_complete_wall": 34.983938607008895,
+    "modeled_fraction_saved": 0.10331887278290623,
+    "required_fraction": 0.15,
+    "modeled_not_a_complete_wall_CPU_benchmark": true,
+    "further_capacity_trials": 0
+  },
+  "next": "Publish scoped primitive-profile/table feasibility artifact and seven-field handoff only; no complete candidate or performance PR."
+}

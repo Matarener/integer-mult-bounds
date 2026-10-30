@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/native-center-free-code/ATTRIBUTION.md",
+    "research/native-center-free-code/CODED-PROOF.md",
+    "research/native-center-free-code/CODED-WORDS.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticate source; check all eight integral flow/cut witnesses, literal invoices, all-p moment bound and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat all checks with Python assertions disabled."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.3.5"
+  ],
+  "inputs": [
+    "research/nine-term-outside-colspace/checks/lib.py",
+    "research/nine-term-outside-colspace/checks/common2.py",
+    "research/nine-term-outside-colspace/checks/frames_data.py",
+    "research/nine-term-outside-colspace/data/p104_frames.json",
+    "research/p104-bform-nine-term-floor/checks/lbz.py",
+    "research/p104-bform-nine-term-floor/lean/BForm/CaseI.lean",
+    "research/p104-bform-nine-term-floor/lean/BForm/CaseII.lean",
+    "research/p104-bform-nine-term-floor/lean/BForm/Cost.lean",
+    "research/p104-bform-nine-term-floor/lean/BForm/MJ.lean",
+    "research/p104-bform-nine-term-floor/lean/BForm/Main.lean",
+    "research/p104-bform-nine-term-floor/lean/BForm/NormalForm.lean",
+    "research/p104-bform-nine-term-floor/lean/BForm/Rank.lean",
+    "research/p104-bform-nine-term-floor/lean/BForm/YZero.lean",
+    "research/p104-bform-nine-term-floor/lean/lakefile.toml",
+    "research/p104-bform-nine-term-floor/lean/lean-toolchain",
+    "research/p104-bform-nine-term-floor/lean/lake-manifest.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Finite facts of the hand proofs of RootFact and SpanFact; Lean data regenerated from data/ equal to the shipped files; the PR6188 Lean files copied byte-identically; Lean sources free of sorry/admit/axiom; label caps f(1..6) recomputed; the Lemma P, root-case, max-union and Kaggle Lean-build logs authenticated against RESULT.json (at most 3 pairwise compatible planes, 15240 compatible pairs, axioms propext/Classical.choice/Quot.sound only); controls: a 4-family log, an extra axiom and a corrupted hash are rejected. FULL=1 re-runs Lemma P (about 12 min)."
+    }
+  ]
+}

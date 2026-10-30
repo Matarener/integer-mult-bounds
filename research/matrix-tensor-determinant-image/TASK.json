@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 8,
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact ordered covariant stabilizer determinant image, SL orbit count and determinant-correction witness for multiplication in M_n(F_q), all n>=1 and every finite field, under an explicit orbit promise.",
+  "scope_change_reason": "The user requests original mathematical work rather than a predecessor audit. This changes the formal-interface card to atlas A030's noncommutative full-matrix-algebra extraction case; it is a scoped algebraic side result, not a selected-caller formalization.",
+  "bottleneck_link": "Side result for exact tensor equivalence and character extraction. It supplies no physical supplier or new kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first verified matrix-algebra image theorem; do not extend to semisimple products or recognition.",
+  "outcome": "completed",
+  "evidence": "PROOF.md proves the all-field theorem. verify.py checks literal covariant tensor coefficients, attaining maps, an exhaustive binary automorphism domain, determinant corrections and semantic controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "What is the exact image for products of full matrix algebras over finite extensions?",
+      "why_it_matters": "It would extend the promise class to noncommutative semisimple algebras.",
+      "first_step": "Derive one extension-field block character, then account for determinants of permutations of identical blocks.",
+      "blocked_by": "Extension-field Frobenius and block-permutation characters have not been derived here."
+    },
+    {
+      "question": "Can a raw tensor in this class be recognized with a multiplication chart and transporter?",
+      "why_it_matters": "The present extraction assumes class membership; constructive transport correction needs a chart.",
+      "first_step": "Compute the three nuclei and test whether their simple module actions recover the matrix-algebra factors.",
+      "blocked_by": "A complete recognition and chart-recovery proof is missing."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19214431",
+  "upstream_refresh": {
+    "commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+    "priority_revision": 8,
+    "utc": "2026-10-27T10:12:38.993668+00:00"
+  },
+  "preserved_checkout": {
+    "branch": null,
+    "head": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+    "state": "clean detached HEAD"
+  },
+  "overlap_coverage": {
+    "open_prs": 418,
+    "discussion_records": 5316,
+    "local_note_coverage": "incomplete sparse checkout; distinctive origin/main README searches also run",
+    "live_at": "2026-10-27T10:11:19.871427+00:00"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/pure-math-atlas-400/volumes/02-geometry.md",
+    "research/qubit-commuting-repair/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Weighted gap identity; literal direct sums and normalization; Pauli sharpness witnesses and complex mixed bases; eight rejection controls; declared input pins and source-bound stdout receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Weighted gap identity; literal direct sums and normalization; Pauli sharpness witnesses and complex mixed bases; eight rejection controls; declared input pins and source-bound stdout receipt."
+    }
+  ]
+}

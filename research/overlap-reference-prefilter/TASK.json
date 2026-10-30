@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Skip impossible numeric-reference regex scans in the complete research overlap command, retaining exact reports and coverage.",
+  "scope_change_reason": "This is coordination tooling rather than a mathematical supplier replay. Intake profiles show reference regex scans dominate a real offline overlap query.",
+  "bottleneck_link": "Reduce the time spent checking live research overlap without hiding claims or weakening sparse/remote coverage warnings. No mathematical bound changes.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first verified complete-command reduction after exact report comparison; do not optimize another mechanism.",
+  "outcome": "completed",
+  "evidence": "README.md; BENCHMARK.json; verify.py; benchmark.py; tests/test_research_overlap_terms.py",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the same gain hold for other task cards and a fully materialized checkout?",
+      "why_it_matters": "The measured sparse checkout spends substantial remaining time on local inventory and excerpts.",
+      "first_step": "Run benchmark.py on an immutable cache and the intended checkout before changing another mechanism.",
+      "blocked_by": "Workload-dependent timing; no further performance change is claimed."
+    }
+  ]
+}

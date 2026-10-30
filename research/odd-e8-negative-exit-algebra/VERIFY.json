@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual E spectral/path coefficients, source product labels, signed normalizers, exact4-support and repeated/common-axis controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Actual E spectral/path coefficients, source product labels, signed normalizers, exact4-support and repeated/common-axis controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Copied source, typed spectral receipt and strict nonmembership threshold mutations in normal/optimized modes"
+    }
+  ]
+}

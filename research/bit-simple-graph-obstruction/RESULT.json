@@ -1,0 +1,46 @@
+{
+  "diagonal_chain_cases": 3840,
+  "last_off_diagonal_coefficients_checked": 576,
+  "negative_controls": [
+    {
+      "name": "changed_q_coefficient",
+      "reason": "The literal stage product has a wrong endpoint",
+      "result": "REJECT"
+    },
+    {
+      "name": "missing_target_Q",
+      "reason": "The literal stage product has a wrong endpoint",
+      "result": "REJECT"
+    },
+    {
+      "name": "zero_main_chain",
+      "reason": "The native main chain has a bad support",
+      "result": "REJECT"
+    },
+    {
+      "name": "parallel_edges_outside_simple_graph",
+      "reason": "The simple-graph support hypothesis fails",
+      "result": "REJECT"
+    }
+  ],
+  "new_kappa": false,
+  "positive_control": {
+    "early_helper_columns": "PASS",
+    "literal_stage_product": "PASS",
+    "native_chains": "PASS",
+    "rank_surplus": -126
+  },
+  "schema_version": 1,
+  "simple_graph_order_fixtures": 48,
+  "solver_evidence": {
+    "integrity": "PASS",
+    "recorded_cases": {
+      "PARALLEL.json": 32,
+      "SIMPLE.json": 48
+    },
+    "scope": "The frozen statuses depend on the recorded Z3 solver. The standard-library checks do not prove those UNSAT claims.",
+    "solver_run": false,
+    "unsat_reproved": false
+  },
+  "status": "PASS_BIT_SIMPLE_GRAPH_OBSTRUCTION"
+}

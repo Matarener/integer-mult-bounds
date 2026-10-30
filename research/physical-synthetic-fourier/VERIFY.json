@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-synthetic-fourier/inputs/composed-export.tar",
+    "research/synthetic-allsize-identity/PROOF.md",
+    "research/physical-gaussian-monomial/signed_phase.py",
+    "upstream/build/sections/06-transforms.tex"
+  ],
+  "commands": [
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","sources"],"timeout_seconds":30,"checks":"Whole official export and nested shared cohort; changed archive and second-runtime rejection."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","budget"],"timeout_seconds":20,"checks":"Exact conditional root/routing powers and finite divisibility controls; PROOF.md supplies the universal argument."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","metadata"],"timeout_seconds":20,"checks":"Ten dyadic batch caps, 632 small encoded exponents plus an ell33, 17-axis metadata-only case beyond the predecessor simulator caps."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","forward"],"timeout_seconds":180,"checks":"Complete physical forward Fourier packet, signed polynomial diagonals, endpoint B and one final truncation against a dense polynomial oracle."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","opposite"],"timeout_seconds":180,"checks":"Complete physical opposite Fourier packet, B-before-rounds chronology and dense polynomial equality."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","batch"],"timeout_seconds":430,"checks":"Mixed long/short axes with forced one-position support batches, changed-shape owner reuse with multiple outer rows, and two actual endpoint-reversal batches."},
+    {"argv":["{python}","-I","-O","-Werror","-B","{package}/verify.py","--suite","failures"],"timeout_seconds":330,"checks":"Malformed descriptors/packet extents, protected output, physical per-round truncation and omitted physical endpoint-reversal controls."}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "stage": "PASS_BEFORE_COMPLETE_CANDIDATE",
+  "source": "a0171b8d2f942cdfc5295307548fe484c570b1ba",
+  "retained": "Both PR5818 entry points and orchestration, original full RESULT/CROSS and actual trace, all original controls, all dense/sparse amplitude comparisons and second literal interpreter.",
+  "changes": "Only the freshly loaded cross dense-literal Op.zero_state receives a hash-bound AST derivation: compute a P/D setup once per gate, replace two per-address pure calls by exact lookups. All amplitude arithmetic, gate order, phases, denominator reductions, return shape and failures remain. Setup uses captured original dense-literal mv/qvalue, never the sparse interpreter or quadratic engine.",
+  "proof": "For each fixed gate and address x in 0..2^n-1, table[x] is its original pure function value. Induction on the unchanged gate loop gives identical dense vectors and denominator after every gate. Typed complete immutable (width,gate) keys and a bounded process cache preserve this equality under hits, mutation and eviction.",
+  "finite_gate": {
+    "cases": 1522,
+    "amplitudes": 22700,
+    "full_width_cases": 4,
+    "normal_optimized": "PASS",
+    "cache_controls": 20,
+    "source_bound_ast_sites": 4
+  },
+  "limitations": "Fixed source, widths0..9; entry-wise validation and original source/receipts remain mandatory. It changes one literal method execution by exact setup reuse, not the underlying state algorithm or the second interpreter."
+}

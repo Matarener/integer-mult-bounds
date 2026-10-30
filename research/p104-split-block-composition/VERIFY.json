@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 550,
+      "checks": "Exact 776-input identity, ownership, transpose, native phases, full caller, complete price, compiler, outer inequalities and all 67 legal block charts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 550,
+      "checks": "Exact 776-input identity, ownership, transpose, native phases, full caller, complete price, compiler, outer inequalities and all 67 legal block charts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/native_interval.py"
+      ],
+      "timeout_seconds": 20,
+      "checks": "Actual signed-Pauli Lagrangians and all 1206 native ranks for the 67 legal charts; reject the rank-three relaxation."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/native_interval.py"
+      ],
+      "timeout_seconds": 20,
+      "checks": "Actual signed-Pauli Lagrangians and all 1206 native ranks for the 67 legal charts; reject the rank-three relaxation."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/optimal_tariff.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact PR5756 word and invoice equality; all 8,283,458 canonical subspaces by a dominance proof; 2412 native ranks; all-exponent classification and full-caller margin exclusion."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/optimal_tariff.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact PR5756 word and invoice equality; all 8,283,458 canonical subspaces by a dominance proof; 2412 native ranks; all-exponent classification and full-caller margin exclusion."
+    }
+  ]
+}

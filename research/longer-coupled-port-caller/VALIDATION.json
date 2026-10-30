@@ -1,0 +1,33 @@
+{
+  "status": "LOCAL_AND_GIT_FREE_REPLAY_PASSED",
+  "python": "CPython 3.12.13",
+  "registered_normal": "PASS_REGISTERED_RESEARCH_PACKAGE research/longer-coupled-port-caller outcome=negative-result",
+  "optimized": "python3.12 -I -O -B research/longer-coupled-port-caller/verify.py; byte-identical RESULT.json",
+  "metadata_and_pins": "PASS_PACKAGE_METADATA_AND_PINS",
+  "exact_certificates": 75600,
+  "matrix_controls": "24 frames, 96 literal mixed coefficients, 206 symbolic blocks, 432 three-leaf restrictions, a full one-leaf word and 1365 parity controls",
+  "not_run": [
+    "Native P104 replay",
+    "Characteristic-zero reduction",
+    "Proof-assistant verification",
+    "Independent human review"
+  ],
+  "proof_commit": "67f12b6bef1e25f649bd62edae36cd144fe19899",
+  "committed_bytes": "PASS_RESEARCH_COMMIT_BYTES; 22 files",
+  "git_free_export": "PASS_RESEARCH_EXPORT; 22 files; read-only optimized replay with PATH=/nonexistent; identical result",
+  "source_corruption": "Changed invoice bytes rejected before computation, then restored",
+  "github_proof_objects": "Proof, result, sources and independent checker match exact Git blobs at the proof commit",
+  "publication": {
+    "pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/5649",
+    "rendered_and_read_back": true,
+    "proof_links_checked_against_github_blobs": true,
+    "canonical_discussion_read_back": true
+  },
+  "hosted_ci": {
+    "head": "b904e2748d2374082ceb1a95bdfcfd4b528742db",
+    "run": 40258944381,
+    "planner": "Failed two upstream selected-record navigation tests",
+    "package_replay": "Skipped"
+  },
+  "cleanup": "Removed one unused import and two unused discovery helpers after replay; matrix controls still match the result."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/HALO.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Old exponents still present; 12, 26, 28 and 7 suffice; 11, 25, 27 and 6 do not."
+    }
+  ]
+}

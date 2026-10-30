@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-conservative-outer/PROOF.md",
+    "certificates/selected-result.json",
+    "notes/compact-control-layout.tex",
+    "notes/compact-control-movement.tex",
+    "research/bit2234-stock-threshold/README.md",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/hosted/GLOBAL-TEMPLATE.json.gz",
+    "research/community-hyperplane599-audit/pr589/bit589/v9/nine/GEOMETRY.json",
+    "research/complex-grid-prefix-audit/PROOF.md",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r740-replica32/code/engines/base_two_moment.py",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r740-replica32/code/engines/moment.py",
+    "research/gaussian-normalization-stream/PROOF.md",
+    "research/gaussian-normalization-stream/SOURCES.json",
+    "research/gaussian-normalization-stream/normalizer.py",
+    "research/gaussian-parity-synthesis/REVIEW.md",
+    "research/gaussian-parity/gaussian-parity-certificates.tex",
+    "research/p104-whole-word-internal-grid/README.md",
+    "research/physical-complex-compact/PROOF.md",
+    "research/physical-gaussian-leaf/PROOF.md",
+    "research/physical-gaussian-leaf/SOURCES.json",
+    "research/physical-gaussian-leaf/axis_stream.py",
+    "research/physical-gaussian-leaf/coefficient_engine.py",
+    "research/physical-gaussian-leaf/inputs/pr3087.tar",
+    "research/physical-gaussian-leaf/leaf_sources.py",
+    "research/physical-gaussian-leaf/signed_linear.py",
+    "research/physical-scalar-stream/scalar_engine.py",
+    "research/physical-scalar-stream/scalar_words.py",
+    "research/pr589-five-helper-hosting/PROOF.md",
+    "research/pr589-five-helper-hosting/verify.py",
+    "research/recursive-parking-boundary/README.md",
+    "research/selected-bit-local-ring-sweeps/PROOF.md",
+    "research/selected-bit-recursive-closure/PROOF.md",
+    "research/selected-complex-layer-closure/PROOF.md",
+    "research/selected-complex-layer-closure/arithmetic.py",
+    "upstream/build/sections/02-streams.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact retained source bytes, signed-word/involution and failure controls, actual encoded plans and complete root endpoints."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Four optimized actual CLI corruptions at component order, dimension law and joined adapter boundaries."
+    }
+  ]
+}

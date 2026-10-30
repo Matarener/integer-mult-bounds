@@ -1,0 +1,34 @@
+{
+  "status": "PASS_LOCAL_FULL_ADMISSION",
+  "baseline_pr": 3388,
+  "baseline_commit": "684d347c0e6e578b8ab600d2e680ad6701cf7fa0",
+  "canonical_main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "candidate_canonical_sha256": "594910b9ab775e7fc7f38f3c14fe6e07fbe5166a1909a11fff94cb981eccafff",
+  "commands": [
+    "python3 -B research/t16-repeated-augmentations/verify.py --write",
+    "python3 scripts/research_package.py --package research/t16-repeated-augmentations --check-only",
+    "python3 -B research/t16-repeated-augmentations/test_verify.py",
+    "python3 -O -B research/t16-repeated-augmentations/test_verify.py"
+  ],
+  "full_replay_stages_passed": 11,
+  "controls": {
+    "admission": 69,
+    "bit_supplier": 12,
+    "controller_mutations": 15,
+    "independent_t16": 6,
+    "owner": 11
+  },
+  "independent_reconstruction": "All25 new stages independently reconstructed and fully owner-audited; exact final payload agrees.",
+  "complete_typed_invoice": "All fields equal after checking and normalizing the actual permutation of 144 complete call records; only three source-binding hashes differ and are rebound to generated files.",
+  "actual_charts": 10018,
+  "prefix_bits": 397,
+  "charged_prefix_bits": 512,
+  "physical_row_coefficient": 16469,
+  "hosted_ci": "Not claimed; checks are local.",
+  "scope": "Conditional finite construction and inherited assumptions; no complete theorem or packing optimality claim.",
+  "behavioral_tests": {
+    "normal": 9,
+    "optimized": 9,
+    "actual_lift_negative_controls": 6
+  }
+}

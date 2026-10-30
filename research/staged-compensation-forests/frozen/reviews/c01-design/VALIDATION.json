@@ -1,0 +1,80 @@
+{
+  "arbitrary_columns_per_operator": 632,
+  "design_outputs_compared_whole_bytes": [
+    "DESIGN.json",
+    "SOURCE-base.json.gz",
+    "FOREST-COMPENSATION-base.json.gz",
+    "FOREST-WORD-base.json.gz",
+    "TWO-SIDED-COMPENSATION-base.json.gz",
+    "TWO-SIDED-WORD-base.json.gz",
+    "SOURCE-extra.json.gz",
+    "FOREST-COMPENSATION-extra.json.gz",
+    "FOREST-WORD-extra.json.gz",
+    "TWO-SIDED-COMPENSATION-extra.json.gz",
+    "TWO-SIDED-WORD-extra.json.gz"
+  ],
+  "executed": [
+    {
+      "mode": "normal",
+      "script": "design.py",
+      "status": "PASS",
+      "stdout": "base 31214 13716 10633 pairs 88 eligible 207\nextra 31214 13716 10633 pairs 88 eligible 207"
+    },
+    {
+      "mode": "normal",
+      "script": "price_replay.py",
+      "status": "PASS",
+      "stdout": "PASS_LITERAL_HORNER_PRICES 21 coefficients"
+    },
+    {
+      "mode": "normal",
+      "script": "compare_prior.py",
+      "status": "PASS",
+      "stdout": "PASS_PR1080_FIXED_TRANSFER_CHECK target_recipe_price 22548 unavailable 4 nonzero 14 nonfull 16"
+    },
+    {
+      "mode": "optimized",
+      "script": "design.py",
+      "status": "PASS",
+      "stdout": "base 31214 13716 10633 pairs 88 eligible 207\nextra 31214 13716 10633 pairs 88 eligible 207"
+    },
+    {
+      "mode": "optimized",
+      "script": "price_replay.py",
+      "status": "PASS",
+      "stdout": "PASS_LITERAL_HORNER_PRICES 21 coefficients"
+    },
+    {
+      "mode": "optimized",
+      "script": "compare_prior.py",
+      "status": "PASS",
+      "stdout": "PASS_PR1080_FIXED_TRANSFER_CHECK target_recipe_price 22548 unavailable 4 nonzero 14 nonfull 16"
+    }
+  ],
+  "helper_only_counterexample_columns": 520,
+  "inputs_unchanged": true,
+  "no_native_chain_executed": true,
+  "normal_optimized_and_relocated_outputs_identical": true,
+  "operator_mutations_per_provider": 9,
+  "orientations_per_mutation": 3,
+  "primitive_coefficients_checked": 21,
+  "python_version": "Python 3.12.14",
+  "source_after": {
+    "PR1080-CANONICAL-WORD.json.gz": "387a2266ffe006d20042221d967f67a4b18d9bb8de1cd1e01d4031b539fa74a5",
+    "PR1080-RECIPE.json": "d526804d9d627cbd850b0e54c3de9aadc74646e1a9b6befb577f42240720750a",
+    "artifacts/HISTORICAL-SHARED-COMPENSATION.json.gz": "e7bdb1e299a43a8fcbdad4c598b7161e504a94691df3940a9a4eaf638f5013f0",
+    "artifacts/SOURCE-base.json.gz": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653",
+    "artifacts/SOURCE-extra.json.gz": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f",
+    "source-references/bw_emit.py": "99b59a6fa3feda86785e4225157dcb1a6169d256cec4f5e0acc9cea7a701df76",
+    "source-references/bw_transport.py": "9818e08b819310b40f1441b89be8c4369584a5b3fa5dfe9b86b1df9a7f5d6a76"
+  },
+  "source_before": {
+    "PR1080-CANONICAL-WORD.json.gz": "387a2266ffe006d20042221d967f67a4b18d9bb8de1cd1e01d4031b539fa74a5",
+    "PR1080-RECIPE.json": "d526804d9d627cbd850b0e54c3de9aadc74646e1a9b6befb577f42240720750a",
+    "artifacts/HISTORICAL-SHARED-COMPENSATION.json.gz": "e7bdb1e299a43a8fcbdad4c598b7161e504a94691df3940a9a4eaf638f5013f0",
+    "artifacts/SOURCE-base.json.gz": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653",
+    "artifacts/SOURCE-extra.json.gz": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f",
+    "source-references/bw_emit.py": "99b59a6fa3feda86785e4225157dcb1a6169d256cec4f5e0acc9cea7a701df76",
+    "source-references/bw_transport.py": "9818e08b819310b40f1441b89be8c4369584a5b3fa5dfe9b86b1df9a7f5d6a76"
+  }
+}

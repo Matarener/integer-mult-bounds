@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz",
+    "research/p104-rounded-collector/inputs/WORD.json",
+    "research/p104-tensor-newton/inputs/PR3406_PROOF.md",
+    "research/p104-tensor-newton/inputs/PR3416_PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Complete scalar certificate and backward witnesses, source/native binding, signed pairs, full nonseparable depth-two actual native fixture and complete receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Same complete source-bound certificate under optimization."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual CLI boundary faults, scalar mutations, source/receipt errors, block-global-phase control and signed parity."
+    }
+  ]
+}

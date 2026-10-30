@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "16-point and 8-point flat caps by enumeration; cap soundness from L = 26; Python census for n = 4 (L = 8..16) and n = 5 (L = 12, 14, 16) against #3699/#3733 on main and #4322's vendored (5,16) row; recorded census.c runs bound by SHA256, matching all published rows; L = 18..24 firing sets of 28, 30, 30, 28, nested through 22, masks 15 and 23 silent at 24; first all-sound length 26."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/disjoint-tensor-compression.tex",
+    "research/disjoint-joint-ties/README.md",
+    "research/disjoint-joint-ties/circuit.py",
+    "scripts/binary_phase_frames.py",
+    "scripts/certify.py",
+    "scripts/exclusion_circuit.py",
+    "scripts/experiments/disjoint_tensor.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "New integer map, full symbolic embedding, both frame orientations, complete historical invoice and six rejecting controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "New integer map, full symbolic embedding, both frame orientations, complete historical invoice and six rejecting controls."
+    }
+  ]
+}

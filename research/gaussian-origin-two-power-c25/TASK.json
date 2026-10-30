@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "9eb1a215f3d935442026939cf938e037207912ad",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "At p=19, beta0=-1/2, bandwidth 2, and t_i=i, is this section's polynomial-inverse error strictly below 2^{-475}?",
+  "scope_change_reason": "The preceding audit shows the section error is strictly below (319/100) exp(-361), which is strictly below 2^{-456}. The named next step is the comparison with 2^{-475}.",
+  "bottleneck_link": "FINE-PRIME.md says the polynomial error is below 2^{-Cp} for every fixed C eventually. At C=25 the degree-229 Taylor sum of exp(361) exceeds 2^{475}*(319/100), so the section error is strictly below 2^{-475}.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once (319/100) exp(-361) is compared with 2^{-475}. Do not form Q and do not compare a larger C.",
+  "outcome": "partial",
+  "evidence": "research/gaussian-origin-two-power-c25 replays the preceding bound and checks that the degree-229 Taylor sum of exp(361) equals 569618138540786716876918418531657612524503007077342700104364072746089587976291183612008251683365141547726587524252961444726472029686969080596515823098344141370012080084410454719952981336274625069613144528807730960312997273758957336531184232965493150528938118915642368891359451060208766601152049835900727495243838105051942956523704593289590497951464415720667962994673938213656590027641511686097186570655601800862348305491287807210319041170014939635371570743058797490813273317935210229449053835116863170220555642688414443028543677898257422955568576889169602304592743616283/1524093475838459110286316633820382633817874219511308365980521929887465503387385659418209074004083338717207769392085459973728367028980937058986158160466665197191300728039185768625353796353553869647031781854563893188465646495130920909966044124974209494654368839261479968817275562809069345148901179702806776569964710407347512107665750706610741076370791413822612535778568306688000000000000000000000000000000000000000000000000000000, which is strictly above 7779982715240636889146324346125156652607834433672857790031805235316356130339884631393575366228546396874881179904130567997249251888226273536770048/25 = 2^{475}*(319/100). The degree-228 sum is strictly below that target, and the next Taylor term is positive, so (319/100) exp(-361) < 2^{-475}.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the Taylor comparison, checker and writeup.",
+  "open_questions": [
+    {
+      "question": "Is (319/100) exp(-361) strictly below 2^{-494}?",
+      "why_it_matters": "The C=25 comparison is 2^{-25p}. The same majorant may clear C=26, which is 2^{-26p}, and that comparison is not made here.",
+      "first_step": "Compare a longer Taylor lower bound of exp(361) with 2^{494}*(319/100). Do not form Q.",
+      "blocked_by": "The C=26 comparison is not in this package."
+    }
+  ]
+}

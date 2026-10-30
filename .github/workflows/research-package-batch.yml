@@ -31,4 +31,6 @@ jobs:
       - name: Explicit bounded package replay
         run: python -B scripts/research_package.py --package "$RESEARCH_PACKAGE" --install-deps
       - name: Committed inputs remain unchanged
-        run: git diff --exit-code
+        run: |
+          git diff --exit-code
+          git diff --cached --exit-code

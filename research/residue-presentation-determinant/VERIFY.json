@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/nonsplit-frobenius-characters/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exhaustive prime-field presentation pairs: Gaussian-elimination determinant equals the Frobenius-ordered Vandermonde ratio, squared determinant equals the resultant discriminant ratio, cyclic sign rule, tensor-power rule, and four mutation controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same checks under optimized Python; the verifier uses explicit raises, not assert statements"
+    }
+  ]
+}

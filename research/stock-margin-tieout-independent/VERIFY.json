@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/selected-bootstrap-stock-audit/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Receipt SHA-256 binding; uniform stock gap per branch; all 24 published margin/room integers of PR #2972 reproduced by an independent integer-arithmetic path; two published native positive controls; strict stage ordering of margins and rooms in both branches; conservative-branch dominance at all 12 values; floor-split residual in {0,1} with census; integer-computed 8194 guard against the recorded headroom minimum; exact common_saving tie-out; stale-cutoff, gap-perturbation, cross-branch-saving and sensitivity controls; null stock-coefficient count."
+    }
+  ]
+}

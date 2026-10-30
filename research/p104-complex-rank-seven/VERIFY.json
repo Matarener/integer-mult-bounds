@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-contractive-gram-deflation/MISSING.json",
+    "research/p104-contractive-gram-deflation/PROOF.md",
+    "research/p104-contractive-gram-deflation/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Two exact complex rank-seven witnesses; all 21632 residual entries; source hashes, real-part rank eight and nine hypothesis controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Two exact complex rank-seven witnesses; all 21632 residual entries; source hashes, real-part rank eight and nine hypothesis controls. Optimized Python control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately written Gaussian Fraction checker, different root order, both full residual matrices and rank minors, four projector controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-W",
+        "error",
+        "-O",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separately written Gaussian Fraction checker, different root order, both full residual matrices and rank minors, four projector controls. Optimized Python control."
+    }
+  ]
+}

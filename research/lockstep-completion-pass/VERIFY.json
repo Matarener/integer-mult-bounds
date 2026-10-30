@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coupled-helper-neutral-completion/reports/expected/funding.json",
+    "research/coupled-helper-neutral-completion/reports/expected/invoice.json",
+    "research/higher-moment-strictification/README.md",
+    "research/higher-moment-strictification/vendor/p7-TENSOR.md",
+    "research/kappa-rebuild/architecture/FINITE-PRECOMPILATION.md",
+    "research/kappa-rebuild/transfer-audit/FINITE-DAG-AUDIT.json",
+    "research/lockstep-live-role-audit/live_roles.py",
+    "research/net-tax-rank-compiler/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Bind source statements; counting parity with #4691 and the FINITE-DAG-AUDIT receipt; identity (1), surplus, separation and record counts of the pass on the complete p7 and selected profiles at v=1..3; event-level execution of passed rules with the LIFO bank allocator (I1-I7), peak/total/records equal the formulas; one-generation compiled counts; RESULT.json comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Rejecting controls: overlapping rule before the pass, cutoff not below floor, dropped remainder, short completion, foreign completion owner, release-early allocator, per-depth bank, eager parent, repeated exit field, peak recursion without nested term, peak recursion with decoupled path/exit maxima, wrong tax, tampered RESULT.json."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Skip settled leading identity columns in the exact encoded Gaussian inverse; prove the read-count saving and test the complete finite physical boundary.",
+  "scope_change_reason": "This is an encoded preparation component used by Gaussian replays. Cold runtime measurements are reported even when inconclusive; the proved improvement is matrix-read count.",
+  "bottleneck_link": "Fewer exact setup scans can reduce preparation work for physical Gaussian experiments. This component does not alter the recursive paid invoice or supply a new kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first exact read-count improvement, with the full scratch tradeoff and measured cold-command limits; do not extend the optimizer.",
+  "outcome": "completed",
+  "evidence": "Written all-dimension read-count refinement; ten paired physical fixtures, 81 rational matrices and eight rejecting executions. Dense dimension four saves 24 of 236 matrix reads and reduces each pooled-tape meter at a two-lease peak cost. Cold runtime comparison is inconclusive.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can a row-streaming inverse reduce complete tape work without increasing peak scratch?",
+      "why_it_matters": "The present suffix cursor saves reads but uses two extra peak leases.",
+      "first_step": "Specify one exact batched row update and charge every stream scan and cleanup.",
+      "blocked_by": "No such physical update or complete cost proof is supplied."
+    },
+    {
+      "question": "Does replacing the setup inverse improve a complete Gaussian preparation on a reached caller?",
+      "why_it_matters": "Source authentication dominates the cold tiny inversion command; a component improvement is not an end-to-end speedup.",
+      "first_step": "Pin one actual preparation page and compare complete bytes, ownership and pooled meters.",
+      "blocked_by": "No production-size preparation or full caller benchmark was run."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19279747",
+  "source_predecessor": {
+    "pr": 3851,
+    "author": "jmbarrancoml",
+    "role": "Exact encoded positive-pivot inverse and physical Gaussian setup; cited construction, not audited."
+  },
+  "freshness": {
+    "canonical_main": "a5bff3bf133e482541c09eba4e773884bdb2b1b7",
+    "priority_revision": 8,
+    "selected_kappa": "0.003125804",
+    "orientation": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+    "overlap_limits": "Cached snapshot covers 338 open PRs and 5959 Discussion records; sparse local coverage is incomplete. Direct live PR/Discussion and main README searches supplement it. Unpublished work and arbitrary historical diffs are not covered."
+  }
+}

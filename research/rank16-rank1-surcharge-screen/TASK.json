@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Does any legal extra rank-1 child count on top of rank-16 delivery of the selected local mass push the pinned ceiling under the five-percent gate?",
+  "scope_change_reason": "The drawn p104-side-correction experiment is already open for flag 0, and PR #4061 took the unclaimed helper 600/601 sign test from the same chooser seed. This package is the other half of the rank-shape first experiment: screen one candidate profile with ceiling.ceiling() and reject it if the ideal ceiling misses the five-percent gate. The candidate is not an idle histogram of the unchanged selected word. It delivers the selected local mass as rank-16 children and moves idle mass into extra rank-1 children. The published lever table stops at ideal idle, rank 51.",
+  "bottleneck_link": "Rank-16 delivery is the catalogue's named 2.31x lever. A rank-1 surcharge is the natural copy charge inside this coverage law. If the strongest legal surcharge still clears five percent, no rank-1 copy count inside the law can reject the lever.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the largest legal rank-1 count. Do not search a decoder, change ceiling.py, or price a charge the coverage law cannot express.",
+  "outcome": "negative-result",
+  "evidence": "At grid 1e-15 the selected ceiling is 1690054109089/1000000000000000 and the full surcharge ceiling is 285077936577/125000000000000, ratio 2280623492616/1690054109089, which is above 21/20. Idle mass is 1646. One more rank-1 child is rejected by the coverage law.",
+  "author": "Riquelme Soares (@hevlyo)",
+  "ai_assistance": "Substantial AI assistance was used for the screen, the verifier and the write-up. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Which sourced copy, frame or restoration histogram, outside extra rank-1 children in this coverage law, pushes rank-16 delivery under the five-percent gate?",
+      "why_it_matters": "The gate survives every legal rank-1 surcharge, including spending the entire idle mass. A rejection has to change the coverage law, the centre charge, the halving guard, or replace the rank-16 children.",
+      "first_step": "Pin one histogram whose mass is not a rank-1 child count and screen that exact profile with ceiling.ceiling().",
+      "blocked_by": "No such histogram is pinned in levers.py. The coverage law cannot express it as further rank-1 children."
+    }
+  ]
+}

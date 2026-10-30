@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-rounded-collector/inputs/WORD.json",
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz",
+    "LICENSE",
+    "NOTICE",
+    "upstream/LICENSE",
+    "research/p104-rounded-collector/PREDECESSORS.json",
+    "research/p104-rounded-collector/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticate the frozen scientific and retained sources; reconstruct every producer gap; compare explicit profiles with a separate basis-threshold check; check the actual-path reversible dense codec and literal cone, ideal/nonexact controls, direct logical ledger, typed deterministic receipt and fail-closed source/receipt controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Repeat all registered mathematical, source and rejection checks with optimised Python; explicit validation remains enabled and the scientific receipt is unchanged."
+    }
+  ]
+}

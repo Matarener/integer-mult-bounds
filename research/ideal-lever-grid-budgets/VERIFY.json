@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-local-word-ceiling/levers.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "24 exact-rational lever-grid brackets byte-match RESULT.json; endpoint certification relax(a_lo)<1<relax(a_hi); profile and idle-mass invariants; live parent levers.py seven-row agreement; lattice monotonicity; three fail-closed guards; 1e-8 bracket nesting; target decision (12/24 reaching, minimal antichain free|16|1, sel|8|2, shr|32|1)"
+    }
+  ]
+}

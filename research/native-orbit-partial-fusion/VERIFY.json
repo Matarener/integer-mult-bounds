@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Source-authenticated literal Clifford columns; all fractional cuts on reduced tensor bases f=1..4; heterogeneous orbit blocks; direct transfer supports; four wrong constructions rejected; exact support controls and numerical controls of the written convexity proof."
+    }
+  ]
+}

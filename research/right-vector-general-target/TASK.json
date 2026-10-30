@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact paid-factor minimum for general (non-diagonal) targets in the right-vector alphabet I + u y^T (u in R^n, y in K^n) with free GL_n(K) maps: tests the formula min_T dim_K (M T - I) K^n proposed in open question 1 of #4243 on every target over eleven small (algebra, n) domains.",
+  "scope_change_reason": "The card asks whether a larger or nonabelian register model escapes the scoped three-register obstruction. This package answers a narrower open question left by #4243: whether its diagonal count extends to all targets. The answer is no for the noncommutative algebra M2(F2), and the trailing free map is necessary even over commutative non-local algebras.",
+  "bottleneck_link": "A legal target cheaper than its column bound would be a new bit primitive; this package shows the column bound is attained on ten commutative domains and is not attained in general. Kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Exhaust every target on small algebras, record each place the formula or its no-free-map form fails, independently confirm one failure, then stop.",
+  "outcome": "completed",
+  "evidence": "verify.py --stage main and --stage large compute exact minima by breadth-first search over all words and the formula by enumerating every T in GL_n(K), on 343,810 targets in total. Formula failures: 72, all over M2(F2) at n=2 (cost 3, formula 2). No-free-map gaps: 2 over F2xF2, 6 over F2[C3], 684 over M2(F2). The transposition witness is rechecked in M_4(F_2) by a separate enumeration of all two- and three-factor products.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Does the formula hold for every commutative K-algebra, or every local algebra with residue field K?",
+      "why_it_matters": "It holds on all ten commutative domains checked here, which include the group algebras F2[C2], F2[C3] and F3[C2]-type products.",
+      "first_step": "Prove the one-step peeling condition A x1 in A(H R) + x1 R for a minimizing T, starting with local R.",
+      "blocked_by": "No general factorization argument is proved here."
+    },
+    {
+      "question": "Does the M2(F2) failure lift to a nonabelian group algebra such as F2[S3]?",
+      "why_it_matters": "#4243 covers diagonals in every F2[G]; a failure inside F2[S3] would bound how far its count extends for nonabelian registers.",
+      "first_step": "Fix an explicit K-algebra isomorphism F2[S3] = F2[C2] x M2(F2) and project words onto the matrix block.",
+      "blocked_by": "The isomorphism and projection argument are not checked here."
+    },
+    {
+      "question": "What is the exact cost for noncommutative algebras?",
+      "why_it_matters": "The formula undercounts M2(F2) targets by one at n=2.",
+      "first_step": "Compare cost with the K^2n rank of M - I in the Morita picture M_n(M_2(K)) = M_2n(K).",
+      "blocked_by": "Only n=2 over M2(F2) is enumerated."
+    }
+  ]
+}

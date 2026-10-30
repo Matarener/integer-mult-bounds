@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Normal exact ring axioms, all independent radical triples in three finite rings, ten constructions and inverses, literal R16 dirty inputs, positive-price exposure, eleven hypothesis/sign/dirty-input controls and four unrestricted full-state shortest paths; no new kappa."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Optimized exact ring axioms, all independent radical triples in three finite rings, ten constructions and inverses, literal R16 dirty inputs, positive-price exposure, eleven hypothesis/sign/dirty-input controls and four unrestricted full-state shortest paths; no new kappa."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  [
+    "from sources import need",
+    "from sources import need, load"
+  ],
+  [
+    "HERE/'source/R22-EDITS.json'",
+    "HERE/'vendor/blocks/source/R22-EDITS.json'"
+  ],
+  [
+    "word['owned_fields'] == source['owned_fields'] == 25",
+    "word['owned_fields'] == source['owned_fields'] == 28"
+  ],
+  [
+    "from second_block import extend",
+    "extend = load(HERE/'vendor/blocks/second_block.py', 'composed_second_block').extend"
+  ],
+  [
+    "    return word, dict(R22=witness, second_block=second)",
+    "    word['schema'] = 'p104-accumulated-block-composition/1'\n    return word, dict(R22=witness, second_block=second)"
+  ]
+]

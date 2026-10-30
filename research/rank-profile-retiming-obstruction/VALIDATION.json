@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "evidence_status": "author-checked with substantial OpenAI assistance; no independent human or proof-kernel review",
+  "environment": {
+    "python": "CPython 3.13.5 (main, Jul 15 2026, 20:25:40), GCC 14.2.0",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "dependencies": "Python standard library only"
+  },
+  "scientific_runs": [
+    {
+      "command": "python3 -B research/rank-profile-retiming-obstruction/verify.py --summary",
+      "status": "PASS_SOURCE_BOUND_RETIMING_SCOPE",
+      "elapsed_seconds": "26.24",
+      "max_rss_kb": 128796
+    },
+    {
+      "command": "python3 -O -B research/rank-profile-retiming-obstruction/verify.py --summary",
+      "status": "PASS_SOURCE_BOUND_RETIMING_SCOPE",
+      "elapsed_seconds": "33.34",
+      "max_rss_kb": 129800
+    }
+  ],
+  "coverage": {
+    "providers": 2,
+    "candidates_per_provider": 1776295,
+    "histogram_types_per_provider": 19,
+    "all_exponent_certificates": true,
+    "source_authentication": "byte count, SHA256, and Git blob for each retained snapshot before source execution",
+    "positive_control": "Counterfactual rollback and literal recovery of Jeremy Kothe's retained PR2957 swap, giving 2+3 to 1+4",
+    "interpreter": "Retained exact arbitrary-dirty free-operator interpreter and adapter, unchanged; not a newly independent interpreter",
+    "controls": [
+      "source drift",
+      "profitable 2+2 to 1+3 rejected by non-improvement certificate",
+      "base wrong scalar with refreshed cleanup",
+      "base invalid gate frame",
+      "base noncommuting barrier",
+      "extra wrong scalar with refreshed cleanup",
+      "extra invalid gate frame",
+      "extra noncommuting barrier"
+    ],
+    "local_credit": "1491695107/1513529160000",
+    "replications": 3240,
+    "three_rank1_margin": "2437538889/12612743000"
+  },
+  "unrun": [
+    "Local Python 3.12 registered hook and full Git metadata/history check; Python 3.13 standalone source-export checks were run instead",
+    "Fresh native Clifford phase and all-size compilation",
+    "Fresh physical allocation and stock/precision/consumer verification",
+    "Full supplier admission and outer release",
+    "Formal proof-kernel or independent human review"
+  ],
+  "publication_note": "Hosted CI status is separate and must be read from the current PR head. The temporary fork-only source-export workflow is not included in this package. No selected-frontier change or new current supplier is claimed."
+}

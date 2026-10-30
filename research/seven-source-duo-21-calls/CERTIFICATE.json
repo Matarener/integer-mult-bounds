@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "model": "Seven-source restored singleton+DUO connector of research/connector-seven-source-duo: a step s in 1..127 of Hamming weight 1 is one singleton call z += B_j x_j; weight 2 is one charged DUO call z += B_j x_j + B_k x_k. A word is universal when its prefix states P satisfy P+P = F2^7.",
+  "words": {
+    "k21_W24": {
+      "prefix_states": [0, 1, 33, 36, 38, 102, 100, 96, 98, 114, 82, 83, 115, 123, 120, 88, 89, 9, 41, 40, 8],
+      "k": 21,
+      "duo_calls": 3,
+      "W": 24,
+      "queries_all_127_rows": 275,
+      "adds_all_127_rows": 278
+    },
+    "k20_W26": {
+      "prefix_states": [0, 2, 16, 112, 120, 88, 92, 60, 61, 29, 21, 85, 81, 115, 123, 59, 58, 26, 14, 12],
+      "k": 20,
+      "duo_calls": 6,
+      "W": 26,
+      "queries_all_127_rows": 274,
+      "adds_all_127_rows": 280
+    }
+  },
+  "search_failures_not_exclusions": {
+    "note": "Bounded simulated-annealing runs of search/sa.c that found no universal word. These are search failures, not exclusions.",
+    "runs": [
+      "./sa 20 24 11 10000000 20",
+      "./sa 20 24 99 20000000 20",
+      "./sa 19 W 5 10000000 10 for W in 24 26 28 30 34",
+      "./sa 18 W 5 10000000 10 for W in 30 36",
+      "./sa 21 22 3 10000000 10",
+      "./sa 22 22 3 10000000 10"
+    ]
+  }
+}

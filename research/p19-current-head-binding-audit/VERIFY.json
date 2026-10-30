@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coded-native-caller/CODE.json",
+    "research/coded-native-caller/NORMALIZERS.json",
+    "research/coded-native-caller/PHYSICAL.md",
+    "research/coded-reverse-controller/verify.py",
+    "research/higher-moment-strictification/verify.py",
+    "research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Exact current-head source bindings, Gaussian-integer/controller and literal address-loop eigencharacter checks, p2 controls, physical zero-diagonal witness, independently recounted invoice, exact crossing signs and sharp concave-order fee certificate."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same semantic checks and deterministic receipt with assertions disabled."
+    }
+  ]
+}

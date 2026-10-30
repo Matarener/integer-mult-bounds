@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/hurwitz-adaptive-routing/NOTICE.md",
+    "research/hurwitz-adaptive-routing/PROOF.md",
+    "research/hurwitz-adaptive-routing/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete new three-pair header/protocol enumeration, Boolean derivatives, literal decoders, independent raw-subset minima, sharp gap and invalid-protocol controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat all mathematical and boundary checks under optimized Python with explicit checks enabled."
+    }
+  ]
+}

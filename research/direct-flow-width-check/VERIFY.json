@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "#4436 section 3 on raw p7, ranks 121..2000: width factor S_n <= W(W+P+1)^(h+1), exact slot identity S+X+2*matched=U(W+P) (routing bound), log B_N/(N log N) < 2.1."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate all retained sources; compare original/candidate complete producer bytes, order, heads, ownership and exact measured lane invoices; typed receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "No-import exact cost model and shared-traversal identity, independent odometer/count ripple controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Meaningful production API and source/receipt/candidate semantic controls, effective under optimized Python."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/r439-bsection-stars-seed01/candidate.json.gz",
+    "research/r439-bsection-stars-seed01/composition.json.gz",
+    "research/r439-bsection-stars-seed01/pair_control.json.gz",
+    "research/r439-helper-matching/candidate.json.gz",
+    "research/r439-helper-matching/floor-word.json.gz",
+    "research/r439-helper-matching/vendor/pr915/candidate.json.gz",
+    "research/r439-helper-matching/vendor/pr926/candidate.json.gz",
+    "research/r439-helper-stars-seed19/candidate.json.gz",
+    "research/r439-helper-triples/candidate.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "SHA-256 pins; exact split table on nine words; residual support equals the donor set; E equals K and helpers restore; published 17636/17653 literal totals; six controls including the unsound K = N* case; PR3904 pair located in K, N, N* (corrects PR4092's comparison)"
+    }
+  ]
+}

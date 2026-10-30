@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper470-twin-rung-removal/inputs/pr5827-source.tar",
+    "LICENSE",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py",
+    "research/p104-contact-independent-audit/capsule/outputs/p104-native-contact-audit-20261025/check.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_portability.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Exact regenerated payload and immutable-input controls, including gzip headers, boolean substitutions, corruption."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Independent integer-dyadic/GF2 replay of both complete words, all 799 endpoint rows, chronological lifetime, full invoice, twelve rejected mutants, exact receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same complete independent replay and twelve mutants with Python optimization enabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/native_audit.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Three new signed native maps and one retained helper-map positive control: all 512 columns each, absolute-phase/child-sign rejection, exact receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/native_audit.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Identical dense native coverage with Python optimization enabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticated PR5827 chain; regenerated full word, rational rows and dense transpose, every signed native map, physical caller, complete invoice, both rational engines, finite compiler and 54 strict/4 functional outer predicates; targeted negative controls and exact RESULT."
+    }
+  ]
+}

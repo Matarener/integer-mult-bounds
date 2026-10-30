@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 7,
+  "base_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Exact bit-lane enumeration of low-weight binary words, integrated into the complete pinned E7 classification replay.",
+  "scope_change_reason": "Refine the replay-runtime card to the binary frame-code census in PR5669.",
+  "bottleneck_link": "The full E7 support census is a dependency of E8 deletion and decoder certificates. Exact faster replay increases verification capacity without changing a physical bill.",
+  "budget_minutes": 120,
+  "stop_rule": "Require complete old/new result equality, unchanged downstream checks, exhaustive small-code oracles and a measured complete-replay speed gain. Reject on any mismatch.",
+  "outcome": "completed",
+  "evidence": "RESULT.json, BENCHMARK.json, PROOF.md and VALIDATION.md give exact scope, timings, checks and limits.",
+  "author": "Ali Romman with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance in implementation, proof, verification and prose. No subagents. Same assistant family as the consumed classifier; no independent human review.",
+  "open_questions": [
+    {
+      "question": "Which larger deletion or decoder code census benefits from this exact iterator?",
+      "why_it_matters": "The present consumer is the complete E7 classification; another consumer needs its own correctness and runtime check.",
+      "first_step": "Bind one actual code basis and compare all checks and outputs before replacing its enumeration.",
+      "blocked_by": "No other consumer is installed by this package."
+    }
+  ],
+  "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1502#discussioncomment-19197143",
+  "expansion_decision": {
+    "decision": "Optimize the complete existing consumer and provide a general exact code iterator. Stop before a new geometry search.",
+    "proved_costs": "All coefficient assignments remain covered; finite storage and Boolean arithmetic costs are explicit.",
+    "unknowns": "No physical supplier, native-cost change, whole-caller benefit or new kappa is inferred."
+  },
+  "freshness": {
+    "main": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+    "checked_utc": "2026-10-26T14:30:44Z",
+    "open_prs": 404,
+    "discussion_records": 5072,
+    "main_notes": 7676,
+    "scope": "No competing E7 bit-lane optimization within searched public coverage."
+  }
+}

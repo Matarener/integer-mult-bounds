@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Supplied-decomposition nonsplit Frobenius products: norm characters, coefficient-Frobenius and component permutation signs, determinant witnesses and supplied-map orbit labels.",
+  "scope_change_reason": "Handoff-first selection of the nontrivial-residue-field question in PR5656/5661. The exact split-product recognizer was already claimed and completed by aliromman. This is a written algebraic interface theorem with finite checks, not proof-assistant formalization.",
+  "bottleneck_link": "Algebraic side result extending the tensor atlas beyond split residue fields. No paid native supplier or kappa improvement is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish the nonsplit character proof, exact independent ground-field matrix checks, meaningful failure controls and reproducible package; do not expand into arbitrary nonsplit recognition or physical pricing.",
+  "outcome": "completed",
+  "evidence": "PROOF.md supplies the general finite-field theorem. Independent exact checker covers 40487 matrices (22854 invertible), 14 automorphisms and 2851 normalized autotopisms in six complete tiny GL domains; 150 complete nilpotent substitutions; 6561 F81 products, 80 norm determinants and 88 F81 substitutions; 512 covariant determinant triples (128 accepted,384 rejected); 14 certificate and eight presentation/type rejection controls. No arbitrary tensor recognition or independent human review.",
+  "author": "apoursh",
+  "ai_assistance": "Substantial OpenAI Codex assistance, including separate implementation, proof and independent finite-check agents; no independent human or proof-kernel review.",
+  "open_questions": [
+    {
+      "question": "Recognize nonsplit Frobenius products from arbitrary tensors.",
+      "why_it_matters": "Removes the supplied decomposition and coefficient-field premise.",
+      "first_step": "Recover the radical, residue fields and their coefficient-field sections, then construct compatible local maps and authenticate their field embeddings.",
+      "blocked_by": "This package only checks supplied models/maps; PR5661 recognizes split residue fields."
+    },
+    {
+      "question": "Transport certificates between different presentations of the same residue field.",
+      "why_it_matters": "Intrinsic types alone do not identify ordered coordinate bases.",
+      "first_step": "Supply and verify a field isomorphism and include its restriction-of-scalars determinant in each model map.",
+      "blocked_by": "The executable fixes one explicit residue presentation per degree."
+    },
+    {
+      "question": "Use the interface in a paid native producer and consumer.",
+      "why_it_matters": "An algebraic determinant result alone does not improve the multiplication bound.",
+      "first_step": "Name the actual maps and price coefficients, movement, precision and restoration.",
+      "blocked_by": "No physical caller or complete invoice is supplied."
+    }
+  ],
+  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5655#discussioncomment-19187845",
+  "overlap_coverage": "Fresh canonical main and selected guidance; live handoffs1166 and investigation5655; bounded all-state PR searches. Exact split recognition was claimed in19187666 and published as5661 at5d722279f4292c63361f1e958ff4ed5a6ec638aa. Sparse historical notes, arbitrary old diffs and unpublished work remain outside coverage.",
+  "expansion_decision": "Compare PR5658 sector routing: field-level prefix/suffix bounds already exist; missing physical pricing needs a named caller. The nonsplit-character handoff instead provides a bounded interface implication with explicit norm/sign controls.",
+  "baseline": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY after materializing omitted tracked source files; no selected scientific replay."
+}

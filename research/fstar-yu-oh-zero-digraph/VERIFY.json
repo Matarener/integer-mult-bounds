@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate the retained question and independent box oracle; verify the known thirteen-ray graph, coloring, canonical pivots, full directed box and semantic controls using exact arithmetic."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "-Werror",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat exact fixture and source controls under isolation, optimization and warnings-as-errors; no global F-star or new graph construction claim."
+    }
+  ]
+}

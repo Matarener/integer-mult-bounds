@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "commands": [
+    {
+      "name": "fixed-normal",
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "{package}/inputs/WORD.json.gz"
+      ],
+      "timeout_seconds": 45,
+      "expected": "PASS_FIXED_CAUSAL_LEDGER_AND_TYPED_CONTACTS_ONLY",
+      "checks": "PASS_FIXED_CAUSAL_LEDGER_AND_TYPED_CONTACTS_ONLY; fixed causal and typed-contact scope only, with explicit source custody and normal result envelope."
+    },
+    {
+      "name": "fixed-explicit-optimized",
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "{package}/inputs/WORD.json.gz"
+      ],
+      "timeout_seconds": 45,
+      "expected": "PASS_FIXED_CAUSAL_LEDGER_AND_TYPED_CONTACTS_ONLY",
+      "checks": "PASS_FIXED_CAUSAL_LEDGER_AND_TYPED_CONTACTS_ONLY; fixed causal and typed-contact scope only, with explicit source custody and normal result envelope."
+    },
+    {
+      "name": "explicit-synthetic-controls",
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/controls.py",
+        "{package}/inputs/WORD.json.gz"
+      ],
+      "timeout_seconds": 60,
+      "expected": "PASS_EXPLICIT_PORTABLE_CONTROL_SET_ONLY with SYNTHETIC_CONTROL_ONLY labels",
+      "checks": "PASS_EXPLICIT_PORTABLE_CONTROL_SET_ONLY with SYNTHETIC_CONTROL_ONLY labels; fixed causal and typed-contact scope only, with explicit source custody and normal result envelope."
+    }
+  ],
+  "inputs": [
+    "research/p104-temporal-fixed-independent-audit/inputs/WORD.json.gz",
+    "research/p104-temporal-fixed-independent-audit/inputs/LICENSE",
+    "research/p104-temporal-fixed-independent-audit/inputs/NOTICE",
+    "research/p104-temporal-fixed-independent-audit/verify.py",
+    "research/p104-temporal-fixed-independent-audit/CONTROL-FIXTURES.json",
+    "research/p104-temporal-fixed-independent-audit/evidence/SCIENTIFIC-RECEIPT-EXTRACT.json"
+  ],
+  "requirements": [],
+  "expected_status": "PASS_FIXED_CAUSAL_LEDGER_AND_TYPED_CONTACTS_ONLY",
+  "controls": "All12 explicit synthetic controls passed in the recorded normal controls phase. Controls under-O were not separately executed; no assert-only acceptance is used.",
+  "root_resource_ceiling": {
+    "child_seconds": 60,
+    "memory_mib": 512,
+    "shared_aggregate_seconds": 150,
+    "proposed_phase_caps_seconds": [
+      45,
+      45,
+      60
+    ],
+    "phase_cap_sum_seconds": 150,
+    "root_caps_remaining_actual_budget": true,
+    "stop_on_failure": true,
+    "automatic_retries": 0
+  },
+  "scientific_scope": "Narrow source-premise/contact certificate, not emitted5713/native/full-price acceptance",
+  "implementation_state": "QUALIFIED_DIRECT_NORMAL_EXPLICIT_O_AND_12_CONTROLS",
+  "local_qualification": "Recorded direct phases passed. This ready declaration is not a generic launcher/export/hosted pass; those remain NOT RUN.",
+  "export_qualification": "NOT RUN; no fourth phase occurred. Any export/replay needs a separate applicable root decision.",
+  "qualification": {
+    "status": "PASS_THREE_PHASE_PORTABLE_FIXED_AUDIT_QUALIFICATION_ONLY",
+    "outcome_sha256": "7298b86c76e400876962c3daf8908a09694bee05501b8b0f62d2fd17d91c8fc8",
+    "postrun_review_sha256": "5162081de87c51ebb8dc3a8375513928ad1fb39226c60e7f9dfed78a4477f1ce",
+    "root_acceptance_metadata_sha256": "84d22f2e8f7c5bd3621064793de1dea4ce9a2363d8f1e7aad7a192cec4580666",
+    "normal_and_explicit_O_passed": true,
+    "synthetic_controls_passed": 12,
+    "full_scientific_projection_sha256": "8ad201fe2ce3ebcbb0a081774790fd4511d3ecce1b5b5c1cee3dd9bde033895c",
+    "generic_metadata_validation": "NOT_RUN",
+    "export": "NOT_RUN",
+    "hosted_replay": "NOT_RUN"
+  },
+  "python": "3.12"
+}

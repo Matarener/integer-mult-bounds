@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-low-carry-lowering/PROOF.md",
+    "research/bit-low-carry-lowering/controller.py",
+    "research/bit-low-carry-lowering/offset.py",
+    "research/bit-row-route-generator/PROGRAM.json.gz",
+    "research/bit-row-route-generator/PROOF.md",
+    "research/bit-row-route-generator/interpreter.py",
+    "research/fixed-tape-affine-shear/PROOF.md",
+    "research/fixed-tape-ordered-shear/counters.py",
+    "research/fixed-tape-ordered-shear/machine.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Complete GL2 full-payload forward/inverse tape execution, independent interpreter, actual S8 source map, descriptors/owned erasure, full movement bill and failure controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Complete GL2 full-payload forward/inverse tape execution, independent interpreter, actual S8 source map, descriptors/owned erasure, full movement bill and failure controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_sources.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Modified declared source rejection in a copied Git-free closure under normal and optimized Python"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "check_decoder.py": {
+    "status": "PASS_EXACT_PAID_CENTRAL_Q_DECODER",
+    "source": {
+      "scalar_matrix_entries": 262144,
+      "inverse_normalizers": 512,
+      "lifted_inverse_cases": 1536
+    },
+    "free_noncommuting_word_cases": 3,
+    "gaussian_widths": 6,
+    "actual_native_sparse_replays": [
+      {
+        "stages": 1,
+        "width": 1,
+        "input_terms": 2,
+        "coded_terminal_terms": 304,
+        "restored": true
+      },
+      {
+        "stages": 1,
+        "width": 2,
+        "input_terms": 2,
+        "coded_terminal_terms": 1216,
+        "restored": true
+      },
+      {
+        "stages": 1,
+        "width": 3,
+        "input_terms": 2,
+        "coded_terminal_terms": 4864,
+        "restored": true
+      },
+      {
+        "stages": 2,
+        "width": 1,
+        "input_terms": 2,
+        "coded_terminal_terms": 3402,
+        "restored": true
+      }
+    ],
+    "emission_cases": 7,
+    "all_width_evidence": "PROOF.md; finite executions corroborate rather than replace it",
+    "new_kappa": false,
+    "profitable_closure": false
+  },
+  "check_rounding.py": {
+    "status": "PASS_UNITARY_ROUNDING_CORROBORATION",
+    "dense_fixture_cases": 27,
+    "max_cells": 256,
+    "rounding": "nearest ties to even",
+    "scope": "Generic small unitary-code fixtures; no rounded physical p19 caller is asserted."
+  },
+  "check_invoice.py": {
+    "status": "PASS_EXACT_REPAIR_INVOICE",
+    "per_owner": true,
+    "owners": 1404928,
+    "negative_cohorts": 19,
+    "inverse_code_evaluations": 109,
+    "naive_per_stage_Q_jobs": 218,
+    "whole_word_Q_jobs": 38,
+    "saved_Q_jobs_against_naive_stagewise_repair": 180,
+    "full_targets": {
+      "25": 4,
+      "49": 4,
+      "73": 4,
+      "97": 4,
+      "121": 4,
+      "145": 4,
+      "169": 4,
+      "193": 4,
+      "217": 4,
+      "457": 2
+    },
+    "full_paid": {
+      "1": 58,
+      "8": 19,
+      "9": 19,
+      "15": 19,
+      "16": 19,
+      "24": 4,
+      "48": 4,
+      "72": 4,
+      "96": 4,
+      "120": 4,
+      "144": 4,
+      "168": 4,
+      "192": 4,
+      "216": 4
+    },
+    "drop_central_targets": {
+      "24": 2,
+      "25": 2,
+      "48": 2,
+      "49": 2,
+      "72": 2,
+      "73": 2,
+      "96": 2,
+      "97": 2,
+      "120": 2,
+      "121": 2,
+      "144": 2,
+      "145": 2,
+      "168": 2,
+      "169": 2,
+      "192": 2,
+      "193": 2,
+      "216": 2,
+      "217": 2,
+      "456": 1,
+      "457": 1
+    },
+    "drop_central_paid": {
+      "1": 39,
+      "8": 19,
+      "9": 19,
+      "15": 19,
+      "16": 19,
+      "24": 4,
+      "48": 4,
+      "72": 4,
+      "96": 4,
+      "120": 4,
+      "144": 4,
+      "168": 4,
+      "192": 4,
+      "216": 4
+    },
+    "repaired_rank_mass_surplus": -20,
+    "tests": [
+      {
+        "tested_kappa": "605457647/200000000000",
+        "ideal_unrepaired_margin": [
+          "47447480636830959414823383081817837582809940324292944396375/6277101735386680763835789423207666416102355444464034512896",
+          "47447480636830959414823383081817837582809940324292951892699/6277101735386680763835789423207666416102355444464034512896"
+        ],
+        "full_repair_margin": [
+          "-191082385307862909610936615000073486229079566565340367093673/6277101735386680763835789423207666416102355444464034512896",
+          "-191082385307862909610936615000073486229079566565340359597349/6277101735386680763835789423207666416102355444464034512896"
+        ],
+        "drop_central_margin": [
+          "-94523248174137788442948436616615154140527058033321960718185/3138550867693340381917894711603833208051177722232017256448",
+          "-189046496348275576885896873233230308281054116066643913936821/6277101735386680763835789423207666416102355444464034512896"
+        ]
+      },
+      {
+        "tested_kappa": "30272882489783/10000000000000000",
+        "ideal_unrepaired_margin": [
+          "23723740169032868145871807358069240851896128936999808377333/3138550867693340381917894711603833208051177722232017256448",
+          "23723740169032868145871807358069240851896128936999812161415/3138550867693340381917894711603833208051177722232017256448"
+        ],
+        "full_repair_margin": [
+          "-95541192803314066367008191682876421054048624507816847367691/3138550867693340381917894711603833208051177722232017256448",
+          "-95541192803314066367008191682876421054048624507816843583609/3138550867693340381917894711603833208051177722232017256448"
+        ],
+        "drop_central_margin": [
+          "-189046496637719774367540181035079527865422399455877562442821/6277101735386680763835789423207666416102355444464034512896",
+          "-189046496637719774367540181035079527865422399455877554894831/6277101735386680763835789423207666416102355444464034512896"
+        ]
+      },
+      {
+        "tested_kappa": "86103/25000000",
+        "ideal_unrepaired_margin": [
+          "4819257914801378251717252864796671972719709065110915402333/784637716923335095479473677900958302012794430558004314112",
+          "9638515829602756503434505729593343945439418130221832693655/1569275433846670190958947355801916604025588861116008628224"
+        ],
+        "full_repair_margin": [
+          "-24996975328285355376502746895439743503766479296093248533923/784637716923335095479473677900958302012794430558004314112",
+          "-49993950656570710753005493790879487007532958592186495178857/1569275433846670190958947355801916604025588861116008628224"
+        ],
+        "drop_central_margin": [
+          "-98831143001103638846163382100555992236775510448232130560331/3138550867693340381917894711603833208051177722232017256448",
+          "-197662286002207277692326764201111984473551020896464253576783/6277101735386680763835789423207666416102355444464034512896"
+        ]
+      }
+    ],
+    "newest_E_completion": {
+      "status": "PASS_RETAINED_E_N3_COMPOSITION_AND_COMPLETE_FIELD_BILL",
+      "endpoint": "diag(R73,R73) under the pinned E local contracts",
+      "negative_decoder_chronology": [
+        "Q",
+        "E3_inverse",
+        "E2",
+        "E1_inverse",
+        "Q"
+      ],
+      "paid": {
+        "8": 4214784,
+        "9": 4214784,
+        "15": 4214784,
+        "16": 4214784,
+        "25": 61440,
+        "1": 2809856
+      },
+      "targets": {
+        "73": 2809856
+      },
+      "ordinary_upper": {
+        "ADD": 2775106560,
+        "CLEAR": 25411584,
+        "OWN_ZERO": 21135360,
+        "SCALE": 11083776,
+        "SWAP": 26342400,
+        "field_monomial_pass": 50577408,
+        "COPY": 4276224,
+        "D": 63221760,
+        "P": 63221760,
+        "X": 84295680,
+        "phase": 25288704
+      },
+      "owned_peak_field_upper": 1425920,
+      "rank_mass_per_owner": "-375/343",
+      "moment_margin_per_owner": [
+        "-4023047588817187303316956439139127934605908697065298797407307/2153045895237631501995675772160229580723107917451163837923328",
+        "-1005761897204296825829239109784781983651477174266324684252247/538261473809407875498918943040057395180776979362790959480832"
+      ],
+      "spectrum_norm_E": "1",
+      "spectrum_norm_E_inverse": "1079",
+      "negative_decoder_operator_norm_upper": 1164241,
+      "scope": "Source-bound algebraic composition and field-level upper bill. The upstream E physical proof is retained; its full 41-file replay, ordinary TM tariff and odd-denominator precision implementation are not newly supplied.",
+      "k_specific_unitary_precision_applies": false,
+      "new_kappa": false
+    },
+    "new_kappa": false,
+    "scope": "Decoder bills are constructive. The p19 inventory is inherited planning arithmetic; no complete p19 native/controller emission or multiplier admission is claimed."
+  }
+}

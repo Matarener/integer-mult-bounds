@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "notes/copied-centers-complex.tex"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All source bytes; original 4058-event scalar/frame channel; all 280 columns of seven caller/return schedules; exact baseline coefficients, invoices and endpoint identities."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate quarter-integer schedule replay, independent root enumeration, all data and dirty columns, frame and cost controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Mathematical endpoint, dirty-state, chronology, source-byte, typed-receipt and actual isolated CLI failure controls."
+    }
+  ]
+}

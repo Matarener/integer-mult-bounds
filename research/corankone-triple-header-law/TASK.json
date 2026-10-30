@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read PROOF.md and AUDIT.md in #4100. Select one distinct obligation: CRT total repair, native/free-algebra lifting, precision/conditioning, or complete fixed-tape cost. This is an author-submitted proof, not an accepted unconditional theorem.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Check live handoffs; name one proposition, its caller, quantified domain and dependency closure. Independently prove the implication or exhibit a precise gap/counterexample. Prioritize CRT.md total repair or COMPLEX.md free-algebra lift only if unclaimed. Stop at the chosen obligation; do not substitute finite samples or root arithmetic for an all-size proof, or launch the complete package by default.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "One CRT repair, native lift, precision/conditioning or tape-cost proposition, with its exact caller."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test.",
+      "Treating archive intake, an author PASS receipt or a finite composed fixture as discharge of the universal hypotheses."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision",
+      "4100",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #4100: proposed unconditional construction and finite checks, without independent acceptance.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Independent proof audit of one caller-bound all-size implication; all other premises remain explicit.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact simultaneous full-leading-minor header law for k commuting corank-one requests I-U_t with pairwise orthogonal rank-one kernels over finite fields: a k by k transfer law for every field, a binary character law for every k, the k=3 binary closed form, the binary existence threshold m>=k+1, and strict negative correlation for k=3.",
+  "scope_change_reason": "Original counting work answering open question 2 of PR4261 (three or more corank-one requests with orthogonal kernels), not an audit of PR4100. Side result; no supplier admission.",
+  "bottleneck_link": "Shared-header pricing needs joint guard laws rather than products of marginals. The count fixes one overlapping family; producer and physical caller costs remain unknown, so kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Prove the k by k transfer, binary character law, threshold and k=3 closed form; corroborate with a literal header census; stop without a physical caller.",
+  "outcome": "completed",
+  "evidence": "PROOF.md gives Theorems 1-4. verify.py runs the transfer over F_2 and F_3, the binary character spectra for k<=4, the closed form, threshold and correlation checks, a literal census of 31,614 complete GL headers in five domains, and three controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is the number of passing binary headers at the threshold m=k+1 equal to 2 k! for every k>=3?",
+      "why_it_matters": "It would classify the minimal shared headers: only the row and column rectangle decompositions of J-I.",
+      "first_step": "Classify decompositions of J-I into k disjoint-support rank-one binary matrices; check k=5 by a vectorized walk.",
+      "blocked_by": "Only k=3,4 are checked; no classification proof is given."
+    },
+    {
+      "question": "Is the binary joint fraction strictly below the product of marginals for every k>=4?",
+      "why_it_matters": "It decides whether sharing one header across many overlapping requests is always penalized.",
+      "first_step": "Bound the second-largest |Z(c)|; the single-entry characters give 7*3^(k-2) with multiplicity k(k-1) and negative sign.",
+      "blocked_by": "No general bound on the negative part of the spectrum is proved."
+    },
+    {
+      "question": "Does an actual request producer admit a fully charged shared-header caller for such a family?",
+      "why_it_matters": "A joint density is not a physical saving.",
+      "first_step": "Pin a producer with orthogonal kernel lines and charge header selection, emission, dispatch, dirty return and stock.",
+      "blocked_by": "No producer or complete physical invoice is supplied."
+    }
+  ]
+}

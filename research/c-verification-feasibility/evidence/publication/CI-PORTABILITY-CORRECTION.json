@@ -1,0 +1,14 @@
+{
+  "status": "DOCUMENTED_CI_PORTABILITY_CORRECTION",
+  "failed_head": "ec0afa7633ff72e1c5ea26bb5726ec569a3f59ac",
+  "failed_run": 40505352497,
+  "hosted_python": "3.12.15",
+  "failure": "strict full-file fractions.py source hash rejected hosted release before native rational selection",
+  "known_local_sha256": "cf33568f7b767f66896995a7a81cc662e8be226f2e58efb61d2028f64eb5d231",
+  "official_3_12_15_sha256": "d52d1ab9d5be26924e4914a5e40069c992bbfa68f773694c2e5ee8452d0766a0",
+  "official_source": "https://raw.githubusercontent.com/python/cpython/v3.12.15/Lib/fractions.py",
+  "reviewed_difference": "One hunk in Fraction.__pow__: only float/complex exponents use float fallback; foreign types return NotImplemented. Outside the C score-batching guarded DIRECT/WRAPPED/factory set.",
+  "repair": "Explicit two-hash allowlist; exact live code/default/closure/MRO/descriptors/global arithmetic checks retained. Check source even when expected-code cache populated. Added unknown-source rejection control.",
+  "performance": "All original samples and failed gates retained; no timing or numerical actual-word reroll.",
+  "diagnostic_precision": "The first binder swallowed its failure reason; official/local source incompatibility is independently verified. Hosted actual hash is emitted by the corrected replay and further gates must still pass."
+}

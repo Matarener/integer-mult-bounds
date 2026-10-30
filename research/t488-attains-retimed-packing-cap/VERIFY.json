@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Exact identity PROFILE_488 = 4392*local_bill + 488*ideal_idle_per_replica against PR3642's published optimal packing vertex; T740 convention cross-check; aggregate rank-mass/live/physical identities; residual decomposition and per-replica idle mass; capacity feasibility; 80-digit moment straddle at the two published 10^-24 endpoints, positive derivative and one-step-outside margin; released 70-digit string; delta over the pinned T530 floor against the published headroom to one grid step; seven rejection controls; RESULT.json byte match in read mode"
+    }
+  ]
+}

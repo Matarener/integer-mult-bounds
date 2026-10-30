@@ -52,7 +52,7 @@ class ScaffoldBatchTests(unittest.TestCase):
             return child
         with patch.object(subprocess, 'Popen', side_effect=tracked):
             target = self.create(sources=self.inputs + self.inputs[:3])
-        self.assertEqual(len(commands), 3, commands)
+        self.assertEqual(len(commands), 2, commands)
         self.assertTrue(all(child.poll() is not None for child in children))
         rows = json.loads((target / 'SOURCES.json').read_bytes())['files']
         expected = []
@@ -101,6 +101,41 @@ class ScaffoldBatchTests(unittest.TestCase):
                 self.create('late-failure')
         self.assertEqual(closed, [True])
         self.assertFalse((self.root / 'research/late-failure').exists())
+
+    def test_catalogue_is_requested_once_even_when_explicitly_duplicated(self):
+        original = scaffold.git_blobs
+        requests = []
+        def tracked(root, specs):
+            requests.extend(specs)
+            yield from original(root, specs)
+        name = 'docs/research/agent-task-catalog.json'
+        with patch.object(scaffold, 'git_blobs', side_effect=tracked):
+            target = self.create(sources=[name, name, self.inputs[0]])
+        self.assertEqual(sum(spec.endswith(':' + name) for spec in requests), 1)
+        rows = json.loads((target / 'SOURCES.json').read_bytes())['files']
+        self.assertEqual([row['path'] for row in rows], sorted(row['path'] for row in rows))
+        self.assertEqual(next(row['usage'] for row in rows if row['path'] == name), 'input')
+
+    def test_unknown_task_closes_reader_without_publishing(self):
+        original = scaffold.git_blobs
+        closed = []
+        def tracked(*args):
+            try:
+                yield from original(*args)
+            finally:
+                closed.append(True)
+        with patch.object(scaffold, 'git_blobs', side_effect=tracked):
+            with self.assertRaisesRegex(ValueError, 'unknown task in the pinned catalogue'):
+                scaffold.create(self.root, 'unknown', 'missing', 'Fixture', self.inputs)
+        self.assertEqual(closed, [True])
+        self.assertFalse((self.root / 'research/unknown').exists())
+
+    def test_live_catalogue_drift_rejects_without_publishing(self):
+        name = 'docs/research/agent-task-catalog.json'
+        (self.root / name).write_bytes(self.data[name] + b'\n')
+        with self.assertRaisesRegex(ValueError, 'source has uncommitted changes'):
+            self.create('catalogue-drift')
+        self.assertFalse((self.root / 'research/catalogue-drift').exists())
 
 
 if __name__ == '__main__':

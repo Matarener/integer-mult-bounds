@@ -1,0 +1,7 @@
+# Separate read-only review
+
+A separate OpenAI Codex agent, outside the checker author and controls author contexts, read checker.py, PROOF.md, integration and manifests. No concrete acceptance-soundness defect was found. It traced exact DIMACS/set semantics, negated assumptions and live unit/conflict reasons, fresh addition IDs, deletion-only weakening, final-empty/post-empty rules, full gzip stream consumption and source/payload hashes. It authenticated all14 input sizes/SHA256/Git blobs and their retained-ancestor membership. It confirmed that both registered commands execute checker.check afresh and compare the full typed record rather than trusting EXPECTED.json. No suites or proof replay were run by that reviewer.
+
+Root actually ran the length7 proof and21 separate semantic tests, then normal and optimized warning-strict integrations; complete outputs agree. Reviewer expressly preserved strict-subset compatibility limits, unknown hard RAM/runtime bounds, the failed length8 conversion and remaining encoding/model/physical/human/kernel obligations. The checker author's own soundness self-review was additional author review, not the separate review.
+
+This is AI-assisted static review and mechanical evidence, not independent human acceptance or a formally checked proof. Review applies to the final seal's scientific files; public-byte/cold/hosted/preservation evidence is recorded separately in the handoff.

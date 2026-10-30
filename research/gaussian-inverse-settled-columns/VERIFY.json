@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/physical-gaussian-core/gaussian_matrix.py",
+    "research/physical-gaussian-core/gaussian_rationals.py",
+    "research/physical-gaussian-core/gaussian_sources.py",
+    "research/physical-gaussian-core/inputs/branchfree-source.tar",
+    "research/physical-gaussian-core/inputs/word-export.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Ten paired encoded inverse fixtures, 81 exact rational matrices, literal two-sided inverse identities, source preservation, scratch cleanup, exact saved reads, full pooled meters and eight same-domain rejection executions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Identical explicit conformance and rejection checks with assertions disabled."
+    }
+  ]
+}

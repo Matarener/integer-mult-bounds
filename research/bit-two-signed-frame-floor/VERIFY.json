@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-single-scaled-frame-floor/README.md",
+    "research/bit-two-positive-frames-seven-call/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source pins; elementary sign-reduction partition; independent signed support census; positive and negative controls. Predecessor theorem replays are not included."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source pins; elementary sign-reduction partition; independent signed support census; positive and negative controls. Predecessor theorem replays are not included."
+    }
+  ]
+}

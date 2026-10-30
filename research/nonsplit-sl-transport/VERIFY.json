@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/nonsplit-sl-transport/vendor/recognize.py",
+    "research/nonsplit-sl-transport/vendor/local.py",
+    "research/nonsplit-sl-transport/vendor/split.py",
+    "research/nonsplit-sl-transport/vendor/recognition-proof.md",
+    "research/nonsplit-sl-transport/vendor/recognition-readme.md",
+    "research/nonsplit-sl-transport/vendor/split-recognition-proof.md",
+    "research/nonsplit-sl-transport/character_model.py",
+    "research/nonsplit-sl-transport/vendor/character-proof.md",
+    "research/nonsplit-sl-transport/vendor/character-readme.md",
+    "research/nonsplit-sl-transport/vendor/ORIGINS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent field-table bridge, normalization, SL/covariant transport and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent field-table bridge, normalization, SL/covariant transport and rejection controls under optimization."
+    }
+  ]
+}

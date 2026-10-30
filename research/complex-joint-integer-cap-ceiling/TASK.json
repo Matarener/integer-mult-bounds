@@ -1,0 +1,78 @@
+{
+ "actual_scope": "Replace the two fractional relaxations inside the rank-cap continuation of the selected complex local word's packing ceiling by the attained optimum over joint integer packings: local paid mass 5586 in integer children of rank <= cap and idle remainder 1646 in integer children of rank <= 51, for every cap s = 1..51 the halving guard allows. Report the exact ceiling curve, its integrality loss, the planning-target crossing cap and an independent reproduction of the published rank-cap column.",
+ "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+ "author": "Nick Petalas",
+ "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+ "bottleneck_link": "Rank shape is the one lever that raises the complex side's ceiling without touching the coverage law, the centre charge or the outer guard, and the complex side binds. The corrected curve says how much of a cap-s hop survives integrality, and the crossing cap shows the guard-cap arithmetic target is reached with both pools integral.",
+ "budget_minutes": 60,
+ "evidence": "RESULT.json: 51 cap rows, each a bracket witnessed by an explicit joint integer packing and rejected by a certified lower bound; class relaxation reproduced against the pinned parent ceiling() at caps 8, 16 and 51; the live rank-cap column reproduced at its own grid at caps 44 and 51; the paid dynamic-program optimum equals the largest-first greedy cost at all 51 caps; crossing cap for a = 1/99 is 44 under the joint integer model; worst integrality loss over the curve 1.35033% against the published 0.66054%, which counts only the paid-mass rounding.",
+ "open_questions": [
+  {
+   "blocked_by": "The candidate histograms live inside their own packages; this package pins only the selected record, the parent model and the level-0 hook, not a candidate census.",
+   "first_step": "For each published candidate histogram, evaluate its own certified moment at the joint ceiling of its cap and compare it with the mixed figure it was screened against.",
+   "question": "Does any candidate packing that was screened against a cap-s ceiling survive the joint integer curve of the same class?",
+   "why_it_matters": "Such a candidate was screened against a figure that mixes an integer paid histogram with a fractional idle block. The certified joint curve is lower by up to 1.35% of the ceiling, so a candidate sitting near its own cap's ceiling can be rejected by the corrected value."
+  },
+  {
+   "blocked_by": "The per-call idle masses of other words on a comparable template live inside their own packages, the same blocker the parent package records.",
+   "first_step": "Record the same rows at a second idle mass and port count and fit the two shares against the cap and the idle mass modulo the guard.",
+   "question": "Does the idle remainder's share of the integrality loss keep falling as the cap grows?",
+   "why_it_matters": "At cap 1 the whole loss is the idle rounding and at cap 51 the idle share is 0.51 of it, so the shape of the curve, not one constant, decides where integrality matters for a screening decision."
+  }
+ ],
+ "original_card": {
+  "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+  "allowed_variations": [
+   "One masked, overcomplete or block decoder family with exact labels and supports.",
+   "A scoped lower bound on effective rank for one alphabet.",
+   "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+  ],
+  "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+  "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+  "first_step": {
+   "command": [
+    "python3",
+    "-B",
+    "research/complex-local-word-ceiling/verify.py"
+   ],
+   "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+   "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+   "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+  },
+  "id": "complex-rank-shape-decoder",
+  "methods": [
+   "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+   "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+  ],
+  "overlap_terms": [
+   "rank shape",
+   "block climb",
+   "masked decoder",
+   "overcomplete",
+   "effective rank"
+  ],
+  "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+  "scope_change_triggers": [
+   "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+   "Repeating the eight-term all-pairs search inside its proved scope.",
+   "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+   "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+   "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+  ],
+  "starting_points": [
+   "docs/research/research-family-status.md",
+   "research/complex-local-word-ceiling/README.md",
+   "research/complex-decoder-field-extension-seed44/README.md",
+   "research/complex-frame-pair-decoders/README.md",
+   "research/selected-k8-unrestricted-ends/README.md",
+   "research/eisenstein-reduction-copy-floor/README.md"
+  ]
+ },
+ "outcome": "completed",
+ "priority_revision": 6,
+ "schema_version": 1,
+ "scope_change_reason": "The card asks for one exact small decoding identity whose frame path climbs in blocks, priced as a complete per-call profile. Its screening tool is the packing ceiling of the same local word, and the live rank-cap continuation of that tool reports a ceiling built from a fractional idle block plus an integer paid histogram, so its integrality-loss column measures only half of the rounding and its ceilings are not attainable by any real packing. This package first recomputes that whole class under integrality of both pools, certifies each cap in both directions and reproduces the published column as a control. No decoder, frame path or supplier is synthesized here, so the card's construction question is untouched; only the budget such a candidate would be screened against is corrected.",
+ "scope_status": "changed",
+ "stop_rule": "Stop after the 51-cap joint integer curve, its crossing cap, its integrality-loss curve and the reproduction of the published column. Do not extract idle histograms of other local words and do not enlarge the cap range beyond the halving guard.",
+ "task_id": "complex-rank-shape-decoder"
+}

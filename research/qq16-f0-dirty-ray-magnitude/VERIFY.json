@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-query/certificate.json.gz",
+    "research/qq16-producer-defect-transfer/README.md",
+    "research/qq16-producer-dirty-fault/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Dense and sparse forward scans of the F0 scalar projection: dirty-ray peaks 128 and 68, data-ray peak 1, exact restoration, and the non-restoring unit injection at event 24280."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Synthetic peak, coefficient-63 mutation of event 24280, and the published ledger constants."
+    }
+  ]
+}

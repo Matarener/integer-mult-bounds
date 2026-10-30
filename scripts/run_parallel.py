@@ -116,6 +116,8 @@ def run_all(commands, cwd=None):
 
     Controlling exceptions stop active ordinary process trees and prevent
     queued launches. Normal completion retains one output block per script.
+    POSIX groups are also stopped after normal leader exit, before releasing
+    ownership; closed capture streams do not imply that every solver exited.
     """
     # Inherited optimization must not erase assertions in verification scripts
     # or their Python children. Deliberate -O/-OO argv controls remain explicit.
@@ -153,6 +155,11 @@ def run_all(commands, cwd=None):
                 # Unexpected output errors leave the process owned by the
                 # controlling cleanup path, even after this worker returns.
                 if finished:
+                    # Serialize normal cleanup with cancellation's snapshot:
+                    # exactly one owner may stop this completed process group.
+                    # Windows exited leaders need a separate Job Object design.
+                    if not stopping and os.name != 'nt':
+                        stop_script(process)
                     active.discard(process)
 
     failed = []

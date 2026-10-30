@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/unconditional-batched-crt/HALO.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The coefficient-9 approximant exponent is at most -C p - 4, and the face factor 2 spends one bit, leaving 2 g (9 p^2 + p^6 exp(-p^2))^{g-1} p^6 exp(K p - p^2) below 2^{-C p} with exponent at most -C p - 3."
+    }
+  ]
+}

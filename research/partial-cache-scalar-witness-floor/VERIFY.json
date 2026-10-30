@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coded-native-caller/NORMALIZERS.json",
+    "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+    "research/native-rank8-helper-provider/PROVIDER.json",
+    "research/native-rank8-helper-provider/WORD.json.gz",
+    "research/partial-cache-history-observer/KERNEL.json",
+    "research/partial-cache-history-observer/SOURCES.json",
+    "research/partial-cache-history-observer/verify.py",
+    "research/partial-cache-minimax-floor/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Pinned PR5498 replay, exact scalar kernel, (7/92) I optimum certificate, attaining witnesses, PR5537 1/19 control and mutation controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Same checks under -O; all assertions are explicit exceptions."
+    }
+  ]
+}

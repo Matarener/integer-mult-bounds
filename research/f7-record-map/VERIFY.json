@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/census-prune-source-impact/README.md",
+    "research/connector-b-occupancy-sat/README.md",
+    "research/connector-caller-exhaustion-audit/README.md",
+    "research/connector-capacity-parity-audit/README.md",
+    "research/connector-covering-code/README.md",
+    "research/connector-domain-completeness/README.md",
+    "research/connector-path-propagation-audit/README.md",
+    "research/connector-search-exhaustion-audit/README.md",
+    "research/f7-independent-full-replay/README.md",
+    "research/f7-l22-census-probe/README.md",
+    "research/f7-l22-confinement-audit/README.md",
+    "research/f7-l22-deep-shard-census/README.md",
+    "research/f7-l22-deep-shard-census/RESULT.json",
+    "research/f7-l22-receipt-domain/README.md",
+    "research/f7-l22-split-domain/README.md",
+    "research/f7-l22-union-census/README.md",
+    "research/f7-union-support-audit/FULL.json",
+    "research/f7-union-support-audit/README.md",
+    "research/f7-union-support-audit/census.cpp",
+    "research/f7-weight-parity-census-correction/README.md",
+    "research/l22-split-domain/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Input pins; 21 quoted scope sentences of the record map against their pinned READMEs; length-24 witness by direct XOR; #4221 receipt plus #3731/#3818 close the eleven-split #3708 domain; #3005 engine rebuilt with exactly two changed lines; L18/L20 summaries equal #3005 FULL.json; capped n=6 L22 positive control with every hit checked directly; capped n=7 run fails closed; exact replay of L22 splits (11,6), (10,7), (11,7). Requires a C++20 compiler."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--splits",
+        "9:9,10:8",
+        "--workers",
+        "2"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Same checks, then exact uncapped replay of L22 splits (9,9) and (10,8) on the lifted #3005 engine (about 6.2e8 entered nodes)."
+    }
+  ]
+}

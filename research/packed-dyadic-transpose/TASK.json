@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Opt-in exact packed-integer backend for the complete dyadic transpose endpoint checkpoint, with a bound-planning pass and five alternating fresh-process benchmark pairs on the selected PR5599 word.",
+  "scope_change_reason": "Restrict the replay-runtime card to the complete transpose endpoint checkpoint. This excludes native-state and whole-supplier acceleration and preserves a bounded same-fixture comparison.",
+  "bottleneck_link": "Speeds a complete scalar endpoint checkpoint without removing any coefficient; native, caller, invoice and compiler checks stay external.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first verified backend speedup; no further tuning, new supplier audit or construction search.",
+  "outcome": "completed",
+  "evidence": "PROOF.md; 4841 chronological dense-oracle words and wrong-endpoint controls; all 571536 selected checkpoint coefficients; source-bound five-pair BENCHMARK.json.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can this opt-in endpoint backend be wired into a complete successor replay without changing its surrounding checks?",
+      "why_it_matters": "Only complete integration can establish a whole-replay gain.",
+      "first_step": "Bind one literal source call site, retain its original controls and compare the complete scientific output.",
+      "blocked_by": "This package benchmarks the transpose checkpoint only; no full supplier replay is performed."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19228421",
+  "playbook": "Autonomous local run",
+  "overlap": {
+    "entry_coverage": "Cached search fetched 393 open PRs and 5635 Discussion records with complete pagination; local notes searched 62 of 8136 and were incomplete. Separate main README and distinctive merged searches were read.",
+    "related_predecessor": "PR5757 accelerates native quadratic states and preserves the original reverse-column checkpoint. It does not supply this packed backend.",
+    "source": "original",
+    "limitations": "No arbitrary diff or unpublished-work coverage; no novelty certificate.",
+    "packed_predecessor": "Sagar Thakrar PR1781 already uses exact packed integer matrices and signed-radix injectivity for Clifford recipes. This contribution claims only a new dyadic trace-bound planner/backend and measured scalar-transpose application, not that method."
+  }
+}

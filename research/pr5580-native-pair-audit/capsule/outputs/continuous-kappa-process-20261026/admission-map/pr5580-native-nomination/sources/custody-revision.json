@@ -1,0 +1,63 @@
+{
+  "schema": "source-custody-revision/v1",
+  "revision": "20261025T204435Z",
+  "authority": "Root explicitly requested preserve both immutable versions and restore historical derived-pretty path; no silent source-pin repair",
+  "reason": "Curator replaced an already shared derived-pretty RESULT convenience file with exact captured author text after downstream proof pins were created. Cardworker stopped before request freeze.",
+  "source_head_unchanged": "6efa248cf456d6101d757e9d09ba29711d18a13a",
+  "word_unchanged": true,
+  "scientific_execution": false,
+  "parsed_JSON_equality": true,
+  "historical_derived_serialization": {
+    "path": "PR5580-RESULT.json",
+    "preserved_copy": "custody-revisions/20261025T204435Z/PR5580-RESULT-derived-pretty.json",
+    "sha256": "7962660bd5780b518be592aa7413e5534f50420e22ec6d27516c7ce409129a3c",
+    "format": "JSON.parse author text followed by JSON.stringify(...,null,2) plus newline; derived, not the author Git blob"
+  },
+  "exact_author_serialization": {
+    "path": "PR5580-RESULT-raw.json",
+    "preserved_drift_copy": "custody-revisions/20261025T204435Z/PR5580-RESULT-at-drift.json",
+    "sha256": "aab659f8cfed61fb5e2dca1f5bff1cdd7a493733a4b36d5433d7c332c5ccf78c",
+    "git_blob": "9eca7f2d6c2f09886ccd57a32fed8462bb539aa6",
+    "format": "Exact author UTF-8 source text from PR5580-SOURCE-CAPTURE.json"
+  },
+  "source_files": {
+    "PR5580-SOURCE-CAPTURE.json": {
+      "bytes": 205424,
+      "sha256": "f5e65eed4d2ab3a7154bcdb631cdc48cef8c7ed7f8edad7a5481766b5055e5d8"
+    },
+    "PR5580-RESULT.json": {
+      "bytes": 11625,
+      "sha256": "7962660bd5780b518be592aa7413e5534f50420e22ec6d27516c7ce409129a3c"
+    },
+    "PR5580-RESULT-raw.json": {
+      "bytes": 11625,
+      "sha256": "aab659f8cfed61fb5e2dca1f5bff1cdd7a493733a4b36d5433d7c332c5ccf78c"
+    },
+    "PR5580-SOURCES.json": {
+      "bytes": 2856,
+      "sha256": "bdacaa7ec193d809dce886360d102fe5f73c970265d9c2676bef3710c46db3b2"
+    },
+    "PR5580-WORD.json.gz": {
+      "bytes": 105115,
+      "sha256": "b2a98c4bd0dbe86c09e9d15ee060dcf1aab09dbef90aa1e2127676f4039f406b"
+    },
+    "SOURCE-CUSTODY.json": {
+      "bytes": 4076,
+      "sha256": "a2bf8474cf6cf035b6ce2924cd53549d0919ecfb133767b1a1a54620258e6c78"
+    },
+    "PR5580-INVARIANT-BINDING.json": {
+      "bytes": 3644,
+      "sha256": "e50aafde1a0533d9fd52759aca6b2f35e684987514a8201860fc905526275503"
+    },
+    "PR5580-TASK-SUPPLEMENT.json": {
+      "bytes": 8552,
+      "sha256": "7b7d92ad03ad1c68d3b6d3391a2eb2de92f3b03cdf4a255404b9c150871d1730"
+    },
+    "INVARIANT-SUPPLEMENT-CUSTODY.json": {
+      "bytes": 384,
+      "sha256": "573cc844b8506fb4f6edf6560a595c30799538d64ffd5235366dac38131d5c7b"
+    }
+  },
+  "historical_index": "Original FILES.sha256 is retained unchanged as the pre-revision index, with copied bytes in custody-revisions/20261025T204435Z/FILES-before-revision.sha256. Use this revision manifest and FILES-after-revision.sha256 for current bindings.",
+  "downstream_gate": "Astra and cardworker must acknowledge this revision and prepare a new explicit request/change note before freeze; do not rewrite historical proof/request snapshots or silently substitute hashes."
+}

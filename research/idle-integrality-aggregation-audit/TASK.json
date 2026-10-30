@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "task_id": "selected-packing",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "selected-packing",
+    "question": "Is there a genuinely unsearched, explicitly bounded improvement to the selected packing?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/heterogeneous-owner-assembly/README.md",
+      "research/complex-local-word-ceiling/README.md"
+    ],
+    "methods": [
+      "Search a named unclaimed canonical candidate domain with a reproducible partition.",
+      "Prove a stronger scoped relaxation or exact optimum for one named residual subproblem."
+    ],
+    "acceptance_gate": "Check live PR overlap first, price both suppliers and distinguish a search best from an optimum. Report the word's packing cap from ceiling.ceiling() and the fraction of it realized; label packing gains as such.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Locate the selected packing source in the review and check live PRs for the same residual problem.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Define an unclaimed canonical domain and a favorable bound before starting a new search.",
+    "bottleneck_link": "An actual paid-profile gain can improve the frontier up to the other supplier cap.",
+    "allowed_variations": [
+      "One bounded residual packing instance or exact relaxation.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Rerunning an existing search with only a different seed as a separate mathematical contribution."
+    ],
+    "overlap_terms": [
+      "T16",
+      "owner exchange",
+      "packing"
+    ],
+    "existing_checks": [
+      {
+        "scope": "Packing-independent ceiling for the selected paid profile under the one-unpaid-coordinate coverage and halving guard.",
+        "evidence": "docs/research/community-efficient1000-review.md",
+        "remaining": "A changed word or model requires new pricing; a local packing search must name uncovered scope.",
+        "status": "reviewed",
+        "source_commit": "836b19bfa309ceafbc8ee32a15e8c4b10dde7e11",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Source-bound independent audit of PR3729: integrality of a pooled 144-call idle invoice versus integrality after per-call normalization; a counterexample to the stronger ceiling in the stated unrestricted aggregate model.",
+  "scope_change_reason": "The initial generic complex-mechanism suggestions overlap newer idle-ceiling work. Handoff-first/live inspection found a precise new acceptance-boundary claim in PR3729. This session audits that claim instead of searching a new packing; PR1685 already supplies the aggregate optimum theorem.",
+  "bottleneck_link": "Prevent an unjustified reduction of the selected word packing headroom: identify the aggregation unit required for an integer ceiling before using it to reject candidates.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish the one normalization/acceptance implication using exact source-bound signs; stop without owner synthesis or claiming the pooled witness is physically admissible.",
+  "outcome": "completed",
+  "evidence": "RESULT.json records the actual selected decomposition, strict counterexample and corrected fixed-144-call root bracket, with a separately implemented positive-binomial sign check. README.md gives the proof boundary and predecessor credit.",
+  "author": "Arham Tahir, with OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance at Arham Tahir\u2019s direction throughout source reading, mathematics, implementation, verification and prose; no independent human or proof-kernel review.",
+  "open_questions": [
+    {
+      "question": "Can the physical owner/controller contract imply an applicable local-mass restriction stronger than aggregate conservation?",
+      "why_it_matters": "Such a restriction could support a stronger necessary ceiling; per-call integrality of child counts alone cannot.",
+      "first_step": "Extract the actual per-family residual/owner intervals from the selected source and state an inequality they impose on admissible idle histograms, retaining cross-call/cross-replica assignments.",
+      "blocked_by": "No physical legal-group characterization is proved here; the aggregate optimum is a relaxation witness."
+    }
+  ],
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2278#discussioncomment-19022491",
+    "feedback": "https://github.com/CrocSwap/integer-mult-bounds/pull/3729#issuecomment-6254060645",
+    "entry_upstream": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "entry_priority_revision": 6,
+    "entry_checked_at_utc": "2026-10-18T19:14:09Z",
+    "overlap_snapshot_at_utc": "2026-10-18T19:16:28Z",
+    "overlap_coverage": {
+      "open_pr_bodies": 444,
+      "discussion_records": 2495,
+      "complete_pagination": true,
+      "warnings": []
+    },
+    "coverage_limit": "Bounded non-atomic body/comment/local-note search; not a novelty proof. Initial latest-40 handoffs were read before task selection; full Discussion corpus then refreshed.",
+    "submission_checkpoint": {
+      "upstream_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+      "priority_revision": 6,
+      "upstream_checked_at_utc": "2026-10-18T19:26:19Z",
+      "priority_catalogue_selected_and_scientific_inputs_changed": false,
+      "decision": "Continue and submit the preserved source-bound audit; no relevant upstream input or audited PR head changed.",
+      "live_overlap_searched_at": "2026-10-18T19:27:03.009532+00:00",
+      "live_overlap_coverage": {
+        "open_prs": {
+          "fetched_at": "2026-10-18T19:26:19.787339+00:00",
+          "complete_pagination": true,
+          "records": 450
+        },
+        "discussions": {
+          "fetched_at": "2026-10-18T19:27:02.834760+00:00",
+          "complete_pagination": true,
+          "records": 2502
+        }
+      },
+      "warnings": [],
+      "audited_pr_head": "c7c68f89e020f9e62f38514afdfc99dda01430d4",
+      "relevant_delta": "No matching aggregation correction appeared in the searched update; PR3729 retained the audited head and the posted feedback had no reply at the checked snapshot."
+    }
+  },
+  "validation": {
+    "registered_python": "CPython 3.12.14",
+    "registered_commands": "VERIFY.json normal and -O commands passed after the final scientific changes",
+    "git_free_python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "git_free_checks": [
+      "git-free optimized direct replay",
+      "export bytes unchanged",
+      "audited_source_tamper",
+      "live_engine_tamper",
+      "receipt_tamper",
+      "unscaled_local_invoice"
+    ],
+    "git_free_export_files": 14,
+    "scope_limits": "Author checks, not independent human review or hosted CI. No full selected cold replay, physical realization or proof assistant run."
+  }
+}

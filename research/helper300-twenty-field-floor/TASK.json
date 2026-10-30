@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 7,
+  "base_commit": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact paid-climb floor for arbitrary rational ADD/SCALE refactorizations of the twenty-field dependency closure of backward provider events [9044,9137), with fixed boundary frames, monotone climbs, no added warp or auxiliary field.",
+  "scope_change_reason": "Explicit user-assigned twenty-field follow-up to PR5471, changing the output interface and adding twelve carriers. This tests changed scalar graphs on the selected PR5413 provider; it is a scoped obstruction, not the original card's 5% supplier-expansion gate.",
+  "bottleneck_link": "Larger-rank delivery would lower the concave paid moment at fixed rank mass. Exact information-flow cuts decide whether this enlarged boundary permits a merge.",
+  "budget_minutes": 60,
+  "stop_rule": "One bounded twenty-field experiment. Stop at a legal exact construction, scoped obstruction, or explicit feasibility gap. Do not enlarge the interval again after this fixed-model ceiling.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md establishes the path and cut-rank implications. RESULT.json records exact source transfer, 68 ordered domain eliminations, 315 reachability and 132 rank-cut witnesses among 448 reduced assignments; the sole survivor is the retained 38-H1 trajectory. Three separately authored checkers audit source, matrix and all pruning/cut witnesses. No kappa change or full supplier replay.",
+  "author": "apoursh",
+  "ai_assistance": "Substantial OpenAI Codex assistance: coordinator, synthesis worker, separate mathematical auditor and separately authored source/cut checker. Worker separation is not independent human or formal-kernel verification.",
+  "open_questions": [
+    {
+      "question": "Can a native map or auxiliary transport provide enough independent channels for a positive complete gain?",
+      "why_it_matters": "Warps and extra carriers are outside the proved information-flow contract.",
+      "first_step": "Specify one producer/consumer boundary and its complete signed invoice, including transport, restoration and productive-target debits, before synthesis.",
+      "blocked_by": "No legal fully charged escape is supplied; one extra H1 exceeds one pairwise merge saving."
+    },
+    {
+      "question": "Which different bottleneck has a source-bound budget and open supplier obligation?",
+      "why_it_matters": "Two fixed-boundary experiments now give exact no-gain floors; simple interval growth is not justified.",
+      "first_step": "Refresh canonical family status and live handoffs, then inspect an identified obligation with a materially different transport premise.",
+      "blocked_by": "No new family or larger boundary is selected or searched in this session."
+    }
+  ],
+  "coordination_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5470",
+  "expansion_decision": {
+    "recorded_before_substantial_search": true,
+    "changed_interface": "Twenty rather than eight arbitrary fields; exit rank up to three and four zero-frame helpers. The previous two-carrier lemma does not transfer.",
+    "candidate_invoice_before_search": "Unknown; exact boundary extraction first. Retained invoice 38 H1; endpoint relaxation 3 H1 + 16 H2 + H3 is infeasible.",
+    "consumer_restoration": "Zero only for exact same-boundary equality; unknown for any changed interface. Native/phase/caller obligations remain before a positive supplier claim.",
+    "alternative": "Paid auxiliary transport incurs at least H1, exceeding a single H1+H1 to H2 saving; defer absent an independently priced compensating gain.",
+    "post_result_decision": "Two no-gain fixed-boundary rounds; close this session and require a changed priced information-transport premise before another construction round."
+  },
+  "predecessors": [
+    {
+      "pr": 5471,
+      "head": "77d29520c4f90a65787873d6becc205796630c23",
+      "usage": "Motivation and attribution only; no scientific input dependency."
+    },
+    {
+      "pr": 5465,
+      "head": "b123ff44a211b9fc96b9f8fd1538e9965a95b34e",
+      "usage": "Fixed-word reorder motivation and attribution only; no scientific input dependency."
+    }
+  ]
+}

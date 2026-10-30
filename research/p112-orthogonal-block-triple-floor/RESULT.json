@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "local_tables": [
+    {
+      "family": "MMM",
+      "membership": 1,
+      "minimum": 2,
+      "histogram": {
+        "2": 2
+      }
+    },
+    {
+      "family": "MMM",
+      "membership": 2,
+      "minimum": 2,
+      "histogram": {
+        "2": 2
+      }
+    },
+    {
+      "family": "MMM",
+      "membership": 3,
+      "minimum": 3,
+      "histogram": {
+        "3": 4
+      }
+    },
+    {
+      "family": "MMM",
+      "membership": 4,
+      "minimum": 2,
+      "histogram": {
+        "2": 2
+      }
+    },
+    {
+      "family": "MMM",
+      "membership": 5,
+      "minimum": 3,
+      "histogram": {
+        "3": 4
+      }
+    },
+    {
+      "family": "MMM",
+      "membership": 6,
+      "minimum": 3,
+      "histogram": {
+        "3": 4
+      }
+    },
+    {
+      "family": "MMM",
+      "membership": 7,
+      "minimum": 3,
+      "histogram": {
+        "3": 4,
+        "4": 4
+      }
+    },
+    {
+      "family": "VVV",
+      "membership": 1,
+      "minimum": 1,
+      "histogram": {
+        "1": 1,
+        "2": 1,
+        "3": 1
+      }
+    },
+    {
+      "family": "VVV",
+      "membership": 2,
+      "minimum": 1,
+      "histogram": {
+        "1": 1,
+        "2": 1,
+        "3": 1
+      }
+    },
+    {
+      "family": "VVV",
+      "membership": 3,
+      "minimum": 3,
+      "histogram": {
+        "3": 4,
+        "4": 5
+      }
+    },
+    {
+      "family": "VVV",
+      "membership": 4,
+      "minimum": 1,
+      "histogram": {
+        "1": 1,
+        "2": 1,
+        "3": 1
+      }
+    },
+    {
+      "family": "VVV",
+      "membership": 5,
+      "minimum": 3,
+      "histogram": {
+        "3": 4,
+        "4": 5
+      }
+    },
+    {
+      "family": "VVV",
+      "membership": 6,
+      "minimum": 3,
+      "histogram": {
+        "3": 4,
+        "4": 5
+      }
+    },
+    {
+      "family": "VVV",
+      "membership": 7,
+      "minimum": 3,
+      "histogram": {
+        "3": 4,
+        "4": 23
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "name": "common2",
+      "family": "MMM",
+      "dimensions": [
+        0,
+        0,
+        2
+      ],
+      "original": 6,
+      "floor": 6,
+      "minimum": 6,
+      "assignments": 8,
+      "histogram": {
+        "6": 4,
+        "8": 4
+      },
+      "charge_sha256": "e773c329aebb4ab501b02547f229a34716dabd75413ec268ff10073332282187"
+    },
+    {
+      "name": "common2",
+      "family": "VVV",
+      "dimensions": [
+        0,
+        0,
+        2
+      ],
+      "original": 6,
+      "floor": 6,
+      "minimum": 6,
+      "assignments": 27,
+      "histogram": {
+        "6": 4,
+        "8": 23
+      },
+      "charge_sha256": "5566d4edf01b398e6959145f24e6a5eb72599351cc41a0bafed8dc5902ee060d"
+    },
+    {
+      "name": "nested6-4-2",
+      "family": "MMM",
+      "dimensions": [
+        2,
+        2,
+        2
+      ],
+      "original": 12,
+      "floor": 16,
+      "minimum": 16,
+      "assignments": 64,
+      "histogram": {
+        "16": 32,
+        "18": 32
+      },
+      "charge_sha256": "db8e74b0ec47919e9eea6ce63fe9517f211de15f7f2ed4a354f8cdf9b4be7bc7"
+    },
+    {
+      "name": "nested6-4-2",
+      "family": "VVV",
+      "dimensions": [
+        2,
+        2,
+        2
+      ],
+      "original": 12,
+      "floor": 14,
+      "minimum": 14,
+      "assignments": 729,
+      "histogram": {
+        "14": 16,
+        "16": 128,
+        "18": 243,
+        "20": 227,
+        "22": 115
+      },
+      "charge_sha256": "cc447cc7c096a93bfb949b12f42d5f59a36a349d70ee01c1c7b74b6803638477"
+    },
+    {
+      "name": "pairwise-overlap-no-equal-spans",
+      "family": "MMM",
+      "dimensions": [
+        0,
+        6,
+        0
+      ],
+      "original": 12,
+      "floor": 18,
+      "minimum": 18,
+      "assignments": 64,
+      "histogram": {
+        "18": 64
+      },
+      "charge_sha256": "69a9a705f1b88da485662016c4f351b90624f50f2fedf4794c694b074bb06dc6"
+    },
+    {
+      "name": "pairwise-overlap-no-equal-spans",
+      "family": "VVV",
+      "dimensions": [
+        0,
+        6,
+        0
+      ],
+      "original": 12,
+      "floor": 18,
+      "minimum": 18,
+      "assignments": 729,
+      "histogram": {
+        "18": 64,
+        "20": 240,
+        "22": 300,
+        "24": 125
+      },
+      "charge_sha256": "ed180b7423087cc8830069e05389d59dc23a2c8af0a60f97d2260dca6743569f"
+    },
+    {
+      "name": "disjoint",
+      "family": "MMM",
+      "dimensions": [
+        6,
+        0,
+        0
+      ],
+      "original": 6,
+      "floor": 12,
+      "minimum": 12,
+      "assignments": 8,
+      "histogram": {
+        "12": 8
+      },
+      "charge_sha256": "ad5126e34544dab6d15bba9263060b46ed6c3f838f9106df8c0600d7e6539644"
+    },
+    {
+      "name": "disjoint",
+      "family": "VVV",
+      "dimensions": [
+        6,
+        0,
+        0
+      ],
+      "original": 6,
+      "floor": 6,
+      "minimum": 6,
+      "assignments": 27,
+      "histogram": {
+        "6": 1,
+        "8": 3,
+        "10": 6,
+        "12": 7,
+        "14": 6,
+        "16": 3,
+        "18": 1
+      },
+      "charge_sha256": "a7f125754b7da52a78e119898d00978a03d07b1a06c3543f0b4f9aba3ddfc5ed"
+    },
+    {
+      "name": "mixed-four-blocks",
+      "family": "MMM",
+      "dimensions": [
+        2,
+        4,
+        2
+      ],
+      "original": 16,
+      "floor": 22,
+      "minimum": 22,
+      "assignments": 256,
+      "histogram": {
+        "22": 128,
+        "24": 128
+      },
+      "charge_sha256": "bf79c33c4f1774cfd18868e82459a84d4dbcbf17c1b5c3d2a909c3382aca507c"
+    },
+    {
+      "name": "mixed-four-blocks",
+      "family": "VVV",
+      "dimensions": [
+        2,
+        4,
+        2
+      ],
+      "original": 16,
+      "floor": 20,
+      "minimum": 20,
+      "assignments": 6561,
+      "histogram": {
+        "20": 64,
+        "22": 592,
+        "24": 1612,
+        "26": 2123,
+        "28": 1595,
+        "30": 575
+      },
+      "charge_sha256": "22a9b4744cce6017cb8157f5ccf662b4d08b5eff80463520b92fe14a8adf76ad"
+    },
+    {
+      "name": "noncommuting-unequal",
+      "family": "MMM",
+      "dimensions": [
+        2,
+        6,
+        0
+      ],
+      "original": 14,
+      "floor": 22,
+      "minimum": 22,
+      "assignments": 128,
+      "histogram": {
+        "22": 96,
+        "26": 32
+      },
+      "charge_sha256": "44837dbe812e95944fb80e5d110a407873fc92fa2e86dd63383b7c106302daf0"
+    },
+    {
+      "name": "noncommuting-unequal",
+      "family": "VVV",
+      "dimensions": [
+        2,
+        6,
+        0
+      ],
+      "original": 14,
+      "floor": 20,
+      "minimum": 20,
+      "assignments": 2187,
+      "histogram": {
+        "20": 32,
+        "22": 168,
+        "24": 484,
+        "26": 697,
+        "28": 561,
+        "30": 245
+      },
+      "charge_sha256": "f4a0cd0c93e555c90b43cccd0c95e50d9077cf28cda361029590f3a65605a456"
+    },
+    {
+      "name": "noncommuting-common4",
+      "family": "MMM",
+      "dimensions": [
+        0,
+        0,
+        4
+      ],
+      "original": 12,
+      "floor": 12,
+      "minimum": 12,
+      "assignments": 64,
+      "histogram": {
+        "12": 4,
+        "14": 36,
+        "16": 24
+      },
+      "charge_sha256": "8ee37af290c5afe9e41610440c2ca7770aa35350aa29e6b10ea2d4a6290291ac"
+    },
+    {
+      "name": "noncommuting-common4",
+      "family": "VVV",
+      "dimensions": [
+        0,
+        0,
+        4
+      ],
+      "original": 12,
+      "floor": 12,
+      "minimum": 12,
+      "assignments": 729,
+      "histogram": {
+        "12": 4,
+        "14": 54,
+        "15": 84,
+        "16": 587
+      },
+      "charge_sha256": "2090d09e5f2fb1e1b5222d034c646a497aef9a5b286f7d1f319400ed0b94bad9"
+    },
+    {
+      "name": "third-largest",
+      "family": "MMM",
+      "dimensions": [
+        4,
+        0,
+        2
+      ],
+      "original": 10,
+      "floor": 14,
+      "minimum": 14,
+      "assignments": 32,
+      "histogram": {
+        "14": 16,
+        "16": 16
+      },
+      "charge_sha256": "8ede631d7ff6fd94ba24505b1210c2b2ed38718258273c7fb5c66cbfff5e21d0"
+    },
+    {
+      "name": "third-largest",
+      "family": "VVV",
+      "dimensions": [
+        4,
+        0,
+        2
+      ],
+      "original": 10,
+      "floor": 10,
+      "minimum": 10,
+      "assignments": 243,
+      "histogram": {
+        "10": 4,
+        "12": 31,
+        "14": 58,
+        "16": 77,
+        "18": 50,
+        "20": 23
+      },
+      "charge_sha256": "ffa15a472621d83975395e6c2b3d47a3ad416d3a33f31f636df807cbb1e64f1e"
+    }
+  ]
+}

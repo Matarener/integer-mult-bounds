@@ -1,0 +1,64 @@
+A compositional sufficient exact-grid theorem for emitted dyadic callers
+
+This applies to a finite, fully specified circuit whose operations are ordinary
+monomial words, exact dyadic scalar ADDs, and the source Gaussian children. It
+is an arithmetic-format theorem. It does not admit an unimplemented caller or
+charge a native child as ordinary work.
+
+Fix positive field-column width f and an initial grid 2^-g Z[i]. For each
+original field v set b_v=g. Process the literal circuit in chronological order:
+
+  monomial(v): b_v is unchanged;
+  Gaussian(rank r, v): b_v <- b_v + ceil(r f/2);
+  ADD(v <- v + c u), c=m/2^t with integer m and t>=0:
+      b_v <- max(b_v,b_u+t).
+
+At every prefix, each real and imaginary component of v lies in 2^-b_v Z.
+The maximum of all prefix exponents is one sufficient common exact grid.
+Negative m, zero coefficients, reused sources, and arbitrary dirty initial
+values are allowed. Independent initial values are not replaced by zeros.
+
+Proof by chronological induction. A monomial permutes coordinates and
+multiplies by Gaussian units. A scalar ADD sends the sum of two stated lattices
+into the lattice with the larger exponent. A rank-r child is the tensor product
+of r f one-axis Gaussian transforms. For k independent axes its coefficients
+are Gaussian integers divided by 2^ceil(k/2), by the Gaussian-integer lemma in
+PROOF.txt. This proves the update and covers intermediate butterfly stages as
+well as child outputs. Taking a maximum covers all prefixes. No statistical
+error estimate or rounding hypothesis occurs.
+
+The b_v values equal longest dependency-path weights in a directed acyclic
+version of the emitted circuit: a Gaussian step has weight ceil(r f/2), a
+scalar source edge has weight t, and unchanged-value edges have weight zero.
+Consequently, if every path has total Gaussian rank at most R, at most s
+Gaussian steps of odd rank, and scalar denominator-exponent sum at most T,
+then
+                       B = g + ceil(R f/2) + s + T
+is sufficient. This deliberately loose bound follows from
+sum_j ceil(r_j f/2) <= ceil((sum_j r_j) f/2) + s.
+For a fixed finite template, R,s,T are constants independent of f, so B=O(f).
+The source-bound verifier supplies the substantially sharper bounds for the
+actual whole-K forward and backward words rather than this loose estimate.
+
+Magnitude bookkeeping is also constructive. Attach the polynomial 1 in
+u=2^(f/2) to every input field. A monomial leaves it unchanged; a rank-r child
+multiplies it by u^r; ADD with coefficient c replaces the target polynomial by
+its old polynomial plus |c| times the source polynomial. Every physical prefix
+has complex component magnitude at most H times its polynomial evaluated at u,
+by the triangle inequality and the exact Gaussian row norm u^r. If all such
+polynomials have degree at most d and coefficient sum at most A>=1, then all
+prefixes have magnitude at most A H 2^ceil(d f/2). A signed numerator format of
+
+     B + ceil(d f/2) + ceil(log2(A H)) + 4
+
+bits is sufficient with conservative temporary-sum headroom. This bound is
+linear in f for a fixed caller and fixed input-height bound. The arithmetic
+cost of exact divisions, address maps, data movement and Gaussian evaluation
+remains explicit; this theorem does not provide a constant-word or asymptotic
+running-time shortcut.
+
+Credit and source convention: PR 5464, head
+3981f9539e63630681f6903e3c6a50b3a0d2f2dd, for the actual whole-K native
+programs and Gaussian convention; the tensor coefficient and lattice arguments
+are elementary. The source-bound specialization and compositional statement
+were prepared with substantial OpenAI Codex assistance. Apache-2.0.

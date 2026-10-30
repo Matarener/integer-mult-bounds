@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/split-minmax-audit-seed63/PROOF.md",
+    "research/split-minmax-audit-seed63/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "exhaustive"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact exhaustive extraction, independent primal/cut certificates and rejection controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "sampled"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact sampled extraction, independent primal/cut certificates and rejection controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "fixtures"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact fixtures extraction, independent primal/cut certificates and rejection controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "all"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Complete extraction, independent primal/cut certificates and rejection controls with assertions disabled"
+    }
+  ]
+}

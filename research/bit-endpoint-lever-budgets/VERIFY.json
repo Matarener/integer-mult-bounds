@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/selected-suppliers-de-diagnostic/verify.py",
+    "research/frontier1042-invoice-audit-seed81/verify.py",
+    "research/bit-revision3-levers-seed03/levers.py",
+    "research/centre-sharing-overhead-budget/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Endpoint, kappa and +10% controls, including necessity of the complex endpoint c*; re-derived 649/16 requirement and complex 511 need; window derivation and idle-remainder identity; slack halving cap; certified re-hosting order; sharp copy, sharing-budget, deletion, width-7 and reshaping boundaries; complex k=2 budget at c*; every boundary sign also at c*-1e-24 and c*+1e-24; RESULT.json byte comparison."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Rebuilds every boundary histogram independently, requires equality with RESULT.json, and recomputes all 75 signs at c*-1e-24, c* and c*+1e-24 with levers.py interval arithmetic."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "{package}",
+        "-p",
+        "test_package.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Tampered counts, verdicts and histograms, including a consistent shift, are rejected by the independent method."
+    }
+  ]
+}

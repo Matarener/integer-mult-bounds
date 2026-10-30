@@ -1,0 +1,116 @@
+{
+ "schema_version": 1,
+ "task_id": "scalar-to-moment",
+ "actual_scope": "Package the exact pricing, legality, retime, event-level retime, marginal and rank-r pricing tooling behind the P104 retime line as one command (tk) with a regression suite that reproduces the published numbers of PR5551, PR5553 and PR5561 and the retime PR5551 -> PR5561. No word and no kappa claim.",
+ "bottleneck_link": "Retiming and paid-profile changes are only credible if the same exact invoice, legality replay and real-stack interval can be recomputed in seconds; this toolkit makes the paid-profile marginals (tk sens) and the retime freedoms (tk retime, tk evretime) reproducible and comparable on any P104-family word.",
+ "stop_rule": "Keep the toolkit only if tests/regress.py reproduces every published number it wraps: exact kappa of PR5545/5551/5553/5561 and the starts-only word, localisation of three illegal mutants, the 5551 -> 5561 diff, the sens table, the PR5392 pricer results and the real-stack crossing intervals of PR5551, PR5553 and PR5561.",
+ "outcome": "completed",
+ "author": "DreamingOfClouds, with Claude Opus 5.5 (Anthropic), via Claude Code",
+ "ai_assistance": "Claude Opus 5.5 via Claude Code wrote the wrappers and tests. Every command reproduces a number published by the PR it wraps; no independent human or proof-kernel acceptance is claimed.",
+ "open_questions": [
+  {
+   "question": "Are free helper start and final frames admissible in the P104 caller contract?",
+   "why_it_matters": "tk retime and tk evretime assume the verifier's freedom (nesting plus rank = dimension gap); the toolkit reports the gain but cannot decide admissibility.",
+   "blocked_by": "Maintainer or swarm review.",
+   "first_step": "Run tk retime 5551 --free starts (starts only) and compare with the finals-free word using tk diff."
+  },
+  {
+   "question": "Can the CP-SAT retime be made deterministic so generic CI can regenerate PR5561?",
+   "why_it_matters": "Generic CI has no ortools, so the retime is verified from its shipped output; a deterministic stdlib solve would close that gap.",
+   "blocked_by": "None.",
+   "first_step": "Re-run tk retime single-threaded with a fixed seed and compare the realised word with PR5561."
+  },
+  {
+   "question": "Can the window-B hub-partition generator be packaged with its #4610 inputs?",
+   "why_it_matters": "tk gen is workspace-only today, so its published numbers (921 hubs, filter 0/0) are not replayed in CI.",
+   "blocked_by": "Packaging the S4GEN dependency trees and the #4610 word.",
+   "first_step": "List the modules gen_run3.py imports and vendor the minimal closure."
+  }
+ ],
+ "scope_status": "changed",
+ "scope_change_reason": "The scalar-to-moment card asks about scalar A2 contractions on the retained word; this package ships verification and retime tooling for P104-family words and claims no kappa. Recorded as changed; the card's own object is not pursued.",
+ "evidence": "VERIFY.json runs tests/regress.py: --quick (price, check with localised mutants, diff, hops, sens), --pricer (verify_r and the rank-8 synthetic) and --real (the unmodified PR5545 replay, transposed columns, native maps, physical caller and PR5551 pricing with literal-only changes) on the three PR words.",
+ "base_commit": "5e0052ca0aa3036a3afa8b0438927377c8d97d53",
+ "original_card": {
+  "id": "scalar-to-moment",
+  "question": "Can a changed frame itinerary remove a paid transition beyond the already covered scalar A2 contractions?",
+  "starting_points": [
+   "docs/research/research-family-status.md",
+   "certificates/selected-result.json",
+   "research/staged544-a2-graph-rewrite/README.md",
+   "research/staged544-separated-a2/README.md",
+   "research/staged544-a2-composition-audit/README.md",
+   "research/staged544-a1858-contraction-audit/README.md"
+  ],
+  "methods": [
+   "Derive the changed legal frame itinerary and exact child histogram.",
+   "Prove a scoped obstruction showing why that scalar gain cannot change the paid contract."
+  ],
+  "acceptance_gate": "An unchanged histogram is not a kappa gain; record any separate runtime or proof benefit explicitly.",
+  "first_step": {
+   "command": [
+    "python3",
+    "-B",
+    "scripts/research_baseline.py"
+   ],
+   "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+   "inspect": "Read the A2 and separated-A2 constructions and their composition/contraction audits. Scalar contractions can preserve the complete recursive histogram; fewer ADDs alone do not justify further scans.",
+   "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+  },
+  "first_experiment": "Identify an actual paid transition to remove and construct a legal replacement frame itinerary, charging restoration, source windows and changed helpers. Compare complete before/after histograms. Stop if only scalar count changes; report that benefit honestly, without expanding the same scalar-only census.",
+  "bottleneck_link": "A legal change to the histogram, not addition count alone, is the bridge to an exponent gain.",
+  "allowed_variations": [
+   "One existing scalar simplification and one proposed frame-path change."
+  ],
+  "scope_change_triggers": [
+   "Submitting only another scalar count as completion of a paid-profile task."
+  ],
+  "overlap_terms": [
+   "scalar simplification",
+   "paid profile",
+   "R439",
+   "3998",
+   "4019",
+   "4112",
+   "4152",
+   "staged544-a2-graph-rewrite",
+   "staged544-separated-a2",
+   "staged544-a2-composition-audit",
+   "staged544-a1858-contraction-audit"
+  ],
+  "existing_checks": [
+   {
+    "scope": "PR #3998: consecutive A2 scalar contraction",
+    "evidence": "research/staged544-a2-graph-rewrite/README.md",
+    "remaining": "A genuinely changed paid itinerary or a distinct independent audit; no default scalar-only expansion.",
+    "status": "author-checked",
+    "source_commit": "389268a6b5e0373a3125d5c6fcd6995f4ea324f5",
+    "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+   },
+   {
+    "scope": "PR #4019: separated A2 sites with unchanged recursive histogram",
+    "evidence": "research/staged544-separated-a2/README.md",
+    "remaining": "A genuinely changed paid itinerary or a distinct independent audit; no default scalar-only expansion.",
+    "status": "author-checked",
+    "source_commit": "f408e09df300b575235f7f77f81948071397e16d",
+    "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+   },
+   {
+    "scope": "PR #4112: composition audit",
+    "evidence": "research/staged544-a2-composition-audit/README.md",
+    "remaining": "A genuinely changed paid itinerary or a distinct independent audit; no default scalar-only expansion.",
+    "status": "author-checked",
+    "source_commit": "205b7380656ba4b6316a8a493b1a3c679b8f7a0e",
+    "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+   },
+   {
+    "scope": "PR #4152: A1858 contraction audit",
+    "evidence": "research/staged544-a1858-contraction-audit/README.md",
+    "remaining": "A genuinely changed paid itinerary or a distinct independent audit; no default scalar-only expansion.",
+    "status": "author-checked",
+    "source_commit": "caaa14cde5962adc372fdca71f63d0f29e73c8b2",
+    "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+   }
+  ]
+ }
+}

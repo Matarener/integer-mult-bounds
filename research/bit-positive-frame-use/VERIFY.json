@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-fifth-frame-determinant-obstruction/README.md",
+    "research/bit-fifth-rational-frame-every-rational-t/README.md",
+    "research/bit-four-register-rational-frame-floor-seed3573e12e/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hashes; all finite determinant/count families; unbounded support-weight certificates; exact symmetries and denominator-safe characters; literal subdivision words, length spectrum and semantic failure controls. No assertions or predecessor executable imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source hashes; all finite determinant/count families; unbounded support-weight certificates; exact symmetries and denominator-safe characters; literal subdivision words, length spectrum and semantic failure controls. No assertions or predecessor executable imports."
+    }
+  ]
+}

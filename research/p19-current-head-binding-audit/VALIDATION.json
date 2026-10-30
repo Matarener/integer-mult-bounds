@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "canonical_main": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "priority_revision": 8,
+  "audited_pr": 5270,
+  "audited_head": "225a19a184296d12120203a1f43b981d55465241",
+  "live_head_rechecked_UTC": "2026-10-28T04:03:24.662400+00:00",
+  "author_arithmetic_environment": "CPython 3.11.11 on macOS 26.5.1 arm64; working head remained unchanged. The normal and optimized claim scripts regenerate their original receipt byte-identically.",
+  "scoped_environment": "3.12.8 (main, Dec  7 2024, 10:11:37) [Clang 15.0.0 (clang-1500.3.9.4)]\nmacOS-26.5.1-arm64-arm-64bit",
+  "bounded_runs": {
+    "claim-normal": {
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "research/coded-reverse-word-p19/p19_claim.py"
+      ],
+      "cwd": "/tmp/integer-p19-source",
+      "seconds": 3.331884082988836,
+      "peak_sampled_descendant_rss_kib": 35696,
+      "exit_code": 0,
+      "stop": null,
+      "stdout_sha256": "bf3515b8fab4cf64e68cfdf65b925a4b88d8e9aac50004480f78d858296150fd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "claim-optimized": {
+      "argv": [
+        "python3",
+        "-I",
+        "-O",
+        "-B",
+        "research/coded-reverse-word-p19/p19_claim.py"
+      ],
+      "cwd": "/tmp/integer-p19-source",
+      "seconds": 3.6183614580659196,
+      "peak_sampled_descendant_rss_kib": 37264,
+      "exit_code": 0,
+      "stop": null,
+      "stdout_sha256": "bf3515b8fab4cf64e68cfdf65b925a4b88d8e9aac50004480f78d858296150fd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bank-normal-ready": {
+      "argv": [
+        "python3",
+        "-B",
+        "research/coded-reverse-word-p19/p19_bank.py"
+      ],
+      "cwd": "/tmp/integer-p19-source",
+      "seconds": 180.13060004194267,
+      "peak_sampled_descendant_rss_kib": 132752,
+      "exit_code": -15,
+      "stop": "timeout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audit-normal": {
+      "argv": [
+        "/opt/local/bin/python3.12",
+        "-I",
+        "-B",
+        "research/p19-current-head-binding-audit/verify.py"
+      ],
+      "cwd": "/tmp/integer-bit0039-audit",
+      "seconds": 1.993826457997784,
+      "peak_sampled_descendant_rss_kib": 27632,
+      "exit_code": 0,
+      "stop": null,
+      "stdout_sha256": "6dc0a4cd356c93ebdf6a0764b6e9f0a3ff7b9ba03a563c6f572f4efef28b04a5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audit-optimized": {
+      "argv": [
+        "/opt/local/bin/python3.12",
+        "-I",
+        "-O",
+        "-B",
+        "research/p19-current-head-binding-audit/verify.py"
+      ],
+      "cwd": "/tmp/integer-bit0039-audit",
+      "seconds": 1.6472067920258269,
+      "peak_sampled_descendant_rss_kib": 27712,
+      "exit_code": 0,
+      "stop": null,
+      "stdout_sha256": "6dc0a4cd356c93ebdf6a0764b6e9f0a3ff7b9ba03a563c6f572f4efef28b04a5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bank-python312": {
+      "argv": [
+        "/opt/local/bin/python3.12",
+        "-u",
+        "-B",
+        "research/coded-reverse-word-p19/p19_bank.py"
+      ],
+      "cwd": "/tmp/integer-p19-source",
+      "seconds": 131.23299658298492,
+      "peak_sampled_descendant_rss_kib": 203120,
+      "exit_code": 0,
+      "stop": null,
+      "stdout_sha256": "44923100db2573e031478019879cd07a43018dc4bacaf5623017f20f3492a439",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "export_control": {
+    "export_path": "/var/folders/y2/rqpdcbzj7_98322kfb3v7_kr0000gq/T/integer-p19-audit-export-oxvzgxdu",
+    "python": "/opt/local/bin/python3.12",
+    "PATH": "",
+    "git_free_replay_exit_code": 0,
+    "files_unchanged": true,
+    "stdout": "PASS_P19_CURRENT_HEAD_BINDING_AUDIT head=225a19a184296d12120203a1f43b981d55465241 p19_mismatches=72 sharp_H1_fee=2016 no_new_kappa",
+    "source_corruption_exit_code": 1,
+    "source_corruption_rejected_before_execution": true
+  },
+  "registered_package": "Normal and optimized CPython 3.12 manifest commands and metadata/source pins pass; no scientific admission follows.",
+  "not_run": [
+    "complete original p19 Laurent factorization and diagonalization",
+    "full native archive replay",
+    "large address-space enumeration",
+    "Lean",
+    "Docker",
+    "full machine/compiler/precision/tape/stock/analytic recovery proof"
+  ],
+  "limitations": [
+    "An initial CPython 3.11 bank command stopped at 180 seconds. A fresh explicitly budgeted CPython 3.12 run then passed in 131.23 seconds (203120 KiB peak sampled descendant RSS). This is the original one-dense-seed p2 pattern-I control, not a p19 native admission.",
+    "The complete-word p19 result instantiates the actual gate-loop semantics with p19 gates; the submitted main remains hardcoded to p2 pattern I.",
+    "Fresh source-bound mathematical checks are author-side AI-assisted checks, not independent human or proof-kernel acceptance."
+  ],
+  "live_pr_state": {
+    "draft": true,
+    "state": "open",
+    "head": "225a19a184296d12120203a1f43b981d55465241",
+    "updated_at": "2026-10-24T01:13:39Z"
+  },
+  "source_worktree_status": "",
+  "author_normal_optimized_stdout_identical": true,
+  "final_overlap": {
+    "open_prs": {
+      "fetched_at": "2026-10-28T04:02:06.490762+00:00",
+      "complete_pagination": true,
+      "records": 331
+    },
+    "discussions": {
+      "fetched_at": "2026-10-28T04:03:24.983323+00:00",
+      "complete_pagination": true,
+      "records": 5718
+    }
+  },
+  "final_overlap_local_scope": "Sparse local inventory incomplete; relevant retained native/controller/reference/decoder notes were materialized. Live PR/Discussion searches are provisional leads, not novelty proof.",
+  "prior_fee_proof": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4930#discussioncomment-19149724",
+  "original_contribution": "Complete-word execution of the exact current address-loop protocol on emitted p19 gates, with the role-36 to role-0 pulse witness, p2 eigenvalue controls and narrow repair controls. The fee threshold is independently reproduced prior work.",
+  "frozen_source_whitespace": "git diff --check reports one pre-existing trailing space in retained source/pr5270/p19_claim.py:370. Exact source bytes/hashes are preserved; new authored files pass the scoped whitespace check.",
+  "committed_byte_preflight": {
+    "status": "PASS_RESEARCH_COMMIT_BYTES",
+    "commit": "ab2435cf5ba7a1f4650cb1d43bd31b09271043a3",
+    "files": 24
+  },
+  "source_history_preflight": {
+    "status": "unavailable",
+    "reason": "source-history check requires full Git history; checkout is shallow. Exact available source bytes/pins pass metadata and committed-byte checks; no full-history availability claim is made."
+  },
+  "source_worktree_status_after_bank": ""
+}

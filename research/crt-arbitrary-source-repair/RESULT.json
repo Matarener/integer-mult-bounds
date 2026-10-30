@@ -1,0 +1,196 @@
+{
+  "actual_caller": {
+    "addresses": 4096,
+    "exceptional_pair_visits": 29440,
+    "forward_payload_sha256": "abeaa4eef9cfc0bcd5d8787f7f8833f7a96265c68b6233c1eacf81fdfa3fa5c7",
+    "inverse_payload_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+    "original_caller_agrees": true,
+    "repaired_layers": 10
+  },
+  "exhaustive_domains": [
+    {
+      "addresses": 4096,
+      "good_addresses": 1152,
+      "inactive_control_change_cases": 0,
+      "name": "constant_one",
+      "parameters": {
+        "control_bits": 3,
+        "digit_bits": 2,
+        "guard": 6,
+        "targets": [
+          0
+        ],
+        "y_bits": 6
+      },
+      "repaired_bad_addresses": 2944,
+      "repaired_payload_sha256": "7fdfd75947bb2f71c901e088d783479bd2a7e3d3bc83edc10c51c4112f517cc6"
+    },
+    {
+      "addresses": 4096,
+      "good_addresses": 1152,
+      "inactive_control_change_cases": 0,
+      "name": "guard_parity",
+      "parameters": {
+        "control_bits": 3,
+        "digit_bits": 2,
+        "guard": 6,
+        "targets": [
+          0
+        ],
+        "y_bits": 6
+      },
+      "repaired_bad_addresses": 2944,
+      "repaired_payload_sha256": "297d98b40ff36901569c9ae815f1d91b2c5f6f8cdddad6e38eb30be6054cd466"
+    },
+    {
+      "addresses": 4096,
+      "good_addresses": 1152,
+      "inactive_control_change_cases": 0,
+      "name": "nonlinear_guard",
+      "parameters": {
+        "control_bits": 3,
+        "digit_bits": 2,
+        "guard": 6,
+        "targets": [
+          0
+        ],
+        "y_bits": 6
+      },
+      "repaired_bad_addresses": 2944,
+      "repaired_payload_sha256": "de592fcaddfb5e4d67edc6921395060d2f10f90ed306b496c68f0bfb75bc1a33"
+    },
+    {
+      "addresses": 65536,
+      "good_addresses": 1024,
+      "inactive_control_change_cases": 6496,
+      "name": "two_targets_cross_guard",
+      "parameters": {
+        "control_bits": 3,
+        "digit_bits": 1,
+        "guard": 5,
+        "targets": [
+          0,
+          5
+        ],
+        "y_bits": 10
+      },
+      "repaired_bad_addresses": 64512,
+      "repaired_payload_sha256": "17d8f844dad720a1a52f8e3d6005efbcff2f49a925dcb80e6332a83dc74fe950"
+    }
+  ],
+  "machine_cost_verified": false,
+  "negative_controls": [
+    {
+      "actual": [
+        5,
+        0,
+        1041
+      ],
+      "ideal": [
+        4,
+        0,
+        1040
+      ],
+      "name": "own_target_only_is_insufficient",
+      "state": [
+        4,
+        0,
+        1040
+      ]
+    },
+    {
+      "address": 2,
+      "name": "ideal_of_current_address",
+      "right_key": 2,
+      "wrong_key": 3
+    },
+    {
+      "address": 194,
+      "name": "inverse_reuses_stale_source",
+      "right_origin": [
+        1,
+        3,
+        58
+      ],
+      "wrong_origin": [
+        0,
+        3,
+        59
+      ]
+    },
+    {
+      "address": 194,
+      "name": "guarded_identity_used_as_bad_inverse",
+      "right_origin": [
+        1,
+        3,
+        58
+      ],
+      "wrong_origin": [
+        0,
+        3,
+        3
+      ]
+    },
+    {
+      "distinct_truncated_keys": 1472,
+      "holes": 2944,
+      "name": "truncated_high_control_key"
+    }
+  ],
+  "new_kappa_claimed": false,
+  "sampled_domains": {
+    "good_states": 64,
+    "parameters": [
+      {
+        "control_bits": 5,
+        "digit_bits": 2,
+        "guard": 6,
+        "targets": [
+          1,
+          7
+        ],
+        "y_bits": 13
+      },
+      {
+        "control_bits": 10,
+        "digit_bits": 3,
+        "guard": 7,
+        "targets": [
+          0,
+          8,
+          16
+        ],
+        "y_bits": 23
+      },
+      {
+        "control_bits": 14,
+        "digit_bits": 4,
+        "guard": 8,
+        "targets": [
+          2,
+          11,
+          20
+        ],
+        "y_bits": 29
+      },
+      {
+        "control_bits": 6,
+        "digit_bits": 1,
+        "guard": 5,
+        "targets": [
+          1,
+          6,
+          11,
+          16
+        ],
+        "y_bits": 21
+      }
+    ],
+    "seed": 4100763,
+    "states": 1024
+  },
+  "source_inputs": 6,
+  "status": "PASS_CRT_ARBITRARY_SOURCE_REPAIR",
+  "universal_argument": "PROOF.md; written proof, not inferred from finite checks"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/current-priorities.md",
+    "docs/research/research-family-status.md",
+    "research/bit-revision3-levers-seed03/levers.py",
+    "research/e8-bit-carrier-skeleton/code/bit/checkers/columns_k.cpp",
+    "research/e8-bit-carrier-skeleton/code/bit/checkers/json.hpp",
+    "research/e8-bit-carrier-skeleton/code/bit/checkers/legality_h.cpp",
+    "research/e8-bit-carrier-skeleton/code/bit/export_records.py",
+    "research/e8-bit-carrier-skeleton/code/bit/regression/stage_cohort.py",
+    "research/e8-bit-carrier-skeleton/portable-include/bits/stdc++.h",
+    "research/e8-bit-p111-tuned/code/xcheck_p.py",
+    "research/e8-bit-p111-tuned/data/bitE8mut-p111.json.gz",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r715-eleven-stage-whole/code/global_k.py",
+    "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/code/assemble9.py",
+    "research/e8-bit-p111-tuned/code/adapt9p.py",
+    "research/e8-bit-carrier-skeleton/code/nine/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Exact local scalar and 5/9/11-stage scalar controls; rational interstage address counterexample at all 111 ports; corrected full rank budgets and the six-step E8 rotating-normal physical endpoint and literal closure invoice."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--audit-only"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Repeat exact physical-address and complete rank audits with optimized Python; all guards remain active."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Positive controls reproduce the #6030 and #5907 crossings; certified free-repeat gain; one added paid call of every rank 1..145, in total or per LOCAL, defeats it; RESULT.json equality; three damaged profiles rejected."
+    }
+  ]
+}

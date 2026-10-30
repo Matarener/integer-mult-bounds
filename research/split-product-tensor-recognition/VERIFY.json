@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/split-product-tensor-recognition/vendor/local.py",
+    "research/split-product-tensor-recognition/vendor/PR5637.md",
+    "research/split-product-tensor-recognition/vendor/PR5656.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Check all 72353 two-dimensional tensors over F2,F3,F4 against separate coefficient-index GL orbits; product and SL fixtures; malformed-map, nonregular-module and nonsplit-residue controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Check all 72353 two-dimensional tensors over F2,F3,F4 against separate coefficient-index GL orbits; product and SL fixtures; malformed-map, nonregular-module and nonsplit-residue controls."
+    }
+  ]
+}

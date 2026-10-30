@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 450,
+      "checks": "All declared domains, source pins and exact receipt: independent complete subspace profiles, literal P/Q checks, ternary conjugacy coverage, 609 generic minor censuses and 10 negative controls. Also compare PR6053's ordered closed minimum-rank formula on every declared input."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 450,
+      "checks": "All declared domains, source pins and exact receipt: independent complete subspace profiles, literal P/Q checks, ternary conjugacy coverage, 609 generic minor censuses and 10 negative controls; assertions disabled. Also compare PR6053's ordered closed minimum-rank formula on every declared input."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_mutations.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Optimized fresh-source positive control and nine actual code mutants; require the intended scientific rejection, with receipt comparison bypassed."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Exact native terminal recovery, owned routing, scalar and phase source checks, unitary rounding fixtures and complete repair invoices. No new kappa.",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Optimized-wrapper read-only replay with unchanged exact receipts and all explicit guards.",
+      "timeout_seconds": 180
+    }
+  ],
+  "package_local_inputs": [
+    "research/central-q-decoder/.gitattributes",
+    "research/central-q-decoder/E-COMPOSITION.md",
+    "research/central-q-decoder/LICENSE",
+    "research/central-q-decoder/MANIFEST.json",
+    "research/central-q-decoder/NOTICE.txt",
+    "research/central-q-decoder/PROOF.md",
+    "research/central-q-decoder/README.md",
+    "research/central-q-decoder/RESULT.json",
+    "research/central-q-decoder/SOURCES.json",
+    "research/central-q-decoder/TASK.json",
+    "research/central-q-decoder/VERIFY.json",
+    "research/central-q-decoder/check_decoder.py",
+    "research/central-q-decoder/check_invoice.py",
+    "research/central-q-decoder/check_rounding.py",
+    "research/central-q-decoder/decoder.py",
+    "research/central-q-decoder/source/E-MODES.json",
+    "research/central-q-decoder/source/E-PINS.json",
+    "research/central-q-decoder/source/E-PRECISION-SCOPE.md",
+    "research/central-q-decoder/source/E-PROOF.md",
+    "research/central-q-decoder/source/K-MODULE.json",
+    "research/central-q-decoder/source/K-PROGRAM.json.gz",
+    "research/central-q-decoder/source/MOMENT-SOURCE.json",
+    "research/central-q-decoder/source/PINS.json",
+    "research/central-q-decoder/source/PROOF.md",
+    "research/central-q-decoder/source/moments.py",
+    "research/central-q-decoder/verify.py"
+  ]
+}

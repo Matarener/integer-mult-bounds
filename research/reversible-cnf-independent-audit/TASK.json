@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Independently audit PR5369 PROOF.md \u00a76 and reversible_cnf.py: complete dirty controlled swap, chronological Boolean compiler, actual source-emitted five-role endpoints, instruction and exact-bit bounds.",
+  "scope_change_reason": "Handoff-first override of one picker run (bit-mechanisms; seed aa32479c3ec3e4781cbe692d0b861686). PR5521 explicitly leaves this proof/source implication open. Use formal-interface-lemma for a scoped mathematical audit before any formalization; no reroll or new cutoff campaign.",
+  "bottleneck_link": "The native identity checker has a claimed complexity boundary even for reversible dirty programs. A source-bound independent reduction audit checks whether that boundary is valid and clarifies why finite solver limits or small-width samples cannot imply a general efficient checker; no physical supplier cost follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the explicit \u00a76 compiler/equivalence/size audit and bounded independent rational controls. Do not rerun the general source verifier, extend tensor cutoffs, claim a new hardness theorem, or start physical supplier/Lean/cold-admission work.",
+  "outcome": "completed",
+  "evidence": "PROOF.md gives the quantified audit and encoding qualification. RESULT.json binds actual source compilation to a separate five-role rational interpreter: all14400 branch pairs,28800 branch endpoints,820 full-CNF tensor blocks at widths1\u20133, all24 five-cycle targets,14456 truth-table checks, eight semantic mutant witnesses and seven input rejections.",
+  "author": "Hiroki KUMAZAKI",
+  "ai_assistance": "Substantial OpenAI Codex assistance in mathematical derivation, code, verification and prose. Delegated agents independently scoped live handoffs, reviewed the proof/encoding, implemented the literal endpoint interpreter and checked semantic boundaries. This is not independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Does the general native endpoint compiler preserve its declared grammar and complete dirty state at an actual source-bound caller?",
+      "why_it_matters": "This audit covers only the commuting-sign CNF reduction, not arbitrary affine/quadratic native maps or the source solver implementation.",
+      "first_step": "Choose one unclaimed concrete caller and pin the generator composition/inversion, self-query conventions, independent inputs and required returns; compare emitted endpoints with a separate literal interpreter.",
+      "blocked_by": "A named caller and its full source closure; the present sign reduction supplies neither physical execution nor general compiler acceptance."
+    },
+    {
+      "question": "Can a practically useful tractable subclass of the native identity problem be isolated without changing the dirty-input contract?",
+      "why_it_matters": "The general coNP classification does not rule out efficient algorithms for a bounded or structurally restricted caller family.",
+      "first_step": "Name a concrete caller restriction, such as a fixed generator-support or role-interaction structure, and prove the resulting exact decision cost while preserving all returns.",
+      "blocked_by": "A useful actual caller restriction and full encoding/budget; finite solver samples alone do not provide such a theorem."
+    }
+  ]
+}

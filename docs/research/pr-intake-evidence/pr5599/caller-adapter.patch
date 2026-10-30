@@ -1,0 +1,93 @@
+--- PR5550/check.py
++++ parameterized/check.py
+@@ -244,7 +244,7 @@
+ 
+ 
+ def query_check(program, src, dst, scratch, q, basis):
+-    need(len({src, dst, scratch}) == 3 and scratch >= 12814, 'owned query/source/destination separation')
++    need(len({src, dst, scratch}) == 3 and scratch >= FIELD_COUNT, 'owned query/source/destination separation')
+     need(program == [['INIT_ZERO', scratch], ['COPY', scratch, src], ['P_INVERSE', scratch, [q, *basis]],
+                      ['GAUSSIAN', scratch, 1], ['P', scratch, [q, *basis]], ['X', scratch, q],
+                      ['ADD', dst, scratch, 1], ['CLEAR_OWNED', scratch]], 'literal clear/copy/positive-child/correct/add/clear chronology')
+@@ -256,9 +256,14 @@
+     manifest = read(B/'INPUTS.json')
+     for name, sha in manifest['files'].items():
+         need(hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == sha, 'source pin '+name)
+-    word = read(PRIOR/'sources/contact/WORD.json.gz')
++    word = read(Path(os.environ['P104_WORD'])) if 'P104_WORD' in os.environ else read(PRIOR/'sources/contact/WORD.json.gz')
+     controller = read(PRIOR/'sources/predecessor/CONTROLLER.json')
+-    source = read(PRIOR/'sources/contact/RESULT.json')
++    source = read(Path(os.environ['P104_RESULT'])) if 'P104_RESULT' in os.environ else read(PRIOR/'sources/contact/RESULT.json')
++    public = word['public']
++    helper_count = public - 208
++    field_count = 3328 + 18*helper_count
++    global FIELD_COUNT
++    FIELD_COUNT = field_count
+     phases = {r['q']: r['idle_children'][0]['orthogonal_axes'][:8] for r in read(B/'sources/DATA-PHASES.json')['recipes']}
+     C = load(NATIVE/'sources/clifford_exact.py', 'route_clifford_compiler')
+     V = load(NATIVE/'sources/native_verify.py', 'route_literal_definitions')
+@@ -332,7 +337,7 @@
+         exact(V.adjoint(right)+literal+V.adjoint(left), V.fourier(rec['rank']), 'normalized helper Gaussian')
+         return rec, check
+     local_main = set(word['live']) | {r+112 for r in word['live']}
+-    helpers = [r for r in range(735) if r not in local_main]
++    helpers = [r for r in range(public) if r not in local_main]
+     helper_profile = Counter()
+     for h in helpers:
+         a, b = word['initial'][h], word['final'][h]
+@@ -353,20 +358,20 @@
+             need(rec['rank'] == 0, 'intrinsic main adapter is monomial')
+             adapters.append({'local_field': r, 'recipe': rec, 'exact_check': exact(V.recipe(rec), literal, 'intrinsic main adapter')})
+     checkpoint('main_intrinsic_adapters_complete', adapters=len(adapters))
+-    need(len(helpers) == 527 and helper_profile == Counter({4:51, 5:36, 7:24, 8:122, 9:294}), 'complete helper profile')
++    need(len(helpers) == helper_count and helper_profile == Counter({int(k):v for k,v in source['local']['helpers'].items()}), 'complete helper profile')
+     fields = []
+     for site, event in enumerate(full):
+         mapping = {}
+         for p, r in enumerate(word['live']):
+             mapping[r], mapping[r+112] = 2*event[2]*104+p, (2*event[2]+1)*104+p
+-        mapping.update({h:3328+site*527+i for i, h in enumerate(helpers)})
+-        need(len(mapping) == len(set(mapping.values())) == 735, 'injective full-call public inventory')
+-        fields.append({'site': site, 'stage': event[1], 'local_to_global': [mapping[i] for i in range(735)], 'owned_lifetimes': {'735..742':12814}})
++        mapping.update({h:3328+site*helper_count+i for i, h in enumerate(helpers)})
++        need(len(mapping) == len(set(mapping.values())) == public, 'injective full-call public inventory')
++        fields.append({'site': site, 'stage': event[1], 'local_to_global': [mapping[i] for i in range(public)], 'owned_lifetimes': {f'{public}..{public+7}':field_count}})
+     helper_ids = [f['local_to_global'][h] for f in fields for h in helpers]
+-    need(set(helper_ids) == set(range(3328, 12814)) and len(helper_ids) == len(set(helper_ids)), 'all fresh helpers owned once')
++    need(set(helper_ids) == set(range(3328, field_count)) and len(helper_ids) == len(set(helper_ids)), 'all fresh helpers owned once')
+     def bad_alias():
+         bad_ids = helper_ids[:]
+-        bad_ids[527] = bad_ids[0]
++        bad_ids[helper_count] = bad_ids[0]
+         need(len(bad_ids) == len(set(bad_ids)), 'helper output alias collision')
+     controls['helper_alias_collision'] = reject(bad_alias)
+     checkpoint('ownership_complete', helpers=len(helper_ids))
+@@ -393,7 +398,7 @@
+                           'placement':'P_O before RIGHT; X_translation then P_O inverse after LEFT'})
+         checkpoint('main_bank_complete', bank=bank, mains=len(mains), layouts=len(layouts))
+     controls['missing_final_main_translation'] = reject(lambda: need(polynomial(negative[0]) == polynomial(negative[1]), 'missing final main translation'))
+-    scratch = 12814
++    scratch = field_count
+     for index, e in enumerate(controller['physical_events']):
+         if e[0] == 'IDLE':
+             selected = [int(i in e[2]) for i in range(33)]
+@@ -426,9 +431,17 @@
+     targets = Counter({r:18*n for r, n in helper_profile.items()})+main_profile
+     costs = source['complete_cost']
+     need(paid == Counter({int(r):n for r, n in costs['paid'].items()}) and targets == Counter({int(r):n for r, n in costs['targets'].items()}), 'complete unchanged paid/target invoice')
+-    need(len(mains) == 3328 and len(idles) == 1560 and len(queries) == 1560 and sum(targets.values()) == 12814, 'complete occurrence census')
++    need(len(mains) == 3328 and len(idles) == 1560 and len(queries) == 1560 and sum(targets.values()) == field_count, 'complete occurrence census')
+     nr = costs['nonrecursive']
+-    need(nr['local_scalar'] == 217428 and nr['local_routes'] == 5334000 and sum(paid_local.values()) == 3624, 'retained ordinary allowances')
++    scalar = 0
++    for e in word['program']:
++        if e[0] in ('INIT','CLEAR'): scalar += 2
++        elif e[0] == 'MOVE': continue
++        else:
++            q=F(e[-2]); n,d=abs(q.numerator),q.denominator
++            if e[0] == 'SCALE': scalar += 2*(abs(n.bit_length()-d.bit_length())+int(q<0))
++            else: scalar += 2*(3+n.bit_length()-1+n.bit_count()+d.bit_length()-1)
++    need(nr['local_scalar'] == scalar and nr['local_routes'] == (sum(paid_local.values())+2*helper_count+208+4*104+4*8)*1000, 'independently recounted ordinary allowances')
+     events, boundary = len(controller['physical_events']), sum(len(controller['boundaries'][s+'_program']) for s in ('left', 'right'))
+     ordinary = 18*(nr['local_scalar']+nr['local_routes'])+len(queries)*1000+2*len(idles)*1000+len(mains)*1000+16*32*104*(events+boundary)+sum(e[0] == 'Q_POWER' for e in controller['physical_events'])*104*9
+     need(17*17+17 < 1000 and 2*(264+81)+9 < 1000, 'explicit fixed-map address-pass bounds')

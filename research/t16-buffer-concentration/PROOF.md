@@ -1,0 +1,15 @@
+# Scoped construction and replay argument
+
+The source is the exact pending PR3381 commit `ef1f7b1f9cb582767e448dc047b2359ded28076f`. Its authenticated retained source reconstructs PR3375 from a canonical selected-map patch, then replays the six3381 stages. This avoids assuming an unreviewed headline or treating a compressed container as its mathematical payload.
+
+Each new stage identifies roles by `(stage, replica, helper)`, verifies their width and source bin, applies simultaneous destinations and compacts each affected bin. Canonical payload hashes bind every intermediate map. Whole-helper owner auditing checks capacity, contiguous slices, correct invocation identities, strict actual windows and distinct families within each invocation. Neutral stages preserve the exact paid profile, not just an approximate objective.
+
+Nine whole-bin evacuations move the positions of empty rank16 buffers without changing their total cost. A fullrank32 evacuation distributes four roles among three buffers; this intermediate change is priced exactly and is not asserted to be a universal concave-majorization gain. A pair swap further concentrates residuals. A neutral three-role cycle and an adjacent paired-block7 order change with neutral owner repairs then permit a nine-role augmenting chain. Two follow-on exchanges consolidate its rank6 and rank7 residuals. The final aggregate change relative to3381 is `-2 H16 + H32`, with zero change in rank mass.
+
+The one new paired-block swap is admitted under the same explicit-order rules as3381: every one of144 calls appears once, every replica retains stages0..8 in order, and the two banks remain paired. The retained lift recomputes source-event windows, provider times and the schedule digest. The unchanged independent controller audit checks the actual source-event projection rather than trusting the requested order. Rows are serialized consistently by time/helper so emitter and auditor agree on the sigma stream.
+
+The complete eleven-stage replay restores and binds the original supplier, constructs the two-bank parent, binds the explicit owner map, emits and audits the controller, derives the invoice, assembles both supplier bounds and checks all47 strict outer margins. It retains69 admission,12 bit-supplier,15 controller and6 independent T16 rejection controls, plus owner and malformed-lift controls in the package tests.
+
+Full typed invoice comparison checks that every complete call record is unchanged, allowing its actual order to follow the plan. All remaining fields are identical except three cryptographic source bindings, which are checked against the generated evidence. Actual charts, literal windows, prefix reserve and row reserve are independently audited. The unchanged supplier, cover law and guard retain the inherited fixed-word ceiling and conditional assumptions.
+
+Finite replay success does not establish global packing optimality or discharge the framework's all-size compilation and analytic obligations. No selected-frontier update or maintainer acceptance is claimed.

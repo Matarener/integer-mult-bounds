@@ -1,0 +1,115 @@
+{
+  "schema": "boolean-sector-query-word/v1",
+  "generators": 1,
+  "input_fields": 2,
+  "output_fields": 2,
+  "query_count": 1,
+  "sector_ranks": [
+    1,
+    1
+  ],
+  "owned_fields_including_outputs": 3,
+  "ordinary_adds": 10,
+  "ordinary_clears": 4,
+  "max_coefficient_numerator_bits": 1,
+  "max_coefficient_denominator_bits": 2,
+  "output_registers": [
+    2,
+    3
+  ],
+  "work_registers": [
+    4
+  ],
+  "program": [
+    [
+      "CLEAR",
+      2
+    ],
+    [
+      "CLEAR",
+      3
+    ],
+    [
+      "CLEAR",
+      4
+    ],
+    [
+      "ADD",
+      2,
+      0,
+      "1",
+      0
+    ],
+    [
+      "ADD",
+      3,
+      1,
+      "1",
+      0
+    ],
+    [
+      "ADD",
+      4,
+      0,
+      "1/2",
+      0
+    ],
+    [
+      "ADD",
+      4,
+      1,
+      "1/2",
+      0
+    ],
+    [
+      "ADD",
+      4,
+      0,
+      "1/2",
+      1
+    ],
+    [
+      "ADD",
+      4,
+      1,
+      "-1/2",
+      1
+    ],
+    [
+      "QUERY",
+      4
+    ],
+    [
+      "ADD",
+      2,
+      4,
+      "1/4",
+      0
+    ],
+    [
+      "ADD",
+      3,
+      4,
+      "1/4",
+      0
+    ],
+    [
+      "ADD",
+      2,
+      4,
+      "1/4",
+      1
+    ],
+    [
+      "ADD",
+      3,
+      4,
+      "-1/4",
+      1
+    ],
+    [
+      "CLEAR",
+      4
+    ]
+  ]
+}

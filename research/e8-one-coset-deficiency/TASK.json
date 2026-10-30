@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Uniform deficiency at most nine for arbitrary finite nonproportional families in one outside-code extension of full E8; sharp COPY at least 72 for exact N0 factorizations with both actual factor ranks at most nine, all finite term counts and scalar fields of characteristic different from two. Also proves the sharp one-sided singleton-pair extension floor: Q in C, P in C+span(delta_a,delta_b), any finite exact factorization over the same fields, including rank-(10,8).",
+  "scope_change_reason": "The handoff-first scout identified PR3154 ARCHITECT node C-prime and its request for an m-free deficiency budget. The arbitrary-family theorem closes the two-sided (1,1) exact-P120 cell for all term counts. The one-sided dimension-nine and sparse dimension-ten results are scoped cases of B-prime/L120; they are proved directly rather than assuming the characteristic-zero conditional programme of PR3074/PR3191. No supplier profile is proposed.",
+  "bottleneck_link": "The uniform family theorem eliminates the first unrestricted two-sided ten-term P120 exact-decoder branch, and extends to arbitrary term counts while both ranks stay at most nine. One-sided consequences are L120 subcases, not a new claim to complete that programme. Higher outside ranks and changed physical decoder mechanisms remain available; no selected exponent changes.",
+  "budget_minutes": 120,
+  "stop_rule": "Complete the universal written proof and normalization, independently reconstruct every finite geometric input, retain sharp actual-factor controls, and audit source/export bytes. Pivot on a counterexample or a matching completion found in refreshed overlap.",
+  "outcome": "completed",
+  "evidence": "PROOF.md; CERTIFICATE.json with 109 power-of-two integer minors and eight integral reflection generators; independent.py full 511-character and 130305-pair replay plus four complete 6561-member F3 cosets; fixtures.py eight rational exact factorizations, normalized rank-(9,9) ten-term cost72, normalization exits and necessary equality rigidity, plus 24 controls over F3/F5/F7; controls.py integrity and necessary-hypothesis controls; six Init-only Lean declarations; RESULT.json binds exact package bytes. SPARSE-PAIR.md derives the singleton-pair result directly from the uniform theorem; sparse_pair.py separately exhausts both F3 spaces and checks planted higher-field ray classifications. Audit fixes credit the L120 programme, CubeJerry PR3095, adamgall PR2062, the PR1248 method, conorholds PR3166 and philippeVV lift-family antecedents. Six additional sheared sparse-pair fixtures over F3/F5/F7 remain rank-(10,8), cost72 after zero proportional merges; uncompensated-reader mutations fail exactness. The six original collapsing fixtures remain positive controls.",
+  "author": "conorholds",
+  "ai_assistance": "Substantial OpenAI Codex assistance, including GPT-6.1 SOL agents at xHigh for proof, independent geometry and formal-core work. Internal AI review is not independent human certification.",
+  "open_questions": [
+    {
+      "question": "Can the exact P120 floor be extended to a factor with two outside-code directions?",
+      "why_it_matters": "Any cheaper exact decoder must leave the rank-at-most-nine class; a two-sided one needs at least eleven terms.",
+      "first_step": "Study the actual coupled rank-(10,9), eleven-term identity. The six-ray two-direction counterexample in fixtures.py shows that the present uniform family budget cannot simply be multiplied by two.",
+      "blocked_by": "No multi-direction replacement for the one-coset annihilator direct-sum property is established."
+    },
+    {
+      "question": "Can the full E8 instantiation and factorization assembly be checked in a proof assistant?",
+      "why_it_matters": "The written proof and exact replays do not constitute a formal proof of the complete theorem.",
+      "first_step": "Instantiate the checked abstract binary clique core, then connect certified root spans, annihilators and the COPY/Sylvester consumer in a pinned environment.",
+      "blocked_by": "The scalar/binary geometric bridge and dimension/consumer assembly remain unformalized; broad Mathlib imports exceeded the local conservative memory watchdog."
+    }
+  ],
+  "coordination": "Read-only refresh on 2026-10-18 at 19:29 UTC: main 20ecf289 unchanged; 27 PR updates since 18:40 through PR3747 and fully paginated Discussion1166, plus 1587/3156. No inspected matching completion. PR3701 (petalas) uses the same original card on a different local-word rank question. PR3191 is an open draft at 9c9e094d0fb665db8a3aaa4f9bce1c95c0c6e14b with SLOT-C6-IMPL-C unfilled; PR3154 remains open at 708f0ad8928c383de8294aea3c126e9461d2066d. No public claim or post was made under donor restrictions."
+}

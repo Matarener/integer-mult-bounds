@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "scope_change_reason": "Independent Linux qualification of the existing complete P104 acceleration, preserving full source checks; no new engine or mathematical construction.",
+  "actual_scope": "PR5757/linux-x86_64/full-source-equivalence-six-sample-benchmark-and-complete-qualification",
+  "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+  "stop_rule": "Stop on source/output/coverage drift, unexpected diagnostics, nonzero exit, any 600-second or 1-GiB sampled group limit, or 4500 aggregate seconds; no automatic retry.",
+  "time_budget_minutes": 90,
+  "outcome": "completed",
+  "evidence": "RESULT.json records all ten complete guarded Linux commands, including both full oracle modes; evidence/ retains raw outputs and resource receipts. The short registered checker validates recorded evidence and controls, not fresh scientific admission.",
+  "author": "Chris R / Clear1nsight",
+  "ai_assistance": "Substantial OpenAI Codex assistance for source review, execution, tooling and report; no subagents, independent human or proof-kernel acceptance.",
+  "open_questions": [
+    {
+      "question": "Does the measured Linux benefit hold on other source words and machines?",
+      "why_it_matters": "One frozen construction and host do not establish universal performance or transfer of coverage.",
+      "first_step": "Rebind one reviewed successor, preserve complete scientific outputs and controls, then run a bounded serial comparison.",
+      "blocked_by": "A distinct source/overlap and resource plan; the kappa construction campaign remains paused."
+    }
+  ],
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a"
+}

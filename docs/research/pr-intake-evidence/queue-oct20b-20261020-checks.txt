@@ -1,0 +1,348 @@
+Focused local tooling checks, CPython 3.14, macOS. Serial processes, 180s per file, sampled 1GiB descendant limit. No Lean, Docker or supplier replay.
+
+{"test": "test_research_export*.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_research_export*.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_research_export*.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 13.66, "peak_sampled_rss_kib": 73040}
+
+test_bad_declarations_rejected (test_research_export.ExportTests.test_bad_declarations_rejected) ... ok
+test_direct_replay_in_git_free_directory (test_research_export.ExportTests.test_direct_replay_in_git_free_directory) ... ok
+test_exec_mode_retained (test_research_export.ExportTests.test_exec_mode_retained) ... ok
+test_existing_output_never_overwritten (test_research_export.ExportTests.test_existing_output_never_overwritten) ... ok
+test_failed_git_stream_leaves_no_output (test_research_export.ExportTests.test_failed_git_stream_leaves_no_output) ... ok
+test_missing_input_and_directory_are_rejected (test_research_export.ExportTests.test_missing_input_and_directory_are_rejected) ... ok
+test_payload_mode_inventory_and_duplicate_controls (test_research_export.ExportTests.test_payload_mode_inventory_and_duplicate_controls) ... ok
+test_repeatable_committed_bytes_ignore_worktree_and_attributes (test_research_export.ExportTests.test_repeatable_committed_bytes_ignore_worktree_and_attributes) ... ok
+test_symlink_rejected (test_research_export.ExportTests.test_symlink_rejected) ... ok
+test_cli_preserves_colons_that_are_not_drive_prefixes (test_research_export_drive_paths.ExportDrivePathTests.test_cli_preserves_colons_that_are_not_drive_prefixes) ... ok
+test_cli_rejects_absolute_and_relative_drive_members (test_research_export_drive_paths.ExportDrivePathTests.test_cli_rejects_absolute_and_relative_drive_members) ... ok
+test_cli_rejects_drive_paths_in_receipts (test_research_export_drive_paths.ExportDrivePathTests.test_cli_rejects_drive_paths_in_receipts) ... ok
+test_real_git_export_preserves_nondrive_colons_and_bytes (test_research_export_drive_paths.ExportDrivePathTests.test_real_git_export_preserves_nondrive_colons_and_bytes) ... ok
+test_real_git_export_rejects_drive_paths_before_publishing (test_research_export_drive_paths.ExportDrivePathTests.test_real_git_export_rejects_drive_paths_before_publishing) ... ok
+test_checker_rejects_file_ancestors_in_both_member_orders (test_research_export_topology.ExportFileTreeTests.test_checker_rejects_file_ancestors_in_both_member_orders) ... ok
+test_checker_rejects_receipt_ancestors_in_both_member_orders (test_research_export_topology.ExportFileTreeTests.test_checker_rejects_receipt_ancestors_in_both_member_orders) ... ok
+test_export_rejects_receipt_descendants_before_publication (test_research_export_topology.ExportFileTreeTests.test_export_rejects_receipt_descendants_before_publication) ... ok
+test_valid_bundle_does_not_require_sorted_members_or_last_receipt (test_research_export_topology.ExportFileTreeTests.test_valid_bundle_does_not_require_sorted_members_or_last_receipt) ... ok
+test_valid_git_export_with_siblings_and_lexical_prefixes_extracts (test_research_export_topology.ExportFileTreeTests.test_valid_git_export_with_siblings_and_lexical_prefixes_extracts) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 12.813s
+
+OK
+
+
+{"test": "test_pr_intake.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_pr_intake.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pr_intake.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 10.76, "peak_sampled_rss_kib": 57808}
+
+test_closed_and_draft_legacy_rows_need_no_historical_lookup (test_pr_intake.IntakeModeCliTests.test_closed_and_draft_legacy_rows_need_no_historical_lookup) ... ok
+test_existing_wakes_and_pending_review_do_not_require_legacy_history (test_pr_intake.IntakeModeCliTests.test_existing_wakes_and_pending_review_do_not_require_legacy_history) ... ok
+test_inconsistent_available_baseline_reactivates_without_using_its_mode (test_pr_intake.IntakeModeCliTests.test_inconsistent_available_baseline_reactivates_without_using_its_mode) ... ok
+test_missing_legacy_history_reports_error_without_a_plan (test_pr_intake.IntakeModeCliTests.test_missing_legacy_history_reports_error_without_a_plan) ... ok
+test_new_and_legacy_records_wake_for_chmod_and_symlink_same_blob (test_pr_intake.IntakeModeCliTests.test_new_and_legacy_records_wake_for_chmod_and_symlink_same_blob) ... ok
+test_new_records_need_no_historical_lookup (test_pr_intake.IntakeModeCliTests.test_new_records_need_no_historical_lookup) ... ok
+test_record_pins_blob_and_mode (test_pr_intake.IntakeModeCliTests.test_record_pins_blob_and_mode) ... ok
+test_unchanged_and_unrelated_main_changes_preserve_new_and_legacy_holds (test_pr_intake.IntakeModeCliTests.test_unchanged_and_unrelated_main_changes_preserve_new_and_legacy_holds) ... ok
+test_chunk_limit_does_not_drop_queue (test_pr_intake.IntakeTests.test_chunk_limit_does_not_drop_queue) ... ok
+test_dependency_change_and_closure_reactivate (test_pr_intake.IntakeTests.test_dependency_change_and_closure_reactivate) ... ok
+test_drafts_closed_and_new (test_pr_intake.IntakeTests.test_drafts_closed_and_new) ... ok
+test_explicit_wake_but_no_automatic_replay (test_pr_intake.IntakeTests.test_explicit_wake_but_no_automatic_replay) ... ok
+test_head_evidence_and_policy_changes_reactivate (test_pr_intake.IntakeTests.test_head_evidence_and_policy_changes_reactivate) ... ok
+test_malformed_state_fails_closed (test_pr_intake.IntakeTests.test_malformed_state_fails_closed) ... ok
+test_mode_aware_records_require_current_modes (test_pr_intake.IntakeTests.test_mode_aware_records_require_current_modes) ... ok
+test_mode_changes_reactivate_without_changing_blob_or_cached_state (test_pr_intake.IntakeTests.test_mode_changes_reactivate_without_changing_blob_or_cached_state) ... ok
+test_pending_work_never_becomes_dormant (test_pr_intake.IntakeTests.test_pending_work_never_becomes_dormant) ... ok
+test_unchanged_hold_is_not_selected (test_pr_intake.IntakeTests.test_unchanged_hold_is_not_selected) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 10.266s
+
+OK
+
+
+{"test": "test_lean_axiom_report_names.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_lean_axiom_report_names.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_lean_axiom_report_names.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 0.54, "peak_sampled_rss_kib": 4016}
+
+test_primed_and_ordinary_reports (test_lean_axiom_report_names.ReportNames.test_primed_and_ordinary_reports) ... ok
+test_primed_reports_remain_fail_closed (test_lean_axiom_report_names.ReportNames.test_primed_reports_remain_fail_closed) ... ok
+test_real_lean_reports_and_cli (test_lean_axiom_report_names.ReportNames.test_real_lean_reports_and_cli) ... skipped 'set LEAN_AUDIT_BIN for live kernel controls'
+test_report_delimiter_and_line_boundaries (test_lean_axiom_report_names.ReportNames.test_report_delimiter_and_line_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK (skipped=1)
+
+
+{"test": "test_research_head_pin_paths.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_research_head_pin_paths.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_research_head_pin_paths.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 8.16, "peak_sampled_rss_kib": 66384}
+
+test_base_and_head_pins_preserve_multiline_paths_in_both_clis (test_research_head_pin_paths.HeadPinPathTests.test_base_and_head_pins_preserve_multiline_paths_in_both_clis) ... ok
+test_later_head_is_resolved_and_all_source_checks_remain_active (test_research_head_pin_paths.HeadPinPathTests.test_later_head_is_resolved_and_all_source_checks_remain_active) ... ok
+test_malformed_head_pins_and_path_aliases_still_reject (test_research_head_pin_paths.HeadPinPathTests.test_malformed_head_pins_and_path_aliases_still_reject) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 7.111s
+
+OK
+
+
+{"test": "test_research_queue_groups.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_research_queue_groups.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_research_queue_groups.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 14.53, "peak_sampled_rss_kib": 63168}
+
+test_author_body_metadata_binds_to_observed_head (test_research_queue_groups.QueueGroupTests.test_author_body_metadata_binds_to_observed_head) ... ok
+test_bounded_count_spellings_and_boundary_remain_exact (test_research_queue_groups.QueueGroupTests.test_bounded_count_spellings_and_boundary_remain_exact) ... ok
+test_budget_keeps_remaining_profiles_visible (test_research_queue_groups.QueueGroupTests.test_budget_keeps_remaining_profiles_visible) ... ok
+test_changed_model_is_separate (test_research_queue_groups.QueueGroupTests.test_changed_model_is_separate) ... ok
+test_cli_reports_over_budget_profile_and_prices_healthy_neighbor (test_research_queue_groups.QueueGroupTests.test_cli_reports_over_budget_profile_and_prices_healthy_neighbor) ... ok
+test_different_words_same_profile_share_arithmetic_only (test_research_queue_groups.QueueGroupTests.test_different_words_same_profile_share_arithmetic_only) ... ok
+test_expanded_component_budget_and_count_range (test_research_queue_groups.QueueGroupTests.test_expanded_component_budget_and_count_range) ... ok
+test_large_exponents_reject_before_fraction_expansion (test_research_queue_groups.QueueGroupTests.test_large_exponents_reject_before_fraction_expansion) ... ok
+test_malformed_profiles_fail_as_unknown (test_research_queue_groups.QueueGroupTests.test_malformed_profiles_fail_as_unknown) ... ok
+test_related_audits_group_by_explicit_source_reference (test_research_queue_groups.QueueGroupTests.test_related_audits_group_by_explicit_source_reference) ... ok
+test_same_word_and_model_group_without_approval (test_research_queue_groups.QueueGroupTests.test_same_word_and_model_group_without_approval) ... ok
+test_selected_reference_exact_ceiling (test_research_queue_groups.QueueGroupTests.test_selected_reference_exact_ceiling) ... ok
+test_stale_and_conflicting_metadata_unclassified (test_research_queue_groups.QueueGroupTests.test_stale_and_conflicting_metadata_unclassified) ... ok
+test_unknown_words_never_merge (test_research_queue_groups.QueueGroupTests.test_unknown_words_never_merge) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 13.324s
+
+OK
+
+
+{"test": "test_research_ci_drift.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_research_ci_drift.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_research_ci_drift.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 2.67, "peak_sampled_rss_kib": 38304}
+
+test_staged_edit_with_worktree_restored_to_head_is_rejected (test_research_ci_drift.RegisteredReplayDriftTests.test_staged_edit_with_worktree_restored_to_head_is_rejected) ... ok
+test_staged_input_deletion_is_rejected (test_research_ci_drift.RegisteredReplayDriftTests.test_staged_input_deletion_is_rejected) ... ok
+test_staged_input_edit_is_rejected (test_research_ci_drift.RegisteredReplayDriftTests.test_staged_input_edit_is_rejected) ... ok
+test_staged_new_file_is_rejected (test_research_ci_drift.RegisteredReplayDriftTests.test_staged_new_file_is_rejected) ... ok
+test_unchanged_checkout_passes (test_research_ci_drift.RegisteredReplayDriftTests.test_unchanged_checkout_passes) ... ok
+test_unstaged_input_deletion_is_rejected (test_research_ci_drift.RegisteredReplayDriftTests.test_unstaged_input_deletion_is_rejected) ... ok
+test_unstaged_input_edit_is_rejected (test_research_ci_drift.RegisteredReplayDriftTests.test_unstaged_input_edit_is_rejected) ... ok
+test_untracked_replay_output_is_allowed (test_research_ci_drift.RegisteredReplayDriftTests.test_untracked_replay_output_is_allowed) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.893s
+
+OK
+
+
+{"test": "test_script_exit_cleanup.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_script_exit_cleanup.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_script_exit_cleanup.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 2.65, "peak_sampled_rss_kib": 69024}
+
+test_cleanup_denial_prevents_success_and_reports_retry_failure (test_script_exit_cleanup.ScriptExitCleanupTests.test_cleanup_denial_prevents_success_and_reports_retry_failure) ... ok
+test_failed_leader_keeps_failure_and_cleans_descendants (test_script_exit_cleanup.ScriptExitCleanupTests.test_failed_leader_keeps_failure_and_cleans_descendants) ... ok
+test_joined_tree_preserves_success_and_output (test_script_exit_cleanup.ScriptExitCleanupTests.test_joined_tree_preserves_success_and_output) ... ok
+test_parent_only_cleanup_mutant_is_detected (test_script_exit_cleanup.ScriptExitCleanupTests.test_parent_only_cleanup_mutant_is_detected) ... ok
+test_successful_leader_cleans_child_and_grandchild (test_script_exit_cleanup.ScriptExitCleanupTests.test_successful_leader_cleans_child_and_grandchild) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.077s
+
+OK
+
+
+{"test": "test_pr_reconciliation.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_pr_reconciliation.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pr_reconciliation.py", "-v"], "exit": 1, "resource_stop": null, "seconds": 1.59, "peak_sampled_rss_kib": 151200}
+
+test_assertion_guard_removal_and_other_byte_edits_fail (test_pr_reconciliation.AssertionSafetyRefresh.test_assertion_guard_removal_and_other_byte_edits_fail) ... ok
+test_current_successor_cache_and_timeout_edits_fail (test_pr_reconciliation.AssertionSafetyRefresh.test_current_successor_cache_and_timeout_edits_fail) ... ok
+test_exact_accepted_successors_pass (test_pr_reconciliation.AssertionSafetyRefresh.test_exact_accepted_successors_pass) ... ok
+test_forged_predecessor_and_cross_file_successor_fail (test_pr_reconciliation.AssertionSafetyRefresh.test_forged_predecessor_and_cross_file_successor_fail) ... ok
+test_historical_adapter_cannot_be_disabled (test_pr_reconciliation.AssertionSafetyRefresh.test_historical_adapter_cannot_be_disabled) ... ok
+test_unrelated_file_still_needs_exact_bytes (test_pr_reconciliation.AssertionSafetyRefresh.test_unrelated_file_still_needs_exact_bytes) ... ok
+test_boolean_completion_flags_cannot_be_replaced_by_integers (test_pr_reconciliation.FamilyDecision.test_boolean_completion_flags_cannot_be_replaced_by_integers) ... ok
+test_changed_or_missing_projection_fields_are_rejected (test_pr_reconciliation.FamilyDecision.test_changed_or_missing_projection_fields_are_rejected) ... ok
+test_companion_review_retains_inherited_whole_head_completion (test_pr_reconciliation.FamilyDecision.test_companion_review_retains_inherited_whole_head_completion) ... ok
+test_current_family_projections_match_authoritative_decisions (test_pr_reconciliation.FamilyDecision.test_current_family_projections_match_authoritative_decisions) ... ok
+test_earlier_family_without_completion_metadata_remains_valid (test_pr_reconciliation.FamilyDecision.test_earlier_family_without_completion_metadata_remains_valid) ... ok
+test_entrypoint_rejects_forged_ledger_heads (test_pr_reconciliation.FamilyDecision.test_entrypoint_rejects_forged_ledger_heads) ... ok
+test_equal_forged_heads_do_not_establish_review_provenance (test_pr_reconciliation.FamilyDecision.test_equal_forged_heads_do_not_establish_review_provenance) ... ok
+test_incremental_decision_cannot_inherit_missing_mandatory_fields (test_pr_reconciliation.FamilyDecision.test_incremental_decision_cannot_inherit_missing_mandatory_fields) ... ok
+test_incremental_decision_preserves_recorded_optional_metadata (test_pr_reconciliation.FamilyDecision.test_incremental_decision_preserves_recorded_optional_metadata) ... ok
+test_incremental_explicit_closure_overrides_previous_receipt (test_pr_reconciliation.FamilyDecision.test_incremental_explicit_closure_overrides_previous_receipt) ... ok
+test_missing_closure_is_distinct_from_recorded_null (test_pr_reconciliation.FamilyDecision.test_missing_closure_is_distinct_from_recorded_null) ... ok
+test_partial_decisions_can_preserve_distinct_reviewed_and_current_heads (test_pr_reconciliation.FamilyDecision.test_partial_decisions_can_preserve_distinct_reviewed_and_current_heads) ... ok
+test_unrecorded_closure_accepts_only_absent_or_explicit_null (test_pr_reconciliation.FamilyDecision.test_unrecorded_closure_accepts_only_absent_or_explicit_null) ... ok
+test_archived_artifact_changes_and_escapes_are_rejected (test_pr_reconciliation.ReviewCompletion.test_archived_artifact_changes_and_escapes_are_rejected) ... ok
+test_complete_review_can_be_incorporated (test_pr_reconciliation.ReviewCompletion.test_complete_review_can_be_incorporated) ... ok
+test_each_missing_gate_blocks_incorporation (test_pr_reconciliation.ReviewCompletion.test_each_missing_gate_blocks_incorporation) ... ok
+test_ledger_cannot_drop_or_disagree_with_evidence (test_pr_reconciliation.ReviewCompletion.test_ledger_cannot_drop_or_disagree_with_evidence) ... ok
+test_partial_review_can_record_incomplete_execution (test_pr_reconciliation.ReviewCompletion.test_partial_review_can_record_incomplete_execution) ... ok
+test_updated_head_and_missing_location_block_incorporation (test_pr_reconciliation.ReviewCompletion.test_updated_head_and_missing_location_block_incorporation) ... ok
+test_any_other_proof_or_metadata_edit_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_any_other_proof_or_metadata_edit_is_rejected) ... ERROR
+test_changed_mathematical_case_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_changed_mathematical_case_is_rejected) ... ERROR
+test_exact_accepted_refresh_and_original_bytes_pass (test_pr_reconciliation.SpectrumRefresh.test_exact_accepted_refresh_and_original_bytes_pass) ... ERROR
+test_forged_historical_pin_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_forged_historical_pin_is_rejected) ... ERROR
+test_successor_helper_drift_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_successor_helper_drift_is_rejected) ... ERROR
+test_unrelated_file_changes_still_fail (test_pr_reconciliation.SpectrumRefresh.test_unrelated_file_changes_still_fail) ... ok
+
+======================================================================
+ERROR: test_any_other_proof_or_metadata_edit_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_any_other_proof_or_metadata_edit_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_pr_reconciliation.py", line 237, in test_any_other_proof_or_metadata_edit_is_rejected
+    current = (ROOT / item['integrated_path']).read_bytes()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/single-intersection-spectrum-audit/RESULT.json'
+
+======================================================================
+ERROR: test_changed_mathematical_case_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_changed_mathematical_case_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_pr_reconciliation.py", line 250, in test_changed_mathematical_case_is_rejected
+    current = (ROOT / item['integrated_path']).read_bytes()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/single-intersection-spectrum-audit/RESULT.json'
+
+======================================================================
+ERROR: test_exact_accepted_refresh_and_original_bytes_pass (test_pr_reconciliation.SpectrumRefresh.test_exact_accepted_refresh_and_original_bytes_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_pr_reconciliation.py", line 228, in test_exact_accepted_refresh_and_original_bytes_pass
+    checker.check_frontier890_file(item)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/verify_pr_reconciliation.py", line 50, in check_frontier890_file
+    current = (ROOT / name).read_bytes()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/single-intersection-spectrum-audit/RESULT.json'
+
+======================================================================
+ERROR: test_forged_historical_pin_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_forged_historical_pin_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_pr_reconciliation.py", line 263, in test_forged_historical_pin_is_rejected
+    checker.check_frontier890_file(item)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/verify_pr_reconciliation.py", line 50, in check_frontier890_file
+    current = (ROOT / name).read_bytes()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/single-intersection-spectrum-audit/RESULT.json'
+
+======================================================================
+ERROR: test_successor_helper_drift_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_successor_helper_drift_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_pr_reconciliation.py", line 272, in test_successor_helper_drift_is_rejected
+    checker.check_frontier890_file(item)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/scripts/verify_pr_reconciliation.py", line 50, in check_frontier890_file
+    current = (ROOT / name).read_bytes()
+  File "/Users/colkitt/sith/toys/math/integerMult-queue-20261020/tests/test_pr_reconciliation.py", line 268, in read
+    return b'changed helper' if path == ROOT / 'scripts/experiments/single_intersection.py' else original_read(path)
+                                                                                                 ~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/colkitt/sith/toys/math/integerMult-queue-20261020/research/single-intersection-spectrum-audit/RESULT.json'
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.559s
+
+FAILED (errors=5)
+
+
+{"test": "test_pr_reconciliation_initial_heads.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_pr_reconciliation_initial_heads.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pr_reconciliation_initial_heads.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 1.61, "peak_sampled_rss_kib": 88096}
+
+test_actual_entrypoint_rejects_forged_starting_head_and_attribution (test_pr_reconciliation_initial_heads.InitialIntakeHeads.test_actual_entrypoint_rejects_forged_starting_head_and_attribution)
+Exercise the metadata boundary, stopping before unrelated archive work. ... ok
+test_actual_generator_preserves_initial_and_current_observations (test_pr_reconciliation_initial_heads.InitialIntakeHeads.test_actual_generator_preserves_initial_and_current_observations) ... ok
+test_exact_checkpoint_retains_initial_head_and_current_metadata (test_pr_reconciliation_initial_heads.InitialIntakeHeads.test_exact_checkpoint_retains_initial_head_and_current_metadata) ... ok
+test_metadata_number_and_attribution_cannot_be_substituted (test_pr_reconciliation_initial_heads.InitialIntakeHeads.test_metadata_number_and_attribution_cannot_be_substituted) ... ok
+test_other_families_and_new_prs_keep_original_metadata_rule (test_pr_reconciliation_initial_heads.InitialIntakeHeads.test_other_families_and_new_prs_keep_original_metadata_rule) ... ok
+test_receipt_byte_changes_and_forged_original_heads_fail (test_pr_reconciliation_initial_heads.InitialIntakeHeads.test_receipt_byte_changes_and_forged_original_heads_fail) ... ok
+test_unknown_future_heads_and_independent_metadata_mutations_fail (test_pr_reconciliation_initial_heads.InitialIntakeHeads.test_unknown_future_heads_and_independent_metadata_mutations_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.905s
+
+OK
+
+
+{"test": "test_verify_pr_ledger_markdown.py", "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-B", "-X", "pycache_prefix=/tmp/pr-queue-20261020b/pycache/test_verify_pr_ledger_markdown.py", "-m", "unittest", "discover", "-s", "tests", "-p", "test_verify_pr_ledger_markdown.py", "-v"], "exit": 0, "resource_stop": null, "seconds": 1.08, "peak_sampled_rss_kib": 29552}
+
+test_consistent_ledger_passes (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_consistent_ledger_passes) ... ok
+test_deduplicates_evidence_and_appends_reconciliation (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_deduplicates_evidence_and_appends_reconciliation) ... ok
+test_detects_absent_counts_table (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_absent_counts_table) ... ok
+test_detects_attribution_drift (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_attribution_drift) ... ok
+test_detects_count_drift (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_count_drift) ... ok
+test_detects_disposition_drift (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_disposition_drift) ... ok
+test_detects_dropped_evidence_record (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_dropped_evidence_record)
+The failure actually observed on main: a stale row loses a record. ... ok
+test_detects_duplicate_row (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_duplicate_row) ... ok
+test_detects_json_counts_field_drift (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_json_counts_field_drift) ... ok
+test_detects_missing_count_row (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_missing_count_row) ... ok
+test_detects_missing_row (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_detects_missing_row) ... ok
+test_no_evidence_uses_declared_placeholder (test_verify_pr_ledger_markdown.VerifyLedgerMarkdown.test_no_evidence_uses_declared_placeholder) ... ok
+test_report_shape (test_verify_pr_ledger_markdown.VerifyLedgerMarkdownOnRepository.test_report_shape) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.110s
+
+OK
+
+
+Sparse historical SpectrumRefresh and CI-document fixtures were initially missing. Exact committed metadata files were materialized, then both suites passed; no scientific verifier was executed.
+
+reconciliation-final.log
+
+test_assertion_guard_removal_and_other_byte_edits_fail (test_pr_reconciliation.AssertionSafetyRefresh.test_assertion_guard_removal_and_other_byte_edits_fail) ... ok
+test_current_successor_cache_and_timeout_edits_fail (test_pr_reconciliation.AssertionSafetyRefresh.test_current_successor_cache_and_timeout_edits_fail) ... ok
+test_exact_accepted_successors_pass (test_pr_reconciliation.AssertionSafetyRefresh.test_exact_accepted_successors_pass) ... ok
+test_forged_predecessor_and_cross_file_successor_fail (test_pr_reconciliation.AssertionSafetyRefresh.test_forged_predecessor_and_cross_file_successor_fail) ... ok
+test_historical_adapter_cannot_be_disabled (test_pr_reconciliation.AssertionSafetyRefresh.test_historical_adapter_cannot_be_disabled) ... ok
+test_unrelated_file_still_needs_exact_bytes (test_pr_reconciliation.AssertionSafetyRefresh.test_unrelated_file_still_needs_exact_bytes) ... ok
+test_boolean_completion_flags_cannot_be_replaced_by_integers (test_pr_reconciliation.FamilyDecision.test_boolean_completion_flags_cannot_be_replaced_by_integers) ... ok
+test_changed_or_missing_projection_fields_are_rejected (test_pr_reconciliation.FamilyDecision.test_changed_or_missing_projection_fields_are_rejected) ... ok
+test_companion_review_retains_inherited_whole_head_completion (test_pr_reconciliation.FamilyDecision.test_companion_review_retains_inherited_whole_head_completion) ... ok
+test_current_family_projections_match_authoritative_decisions (test_pr_reconciliation.FamilyDecision.test_current_family_projections_match_authoritative_decisions) ... ok
+test_earlier_family_without_completion_metadata_remains_valid (test_pr_reconciliation.FamilyDecision.test_earlier_family_without_completion_metadata_remains_valid) ... ok
+test_entrypoint_rejects_forged_ledger_heads (test_pr_reconciliation.FamilyDecision.test_entrypoint_rejects_forged_ledger_heads) ... ok
+test_equal_forged_heads_do_not_establish_review_provenance (test_pr_reconciliation.FamilyDecision.test_equal_forged_heads_do_not_establish_review_provenance) ... ok
+test_incremental_decision_cannot_inherit_missing_mandatory_fields (test_pr_reconciliation.FamilyDecision.test_incremental_decision_cannot_inherit_missing_mandatory_fields) ... ok
+test_incremental_decision_preserves_recorded_optional_metadata (test_pr_reconciliation.FamilyDecision.test_incremental_decision_preserves_recorded_optional_metadata) ... ok
+test_incremental_explicit_closure_overrides_previous_receipt (test_pr_reconciliation.FamilyDecision.test_incremental_explicit_closure_overrides_previous_receipt) ... ok
+test_missing_closure_is_distinct_from_recorded_null (test_pr_reconciliation.FamilyDecision.test_missing_closure_is_distinct_from_recorded_null) ... ok
+test_partial_decisions_can_preserve_distinct_reviewed_and_current_heads (test_pr_reconciliation.FamilyDecision.test_partial_decisions_can_preserve_distinct_reviewed_and_current_heads) ... ok
+test_unrecorded_closure_accepts_only_absent_or_explicit_null (test_pr_reconciliation.FamilyDecision.test_unrecorded_closure_accepts_only_absent_or_explicit_null) ... ok
+test_archived_artifact_changes_and_escapes_are_rejected (test_pr_reconciliation.ReviewCompletion.test_archived_artifact_changes_and_escapes_are_rejected) ... ok
+test_complete_review_can_be_incorporated (test_pr_reconciliation.ReviewCompletion.test_complete_review_can_be_incorporated) ... ok
+test_each_missing_gate_blocks_incorporation (test_pr_reconciliation.ReviewCompletion.test_each_missing_gate_blocks_incorporation) ... ok
+test_ledger_cannot_drop_or_disagree_with_evidence (test_pr_reconciliation.ReviewCompletion.test_ledger_cannot_drop_or_disagree_with_evidence) ... ok
+test_partial_review_can_record_incomplete_execution (test_pr_reconciliation.ReviewCompletion.test_partial_review_can_record_incomplete_execution) ... ok
+test_updated_head_and_missing_location_block_incorporation (test_pr_reconciliation.ReviewCompletion.test_updated_head_and_missing_location_block_incorporation) ... ok
+test_any_other_proof_or_metadata_edit_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_any_other_proof_or_metadata_edit_is_rejected) ... ok
+test_changed_mathematical_case_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_changed_mathematical_case_is_rejected) ... ok
+test_exact_accepted_refresh_and_original_bytes_pass (test_pr_reconciliation.SpectrumRefresh.test_exact_accepted_refresh_and_original_bytes_pass) ... ok
+test_forged_historical_pin_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_forged_historical_pin_is_rejected) ... ok
+test_successor_helper_drift_is_rejected (test_pr_reconciliation.SpectrumRefresh.test_successor_helper_drift_is_rejected) ... ok
+test_unrelated_file_changes_still_fail (test_pr_reconciliation.SpectrumRefresh.test_unrelated_file_changes_still_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.903s
+
+OK
+
+
+ci-document-retry.log
+
+test_ci_document_successor_replays_exact_frozen_bytes (test_historical_check.HistoricalReplay.test_ci_document_successor_replays_exact_frozen_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.019s
+
+OK

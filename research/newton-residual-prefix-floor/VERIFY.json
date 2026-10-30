@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "New positive-degree parity, finite-difference window, exact coefficient, literal-prefix and sharp-cutoff checks; eight underprecision rejection controls; generated package SHA256 receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-X",
+        "dev",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete fixed domain with optimization; all mathematical checks remain active."
+    }
+  ]
+}

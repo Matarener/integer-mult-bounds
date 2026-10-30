@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "numpy==2.5.4"
+  ],
+  "inputs": [
+    "research/universal-connector-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exhaustive BFS over UT(K+1, Z/m): depth five at m = 2, 3 (minima 16, 24) and depth four at m = 2..5 as a control (12, 18, 20, 25). Every witness in witnesses.json: exactly m copies of each call, interval subword counts, independent UT6(Z/m) product, two literal dirty noncommuting replays; full rows for 9 <= m <= 20; the three m = 4 words of lengths 28, 24, 28; five rejection controls; source hashes."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "The same checks with Python assertions disabled; all contracts use explicit exceptions."
+    }
+  ]
+}

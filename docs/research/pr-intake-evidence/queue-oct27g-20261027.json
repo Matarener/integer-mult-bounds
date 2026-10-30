@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "baseline": "2b35e6c6466253aa6fcaa37b7cacb61aa0c316ec",
+  "scope": "2 exact heads; source/integrity intake only, with separately reviewed shared-tooling changes explicitly resolved. No scientific replay, Lean or Docker.",
+  "contributions": [
+    {
+      "number": 6035,
+      "head": "119de1d7fca5124fa8d01ea49d258560aca618e6",
+      "merge_base": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+      "title": "Prove N(c) \u2265 \u230a5c/2\u230b for the unsigned connector via five-source depth-two blocks in every c \u2265 5 (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "files": [
+        {
+          "path": "research/connector-five-halves-growth/CERTIFICATE.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "75bf7f0666ab2ccecd15ad6a8f8a0578b36cd3f0"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/connector-five-halves-growth/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "ede2725b4b49c8fe587f077d731432437a3fdb3d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/connector-five-halves-growth/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "d596e2e5308bb5bf95a086c17e991386aa82e0a4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/connector-five-halves-growth/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "5fe8380b742561639ee1e8d248233791c2a5721d"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/connector-five-halves-growth/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e491b45fafe85097362e7fced7a421abe9f9c2a2"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/connector-five-halves-growth/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "f16ce376627de94cdfaf393eb9878e328e6668a9"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 4
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/connector-five-halves-growth/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/connector-five-halves-growth/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:docs/research/agent-task-catalog.json",
+          "result": "match"
+        }
+      ],
+      "declared_input_checks": [
+        {
+          "manifest": "research/connector-five-halves-growth/VERIFY.json",
+          "scope": "Canonical input spelling and regular tracked blob presence at exact PR head only; no generic-package or scientific replay.",
+          "errors": [],
+          "inputs": []
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Result\n\nFor the unsigned dirty connector of #4231 in characteristic c, let N(c) be the largest source count at which the floor c(k + 2^k \u2212 1) is attained. #4248 proved N(c) \u2265 2c and asked how N(c) grows (open question 2). This PR adds `research/connector-five-halves-growth`:\n\n- **Theorem T (scoped proof, finite core checked):** one explicit 30-event base walk with per-source cut positions expands to a five-source depth-two block in every characteristic c \u2265 5. Replace the (a_j+1)-th event of source j by a run of c \u2212 5 copies (deleted at c = 5). Each expanded prefix is congruent mod c to an integer \"lifted\" prefix, and every nonzero mask is an integer sum of two lifted prefixes, so the identity holds in every c \u2265 5.\n- **Corollary (proof):** with #4248's concatenation and deletion lemmas, **N(c) \u2265 \u230a5c/2\u230b for every c \u2265 5**, for example N(5) \u2265 12, N(6) \u2265 15, N(7) \u2265 17 and N(8) \u2265 20 (previously 2c).\n\nCharacteristic four is untouched. #4271 excludes five-source depth-two blocks at c = 4, and the template needs c \u2212 5 \u2265 0. There is no new \u03ba, no consumer, no selected-frontier change and no multiplication theorem.\n\n## Evidence and reproduction\n\n`verify.py` uses only the standard library and takes about 2 s. It checks:\n\n- the integer template identity for all 31 masks (the only finite step the proof needs);\n- the expanded block for every 5 \u2264 c \u2264 64, by direct search modulo c and through the lifted readouts;\n- literal floor words on 12, 15 and 17 sources for c = 5, 6, 7 (20,535, 196,692 and 917,616 calls), simulated with generic coefficients over Z/c;\n- five rejection controls.\n\n```s",
+      "roots": [
+        "research/connector-five-halves-growth"
+      ],
+      "installed": [
+        "research/connector-five-halves-growth/CERTIFICATE.json",
+        "research/connector-five-halves-growth/README.md",
+        "research/connector-five-halves-growth/SOURCES.json",
+        "research/connector-five-halves-growth/TASK.json",
+        "research/connector-five-halves-growth/VERIFY.json",
+        "research/connector-five-halves-growth/verify.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    },
+    {
+      "number": 6036,
+      "head": "1cf36dd5f4d484a6c764f2b73f4f1e21c3eb3108",
+      "merge_base": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+      "title": "Prove a pair-sum readout floor for partitioned walk duals at every Q (no new \u03ba)",
+      "author": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "files": [
+        {
+          "path": "research/partitioned-walk-pair-sum-floor/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "fe2464992fc65a7803212a48e9ef38a93def591b"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/partitioned-walk-pair-sum-floor/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "878284b564f4f1eb46065b4abadb9400887f57c4"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/partitioned-walk-pair-sum-floor/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "2e93d2f046e583f6ab304d7d325690fb1d01ae9f"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/partitioned-walk-pair-sum-floor/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "8de37eb12498ccf471a8498a30aa3d7bbe955d45"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        },
+        {
+          "path": "research/partitioned-walk-pair-sum-floor/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "963c3c7de73bb150f6b88ce54fcd7525c47d6242"
+          },
+          "old_oid": "0000000000000000000000000000000000000000",
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 3
+      },
+      "pin_checks": [
+        {
+          "manifest": "research/partitioned-walk-pair-sum-floor/SOURCES.json",
+          "path": "certificates/selected-result.json",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:certificates/selected-result.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/partitioned-walk-pair-sum-floor/SOURCES.json",
+          "path": "docs/research/agent-task-catalog.json",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:docs/research/agent-task-catalog.json",
+          "result": "match"
+        },
+        {
+          "manifest": "research/partitioned-walk-pair-sum-floor/SOURCES.json",
+          "path": "research/independent-walks-7q-obstruction/model.py",
+          "source_spec": "19fdb086ea96af9a9f87936a2b888e10af4ed810:research/independent-walks-7q-obstruction/model.py",
+          "result": "match"
+        }
+      ],
+      "declared_input_checks": [
+        {
+          "manifest": "research/partitioned-walk-pair-sum-floor/VERIFY.json",
+          "scope": "Canonical input spelling and regular tracked blob presence at exact PR head only; no generic-package or scientific replay.",
+          "errors": [],
+          "inputs": [
+            {
+              "path": "research/independent-walks-7q-obstruction/model.py",
+              "mode": "100644",
+              "oid": "49809a4fa0641bfea0b87b2f85e4c08cc23f0bfd"
+            }
+          ]
+        }
+      ],
+      "shared": [],
+      "conflicts": [],
+      "independent_scientific_execution": false,
+      "observed_reviews": [],
+      "claim_excerpt": "## Result\n\n**Scoped proof and finite certificate in the PR1898 abstract tariff; no new \u03ba.** Package: `research/partitioned-walk-pair-sum-floor/`.\n\nThis answers open question 2 of Wentao Li's #2779 (`research/independent-walks-7q-obstruction`): repeated labels inside a partitioned walk never cover at `Q=7`. Covering needs `\u03a3(n_i\u22121) \u2265 5`, and at `Q=7` this is tight, so each walk must have independent labels. PR #2779's `R=112` is therefore the exact minimum over all label patterns.\n\nFor any labels (repeats and interior zero revisits allowed) and any number of walks, the cost-2 masks are pair sums of one walk. This gives\n\n```text\nR \u2265 max(62, 122 \u2212 (Q\u22122)(Q\u22123)).\n```\n\nThe floor is attained at `Q=8` (`R=92`, walks `(0,10)`, `(0,22,5,31,24,20)`) and `Q=9` (`R=80`, walks `(0,3)`, `(0,18,1,5,11,20,27)`). The tariff floor `38Q+2R` is at least 470 at every `Q \u2265 7`. No partitioned independent dual undercuts the six-query endpoint tariff 436 at any query count.\n\n## Evidence and reproduction\n\n`verify.py` imports PR #2779's `model.py` (pinned live input). It checks:\n\n- the table lemma (finite iff in span; cost 2 iff pair sum) on all 924,482 restored walks of length 2\u20135;\n- the `Q=7` rank census: 624,960 of 894,660 length-5 walks and 26,040 of 28,861 length-4 walks have full rank, all with distinct nonzero labels;\n- 4,000 seeded random duals with `Q` from 7 to 11, of which 2,456 cover, against both floors and against #2779's two-port dual;\n- the witnesses and the tariff floors.\n\n```sh\n~/git/integer-mult-bounds/.venv/bin/python3.12 -B research/partitioned-walk-pair-sum-floor/verify.py\n~/git/i",
+      "roots": [
+        "research/partitioned-walk-pair-sum-floor"
+      ],
+      "installed": [
+        "research/partitioned-walk-pair-sum-floor/README.md",
+        "research/partitioned-walk-pair-sum-floor/SOURCES.json",
+        "research/partitioned-walk-pair-sum-floor/TASK.json",
+        "research/partitioned-walk-pair-sum-floor/VERIFY.json",
+        "research/partitioned-walk-pair-sum-floor/verify.py"
+      ],
+      "deleted": [],
+      "resolutions": {},
+      "lane": "archive",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "historical_only": false
+    }
+  ],
+  "checks": "docs/research/pr-intake-evidence/queue-oct27g-20261027-checks.txt",
+  "selected_frontier_changed": false
+}

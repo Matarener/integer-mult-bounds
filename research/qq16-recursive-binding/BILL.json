@@ -1,0 +1,134 @@
+{
+  "census": {
+    "H1": 224,
+    "allowance": 26144,
+    "clear": 416,
+    "map": 352,
+    "quarter": 896,
+    "unit": 1820,
+    "wrappers": 448
+  },
+  "controls": {
+    "rejections": [
+      "nonzero dropped bit",
+      "negative nonzero dropped bit",
+      "return overflow",
+      "insufficient fractional reserve",
+      "insufficient signed reserve",
+      "boolean reserve",
+      "backend width shortfall"
+    ],
+    "signed_roundtrips": 1260
+  },
+  "height_contract": {
+    "B_upper_power_two": 100001,
+    "Gamma_upper_power_two": 2628,
+    "admission": "H>=W_req; append a low zeros and H-W_c-a high sign bits",
+    "asymptotic": "Actual inherited H and global Compact p,G are unchanged. O(p) alone is not physical width admission.",
+    "boundary": "Inherited height applies to arbitrary correlated bounded input coefficients; Machine exact C endpoint projects to q_c by the authenticated caller grid theorem.",
+    "child_height_reserve": "a=8lambda at admitted direct leaves; a=2 B lambda otherwise",
+    "common_coarse_grid": "q_c=h*2^(-9-3(lambda-1))",
+    "common_coarse_width": "W_c=P+28+6(lambda-1)",
+    "complete_native_error": "zero, conditional on inherited exact Machine refinement and this guard",
+    "inherited": "A(e)<=2 B e; B=1041408 Gamma+2^100000",
+    "required_width": "W_req=W_c+2a+1 <= P+29+6(lambda-1)+4B lambda",
+    "sufficient_subdomain": "P<=p+4Bd+1 and lambda<=d imply W_req<=p+(8B+6)d+24<H by 8B+26<2C0",
+    "width_inequality_exact": true,
+    "working_grid": "q_w=q_c*2^(-a)",
+    "working_width": "H=p+2C0d+3; C0=2^210000; retain admitted parent component_bits H"
+  },
+  "leaf_controls": {
+    "lambda1_d73": {
+      "height": 8,
+      "kind": "leaf"
+    },
+    "lambda73_above_cutoff": {
+      "height": 584,
+      "kind": "leaf"
+    },
+    "lambda73_equal_cutoff": {
+      "height": "2 B lambda",
+      "kind": "recursive"
+    }
+  },
+  "physical_bill": {
+    "actual_global_credit": null,
+    "conversion": "For each callback, promote its complete coarse input into the one reusable wide workspace, run exact Machine, verify low-bit divisibility and sign extension, and return the coarse packet. Both224-call words pay these conversions. Only one child workspace is live.",
+    "decoder": "sum(j=1..224) T_C(lambda,v_j,p,d,H)+448 T_M+352 T_cover+1820 T_add+896 T_quarter+416 T_clear+T_lift+T_project+T_park+T_restore",
+    "entry_subdomain_status": "The sufficient P bound is an explicit domain, not a proved QQ16 producer output bound.",
+    "native_envelope": "Inherited fixed-source Machine bound, exact C endpoint; direct O(lambda V) only at admitted leaf cuts.",
+    "numeric_comparison_only": "At common caller W_c and common admitted callback H with identical prescribed callback/movement bounds, PR4106 removes exactly100 complex-field ADDs=200 real-component ADDs per coordinate versus PR4015.",
+    "unchanged_child_moment": "Both4015and4106:224*(1/73)^(1-a) before a proved usage/volume coefficient and other charges.",
+    "units": "Each T is actual complete physical time on its matching packet/width/layout. Sum over actual owners and invocations; no unknown T is zero."
+  },
+  "scope": [
+    "No new recursive provider profile or kappa.",
+    "Ordinary backend, native identity, hosting/refinement and long-record premises inherited.",
+    "Actual decoder insertion, returned-bank lifetimes and physical wrappers/maps must be established separately.",
+    "No six-tape claim; inherited Machine has a much larger fixed tape inventory.",
+    "Arithmetic envelopes do not prove tape execution or semantic endpoint identities."
+  ],
+  "status": "PASS_CONDITIONAL_RECURSIVE_GUARD_AND_COST_ARITHMETIC",
+  "stock": {
+    "L": "14336 Gamma",
+    "child": "rows U=R/L; width lambda; after+=72lambda K",
+    "reuse": "All224 sequential calls reuse U; no factor224 row reservation",
+    "samples": [
+      {
+        "child_depth": 0,
+        "lambda": 1,
+        "parent_depth": 1,
+        "reusable_child_stock_exponent": 0
+      },
+      {
+        "child_depth": 0,
+        "lambda": 2,
+        "parent_depth": 2,
+        "reusable_child_stock_exponent": 1
+      },
+      {
+        "child_depth": 0,
+        "lambda": 72,
+        "parent_depth": 9,
+        "reusable_child_stock_exponent": 8
+      },
+      {
+        "child_depth": 1,
+        "lambda": 73,
+        "parent_depth": 9,
+        "reusable_child_stock_exponent": 8
+      },
+      {
+        "child_depth": 1,
+        "lambda": 74,
+        "parent_depth": 9,
+        "reusable_child_stock_exponent": 8
+      },
+      {
+        "child_depth": 2,
+        "lambda": 146,
+        "parent_depth": 11,
+        "reusable_child_stock_exponent": 10
+      },
+      {
+        "child_depth": 5,
+        "lambda": 1000,
+        "parent_depth": 15,
+        "reusable_child_stock_exponent": 14
+      },
+      {
+        "child_depth": 10,
+        "lambda": 10000,
+        "parent_depth": 21,
+        "reusable_child_stock_exponent": 20
+      },
+      {
+        "child_depth": 38,
+        "lambda": 1000000000,
+        "parent_depth": 48,
+        "reusable_child_stock_exponent": 47
+      }
+    ],
+    "sufficient_parent": "L^D0(73lambda) divides R"
+  }
+}

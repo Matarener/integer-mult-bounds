@@ -1,0 +1,226 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "reviewed_snapshot": "6310550e932de70243fc2aaab6f4885688b6fe21",
+  "starting_head": "9946b1c42466ada889c10cd0cea7522d6360a63b",
+  "base": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "scientific_files_sha256": {
+    "PROOF.md": "6e32d89065b5fb14c457fa990a166f68c840ec16566c480000dc620ad842aa4e",
+    "verify.py": "3a88ad1da0691afefead7d71c00ab4a51d547c770a40dc2e232c39dc02d8366d",
+    "RESULT.json": "d195c3fd5620bf2e64dc7d677c79ad52e780aefde9534d4e6a02a5ff1b9c9bdd",
+    "independent_source.py": "abe248ffc0012fdcb7a941c399cba0f5f943c006d86368553c1c3317442f5773",
+    "test_controls.py": "7039979fb32e410470bc5d2cd664c519cca2d0924b8e461b9290662b9b31fbb9",
+    "test_enclosures.py": "b92a75601ef676ab0b412395eb2ccaa52c8e802f89fe1fb2f3820cafa173aea4",
+    "SOURCES.json": "90997ec1be8cd8c3e588d71a349783b2f1696a224dc082749f3886bebd8c2c4a",
+    "VERIFY.json": "9c007727bbd9b0128e25d8394d40b60047f132b4d954b7eea974653de89b83f2"
+  },
+  "runs": [
+    {
+      "name": "metadata",
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/direct-flow-leaf-saturation",
+        "--check-only"
+      ],
+      "reproduce": [
+        "python3.12",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/direct-flow-leaf-saturation",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3,
+      "stdout": "PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)\n",
+      "stderr": ""
+    },
+    {
+      "name": "registered",
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/direct-flow-leaf-saturation"
+      ],
+      "reproduce": [
+        "python3.12",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/direct-flow-leaf-saturation"
+      ],
+      "exit_code": 0,
+      "seconds": 75.175,
+      "stdout": "CHECK Exact rational root/drift/tilt/limit enclosures, eight whole-flow fixtures, lattice and domain failure controls; classical LLT proof is written, not machine-checked.\n{\n  \"controls\": {\n    \"interval_domain_rejections\": 3,\n    \"lattice_countermodel\": \"geometric mean gap/log2 tends to 1; finite n=400 gap<0.7, not exponential mean1\"\n  },\n  \"finite_law\": {\n    \"ordered_word_max_depth\": 3,\n    \"source_check\": \"complete actual X-BX histogram equals ordered-word enumeration\",\n    \"terminal_cut_distinguishing_fixtures\": 8,\n    \"whole_flow_fixtures\": 8\n  },\n  \"parameters\": {\n    \"alpha\": [\n      \"0.98981438244597\",\n      \"0.98981438244599\"\n    ],\n    \"drift_above_log5\": [\n      \"0.016477707041\",\n      \"0.016477707042\"\n    ],\n    \"invoice_derivative_lower_bound_interval_0_99_to_1\": [\n      \"211661.930309\",\n      \"211661.930310\"\n    ],\n    \"lambda\": [\n      \"0.00749912850515\",\n      \"0.00749912850519\"\n    ],\n    \"mean_deficit_limit\": [\n      \"133.34882837\",\n      \"133.34882838\"\n    ],\n    \"mean_leaf_depth_limit\": [\n      \"136.51870330\",\n      \"136.51870331\"\n    ],\n    \"mean_log_rank\": [\n      \"1.625915619475\",\n      \"1.625915619476\"\n    ],\n    \"method\": \"exact Fraction arithmetic, log atanh48 and exp Taylor80 with positive remainder bounds\",\n    \"t_star\": [\n      \"0.99731351095114\",\n      \"0.99731351095116\"\n    ]\n  },\n  \"scope\": \"Source identity, rigorous numerical hypotheses and finite controls only; see PROOF.md for classical-LLT-based theorem. No finite-depth rate, total-flow ceiling or new kappa.\",\n  \"status\": \"PASS_DIRECT_FLOW_LEAF_SATURATION_CHECKS\"\n}\nCHECK Ten independent ordered-word fixtures compare complete #4436 and #4467 leaf histograms after authenticating every input; terminal-cut fields describe fixture sensitivity.\n{\n  \"status\": \"PASS_INDEPENDENT_SOURCE_LEAF_IDENTIFICATION\",\n  \"fixtures\": [\n    {\n      \"N\": 121,\n      \"G\": 0,\n      \"leaf_ranks\": 9,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 604,\n      \"G\": 0,\n      \"leaf_ranks\": 9,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 605,\n      \"G\": 1,\n      \"leaf_ranks\": 26,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 606,\n      \"G\": 1,\n      \"leaf_ranks\": 26,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 3024,\n      \"G\": 1,\n      \"leaf_ranks\": 30,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 3025,\n      \"G\": 2,\n      \"leaf_ranks\": 55,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 3026,\n      \"G\": 2,\n      \"leaf_ranks\": 55,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 15124,\n      \"G\": 2,\n      \"leaf_ranks\": 65,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 15125,\n      \"G\": 3,\n      \"leaf_ranks\": 98,\n      \"terminal_cut_distinguished\": true\n    },\n    {\n      \"N\": 15126,\n      \"G\": 3,\n      \"leaf_ranks\": 98,\n      \"terminal_cut_distinguished\": true\n    }\n  ]\n}\nCHECK Reject altered bytes in both standalone entry points; re-pinned empty/truncated #4467 branches and altered #4436 returned histogram rejected by their comparisons in normal and optimized modes; fixed-bracket and receipt regressions.\nPASS_MUTATION_CONTROLS both_standalone_pins_normal_and_optimized repinned_empty_and_truncated_leaf_sources_normal_and_optimized repinned_original_flow_return_normal_and_optimized corrupted_receipt fixed_bracket_count_regressions\nCHECK Independent exact rational bounds at every executed log/exp argument; reject zero logarithm/exponential tails and invalid exponential remainder majorant.\n{\n  \"all_exp_arguments_below\": \"479/100\",\n  \"distinct_exp_rational_arguments\": 127,\n  \"domain_sha256\": \"5e27ec5fc8e5fe372d5511730fd47d3d9acac76ae707221b11bfa99b963c58e4\",\n  \"exp_oracle\": \"degree-82 positive series; exact ratio-bounded geometric tail\",\n  \"log_integer_arguments\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    16,\n    25,\n    32,\n    41,\n    48,\n    57,\n    121\n  ],\n  \"log_oracle\": \"256-term -log(1-q) series; exact positive geometric tail\",\n  \"mutations_rejected\": [\n    \"zero_log_tail_at_log2\",\n    \"zero_exp_tail_at_exp1\",\n    \"invalid_exp_majorant_one_at_exp1\"\n  ],\n  \"production_source_sha256\": \"3a88ad1da0691afefead7d71c00ab4a51d547c770a40dc2e232c39dc02d8366d\",\n  \"scope\": \"Exact containment at every argument captured from current parameters and controls; finite mutation discrimination, not a formal verifier or an all-input enclosure proof.\",\n  \"status\": \"PASS_INDEPENDENT_RATIONAL_ENCLOSURES\"\n}\nPASS_REGISTERED_RESEARCH_PACKAGE research/direct-flow-leaf-saturation outcome=completed\n",
+      "stderr": ""
+    },
+    {
+      "name": "git-free-optimized-mutation-controls",
+      "export_commit": "309eff43c247b711026eda5e5629409a89ff6242",
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-I",
+        "-O",
+        "-B",
+        "research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "reproduce": [
+        "python3.12",
+        "-I",
+        "-O",
+        "-B",
+        "research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "git_available": false,
+      "path": "empty directory",
+      "exit_code": 0,
+      "seconds": 33.424,
+      "stdout": "PASS_MUTATION_CONTROLS both_standalone_pins_normal_and_optimized repinned_empty_and_truncated_leaf_sources_normal_and_optimized repinned_original_flow_return_normal_and_optimized corrupted_receipt fixed_bracket_count_regressions\n",
+      "stderr": "",
+      "exported_files_unchanged": 48
+    }
+  ],
+  "independent_guard_runs": [
+    {
+      "variant": "intact_comparison",
+      "mode": "normal",
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-I",
+        "-B",
+        "/workspace/work/assignment-20261028/followup2-s7bzl6f4/research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 31.698,
+      "result": "PASS_MUTATION_CONTROLS including intended original Flow comparison"
+    },
+    {
+      "variant": "intact_comparison",
+      "mode": "optimized",
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-I",
+        "-O",
+        "-B",
+        "/workspace/work/assignment-20261028/followup2-s7bzl6f4/research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 31.589,
+      "result": "PASS_MUTATION_CONTROLS including intended original Flow comparison"
+    },
+    {
+      "variant": "deleted_original_comparison",
+      "mode": "normal",
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-I",
+        "-B",
+        "/workspace/work/assignment-20261028/followup2-l1jemiz6/research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "returncode": 1,
+      "elapsed_seconds": 1.439,
+      "result": "ValueError: control did not reject with \"(121, 'original Flow class')\": 0,"
+    },
+    {
+      "variant": "deleted_original_comparison",
+      "mode": "optimized",
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-I",
+        "-O",
+        "-B",
+        "/workspace/work/assignment-20261028/followup2-l1jemiz6/research/direct-flow-leaf-saturation/test_controls.py"
+      ],
+      "returncode": 1,
+      "elapsed_seconds": 1.541,
+      "result": "ValueError: control did not reject with \"(121, 'original Flow class')\": 0,"
+    }
+  ],
+  "independent_positive_runs": [
+    {
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-I",
+        "-B",
+        "research/direct-flow-leaf-saturation/independent_source.py"
+      ],
+      "elapsed_seconds": 0.109,
+      "returncode": 0,
+      "status": "positive baseline passed"
+    },
+    {
+      "command": [
+        "/workspace/integer-mult-bounds/.venv/bin/python",
+        "-I",
+        "-O",
+        "-B",
+        "research/direct-flow-leaf-saturation/independent_source.py"
+      ],
+      "elapsed_seconds": 0.182,
+      "returncode": 0,
+      "status": "positive baseline passed"
+    }
+  ],
+  "guard_reproduction": {
+    "mirror": "Copy test_controls.py, verify.py, independent_source.py, SOURCES.json, RESULT.json and every usage=input source into a scratch root at their original relative paths.",
+    "deletion": "Delete exactly the line need(other==exact,(N,'original Flow class')) from the scratch independent_source.py, preserving all other statements.",
+    "commands": [
+      "python3.12 -I -B research/direct-flow-leaf-saturation/test_controls.py",
+      "python3.12 -I -O -B research/direct-flow-leaf-saturation/test_controls.py"
+    ],
+    "expected": "With comparison intact: exit0/PASS_MUTATION_CONTROLS. With it deleted: exit1 and control did not reject with original Flow class; its child had returned0."
+  },
+  "internal_review": {
+    "verdict": "No unresolved blocker in scoped fix.",
+    "scope": "Independent argument/code check of N121 rank1 37305-to-37304 returned-histogram mutation, re-pinning/restoration and comparison deletion; one-paragraph Stone wording correction; evidence/provenance limits.",
+    "primary_text": "Precise Stone (6)/(8) reading supplied by Claude Code follow-up; fresh internal primary-PDF retrieval unavailable.",
+    "ai_assistance": "OpenAI Codex (GPT-6 Astra); Claude Code (Opus 5.5) follow-up. No human or formal verification."
+  },
+  "committed_export": {
+    "commit": "309eff43c247b711026eda5e5629409a89ff6242",
+    "files_including_inputs": 47,
+    "source_history_ancestor": "721c03822c421b7f7fcbb2598993b947c4d88419",
+    "checks": [
+      "PASS_RESEARCH_COMMIT_BYTES --check-source-history",
+      "PASS_RESEARCH_EXPORT export",
+      "PASS_RESEARCH_EXPORT check"
+    ],
+    "reproduction": [
+      [
+        "python3.12",
+        "-B",
+        "scripts/check_research_commit.py",
+        "--package",
+        "research/direct-flow-leaf-saturation",
+        "--ref",
+        "309eff43c247b711026eda5e5629409a89ff6242",
+        "--check-source-history"
+      ],
+      [
+        "python3.12",
+        "-B",
+        "scripts/export_research_package.py",
+        "export",
+        "--package",
+        "research/direct-flow-leaf-saturation",
+        "--ref",
+        "309eff43c247b711026eda5e5629409a89ff6242",
+        "--output",
+        "/tmp/leaf-followup.tar"
+      ],
+      [
+        "python3.12",
+        "-B",
+        "scripts/export_research_package.py",
+        "check",
+        "/tmp/leaf-followup.tar"
+      ]
+    ],
+    "command_note": "Preflight ran at scientific HEAD309eff43c; export used --ref HEAD and a temporary archive outside the repository. Reproduction commands resolve that head explicitly and substitute /tmp for the archive path."
+  }
+}

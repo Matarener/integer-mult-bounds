@@ -1,0 +1,9 @@
+# Pre-construction feasibility gate
+
+Profile result: complete frozen PR5831 qualification costs 61.609 s wall /61.55 s CPU. Extra Fraction ideal/error calls account for about 23 s inclusive; integer actual calls add more. No full-stage saving is claimed from this instrumented run.
+
+Nomination: scoped capture of the successful actual ideal and error-trace outputs inside each independently executed complete contract. Keep the full Fraction and integer calculations, every transpose/literal oracle and rejection, all actual witness/weight comparisons and all 120 finite programs. No sharing between backends or runs, no persisted cache, and no removal of full-source authentication. Captures are one-use observations rather than arithmetic results reused to skip a backend.
+
+Before construction, use a valid five-event native-frame fixture through the real frozen Fraction and integer modules. Compare both full captured ideal/weights and trace/witness results to fresh independent reruns. Require missing capture, duplicate actual calls, wrong word, changed weights/rounding, mutable-return aliasing, exception, cross-context reuse and use after close to be detected or isolated as specified. Original source exceptions must propagate; unrelated malformed-word rejection calls cannot overwrite actual observations. Capture succeeds only after a successful complete enclosing calculation. Fail closed on changed input during execution. No scientific construction or source edit before this test passes.
+
+A positive finite result only permits one complete candidate. First fresh complete B/C pair must save >=15% wall and CPU, followed by the retained B,C,C,B,B,C order, normal/optimized/sealed qualification and receipt/control equality. Coverage includes every 25,984 event,799-coordinate pass and independent oracle from PR5831; no shared-helper test change is authorized by this nomination.

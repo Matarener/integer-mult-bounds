@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact chronological cubic maps, integer/dyadic coefficient checks, source hashes and semantic rejection controls. Normal execution."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact chronological cubic maps, integer/dyadic coefficient checks, source hashes and semantic rejection controls. Optimized execution."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent polynomial and coefficient-system derivation; exact source restoration and arithmetic controls. Normal execution."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent polynomial and coefficient-system derivation; exact source restoration and arithmetic controls. Optimized execution."
+    }
+  ]
+}

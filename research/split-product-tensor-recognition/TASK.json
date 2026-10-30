@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 7,
+  "base_commit": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Inventory the gate-operand parity lemma (#3807) and certified endpoint arithmetic (#3857). Neither is a full multiplication proof. For #4100, audit the compact-switch statement and its hypotheses before formalizing it.",
+      "scope": "Source-binding orientation only; no scientific replay, theorem acceptance or supplier admission. Budget any heavy replay separately."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Recognize split products of Frobenius-truncated local algebras from arbitrary finite-field tensors, and return complete SL labels and transporters.",
+  "scope_change_reason": "Take the released decomposition-discovery handoff of PR5656. This is a written algebraic interface proof with exact checks, rather than a proof-kernel formalization.",
+  "bottleneck_link": "Remove the supplied algebra decomposition from the tensor atlas interface. A paid native supplier is still required for a kappa gain.",
+  "budget_minutes": 120,
+  "stop_rule": "Complete the necessary-and-sufficient split-product test and its literal certificates. Do not start a physical supplier search without a complete cost contract.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, recognize.py, verify.py and RESULT.json.",
+  "author": "Ali Romman",
+  "ai_assistance": "Substantial OpenAI Codex assistance. The same assistant supplied the proof and verifier; no independent human review.",
+  "open_questions": [
+    {
+      "question": "Can nonsplit residue fields be recognized with exact coefficient-field embeddings?",
+      "why_it_matters": "This extends the atlas interface beyond split local factors.",
+      "first_step": "Specify and check a coefficient-field section in each recovered local component before applying a height classifier.",
+      "blocked_by": "No such section or nonsplit character theorem is implemented here."
+    },
+    {
+      "question": "Can a physical supplier use these certified maps at a favorable complete cost?",
+      "why_it_matters": "Algebraic recognition alone does not increase kappa.",
+      "first_step": "Choose one actual tensor and charge its coefficient maps, native calls and restoration in a complete caller.",
+      "blocked_by": "No physical realization or complete paid bill is supplied."
+    }
+  ],
+  "coordination": {
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/5655#discussioncomment-19187666",
+    "upstream": "df0137efd35e11b4445734bf612bdd4c7ebc330c",
+    "priority_revision": 7,
+    "overlap_utc": "2026-10-26T03:20:38+00:00",
+    "local_notes": 7676,
+    "coverage": "Complete cached open PR and Discussion pagination; all tracked main README/TASK/ledger notes. No arbitrary diff or unpublished-work coverage."
+  }
+}

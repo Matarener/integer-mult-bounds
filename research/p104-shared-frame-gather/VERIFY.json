@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-shared-frame-gather/inputs/DATA-PHASES.json",
+    "research/p104-shared-frame-gather/inputs/NOTICE5718",
+    "research/p104-shared-frame-gather/inputs/QUERY-MAPS.json.gz",
+    "research/p104-shared-frame-gather/inputs/clifford_exact.py",
+    "research/p104-shared-frame-gather/inputs/controller5718.json",
+    "research/p104-shared-frame-gather/inputs/native_verify.py",
+    "research/p104-shared-frame-gather/inputs/predecessor-SOURCES.json",
+    "research/p104-shared-frame-gather/inputs/predecessor-experiment.py",
+    "research/p104-shared-frame-gather/inputs/result5718.json",
+    "research/p104-shared-frame-gather/inputs/word5718.json.gz",
+    "research/p104-cross-call-paid-reuse/inputs/DATA-PHASES.json",
+    "research/p104-cross-call-paid-reuse/inputs/NOTICE5718",
+    "research/p104-cross-call-paid-reuse/inputs/clifford_exact.py",
+    "research/p104-cross-call-paid-reuse/inputs/controller5718.json",
+    "research/p104-cross-call-paid-reuse/inputs/native_verify.py",
+    "research/p104-cross-call-paid-reuse/inputs/result5718.json",
+    "research/p104-cross-call-paid-reuse/inputs/word5718.json.gz",
+    "research/p104-cross-call-paid-reuse/experiment.py",
+    "research/p104-cross-call-paid-reuse/SOURCES.json",
+    "research/p104-cross-call-paid-reuse/results/QUERY-MAPS.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/publication_check.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Byte-exact join of the published query-map and shared-gather source packages."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact pinned all-input query maps, chronological availability, source-coframe bundles, all1090 common-frame support/cost certificates, independent native-frame tariffs, unchanged complete source invoice and constructive/version/phase/frame/cost controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/audit_certificate.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Separate certificate auditor with no search/compiler imports: exact coordinate expansions, basis independence, all native tariffs and every frame support-budget obstruction."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Full deterministic result and certificate equality with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/audit_certificate.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Independent audit with assertions disabled."
+    }
+  ]
+}

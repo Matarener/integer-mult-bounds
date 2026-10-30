@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 8,
+  "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one uncovered interface implication be formalized with exact caller and certificate bindings?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "certificates/selected-result.json",
+      "research/gate-operand-parity-lean/README.md",
+      "research/staged544-certified-endpoint/README.md",
+      "research/unconditional-batched-crt/README.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Write one missing statement with quantified hypotheses, actual caller and existing coverage. A compact-switch lemma is a candidate only after its mathematical contract is reviewed. Establish a bounded proof plan before a separately budgeted proof-assistant build; do not rerun large Lean jobs as orientation.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding",
+      "3807",
+      "3857",
+      "4100",
+      "gate-operand-parity-lean",
+      "staged544-certified-endpoint",
+      "unconditional-batched-crt"
+    ],
+    "existing_checks": [
+      {
+        "scope": "PR #3807: scoped gate-operand parity formalization.",
+        "evidence": "research/gate-operand-parity-lean/README.md",
+        "remaining": "Exact theorem-to-caller binding and genuinely uncovered interface lemmas.",
+        "status": "author-checked",
+        "source_commit": "4c3530f42a6abcc48e7a6bcffd6c901911dc8269",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #3857: certified real-power moment/endpoint arithmetic.",
+        "evidence": "research/staged544-certified-endpoint/README.md",
+        "remaining": "Uniform algorithmic implications, not another endpoint digit.",
+        "status": "author-checked",
+        "source_commit": "ef4315b8caa605e47a2515004845eb2d2ed71a86",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      },
+      {
+        "scope": "PR #4100: compact-switch formalization proposed as future validation.",
+        "evidence": "research/unconditional-batched-crt/README.md",
+        "remaining": "Audit the statement and assumptions before a formal proof campaign.",
+        "status": "author-checked",
+        "source_commit": "337d04939571a637aeab54a0f58f54fde811663a",
+        "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+      }
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "One-column flat completion retains every even root-of-unity alphabet for n>=2 and every odd prime-power alphabet for n>=3; arbitrary odd alphabets need at most doubling.",
+  "scope_change_reason": "The donation asks for an original result rather than another audit. This algebraic side result takes the explicit composite-alphabet boundary in David Ganz's atlas B097; it is not selected-caller formalization.",
+  "bottleneck_link": "Algebraic side result: removes a prime-only exact phase interface restriction. No supplier, physical cost or kappa gain is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the first proved alphabet extension, with bounded exact corroboration; leave odd composite sign exclusion and noise robustness as open questions.",
+  "outcome": "completed",
+  "evidence": "PROOF.md and verify.py: 539 completions, 3325 recovered entries, 314 exhaustive dephased inputs across ten domains, 189 independent erased-column comparisons, 32 one-parameter erasures, four odd two-row boundaries, nine input rejections and three output mutation controls.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Must original-alphabet completion hold for odd composite m and n>=3?",
+      "why_it_matters": "Would remove the remaining sign enlargement from this one-column interface.",
+      "first_step": "Construct or exclude a partial matrix for m=15 whose normalized missing column has mixed signs; begin with dimensions admitting both 3-cycle and 5-cycle vanishing sums.",
+      "blocked_by": "No prime-power residue map excludes the extra signs, and an isolated root sum is not a partial matrix."
+    },
+    {
+      "question": "Can the exact composite-alphabet completion be made robust to noisy inputs?",
+      "why_it_matters": "Would turn exact phase recovery into a quantitative repair interface.",
+      "first_step": "Bound the perturbation of (nI-AA*)e_1 and derive a root-rounding separation radius.",
+      "blocked_by": "Current proof uses exact orthogonality and algebraic integrality; physical and noise costs are unknown."
+    }
+  ],
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19214393",
+  "upstream_refresh": {
+    "commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+    "priority_revision": 8,
+    "checked_at_utc": "2026-10-27T09:59:50Z"
+  },
+  "preserved_checkout": {
+    "state": "detached HEAD; no earlier branch name",
+    "head": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+    "earlier_commits": [
+      "c297a40e7732bc9452bbf745f9aad43455b1e330",
+      "553d26d796fde9871ff2661a49ac7732e945410f",
+      "f9a3bc99b186b2e08a855e260f2f904ef33821c9",
+      "7c58c57143cc322eb0d578162e6df87ac0f4cd1f"
+    ],
+    "modified": false
+  },
+  "overlap": {
+    "searched_at_utc": "2026-10-27T10:03:23Z",
+    "open_prs": 416,
+    "discussion_records": 5306,
+    "remote_pagination_complete": true,
+    "local_note_coverage": "Sparse: 181 materialized records, 7666 HEAD paths unsearched by the helper. All-main distinctive README searches and targeted merged-PR searches supplement this.",
+    "closest_predecessors": [
+      "David Ganz PR2849, atlas B082/B097",
+      "David Ganz PR2855, prime-phase pilot recovery"
+    ],
+    "limits": "Bounded title/body and main README searches do not establish global literature priority or cover unpublished work. No relevant same-account PR from the preceding 24 hours was found."
+  },
+  "claim_type": "scoped algebraic proof with exact finite corroboration"
+}

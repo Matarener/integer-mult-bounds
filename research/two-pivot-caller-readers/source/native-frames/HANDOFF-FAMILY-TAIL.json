@@ -1,0 +1,1288 @@
+{
+  "affine_forward_step": "With h=Nv, a nonfinal pair is u_next=Po(h-A), h_next=-N Pe u+A, where A=a+sum future b. The final pair is U=Pe u,V=Po(h-a). All public reader columns are retained.",
+  "affine_inverse_step": "h_next-=A; N(h_next); Pe^-1(h_next) yields u. Po^-1(u_next); u_next+=A yields h. Swap carrier roles. Exactly one rank2f native query, two ADDRESS scans and the explicit completed-public ADDs per nonfinal pair.",
+  "all_parameter_tariff": {
+    "D": -8,
+    "complete_H2": "(2q+2)^2+2",
+    "complete_H4": 1,
+    "complete_rank_mass": "2(2q+2)^2+8",
+    "stock": "2(2q+2)^2",
+    "tail_H2": "q+2",
+    "tail_H4": 1,
+    "tail_rank_mass": "2q+8"
+  },
+  "completed_chart": "E=N F_k is central in the exact plane/ADDRESS algebra. Two leading N queries convert the physical F_k final carriers to E times U,V. Public fields are already E times their independent raw inputs.",
+  "core_reader_fold": "After reversing pairs, P3^-1 u=y1 and h=Nv1. Swap to(p,q)=(h,y1). Their common Jprime correction uses p-=q;p+=b1;Q2^-1 p;p-=S;q+=p;q+=2S-b1;P1^-1 q;q-=S;q-=p;p+=q;N^-1 onboth, S=a+sum b. This includes every original public reader and uses2H2+H4.",
+  "domain": "Every q>=2,f>=1 in the written affine induction. Finite complete literal event witnesses cover q2,q3,q4. Formal Pj are arbitrary independent invertible operators; the displayed native tariff requires actual ordinary plane swaps among completed identical native planes.",
+  "fixtures": [
+    {
+      "actual_all_f_phase_binding": "PASS",
+      "all_original_columns": "PASS",
+      "banks": 6,
+      "complete_profile": {
+        "D": -8,
+        "H2": 38,
+        "H4": 1,
+        "rank_mass": 80,
+        "stock": 72
+      },
+      "defect_control_rejected": "omit final-pair public a restoration before reverse recurrence",
+      "factory_support": [
+        {
+          "J_row": 0,
+          "actual_normal_form": [
+            {
+              "ADDRESS_plane_permutation": [
+                5,
+                1,
+                2,
+                3,
+                4,
+                0
+              ],
+              "N_planes": [
+                5
+              ],
+              "coefficient": "1"
+            }
+          ],
+          "direct_D_inverse_N_arity_per_f": 4,
+          "full_prefix_endpoint_arity_per_f": 8,
+          "native_arity_per_f": 2,
+          "native_planes": [
+            5
+          ],
+          "word": [
+            {
+              "coefficient": "1",
+              "word": [
+                5,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "J_row": 1,
+          "actual_normal_form": [
+            {
+              "ADDRESS_plane_permutation": [
+                3,
+                1,
+                2,
+                4,
+                0,
+                5
+              ],
+              "N_planes": [
+                3
+              ],
+              "coefficient": "1"
+            }
+          ],
+          "direct_D_inverse_N_arity_per_f": 4,
+          "full_prefix_endpoint_arity_per_f": 8,
+          "native_arity_per_f": 2,
+          "native_planes": [
+            3
+          ],
+          "word": [
+            {
+              "coefficient": "1",
+              "word": [
+                4,
+                3,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "literal_inverse_both_orders": "PASS",
+      "q": 2,
+      "tail_counts": {
+        "ADDRESS_scans": 4,
+        "ADD_scans": 17,
+        "BANK_SWAP_scans": 1,
+        "H2": 4,
+        "H4": 1,
+        "native_adapter_scans_at_most": 10,
+        "ordinary_helpers": 0,
+        "private_fields": 0,
+        "rank_mass": 12
+      },
+      "tail_events": [
+        {
+          "bank": 1,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P4^-1"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P5^-1"
+          ]
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P3^-1"
+          ]
+        },
+        {
+          "banks": [
+            1,
+            3
+          ],
+          "native_arity_per_f": 0,
+          "op": "BANK_SWAP"
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 3
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 4,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1",
+            "P2^-1",
+            "N"
+          ]
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 1
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P1^-1"
+          ]
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 1
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 3
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1"
+          ]
+        }
+      ]
+    },
+    {
+      "actual_all_f_phase_binding": "PASS",
+      "all_original_columns": "PASS",
+      "banks": 8,
+      "complete_profile": {
+        "D": -8,
+        "H2": 66,
+        "H4": 1,
+        "rank_mass": 136,
+        "stock": 128
+      },
+      "defect_control_rejected": "omit final-pair public a restoration before reverse recurrence",
+      "factory_support": [
+        {
+          "J_row": 0,
+          "actual_normal_form": [
+            {
+              "ADDRESS_plane_permutation": [
+                5,
+                1,
+                2,
+                3,
+                4,
+                6,
+                0,
+                7
+              ],
+              "N_planes": [
+                5
+              ],
+              "coefficient": "1"
+            }
+          ],
+          "direct_D_inverse_N_arity_per_f": 4,
+          "full_prefix_endpoint_arity_per_f": 12,
+          "native_arity_per_f": 2,
+          "native_planes": [
+            5
+          ],
+          "word": [
+            {
+              "coefficient": "1",
+              "word": [
+                6,
+                5,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "J_row": 1,
+          "actual_normal_form": [
+            {
+              "ADDRESS_plane_permutation": [
+                3,
+                1,
+                2,
+                4,
+                7,
+                5,
+                6,
+                0
+              ],
+              "N_planes": [
+                3,
+                7
+              ],
+              "coefficient": "-1"
+            }
+          ],
+          "direct_D_inverse_N_arity_per_f": 6,
+          "full_prefix_endpoint_arity_per_f": 10,
+          "native_arity_per_f": 4,
+          "native_planes": [
+            3,
+            7
+          ],
+          "word": [
+            {
+              "coefficient": "-1",
+              "word": [
+                7,
+                0,
+                4,
+                3,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "literal_inverse_both_orders": "PASS",
+      "q": 3,
+      "tail_counts": {
+        "ADDRESS_scans": 6,
+        "ADD_scans": 25,
+        "BANK_SWAP_scans": 2,
+        "H2": 5,
+        "H4": 1,
+        "native_adapter_scans_at_most": 12,
+        "ordinary_helpers": 0,
+        "private_fields": 0,
+        "rank_mass": 14
+      },
+      "tail_events": [
+        {
+          "bank": 1,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P6^-1"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P7^-1"
+          ]
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P4^-1"
+          ]
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P5^-1"
+          ]
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "banks": [
+            1,
+            3
+          ],
+          "native_arity_per_f": 0,
+          "op": "BANK_SWAP"
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P3^-1"
+          ]
+        },
+        {
+          "banks": [
+            1,
+            3
+          ],
+          "native_arity_per_f": 0,
+          "op": "BANK_SWAP"
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 3
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 4,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1",
+            "P2^-1",
+            "N"
+          ]
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 1
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P1^-1"
+          ]
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 1
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 3
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1"
+          ]
+        }
+      ]
+    },
+    {
+      "actual_all_f_phase_binding": "PASS",
+      "all_original_columns": "PASS",
+      "banks": 10,
+      "complete_profile": {
+        "D": -8,
+        "H2": 102,
+        "H4": 1,
+        "rank_mass": 208,
+        "stock": 200
+      },
+      "defect_control_rejected": "omit final-pair public a restoration before reverse recurrence",
+      "factory_support": [
+        {
+          "J_row": 0,
+          "actual_normal_form": [
+            {
+              "ADDRESS_plane_permutation": [
+                5,
+                1,
+                2,
+                3,
+                4,
+                6,
+                9,
+                7,
+                8,
+                0
+              ],
+              "N_planes": [
+                5,
+                9
+              ],
+              "coefficient": "-1"
+            }
+          ],
+          "direct_D_inverse_N_arity_per_f": 6,
+          "full_prefix_endpoint_arity_per_f": 14,
+          "native_arity_per_f": 4,
+          "native_planes": [
+            5,
+            9
+          ],
+          "word": [
+            {
+              "coefficient": "-1",
+              "word": [
+                9,
+                0,
+                6,
+                5,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "J_row": 1,
+          "actual_normal_form": [
+            {
+              "ADDRESS_plane_permutation": [
+                3,
+                1,
+                2,
+                4,
+                7,
+                5,
+                6,
+                8,
+                0,
+                9
+              ],
+              "N_planes": [
+                3,
+                7
+              ],
+              "coefficient": "-1"
+            }
+          ],
+          "direct_D_inverse_N_arity_per_f": 6,
+          "full_prefix_endpoint_arity_per_f": 14,
+          "native_arity_per_f": 4,
+          "native_planes": [
+            3,
+            7
+          ],
+          "word": [
+            {
+              "coefficient": "-1",
+              "word": [
+                8,
+                7,
+                0,
+                4,
+                3,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "literal_inverse_both_orders": "PASS",
+      "q": 4,
+      "tail_counts": {
+        "ADDRESS_scans": 8,
+        "ADD_scans": 35,
+        "BANK_SWAP_scans": 3,
+        "H2": 6,
+        "H4": 1,
+        "native_adapter_scans_at_most": 14,
+        "ordinary_helpers": 0,
+        "private_fields": 0,
+        "rank_mass": 16
+      },
+      "tail_events": [
+        {
+          "bank": 1,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P8^-1"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P9^-1"
+          ]
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P6^-1"
+          ]
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P7^-1"
+          ]
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "banks": [
+            1,
+            3
+          ],
+          "native_arity_per_f": 0,
+          "op": "BANK_SWAP"
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P4^-1"
+          ]
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P5^-1"
+          ]
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "banks": [
+            1,
+            3
+          ],
+          "native_arity_per_f": 0,
+          "op": "BANK_SWAP"
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P3^-1"
+          ]
+        },
+        {
+          "banks": [
+            1,
+            3
+          ],
+          "native_arity_per_f": 0,
+          "op": "BANK_SWAP"
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 3
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 4,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1",
+            "P2^-1",
+            "N"
+          ]
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": -1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 1
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "coefficient": 1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 0,
+          "op": "ADDRESS",
+          "sign": 1,
+          "word": [
+            "P1^-1"
+          ]
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 0
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 2
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 4
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 6
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 8
+        },
+        {
+          "coefficient": -1,
+          "dst": 3,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 1
+        },
+        {
+          "coefficient": 1,
+          "dst": 1,
+          "native_arity_per_f": 0,
+          "op": "ADD",
+          "src": 3
+        },
+        {
+          "bank": 1,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1"
+          ]
+        },
+        {
+          "bank": 3,
+          "native_arity_per_f": 2,
+          "op": "NATIVE",
+          "sign": 1,
+          "word": [
+            "N^-1"
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "All native adapters, public ADDRESS/ADD scans and physical bank accesses are paid; their finite constants depend on q.",
+    "The written induction, finite all-column witnesses and actual all-f operator lift are separate from a formal-kernel certificate.",
+    "Native retiming may fuse calls and must be validated as a changed complete event word; no source code or idle is silently omitted.",
+    "No new exponent, all-size dispatcher, stock-owner, numerical precision or tape implementation is claimed."
+  ],
+  "no_new_kappa": true,
+  "ordinary_factory_support_proof": "After aligning terminal rows with J, D0 has N-plane support{5,9,13,...<=2q+1} ofsize floor(q/2), D1 support{3,7,11,...<=2q+1} ofsize ceil(q/2). Induction on the displayed homogeneous anti-diagonal update adds the next odd native plane to the alternating factory. All planes are distinct; no N^2 cancellation occurs. Their sum isq, not one charge per unexamined word symbol. D_i^-1 N has exactarity2(|support_i|+1)f.",
+  "producer_sha256": "66b656426f974fcd64540b0ab75e53d4cffcbdb35c4e15b495a7b8beeb180b46",
+  "scientific_pin": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "scope_of_mass_gate": "This is a fully priced constructive tail and its exact profile. The growing factory arities explain why the displayed direct inversion loses the prefix2q slack. It is not a lower bound against all joint H/L words, new bank encoders, native charts or operator-valued bridges.",
+  "source_ADDRESS_geometry": "In the odd handoff the homogeneous old-v coefficient before postADDRESS is literally -Fprev*v: no new native query acts on it. A physical postADDRESS preserves its native arity while the ambient acquires one fresh native plane. This scoped deficit explains why merely replacing that final ADDRESS does not supply its missing progress; a changed held/delivery map could be outside it.",
+  "source_pins": [
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/parametric_factory_tail.py",
+      "sha256": "4addbe1695a69a7520e6401a0c6878b00846adade11cc498d1770049c9ce8f59"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/plane_group.py",
+      "sha256": "0c54c2e2462390bd0e9a8d47fc765b70e168ced1e0ef5de49e0afed653e26feb"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/handoff_family.py",
+      "sha256": "337c5c061f283673fd00057ba16d1cc0b65257cd29b02a3e071eb6c569294fe4"
+    }
+  ],
+  "source_receipt_sha256": "75a32dd9f41998b63ac8913ee16a2333242b82508f5bba405fda9eb13c1ae955",
+  "status": "PASS_COMPLETE_GENERIC_HANDOFF_TAIL_WITH_READERS"
+}

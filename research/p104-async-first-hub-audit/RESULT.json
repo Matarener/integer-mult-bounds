@@ -1,0 +1,160 @@
+{
+  "collection_row": {
+    "696": "1"
+  },
+  "contacts": [
+    {
+      "actual_frame": 1031,
+      "coefficient": "1",
+      "kind": "collection",
+      "owned_live": false,
+      "role": 696,
+      "time2": 27026
+    },
+    {
+      "actual_frame": 1031,
+      "coefficient": "1",
+      "kind": "injection",
+      "owned_live": false,
+      "role": 696,
+      "time2": 27044
+    },
+    {
+      "actual_frame": 1031,
+      "coefficient": "1",
+      "kind": "injection",
+      "owned_live": false,
+      "role": 697,
+      "time2": 27044
+    },
+    {
+      "actual_frame": 1031,
+      "coefficient": "1",
+      "kind": "injection",
+      "owned_live": true,
+      "role": 770,
+      "time2": 27501
+    },
+    {
+      "actual_frame": 1031,
+      "coefficient": "1",
+      "kind": "injection",
+      "owned_live": false,
+      "role": 699,
+      "time2": 27516
+    }
+  ],
+  "cut_time2": 27044,
+  "delivery_column": {
+    "133": "2",
+    "696": "1",
+    "697": "1",
+    "699": "1",
+    "709": "1",
+    "733": "1"
+  },
+  "eligible_full_boundary_helpers": 388,
+  "erasure_scope": "INIT/CLEAR use the predecessor's charged owned-erasure semantics",
+  "failure_controls": [
+    {
+      "name": "omitted_collection",
+      "reason": "complete temporal collection row",
+      "rejected": true
+    },
+    {
+      "name": "omitted_owned_injection",
+      "reason": "complete temporal delivery column",
+      "rejected": true
+    },
+    {
+      "name": "injection_before_cut",
+      "reason": "causal collection/cut/injection order",
+      "rejected": true
+    },
+    {
+      "name": "wrong_source",
+      "reason": "step source binding",
+      "rejected": true
+    },
+    {
+      "name": "unpaid_owned_interior_query",
+      "reason": "unpaid interior contact",
+      "rejected": true
+    },
+    {
+      "name": "omitted_new_buffer_CLEAR",
+      "reason": "split arbitrary-input endpoint at role 790",
+      "rejected": true
+    },
+    {
+      "name": "omitted_first_swap_SCALE",
+      "reason": "split arbitrary-input endpoint at role 113",
+      "rejected": true
+    }
+  ],
+  "frame": 1031,
+  "helper_133_is_eligible": true,
+  "literal_first_split": {
+    "before_clear_row": {
+      "696": "-1",
+      "789": "1"
+    },
+    "coefficient_positions_checked": 625681,
+    "endpoint_sha256": "b8354146bda85ded4f6baef48b34fea08e055e720a4387acabe9a427db8bf5e0",
+    "event_stream_sha256": "62637d16db1ae4e9c777a9837877634cdb55d6d8f7967febf6a4db2a028e32c8",
+    "formal_input_axes": 791,
+    "fresh_final_frame": 127,
+    "fresh_public_label": 789,
+    "label_scope": "Independent namespace; not a byte-identity claim for the author's emitted word",
+    "new_buffer_clear_count": 1,
+    "new_buffer_init_count": 1,
+    "new_owned_buffer_label": 790,
+    "owned_lifetimes": 25,
+    "peak_live_owned": 12,
+    "program_events": 25909,
+    "retired_pivot_final_frame": 1031
+  },
+  "paid_access": [
+    {
+      "event": [
+        "MOVE",
+        770,
+        591,
+        597,
+        true
+      ],
+      "frame_dimensions": [
+        8,
+        5,
+        1
+      ],
+      "index": 13750,
+      "replaced_rank": 7,
+      "replacement_ranks": [
+        3,
+        4
+      ]
+    }
+  ],
+  "paid_access_delta": {
+    "3": 1,
+    "4": 1,
+    "7": -1
+  },
+  "pairing": "1",
+  "pivot": 696,
+  "plan_raw_sha256": "2c4878f78dc393339f8cccf24441d9bfb50257784459c2f253ebcb27c964211c",
+  "schema": "p104-async-first-hub-audit/1",
+  "scope": "Finite exact first-step temporal contacts and literal scalar/frame restoration; no native phase, full caller or kappa admission",
+  "source_canonical_sha256": "75f429fc0c8b206f4439bfbda4b621fc62ea892e6e3008c17409f2d3ee0981bb",
+  "source_endpoint": {
+    "coefficient_positions_checked": 622521,
+    "endpoint": "I + sum e_(r+112) e_r^T on public coordinates; zero owned outputs",
+    "endpoint_sha256": "377cd8e5aa4515a2fda585cfe1f180651a3800be0cdcd467b17aa53c1bc0cf52",
+    "input_columns": 789,
+    "output_rows": 789,
+    "owned_lifetimes": 24,
+    "peak_live_owned": 12
+  },
+  "source_raw_sha256": "7c393444fa5b9a6941471d02047beb2aa8285e5614bb052fb85458b69236a38a"
+}

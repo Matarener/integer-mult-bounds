@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/s4-subspace-cut-boundary/README.md",
+    "research/s4-two-premium-cut-envelope/PROOF.md",
+    "research/s4-two-premium-cut-envelope/README.md",
+    "research/s4-two-premium-registers/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Count consequence from exact cut values; explicit cost-21 direct word equal to T in exact F2[S4] arithmetic; separately written explicit-matrix pruned search: both whole r=3 sub-tuple trees, first three r=4 depths and r=5 depth 1 against the recorded primary runs; unpruned frozenset group-algebra brute-force word count (146) equal to the pruned primary count and to the exactly rechecked independent survivors (104 of them use a mixing gate); scalar positive (4312) and negative (4231 at counts (1,3,1)) controls. Does not replay depths 4-8 of the r=4/r=5 exclusion; verify.py --full (unregistered, g++ with OpenMP, 15 to 20 minutes) does, in both C++ engines, together with the sub-tuple cut LPs."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--self-test"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Perturbed RESULT.json node counts, expectations and control counts are rejected by the comparator."
+    }
+  ]
+}

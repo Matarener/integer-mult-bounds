@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Rebuild s_c from its displayed rank sum and repeat the harmonic comparison at sigma = 1-2^{-50}.",
+  "scope_change_reason": "The bit-motif ratio lies below m to that power. The manuscript states the same exponent for the complex ratio s_c/W_c.",
+  "bottleneck_link": "For a width-1 list of length s_c, Psi(sigma) < 1 is the inequality s_c/W_c < m^sigma.",
+  "budget_minutes": 60,
+  "stop_rule": "Certify the complex ratio. Do not replay the network and do not search for a complex parking schedule outside the motif text.",
+  "outcome": "partial",
+  "evidence": "The displayed rank sum is 1873807244636671267308000000. With L_c/N = 101/539 the deficit is 2(N-L_c) and eta = 73/19906842167500. Then 2^{50} eta exceeds six times the ninth harmonic number, so s_c/W_c < m^{1-2^{-50}}.",
+  "author": "jwr",
+  "ai_assistance": "Substantial assistance from the Cursor coding agent in the execution, checker and writeup.",
+  "open_questions": [],
+  "no_open_questions_reason": "Both displayed motif ratios, bit and complex, clear the same logarithm bound at exponent 1-2^{-50}. Repeating the exponent sketch would not add a new comparison."
+}

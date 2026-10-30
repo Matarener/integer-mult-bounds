@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py", "--summary"],
+      "timeout_seconds": 180,
+      "checks": "Authenticate frozen sources, regenerate both complete retiming censuses and all-exponent sign certificates, and replay the literal positive control and eight sensitivity/rejection checks."
+    },
+    {
+      "argv": ["{python}", "-O", "-B", "{package}/verify.py", "--summary"],
+      "timeout_seconds": 180,
+      "checks": "Repeat all scientific checks with assertions disabled."
+    }
+  ]
+}

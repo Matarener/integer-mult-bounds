@@ -1,0 +1,188 @@
+{
+  "all_f_phase": "Each physical one-coordinate circuit O with exponent e represents i^(e*(1-f))*O^tensor(f). Exact Gaussian coefficient vectors retain every f mod4 residue; native J units are not inferred from f1.",
+  "fixtures": [
+    {
+      "actual_coefficient": [
+        {
+          "X_character_rows": [
+            4,
+            8,
+            16,
+            32,
+            1024,
+            2048,
+            64,
+            128,
+            256,
+            512,
+            1,
+            2
+          ],
+          "alpha": [
+            3,
+            1,
+            1,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            3,
+            1
+          ],
+          "coefficients_by_f_mod4": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "-1"
+            ]
+          ],
+          "offset": 3135,
+          "quadratic_upper_rows": [
+            0,
+            0,
+            16,
+            32,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "current_carrier_column": 3,
+      "independent_original_input_row": 1,
+      "native_histogram": {
+        "2": 34
+      },
+      "original_column_binding_all_f": "PASS",
+      "physical_events": 76,
+      "q": 2
+    },
+    {
+      "actual_coefficient": [
+        {
+          "X_character_rows": [
+            4,
+            8,
+            16,
+            32,
+            1024,
+            2048,
+            64,
+            128,
+            256,
+            512,
+            16384,
+            32768,
+            4096,
+            8192,
+            1,
+            2
+          ],
+          "alpha": [
+            3,
+            1,
+            1,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            3,
+            1,
+            0,
+            0,
+            3,
+            1
+          ],
+          "coefficients_by_f_mod4": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "offset": 52287,
+          "quadratic_upper_rows": [
+            0,
+            0,
+            16,
+            32,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "current_carrier_column": 3,
+      "independent_original_input_row": 1,
+      "native_histogram": {
+        "2": 61
+      },
+      "original_column_binding_all_f": "PASS",
+      "physical_events": 129,
+      "q": 3
+    }
+  ],
+  "method": "Derive X-character affine/quadratic action directly from each literal physical circuit; independently recompile every signed tableau; right-multiply the original-t inverse row by each forward primitive inverse. No caller joint_algebra/quadratic_charts module is imported.",
+  "negative_control": "Omit only the target-J f-dependent tensor unit. This changes the actual desired output gauge and is rejected by the complete inverse coefficient although f1 alone cannot see it. Individual source-query2/query5 unit deletions were insensitive for this selected inverse entry and are not counted as rejected controls.",
+  "no_new_kappa": true,
+  "producer_sha256": "74bdbc9c35db4153e00ed15c8d9df27b63e1c50cd76fcd33f987f3f97d412d96",
+  "scientific_pin": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "scope": "Independent source binding for the required inverse coefficient at q2/q3. Caller owns full physical all-column/inverse prefix; the separate written coefficient/support theorem covers every q satisfying its stated original-column interface.",
+  "source_pins": [
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/caller-joint/joint_algebra.py",
+      "sha256": "5782033e347c9b10ad47c01ed12a0a52ea07e901fa9e8f7aa9d3a2a928327232"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/caller-joint/joint_prefix.py",
+      "sha256": "a4dcaa1ad05ef8dbba60ddd47b3ad44a3095ebb5fd31f6adfb935a7b1c46a2c7"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/caller-joint/JOINT-PREFIX.json",
+      "sha256": "e6e574525a51299bae4fc876c02f0a767d7d927150b7a5fe0a814afd7ec93ebd"
+    }
+  ],
+  "status": "PASS_INDEPENDENT_LITERAL_ORIGINAL_T_INVERSE_COEFFICIENT"
+}

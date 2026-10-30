@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gmx-t74-borrow43-handoff/new/fastnative/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz",
+    "research/p104-rounded-collector/inputs/WORD.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Reconstruct the source-bound projection, synthesize all 53 exact endpoint adapters, check signed Pauli/global phase, dense Gaussian execution/inverse and sharp native ranks for all 93 banks."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "The complete adapter certificate under optimized Python; kernel checks remain active."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Wrong global phase with unchanged tableau, wrong native rank/endpoint/phase, exhaustive small rank oracle and actual optimized Git-free CLI source/checker/receipt rejection."
+    }
+  ]
+}

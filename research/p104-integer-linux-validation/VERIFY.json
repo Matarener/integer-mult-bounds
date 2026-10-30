@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-integer-linux-validation/inputs/PR5831.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/custody.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Four source-bound actual corruptions reject before scientific imports: whole official bundle, nested source archive, adapted contract, declared seam."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh complete unchanged PR5831 qualification: all 25984 events/799 coordinates, full reference/candidate results and signed witnesses/weights, 120 dyadic words/4240 events, all six original plus three integer controls; immutable outer export checked."
+    }
+  ]
+}

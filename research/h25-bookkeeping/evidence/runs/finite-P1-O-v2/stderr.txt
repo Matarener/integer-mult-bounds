@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/stages/v2/integration/full_driver.py", line 387, in <module>
+    main()
+  File "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/stages/v2/integration/full_driver.py", line 216, in main
+    phases.call("all_new_controls", adapters.run_controls, extensions, backend, native, phases)
+  File "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/stages/v2/integration/full_driver.py", line 124, in call
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/stages/v2/integration/adapters.py", line 136, in run_controls
+    result['sets'] = phases.call('new_private_set_controls',
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/stages/v2/integration/full_driver.py", line 124, in call
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/stages/v2/priorities/set-reuse/finite_set_controls.py", line 278, in run_controls
+    need(left_events, "Collision fixture did not reach custom equality")
+  File "/home/d3lerium/.codex/.chatgpt-projects/g-p-6ad5817fd84881918865926b6fd51453/outputs/h25-bookkeeping-swarm-20261028/stages/v2/priorities/set-reuse/finite_set_controls.py", line 16, in need
+    raise RuntimeError(message)
+RuntimeError: Collision fixture did not reach custom equality

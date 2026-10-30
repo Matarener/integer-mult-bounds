@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment.",
+      "Extending a source-count census without naming a supplier/interface decision it could change; audit #2973 pruning concerns before relying on the affected predecessor exclusions."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Open next question 1 of PR #2396 (research/connector-seven-source-duo): is (k, W) = (22, 24) the Pareto profile for seven-source universal words in the singleton+DUO alphabet? Answered negatively by explicit universal words at (21, 24) and (20, 26).",
+  "scope_change_reason": "The card asks for one new alphabet extension. DUO is already added and charged by research/duo-toggle-connector and #2396; this package keeps that alphabet and source count and improves #2396's open Pareto profile. It is a side result on the connector interface.",
+  "bottleneck_link": "Side result. Connector call counts enter the recursive interface through complete-call pricing; the new words save one or two per-call overheads o on the all-127-row batch. No physical supplier instance of this connector exists, so no \u03ba follows.",
+  "budget_minutes": 60,
+  "stop_rule": "Ship the first verified universal word with fewer than 22 calls; record unsuccessful smaller profiles as search failures, not exclusions.",
+  "outcome": "completed",
+  "evidence": "Explicit universal words (21, 24) and (20, 26), checked by research/seven-source-duo-21-calls/verify.py: weights, restoration, even label counts, 128/128 masks with a dual test, batch bill 275/278 and 274/280, dominance over #2396's pinned (22, 24) word, and eight rejected mutations.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Is 20 the minimum number of calls for a seven-source singleton+DUO universal word?",
+      "why_it_matters": "A 19-call word would cut the all-127-row batch to 273 queries.",
+      "first_step": "Exactly enumerate 19-point sets P with P+P = F2^7, then test for a Hamiltonian cycle with edges of weight at most two.",
+      "blocked_by": "No exclusion argument beyond the counting bound k >= 17 and the parity rule d = k mod 2."
+    },
+    {
+      "question": "Is 24 the minimum number of toggle-adds when DUO calls are allowed?",
+      "why_it_matters": "f(7) = 24 (#3058) settles only singleton words; a W = 22 DUO word would lower the batch adds.",
+      "first_step": "Adapt #3058's coordinate-deletion argument to weight-two steps.",
+      "blocked_by": "The deletion argument is written for singleton steps."
+    },
+    {
+      "question": "Is (20, 24) attainable?",
+      "why_it_matters": "It would dominate both new words.",
+      "first_step": "An exact (20, 4) census as #2396 proposed.",
+      "blocked_by": "Local simulated annealing found no such word; that is not an exclusion."
+    }
+  ]
+}

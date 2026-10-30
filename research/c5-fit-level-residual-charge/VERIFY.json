@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/c5-dyadic-decoder-gate/inputs/DATA-PHASES.json.gz",
+    "research/c5-dyadic-decoder-gate/inputs/MATCHING.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate sources; 23 C5 census; diagonal fit cost 224; uniform residual-local-opt inequality fails 460>224; exact RESULT receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent dense elimination and chordless-path cycle census; diagonal matrix identity; same 460>224 obstruction"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Behavioral and source-corruption controls under -O admission"
+    }
+  ]
+}

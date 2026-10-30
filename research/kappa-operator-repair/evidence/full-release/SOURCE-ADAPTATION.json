@@ -1,0 +1,113 @@
+{
+  "changed_files": {
+    "audit_fast.py": {
+      "after": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+      "before": "26950da76589b13cd9c452fdee1b0c354806977f881299bd94073f00e4646fcd"
+    },
+    "new/BORROW-PROVIDERS.json": {
+      "after": "af0d77d85658a14a5a84b1924e003ef5e923aaf6f398b8d2b8a3274f0b549744",
+      "before": "cddf57f9383bd3ec86f391be6d0792e5b5d79e4e3e9c2e312a36923d542d7b7b"
+    },
+    "new/borrow/receiver-share-parent/BORROW-WORD-43base.json.gz": {
+      "after": "08e6c96fbe3dfec96cb8451b3867ef8c1a214109ecd1e5af7fcc28e0f05728d0",
+      "before": null
+    },
+    "new/borrow/receiver-share-parent/BORROW-WORD-43extra.json.gz": {
+      "after": "d83c2ec9cecc0ad092d34ea4080b28a4fd7199579356b6d5a8fc6cd53ff93299",
+      "before": null
+    },
+    "new/borrow/receiver_share.py": {
+      "after": "2437b248f9e0350043700d7f335db6231f991cd841628a913eac46f0597933f7",
+      "before": null
+    },
+    "new/borrow/review_receiver_share.py": {
+      "after": "ae82f81564626a2f4a9c0f82ba5cc1ffeaabd0bf2a4882770e1c888c91038d7a",
+      "before": null
+    },
+    "new/borrow/terminal_review.py": {
+      "after": "e25afbb9d1f644958c8bc369a58e18a6c20e9fb9226728eb79352570b9da3ace",
+      "before": "fff028de30e9fb06d6d75efc6fdd6e94ead6a88823efa07d3e7cd177dcd94acd"
+    },
+    "new/borrow/words/BORROW-WORD-43base.json.gz": {
+      "after": "8aac24a3bea1170c4a590b209d3720eec19baa05586f3348ab64c9b788fadf32",
+      "before": "08e6c96fbe3dfec96cb8451b3867ef8c1a214109ecd1e5af7fcc28e0f05728d0"
+    },
+    "new/borrow/words/BORROW-WORD-43extra.json.gz": {
+      "after": "a70e3ad0e752069cee603efbdf653770c8226a16dad41bddf095dbf4b818e8eb",
+      "before": "d83c2ec9cecc0ad092d34ea4080b28a4fd7199579356b6d5a8fc6cd53ff93299"
+    },
+    "new/rebuild_borrow.py": {
+      "after": "8deec7f1d582135b483b2b975852e6b795e7d4e8940fcb77dd4d89a52f32f18f",
+      "before": "d83970aabb0b0f473f0458a9aa85d72351b80cd5d042535262ddb868f2a151d3"
+    },
+    "verify.py": {
+      "after": "07b5133cfd4173f34ac85a0229e3401923d201776689aca669dabeebd171e6ec",
+      "before": "22361ee047d4f3804936e5c25199a035d17776a67949e021382f1b35e5502628"
+    }
+  },
+  "current_manifest_sha256": "a2c9f3c13d5df173571877e91300298b3bf3961aecb02e6413104aa065d906c2",
+  "exact_patches": [
+    {
+      "after_sha256": "0b3e594e2caef09606ba148e3cc0d8f72fb1404efcb5aa23aa843b5131821946",
+      "before_sha256": "6ef3255e91f42cb78eb194c761c02568e0230a9cfab40387f257d7a4bd38ccc4",
+      "new": "PROFILE = {1: 2481, 2: 711, 3: 219, 4: 109, 5: 20, 8: 8}",
+      "old": "PROFILE = {1: 2439, 2: 724, 3: 225, 4: 102, 5: 20, 8: 8}",
+      "path": "inputs/source/new/borrow/receiver_share.py"
+    },
+    {
+      "after_sha256": "2437b248f9e0350043700d7f335db6231f991cd841628a913eac46f0597933f7",
+      "before_sha256": "0b3e594e2caef09606ba148e3cc0d8f72fb1404efcb5aa23aa843b5131821946",
+      "new": "'1': 2482, '2': 712, '3': 218, '4': 109, '5': 20, '8': 8",
+      "old": "'1': 2440, '2': 725, '3': 224, '4': 102, '5': 20, '8': 8",
+      "path": "inputs/source/new/borrow/receiver_share.py"
+    },
+    {
+      "after_sha256": "ae82f81564626a2f4a9c0f82ba5cc1ffeaabd0bf2a4882770e1c888c91038d7a",
+      "before_sha256": "bbf28e17a657b8d1eaf63f33d811682720afb393ee2ab9a4bb46661fef1ed996",
+      "new": "{5: 28, 6: 18, 7: 53, 8: 96, 9: 213}",
+      "old": "{4: 26, 5: 2, 6: 18, 7: 53, 8: 96, 9: 213}",
+      "path": "inputs/source/new/borrow/review_receiver_share.py"
+    },
+    {
+      "after_sha256": "8deec7f1d582135b483b2b975852e6b795e7d4e8940fcb77dd4d89a52f32f18f",
+      "before_sha256": "d83970aabb0b0f473f0458a9aa85d72351b80cd5d042535262ddb868f2a151d3",
+      "new": "    import receiver_share\n    assert chain[-1]==json.loads(gzip.decompress((D/'receiver-share-parent'/f'BORROW-WORD-43{wt}.json.gz').read_bytes()))\n    chain.append(receiver_share.apply(chain[-1]));steps.append('terminal-plus-receiver-share')\n    final=json.loads(gzip.decompress(shipped.read_bytes()))",
+      "old": "    final=json.loads(gzip.decompress(shipped.read_bytes()))",
+      "path": "inputs/source/new/rebuild_borrow.py"
+    },
+    {
+      "after_sha256": "e25afbb9d1f644958c8bc369a58e18a6c20e9fb9226728eb79352570b9da3ace",
+      "before_sha256": "fff028de30e9fb06d6d75efc6fdd6e94ead6a88823efa07d3e7cd177dcd94acd",
+      "new": "(P/'receiver-share-parent'/f'BORROW-WORD-43{tag}.json.gz')",
+      "old": "(P/'words'/f'BORROW-WORD-43{tag}.json.gz')",
+      "path": "inputs/source/new/borrow/terminal_review.py"
+    },
+    {
+      "after_sha256": "07b5133cfd4173f34ac85a0229e3401923d201776689aca669dabeebd171e6ec",
+      "before_sha256": "22361ee047d4f3804936e5c25199a035d17776a67949e021382f1b35e5502628",
+      "new": "run('terminal-width5-independent-word-review',P/'new/borrow/terminal_review.py')\nrun('receiver-sharing-independent-word-review',P/'new/borrow/review_receiver_share.py')",
+      "old": "run('terminal-width5-independent-word-review',P/'new/borrow/terminal_review.py')",
+      "path": "inputs/source/verify.py"
+    }
+  ],
+  "predecessor_manifest_sha256": "3d2ee0175b0cd8aec80c12fef82c2da3a3a54785ca9113140762fd5c41979608",
+  "runtime": {
+    "after_sha256": "30a39a3612efde96a0db189c14053afe5e012e56de1a89863596a078a8b64381",
+    "before_sha256": "26950da76589b13cd9c452fdee1b0c354806977f881299bd94073f00e4646fcd",
+    "fixtures_sha256": "4f6185125ddb38b7ab02a349829aae434e7707e804ca8c6c4ab8c086cd63635e"
+  },
+  "scope": "Both predecessor word reviews remain bound to their exact parents. All new semantics, native, owner, resource, precision and outer gates remain executed.",
+  "source_file_count": 670,
+  "source_label": "terminal-width5-and-receiver-share-20261019",
+  "status": "PASS_LITERAL_TERMINAL_AND_RECEIVER_DERIVATIONS",
+  "words": {
+    "base": {
+      "parent_sha256": "08e6c96fbe3dfec96cb8451b3867ef8c1a214109ecd1e5af7fcc28e0f05728d0",
+      "word_sha256": "8aac24a3bea1170c4a590b209d3720eec19baa05586f3348ab64c9b788fadf32"
+    },
+    "extra": {
+      "parent_sha256": "d83c2ec9cecc0ad092d34ea4080b28a4fd7199579356b6d5a8fc6cd53ff93299",
+      "word_sha256": "a70e3ad0e752069cee603efbdf653770c8226a16dad41bddf095dbf4b818e8eb"
+    }
+  }
+}

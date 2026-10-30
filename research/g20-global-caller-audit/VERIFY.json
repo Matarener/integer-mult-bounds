@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-global-caller-audit/source/WORD.json.gz",
+    "research/g20-global-caller-audit/source/GLOBAL.jsonl.gz",
+    "research/g20-global-caller-audit/source/GLOBAL-RESULT.json",
+    "research/g20-global-caller-audit/source/CALLS.json",
+    "research/g20-global-caller-audit/source/PRIVATE-EPISODES.json",
+    "research/g20-global-caller-audit/source/SOURCE-DESCRIPTORS.json.gz",
+    "research/g20-global-caller-audit/source/TARGET-OWNERS.json",
+    "research/g20-global-caller-audit/source/INVOICE.json",
+    "research/g20-global-caller-audit/source/LOCAL-RESULT.json",
+    "research/g20-global-caller-audit/source/MATCHER.json",
+    "research/g20-global-caller-audit/source/ORDINARY-RESULT.json",
+    "research/g20-global-caller-audit/source/PROOF.md",
+    "research/g20-global-caller-audit/source/CONTROLLER.json",
+    "research/g20-global-caller-audit/source/FRAMES.json",
+    "research/g20-global-caller-audit/source/BASE-CALLS.json",
+    "research/g20-global-caller-audit/source/NOTICE-0.md",
+    "research/g20-global-caller-audit/source/NOTICE-1.md",
+    "research/g20-global-caller-audit/source/NOTICE-2.md",
+    "research/g20-global-caller-audit/source/NATIVE-PROOF.md",
+    "research/g20-global-caller-audit/source/NATIVE-README.md",
+    "research/g20-global-caller-audit/source/NATIVE-RESULT.json",
+    "research/g20-global-caller-audit/source/NATIVE-SOURCES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Exact stream binding, all scalar columns and transpose, all port normalizers, formal controller, query sources, owned episodes, target owners, full positive finite bill and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Exact stream binding, all scalar columns and transpose, all port normalizers, formal controller, query sources, owned episodes, target owners, full positive finite bill and semantic controls."
+    }
+  ]
+}

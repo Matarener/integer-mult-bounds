@@ -1,0 +1,34 @@
+"""Reuse the unchanged PR5816/5818 resource guard for this bounded round."""
+import argparse
+import fcntl
+import json
+from pathlib import Path
+import runpy
+import sys
+
+HERE = Path(__file__).resolve().parent
+PACKAGE = HERE.parent / 'single-pass-qualification-20261027/repo/research/selected-single-pass-qualification'
+sys.path.insert(0, str(PACKAGE))
+from source import prepared
+
+parser = argparse.ArgumentParser()
+parser.add_argument('label')
+parser.add_argument('script', type=Path)
+parser.add_argument('--optimized', action='store_true')
+parser.add_argument('--qualification', action='store_true')
+args = parser.parse_args()
+if args.qualification:
+    result = json.loads((HERE/'COMPARISON.json').read_bytes())
+    if not result['complete_stdout_equal'] or min(result['wall_fraction_saved'],result['cpu_fraction_saved']) < .15:
+        raise ValueError('First-pair gate required before qualification')
+with (HERE / 'execution.lock').open('a') as lock:
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    with prepared() as root:
+        module = runpy.run_path(str(PACKAGE / 'guard.py'))
+        run = module['run']
+        run.__globals__.update(HERE=HERE, SOURCE=root, MANIFEST=PACKAGE/'INPUT-MANIFEST.json',
+                              AGGREGATE=1500 if args.qualification else 900)
+        receipt = run(args.label, str(args.script.resolve()), args.optimized)
+        expected = 'c796be009d692546eab74e3ac084ec6badf45245841d81f101c2a164c0a6eaba'
+        if receipt['stdout_sha256'] != expected:
+            raise ValueError('Complete PR5818 scientific stdout differs')

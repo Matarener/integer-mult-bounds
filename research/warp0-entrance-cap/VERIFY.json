@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticated source closure; all31 quotient directions; cap agreement; complete canonical bill and nonminimal-price control; source forward/dual/cleanup endpoints."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py",
+        "--word",
+        "{package}/source/inputs/BASE-WORD.json.gz",
+        "--check",
+        "{package}/INDEPENDENT-RESULT.json"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate RREF backward capacities and direct forward enumeration, source binding and semantic controls; no primary or source executable imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_cli.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Actual CLI replay and rejection of altered source, primary/independent receipts and missing files under normal and optimized Python."
+    }
+  ]
+}

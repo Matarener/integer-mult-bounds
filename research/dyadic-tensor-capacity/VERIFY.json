@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/dyadic-helper-channel-capacity/PROOF.md",
+    "research/dyadic-helper-channel-capacity/README.md",
+    "research/tensor-helper-capacity/PROOF.md",
+    "research/dyadic-helper-channel-capacity/capacity.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Full saturated kernels and bidirectional dyadic module equality of explicit scalar product cuts; all two-type schedules through length 12; restoration and rejection controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same exact checks with assertions disabled."
+    }
+  ]
+}

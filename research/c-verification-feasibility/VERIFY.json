@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/c-verification-feasibility/inputs/PR5864.tar"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "baseline"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh scoped baseline controls; existing compiler and CPython3.12 headers required; no install or full performance replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "integer"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh scoped integer controls; existing compiler and CPython3.12 headers required; no install or full performance replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py",
+        "integer"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh scoped integer controls; existing compiler and CPython3.12 headers required; no install or full performance replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "rational"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh scoped rational controls; existing compiler and CPython3.12 headers required; no install or full performance replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-O",
+        "{package}/verify.py",
+        "rational"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Fresh scoped rational controls; existing compiler and CPython3.12 headers required; no install or full performance replay."
+    }
+  ]
+}

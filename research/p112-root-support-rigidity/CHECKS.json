@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-18T00:24:54.494150+00:00",
+  "environment": {
+    "python312": "Python 3.12.15",
+    "python_optimized": "Python 3.15.0",
+    "ruff": "ruff 0.17.1"
+  },
+  "working_tree_checks": [
+    {
+      "command": [
+        "uvx",
+        "ruff",
+        "format",
+        "--check",
+        "research/p112-root-support-rigidity"
+      ],
+      "returncode": 0,
+      "output": "7 files already formatted\n"
+    },
+    {
+      "command": [
+        "uvx",
+        "ruff",
+        "check",
+        "research/p112-root-support-rigidity"
+      ],
+      "returncode": 0,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": [
+        "/Users/nick/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12",
+        "-W",
+        "error",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-root-support-rigidity"
+      ],
+      "returncode": 0,
+      "output": "CHECK Complete annihilator census, all-normal transport, literal frame partners, chamber counts and slack contradiction.\nPASS_P112_ROOT_SUPPORT_RIGIDITY flats=4097782 thresholds=11,17 span2566=0 no_new_kappa\nCHECK Separate forward affine-coset enumeration agrees on complete histograms and critical support sets.\nPASS_P112_ROOT_SUPPORT_AFFINE affine_sections=3989832 shared_geometry\nCHECK Sharp boundary witnesses, four actual optimized CLI mutants, duplicate keys and altered/linked source controls.\nPASS_P112_ROOT_SUPPORT_CONTROLS threshold_boundaries=2 cli_mutants=4 source_controls=2\nPASS_REGISTERED_RESEARCH_PACKAGE research/p112-root-support-rigidity outcome=partial\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "research/p112-root-support-rigidity/verify.py"
+      ],
+      "returncode": 0,
+      "output": "PASS_P112_ROOT_SUPPORT_RIGIDITY flats=4097782 thresholds=11,17 span2566=0 no_new_kappa\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "research/p112-root-support-rigidity/independent.py"
+      ],
+      "returncode": 0,
+      "output": "PASS_P112_ROOT_SUPPORT_AFFINE affine_sections=3989832 shared_geometry\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "research/p112-root-support-rigidity/test_controls.py"
+      ],
+      "returncode": 0,
+      "output": "PASS_P112_ROOT_SUPPORT_CONTROLS threshold_boundaries=2 cli_mutants=4 source_controls=2\n"
+    }
+  ],
+  "mathematical_scope": "Finite full-root rigidity plus four-piece theorem under the standard Weyl-chamber premise; quotient consequence only, full caller remains open.",
+  "independence_limit": "Both enumerations share authenticated geometry and digest encoding. No independent human or proof-kernel approval.",
+  "unrun": [
+    "Full literal caller exclusion",
+    "Historical heavy caller suites",
+    "Selected cold replay",
+    "Lean",
+    "Docker",
+    "Independent human/proof-kernel review",
+    "Hosted CI"
+  ],
+  "publication_checks": "Exact committed-byte/source-history and actual Git-free committed export replay are performed after this commit; session receipts and PR report record those gates separately."
+}

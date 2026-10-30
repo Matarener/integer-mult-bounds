@@ -1,0 +1,22 @@
+[
+  [
+    "KAPPA, TESTED = Q('.00312336057'), Q('.003123360575')\nPREVIOUS = Q('.00312265044')\n",
+    "KAPPA, TESTED = Q('.00312360607355'), Q('.00312360607356')\nPREVIOUS = Q('.00312336057')\n"
+  ],
+  [
+    "    L.need(sum(targets.values()) == 13444 and sum(paid.values()) == 66870, 'Complete field and call counts')\n",
+    "    L.need(sum(targets.values()) == 13444 and sum(paid.values()) == 66906, 'Complete field and call counts')\n"
+  ],
+  [
+    "    L.need(alpha[1] < 1-reserve and gamma[1] < decay and delta[1] < decay, 'All three charged tail ratios')\n",
+    "    L.need(alpha[1] < 1-reserve and gamma[1] < decay and delta[1] < decay, 'All three charged tail ratios')\n    next_tested = TESTED + Q(1, 10**14)\n    next_alpha = E.divide(E.moment(P, 1-next_tested), E.moment(T, 1-next_tested))\n    L.need(next_alpha[0] >= 1-reserve, 'Next grid point fails the fixed reserve')\n    reserve_derivative = Q(0)\n    for rank in set(T) | set(P):\n        coefficient = (1-reserve)*T.get(rank, 0)-P.get(rank, 0)\n        logarithm = E.log_bounds(rank)\n        low = E.mul(E.power(rank, 1-cap), logarithm)[0]\n        high = rank*logarithm[1]\n        reserve_derivative -= coefficient*(low if coefficient >= 0 else high)\n    L.need(reserve_derivative < 0 and TESTED-KAPPA == Q(1, 10**14),\n           'Unique fixed-reserve threshold and one-grid-step gap')\n\n"
+  ],
+  [
+    "    return encode({'kappa':KAPPA,'kappa_decimal':'0.00312336057','previous_pr5786':PREVIOUS,'gain':KAPPA-PREVIOUS,\n",
+    "    return encode({'kappa':KAPPA,'kappa_decimal':'0.00312360607355','previous_pr5802':PREVIOUS,'gain':KAPPA-PREVIOUS,\n"
+  ],
+  [
+    "                   'raw_headroom':[lower-KAPPA,upper-KAPPA],\n",
+    "                   'raw_headroom':[lower-KAPPA,upper-KAPPA],\n                   'fixed_grid_maximum':{'grid':10**14,'gap':TESTED-KAPPA,'reserve':reserve,\n                                         'next_tested':next_tested,'next_alpha':E.display(next_alpha),\n                                         'reserve_derivative_upper':reserve_derivative},\n"
+  ]
+]

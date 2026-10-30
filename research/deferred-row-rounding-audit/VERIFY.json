@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "certificates/frontier6030/CLAIM.json",
+    "certificates/frontier6030-source.json",
+    "research/kappa-observation-integration/release-work/current/package/vendor/pr1673/capped-phase-fusion/SUPPLIER-SUPPORT-AUDIT.md",
+    "research/kappa-rebuild/transfer-audit/FINITE-TEMPLATE-CLOSURE.md",
+    "research/kappa-rebuild/transfer-audit/OUTER-TRANSFER-AUDIT.md",
+    "docs/research/pr-intake-evidence/pr6030-audit/PROOF-REVIEW.md",
+    "LICENSE"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact source binding, complete finite matrix, sharp projected-defect bounds, 6561 nonlinear inputs and counterexamples."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same coverage with optimized Python; explicit exceptions retain checks."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/check_mutations.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Ten actual private-copy source/program/evidence mutations reject; unchanged/restored copies pass."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_mutations.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same actual private-copy controls with optimized Python."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/pr589-five-helper-hosting/verify.py",
+    "research/selected-bit-physical-caller/PROOF.md",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/catalogue.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/control.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/driver.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/predecessor/topology.py",
+    "research/selected-bit-physical-caller/inputs/pr2753/trace.py",
+    "research/selected-bit-physical-caller/macro_code.py",
+    "research/selected-bit-physical-caller/macro_machine.py",
+    "research/selected-bit-physical-caller/residual_blocks.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticate exact inputs; replay all actual symbolic compiler/dispatcher sites and compare receipt; semantic controls and run-loop contract checks."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--quick"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Assertions-disabled semantic controls, duplicate-owner guard separation and unchanged run-loop actions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--export"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Actual Git-free quick export plus changed, missing and symlinked input controls."
+    }
+  ]
+}

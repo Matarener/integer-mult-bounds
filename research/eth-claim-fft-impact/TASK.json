@@ -1,0 +1,73 @@
+{
+ "schema_version": 1,
+ "task_id": "scope-navigation",
+ "priority_revision": 8,
+ "base_commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+ "original_card": {
+  "id": "scope-navigation",
+  "question": "Can one misleading historical-current claim or missing research cross-reference be corrected?",
+  "starting_points": [
+   "docs/research/current-status.md",
+   "docs/research/pr-ledger.md",
+   "certificates/selected-result.json"
+  ],
+  "methods": [
+   "Trace one confusing path from onboarding to its authoritative source.",
+   "Index one tightly related family of obstructions with explicit excluded and open hypotheses."
+  ],
+  "acceptance_gate": "Produce evidence-backed navigation, preserve historical records and avoid a duplicate global survey.",
+  "first_step": {
+   "command": [
+    "python3",
+    "-B",
+    "scripts/research_selected_baseline.py"
+   ],
+   "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+   "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+   "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+  },
+  "first_experiment": "Repair one confusing path or produce a scoped map of one related obstruction family.",
+  "bottleneck_link": "Clear navigation lowers entry cost for central research; a global survey without a concrete fix is not required.",
+  "allowed_variations": [
+   "One historical-current ambiguity or one bounded family index."
+  ],
+  "scope_change_triggers": [
+   "Rewriting frozen scientific packages just to change their historical wording."
+  ],
+  "overlap_terms": [
+   "current status",
+   "historical checkpoint",
+   "scope navigation"
+  ]
+ },
+ "scope_status": "refined",
+ "actual_scope": "One bounded family index: the results next to the hub's transforms (multiplication, DFT, WHT) that rest on, or are fed by, the ETH family of hypotheses, and what happens to each if OpenAI's reported disproof of ETH (26 October 2026, unreviewed) holds. Each item is sorted into falls, survives (unaffected, or on less support), loses its basis, follows, or speculation, with a status word. The registered check re-computes the figures of README section 5 from their formulas.",
+ "scope_change_reason": "The card's method 'Index one tightly related family of obstructions with explicit excluded and open hypotheses' fits, refined in two ways: the family is the conditional lower bounds and barriers that touch the ETH family (ETH, SETH, OVC and relatives), and every entry is conditional on an outside claim that is still under review. It adds a cross-reference the hub lacks (no record or package maps these hypotheses); it changes no record and rewrites no frozen package, and it links the hub's existing work on the preprint (#5813, #5815) and on network coding (#634, #2838) rather than repeating it.",
+ "bottleneck_link": "Contributors reading the ETH news may ask whether a κ record, a target or a lower bound the hub quotes has moved. This index answers that in one place: no record moves, the one ETH-family barrier near the transforms (Alman–Li's depth-2 bound for the WHT) survives on OVC, and the open technical leads are listed with first steps.",
+ "budget_minutes": 120,
+ "stop_rule": "Map only what the round's notes support, each item with its status; recompute the quoted figures in verify.py; no proof check of the preprint, no Lean build, no new search beyond reading sources and the hub.",
+ "outcome": "completed",
+ "evidence": "Reading, with sources in README Sources: the preprint and its Lean statement at openai/math 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a; OpenAI's history.md naming the Impagliazzo–Paturi–Williams working group; Alman–Li arXiv:2509.14489 (Theorem 1.5, Appendix D); AFKL arXiv:1902.10935; Williams 2013 full version (Theorems 1.2 and 6.1); the hub's selected record and a search of the hub for ETH, SETH and OVC (a local copy at ee4fd87 plus GitHub search on 26 October 2026); my own published repositories. One AI reviewer attacked every step and its corrections are folded in. verify.py (standard library, about 0.03 s, 19 MB): the factor ln ln n / sqrt(ln n) at n = 10^4, 10^6, 10^30 (0.7316, 0.7064, 0.5096); the sharper exponent beats 1.307^n beyond n = 10^78.7; the Lean exponent beats 2^n beyond n = 10^2390.2; each printed figure is found in README.md; four false figures are rejected. Not done: no proof in the preprint was checked and its Lean proof was not built; the results marked 'recalled' were not re-read; no person has reviewed the map.",
+ "author": "Jacob Sussman",
+ "ai_assistance": "Substantial AI assistance: the map, the check and the text were written by AI agents (Anthropic Claude) under my direction, in five lanes (news, the hub and the literature, my own files, an impact map, and a reviewer whose job was to break it). No independent human review of this package is claimed.",
+ "open_questions": [
+  {
+   "question": "Do the preprint's interpolation parameters improve the polynomial used by Alman–Williams or by Alman–Guan–Padaki (their Theorem 6.1), and with it their rigidity upper bounds for WHT or DFT Kronecker powers?",
+   "why_it_matters": "Non-rigidity has given faster transform constants before (Alman and Rao), and rigidity upper bounds feed the best depth-2 circuits.",
+   "first_step": "Put the preprint's polynomial (degree R - 1, matching (-1)^j on R consecutive weights near the mean of a binomial weight) next to Alman–Williams's at the same degree, and compare the share of entries each gets wrong.",
+   "blocked_by": "Nothing; the construction's bounds are proved directly in the preprint, though, like the rest of it, they are unreviewed."
+  },
+  {
+   "question": "Can the preprint's tensor-contraction theorem count orthogonal vectors in dimension c·log N once the vector tables are split across low-degree vertices?",
+   "why_it_matters": "A fast count would refute OVC, and a near-linear one in every dimension c·log N would remove Alman and Li's depth-2 barrier for the WHT.",
+   "first_step": "Write the direct network for counting orthogonal pairs, then test one splitting gadget, checking that the number of wires stays close to log N while every degree drops below the cap.",
+   "blocked_by": "The theorem's degree cap of about s^(9/10) and its bound on the number of vertices; the direct encoding breaks the cap."
+  },
+  {
+   "question": "Does the claim hold?",
+   "why_it_matters": "Every line of this map is conditional on it.",
+   "first_step": "Re-read the map against the working group's report when it appears, and against any revision of the preprint.",
+   "blocked_by": "The examination led by Impagliazzo, Paturi and Williams."
+  }
+ ]
+}

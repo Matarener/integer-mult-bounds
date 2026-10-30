@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "references/semantic-bulk/rad20/LICENSE",
+    "references/semantic-bulk/rad20/NOTICE",
+    "research/gaussian-scalar-backend-audit/README.md",
+    "research/physical-gaussian-core/PROOF.md",
+    "research/physical-gaussian-core/README.md",
+    "research/physical-gaussian-core/gaussian_axis.py",
+    "research/physical-gaussian-core/gaussian_exponentials.py",
+    "research/physical-gaussian-core/gaussian_matrix.py",
+    "research/physical-gaussian-core/gaussian_rationals.py",
+    "research/physical-gaussian-core/gaussian_sources.py",
+    "research/physical-gaussian-core/inputs/branchfree-source.tar",
+    "research/physical-gaussian-core/inputs/word-export.tar",
+    "research/schur-boundary-residual/fixture.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Actual encoded Axis coefficient calls plus boundary cases and independent interval containment."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Identical source and oracle receipt with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/test_package.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Missing/typed-mutated receipt, source corruption and frozen-oracle corruption; normal/O and empty PATH, no physical rerun."
+    }
+  ]
+}

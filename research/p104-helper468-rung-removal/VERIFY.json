@@ -1,0 +1,30 @@
+{
+ "schema_version": 1,
+ "status": "ready",
+ "python": "3.12",
+ "requirements": [],
+ "inputs": [
+  "research/p104-helper468-rung-removal/EDIT.json.gz",
+  "research/p104-helper468-rung-removal/EXPECT.json",
+  "research/p104-helper468-rung-removal/PRICING-EDITS.json",
+  "research/p104-helper468-rung-removal/SOURCES.json",
+  "research/p104-helper468-rung-removal/WORD.json.gz",
+  "research/p104-helper468-rung-removal/construct.py",
+  "research/p104-helper468-rung-removal/inputs/pr5827-source.tar",
+  "research/p104-helper468-rung-removal/pricing.py",
+  "research/p104-helper468-rung-removal/sources.py",
+  "research/p104-helper468-rung-removal/verify.py"
+ ],
+ "commands": [
+  {
+   "argv": [
+    "{python}",
+    "-I",
+    "-B",
+    "{package}/verify.py"
+   ],
+   "timeout_seconds": 600,
+   "checks": "Authenticate the pinned PR5827 package and source chain; assert pricing.py = PR5827 pricing.py + declared edits; regenerate WORD.json.gz from the edit list; replay, all input columns, native maps, physical caller, complete price, two interval engines, compiler, outer checks, controls and the committed receipt."
+  }
+ ]
+}

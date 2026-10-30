@@ -1,0 +1,121 @@
+{
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "dependencies": "standard library",
+    "max_child_rss_kib": 34848
+  },
+  "source_base": "32890bc5de034ab8fc93ac88ead7279a6a416d04",
+  "source_head": "45f7de73b168721cdf7ec8c1769b1b594493716a",
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.792,
+      "stdout": "PASS_CLIFFORD_POINTWISE_MATRIX_AUDIT: 46176 exact matrices; complete receipt matched\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.844,
+      "stdout": "PASS_CLIFFORD_POINTWISE_MATRIX_AUDIT: 46176 exact matrices; complete receipt matched\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify_symplectic.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.241,
+      "stdout": "{\n  \"bounds_and_phases\": {\n    \"clifford_row_sum_majorants\": {\n      \"s0\": \"53534/60543\",\n      \"s2\": \"359294/2451015\",\n      \"s6\": \"162912909217/20637399121920\"\n    },\n    \"finite_subspace_terms\": 528,\n    \"four_residue_witness_values\": [\n      [\n        [\n          4,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ]\n      ],\n      [\n        [\n          0,\n          0\n        ],\n        [\n          4,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ]\n      ],\n      [\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          4,\n          0\n        ],\n        [\n          0,\n          0\n        ]\n      ],\n      [\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          4,\n          0\n        ]\n      ]\n    ],\n    \"stabilizer_row_sum_majorant\": \"719543/1220625\"\n  },\n  \"censuses\": [\n    {\n      \"axes\": 1,\n      \"binary_matrices_tested\": 16,\n      \"character_sums\": 24,\n      \"displacement_rank_histogram\": {\n        \"0\": 1,\n        \"1\": 3,\n        \"2\": 2\n      },\n      \"distinct_residual_forms\": 6,\n      \"nonzero_trace_lift_histogram\": {\n        \"0\": 1,\n        \"1\": 6,\n        \"2\": 8\n      },\n      \"residual_symmetrization_pairs\": 45,\n      \"symplectic_matrices\": 6\n    },\n    {\n      \"axes\": 2,\n      \"binary_matrices_tested\": 65536,\n      \"character_sums\": 11520,\n      \"displacement_rank_histogram\": {\n        \"0\": 1,\n        \"1\": 15,\n        \"2\": 100,\n        \"3\": 300,\n        \"4\": 304\n      },\n      \"distinct_residual_forms\": 720,\n      \"nonzero_trace_lift_histogram\": {\n        \"0\": 1,\n        \"1\": 30,\n        \"2\": 400,\n        \"3\": 2400,\n        \"4\": 4864\n      },\n      \"residual_symmetrization_pairs\": 98685,\n      \"symplectic_matrices\": 720\n    }\n  ],\n  \"controls\": [\n    \"identity-positive\",\n    \"invertible-nonsymplectic\",\n    \"singular\",\n    \"pairing-coordinates\",\n    \"phase-deletion\",\n    \"first-overlap-half\"\n  ],\n  \"scope\": \"PR5526 Sections 3--5 independent direct binary-matrix audit\"\n}\nPASS_INDEPENDENT_SYMPLECTIC_OVERLAP_AUDIT\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify_symplectic.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.293,
+      "stdout": "{\n  \"bounds_and_phases\": {\n    \"clifford_row_sum_majorants\": {\n      \"s0\": \"53534/60543\",\n      \"s2\": \"359294/2451015\",\n      \"s6\": \"162912909217/20637399121920\"\n    },\n    \"finite_subspace_terms\": 528,\n    \"four_residue_witness_values\": [\n      [\n        [\n          4,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ]\n      ],\n      [\n        [\n          0,\n          0\n        ],\n        [\n          4,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ]\n      ],\n      [\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          4,\n          0\n        ],\n        [\n          0,\n          0\n        ]\n      ],\n      [\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          0,\n          0\n        ],\n        [\n          4,\n          0\n        ]\n      ]\n    ],\n    \"stabilizer_row_sum_majorant\": \"719543/1220625\"\n  },\n  \"censuses\": [\n    {\n      \"axes\": 1,\n      \"binary_matrices_tested\": 16,\n      \"character_sums\": 24,\n      \"displacement_rank_histogram\": {\n        \"0\": 1,\n        \"1\": 3,\n        \"2\": 2\n      },\n      \"distinct_residual_forms\": 6,\n      \"nonzero_trace_lift_histogram\": {\n        \"0\": 1,\n        \"1\": 6,\n        \"2\": 8\n      },\n      \"residual_symmetrization_pairs\": 45,\n      \"symplectic_matrices\": 6\n    },\n    {\n      \"axes\": 2,\n      \"binary_matrices_tested\": 65536,\n      \"character_sums\": 11520,\n      \"displacement_rank_histogram\": {\n        \"0\": 1,\n        \"1\": 15,\n        \"2\": 100,\n        \"3\": 300,\n        \"4\": 304\n      },\n      \"distinct_residual_forms\": 720,\n      \"nonzero_trace_lift_histogram\": {\n        \"0\": 1,\n        \"1\": 30,\n        \"2\": 400,\n        \"3\": 2400,\n        \"4\": 4864\n      },\n      \"residual_symmetrization_pairs\": 98685,\n      \"symplectic_matrices\": 720\n    }\n  ],\n  \"controls\": [\n    \"identity-positive\",\n    \"invertible-nonsymplectic\",\n    \"singular\",\n    \"pairing-coordinates\",\n    \"phase-deletion\",\n    \"first-overlap-half\"\n  ],\n  \"scope\": \"PR5526 Sections 3--5 independent direct binary-matrix audit\"\n}\nPASS_INDEPENDENT_SYMPLECTIC_OVERLAP_AUDIT\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/audit_mutations.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.468,
+      "stdout": "[\n  {\n    \"mutation\": \"accept-all-matrices\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"noninvertible-preserver\"\n  },\n  {\n    \"mutation\": \"accept-all-matrices\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"noninvertible-preserver\"\n  },\n  {\n    \"mutation\": \"drop-displacement-identity\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"fixed-rank-disagreement\"\n  },\n  {\n    \"mutation\": \"drop-displacement-identity\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"fixed-rank-disagreement\"\n  },\n  {\n    \"mutation\": \"count-zero-trace-lifts\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"wrong-nonzero-lift-count\"\n  },\n  {\n    \"mutation\": \"count-zero-trace-lifts\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"wrong-nonzero-lift-count\"\n  },\n  {\n    \"mutation\": \"use-image-for-preimage\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"residual-left-degenerate\"\n  },\n  {\n    \"mutation\": \"use-image-for-preimage\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"residual-left-degenerate\"\n  },\n  {\n    \"mutation\": \"drop-first-overlap-half\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"clifford-uniform-tail\"\n  },\n  {\n    \"mutation\": \"drop-first-overlap-half\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"clifford-uniform-tail\"\n  },\n  {\n    \"mutation\": \"erase-central-phase\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"phase-fourier-orthogonality\"\n  },\n  {\n    \"mutation\": \"erase-central-phase\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"phase-fourier-orthogonality\"\n  }\n]\nPASS_INDEPENDENT_SYMPLECTIC_MUTATIONS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/audit_matrix_mutations.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 16.106,
+      "stdout": "[\n  {\n    \"mutation\": \"wrong-first-overlap-expectation\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"First Clifford overlap count\"\n  },\n  {\n    \"mutation\": \"wrong-first-overlap-expectation\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"First Clifford overlap count\"\n  },\n  {\n    \"mutation\": \"tensor-width-erased\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"Four-width positive fixture\"\n  },\n  {\n    \"mutation\": \"tensor-width-erased\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"Four-width positive fixture\"\n  },\n  {\n    \"mutation\": \"wrong-H-square-expectation\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"H-prime square retains i\"\n  },\n  {\n    \"mutation\": \"wrong-H-square-expectation\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"H-prime square retains i\"\n  },\n  {\n    \"mutation\": \"source-corrupted\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"Frozen source byte mismatch\"\n  },\n  {\n    \"mutation\": \"source-corrupted\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"Frozen source byte mismatch\"\n  },\n  {\n    \"mutation\": \"receipt-corrupted\",\n    \"optimized\": false,\n    \"exit\": 1,\n    \"diagnostic\": \"Matrix receipt mismatch\"\n  },\n  {\n    \"mutation\": \"receipt-corrupted\",\n    \"optimized\": true,\n    \"exit\": 1,\n    \"diagnostic\": \"Matrix receipt mismatch\"\n  }\n]\nPASS_CLIFFORD_MATRIX_MUTATIONS\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Executed command bodies serially from intended worktree; registered launcher and committed-byte portability recorded separately.",
+  "registered_replay": {
+    "argv": [
+      "python3.12",
+      "-B",
+      "scripts/research_package.py",
+      "--package",
+      "research/clifford-pointwise-audit"
+    ],
+    "exit_code": 0,
+    "result": "PASS_REGISTERED_RESEARCH_PACKAGE research/clifford-pointwise-audit outcome=completed",
+    "note": "All six commands passed. Subsequent changes only clarify mutation labels/prose; the affected matrix-mutation driver was rerun and its row above updated."
+  },
+  "execution_sources_sha256": {
+    "MATRIX-RESULT.json": "8cbc73e8f2022af3ddf2b479368aba1504d92094323d96d631fe98f3a830ee20",
+    "SOURCE-RECEIPT.json": "abf729a82315f679076386e213cc8940adaca229734bdd2eaa882e55572ca8a9",
+    "audit_matrix_mutations.py": "83044bd6ba57a7b5f8b86e01b1c8c10c7bb2f8ddc93817725c1e1d1f190399c2",
+    "audit_mutations.py": "54a0505090a42d76ad5fb799d03bf0a73add7f3973f84c46bd573d0c5f32fd01",
+    "source/PR5526-PROOF.md": "45483e4b5f604a5e70602c5caaa4394d4a0d0d1a6d0b6e8a93b836d50b23f764",
+    "source/PR5526-README.md": "b929248f5ad414ac776a2fa9cdc52ab745305aa257946e9b3596684ba1d74721",
+    "verify.py": "f162125433c292efb6495af70fd8a07117fca8b00ff915ebfca9ce8a351c043d",
+    "verify_symplectic.py": "ee23ab8fe38c3e33136be334042cb63ca79d4ae1c70ec1cf79400cce8091e1d9"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-delayed-basis/inputs/pr5602-construct.py",
+    "research/p104-delayed-basis/inputs/pr5602-WITNESS.json",
+    "research/p104-delayed-basis/inputs/pr5612-source.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate all source exports and witness; compare two constructors; check756 rows/transpose columns, signed native maps, full caller, exact invoice, two interval engines, compiler and58 outer predicates; reject five semantic corruptions and compare full receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate all source exports and witness; compare two constructors; check756 rows/transpose columns, signed native maps, full caller, exact invoice, two interval engines, compiler and58 outer predicates; reject five semantic corruptions and compare full receipt."
+    }
+  ]
+}

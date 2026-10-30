@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/compact-carry-repair-audit/PROOF.md",
+    "research/compact-carry-repair-audit/README.md",
+    "research/unconditional-batched-crt/CRT.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/check_batched_crt.py",
+    "research/unconditional-batched-crt/check_compact_crt.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticate six predecessor inputs; compare independent literal shears and current-state inverses; exhaustive good/bad invariance and payload repair; actual caller; five semantic controls; committed receipt equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same complete receipt with optimized Python; no essential check uses assert."
+    }
+  ]
+}

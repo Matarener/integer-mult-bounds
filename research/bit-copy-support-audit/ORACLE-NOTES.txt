@@ -1,0 +1,63 @@
+Independent support-propagation oracle
+====================================
+
+Scope: this interpreter was written without reading any primary implementation
+or predecessor verifier. The only predecessor mathematics read was PROOF.md at
+PR4200 commit ddfc3133cbdf548e163c867d5671f8f01dd5d5ae. Guidance was read from
+the session checkout at canonical-main 12fa8c5c844be21bfefb38a19503fbd867a11244.
+
+Assumptions of the support statement:
+1. A snapshot q is unchanged by reads. Geometry is over Q, coefficient algebra
+   over F2. Arbitrary dirty public inputs have independent formal columns.
+2. L is contained in every private frame visited, including every read frame.
+3. A private read adds scalar*q to a public receiver at exactly the same frame.
+4. Public MOVE preserves the normalized decoded linear form and only moves to
+   a containing frame; public ADD uses two exactly equal current frames.
+5. Operations are a fixed finite linear schedule, or one may separately apply
+   the argument to each fixed schedule. Arbitrary data-dependent frame choices
+   do not automatically have a single F2-linear matrix interpretation.
+
+Written induction (all dimensions/register counts; not a formal-kernel proof):
+For each public register R, mark its q coefficient. Initially all marks are
+zero, so the invariant 'a nonzero mark implies L <= frame(R)' holds. At a
+private read, the recipient frame is the private read frame and contains L.
+An upward MOVE preserves the mark and containment by transitivity. Equal-frame
+ADD changes one mark by a scalar multiple of another mark, whose frame is the
+same recipient frame. If the resulting mark is nonzero, at least one input
+mark was nonzero and supplies the needed containment. Cancellation may remove
+a mark; it cannot create a marked frame outside this set. This inductive proof
+covers any finite number of private reads, public ADDs, and loops/revisits in
+the fixed schedule. It does not assume zero dirty public inputs or source/helper
+restoration; such constraints can restrict, but not enlarge, this support set.
+
+Private intersection bound: for every visited frame take the running meet.
+An upward nested step cannot shrink it; a downward rank-d step shrinks its
+dimension by at most d. A closed walk has equal total up/down dimension change,
+so dim(L) >= dim(G) - m/2 for entrance G and all-direction rank sum m.
+
+Finite checks: two eight-frame lattices in Q^3, one coordinate and one generated
+by a genuinely rational noncoordinate basis. For every possible L, every ordered
+pair of public frames, and every pair of 3-column linear forms satisfying the
+support invariant, exhaust all admissible 0/1 scalar reads, equal-frame scalar
+ADDs and upward MOVE targets. Independent dirty columns range over every F2
+linear combination in these finite states. Separately enumerate every strict
+nested closed private walk of zero through four edges in each family. The
+five-operation cancellation loop restores both dirty inputs for all eight
+concrete q/a/b assignments. Dropping either public monotonicity or frame
+equality gives an explicit q coefficient in the zero frame while L is a line.
+Those are counterexamples to relaxed hypotheses, not predecessor bugs.
+
+Remaining: no actual R438 event binding, no query-rank/paid-moment certification,
+no arbitrary rational-geometry exhaustive search, no arbitrary-characteristic
+specialization, no physical compiler/caller/invoice/precision/outer theorem.
+The all-parameter contribution is the short written support induction above;
+the finite enumeration only corroborates it and isolates its hypotheses.
+
+Attribution: Ross Richardson (RossRichardson), PR4200, supplies the source support argument and the
+actual R438 context, with Ali Romman, Sagar Thakrar, DreamingOfClouds/eumemic,
+PR589/PR555 and the retained source NOTICE lineage. This independent oracle
+uses substantial OpenAI Codex assistance; Apache-2.0 repository contribution.
+
+Replay:
+python3 -I -B independent_oracle.py --out /tmp/independent-support-result.json
+python3 -I -O -W error -B independent_oracle.py --out /tmp/independent-support-result-O.json

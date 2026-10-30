@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/one-sided-six-multisets/data/data.txt",
+    "research/p112-root-simplex-exclusion/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Literal ranks4,5,6,6, all112 coefficients, disjoint support, exact nonzero11-minor, intersection1 and receipt equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Separate root reconstruction, direct literal labels, low-pivot binary ranks, full rational ranks8,4,11 and Bareiss determinant-512."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Positive exact witness, eight unit mutants and actual optimized CLI acceptance plus seven rejecting mutants."
+    }
+  ]
+}

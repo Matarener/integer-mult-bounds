@@ -1,0 +1,35 @@
+# Source-bound coverage and arithmetic review
+
+This review concerns Ali Romman's PR #5831 at `7c5eb98e7439d778141d63e801e53d4cd7e1d587`, package `research/p104-integer-error-replay`, consuming PR #5826 at `58f93cf41751920f3d6766a39caccc2974ce18b0`. It checks verification computations and Linux portability. It changes no precision theorem, native word, reset allowance, physical implementation, selected record or kappa.
+
+## Exact arithmetic mechanism
+
+For each row maintain a conservative denominator exponent. INIT/CLEAR reset it to zero, MOVE preserves it, SCALE by `a/2^k` adds k, and ADD/COPY take the maximum of the destination exponent and source exponent plus k. The corresponding reversed rule updates the transposed source from the destination. The maximum encountered in both traversals supplies a single positive power-of-two scale S. Unit defect injection needs exponent zero and is covered. Ignoring cancellation and numerator powers of two enlarges the bound safely. On this actual word the qualification reports 55 scale bits; this is a coefficient representation bound, not an implemented physical precision allowance.
+
+Induction over each traversal shows every stored coefficient lies in `(1/S) Z`. The integer backend multiplies before shifting and explicitly checks divisibility; Python's right shift of a negative exactly divisible integer therefore returns the exact quotient too. Nondyadic values and insufficient divisibility reject. There is no rounding or modular acceptance. Ideal rows, error rows and transposed columns keep their signed values. Original Fraction conversion and canonical reduced encodings remain at result/hash boundaries.
+
+Separate positive global dyadic scales for local operand and feedback weights give common positive units for the three score coordinates. At each ADD/COPY the update is `abs(new_signed_coefficient)-abs(old_signed_coefficient)`, including negative score changes from cancellation. It is not absolute-value propagation. Global positive rescaling preserves comparisons, ties, peak choices and Pareto ordering; each coordinate retains its own fixed unit. The original literal execution and reverse-cut oracles are supplied unchanged to the integer Engine.
+
+The explicit adapted contract is reconstructed from the original text using all four uniquely matching declared edits, then the obsolete original CLI is removed. The exact reconstructed bytes must equal `contract.py` before the original scientific modules load. The changes parameterize the source directory and backend; the original calculate body, complete comparisons, guards, attained fixtures and six semantic controls remain. No arithmetic implementation, import hook or mutable global is patched by this Linux validation.
+
+## What complete qualification checks
+
+Every normal fast baseline/candidate replay executes the complete 25,984-event, 799-coordinate contract and compares its entire result to the frozen original RESULT, not just the short printed summary. This includes ideal endpoint/frame/owner metadata, original local-weight hash, all final scores and signed coefficient hashes, prefix and final guards, original attaining fixtures and six rejection controls. The independent literal scalar and reverse-cut oracles remain active.
+
+The unchanged `--qualify` additionally executes the full Fraction baseline and compares the complete candidate result directly; compares the actual ideal metadata and every exact local weight; compares all actual signed witness dictionaries used by the source; and checks 120 varied dyadic words / 4,240 events in both directions. It retains nondyadic-scalar, nondyadic-weight and inexact-division rejection controls. Its expected qualification receipt is also compared in full. Normal and optimized execution use explicit `need`/`require` failures, not disabled assertions.
+
+Our wrapper authenticates the entire official 13-file PR5831 export before imports: whole tar hash, unique regular member inventory, exact source head, each file's size/hash and declared regular mode. It materializes the 14-member export privately, read-only and Git-free, checks bytes/modes and absence of links after success, then removes the temporary copy. The frozen verifier separately authenticates its unchanged nested source archive and exact declared adaptations. That nested archive is extracted into the original verifier's writable temporary scratch; this contribution does not add or claim immutable enforcement for that private scratch. The immutable archive and outer export remain fixed.
+
+Four small custody controls reject corruption of the official bundle, nested source archive, adapted contract and declared seam before any scientific module import. They run normally and under optimization. These complement the original six semantic and three integer controls; they are not substituted for a full replay.
+
+## Measurement and admission boundaries
+
+Linux measurements run complete baseline/candidate commands in the original B,C,C,B,B,C order, each in a fresh process. The same authenticated-export materialization is charged to both arms. Full qualification is a separate measured cost. Every raw output and resource receipt is retained; only the volatile runtime field differs between complete baseline/candidate outputs. The complete scientific receipt must match exactly. No persistent state/PASS cache, sampling, omitted event or changed expected result is used.
+
+The source's 180-second command limit is preserved. The local round also applies 900 seconds cumulative full scientific wall time, 1 GiB sampled process-group RSS, bounded output and no retries, with full runs serialized under one lock. Sampling can miss short peaks; kernel peak RSS is reported separately. The host is not reserved, OS caches are not flushed, and three observations per arm do not establish a universal performance factor. Original macOS timings and our Linux timings are distinct observations.
+
+The five framework assumptions, native unitary gauges, physical reset implementation/fees, exact owned zero return, compiler and analytic admission retain their status. The frozen sufficient guards are prefix 26 / public 23 / owned 22; they are not optimal physical precision claims. Same-agent assisted review and different-host replay do not constitute independent human or proof-kernel acceptance. Source custody, local qualification, hosted CI, publication, merging and mathematical admission remain separate.
+
+## Attribution
+
+Ali Romman supplied the exact integer backend, dyadic scale proof, explicit parameter adaptation, original qualification and macOS measurements. Preserve PR5826/5819, Adam Gall, ywz65, PR2878, Mason Hale/PR5811 and the entire retained P104/native/compiler/precision lineage and original notices. New Linux review, custody controls, guard adaptation, measurements and reporting: Chris R / Clear1nsight, with substantial OpenAI Codex assistance; no subagents. Guard/custody mechanics follow PR5816/5818/5832. Apache-2.0.

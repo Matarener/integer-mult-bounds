@@ -1,0 +1,552 @@
+{
+  "model": "PR943 abstract singleton prefix-walk model (Ross Richardson): seven immutable sources, singleton additions, paired readouts, eventual restoration; a restored word is universal iff P+P = F2^7",
+  "base_commit": "721c03822c421b7f7fcbb2598993b947c4d88419",
+  "item5_resolution": "No contradiction. #3333 (research/f7-independent-full-replay) is a length-20 replay and says it does not search length 22; its {22,24} is a scope limit. Length 22 is excluded on main by two routes that share no search code: #3058's covering-code argument and the census chain #2973 -> #3708 -> #3731/#3818 -> #4221, bound to its domain by #4871. Every record involved is partially_reviewed in the ledger at the base commit.",
+  "record_map": [
+    {
+      "step": "L <= 20 excluded (f(7) >= 22), census route",
+      "status": "corroborated by three separately written engines",
+      "prs": [
+        2973,
+        3005,
+        3333
+      ],
+      "retired": "#2542 (L18), #2634 (partial L20), #2691 ((10,10) L20) used the bit-0 prune; #4946 classifies them as retired with replacement evidence",
+      "sources": [
+        {
+          "path": "research/f7-weight-parity-census-correction/README.md",
+          "quotes": [
+            "**`22 <= f(7) <= 24`**"
+          ]
+        },
+        {
+          "path": "research/f7-union-support-audit/README.md",
+          "quotes": [
+            "this corroborates `22 <= f(7) <= 24`"
+          ]
+        },
+        {
+          "path": "research/f7-independent-full-replay/README.md",
+          "quotes": [
+            "The full result independently reproduces the lower bound `f(7) >= 22`",
+            "this work does not decide whether length 22 is attainable"
+          ]
+        },
+        {
+          "path": "research/census-prune-source-impact/README.md",
+          "quotes": [
+            "no exclusion that the current f(7) line relies on uses the faulty rule"
+          ]
+        }
+      ]
+    },
+    {
+      "step": "L <= 20 excluded (f(7) >= 22), covering-code route",
+      "status": "imports two published results (Struik ell(7,2)=19; Davydov-Marcugini-Pambianco classification); |P|=20 step independently re-checked by #3728",
+      "prs": [
+        3058,
+        3728,
+        3732
+      ],
+      "sources": [
+        {
+          "path": "research/connector-covering-code/README.md",
+          "quotes": [
+            "Hence **f(7) >= 22 follows from sections 1-2 alone**, with no word census."
+          ]
+        },
+        {
+          "path": "research/f7-l22-confinement-audit/README.md",
+          "quotes": [
+            "**Step audited: `|P| = 20` is impossible.**"
+          ]
+        }
+      ]
+    },
+    {
+      "step": "L = 22 excluded, covering-code route (#3058 sections 3-5)",
+      "status": "section 3 (21 distinct prefixes) is checked by #3058's own two implementations, with no separate audit package on main (#3360 lists it as out of scope); sections 4-5 engine audited piecewise; pattern A corroborated by #3058's own Python port and solver checks; 4 of 77 pattern-B cases have independent SAT proofs, the rest rest on the single native search",
+      "prs": [
+        3058,
+        3224,
+        3244,
+        3261,
+        3276,
+        3287,
+        3360
+      ],
+      "sources": [
+        {
+          "path": "research/connector-covering-code/README.md",
+          "quotes": [
+            "Thus a 22-step candidate must have **22 distinct prefixes: a simple cycle**.",
+            "Both checkers exhaust all **234 characters and 2,808 structural branches**.",
+            "The pattern A exclusion is corroborated by an independent Python port and solver checks; the pattern B exhaustion rests on this single native implementation"
+          ]
+        },
+        {
+          "path": "research/connector-capacity-parity-audit/README.md",
+          "quotes": [
+            "necessary condition for a simple restored universal word"
+          ]
+        },
+        {
+          "path": "research/connector-path-propagation-audit/README.md",
+          "quotes": [
+            "No defect was found in this scope."
+          ]
+        },
+        {
+          "path": "research/connector-domain-completeness/README.md",
+          "quotes": [
+            "It does not certify a completed search or the full `f(7)=24` claim."
+          ]
+        },
+        {
+          "path": "research/connector-search-exhaustion-audit/README.md",
+          "quotes": [
+            "No source defect was found in this scope."
+          ]
+        },
+        {
+          "path": "research/connector-caller-exhaustion-audit/README.md",
+          "quotes": [
+            "No source defect was found within this scope."
+          ]
+        },
+        {
+          "path": "research/connector-b-occupancy-sat/README.md",
+          "quotes": [
+            "The other 73 B cases were not run with this encoding",
+            "the 21-prefix reduction, all 77 B cases"
+          ]
+        }
+      ]
+    },
+    {
+      "step": "L = 22 excluded, census route",
+      "status": "eleven-split domain derived twice (#3708, #3712) and re-derived by #4871; every split closed by one engine (#3818 union_census.c); this package adds a second engine (#3005 census.cpp, gate lifted) for the splits listed in second_engine_l22",
+      "prs": [
+        3708,
+        3712,
+        3731,
+        3818,
+        4221,
+        4871
+      ],
+      "pending": "#3899 (tiny-domain audit of the union prune) is open",
+      "sources": [
+        {
+          "path": "research/f7-l22-split-domain/README.md",
+          "quotes": [
+            "leave **11 split representatives at length 22**"
+          ]
+        },
+        {
+          "path": "research/l22-split-domain/README.md",
+          "quotes": [
+            "# Eleven length-22 splits survive"
+          ]
+        },
+        {
+          "path": "research/f7-l22-census-probe/README.md",
+          "quotes": [
+            "**`(11,7)`, `(10,8)` and `(11,8)` are finite"
+          ]
+        },
+        {
+          "path": "research/f7-l22-union-census/README.md",
+          "quotes": [
+            "new finite split exclusion"
+          ]
+        },
+        {
+          "path": "research/f7-l22-deep-shard-census/README.md",
+          "quotes": [
+            "**`f(7) = 24` inside PR943's prefix-walk model**",
+            "#3005's separately implemented C++ census has not been run at length 22."
+          ]
+        },
+        {
+          "path": "research/f7-l22-receipt-domain/README.md",
+          "quotes": [
+            "derives **eleven** representatives"
+          ]
+        }
+      ]
+    },
+    {
+      "step": "L = 24 attained",
+      "status": "witness checked directly here",
+      "prs": [
+        1185,
+        2973
+      ],
+      "sources": []
+    }
+  ],
+  "l22_domain": {
+    "source": "#3708 table, as listed in research/f7-l22-deep-shard-census/README.md",
+    "splits": [
+      [
+        11,
+        11
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "excluded_by_3731_3818": [
+      [
+        11,
+        7
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        9,
+        9
+      ]
+    ]
+  },
+  "second_engine_l22": {
+    "engine": "research/f7-union-support-audit/census.cpp (#3005, Nick Petalas) with max_length 20 -> 22 and its error message; no other change",
+    "engine_sha256": "88f4a6a2196e60c55d66d992d69a4086ce6a9e76f99326241211f5bdda4cc695",
+    "compiler": "Apple clang 21.0.0, flags as #3005 verify.py (-std=c++20 -O3 ... -Werror)",
+    "environment": "local macOS arm64, 10 cores shared with other sessions; LOCAL-ONLY evidence until replayed",
+    "symmetry_premise": "#3708 rotation symmetry: only representatives s >= t are run",
+    "runs": [
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          11,
+          11
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 262967842859,
+        "entered": 37567052539,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 127606738457,
+        "size_prunes": 31908107595,
+        "same_prunes": 64005526587,
+        "cross_prunes": 1880417682
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          11,
+          10
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 285196543267,
+        "entered": 40743043536,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 114662362937,
+        "size_prunes": 36277910836,
+        "same_prunes": 91780027840,
+        "cross_prunes": 1733198119
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          11,
+          9
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 83593730999,
+        "entered": 11942611230,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 25194325475,
+        "size_prunes": 11284193423,
+        "same_prunes": 33454203834,
+        "cross_prunes": 1718397038
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          10,
+          10
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 261789060244,
+        "entered": 37400857165,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 82624190942,
+        "size_prunes": 34567494590,
+        "same_prunes": 105634229919,
+        "cross_prunes": 1562287629
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          11,
+          8
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 6814862965,
+        "entered": 973631241,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 961722461,
+        "size_prunes": 1131773947,
+        "same_prunes": 3267781048,
+        "cross_prunes": 479954269
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          10,
+          9
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 46363380480,
+        "entered": 6624261154,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 8140196900,
+        "size_prunes": 6882799870,
+        "same_prunes": 24446502258,
+        "cross_prunes": 269620299
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          11,
+          7
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 60244610,
+        "entered": 8613944,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 1076222,
+        "size_prunes": 11556541,
+        "same_prunes": 17596821,
+        "cross_prunes": 21401083
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          10,
+          8
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 1665262768,
+        "entered": 238010457,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 92523122,
+        "size_prunes": 277797425,
+        "same_prunes": 1038642254,
+        "cross_prunes": 18289511
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          9,
+          9
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 2702735781,
+        "entered": 386427869,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 138219740,
+        "size_prunes": 426032099,
+        "same_prunes": 1751975903,
+        "cross_prunes": 80171
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          11,
+          6
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 6900,
+        "entered": 1020,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 0,
+        "size_prunes": 1602,
+        "same_prunes": 0,
+        "cross_prunes": 4279
+      },
+      {
+        "n": 7,
+        "length": 22,
+        "split": [
+          10,
+          7
+        ],
+        "prune": true,
+        "cap": 0,
+        "complete": true,
+        "attempts": 4873766,
+        "entered": 699412,
+        "candidate_leaves": 0,
+        "hits": 0,
+        "restoration_prunes": 0,
+        "size_prunes": 919828,
+        "same_prunes": 3254527,
+        "cross_prunes": 0
+      }
+    ],
+    "timing_local_only": [
+      {
+        "split": [
+          11,
+          11
+        ],
+        "wall_seconds": 3751
+      },
+      {
+        "split": [
+          11,
+          10
+        ],
+        "wall_seconds": 4188
+      },
+      {
+        "split": [
+          11,
+          9
+        ],
+        "wall_seconds": 1537
+      },
+      {
+        "split": [
+          10,
+          10
+        ],
+        "wall_seconds": 4117
+      },
+      {
+        "split": [
+          11,
+          8
+        ],
+        "wall_seconds": 130
+      },
+      {
+        "split": [
+          10,
+          9
+        ],
+        "wall_seconds": 830
+      },
+      {
+        "split": [
+          11,
+          7
+        ],
+        "wall_seconds": 1
+      },
+      {
+        "split": [
+          10,
+          8
+        ],
+        "wall_seconds": 32
+      },
+      {
+        "split": [
+          9,
+          9
+        ],
+        "wall_seconds": 50
+      },
+      {
+        "split": [
+          11,
+          6
+        ],
+        "wall_seconds": 0
+      },
+      {
+        "split": [
+          10,
+          7
+        ],
+        "wall_seconds": 0
+      }
+    ]
+  }
+}

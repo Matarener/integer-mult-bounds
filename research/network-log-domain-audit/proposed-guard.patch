@@ -1,0 +1,11 @@
+--- a/scripts/certify.py
++++ b/scripts/certify.py
+@@ -204,6 +204,8 @@
+ 
+ 
+ def certify_network(h, k, log_bound):
++    # Positive Taylor terms give a lower bound only on this domain.
++    require(log_bound > 0, "Logarithm upper bound must be positive")
+     n = network(h)
+     # A positive Taylor partial sum below exp(log_bound) proves m<exp(log_bound).
+     total = Q(0)

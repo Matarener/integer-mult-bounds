@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/verify_hpe_lean_binding.py",
+    "research/hyperplane-end-lean/HyperplaneEnd/Exact.lean",
+    "research/hyperplane-end-lean/code/check_hpe_pairs.py",
+    "research/hyperplane-end-lean/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Parse the three Lean pairs and apply the binding's gate rules to a synthetic self-partner tail."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check that the first synthetic gate is a self-partner and that a frame outside the three pairs is rejected."
+    }
+  ]
+}

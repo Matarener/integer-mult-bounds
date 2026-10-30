@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Ideal narrow matrix from LOG-A's entry law: 192,000 interior columns (55,515 meeting g=2) within #4437's majorant (attained), landing-interval table at every column, gap > 1/(8p^2) for p=2..1e4 at worst corners, perturbation step."
+    }
+  ]
+}

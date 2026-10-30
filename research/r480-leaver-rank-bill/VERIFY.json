@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/gauge44-leaver8/data/SPEC.json",
+    "research/heterogeneous-owner-assembly/controls.py",
+    "research/heterogeneous-owner-assembly/README.md",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-local-word-ceiling/README.md",
+    "certificates/selected-result.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Rebuild the R480 rank bill and screen its paid profile against the selected word."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check the fourteen-pair rank exchange."
+    }
+  ]
+}

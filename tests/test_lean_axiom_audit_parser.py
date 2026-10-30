@@ -28,9 +28,58 @@ SPOOF = '''import Init
 -/
 #eval IO.println "'notADeclaration' does not depend on any axioms"
 '''
+RAW_SPOOF = '''import Init
+def documentation : String := r#"
+"
+#print axioms notADeclaration
+"
+"#
+#eval IO.println "'notADeclaration' does not depend on any axioms"
+'''
+RAW_VALID = '''import Init
+def documentation : String := r##"
+"
+#print axioms ignoredRawString
+"#
+-- /- These are literal text, not comments.
+"##
+theorem actual : True := True.intro
+#print axioms actual
+'''
+IDENTIFIER_VALID = r'''import Lean
+macro "render" s:str : term => `($s)
+def documentation := render"escaped quote \"
+#print axioms ignoredString
+"
+theorem actual : True := True.intro
+#print axioms actual
+'''
 
 
 class AxiomParserTests(unittest.TestCase):
+    def test_raw_strings_do_not_supply_queries(self):
+        self.assertEqual(audit.source_queries(RAW_VALID), ['actual'])
+        with self.assertRaisesRegex(ValueError, 'distinct theorem names'):
+            audit.source_queries(RAW_SPOOF)
+
+    def test_raw_delimiters_do_not_interpret_backslash_escapes(self):
+        for hashes in ('', '#', '##', '####'):
+            source = ('def documentation := r' + hashes + '"literal backslash \\'
+                      + '"' + hashes + '\n#print axioms actual\n')
+            with self.subTest(hashes=hashes):
+                self.assertEqual(audit.source_queries(source), ['actual'])
+
+    def test_unterminated_raw_strings_are_rejected(self):
+        for source in ('r"unclosed', 'r#"unclosed"', 'r##"short close"#',
+                       'r###"\n#print axioms hidden\n"##'):
+            with self.subTest(source=source), self.assertRaises(ValueError):
+                audit.source_queries(source + '\n#print axioms actual\n')
+
+    def test_identifier_suffix_is_not_a_raw_string_prefix(self):
+        for name in ('render', '℀r'):
+            with self.subTest(name=name):
+                self.assertEqual(audit.source_queries(IDENTIFIER_VALID.replace('render', name)), ['actual'])
+
     def test_only_actual_source_queries_are_counted(self):
         self.assertEqual(audit.source_queries(VALID), ['actual'])
         with self.assertRaisesRegex(ValueError, 'distinct theorem names'):
@@ -72,6 +121,24 @@ class AxiomParserTests(unittest.TestCase):
             positive = check('Valid', VALID)
             self.assertEqual(positive.returncode, 0, positive.stdout + positive.stderr)
             self.assertIn('PASS 1 declarations', positive.stdout)
+            raw_positive = check('RawValid', RAW_VALID)
+            self.assertEqual(raw_positive.returncode, 0, raw_positive.stdout + raw_positive.stderr)
+            self.assertIn('PASS 1 declarations', raw_positive.stdout)
+            for name in ('render', '℀r'):
+                with self.subTest(name=name):
+                    identifier = check('Identifier', IDENTIFIER_VALID.replace('render', name))
+                    self.assertEqual(identifier.returncode, 0, identifier.stdout + identifier.stderr)
+                    self.assertIn('PASS 1 declarations', identifier.stdout)
+            raw_spoof = check('RawSpoof', RAW_SPOOF)
+            self.assertNotEqual(raw_spoof.returncode, 0)
+            self.assertIn('distinct theorem names', raw_spoof.stderr)
+            # The counterfeit report must come from valid Lean source, so a
+            # compiler error cannot explain the checker's rejection.
+            raw_output = subprocess.run(['lake', 'env', 'lean', str(project / 'RawSpoof.lean')],
+                                        cwd=project, env=env, capture_output=True,
+                                        encoding='utf-8', timeout=120)
+            self.assertEqual(raw_output.returncode, 0, raw_output.stdout + raw_output.stderr)
+            self.assertEqual(audit.check_output(raw_output.stdout, ['notADeclaration']), 1)
             spoof = check('Spoof', SPOOF)
             self.assertNotEqual(spoof.returncode, 0)
             custom = [f'veryLongCustomAxiomNumber{i:02}' for i in range(12)]

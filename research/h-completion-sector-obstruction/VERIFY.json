@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/h-completion-sector-obstruction/vendor/certificate.json.gz",
+    "research/h-completion-sector-obstruction/vendor/DATA-PHASES.json",
+    "research/h-completion-sector-obstruction/vendor/rebuild_native.py",
+    "research/h-completion-sector-obstruction/vendor/joint_boundary_probe.py",
+    "research/h-completion-sector-obstruction/vendor/H-PRIMITIVE-AUDIT.md",
+    "research/h-completion-sector-obstruction/VENDOR.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact actual signed-owner leakage witness, row-completion independence, full-column lift premises, and sector-preservation checks for fresh stages, with hypothesis-changing controls."
+    }
+  ]
+}

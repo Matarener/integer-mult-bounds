@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-consumer-budget-audit/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Source digests (PR2744 RESULT.json on main, vendored PR3609 RECEIPT.json); 31 exact claims (rejection proved by two methods; passing points at 1/596 checked by both; ranges and slack comparisons by method A plus convexity); full receipt equality with RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Positive control passes; 13 parameter mutations and one corrupted receipt byte must each break a named claim."
+    }
+  ]
+}

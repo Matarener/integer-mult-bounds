@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/complex-k492-owner-repair/vendor/multicold/engines/outer.py",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
+    "research/rank7-joint-endframes/CLAIM.json",
+    "research/rank7-joint-endframes/allocation/PROFILE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact complete-profile/BIT-surcharge allowances,730/731 and395/396 signs,47 selected outer arithmetic rows,typed source controls; no supplier admission"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same explicit contracts and receipt comparison under optimization"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_source_auth.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Private actual CLI mutants reject executable usage reclassification,Boolean schema version and changed code bytes BEFORE execution"
+    }
+  ]
+}

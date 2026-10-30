@@ -1,0 +1,85 @@
+{
+  "all_width_lift": "Every coefficient of HK cancels between identical actual signed monomial operators, before numerical evaluation. Literal products and phase identities lift to every positive tensor width, with exterior scalar rational coefficients unchanged.",
+  "cases": {
+    "provider_backward": {
+      "direction": "raw backward",
+      "exact_HK_zero": true,
+      "full_frame_histories": 4891,
+      "history_exact_terms": 119515,
+      "history_terms_with_nonzero_kernel_row": 11262,
+      "kernel_formula": "K_X=I_112, K_Y=I_112, K_helpers=0_408x112",
+      "literal_decoded_operator_columns_sha256": "763bff3cc998dd17fcfc0bb0723f0b7a0be98e8ff5fdd27e18258d3b7afbd0d9",
+      "literal_group_operators": 215
+    },
+    "source_backward": {
+      "direction": "raw backward",
+      "exact_HK_zero": true,
+      "full_frame_histories": 5019,
+      "history_exact_terms": 80001,
+      "history_terms_with_nonzero_kernel_row": 11304,
+      "kernel_formula": "K_X=I_112, K_Y=I_112, K_helpers=0_408x112",
+      "literal_decoded_operator_columns_sha256": "763bff3cc998dd17fcfc0bb0723f0b7a0be98e8ff5fdd27e18258d3b7afbd0d9",
+      "literal_group_operators": 215
+    },
+    "source_forward": {
+      "direction": "forward",
+      "exact_HK_zero": true,
+      "full_frame_histories": 4968,
+      "history_exact_terms": 94137,
+      "history_terms_with_nonzero_kernel_row": 0,
+      "kernel_formula": "K_X=0_112x112, K_Y=I_112, K_helpers=0_408x112",
+      "literal_decoded_operator_columns_sha256": "763bff3cc998dd17fcfc0bb0723f0b7a0be98e8ff5fdd27e18258d3b7afbd0d9",
+      "literal_group_operators": 215
+    }
+  },
+  "direction": "raw backward",
+  "free_Y_columns": 112,
+  "full_frame_histories": 4891,
+  "history_exact_terms": 119515,
+  "history_terms_with_nonzero_kernel_row": 11262,
+  "information_consequence": "For every logical original Y displacement v, displace logical original X by the same v in either backward case, or leave X unchanged in the source-forward case; leave all 408 independent helper inputs fixed. Every full-frame history is identical. Thus a decoder receiving only that complete history cannot determine a nonconstant Y-only function, even with arbitrary nonlinear postprocessing.",
+  "kernel_formula": "K_X=I_112, K_Y=I_112, K_helpers=0_408x112",
+  "kernel_nonzero_rows": 224,
+  "kernel_scalar_terms": 224,
+  "kernel_sha256": "ad403cdd98975ae9a8033afff5a86f96d055e44c5be19c1f171387cf26cd3b81",
+  "literal_decoded_operator_columns_sha256": "763bff3cc998dd17fcfc0bb0723f0b7a0be98e8ff5fdd27e18258d3b7afbd0d9",
+  "literal_group_operators": 215,
+  "module_factorization_required_at_runtime": false,
+  "negative_controls": {
+    "deleted_X0_compensator": {
+      "failing_histories": 14,
+      "first_failing_history": 269,
+      "rejected": true
+    },
+    "one_signed_X_history_coefficient": {
+      "history": 79,
+      "rejected": true,
+      "residual_literal_terms": 1
+    },
+    "original_Y_side_observation": {
+      "rejected": true,
+      "residual_literal_terms": 1
+    },
+    "zero_kernel_passes_HK_but_fails_Y_identity": true
+  },
+  "new_observation_or_kappa": false,
+  "original_input_rows": 632,
+  "physical_coordinates": "Logical original-input coordinates are used. Each physical independent input differs by an invertible birth-chart right factor. Conjugating the input displacement by those factors preserves HK=0 and arbitrary variation of physical Y; this is not a claim that the physical input embedding is scalar-only or free.",
+  "polynomial_operator_inverses_used": false,
+  "schema": "native-full-history-direct-scalar-kernel/v1",
+  "scope": "Only the frozen #5402 raw-backward provider and original source-backward/source-forward full-frame observation families, each considered separately. The decoder is not also given lower-frame values, original inputs, new paid observations, or a changed producer. Source native, phase and compiler premises are inherited.",
+  "source_inputs": {
+    "provider": {
+      "path": "research/native-rank8-helper-provider/WORD.json.gz",
+      "sha256": "7dc356001ed597ad6fc9fd3e0bc6ff7e3ec3a580a579a956827aa17fccfdd2dc"
+    },
+    "source": {
+      "path": "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+      "sha256": "7679daa4ec6a40f56fc7f0202379a6f454310e94945aba4f48beaaaafb838d05"
+    }
+  },
+  "source_monomial_sha256": "87cdb1688b841891eccefdcaebe67b97a6c86b7af676bbbb667d1d5ee5d45d3e",
+  "source_native_sha256": "1bad1ffe747c3977d1a6bc1cfa9faa4127e38cbf49d7fcf4ae8060fbc7f67d4e",
+  "status": "PASS_EXACT_ALL_WIDTH_FULL_HISTORY_Y_BLINDNESS",
+  "width_one_matrix_sum_relations_used": false
+}

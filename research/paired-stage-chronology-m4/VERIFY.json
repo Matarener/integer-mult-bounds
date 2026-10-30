@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/paired-stage-chronology-cut/chronology.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "m=3 census and positive control; rebuilds the m=4 D=10 witness and checks it with the unchanged PR5631 chronology.mixed routine; adjacent-swap negative control; reversal lemma."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--shard",
+        "0",
+        "--shards",
+        "7"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exhaustive m=4 census, shard 0 of 7: every Gram system, pairing and projector choice; per-shard histogram and sha256 must equal RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--shard",
+        "1",
+        "--shards",
+        "7"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exhaustive m=4 census, shard 1 of 7: every Gram system, pairing and projector choice; per-shard histogram and sha256 must equal RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--shard",
+        "2",
+        "--shards",
+        "7"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exhaustive m=4 census, shard 2 of 7: every Gram system, pairing and projector choice; per-shard histogram and sha256 must equal RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--shard",
+        "3",
+        "--shards",
+        "7"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exhaustive m=4 census, shard 3 of 7: every Gram system, pairing and projector choice; per-shard histogram and sha256 must equal RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--shard",
+        "4",
+        "--shards",
+        "7"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exhaustive m=4 census, shard 4 of 7: every Gram system, pairing and projector choice; per-shard histogram and sha256 must equal RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--shard",
+        "5",
+        "--shards",
+        "7"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exhaustive m=4 census, shard 5 of 7: every Gram system, pairing and projector choice; per-shard histogram and sha256 must equal RESULT.json."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py",
+        "--shard",
+        "6",
+        "--shards",
+        "7"
+      ],
+      "timeout_seconds": 150,
+      "checks": "Exhaustive m=4 census, shard 6 of 7: every Gram system, pairing and projector choice; per-shard histogram and sha256 must equal RESULT.json."
+    }
+  ]
+}

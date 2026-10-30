@@ -1,0 +1,83 @@
+Source intake: full Git path/mode/blob inventory; Python AST and JSON syntax; available declared local source SHA256/Git pins. See per-PR receipts for exact coverage.
+No submitted scientific verifier, Lean, Docker, or supplier replay executed.
+Reviewed manual workflow configuration: none newly added.
+{"archive": 82, "waiting_revision": 3, "reviewed_tooling": 1}
+
+Navigation tests under serial 180-second/1GiB watchdog:
+[
+  {
+    "test": "test_research_current_status.py",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-B",
+      "-X",
+      "pycache_prefix=/tmp/pr-queue-20261020f/pycache/test_research_current_status.py",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_research_current_status.py",
+      "-v"
+    ],
+    "exit": 0,
+    "resource_stop": null,
+    "seconds": 1.13,
+    "peak_sampled_rss_kib": 29200
+  }
+]
+
+test_current_ci_section_matches_selected_record (test_research_current_status.CurrentCiNavigationTests.test_current_ci_section_matches_selected_record) ... ok
+test_current_section_matches_selected_record (test_research_current_status.CurrentStatusTests.test_current_section_matches_selected_record) ... ok
+test_history_banner_precedes_historical_sections (test_research_current_status.CurrentStatusTests.test_history_banner_precedes_historical_sections) ... ok
+test_only_the_first_heading_claims_current_or_selected (test_research_current_status.CurrentStatusTests.test_only_the_first_heading_claims_current_or_selected) ... ok
+test_status_document_carries_the_load_bearing_byte (test_research_current_status.LocaleIndependenceTests.test_status_document_carries_the_load_bearing_byte) ... ok
+test_this_modules_text_io_does_not_depend_on_host_locale (test_research_current_status.LocaleIndependenceTests.test_this_modules_text_io_does_not_depend_on_host_locale) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.009s
+
+OK
+
+PR4090 target control: Apple ARM64 clang rejects -mpopcnt (unsupported option for arm64-apple-darwin25.6.0). No scientific workload executed.
+PR4110 declared base mismatch rows:
+[
+  {
+    "path": "certificates/dyadic-central-factor.json",
+    "declared_sha256": "2aabc7e3ed38a27902f88244b80bed579e8ec2158c6ad3253f1c654c79b299e0",
+    "base_commit_sha256": "ffae0f0a22863718e3134a924592dcf4b05e919223323ba536c587c592bfe6a1"
+  },
+  {
+    "path": "scripts/exclusion_circuit.py",
+    "declared_sha256": "f9fbcd6e85e442cbd0926ac0887414e20735b2dc923d2d5822c803ceb46726d3",
+    "base_commit_sha256": "b253f9d7318becda1c1f3b24e2287ed44a9c27fcea00cf9d531afb950d0457a0"
+  },
+  {
+    "path": "scripts/experiments/complex_centers.py",
+    "declared_sha256": "39cfcf869dc4a00dd30a1e91efb986074371621dad14b390cf1053f6aeea79bf",
+    "base_commit_sha256": "3744396587d729253d80980f6310b56e7bf0ea21b165bd178d0d6d4c49faf2e2"
+  },
+  {
+    "path": "scripts/experiments/disjoint_tensor.py",
+    "declared_sha256": "23763a4b6086fb3d19f9282fff5c118f53fa52e7a7f17da1bde990bd4cf8b6ac",
+    "base_commit_sha256": "102dd59bf96033f96ba0dab4c2aba77b3a7a73b67b0f96929ff8b20a98b91cd8"
+  },
+  {
+    "path": "scripts/shared_point_circuit.py",
+    "declared_sha256": "360d9bffc0f55315fe294789b72c71c79e0991524555b3a5f42a2ca504d7da95",
+    "base_commit_sha256": "c9bb7a5df92d260a4e3ad532b53e26936730d7c93f7facfb0784957c1e81c8ba"
+  }
+]
+
+Attribute scope probes:
+scripts/certify.py: text: auto
+scripts/certify.py: whitespace: unspecified
+docs/research/current-status.md: text: auto
+docs/research/current-status.md: whitespace: unspecified
+research/kappa-operator-repair/probe.py: text: unset
+research/kappa-operator-repair/probe.py: whitespace: unset
+research/staged544-mixed-idle-rebind/probe.json: text: unset
+research/staged544-mixed-idle-rebind/probe.json: whitespace: unset
+
+Final metadata checks: all 386 new decision rows agree with generated ledger fields and completion/publication flags; Markdown ledger agrees with JSON. Fresh delta plan reports zero actionable heads.

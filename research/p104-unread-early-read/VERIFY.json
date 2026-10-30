@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-unread-early-read/inputs/pr5811-WORD.json.gz",
+    "research/p104-unread-early-read/inputs/pr5827-WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Unique seven-event cut, four-field images, corrected frame ranks 0/1/5, early-read omission and doubled-coefficient controls"
+    },
+    {
+      "argv": ["{python}", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 60,
+      "checks": "Same certificate with assertions removed; require() still rejects a bad schedule"
+    }
+  ]
+}

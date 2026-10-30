@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "base"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticated exact consecutive A2 graph census, all compatible frames, full chronological invoice and dirty block/cleanup checks, plus whole-word samples."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--provider",
+        "extra"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticated exact consecutive A2 graph census, all compatible frames, full chronological invoice and dirty block/cleanup checks, plus whole-word samples."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/check_controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent all-subspace flag enumeration and direct frame invoices; symbolic polynomial group identity, sign/coefficient mutation, omitted-gate, source/frame/cleanup/barrier rejection controls."
+    }
+  ]
+}

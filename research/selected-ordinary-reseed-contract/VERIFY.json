@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/frontier6030-source.json",
+    "certificates/frontier6030/CLAIM.json",
+    "certificates/selected-result.json",
+    "docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.md",
+    "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
+    "notes/batched-bit-rows.tex",
+    "notes/three-stage-cover-bit.tex",
+    "research/bit-finite-ordinary-bootstrap/PROOF.md",
+    "research/g20-conjugation-admission/ORDINARY-RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Selected-source bindings, exact strict separators, equality-boundary negative control, finite padding controls; not semantic proof of the interface."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Selected-source bindings, exact strict separators, equality-boundary negative control, finite padding controls; not semantic proof of the interface."
+    }
+  ]
+}

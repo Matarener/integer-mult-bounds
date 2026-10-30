@@ -1,0 +1,132 @@
+{
+  "historical_scientific_evidence": {
+    "actual": "evidence/actual/RESULT.json",
+    "actual_capture_and_key_comparison": "PASS_ACTUAL_KEY_COMPARISON_ONLY",
+    "broader_performance_target": "UNMET",
+    "conditional_nomination": "REJECT_THIS_ACTUAL_KEY_CONDITIONAL_NOMINATION",
+    "outer_receipt": "evidence/runs/actual-key-pilot-v1/receipt.json"
+  },
+  "independent_source_review": {
+    "file": "publication/HEADROOM-PUBLICATION-REVIEW.md",
+    "scope": "Source-only, not independent scientific replay or C memory-safety certification",
+    "sha256": "0e1100ddf40d21c9cf053d3e563920ddabcab481033c91bc2053c2ac725c62ec",
+    "status": "PASS_PUBLICATION_SOURCE_REVIEW_ONLY"
+  },
+  "local_registered_checks": [
+    {
+      "label": "headroom-publication-finite-v1",
+      "optimized": false,
+      "receipt": "publication/headroom-publication-finite-v1/receipt.json",
+      "result": {
+        "natural_rehashes": 50,
+        "no_capture_or_benchmark": true,
+        "optimized": 0,
+        "receipts": 82,
+        "source_sha256": "ee3fb2af131878fa2065d1b50d02f2f865c0ac61c9ec0a3d66b15c910f3d9cf6",
+        "status": "PASS_ARCHIVED_FINITE_CONTROLS"
+      },
+      "sampled_group_rss_bytes": 75530240,
+      "source_unchanged": true,
+      "status": "PASS",
+      "wall_seconds": 0.785633888997836
+    },
+    {
+      "label": "headroom-publication-finite-O-v1",
+      "optimized": true,
+      "receipt": "publication/headroom-publication-finite-O-v1/receipt.json",
+      "result": {
+        "natural_rehashes": 50,
+        "no_capture_or_benchmark": true,
+        "optimized": 1,
+        "receipts": 82,
+        "source_sha256": "ee3fb2af131878fa2065d1b50d02f2f865c0ac61c9ec0a3d66b15c910f3d9cf6",
+        "status": "PASS_ARCHIVED_FINITE_CONTROLS"
+      },
+      "sampled_group_rss_bytes": 75513856,
+      "source_unchanged": true,
+      "status": "PASS",
+      "wall_seconds": 0.7695385620172601
+    },
+    {
+      "label": "headroom-publication-data-v1",
+      "optimized": false,
+      "receipt": "publication/headroom-publication-data-v1/receipt.json",
+      "result": {
+        "all_ordered_items_checked": true,
+        "no_C_capture_or_timing": true,
+        "prefixes": 32247,
+        "regenerated_compression_is_not_mathematical_identity": true,
+        "statistics": {
+          "bypasses": 0,
+          "calls": 2579750,
+          "capacity": 16384,
+          "evictions": 310400,
+          "hits": 2252966,
+          "misses": 326784,
+          "resident": 16384
+        },
+        "status": "PASS_COMPLETE_ACTUAL_KEY_DATA",
+        "streaming": true
+      },
+      "sampled_group_rss_bytes": 41033728,
+      "source_unchanged": true,
+      "status": "PASS",
+      "wall_seconds": 43.02619857201353
+    },
+    {
+      "label": "headroom-publication-context-v1",
+      "optimized": false,
+      "receipt": "publication/headroom-publication-context-v1/receipt.json",
+      "result": {
+        "context": {
+          "all_bytes_and_modes_equal": true,
+          "exact_C_inverse": true,
+          "measured_stage_files": 177,
+          "original_baseline_files": 164
+        },
+        "no_scientific_import_or_execution": true,
+        "official_input": {
+          "head": "3f15c943e4ad6479f03e674c80fff1269a16ccfe",
+          "official_export_files": 163,
+          "retained_export_receipt": true,
+          "sha256": "7b142567acacac5182045bf8daa8780e916661c2cf343dbf81b13c88ead85d64"
+        },
+        "status": "PASS_EXACT_MEASURED_CONTEXT"
+      },
+      "sampled_group_rss_bytes": 27918336,
+      "source_unchanged": true,
+      "status": "PASS",
+      "wall_seconds": 0.5080786359903868
+    }
+  ],
+  "new_measurement_or_research_authorized": false,
+  "new_scientific_capture_or_timing_reroll": false,
+  "optional_capture_rerun_for_publication": false,
+  "pending_parent_checks": [
+    "committed bytes/source history",
+    "committed export integrity",
+    "exact-head hosted CI"
+  ],
+  "performance_target_met": false,
+  "readonly_gitfree": {
+    "all_four_commands_pass": true,
+    "directory_mode": "0555",
+    "files_mode": "0444",
+    "runtime": "fresh external directories only"
+  },
+  "schema_version": 1,
+  "source_manifest_sha256": "9b3c05b97f926c2c767ad394a399554cd4034a86526dead247251e0921c697d5",
+  "source_preparation": {
+    "author_checks": [
+      "file-byte hashes",
+      "complete source-context censuses",
+      "C patch inversion",
+      "Python AST parsing"
+    ],
+    "compilation": false,
+    "registered_commands_executed_by_package_author": false,
+    "scientific_imports": false
+  },
+  "status": "PASS_LOCAL_ARCHIVE_CHECKS_HOSTED_PENDING",
+  "updated_utc": "2026-10-27T16:29:32.093230+00:00"
+}

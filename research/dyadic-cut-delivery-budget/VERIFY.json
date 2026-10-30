@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/dyadic-helper-channel-capacity/PROOF.md",
+    "research/p104-helper-split-exhaustion/splitcensus.py",
+    "research/p104-helper470-twin-rung-removal/RESULT.json",
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Rational interval budget, both complete cut screens, positive and changed-contract controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same checks under optimization"
+    }
+  ]
+}

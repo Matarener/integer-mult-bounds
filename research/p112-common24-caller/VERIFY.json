@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/one-sided-six-multisets/data/data.txt",
+    "research/p112-b6-t4-reconciliation/vendor/PR3154-TWOSIDE.md",
+    "research/p112-b6-t4-reconciliation/vendor/bk2b.py",
+    "research/p112-root-simplex-exclusion/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All43435 binary7spaces, all5212200 root-word traces, complete6216 records and8540 common-cut candidates; global5capacity, chamber/field facts and two exact caller bindings."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "No primary/predecessor import: Cramer/Bareiss labels,43180 affine generator sections, subset joins and complete record/admission digest agreement."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Complete67-small-space oracle; original filter; actual independent pair; separate/common cut control; char2 and label/JSON failures; three actual optimized CLI corruptions."
+    }
+  ]
+}

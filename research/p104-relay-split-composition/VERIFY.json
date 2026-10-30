@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-relay-split-composition/inputs/pr5580-WORD.json.gz",
+    "research/p104-relay-split-composition/inputs/pr5605-construct.py",
+    "research/p104-relay-split-composition/inputs/pr5605-WORD.json.gz",
+    "research/p104-relay-split-composition/inputs/pr5599-construct.py",
+    "research/p104-relay-split-composition/inputs/pr5599-local.py",
+    "research/p104-relay-split-composition/inputs/pr5599-pricing.py",
+    "research/p104-relay-split-composition/inputs/pr5599-SPLITS.json",
+    "research/p104-relay-split-composition/inputs/pr5599-WORD.json.gz",
+    "research/p104-relay-split-composition/inputs/pr5565-construct.py",
+    "research/p104-relay-split-composition/inputs/pr5565-WORD.json.gz",
+    "research/p104-relay-split-composition/common.py",
+    "research/p104-relay-split-composition/inputs/pr5545-source-closure.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate immutable inputs and closure; independently reconstruct parent and all13 cuts; replay all748 inputs, transpose, native maps, physical caller, complete invoice, two rational engines, compiler and58 outer predicates; reject five corruptions and compare complete saved receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "-O",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 540,
+      "checks": "Authenticate immutable inputs and closure; independently reconstruct parent and all13 cuts; replay all748 inputs, transpose, native maps, physical caller, complete invoice, two rational engines, compiler and58 outer predicates; reject five corruptions and compare complete saved receipt."
+    }
+  ]
+}

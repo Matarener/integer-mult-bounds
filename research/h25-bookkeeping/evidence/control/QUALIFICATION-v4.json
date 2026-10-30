@@ -1,0 +1,45 @@
+{
+  "automatic_retry_or_timing_reroll": false,
+  "cold_fresh_process_each": true,
+  "complete_new_controls_and_cold_builds_inside_candidate": true,
+  "first_pair_gate": "Exact science/custody/resources must pass and both wall/CPU target must remain credible; otherwise stop and retain pair",
+  "input_reference": "Immutable baseline science anchor; original driver digest authenticated separately from actual derived driver",
+  "no_new_hash_schema_or_precision": true,
+  "noise_gate": "medianB-medianC>max(rangeB,rangeC) separately for both metrics",
+  "performance_gate": "medianC<=0.85*medianB separately for complete wall and GNUtime user+system CPU",
+  "required_before_first_pair": [
+    "combined normal finite PASS",
+    "combined O finite PASS",
+    "all3 final sources independently reviewed"
+  ],
+  "retain_every_sample_and_failure": true,
+  "schema": "h25-bookkeeping-predeclared-combined-qualification-v1",
+  "sequence": [
+    {
+      "job": "full-none",
+      "label": "qual-B1"
+    },
+    {
+      "job": "full-all",
+      "label": "qual-C1"
+    },
+    {
+      "job": "full-all",
+      "label": "qual-C2"
+    },
+    {
+      "job": "full-none",
+      "label": "qual-B2"
+    },
+    {
+      "job": "full-none",
+      "label": "qual-B3"
+    },
+    {
+      "job": "full-all",
+      "label": "qual-C3"
+    }
+  ],
+  "stage": "v4",
+  "stage_sha256": "558eebbc1dc65e42bbcb3ffd9973f8bc86641a3539493ecc1d53d8077c39cdbc"
+}

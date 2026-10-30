@@ -1,0 +1,30 @@
+{
+  "status": "PASS_REGISTERED_NORMAL_AND_OPTIMIZED",
+  "scientific_scope": "Exact finite-ring arithmetic, literal lifetime and source-bound cost correction; not selected supplier admission",
+  "checks": {
+    "adder_generalized_all_states": 1360,
+    "adder_elementary_all_states": 336,
+    "pair_generalized_all_states": 4352,
+    "pair_elementary_cases": 398,
+    "exact_physical_climb_columns": 2560,
+    "exact_terminal_residual_columns": 512
+  },
+  "controls": [
+    "changed actual late helper addition",
+    "changed buffer981 cleanup",
+    "changed physical climb global phase",
+    "unscaled fixed-grid interpretation",
+    "even modulus",
+    "omit modulo endpoint swap"
+  ],
+  "review": "Same-team root independently checked actual277 trace and inspected arithmetic/lifecycle premises; no human/kernel review.",
+  "registered_seconds": {
+    "normal": 91.271,
+    "optimized": 74.509
+  },
+  "finalization": "After registered success only proof prose clarified decoder borrowed spectators and validation metadata recorded these results. Scientific code/results unchanged; final Git-free receipt in session handoff.",
+  "operational_corrections": [
+    "Committed RESULT comparison initially failed because Python integer dictionary keys become JSON strings; comparison now normalizes JSON types without removing any scientific comparison.",
+    "Two preparation commands used the wrong cwd and failed before edits; paths corrected. One redundant replay interrupted before completion."
+  ]
+}

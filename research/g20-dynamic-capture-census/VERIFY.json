@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/g20-conjugation-admission/WORD.json.gz",
+    "research/g20-conjugation-admission/INVOICE.json",
+    "research/g20-conjugation-admission/LOCAL-RESULT.json",
+    "research/g20-conjugation-admission/prior/prior/prior/source/vendor/g20/inputs/FRAMES.json",
+    "research/g20-late-binding-admission/prior/WORD.json.gz",
+    "research/g20-late-binding-admission/CUTS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 570,
+      "checks": "Authenticate inputs and the PR5708 local paid profile; exact single-helper capture census with arbitrary injections at every dead/live epoch boundary (0 paying, one live interval per helper); five joint-dead pairs (exact, none pays); all helper pairs with a shared query (row-class bound plus exact enumeration, none pays); joint parity-token bound; positive control rediscovers the nine PR5671 late-binding captures on the PR5667 word; RESULT.json compared in full."
+    }
+  ]
+}

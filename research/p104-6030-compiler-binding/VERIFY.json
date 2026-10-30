@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/frontier6030/CLAIM.json",
+    "research/higher-moment-strictification/README.md",
+    "research/higher-moment-strictification/vendor/FINITE-PRECOMPILATION.md",
+    "research/p104-6030-compiler-binding/SOURCES.json",
+    "research/p104-6030-compiler-binding/verify.py",
+    "research/p104-helper470-twin-rung-removal/RESULT.json",
+    "research/selective-borrowing-outer-retune/outer/FINE-PADDING-COMPOSITION.md",
+    "research/selective-borrowing-outer-retune/vendor/pr1673/capped-phase-fusion/OUTER-AUDIT.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pinned inputs; theorem/definition text fragments; invoice totals; sec.2 premises and tail ratios (directed-rounding intervals); exact tail assembly; sec.4 theta<theta_bar, shifted exits, eta capacity, initial range; first passing grid point j=47005 with 47004 rejected; H and claimed N=2^H. Part B: nine outer savings and 24 of the 54 strict outer checks from PR1673's cost table and FINE-PADDING-COMPOSITION.md, equal to RESULT.json. Controls: invoice without rank-145 targets, m=512, p_min-1, j-1 (input-sensitive); sigma<1, decay 127/128, theta_bar 45/46 (fixed)."
+    }
+  ]
+}

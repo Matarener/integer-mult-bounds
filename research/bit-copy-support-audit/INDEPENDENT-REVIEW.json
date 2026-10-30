@@ -1,0 +1,112 @@
+{
+  "checked_utc": "2026-10-20T14:34:50.392487+00:00",
+  "cli_addendum": {
+    "change": "--output made optional, conditional receipt write; no mathematical or guard changes",
+    "final_code_sha256": "0c078ec9831c53c2671d398be9a991db34747fe76db1bf7691aaf2546d808826",
+    "final_normal_optimized_receipts_byte_equal": true,
+    "prior_code_sha256": "bb9afe457a4bb61881d12ad2b1969e62666a3c87434fbeb690ced9ee59fc6c4a"
+  },
+  "files": {
+    "FRAME-RANK-CROSS-V2.json": {
+      "bytes": 703,
+      "sha256": "9761d8b5fca1bbd8e0e5da956e9af47eecbcd71c7423bc531eb2e1b457f3e781"
+    },
+    "FRAME-RANK-CROSS.json": {
+      "bytes": 703,
+      "sha256": "9761d8b5fca1bbd8e0e5da956e9af47eecbcd71c7423bc531eb2e1b457f3e781"
+    },
+    "ORACLE-NORMAL.json": {
+      "bytes": 6495,
+      "sha256": "938b42ded10164d2d6e331f0592ae3f676e0d120ba3c9bc5c33545319226f8f7"
+    },
+    "ORACLE-OPT.json": {
+      "bytes": 6495,
+      "sha256": "938b42ded10164d2d6e331f0592ae3f676e0d120ba3c9bc5c33545319226f8f7"
+    },
+    "PROOF.md": {
+      "bytes": 15036,
+      "sha256": "e808578fb46b2eba8e407acd710ee214ae2e31bc02c72e189e592e60111c2ef5"
+    },
+    "REVIEW.md": {
+      "bytes": 5087,
+      "sha256": "2ed386bf3e9303005402408ac89f946547fe95663c6c78ac7cd896cffc087b29"
+    },
+    "SOURCE-NORMAL.json": {
+      "bytes": 10437,
+      "sha256": "930c7fe833fe5a8184f074a83ca03481f749ec8c5d7d9c47c2c30185cd8fad57"
+    },
+    "SOURCE-OPT.json": {
+      "bytes": 10437,
+      "sha256": "930c7fe833fe5a8184f074a83ca03481f749ec8c5d7d9c47c2c30185cd8fad57"
+    },
+    "SOURCE-V2-NORMAL.json": {
+      "bytes": 10437,
+      "sha256": "080f4a39d9cea4a37afb1df8626a0b7ef9fe15c0a0c9a614740c03d51146f270"
+    },
+    "SOURCE-V2-OPT.json": {
+      "bytes": 10437,
+      "sha256": "080f4a39d9cea4a37afb1df8626a0b7ef9fe15c0a0c9a614740c03d51146f270"
+    },
+    "frame_rank_cross.py": {
+      "bytes": 2803,
+      "sha256": "34aba82f60452cb341942f8f5577030fea4a74b804dad04e17fbae24cf08e91d"
+    },
+    "independent_oracle.py": {
+      "bytes": 11887,
+      "sha256": "58ead94a392f2f74d27f408fa98cf7077a0edae3e15352b7897759ee6197dfa3"
+    },
+    "oracle-NOTES.txt": {
+      "bytes": 4106,
+      "sha256": "5f80466e60f99250ef65f4c0b6cbd7eadc159f064b79196183f5679e2b9609c2"
+    },
+    "predecessor-PROOF.md": {
+      "bytes": 14738,
+      "sha256": "0993a370d83b7a3cae2fe98b8b36b274719f94c66ac189b2b87be118863762bd"
+    },
+    "source_check.py": {
+      "bytes": 10789,
+      "sha256": "0c078ec9831c53c2671d398be9a991db34747fe76db1bf7691aaf2546d808826"
+    }
+  },
+  "limits": [
+    "no full root-closure reconstruction",
+    "no K/R or K-supported recipient/projected ranks",
+    "no all-660-column endpoint replay",
+    "no physical MOVE/compiler/caller feasibility",
+    "no recursive invoice or precision or full outer theorem",
+    "no human or formal-kernel acceptance",
+    "no new kappa"
+  ],
+  "outstanding_findings": [],
+  "predecessor_head": "ddfc3133cbdf548e163c867d5671f8f01dd5d5ae",
+  "resolved_findings": [
+    {
+      "finding": "Required K-supported recipient and projected-recipient rank computations were attributed to the new checker, but it does not reconstruct K/R.",
+      "old_location": "PROOF.md original lines197-198",
+      "resolution": "Corrected proof separates all 636 frame ranks and 111 cap equalities from predecessor K-supported recipient/projected-rank evidence.",
+      "severity": "scope correctness"
+    }
+  ],
+  "reviewer": "separate OpenAI Codex agent; not human or formal-kernel acceptance",
+  "status": "PASS_SCOPED_AGENT_REVIEW_AFTER_SCOPE_CORRECTION",
+  "verification": {
+    "oracle_closed_walks": 1632,
+    "oracle_normal_exit": 0,
+    "oracle_optimized_exit": 0,
+    "oracle_receipts_byte_equal": true,
+    "oracle_symbolic_states": 34208,
+    "oracle_transitions": 317824,
+    "source_ADD_events": 36005,
+    "source_MOVE_events": 2904,
+    "source_cap_equalities": 111,
+    "source_checker_normal_exit": 0,
+    "source_checker_optimized_exit": 0,
+    "source_final_cli_no_output_optimized_exit": 0,
+    "source_frame_ranks": 636,
+    "source_receipts_byte_equal": true,
+    "source_records": 38927,
+    "third_rank_cross_exit": 0,
+    "tiny_closure_states": 283,
+    "tiny_closure_transitions": 1780
+  }
+}

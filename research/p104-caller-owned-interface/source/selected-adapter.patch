@@ -1,0 +1,100 @@
+--- selected-caller-check.py
++++ explicit-interface-caller-check.py
+@@ -18,7 +18,8 @@
+ import sys
+ import time
+ 
+-B = Path(__file__).resolve().parent
++B = Path(os.environ['P104_CAPSULE_CHECKER']).resolve().parent
++from p104_caller_interface import audit, allocation, caller_schedule
+ ROOT = B.parents[1]
+ PRIOR = ROOT/'outputs/p104-contact-reassessment-20261025'
+ NATIVE = ROOT/'outputs/p104-native-contact-audit-20261025'
+@@ -260,8 +261,9 @@
+     controller = read(PRIOR/'sources/predecessor/CONTROLLER.json')
+     source = read(Path(os.environ['P104_RESULT'])) if 'P104_RESULT' in os.environ else read(PRIOR/'sources/contact/RESULT.json')
+     public = word['public']
+-    helper_count = public - 208
+-    field_count = 3328 + 18*helper_count
++    interface = audit(word, source)
++    helper_count = interface['helper_count']
++    field_count = interface['productive_fields']
+     global FIELD_COUNT
+     FIELD_COUNT = field_count
+     phases = {r['q']: r['idle_children'][0]['orthogonal_axes'][:8] for r in read(B/'sources/DATA-PHASES.json')['recipes']}
+@@ -301,7 +303,7 @@
+             routes.append({'stage': stage, 'pair': pair, 'port': port, 'q': q, 'swap_vectors': swaps, 'maps': maps})
+             contact_payload.append([stage, q, maps])
+         checkpoint('contact_site_complete', stage_index=stage, contacts=4*len(routes))
+-    need(hashlib.sha256(json.dumps(contact_payload, separators=(',', ':')).encode()).hexdigest() == source['physical_caller']['route_payload_sha256'], 'author contact payload independently reconstructed')
++    need(hashlib.sha256(json.dumps(contact_payload, separators=(',', ':')).encode()).hexdigest() == source_physical(source)['route_payload_sha256'], 'author contact payload independently reconstructed')
+     a, b, route = first_translation
+     controls['omitted_contact_translation'] = reject(lambda: need(polynomial(moved(a, route)) == polynomial(b), 'missing nonzero physical contact translation'))
+     controls['wrong_route'] = reject(lambda: contact(a, b, AXES))
+@@ -337,7 +339,8 @@
+         exact(V.adjoint(right)+literal+V.adjoint(left), V.fourier(rec['rank']), 'normalized helper Gaussian')
+         return rec, check
+     local_main = set(word['live']) | {r+112 for r in word['live']}
+-    helpers = [r for r in range(public) if r not in local_main]
++    helpers = interface['helpers']
++    need(local_main == set(interface['main']), 'Independent main inventory agrees')
+     helper_profile = Counter()
+     for h in helpers:
+         a, b = word['initial'][h], word['final'][h]
+@@ -359,14 +362,10 @@
+             adapters.append({'local_field': r, 'recipe': rec, 'exact_check': exact(V.recipe(rec), literal, 'intrinsic main adapter')})
+     checkpoint('main_intrinsic_adapters_complete', adapters=len(adapters))
+     need(len(helpers) == helper_count and helper_profile == Counter({int(k):v for k,v in source['local']['helpers'].items()}), 'complete helper profile')
+-    fields = []
+-    for site, event in enumerate(full):
+-        mapping = {}
+-        for p, r in enumerate(word['live']):
+-            mapping[r], mapping[r+112] = 2*event[2]*104+p, (2*event[2]+1)*104+p
+-        mapping.update({h:3328+site*helper_count+i for i, h in enumerate(helpers)})
+-        need(len(mapping) == len(set(mapping.values())) == public, 'injective full-call public inventory')
+-        fields.append({'site': site, 'stage': event[1], 'local_to_global': [mapping[i] for i in range(public)], 'owned_lifetimes': {f'{public}..{public+7}':field_count}})
++    fields = allocation(interface, full, word['live'])
++    global_owned = caller_schedule(interface, controller, fields)
++    controls.update(interface['controls'])
++    controls.update(global_owned['controls'])
+     helper_ids = [f['local_to_global'][h] for f in fields for h in helpers]
+     need(set(helper_ids) == set(range(3328, field_count)) and len(helper_ids) == len(set(helper_ids)), 'all fresh helpers owned once')
+     def bad_alias():
+@@ -441,7 +440,8 @@
+             q=F(e[-2]); n,d=abs(q.numerator),q.denominator
+             if e[0] == 'SCALE': scalar += 2*(abs(n.bit_length()-d.bit_length())+int(q<0))
+             else: scalar += 2*(3+n.bit_length()-1+n.bit_count()+d.bit_length()-1)
+-    need(nr['local_scalar'] == scalar and nr['local_routes'] == (sum(paid_local.values())+2*helper_count+208+4*104+4*8)*1000, 'independently recounted ordinary allowances')
++    need(nr['local_scalar'] == scalar and nr['local_routes'] == (sum(paid_local.values())+2*helper_count+208+4*104+4*interface['lifetime_count'])*1000, 'independently recounted ordinary allowances')
++    need(scalar == interface['scalar'] and nr['local_routes'] == interface['routes'], 'Second literal ordinary recount agrees')
+     events, boundary = len(controller['physical_events']), sum(len(controller['boundaries'][s+'_program']) for s in ('left', 'right'))
+     ordinary = 18*(nr['local_scalar']+nr['local_routes'])+len(queries)*1000+2*len(idles)*1000+len(mains)*1000+16*32*104*(events+boundary)+sum(e[0] == 'Q_POWER' for e in controller['physical_events'])*104*9
+     need(17*17+17 < 1000 and 2*(264+81)+9 < 1000, 'explicit fixed-map address-pass bounds')
+@@ -449,13 +449,13 @@
+     # Packed representation controls are exact, with no modular exponent alias.
+     controls['laurent_exponent_overflow'] = reject(lambda: shifted([{packed((127,)+(0,)*33):1}], (1,)+(0,)*33))
+     need(shifted([{packed((-2,)+(0,)*33):3}], (2,)+(0,)*33) == [{ZERO:3}], 'negative Laurent powers retained exactly')
+-    result = {'schema':'p104-physical-caller-target-binding/v1', 'status':'PASS_SCOPED_CALLER_AND_TARGET_BINDING',
++    result = {'schema':'p104-physical-caller-target-binding/explicit-owned-interface-v2', 'status':'PASS_SCOPED_CALLER_AND_TARGET_BINDING',
+               'reviewed_head':manifest['reviewed_head'], 'canonical_main':manifest['canonical_main'], 'sources':manifest['files'],
+               'dimension':DIM, 'free_laurent_endpoint_sha256':endpoint_hash, 'route_recipes':routes,
+               'helper_normalizers':normalizers, 'intrinsic_main_adapters':adapters, 'field_maps':fields,
+               'canonical_layouts':layouts, 'main_targets':mains, 'whole_idles':idles, 'thin_queries':queries,
+               'paid':dict(sorted(paid.items())), 'targets':dict(sorted(targets.items())), 'controls':controls,
+-              'native_checks':{'distinct_signed_Pauli_and_independent_phase_anchors':len(checked), 'fresh_helpers':len(helper_ids), 'owned_peak':1},
++              'native_checks':{'distinct_signed_Pauli_and_independent_phase_anchors':len(checked), 'fresh_helpers':len(helper_ids), 'owned_peak':interface['peak']},
+               'ordinary':{'abstract_address_phase_scalar_pass_upper':ordinary, 'retained_raw_scalar_upper':nr['raw_scalar_upper'],
+                           'paid_native_maps_replayed':False, 'machine_and_precision_admitted':False,
+                           'main_map_pair_pass_bound':2*(264+81)+9, 'local_contact_pass_bound':17*17+17,
+@@ -463,6 +463,11 @@
+               'limits':['Local all-input native ABI and untouched paid-map correctness remain inherited.',
+                         'Spectators are not additional productive outputs; helper normalizers occur before/after their own fresh call.',
+                         'No full compiler/outer replay or independent human/formal admission. No kappa claim.'], 'kappa_claim':None}
++    result['candidate_input'] = CANDIDATE_INPUT
++    result['local_interface'] = {key:interface[key] for key in
++        ('public_slots','fields','independent','owned','retired','helper_count','productive_fields','lifetime_count','peak')}
++    result['owned_scratch_fields'] = list(range(field_count, field_count+interface['peak']))
++    result['owned_caller_schedule'] = global_owned
+     checkpoint('invoice_complete', paid=sum(paid.values()), targets=sum(targets.values()))
+     print(json.dumps(result, sort_keys=True, separators=(',', ':')))
+     checkpoint('scientific_output_complete')

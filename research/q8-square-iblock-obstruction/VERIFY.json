@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/q8-count-region-rank-floor/PROOF.md",
+    "research/q8-homogeneous-mixed-floor/PROOF.md",
+    "research/q8-mixed-boundary-rank/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Group law and direct (4,1) and (7,1) words, including one dirty role; Sylvester through dimension 3; a non-identity unitriangular image fixture and the rank-8 collision; unique 11k ray split rejected for k=1..32, with a surviving 11k+2 split; (7,13) rejected at shape (7,1) while (9,11), (11,9) and (13,7) stay admissible. Failure controls keep the old (7,11) cubic fixture, the homogeneous (4,6) rejection, and the refusal to treat the remaining 20-call splits as excluded."
+    }
+  ]
+}

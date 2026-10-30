@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/encoded-minimum-root-prefix/source-snapshot.tar",
+    "research/encoded-minimum-root-prefix/SOURCE-INDEX.json",
+    "research/encoded-minimum-root-prefix/reference.py",
+    "research/encoded-minimum-root-prefix/PREFIX-PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "arithmetic"
+      ],
+      "timeout_seconds": 60,
+      "checks": "1251 exact minima; physical Count work; fixed inventory; six invalid-domain controls; all 29 root fields."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "roots-direct"
+      ],
+      "timeout_seconds": 400,
+      "checks": "Four complete dirty roots with the production parameter law and reduced guard."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "roots-two"
+      ],
+      "timeout_seconds": 240,
+      "checks": "Complete dirty fast root with the reduced law and the two-family C2 fixture."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--phase",
+        "roots-six"
+      ],
+      "timeout_seconds": 500,
+      "checks": "Two complete dirty fast roots with actual stock-six padding; reuse, borrowed state, dirty-padding rejection and recovery."
+    }
+  ]
+}

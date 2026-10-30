@@ -155,6 +155,7 @@ class PullFilePages(unittest.TestCase):
                                              'sources': sources}), encoding='utf-8')
                 output = io.StringIO()
                 with (patch.object(overlap, 'ROOT', Path(directory) / 'repo'),
+                      patch.object(overlap, 'local_coverage', return_value=({}, [])),
                       patch.object(sys, 'argv', ['find_overlap.py', '--path', 'new.py',
                                                 '--json', '--cache', str(cache)]),
                       contextlib.redirect_stdout(output),

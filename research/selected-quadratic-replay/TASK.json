@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 7,
+  "base_commit": "553d26d796fde9871ff2661a49ac7732e945410f",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Complete selected P104 replay with exact quadratic-state format adapters and bounded input-keyed memoization",
+  "scope_change_reason": "The selected native compiler is the measured bottleneck. A full uncached quadratic replay passed in 180.42 seconds. Bounded pure-function reuse was then added, with typed-key and mutation controls. The public claim records this change.",
+  "bottleneck_link": "Faster full selected native and invoice verification reduces the cost of checking changed P104 constructions.",
+  "budget_minutes": 120,
+  "stop_rule": "Stop if complete source checks or exact scientific results differ, or if the whole source replay does not improve.",
+  "outcome": "completed",
+  "evidence": "All complete source checks pass with unchanged RESULT and WORD. Six alternating fresh processes give medians of 269.00 seconds literal and 98.37 seconds new (2.7346x). Both original literal interpreters independently match all 17,651 distinct actual inputs and 9,037,312 amplitude entries each. See RESULT.json, CROSS.json and BENCHMARK.json.",
+  "author": "Ali Romman with substantial OpenAI Codex assistance",
+  "ai_assistance": "Ali Romman with substantial OpenAI Codex assistance; no subagents.",
+  "open_questions": [
+    {
+      "question": "Does the complete speedup hold on the registered Linux host?",
+      "why_it_matters": "Replay capacity depends on the full caller, not one state kernel.",
+      "first_step": "Run the same six fresh processes and compare every scientific stdout hash.",
+      "blocked_by": "Independent host execution has not been run."
+    },
+    {
+      "question": "Can the next reviewed P104 word reuse this explicit integration?",
+      "why_it_matters": "Fast complete checks can shorten construction and review loops.",
+      "first_step": "Pin its full source and assert a complete syntax-tree diff before using the adapter.",
+      "blocked_by": "A changed source needs its own source binding and full scientific replay."
+    }
+  ],
+  "priority_refresh": {
+    "commit": "de5ec2e7a6074068452f45b1a191b5c72832df4a",
+    "revision": 8,
+    "decision": "Keep the assigned verification optimization. Revision 8 requests measured replay gains with exact coverage. The selected admission itself is already complete."
+  }
+}

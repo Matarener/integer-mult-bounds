@@ -1,0 +1,109 @@
+Programmable native stages and exact intertwiners
+
+Scope. This is a sufficient all-width application theorem for the actual
+whole-K native constructor in PR #5464, head
+3981f9539e63630681f6903e3c6a50b3a0d2f2dd. It supplies an adjustable native
+macro and exact algebra for composing its stages. It is not a completed outer
+caller, a precision admission, or a new kappa claim. The native phase and
+all-family geometry proofs are inherited explicitly from that PR.
+
+Theorem 1 (programmable common-cut transfer).
+Fix any of the 2,744 product cubes. Keep the exact source and reader paths,
+ordinary normalization wrappers and their order in core.calculate. At its
+common-cut ADD instructions replace K[r,s] by any rational matrix M[r,s]
+whose nonzero entries join opposite selector parities. Emit one ADD for each
+nonzero entry, preserving the same two parity directions. Then the normalized
+physical endpoint, on independent arbitrary original ground inputs, is
+
+  X -> D X,
+  Y -> D (Y + C_M Q^-1 X),
+  C_M = diag(L_r^-1) M diag(L_s).
+
+The exact paid profile per owner remains {8:1,9:1,15:1,16:1}. There are no
+helpers, owned fields, COPY or CLEAR. The scalar ADD count is nnz(M), not the
+original fixed count unless M has the same support. The existing ordinary
+monomial wrappers remain unchanged. Scalar arithmetic uses the chosen exact
+rational coefficients; numerical precision must be admitted separately.
+
+Proof. In each parity direction all sources and opposite readers are in the
+same literal canonical Phi_S9 frame before any ADD. Every source retains its
+original value and every reader retains its independent old value with
+coefficient one. Thus the common-cut row is v_r + sum_s M[r,s]u_s, for every
+independent column, without requiring symmetry, invertibility or low rank of M.
+The source and reader exits are linear operators independent of M. Applying
+the published ordinary entry and exit identities gives exactly the endpoint
+above. The source paths are H8 then H16 and reader paths H9 then H15, so changing
+only ADD coefficients cannot change any Gaussian child or introduce a field.
+The argument holds for each positive address width f: scalar coefficients are
+applied once to entire fields; all frame operators are the published tensor
+lifts. It takes no tensor power of M. This proves the assertion uniformly.
+
+Corollary 1. For arbitrary rational lambda, M=lambda K gives
+  F_lambda = diag(D,D) L(lambda C Q^-1),
+with the same paid profile. At lambda=0 the ADDs may be omitted. Applying the
+published backward-word construction likewise supplies
+  B_lambda = diag(D,D) U(-lambda Q C).
+These statements concern actual physical normalized endpoints, not role labels.
+
+Corollary 2 (local norm and coefficient bounds).
+For M=lambda K each source has logical row norm one and each partial reader
+row has l1 norm at most 1+7|lambda|. Hence the norm of every physical field
+at every prefix is at most (1+7|lambda|) times the largest norm of an original
+input, provided the initial inputs are measured in the same Hilbert norm.
+Proof: each source is unchanged; each reader receives each distinct source at
+most once, and its total coefficient absolute sum is at most 7|lambda|.
+All physical path prefixes and normalization wrappers are unitary. Apply the
+triangle inequality at each ADD. No arbitrary-precision or storage admission
+follows merely from this local growth estimate.
+
+Theorem 2 (ordinary normalized stage).
+Let C be any ordinary invertible bank recoding satisfying C^2=I and
+[C,DQ]=0, where D and Q commute. Define A=CD, B=DC and L=diag(A,B).
+For ordinary pre-recoding T=diag(I,C) and post-recoding S=diag(C,I),
+
+  S F_lambda T = L L_lower(lambda Q^-1),
+  S B_lambda T = L U_upper(-lambda Q),
+  A Q = Q B.
+
+Consequently L commutes with both displayed weighted shears, for every scalar
+lambda. Proof: diagonal blocks become CD and DC. For the lower-left block,
+directly S F_lambda T has lower-left D lambda C Q^-1,
+while L L_lower has lower-left D C lambda Q^-1. They coincide. For the
+upper-right block S B_lambda T has -lambda C D Q C^2 = -lambda C D Q,
+which equals the required -lambda A Q. Finally C D Q = D Q C = Q D C
+proves A Q = Q B, and multiplying by Q^-1 gives the lower shear identity.
+All operations are finite bank recodings or the already supplied native macro.
+
+Theorem 3 (ordered products on fresh axes).
+Suppose D_i commute with Q and each other, C_i^2=I,
+[C_i,D_i Q]=0, and [C_i,D_j]=0 for i != j. Define A_i=C_i D_i,
+B_i=D_i C_i. For any ordered distinct stage list i_m,...,i_1, let
+P=C_i_m ... C_i_1 and D_all=D_i_m ... D_i_1. Then
+
+  A_i_m ... A_i_1 = P D_all,
+  B_i_m ... B_i_1 = D_all P,
+  (P D_all)Q = Q(D_all P) = P(D_all Q),
+  [P,D_all Q]=0.
+
+Proof. Move each D_i only past C_j with j != i to obtain the first two
+identities; no two C factors are exchanged. Each C_i commutes with D_all Q,
+since it commutes with D_i Q and all other D_j. This proves the last identity,
+and the middle one follows by the stage intertwining identity or direct
+multiplication. This theorem does not assume C_i commute with one another.
+It is valid for the actual fresh-axis embeddings whenever the stated support
+conditions are checked by the caller.
+
+Boundary obligation. An ordinary signed SWAP is not a free weighted swap.
+For one letter L=diag(A,B), the weighted three-shear word satisfies
+  J L_lower(Q^-1) L U_upper(-Q) L_lower(Q^-1)
+       = diag(B Q^-1, A Q),
+where J=[[0,I],[-I,0]]. The second output has the good Gaussian-plus-ordinary
+form C(DQ); the first does not follow from the preceding theorems to have the
+same form. No complete caller or kappa is inferred by omitting this boundary.
+
+Credit. The actual whole-K paid paths, phases, source geometry and ordinary
+entry/exit compiler come from PR #5464 and its cited Ali Romman #5439 odd-E8,
+P112/E8, original native/Clifford compiler and coded-normalizer predecessors.
+The programmable transfer and explicit noncommutative intertwiner application
+here were developed with substantial OpenAI Codex assistance. No independent
+human or Lean-kernel review is asserted.

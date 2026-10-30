@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Complete exact rational means and error covariances for finite coordinate/Walsh attaining laws; exhaustive small integer trace/rank inequality and equality checks; integer-power tariff inequalities; normalized tolerance frontier; invalid-law, scale, rank-cap, bias and independent-repetition controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same complete domain with explicit exception checks active under optimized Python."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-helper470-twin-rung-removal/WORD.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticated input; exact replay of the PR6030 word with frame rules and endpoint rows; cut profile (8 crossings on levels 2..8, owned paid 56); Y_j final = p_j^perp, X_j start = <p_j>; 8 carriers at removed E8 root lines, normals g_c, receivers R_c, g_a.l_c = [a != c]; Lemma S equality (dual walk cost = F2 pairing rank = 7); unique masked decoder d_jc = +-2 on R_c; merge_count spanning facts; exhaustive pair nocover over 28 pairs x 2 ratios x 11,811 subspaces; result equals RESULT.json."
+    }
+  ]
+}

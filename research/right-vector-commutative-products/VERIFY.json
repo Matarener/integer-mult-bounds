@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/right-vector-commutative-products/source/PROOF.md",
+    "research/right-vector-commutative-products/source/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Fresh complete216-target BFS with all paid/free edges and arbitrary-input words; independent projective/explicit-word oracle and full typed payload comparisons."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same fresh complete metric/cross-engine/corruption controls under optimized warning-strict Python; finite evidence is separate from the quantified written theorem."
+    }
+  ]
+}

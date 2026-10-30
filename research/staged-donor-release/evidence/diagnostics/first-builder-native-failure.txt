@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/three-kappa-materialized/changed/source/new/fastnative/run_native.py", line 96, in <module>
+    main()
+  File "/tmp/three-kappa-materialized/changed/source/new/fastnative/run_native.py", line 82, in main
+    run(label+'-'+script, command + list(map(str, arguments)), native)
+  File "/tmp/three-kappa-materialized/changed/source/new/fastnative/run_native.py", line 59, in run
+    need(result.returncode == 0, 'stage failed: '+name+'; see '+str(work/(name+'.log')))
+  File "/private/tmp/three-kappa-materialized/changed/source/new/fastnative/common.py", line 12, in need
+    raise ValueError(message)
+ValueError: stage failed: native-bw_transport.py; see /private/tmp/four-kappa-native-base/native-bw_transport.py.log

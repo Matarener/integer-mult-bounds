@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/right-vector-commutative-products/README.md",
+    "research/right-vector-local-all-roles/PROOF.md",
+    "research/right-vector-local-products/PROOF.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Full binary pair census, separate normalized literal-alphabet BFS and all free/paid edges, sampled local products, matrix/basis words, literal scalar subspaces, eight rejection controls and two boundary fixtures."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "-W",
+        "error",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Full binary pair census, separate normalized literal-alphabet BFS and all free/paid edges, sampled local products, matrix/basis words, literal scalar subspaces, eight rejection controls and two boundary fixtures."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "selection": "handoff-first. The open question taken is the second item of the open-next-questions list of research/p112-rooted-minor-transfer (PR3591, branch research/w2-b20-rooted-minor-20261018, commit aeac7e087): 'What is the original two-hub literal actual-reader tariff minimum? Failure of support transfer does not decide it. Start with a direct tariff argument or a cheaper exact factorization with both Gram bills.' No task card is drawn and nothing is rerolled.",
+  "overlap_check": "python3 scripts/find_overlap.py --refresh 'two-hub literal actual-reader tariff minimum 54 charge support transfer' returned POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE with 0 possible matches over 402 open PR records and 2471 discussion records fetched 2026-10-18. The tool states its own limits: no code diffs, no arbitrary package files, and closed work only through local metadata, so this is not proof of novelty. The five sibling PRs of this batch (#3589, #3590, #3593, #3596 and this worker's own prior #3591) have disjoint scopes: encoded twiddle shape control, synthetic twiddle header amortization, a mixed-negative Q8 lower bound, residual floor attainment by block base, and rooted-minor closure of marked support-transfer obstructions. None prices the PR3583 literal reader tariff.",
+  "scope_status": "changed",
+  "scope_change_reason": "Handoff-first, not card-first. The catalogue card asks for one all-size, compiler, precision, hosting or restoration implication. This session took the explicit open question of research/p112-rooted-minor-transfer (PR3591): what is the two-hub literal actual-reader tariff minimum that PR3583 left unoptimised. That question is a quantified exact statement over a fixed finite row model, proved here, so it satisfies the card's acceptance gate of identifying the proposition and what changes downstream. The changed domain is stated in actual_scope and is not a fresh construction round.",
+  "actual_scope": "Exact minimum of the PR3583 literal actual-reader row model for the two-hub K3,2 certificate: 27 row units, minimum charge 54, baseline 42 unattainable, forced excess 12, attained by the retained PR3583 witness.",
+  "bottleneck_link": "PR3583 showed that no marked support transfer to characteristic two exists for this graph, but explicitly left its own literal tariff unoptimised. Deciding whether the measured excess of twelve is a witness defect or a structural floor decides whether the method is worth repairing for larger graphs or should be retired for this certificate.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at the exact finite optimum with an attainment certificate, a separate independent implementation, actual rejecting controls and publication. No graph search, no characteristic-two construction, no physical caller, no supplier invoice and no kappa claim.",
+  "outcome": "completed",
+  "evidence": "PROOF.md, RESULT.json, ORIGINS.json, two independently written exact searches (rational linear feasibility and integer span table), ten actual mutation groups with twenty rejecting runs, and full reproduction of the predecessor's nine measured charges and its 1764-entry Gram identity from the retained bytes. The registered full replay scripts/research_package.py --package research/p112-two-hub-tariff-minimum passes under CPython 3.12.15 with PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed, and scripts/check_research_commit.py --check-source-history passes with the declared base commit in publication ancestry. CHECKS.json records that run's interpreter, commands, exit statuses, output and per-file SHA256 hashes.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "credit": "The twenty-one premises, the charge model, the 42-port construction and the attainment witness are Nick Petalas's PR3583, which retains Philippe Van Velzen's expanded identity, ctoth's coverage question and the actual-reader lineage. The predecessor chain PR3506/3524/3535/3547/3557/3573 is unchanged.",
+  "open_questions": [
+    {
+      "question": "Is the forced two-unit excess of twelve specific to the K3,2 placement, or does a third independent hub force the same pattern on more reader rows?",
+      "why_it_matters": "A rooted-minor transfer of this argument would turn a one-graph optimum into a statement about a whole family, but a transfer of an optimisation bound needs its own proof and is not automatic.",
+      "first_step": "Write the two-bearing-query forcing condition as a statement about a reader premise set and check it against the K3,3 marking before enumerating any new graph.",
+      "blocked_by": "No transfer of the tariff argument is proved here; the rooted-minor theorem of PR3591 covers support transfer, not a row-local charge bound."
+    },
+    {
+      "question": "Does a literal actual-reader factorization of the single-hub certificate of PR3573 also carry a forced excess?",
+      "why_it_matters": "PR3573 still has a working exceptional transfer for the single-hub graph, so its tariff is the cheapest place to look for a construction that genuinely beats a baseline rather than matching one.",
+      "first_step": "Build the single-hub row list from PR3573's own premises, then run the same two-step bound: the universal one-unit row bound first, then the bearing-query count per reader row.",
+      "blocked_by": "No single-hub premise list or witness is retained in this package, so the numbers are unknown rather than negative."
+    },
+    {
+      "question": "Does a tariff model that is not row-local charge these six rows differently?",
+      "why_it_matters": "The whole result is row-local. A different Gram label or a complete-plane convention could move the answer, and the reader deserves to know which part of 54 is geometric and which part is a counting convention.",
+      "first_step": "State the alternative charge convention, derive what it charges per row, and recompute the minimum under it rather than reusing 54.",
+      "blocked_by": "The alternative convention must come with its own fully charged derivation; it cannot be inferred from this package."
+    }
+  ],
+  "unrun_obligations": [
+    "The selected full cold replay, Lean and Docker.",
+    "Independent human review and formal proof-kernel review.",
+    "Ruff format: ruff 0.14.5 format --isolated --check would reformat verify.py and test_controls.py under Ruff's default 88-column style. It is recorded and not applied because this repository configures no Ruff and its own shared scripts fail the same check. Ruff lint (ruff check --isolated) passes with no findings."
+  ],
+  "corrections": [
+    "An earlier revision of this package recorded 'CPython 3.12 is not installed on this machine' and therefore left the registered replay, the source-history preflight, Ruff and the CHECKS.json receipt unrun. That premise was wrong: CPython 3.12.15 is installed at /Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 in the main checkout's virtualenv and is simply not on PATH. All four obligations were run and their real output is recorded in README.md and CHECKS.json."
+  ]
+}

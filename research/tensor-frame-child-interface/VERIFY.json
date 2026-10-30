@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/staged544-mixed-fourth-entry/RESULT.json",
+    "research/staged544-mixed-fourth-entry/recipe/RECORD-base.json",
+    "research/staged544-mixed-fourth-entry/recipe/RECORD-extra.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact rational enclosures: scalar moment negative, single rank-(r*f) child negative, factorwise bill positive for every integer f>=2, recipe reports scalar, and one billion extra rank-1 children rejected."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "notes/batched-bit-rows.tex",
+    "upstream/build/sections/04-swap.tex",
+    "upstream/build/sections/03-motifs.tex"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Recompute Psi at one half for the bit-motif parking node from its pinned rank sum, deficit, and modulus."
+    },
+    {
+      "argv": ["{python}", "-B", "{package}/test_verify.py"],
+      "timeout_seconds": 30,
+      "checks": "Check a one-child list below one and a two-child list at one."
+    }
+  ]
+}

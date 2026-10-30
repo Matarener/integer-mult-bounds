@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Common24 rank-seven direction bound of two over every characteristic-zero field; exact quotient and exclusion of literal historical (5,6) callers 2^4,3,5,7^5 and2^4,4^2,7^5.",
+  "scope_change_reason": "Explicit user follow-up to PR3951; no task reroll. Live overlap and current source contracts are reconciled before investigating the next literal caller.",
+  "bottleneck_link": "The eleven-piece (5,6) caller needs five independent residual-rank-seven directions after one common24-site cut. A span bound below five would exclude it without a general two-flat rank-seven census.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish one bounded common24 root-direction certificate or literal obstruction; stop geometric expansion once this caller is decided. Keep final quarter for independent checks, exact sources and handoff.",
+  "outcome": "completed",
+  "evidence": "All43435 binary7spaces,5212200 normal/space traces,6216 records,6188 cuts,8540 complete common-cut candidates; separate affine/Cramer/subset implementation agrees. Two literal callers force5 independent directions in quotient dimension6; common support cap24.",
+  "author": "Chris R / Clear1nsight with substantial OpenAI Codex assistance",
+  "ai_assistance": "Substantial OpenAI Codex assistance; same donor/assistant as PR3931/3951, no independent human or formal-kernel review.",
+  "open_questions": [
+    {
+      "question": "Can an independent reviewer validate the root-normal rank argument and common-cut candidate split?",
+      "why_it_matters": "The complete finite tables still require their written coverage and scalar-extension implications.",
+      "first_step": "Challenge PROOF.md sections1 and3 against both executable enumeration methods.",
+      "blocked_by": "No independent human or formal-kernel acceptance is claimed."
+    },
+    {
+      "question": "Does a different actual caller such as 2^5,6,7^5 admit another valid reduction?",
+      "why_it_matters": "Its preferred six-piece quotient cap30 exceeds the new24 bound.",
+      "first_step": "Refresh public overlap and establish its exact quotient/support constraints before another census.",
+      "blocked_by": "Its actual coefficient/common-support obligation is outside this session."
+    }
+  ],
+  "freshness": {
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "entry_open_PR_bodies": 657,
+    "final_open_PR_bodies": 662,
+    "final_PR_snapshot_completed_UTC": "2026-10-19 06:58:54 UTC",
+    "local_records": 2492,
+    "Discussion_coverage": "partial: rendered C5, latest loaded handoff and start-here; no all-Discussion refresh",
+    "selected_frontier_unchanged": true
+  }
+}

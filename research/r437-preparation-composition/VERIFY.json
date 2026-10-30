@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticate retained exports, independently compile actual pooled contexts, run four-way lifecycle/action equality and protected-state restoration."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Derive exact additive record/radix invoices without importing runtime."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/test_verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Losing same-output composition controls, guarded admission AST and scope/invoice mutations."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "h25-set-source-readiness-v1",
+  "revision": 3,
+  "status": "CONTROL_ONLY_REPAIR_READY_FOR_REVIEW_AND_PARENT_SERIAL_EXECUTION",
+  "interface": {"adapter": "bind_verify_map(module)", "controls": "run_controls(backend, set_adapter)"},
+  "files": {
+    "set_reuse.py": "d375bb352ddff7a922bf1413d2911935b977d3bcce670db4954f6939afa15f29",
+    "finite_set_controls.py": "9fbe76c6d5ce123d12fc3c231786a9a85996fad41102835e08112768dd75738d",
+    "IMPLEMENTATION.md": "f3966bebe186a90729deaa0c5c4630b355637a5bb17e9deea8d8f2239078210a"
+  },
+  "previous_control_sha256": "2c481c74cbf85edc1734b3d139cc665ec731b0910317cb2636da57b423844231",
+  "retained_failure": {
+    "run": "finite-P1-O-v2",
+    "stderr": "runtime/runs/finite-P1-O-v2/stderr.txt",
+    "reported_wall_seconds": 2.8227,
+    "error": "RuntimeError: Collision fixture did not reach custom equality",
+    "cause": "Control required a callback from an original assertion that optimized interpreter mode removes",
+    "normal_finite_v2": "PASS reported by parent",
+    "raw_evidence_and_cost_preserved": true
+  },
+  "repair": {
+    "adapter_changed": false,
+    "controls_removed": 0,
+    "unconditional_differential_comparisons_retained": true,
+    "normal_expectation": "Collision equality and Q-constructor callback fixtures still require nonempty original events and exactly equal candidate events",
+    "optimized_expectation": "Both fixtures explicitly require empty original and candidate event lists, because the relevant source calls are assertion-only; exact output/error and fallback/token comparisons remain",
+    "second_fixture_basis": "Static source inspection: all verify_map Q(...) calls occur inside prefix/tail assertions"
+  },
+  "worker_validation": {"static_ast_parse": "PASS", "scientific_imports": 0, "compilations_or_executions": 0, "correctness_runs": 0, "timed_runs": 0},
+  "pending": ["Independent review of control-only repair", "Parent serial normal/O finite execution", "Subsequent full-caller correctness and performance gates"],
+  "immutable_stages_modified": [],
+  "performance_claim": null,
+  "combined_target_unchanged": "At least 15 percent further complete wall AND CPU saving versus fresh PR5995 native baseline, with declared noise gates"
+}

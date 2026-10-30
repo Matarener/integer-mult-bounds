@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Actual arbitrary-dirty-role circuit optimum of the mixed S4 tuple diag([2143],[3142],[4231],[2143],1,...) at prices (2,1,2) in the formal F2[S4] register model of PR2583/PR2998: is a cost-20 word possible (coordinate-cut bound 20, direct words 21)? Decided here for r=4 and r=5 roles by a window-pruned exhaustive search; r>=6 not searched.",
+  "scope_change_reason": "The drawn card asks whether a larger or nonabelian register model escapes the three-register obstruction. Its live successor in Discussion2570 is the explicit open question of PR2998: coordinate cuts stop at 20 while direct words cost 21 for this mixed tuple, so whether cut pricing is exact for mixed nonabelian tuples needs a circuit-level decision. This package answers it for four and five roles with a window (prefix-tightness) lemma used as a pruning device instead of another cut class.",
+  "bottleneck_link": "Side result for the bit track (formal register model only). The static coordinate-cut LP (per-letter charges, value 20) is not attained for this mixed nonabelian tuple on at most five roles (optimum 21): the tuple has no joint saving over separate words at width <= 5, so cut-LP tariffs cannot be assumed to price shared mixed-target words, and any cross-role saving would need two or more dirty spectators (r>=6) or another model change. It does not change the bit supplier, the binding complex primitive, the selected moment or kappa.",
+  "budget_minutes": 75,
+  "stop_rule": "Hard stop for searching at the iteration experiment deadline 2026-10-19T00:59:18Z; roles r in {4,5} only, total cost 20 only (costs below 20 are already excluded by PR2583's L = inv+c1+c3 bound, whose value 20 is PR2998's cut value), prices (2,1,2) only, no new cut classes, no r>=6.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md: inherited normal form (Ross Richardson PR1989, reused in PR2583: free maps absorbed, trailing scalar forced to I by augmentation), inherited cut-rank potentials (two blocks each), new window lemma and prefix-tightness corollary used as a pruning device, inherited count consequence made explicit (PR2583's L = inv+c1+c3 bound; PR2998's twelve-paid / eight-exterior observation): cost 20 forces label counts (4,4,4). Exhaustive target-end DFS over all 360 (r=4) and 1488 (r=5, 7 orbit representatives of the first peeled letter) gates per step: no prefix survives depth 8, zero words; with the explicit cost-21 direct word (checked exactly), the four- and five-role optima are exactly 21. RESULT.json records node counts. Cross-checks: separately written explicit-matrix C++ engine (full r=4 tree and the r=5 representative tree, node-for-node); Python explicit-matrix search (both r=3 sub-tuple trees, first three r=4 depths, r=5 depth 1); unpruned frozenset group-algebra brute-force count 146 = pruned primary count = exactly rechecked independent survivors on a 2-role instance where 104 of the 146 words use a mixing gate; r=4 positive control (4312 variant: a direct word is found); scalar negative control (4231 at counts (1,3,1)). Exact rational coordinate-cut LPs over all 2^24 regular cuts give 3-target sub-tuple LP values 15 and 16 against optima 16 and 17 (direct r=3 searches and transfer). Only verify.py --full replays the complete r=4/r=5 trees and the LPs.",
+  "author": "Sagar Thakrar (thakrarsagar)",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5): derivation of the window lemma, all engines (search.cpp, indep.cpp, independent.py, brute.py, cutlp.cpp, lp.py), runs, prose. All implementations were prepared in the same AI-assisted session; no independent human, maintainer or formal-kernel review is claimed.",
+  "open_questions": [
+    {
+      "question": "Does a sixth (second spectator) or further dirty role allow a cost-20 word for diag([2143],[3142],[4231],[2143],1,1,...) at (2,1,2)?",
+      "why_it_matters": "This package decides r=4 and r=5 (optimum 21 in both). Coordinate cuts allow 20 for every r, so only workspace can still realize the cut value; a positive answer would be the first known restored-spectator saving in this weighted model.",
+      "first_step": "Widen search.cpp's block rows to 64 bits first (the inv block has 6r = 36 columns at r=6; the engine refuses r > 5), then run it at r=6 (6048 gates per step) with the first-peeled-letter symmetry, possibly enlarged by GL_2(F2) on the two spectator roles. For scale only: about 33K nodes per surviving first letter at r=4 and about 34K per representative at r=5; the r=6 cost is unknown (four times as many gates per step, wider blocks, possibly a larger tree), so any runtime estimate is a rough guess. Budget and post the five-point expansion decision in Discussion2570 first.",
+      "blocked_by": "Out of this card stop rule (r<=5); needs a separately budgeted run."
+    },
+    {
+      "question": "Is there a uniform (all-r) invariant explaining why the window-feasible prefix tree dies at depth 8, i.e. a written stronger-than-cut obstruction?",
+      "why_it_matters": "A uniform argument would turn the finite r<=5 exclusion into the arbitrary-workspace 21 theorem that PR2998 left open, and would give a reusable tool for mixed nonabelian tariffs beyond cut LPs.",
+      "first_step": "Inspect the 381816 depth-7 survivors at r=4 (or the 52422 at r=5) and identify which window (inv, c1 or c3, which block) kills every depth-8 extension; try to express it as a chronological (precedence) rank inequality valid for all r.",
+      "blocked_by": "None technically; needs a separate session."
+    }
+  ]
+}

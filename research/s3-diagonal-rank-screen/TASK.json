@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 7,
+  "base_commit": "12fa8c5c844be21bfefb38a19503fbd867a11244",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json",
+      "research/bit-gl3-mixed-targets-length10/README.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "First compare the alphabet, role count and length with the fully replayed #1974 census and #2027 mixed-root tariff. Identify a changed premise and a legal native implementation; then price one smallest completed instance before searching larger words.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model.",
+      "Repeating the two-register GL3 census or a covered three-register length without changing a hypothesis; a formal group-algebra word without native conversion is a partial result."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For which of the 216 diagonal three-register targets in the paid S3 alphabet of open PR #3893 does the two-dimensional representation rank equal the direct generator bill, and what is the largest sharp floor?",
+  "scope_change_reason": "The drawn card was r437-carrier-integration. Its compiler, caller and reverse-coefficient stock obligations are already open in #4176 and #4183, and #4147 already derived the coefficient 1123650. This package takes the next suggestion and the screening question left by open #3893: the same S3 alphabet, every diagonal target, without a new construction round.",
+  "bottleneck_link": "A sharp floor above the published four-call target would be a stronger obstruction inside this nonabelian alphabet. A gap between generator length and represented rank shows where that obstruction is not yet sharp.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after classifying all 216 diagonal targets and checking the coordinate words that meet the rank bound. Do not search shared words for the gapped transposition.",
+  "outcome": "completed",
+  "evidence": "Every label except the transposition (13) has generator length equal to rank(rho(g)+I). Exactly 125 of 216 triples match, and the coordinate concatenation attains the bound for each of them. Eight triples, all labels in the two length-two elements, have sharp floor 6. The transposition (13) has length 3 and represented rank 1, so the other 91 triples are not sharp by this comparison.",
+  "author": "Riquelme Soares (@hevlyo)",
+  "ai_assistance": "Substantial AI assistance was used for the classification, the group-algebra check and the write-up. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can a shared word shorter than length 3 write the transposition (13) on one register in this same paid alphabet?",
+      "why_it_matters": "That element is the only label whose generator length exceeds its represented rank. A shorter word would lower the direct bill of every triple that contains it.",
+      "first_step": "Search words in the two paid labels whose product is (13), allowing more than one register of scratch, and stop at the first word shorter than 3 or at an exhaustive length-2 miss.",
+      "blocked_by": "A one-register word cannot be shorter than 3, and no legal scratch register is specified by the #3893 alphabet."
+    }
+  ]
+}

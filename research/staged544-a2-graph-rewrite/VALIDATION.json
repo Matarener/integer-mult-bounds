@@ -1,0 +1,141 @@
+{
+  "controls": [
+    {
+      "exit_code": 0,
+      "log": "controls-normal.log",
+      "receipt": {
+        "independent_frame_intervals": 494,
+        "independent_legal_invoices": 922,
+        "seconds": 5.439,
+        "symbolic_identities": 36,
+        "wrong_sign_missing_gate_wrong_product_controls": 108
+      },
+      "sha256": "f012af2b243d09f910ca3f81a4389de814d74a448920c55f6c90088aad2f4d54"
+    },
+    {
+      "exit_code": 0,
+      "log": "controls-optimized.log",
+      "receipt": {
+        "independent_frame_intervals": 494,
+        "independent_legal_invoices": 922,
+        "seconds": 4.417,
+        "symbolic_identities": 36,
+        "wrong_sign_missing_gate_wrong_product_controls": 108
+      },
+      "sha256": "ecca3fe752842f4b23f2b7f9df9baac74ae123c63d1681f36f65b0c90d99cc1a"
+    },
+    {
+      "exit_code": 0,
+      "log": "git-free-controls.log",
+      "receipt": {
+        "independent_frame_intervals": 494,
+        "independent_legal_invoices": 922,
+        "seconds": 5.796,
+        "symbolic_identities": 36,
+        "wrong_sign_missing_gate_wrong_product_controls": 108
+      },
+      "sha256": "88bf178675bd0e257233f8e9b80f241bd530fd2dc5d4d985bbbb98eb8d33c839"
+    }
+  ],
+  "coverage": {
+    "PR3734_expansion_ties_per_provider": 396,
+    "PR3734_legal_expansion_flags_per_provider": 460,
+    "PR3734_motifs_per_provider": 168,
+    "PR3734_strictly_losing_expansion_flags_per_provider": 64,
+    "additional_controls": [
+      "Actual production sign mutation",
+      "Missing cleanup ADD rejected by full semantics",
+      "Altered immutable source",
+      "Out-of-range frame vector",
+      "Non-ADD and two-register-cycle shape",
+      "Package root, descendant and existing-output CLI rejection before calculation"
+    ],
+    "baseline_full_word_replays": 4,
+    "contracted_full_word_replays": 4,
+    "exact_expansion_flag_dirty_matrices": 920,
+    "expanded_full_word_samples": 12,
+    "expanded_whole_word_coverage": "Sampled; universal candidate coverage is exact block composition plus projected inverse cleanup.",
+    "independent_frame_intervals": 494,
+    "independent_local_invoices": 922,
+    "provider_families": [
+      "PR3734",
+      "PR3945"
+    ],
+    "single_contraction_per_provider_family": 1,
+    "symbolic_inputs_per_word": 723,
+    "symbolic_polynomial_identities": 36,
+    "symbolic_sign_product_omission_rejections": 108
+  },
+  "environment": {
+    "dependencies": "standard library only",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "failed_or_corrected_exploration": [
+    {
+      "attempt": "Initial middle-position-only inverse probe",
+      "correction": "All three central-gate positions expose the unique last-position A1858 contraction.",
+      "status": "Incomplete preliminary probe; corrected before publication"
+    },
+    {
+      "attempt": "First independent event-chain cost oracle",
+      "correction": "Native warp output was incorrectly treated as a paid successor; use its exact entry check. Filter temporary centre descents from persistent frame state.",
+      "status": "Failed before final controls"
+    },
+    {
+      "attempt": "Preliminary control runtime label",
+      "correction": "A register variable shadowed the timer. Final independent timer uses a distinct variable and all final checks were rerun.",
+      "status": "Invalid timer field; not used as runtime evidence"
+    },
+    {
+      "attempt": "Draft metadata and output guards",
+      "correction": "Metadata passes; guard controls require the expected failure reason, not only nonzero exit.",
+      "status": "Schema fields and one syntax error corrected before science freeze"
+    }
+  ],
+  "git_free_scope": "Full independent controls and source authentication only; a second complete standalone provider census was not run in the read-only export. Final publication archive bytes are checked separately.",
+  "publication_boundary": "This file records pre-publication checks. Exact GitHub-authored commit import, committed-byte/source-history gate, final archive and hosted CI are recorded separately in the publication handoff; this statement does not claim those later steps already passed.",
+  "registered_replay": {
+    "command": [
+      "python3",
+      "-B",
+      "scripts/research_package.py",
+      "--package",
+      "research/staged544-a2-graph-rewrite"
+    ],
+    "complete_outer_wall_time": "Not separately instrumented; per-command elapsed receipts are exact measured outputs.",
+    "coverage": "Both full PR3734 expansion/contraction certificates and both separate PR3945 single-contraction applicability checks regenerate and exactly match retained receipts.",
+    "exit_code": 0,
+    "full_provider_elapsed_seconds": {
+      "base": 180.154,
+      "extra": 156.274
+    },
+    "log_sha256": "97d6eab5db20373b69f885b861ae3fbb993a2db1348221e5bbb43bcc1cab827f",
+    "optimized_controls_receipt": {
+      "independent_frame_intervals": 494,
+      "independent_legal_invoices": 922,
+      "seconds": 4.351,
+      "symbolic_identities": 36,
+      "wrong_sign_missing_gate_wrong_product_controls": 108
+    }
+  },
+  "schema_version": 1,
+  "science_code_sha256": {
+    "check_controls.py": "d279167a2c834c218255cc9190d3cfe07d751b2c5b0a4aa62729d41a7992cf60",
+    "search.py": "37831f41b94eb8dd639e5029de83a42e206172516bfb6d2d2349e783c6f4b031",
+    "vendor/audit_core.py": "888679ca8502cdcb100420fe5382a052529a494bf76cb332928b86e62612b951",
+    "vendor/audit_verify.py": "99971d3cc143cc894600e08c8cfbad3e8f537a544212f21dfbe4271cfa97354d",
+    "vendor/retiming.py": "591d7278541ac4de9e9b6fc1e17aba23b205ac4b6c81824a28fc08294658ef0d",
+    "verify.py": "b36f397576e033a9a5571a25126d60db7cd22bcf09e624515f24a0b26dc4a8f4"
+  },
+  "selected_frontier_changed": false,
+  "status": "PASS: complete registered science replay, independent normal/optimized controls, and read-only Git-free optimized controls.",
+  "unrun_obligations": [
+    "Independent human or formal-kernel review",
+    "Fresh native Gaussian/Clifford phase admission",
+    "Physical allocation, hosting and complete owner scheduling",
+    "Uniform precision/stock/tape tariffs",
+    "All-size compiler and outer/supplier admission",
+    "Analytic transfer and BIT H1-H5"
+  ]
+}

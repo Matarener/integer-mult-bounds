@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 6,
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Sharp actual-reader floor for arbitrary finite target sets and global readers when the complete query coefficient matrix is a nonzero diagonal row/column scaling of an integer totally unimodular matrix, over every field and any even binary-orthonormal partition.",
+  "scope_change_reason": "The coverage card led through the plane-query handoff to the missing arbitrary-target structural obstruction. This is a scoped algebraic support-tariff result; no replacement physical coverage identity or complete supplier is supplied.",
+  "bottleneck_link": "Rules out graph/network recoding within the target indicator span as a way to reduce the full-port query bill needed by a changed coverage law. Nonregular or external-direction factorizations require separate actual-reader evidence.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish the universal support-transfer proof and bounded independent controls; stop before native construction without an explicit cheaper factorization and complete paid consumer.",
+  "outcome": "negative-result",
+  "evidence": "PROOF.md proves the arbitrary-size/all-field statement. RESULT.json records finite TU minors, exact axis-span transfer, literal/global-reader operator bills, expanded I224 and the determinant-two transfer failure. Two separate implementations and behavioral controls corroborate these finite claims. The separate eight-label Gram-I4/F7 contraction proves the query-TU condition does not require TU-signability of the pairing matrix, distinguishing PR2111.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can an explicit nonregular query dictionary give a cheaper literal factorization with its actual reader supports charged?",
+      "why_it_matters": "The theorem excludes graph/network and other projectively TU dictionaries, but its determinant-two boundary is a transfer failure rather than a tariff obstruction.",
+      "first_step": "Supply one exact operator identity outside the stated dictionary class and compute every complete-plane rectangular reader rank before native construction.",
+      "blocked_by": "No lower-cost witness or complete paid native/consumer contract is supplied."
+    }
+  ],
+  "submission_refresh": {
+    "utc": "2026-10-18T03:27:43.784220+00:00",
+    "canonical_main_sha": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "priority_revision": 6,
+    "baseline": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "changed_relevant_paths": [],
+    "commands": [
+      {
+        "argv": [
+          "git",
+          "fetch",
+          "--no-tags",
+          "origin",
+          "main"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "From github.com:CrocSwap/integer-mult-bounds\n * branch                main       -> FETCH_HEAD\n"
+      }
+    ]
+  },
+  "submission_overlap_coverage": {
+    "open_prs": {
+      "fetched_at": "2026-10-18T03:27:47.155826+00:00",
+      "complete_pagination": true,
+      "records": 400
+    },
+    "discussions": {
+      "fetched_at": "2026-10-18T03:28:17.692757+00:00",
+      "complete_pagination": true,
+      "records": 2324
+    }
+  }
+}

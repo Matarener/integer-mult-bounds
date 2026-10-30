@@ -1,0 +1,53 @@
+{
+  "canonical_baseline_port_length_cases": 60,
+  "checker_sha256": "47a80ba1a095d50fdc260377105ff4be41b6ece2d6e4a746f4ee4cda537e467c",
+  "commands": [
+    "python3 -I -B check.py --output /absolute/external/new.json.gz",
+    "python3 -I -O -B check.py --output /absolute/external/new-optimized.json.gz"
+  ],
+  "complete_original_receipts_compared": [
+    "CANONICAL-ENDPOINTS.json",
+    "FULL-STABILIZER-BOUND.json",
+    "FULL-NATIVE-PATH.json"
+  ],
+  "complete_phase_columns": 24,
+  "executed_guard_deletions": 30,
+  "full_native_path_port_length_cases": 48,
+  "gzip_bytes": 979486,
+  "maximum_phase_column_support": 131072,
+  "normal_optimized_complete_raw_and_gzip_bytes_identical": true,
+  "observed_optimized_seconds": 10.05,
+  "original_receipt_field_exclusions": [],
+  "output_guards": [
+    {
+      "exit_code": 1,
+      "intended_error": "output must be absolute",
+      "name": "relative_output"
+    },
+    {
+      "exit_code": 1,
+      "intended_error": "output must be external to code and inputs",
+      "name": "inside_package"
+    },
+    {
+      "exit_code": 1,
+      "intended_error": "output must be external to code and inputs",
+      "name": "inside_overridden_inputs"
+    },
+    {
+      "exit_code": 1,
+      "intended_error": "output must be new",
+      "name": "existing_external_output"
+    }
+  ],
+  "phase_evaluations": 322,
+  "production_rejections": 30,
+  "proof_sha256": "bf80994ec63c2d7bdf2801aaaf321c7682cf315a23ad220e55a83c3f25f2b166",
+  "raw_bytes": 20954827,
+  "receipt_gzip_sha256": "8cfc135e92affc914d05d5b769fedc761272e9adb840ee021b72507697806a14",
+  "receipt_raw_sha256": "63cf04dbd77a0d0920ffdb5a34d242849a31d478d100efa53d335ed26095738c",
+  "schema": "c07_frame_validation.v1",
+  "scope": "Local exact theorem/witness replay only; no hosted CI, formal kernel, all-L caller construction or physical supplier admission.",
+  "stabilizer_port_length_cases": 48,
+  "status": "PASS"
+}

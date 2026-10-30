@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 8,
+  "base_commit": "19fdb086ea96af9a9f87936a2b888e10af4ed810",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_selected_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Resolve the current selected review, separate complex/ordinary BIT/admitted BIT/outer budgets, and compare the card against live handoffs before starting. Historical ceilings require exact source/model equivalence.",
+      "scope": "Source-binding orientation only; not a scientific replay or all-size proof. Materialize selected inputs if this checkout is sparse."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Collision-safe XOR-linear support interning for the frozen mixed-point builder; exact first-decomposition preservation and complete fresh-process construction timings.",
+  "scope_change_reason": "The replay-runtime card is applied to the construction bottleneck posed by PR2150 Open next question 1, rather than a new mathematical supplier replay.",
+  "bottleneck_link": "This is a verifier-engineering side result on a historical circuit builder. It can shorten construction of candidates; it supplies no improved supplier or selected bound.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop changing the mechanism at the first verified original improvement. Package the first compact-key adapter; no wider optimization or construction search.",
+  "outcome": "completed",
+  "evidence": "RESULT.json contains recomputed finite correctness evidence. BENCHMARK.json contains five alternating fresh-process pairs and source hashes.",
+  "author": "Nick Petalas",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
+  "open_questions": [
+    {
+      "question": "Can the shared mixed-point audit adopt the compact interner under its exact source-pin and consumer contracts?",
+      "why_it_matters": "The measured gain is currently opt-in and does not automatically speed the shared audit command.",
+      "first_step": "Inventory production lookup consumers and source pins, then compare the complete audit receipt with all existing checks retained.",
+      "blocked_by": "This package does not change shared source or any historical certificate pin."
+    },
+    {
+      "question": "Does the complete construction gain persist on a Linux CPython 3.12 host?",
+      "why_it_matters": "The committed speed measurement describes one macOS host; hosted correctness replay is not a performance measurement.",
+      "first_step": "Run benchmark.py for five alternating fresh-process pairs and retain every sample and full structure digest.",
+      "blocked_by": "No second-host timing experiment is claimed."
+    }
+  ],
+  "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19227496",
+  "source_question": {
+    "pr": 2150,
+    "author": "VictorLiwentao",
+    "package": "research/mixed-point-verify-masks",
+    "question": 1
+  },
+  "declared_milestone": "tooling",
+  "optimistic_full_cost_budget": "No supplier price is changed or asserted. End-to-end process measurement includes construction, unchanged output verification, complete structural hashing and process startup/exit.",
+  "family_expansion_decision": "Finish this opt-in tooling result; no supplier construction expansion.",
+  "environment": {
+    "cpu_count": 18,
+    "executable": "/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12",
+    "load": [
+      3.74951171875,
+      3.5302734375,
+      2.71533203125
+    ],
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.12.15 (main, Oct 14 2026, 00:55:37) [Clang 23.1.3 ]"
+  },
+  "validation": {
+    "local_direct_checks": [
+      {
+        "name": "normal",
+        "seconds": 9.503061624942347,
+        "returncode": 0
+      },
+      {
+        "name": "optimized",
+        "seconds": 12.149821707978845,
+        "returncode": 0
+      }
+    ],
+    "registered_replay": "PASS_REGISTERED_RESEARCH_PACKAGE; both registered commands passed locally",
+    "not_run": [
+      "hosted CI at publication preparation",
+      "second-host performance measurements",
+      "selected supplier cold replay",
+      "Lean or proof-kernel review",
+      "complete supplier or production-audit adoption"
+    ]
+  }
+}

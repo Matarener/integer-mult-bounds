@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/k2-class-c-stabilizer-orbit-inputs/data88.txt",
+    "research/one-sided-excess-three/data/data80.txt",
+    "research/one-sided-excess-three/data/gens.txt"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Source SHA256 pins and label-order identity; all 12 invertible F2^9 actions; all 18,100 typed Off-support permutations and exact Q^8 line/plane maps; exact RREF/Gaussian counts; full V2 mask orbit partition; malformed-permutation, bad-support, and singular-map rejection controls."
+    }
+  ]
+}

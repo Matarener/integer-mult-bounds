@@ -1,0 +1,13 @@
+--- PR5565/pricing.py
++++ pricing.py
+@@ -14,2 +14,2 @@
+-KAPPA, TESTED = Q('.00308520'), Q('.0030852005')
+-PREVIOUS = Q('.00308189')
++KAPPA, TESTED = Q('.00308595'), Q('.0030859505')
++PREVIOUS = Q('.00308520')
+@@ -64 +64 @@
+-    L.need(sum(targets.values()) == 12814 and sum(paid.values()) == 66726, 'Complete field and call counts')
++    L.need(sum(targets.values()) == 12814 and sum(paid.values()) == 66708, 'Complete field and call counts')
+@@ -142 +142 @@
+-    return encode({'kappa':KAPPA,'kappa_decimal':'.00308520','previous_open_pr5580':PREVIOUS,'gain':KAPPA-PREVIOUS,
++    return encode({'kappa':KAPPA,'kappa_decimal':'.00308595','previous_open_pr5565':PREVIOUS,'gain':KAPPA-PREVIOUS,

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-quadratic-support-capacity/PROOF.md",
+    "research/p112-b6-t4-reconciliation/vendor/PR3154-TWOSIDE.md",
+    "research/p112-b6-t4-reconciliation/vendor/bk2b.py",
+    "research/p112-root-simplex-exclusion/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Source-bound exact full-shell rank2/3 closures,105 saturated Gram cases,3780 projections, historical caller178>176; tiny convex-capacity DP"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Fresh shell, permutation determinants, rational Fraction closures and independent pivot quotients; matching certificate digests; exhaustive capacity multiset cross-check"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/test_controls.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Actual-code positive fixture, full versus live roots, repeated columns, rational invariance, optimized bad receipt rejection"
+    }
+  ]
+}
