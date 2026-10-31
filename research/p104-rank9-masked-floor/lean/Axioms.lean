@@ -13,3 +13,7 @@ import RankNine.AllModuli
 #print axioms RankNine.relOK_sound
 #print axioms RankNine.Packed0.moduli_geom
 #print axioms RankNine.Packed73.moduli_geom
+#print axioms RankNine.signs_sound
+#print axioms RankNine.quad_quarter
+#print axioms RankNine.Signs0.mags
+#print axioms RankNine.Signs73.mags

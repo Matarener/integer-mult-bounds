@@ -6,3 +6,4 @@ import RankNine.Packed
 import RankNine.Expansion
 import RankNine.OrthTab
 import RankNine.Link
+import RankNine.Signs
