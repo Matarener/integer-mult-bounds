@@ -32,11 +32,11 @@ def remP (c : ℕ × ℕ) (F : ℕ) : ℕ := c.1 ^^^ (c.1 &&& F)
 /-- negative literals of `c` not yet false -/
 def remQ (c : ℕ × ℕ) (T : ℕ) : ℕ := c.2 ^^^ (c.2 &&& T)
 
-/-- one hint: `0` conflict, `1` unit (assignment extended), `2` failure -/
-def unitStep (T F : ℕ) (c : ℕ × ℕ) : ℕ × ℕ × ℕ :=
+/-- one hint with its unit variable `v` (supplied by the certificate): `0` conflict, `1` unit, `2` failure -/
+def unitStep (T F : ℕ) (c : ℕ × ℕ) (v : ℕ) : ℕ × ℕ × ℕ :=
   if remP c F = 0 ∧ remQ c T = 0 then (0, T, F)
-  else if remQ c T = 0 ∧ remP c F = 2 ^ (remP c F).log2 then (1, T ||| remP c F, F)
-  else if remP c F = 0 ∧ remQ c T = 2 ^ (remQ c T).log2 then (1, T, F ||| remQ c T)
+  else if remQ c T = 0 ∧ remP c F = 2 ^ v then (1, T ||| remP c F, F)
+  else if remP c F = 0 ∧ remQ c T = 2 ^ v then (1, T, F ||| remQ c T)
   else (2, T, F)
 
 theorem bit_rem (P F i : ℕ) : (P ^^^ (P &&& F)).testBit i = (P.testBit i && !F.testBit i) := by
@@ -57,7 +57,7 @@ theorem bit_pow (k i : ℕ) : (2 ^ k).testBit i = true ↔ i = k := by
 
 theorem bit_zero (i : ℕ) : (0 : ℕ).testBit i = false := Nat.zero_testBit i
 
-theorem pow_bit {x i : ℕ} (hx : x = 2 ^ x.log2) (h : x.testBit i = true) : i = x.log2 := by
+theorem pow_bit {x i v : ℕ} (hx : x = 2 ^ v) (h : x.testBit i = true) : i = v := by
   rw [hx] at h
   exact (bit_pow _ _).1 h
 
@@ -78,8 +78,8 @@ theorem unit_key {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} (hA : Agree z T
     · simp [hq]
     · exact absurd (hA.1 i hT) hz
 
-theorem unitStep_conf {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} (hA : Agree z T F) (hc : CSat z c)
-    {T' F' : ℕ} (h : unitStep T F c = (0, T', F')) : False := by
+theorem unitStep_conf {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} {v : ℕ} (hA : Agree z T F) (hc : CSat z c)
+    {T' F' : ℕ} (h : unitStep T F c v = (0, T', F')) : False := by
   obtain ⟨i, hi⟩ := unit_key hA hc
   unfold unitStep at h
   split_ifs at h with h1 h2 h3
@@ -89,8 +89,8 @@ theorem unitStep_conf {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} (hA : Agre
   · simp at h
   · simp at h
 
-theorem unitStep_unit {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} (hA : Agree z T F) (hc : CSat z c)
-    {T' F' : ℕ} (h : unitStep T F c = (1, T', F')) : Agree z T' F' := by
+theorem unitStep_unit {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} {v : ℕ} (hA : Agree z T F) (hc : CSat z c)
+    {T' F' : ℕ} (h : unitStep T F c v = (1, T', F')) : Agree z T' F' := by
   obtain ⟨i, hi⟩ := unit_key hA hc
   unfold unitStep at h
   split_ifs at h with h1 h2 h3
@@ -98,7 +98,7 @@ theorem unitStep_unit {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} (hA : Agre
   · simp only [Prod.mk.injEq] at h
     obtain ⟨-, hT', hF'⟩ := h
     subst hT' hF'
-    have hzi : z (remP c F).log2 := by
+    have hzi : z v := by
       rcases hi with ⟨hb, hz⟩ | ⟨hb, hz⟩
       · rw [pow_bit h2.2 hb] at hz; exact hz
       · rw [h2.1, bit_zero] at hb; simp at hb
@@ -110,7 +110,7 @@ theorem unitStep_unit {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} (hA : Agre
   · simp only [Prod.mk.injEq] at h
     obtain ⟨-, hT', hF'⟩ := h
     subst hT' hF'
-    have hzi : ¬ z (remQ c T).log2 := by
+    have hzi : ¬ z v := by
       rcases hi with ⟨hb, hz⟩ | ⟨hb, hz⟩
       · rw [h3.1, bit_zero] at hb; simp at hb
       · rw [pow_bit h3.2 hb] at hz; exact hz
@@ -122,25 +122,25 @@ theorem unitStep_unit {z : ℕ → Prop} {T F : ℕ} {c : ℕ × ℕ} (hA : Agre
   · simp at h
 
 /-- unit propagation along the hint clauses; `true` iff a conflict is reached -/
-def rupRun (cl : ℕ → ℕ × ℕ) : List ℕ → ℕ → ℕ → Bool
+def rupRun (cl : ℕ → ℕ × ℕ) : List (ℕ × ℕ) → ℕ → ℕ → Bool
   | [], _, _ => false
   | h :: hs, T, F =>
-    match unitStep T F (cl h) with
+    match unitStep T F (cl h.1) h.2 with
     | (0, _, _) => true
     | (1, T', F') => rupRun cl hs T' F'
     | _ => false
 
 theorem rupRun_sound (z : ℕ → Prop) (cl : ℕ → ℕ × ℕ) :
-    ∀ (hs : List ℕ) (T F : ℕ), (∀ h ∈ hs, CSat z (cl h)) → Agree z T F → rupRun cl hs T F = true → False := by
+    ∀ (hs : List (ℕ × ℕ)) (T F : ℕ), (∀ h ∈ hs, CSat z (cl h.1)) → Agree z T F → rupRun cl hs T F = true → False := by
   intro hs
   induction hs with
   | nil => intro T F _ _ hr; simp [rupRun] at hr
   | cons h hs ih =>
     intro T F hall hA hr
-    have hc : CSat z (cl h) := hall h (by simp)
-    have hall' : ∀ g ∈ hs, CSat z (cl g) := fun g hg => hall g (by simp [hg])
+    have hc : CSat z (cl h.1) := hall h (by simp)
+    have hall' : ∀ g ∈ hs, CSat z (cl g.1) := fun g hg => hall g (by simp [hg])
     simp only [rupRun] at hr
-    rcases hu : unitStep T F (cl h) with ⟨s, T', F'⟩
+    rcases hu : unitStep T F (cl h.1) h.2 with ⟨s, T', F'⟩
     rw [hu] at hr
     rcases s with _ | _ | s
     · exact unitStep_conf hA hc hu
@@ -153,7 +153,7 @@ theorem agree_neg {z : ℕ → Prop} {c : ℕ × ℕ} (h : ¬ CSat z c) : Agree 
   exact h ⟨i, Or.inr ⟨hi, hz⟩⟩
 
 /-- RUP: if every hint clause holds and propagation from the negation of `c` reaches a conflict, `c` holds -/
-theorem rup_sound (z : ℕ → Prop) (cl : ℕ → ℕ × ℕ) (c : ℕ × ℕ) (hs : List ℕ) (hall : ∀ h ∈ hs, CSat z (cl h))
+theorem rup_sound (z : ℕ → Prop) (cl : ℕ → ℕ × ℕ) (c : ℕ × ℕ) (hs : List (ℕ × ℕ)) (hall : ∀ h ∈ hs, CSat z (cl h.1))
     (hr : rupRun cl hs c.2 c.1 = true) : CSat z c := by
   by_contra hn
   exact rupRun_sound z cl hs _ _ hall (agree_neg hn) hr
@@ -168,7 +168,7 @@ Entry `j` has seven fields of `E`: kind and arguments.
 * kind `1`, quadruple clause: `t, f, k1, k2, k3, k4`;
 * kind `2`, goal clause (the cover set `Cv`);
 * kind `3`, lemma: literal offset and count in `Lt` (literal `2 c + 1` is `z c`, `2 c` is `¬ z c`), hint offset
-  and count in `Hn` (hints are earlier entries).
+  and count in `Hn` (each hint is two fields: an earlier entry and the variable it makes unit).
 -/
 
 def relCl (x y u v w : ℕ) : ℕ × ℕ :=
@@ -200,7 +200,7 @@ def qChk (m t f k1 k2 k3 k4 : ℕ) : Bool :=
     (List.range 8).all (fun k => decide (k = k1) || decide (k = k2) || decide (k = k3) || decide (k = k4) ||
       orthB t (frL f k))
 
-def hintList (Hn : List ℕ) (a m : ℕ) : List ℕ := (List.range' a m).map (fld Hn)
+def hintList (Hn : List ℕ) (a m : ℕ) : List (ℕ × ℕ) := (List.range' a m).map (fun i => (fld Hn (2 * i), fld Hn (2 * i + 1)))
 
 def zEntryOK (m Cv : ℕ) (E Lt Hn : List ℕ) (j : ℕ) : Bool :=
   if ef E j 0 = 0 then
@@ -211,7 +211,7 @@ def zEntryOK (m Cv : ℕ) (E Lt Hn : List ℕ) (j : ℕ) : Bool :=
     qChk m (ef E j 1) (ef E j 2) (ef E j 3) (ef E j 4) (ef E j 5) (ef E j 6)
   else if ef E j 0 = 2 then true
   else
-    (hintList Hn (ef E j 3) (ef E j 4)).all (fun h => decide (h < j)) &&
+    (hintList Hn (ef E j 3) (ef E j 4)).all (fun h => decide (h.1 < j)) &&
       rupRun (clAt Cv E Lt) (hintList Hn (ef E j 3) (ef E j 4)) (clAt Cv E Lt j).2 (clAt Cv E Lt j).1
 
 variable {K : Type*} [Field K]
@@ -317,7 +317,7 @@ theorem entry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0)
   · simp only [Bool.and_eq_true, List.all_eq_true, decide_eq_true_eq] at hok
     obtain ⟨hlt, hrup⟩ := hok
     have h := rup_sound (fun c => Nc A B c = 0) (clAt Cv E Lt) (clAt Cv E Lt j) _
-      (fun h hh => hprev h (hlt h hh)) hrup
+      (fun h hh => hprev h.1 (hlt h hh)) hrup
     unfold clAt at h
     rw [if_neg k0, if_neg k1, if_neg k2] at h
     exact h
