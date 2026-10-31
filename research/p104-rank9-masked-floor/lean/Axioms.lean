@@ -1,4 +1,5 @@
 import RankNine
+import RankNine.AllModuli
 #print axioms RankNine.square_lemma
 #print axioms RankNine.propagate
 #print axioms RankNine.quad_cases
@@ -6,3 +7,4 @@ import RankNine
 #print axioms RankNine.frameData_frames
 #print axioms RankNine.run_sound
 #print axioms RankNine.Packed0.moduli
+#print axioms RankNine.Packed386.moduli
