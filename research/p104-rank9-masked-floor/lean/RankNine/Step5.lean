@@ -31,7 +31,7 @@ theorem Nq_mu (A B : ℕ → Fin 9 → K) (x y : ℕ) : Nq A B x y = mu A B x y 
 
 /-! ## Algebra -/
 
-theorem tri_alg {Mta May Mtb Mby Mya Mat Myb Mbt Maa Mbb Mtt Myy Mty Myt : K}
+theorem tri_alg [CharZero K] {Mta May Mtb Mby Mya Mat Myb Mbt Maa Mbb Mtt Myy Mty Myt : K}
     (e1 : Mty = Mta * May / Maa + Mtb * Mby / Mbb) (e2 : Myt = Mya * Mat / Maa + Myb * Mbt / Mbb)
     (nta : Mta * Mat / (Mtt * Maa) = 1/4) (nay : May * Mya / (Maa * Myy) = 1/4)
     (ntb : Mtb * Mbt / (Mtt * Mbb) = 1/4) (nby : Mby * Myb / (Mbb * Myy) = 1/4)
@@ -66,14 +66,14 @@ theorem gf_r1 {mta mas mtb mbs gta gas gtb gbs pt pa pb ps : K}
       (-(pa * ps)) * hg
   exact mul_left_cancel₀ (mul_ne_zero hgtb hpa) e
 
-theorem gf_ty {mta may mty gta gay gty pt pa py : K}
+theorem gf_ty [CharZero K] {mta may mty gta gay gty pt pa py : K}
     (F1 : mta * pt = gta * pa) (F2 : may * pa = gay * py) (h : mta * may = mty / 2) (hg : gta * gay = gty / 2)
     (hpa : pa ≠ 0) : mty * pt = gty * py := by
   have e : pa * (mty * pt) = pa * (gty * py) := by
     linear_combination (-2 * pa * pt) * h + (2 * pa * py) * hg + (2 * gta * pa) * F2 + (2 * may * pa) * F1
   exact mul_left_cancel₀ hpa e
 
-theorem gf_ay {mta may mty gta gay gty pt pa py : K}
+theorem gf_ay [CharZero K] {mta may mty gta gay gty pt pa py : K}
     (F1 : mta * pt = gta * pa) (F3 : mty * pt = gty * py) (h : mta * may = mty / 2) (hg : gta * gay = gty / 2)
     (hgta : gta ≠ 0) (hpa : pa ≠ 0) : may * pa = gay * py := by
   have e : (gta * pa) * (may * pa) = (gta * pa) * (gay * py) := by
@@ -157,7 +157,7 @@ theorem r1_mu (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m : 
   unfold mu
   linear_combination (-1 / Mx A B t t) * e
 
-theorem tri_mu (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m : ℕ)
+theorem tri_mu [CharZero K] (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m : ℕ)
     (hZ : ∀ x, m.testBit x = true → A x ⬝ᵥ u = 0) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0)
     (t y f ka kb : ℕ) (ht : t < 104) (hy : y < 104) (hka : ka < 8) (hkb : kb < 8) (hab : ka ≠ kb)
