@@ -44,7 +44,7 @@ theorem quad_cases [CharZero K] {a b c d : K} (hb : b ^ 2 = a ^ 2) (hc : c ^ 2 =
   all_goals first
     | (right; have ha : a = 1 / 2 := by linear_combination hs / 2
        rw [ha]; norm_num)
-    | (right; have ha : a = -1 / 2 := by linear_combination hs / 2
+    | (right; have ha : a = -1 / 2 := by linear_combination -hs / 2
        rw [ha]; norm_num)
     | (exfalso; have : (0 : K) = 1 := by linear_combination hs
        exact zero_ne_one this)
