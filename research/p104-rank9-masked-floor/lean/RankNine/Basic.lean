@@ -39,7 +39,7 @@ theorem quad_cases [CharZero K] {a b c d : K} (hb : b ^ 2 = a ^ 2) (hc : c ^ 2 =
   rcases sq_eq_sq_iff_eq_or_eq_neg.mp hb with rb | rb <;>
   rcases sq_eq_sq_iff_eq_or_eq_neg.mp hc with rc | rc <;>
   rcases sq_eq_sq_iff_eq_or_eq_neg.mp hd with rd | rd <;>
-  subst rb rc rd
+  simp only [rb, rc, rd] at hs ⊢
   · left; refine ⟨?_, ?_, ?_, ?_⟩ <;> linear_combination hs / 4
   all_goals first
     | (right; have ha : a = 1 / 2 := by linear_combination hs / 2
