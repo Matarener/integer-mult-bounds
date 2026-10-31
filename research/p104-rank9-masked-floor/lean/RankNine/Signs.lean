@@ -146,8 +146,7 @@ theorem par_xor (w : ℕ → ℕ) (a b : ℕ) : par w (a ^^^ b) = (par w a + par
   rw [← Nat.add_mod, ← Finset.sum_add_distrib]
   conv_lhs => rw [Finset.sum_nat_mod]
   conv_rhs => rw [Finset.sum_nat_mod]
-  congr 1
-  refine Finset.sum_congr rfl fun i _ => ?_
+  refine congrArg (· % 2) (Finset.sum_congr rfl fun i _ => ?_)
   rw [Nat.testBit_xor]
   cases a.testBit i <;> cases b.testBit i <;> simp <;> omega
 
@@ -156,7 +155,7 @@ theorem par_bit (w : ℕ → ℕ) {i : ℕ} (hi : i < 16384) : par w (bitv i) = 
   rw [Finset.sum_eq_single i]
   · simp [Nat.testBit_two_pow_self]
   · intro j _ hj
-    simp [Nat.testBit_two_pow, Ne.symm hj]
+    simp [Ne.symm hj]
   · intro h; exact absurd (Finset.mem_range.mpr hi) h
 
 theorem par_foldl (w : ℕ → ℕ) (g : ℕ → ℕ) :
