@@ -1,6 +1,6 @@
 """Emit RankNine/Cert/Zero<k>.lean (T1 zero step) from the CNF of zero_cnf.py and CaDiCaL's LRAT proof.
 Keeps only the clauses and lemmas the proof needs, renumbers them densely (original clauses first), replays the
-Lean checker RankNine.Zero.entryOK exactly (bit-mask unit propagation along the hints) and writes packed tables.
+Lean checker RankNine.Zero.zEntryOK exactly (bit-mask unit propagation along the hints) and writes packed tables.
 usage: emit_zero.py k cnf origin.json proof.lrat[.xz] out.lean"""
 import sys, json, lzma
 sys.path.insert(0, '.')
@@ -73,7 +73,7 @@ for i in ids:
         P, Q = mask(l)
     CL.append((P, Q))
 n = len(ids)
-# replay entryOK for the lemmas (same arithmetic as RankNine.Zero.unitStep / rupRun)
+# replay zEntryOK for the lemmas (same arithmetic as RankNine.Zero.unitStep / rupRun)
 def log2(x): return x.bit_length() - 1
 def unit(T, F, c):
     rp = c[0] ^ (c[0] & F); rq = c[1] ^ (c[1] & T)
@@ -106,8 +106,8 @@ def Hn : List ℕ := {pack(Hn) if Hn else '[]'}
 ''']
 chunks = [(a, min(CH, n - a)) for a in range(0, n, CH)]
 for i, (a, m) in enumerate(chunks):
-    L.append(f"theorem e{i} : (List.range' {a} {m}).all (entryOK (typeMask.getD {k} 0) Packed{k}.Cv E Lt Hn) = true := by decide +kernel\n")
-L.append(f'theorem entries_ok : ∀ j < n, entryOK (typeMask.getD {k} 0) Packed{k}.Cv E Lt Hn j = true := by\n  intro j hj')
+    L.append(f"theorem e{i} : (List.range' {a} {m}).all (zEntryOK (typeMask.getD {k} 0) Packed{k}.Cv E Lt Hn) = true := by decide +kernel\n")
+L.append(f'theorem entries_ok : ∀ j < n, zEntryOK (typeMask.getD {k} 0) Packed{k}.Cv E Lt Hn j = true := by\n  intro j hj')
 for i, (a, m) in enumerate(chunks):
     if i < len(chunks) - 1:
         L.append(f"  by_cases h{i} : j < {a + m}\n  · exact (all_range'_iff _ {a} {m}).1 e{i} j (by omega) (by omega)")

@@ -202,7 +202,7 @@ def qChk (m t f k1 k2 k3 k4 : ℕ) : Bool :=
 
 def hintList (Hn : List ℕ) (a m : ℕ) : List ℕ := (List.range' a m).map (fld Hn)
 
-def entryOK (m Cv : ℕ) (E Lt Hn : List ℕ) (j : ℕ) : Bool :=
+def zEntryOK (m Cv : ℕ) (E Lt Hn : List ℕ) (j : ℕ) : Bool :=
   if ef E j 0 = 0 then
     relChk m (pcode (ef E j 1) (frL (ef E j 3) (ef E j 4)), pcode (ef E j 2) (frL (ef E j 3) (ef E j 4)),
       pcode (ef E j 1) (frL (ef E j 3) (ef E j 5)), pcode (ef E j 2) (frL (ef E j 3) (ef E j 5)))
@@ -282,10 +282,10 @@ theorem covB_bit {x i : ℕ} (h : covB x i = true) : x.testBit i = true := by
 theorem entry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m : ℕ)
     (hZ : ∀ x, m.testBit x = true → A x ⬝ᵥ u = 0) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (Cv : ℕ) (E Lt Hn : List ℕ)
-    (hgoal : ∃ c, covB Cv c = true ∧ Nc A B c = 0) (j : ℕ) (hok : entryOK m Cv E Lt Hn j = true)
+    (hgoal : ∃ c, covB Cv c = true ∧ Nc A B c = 0) (j : ℕ) (hok : zEntryOK m Cv E Lt Hn j = true)
     (hprev : ∀ i < j, CSat (fun c => Nc A B c = 0) (clAt Cv E Lt i)) :
     CSat (fun c => Nc A B c = 0) (clAt Cv E Lt j) := by
-  unfold entryOK at hok
+  unfold zEntryOK at hok
   unfold clAt
   split_ifs at hok ⊢ with k0 k1 k2
   · simp only [Bool.and_eq_true, decide_eq_true_eq] at hok
@@ -326,7 +326,7 @@ theorem entry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0)
 theorem zero_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m : ℕ)
     (hZ : ∀ x, m.testBit x = true → A x ⬝ᵥ u = 0) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (Cv : ℕ) (E Lt Hn : List ℕ) (n : ℕ)
-    (hall : ∀ j < n, entryOK m Cv E Lt Hn j = true) (hlast : clAt Cv E Lt (n - 1) = (0, 0)) (hn : 0 < n) :
+    (hall : ∀ j < n, zEntryOK m Cv E Lt Hn j = true) (hlast : clAt Cv E Lt (n - 1) = (0, 0)) (hn : 0 < n) :
     ∀ c, covB Cv c = true → Nc A B c ≠ 0 := by
   intro c hc hz
   have hgoal : ∃ c, covB Cv c = true ∧ Nc A B c = 0 := ⟨c, hc, hz⟩
