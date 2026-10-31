@@ -1,10 +1,11 @@
 """Regenerate all T1 moduli certificates and their Lean files (run from this directory).
 For each framed type: gen_moduli.py -> cert/moduli-k.json, sim_moduli.py (same semantics as the Lean checker),
 emit_packed.py -> ../lean/RankNine/Cert/Packed<k>.lean; then ../lean/RankNine/AllModuli.lean imports all passing types.
-Types where the hand route does not close (15 of 387) are reported and skipped.  usage: make_certs.py [workers]"""
+Types where the hand route does not close (15 of 387) are reported and skipped.  usage: make_certs.py [workers] [comma-separated types]"""
 import subprocess, sys, os, time
 from concurrent.futures import ThreadPoolExecutor
 W = int(sys.argv[1]) if len(sys.argv) > 1 else 3
+TYPES = list(map(int, sys.argv[2].split(','))) if len(sys.argv) > 2 else list(range(387))
 DROP = {2: 78, 28: 82, 75: 71, 102: 70, 118: 70, 123: 70, 229: 35}
 os.makedirs('cert', exist_ok=True); os.makedirs('../lean/RankNine/Cert', exist_ok=True)
 T0 = time.time()
@@ -22,7 +23,7 @@ def one(k):
     return k, e.returncode == 0, line[-1]
 good = []
 with ThreadPoolExecutor(W) as ex:
-    for k, ok, msg in ex.map(one, range(387)):
+    for k, ok, msg in ex.map(one, TYPES):
         print('[%7.1fs] type %d %s %s' % (time.time() - T0, k, 'OK' if ok else 'SKIP', msg), flush=True)
         if ok: good.append(k)
 open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d' % k for k in sorted(good)) + '\n')

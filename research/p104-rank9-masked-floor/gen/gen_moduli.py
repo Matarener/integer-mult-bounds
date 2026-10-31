@@ -94,5 +94,6 @@ for q in quadsC:
     r = root[q[0]]
     qf.append([r] + [(rf[c] if c != r else -1) for c in q])
 json.dump({'rep': k, 'rels': [list(R[i]) for i in usedl], 'origin': [list(relo[R[i]]) for i in usedl], 'cov': sorted(covset),
-           'steps': [list(s) for s in steps], 'facts': len(facts), 'quads': quadsC, 'quadfacts': qf, 'ok': ok}, open(outp, 'w'))
+           'steps': [list(s) for s in steps], 'facts': len(facts), 'quads': quadsC, 'quadfacts': qf, 'ok': ok,
+           'table': [[c, root[c], rf.get(c, -1) if c != root[c] else -1] for c in sorted(covset)]}, open(outp, 'w'))
 print('rep', k, 'used relations', len(usedl), 'steps', len(steps), 'quads', len(quads), 'ok', ok)

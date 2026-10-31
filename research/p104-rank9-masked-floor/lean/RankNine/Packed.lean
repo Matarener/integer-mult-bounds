@@ -3,8 +3,8 @@ import RankNine.Moduli
 /-!
 # Bit-packed moduli certificates
 
-All certificate data are single natural numbers with 16-bit fields, so that the kernel reads a field with two
-GMP operations (`>>>`, `%`).  The certificate lists every derived fact explicitly (`F`, two fields per fact), and each
+All certificate data are lists of natural numbers (blocks of 256 fields of 16 bits), so that the kernel reads a
+field with a short list walk and two GMP operations on a 4096-bit block (`>>>`, `%`).  The certificate lists every derived fact explicitly (`F`, two fields per fact), and each
 step is checked locally against earlier facts (`stepOK`).  The local checks can be split into chunks.
 
 Step `i` (five fields of `S`): tag `0` seed `(a, b, oa, ob)`, `1` prop `(a, o, k)`, `2` trans `(k, l)`, `3` symm `k`.
@@ -14,11 +14,11 @@ namespace RankNine
 
 variable {K : Type*} [Field K]
 
-def fld (B k : ℕ) : ℕ := (B >>> (16 * k)) % 65536
+def fld (B : List ℕ) (k : ℕ) : ℕ := ((B.getD (k / 256) 0) >>> (16 * (k % 256))) % 65536
 
-def relAt (R j : ℕ) : Rel := (fld R (4 * j), fld R (4 * j + 1), fld R (4 * j + 2), fld R (4 * j + 3))
+def relAt (R : List ℕ) (j : ℕ) : Rel := (fld R (4 * j), fld R (4 * j + 1), fld R (4 * j + 2), fld R (4 * j + 3))
 
-def factAt (F i : ℕ) : ℕ × ℕ := (fld F (2 * i), fld F (2 * i + 1))
+def factAt (F : List ℕ) (i : ℕ) : ℕ × ℕ := (fld F (2 * i), fld F (2 * i + 1))
 
 def covB (Cv c : ℕ) : Bool := (Cv >>> c) % 2 == 1
 
@@ -78,7 +78,7 @@ theorem symmOK_sound (N : ℕ → K) (g f : ℕ × ℕ) (hg : Fact N g) (hc : sy
   simp only [Fact] at hg ⊢
   exact hg.symm
 
-def stepOK (nR R S F Cv i : ℕ) : Bool :=
+def stepOK (nR : ℕ) (R S F : List ℕ) (Cv i : ℕ) : Bool :=
   if fld S (5 * i) = 0 then
     fld S (5 * i + 1) < nR && fld S (5 * i + 2) < nR &&
       seedOK Cv (orient (fld S (5 * i + 3)) (relAt R (fld S (5 * i + 1))))
@@ -92,7 +92,7 @@ def stepOK (nR R S F Cv i : ℕ) : Bool :=
   else
     fld S (5 * i + 1) < i && symmOK (factAt F (fld S (5 * i + 1))) (factAt F i)
 
-theorem stepOK_sound (N : ℕ → K) (nR R S F Cv : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
+theorem stepOK_sound (N : ℕ → K) (nR : ℕ) (R S F : List ℕ) (Cv : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
     (hcov : ∀ c, covB Cv c = true → N c ≠ 0) (i : ℕ) (hprev : ∀ k < i, Fact N (factAt F k))
     (h : stepOK nR R S F Cv i = true) : Fact N (factAt F i) := by
   unfold stepOK at h
@@ -111,7 +111,7 @@ theorem stepOK_sound (N : ℕ → K) (nR R S F Cv : ℕ) (hrel : ∀ j < nR, hol
     exact symmOK_sound N _ _ (hprev _ hk) hs
 
 /-- all steps below `n` pass the local check ⇒ all facts below `n` are true -/
-theorem steps_sound (N : ℕ → K) (nR R S F Cv n : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
+theorem steps_sound (N : ℕ → K) (nR : ℕ) (R S F : List ℕ) (Cv n : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
     (hcov : ∀ c, covB Cv c = true → N c ≠ 0) (h : ∀ i < n, stepOK nR R S F Cv i = true) :
     ∀ i < n, Fact N (factAt F i) := by
   intro i
@@ -128,15 +128,14 @@ theorem all_range'_iff (P : ℕ → Bool) (a m : ℕ) :
   · intro h i h1 h2; exact h i ⟨by omega, by omega⟩
   · rintro h i ⟨h1, h2⟩; exact h i h1 (by omega)
 
-/-- quadruple `q` (9 fields of `Q`): root `r`, then four (code, fact pointer); pointer 0 means the code is `r` -/
-def qEntryOK (n F Q q j : ℕ) : Bool :=
-  if fld Q (9 * q + 2 + 2 * j) = 0 then fld Q (9 * q + 1 + 2 * j) == fld Q (9 * q)
-  else fld Q (9 * q + 2 + 2 * j) - 1 < n &&
-    factAt F (fld Q (9 * q + 2 + 2 * j) - 1) == (fld Q (9 * q), fld Q (9 * q + 1 + 2 * j))
+/-- code table entry `e` (3 fields of `T`): code `c`, class root `r`, fact pointer `f` (0 means `c = r`) -/
+def tEntryOK (n : ℕ) (F T : List ℕ) (e : ℕ) : Bool :=
+  if fld T (3 * e + 2) = 0 then fld T (3 * e) == fld T (3 * e + 1)
+  else fld T (3 * e + 2) - 1 < n && factAt F (fld T (3 * e + 2) - 1) == (fld T (3 * e + 1), fld T (3 * e))
 
-theorem qEntryOK_sound (N : ℕ → K) (n F Q q j : ℕ) (hF : ∀ i < n, Fact N (factAt F i))
-    (h : qEntryOK n F Q q j = true) : N (fld Q (9 * q + 1 + 2 * j)) ^ 2 = N (fld Q (9 * q)) ^ 2 := by
-  unfold qEntryOK at h
+theorem tEntryOK_sound (N : ℕ → K) (n : ℕ) (F T : List ℕ) (e : ℕ) (hF : ∀ i < n, Fact N (factAt F i))
+    (h : tEntryOK n F T e = true) : N (fld T (3 * e)) ^ 2 = N (fld T (3 * e + 1)) ^ 2 := by
+  unfold tEntryOK at h
   split_ifs at h
   · simp only [beq_iff_eq] at h; rw [h]
   · simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] at h
