@@ -25,8 +25,10 @@ theorem frame_cols_indep (A B : ι → Fin 9 → K) (u : Fin 9 → K) (hu : u �
   have hdot : ∀ k : Fin 8, g k.succ * (A (F k) ⬝ᵥ B (F k)) = 0 := by
     intro k
     have := congrArg (fun v => A (F k) ⬝ᵥ v) hg
-    simp only [Fin.sum_univ_succ, Fin.cons_zero, Fin.cons_succ, dotProduct_add, dotProduct_sum,
-      dotProduct_smul, hdead, smul_eq_mul, mul_zero, zero_add, dotProduct_zero] at this
+    simp only at this
+    rw [Fin.sum_univ_succ, dotProduct_zero, dotProduct_add, dotProduct_sum] at this
+    simp only [Fin.cons_zero, Fin.cons_succ, dotProduct_smul, hdead, smul_eq_mul, mul_zero,
+      zero_add] at this
     rw [Finset.sum_eq_single k] at this
     · rw [mul_comm] at this; rw [mul_comm]; exact this
     · intro l _ hl; rw [hoff k l (Ne.symm hl), mul_zero]
@@ -83,7 +85,8 @@ theorem frame_expansion (A B : ι → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠
   have ht' : A t = ∑ k, c k • A (F k) := sub_eq_zero.mp hw
   rw [ht', sum_dotProduct]
   refine Finset.sum_congr rfl fun k _ => ?_
-  rw [smul_dotProduct, smul_eq_mul, hc]
+  rw [smul_dotProduct, smul_eq_mul]
+  simp only [hc]
   ring
 
 end RankNine
