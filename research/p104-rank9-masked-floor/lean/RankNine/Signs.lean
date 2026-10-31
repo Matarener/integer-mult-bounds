@@ -99,11 +99,11 @@ theorem quad_val {c x1 x2 x3 x4 : K} (h1 : x1 ^ 2 = c ^ 2) (h2 : x2 ^ 2 = c ^ 2)
   rcases sq_eq_sq_iff_eq_or_eq_neg.mp h4 with e4 | e4 <;>
   simp only [e1, e2, e3, e4] at hs ⊢ <;>
   first
-  | (exfalso; exact zero_ne_one (by linear_combination hs : (0 : K) = 1))
-  | ((obtain rfl : c = 1/4 := (by linear_combination hs / 4)); norm_num [sgnN, magN])
-  | ((obtain rfl : c = -1/4 := (by linear_combination -hs / 4)); norm_num [sgnN, magN])
-  | ((obtain rfl : c = 1/2 := (by linear_combination hs / 2)); norm_num [sgnN, magN])
-  | ((obtain rfl : c = -1/2 := (by linear_combination -hs / 2)); norm_num [sgnN, magN])
+  | ((suffices h0 : (0 : K) = 1 by exact absurd h0 zero_ne_one); linear_combination hs)
+  | ((suffices hc : c = 1/4 by subst hc; norm_num [sgnN, magN]); linear_combination hs / 4)
+  | ((suffices hc : c = -1/4 by subst hc; norm_num [sgnN, magN]); linear_combination -hs / 4)
+  | ((suffices hc : c = 1/2 by subst hc; norm_num [sgnN, magN]); linear_combination hs / 2)
+  | ((suffices hc : c = -1/2 by subst hc; norm_num [sgnN, magN]); linear_combination -hs / 2)
 
 theorem inS_of_sq {x c : K} (h : x ^ 2 = c ^ 2) (hc : c ^ 2 = 1/16 ∨ c ^ 2 = 1/4) :
     x = 1/4 ∨ x = -1/4 ∨ x = 1/2 ∨ x = -1/2 := by
@@ -123,7 +123,7 @@ theorem rel_sgn {a b c d : K} (ha : a = 1/4 ∨ a = -1/4 ∨ a = 1/2 ∨ a = -1/
     (sgnN a + sgnN b + sgnN c + sgnN d) % 2 = 0 := by
   rcases ha with rfl | rfl | rfl | rfl <;> rcases hb with rfl | rfl | rfl | rfl <;>
   rcases hc with rfl | rfl | rfl | rfl <;> rcases hd with rfl | rfl | rfl | rfl <;>
-  norm_num [sgnN] at h ⊢
+  revert h <;> norm_num [sgnN]
 
 end values
 
