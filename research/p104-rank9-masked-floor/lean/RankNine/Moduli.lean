@@ -21,21 +21,20 @@ abbrev Rel := ℕ × ℕ × ℕ × ℕ
 def holds (N : ℕ → K) (r : Rel) : Prop := N r.1 * N r.2.1 = N r.2.2.1 * N r.2.2.2
 
 /-- the 8 equivalent orientations of a relation -/
-def orient : ℕ → Rel → Rel
-  | 0, (x, p, y, q) => (x, p, y, q)
-  | 1, (x, p, y, q) => (p, x, y, q)
-  | 2, (x, p, y, q) => (x, p, q, y)
-  | 3, (x, p, y, q) => (p, x, q, y)
-  | 4, (x, p, y, q) => (y, q, x, p)
-  | 5, (x, p, y, q) => (q, y, x, p)
-  | 6, (x, p, y, q) => (y, q, p, x)
-  | _, (x, p, y, q) => (q, y, p, x)
+def orient (o : ℕ) (r : Rel) : Rel :=
+  if o % 8 = 0 then (r.1, r.2.1, r.2.2.1, r.2.2.2)
+  else if o % 8 = 1 then (r.2.1, r.1, r.2.2.1, r.2.2.2)
+  else if o % 8 = 2 then (r.1, r.2.1, r.2.2.2, r.2.2.1)
+  else if o % 8 = 3 then (r.2.1, r.1, r.2.2.2, r.2.2.1)
+  else if o % 8 = 4 then (r.2.2.1, r.2.2.2, r.1, r.2.1)
+  else if o % 8 = 5 then (r.2.2.2, r.2.2.1, r.1, r.2.1)
+  else if o % 8 = 6 then (r.2.2.1, r.2.2.2, r.2.1, r.1)
+  else (r.2.2.2, r.2.2.1, r.2.1, r.1)
 
 theorem orient_holds (N : ℕ → K) (o : ℕ) (r : Rel) (h : holds N r) : holds N (orient o r) := by
-  obtain ⟨x, p, y, q⟩ := r
   simp only [holds] at h
-  unfold orient
-  split <;> simp only [holds] <;>
+  simp only [orient]
+  split_ifs <;> simp only [holds] <;>
     first
     | linear_combination h
     | linear_combination (-1 : K) * h
@@ -99,9 +98,10 @@ theorem stepFact_sound (N : ℕ → K) (rels : List Rel) (cov : List ℕ) (facts
     intro h h1 h2
     simp only at h
     split_ifs at h with hc
-    obtain ⟨rfl, rfl, rfl, rfl, hp, hq⟩ := hc
+    obtain ⟨e1, e2, e3, e4, hp, hq⟩ := hc
     cases h
     simp only [holds] at h1 h2
+    rw [e1, e2, e3, e4] at h2
     simp only [Fact]
     -- h1 : N x * N p = N y * N q, h2 : N x * N q = N y * N p
     have hpq : N p * N q ≠ 0 := mul_ne_zero (hcov p hp) (hcov q hq)
@@ -120,11 +120,12 @@ theorem stepFact_sound (N : ℕ → K) (rels : List Rel) (cov : List ℕ) (facts
     intro h h1 h2
     simp only at h
     split_ifs at h with hc
-    obtain ⟨rfl, rfl, hx⟩ := hc
+    obtain ⟨e1, e2, hx⟩ := hc
     cases h
     simp only [holds] at h1
     simp only [Fact] at h2 ⊢
-    exact propagate (hcov u hx) h2 h1
+    rw [e1, e2] at h2
+    exact propagate (hcov x hx) h2 h1
   | trans k l =>
     have h1 := hF k; have h2 := hF l
     simp only [stepFact] at h
