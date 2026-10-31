@@ -37,7 +37,7 @@ def ui(ri):
     return used[ri]
 facts = []; steps = []
 def add(step, f): steps.append(step); facts.append(f); return len(facts) - 1
-covset = set(C)
+covset = set(C[j] for q in quads for j in q) if os.environ.get('QCOV', '1') == '1' else set(C)   # zero step proves N != 0 only on quadruple pairs
 root = {c: c for c in C}; members = {c: [c] for c in C}; rf = {}     # rf[c] = fact index of (root[c], c)
 def fact_of(u, v):
     """index of a fact (u, v) for u, v in the same class (derived from root facts)."""

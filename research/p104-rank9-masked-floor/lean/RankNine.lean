@@ -8,3 +8,4 @@ import RankNine.OrthTab
 import RankNine.Link
 import RankNine.Signs
 import RankNine.Step5
+import RankNine.Zero

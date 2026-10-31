@@ -20,3 +20,7 @@ import RankNine.AllModuli
 #print axioms RankNine.step5_sound
 #print axioms RankNine.Step5c0.gram
 #print axioms RankNine.Step5c73.gram
+#print axioms RankNine.zero_sound
+#print axioms RankNine.Zero0.cov_ne
+#print axioms RankNine.Zero73.cov_ne
+#print axioms RankNine.Zero0.moduli_full

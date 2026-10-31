@@ -34,11 +34,21 @@ def one(k):
         return k, False, 'step5: ' + ((g3.stdout + g3.stderr).strip().splitlines() or ['?'])[-1]
     e3 = subprocess.run([sys.executable, 'emit_step5.py', str(k), jf, '../lean/RankNine/Cert/Step5c%d.lean' % k], capture_output=True, text=True)
     os.remove(j); os.remove(js); os.remove(jf)
-    return k, e3.returncode == 0, line[-1] + ' | ' + sl[-1].split('] ')[-1] + ' | ' + fl[-1].split('] ')[-1]
+    if e3.returncode != 0: return k, False, 'emit step5 failed'
+    zc, zj, zp = 'cert/zero-%d.cnf' % k, 'cert/zero-%d.json' % k, 'lrat/z%d.lrat.xz' % k
+    if not os.path.exists(zp): return k, False, 'zero: no LRAT proof ' + zp
+    g4 = subprocess.run([sys.executable, 'zero_cnf.py', str(k), zc, zj], env=env, capture_output=True, text=True)
+    e4 = subprocess.run([sys.executable, 'emit_zero.py', str(k), zc, zj, zp, '../lean/RankNine/Cert/Zero%d.lean' % k], capture_output=True, text=True)
+    for p_ in (zc, zj):
+        if os.path.exists(p_): os.remove(p_)
+    zl = [l for l in e4.stdout.splitlines() if 'ZERO OK' in l]
+    if g4.returncode != 0 or e4.returncode != 0 or not zl:
+        return k, False, 'zero: ' + ((g4.stderr + e4.stdout + e4.stderr).strip().splitlines() or ['?'])[-1]
+    return k, True, line[-1] + ' | ' + sl[-1].split('] ')[-1] + ' | ' + fl[-1].split('] ')[-1] + ' | ' + zl[-1]
 good = []
 with ThreadPoolExecutor(W) as ex:
     for k, ok, msg in ex.map(one, TYPES):
         print('[%7.1fs] type %d %s %s' % (time.time() - T0, k, 'OK' if ok else 'SKIP', msg), flush=True)
         if ok: good.append(k)
-open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d\nimport RankNine.Cert.Step5c%d' % (k, k, k) for k in sorted(good)) + '\n')
+open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d\nimport RankNine.Cert.Step5c%d\nimport RankNine.Cert.Zero%d' % (k, k, k, k) for k in sorted(good)) + '\n')
 print('DONE types with Lean certificates', len(good), flush=True)
