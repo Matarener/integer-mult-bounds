@@ -26,12 +26,19 @@ def one(k):
     if g2.returncode != 0 or not sl:
         return k, False, 'signs: ' + ((g2.stdout + g2.stderr).strip().splitlines() or ['?'])[-1]
     e2 = subprocess.run([sys.executable, 'emit_signs.py', str(k), js, '../lean/RankNine/Cert/Signs%d.lean' % k], capture_output=True, text=True)
-    os.remove(j); os.remove(js)
-    return k, e2.returncode == 0, line[-1] + ' | ' + sl[-1].split('] ')[-1]
+    if e2.returncode != 0: return k, False, 'emit signs failed'
+    jf = 'cert/step5-%d.json' % k
+    g3 = subprocess.run([sys.executable, 'gen_step5.py', str(k), j, js, jf], capture_output=True, text=True)
+    fl = [l for l in g3.stdout.splitlines() if 'STEP5 OK' in l]
+    if g3.returncode != 0 or not fl:
+        return k, False, 'step5: ' + ((g3.stdout + g3.stderr).strip().splitlines() or ['?'])[-1]
+    e3 = subprocess.run([sys.executable, 'emit_step5.py', str(k), jf, '../lean/RankNine/Cert/Step5c%d.lean' % k], capture_output=True, text=True)
+    os.remove(j); os.remove(js); os.remove(jf)
+    return k, e3.returncode == 0, line[-1] + ' | ' + sl[-1].split('] ')[-1] + ' | ' + fl[-1].split('] ')[-1]
 good = []
 with ThreadPoolExecutor(W) as ex:
     for k, ok, msg in ex.map(one, TYPES):
         print('[%7.1fs] type %d %s %s' % (time.time() - T0, k, 'OK' if ok else 'SKIP', msg), flush=True)
         if ok: good.append(k)
-open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d' % (k, k) for k in sorted(good)) + '\n')
+open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d\nimport RankNine.Cert.Step5c%d' % (k, k, k) for k in sorted(good)) + '\n')
 print('DONE types with Lean certificates', len(good), flush=True)

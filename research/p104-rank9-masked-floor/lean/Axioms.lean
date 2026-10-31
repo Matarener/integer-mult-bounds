@@ -17,3 +17,6 @@ import RankNine.AllModuli
 #print axioms RankNine.quad_quarter
 #print axioms RankNine.Signs0.mags
 #print axioms RankNine.Signs73.mags
+#print axioms RankNine.step5_sound
+#print axioms RankNine.Step5c0.gram
+#print axioms RankNine.Step5c73.gram
