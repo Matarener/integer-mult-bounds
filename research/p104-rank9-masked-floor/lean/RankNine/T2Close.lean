@@ -80,10 +80,10 @@ theorem cval_single (c : ℕ → K) (n k : ℕ) (hk : k < n) : cval c n (2 ^ k) 
     · subst e
       have : ∀ j ∈ List.range k, (2 ^ k).testBit j = false := by
         intro j hj; rw [Nat.testBit_two_pow]; have := List.mem_range.mp hj; simp; omega
-      rw [List.map_congr_left (fun j hj => by rw [this j hj]; rfl)]
+      rw [List.map_congr_left (fun j hj => by rw [this j hj])]
       simp [Nat.testBit_two_pow]
     · rw [ih (by omega)]
-      simp [Nat.testBit_two_pow, Ne.symm e]
+      simp [Nat.testBit_two_pow, e]
 
 /-! ## Certificate data and checks -/
 
@@ -167,8 +167,7 @@ theorem cval_sq_of {i x : ℕ} (hI : Inv C v i) (hx : ∀ k, x.testBit k = true 
     cval (cls C v) C.n x * cval (cls C v) C.n x = 1 :=
   cval_sq _ _ _ fun k _ hb => hI.2.1 k (hx k hb).1 (hx k hb).2
 
-theorem inv_eq_self {a : K} (h : a * a = 1) : a⁻¹ = a := by
-  rw [inv_eq_of_eq_inv]; rw [eq_inv_iff_mul_eq_one]; exact h
+theorem inv_eq_self {a : K} (h : a * a = 1) : a⁻¹ = a := inv_eq_of_mul_eq_one_right h
 
 theorem sv_asg {i q : ℕ} (hI : Inv C v i) (hW : WF C) (hq : od C (q / 2) < i) :
     sv v q = cval (cls C v) C.n (mk C (q / 2)) := by
@@ -201,5 +200,98 @@ theorem prod_asg {i : ℕ} (hI : Inv C v i) (hW : WF C) : ∀ (l : List ℕ) (a 
       rcases h with h | h
       · exact hI.2.1 k hk (ha k h).2
       · exact hI.2.1 k hk (lt_of_le_of_lt (hW _ k h).2 hq)
+
+
+/-- every set bit of `x` is a class `< n` created before step `i` -/
+def bitsB (C : Cert) (i x : ℕ) : Bool :=
+  (List.range C.n).all (fun k => !x.testBit k || decide (C.CO.getD k 1000000000 < i)) && decide (x < 2 ^ C.n)
+
+theorem bits_of {i x : ℕ} (h : bitsB C i x = true) :
+    ∀ k, x.testBit k = true → k < C.n ∧ C.CO.getD k 1000000000 < i := by
+  unfold bitsB at h
+  simp only [Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true, List.mem_range] at h
+  intro k hk
+  have hkn : k < C.n := by
+    by_contra hc
+    have : x < 2 ^ k := lt_of_lt_of_le h.2 (Nat.pow_le_pow_right (by norm_num) (by omega))
+    rw [Nat.testBit_lt_two_pow this] at hk
+    exact absurd hk (by simp)
+  have := h.1 k hkn
+  rw [hk] at this
+  simp at this
+  exact ⟨hkn, this⟩
+
+/-- peel `[0, r₁, r₂, e]`, with the bit check of the new mask -/
+def peelB (C : Cert) (i : ℕ) (s : List ℕ) : Bool := peelOK C i s && bitsB C i (mk C (s.getD 3 0))
+
+theorem filter_not_asg_nil {i : ℕ} {r : List ℕ} (h : r.filter (fun q => !asg C i q) = []) :
+    ∀ q ∈ r, asg C i q = true := by
+  intro q hq
+  by_contra hc
+  have : q ∈ r.filter (fun q => !asg C i q) := List.mem_filter.mpr ⟨hq, by simpa using hc⟩
+  rw [h] at this
+  simp at this
+
+theorem peel_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI : Inv C v i) {s : List ℕ}
+    (hok : peelB C i s = true) : v (s.getD 3 0) = cval (cls C v) C.n (mk C (s.getD 3 0)) := by
+  unfold peelB at hok
+  rw [Bool.and_eq_true] at hok
+  obtain ⟨hp, hbits⟩ := hok
+  unfold peelOK at hp
+  split at hp
+  next q hq =>
+    simp only [Bool.and_eq_true, decide_eq_true_eq] at hp
+    obtain ⟨⟨he, _⟩, htr⟩ := hp
+    have h1 := rp_rel C v hrel (s.getD 1 0) (s.getD 2 0)
+    unfold rp at h1
+    rw [prod_split (sv v) (asg C i)] at h1
+    have hq' : (rel C (s.getD 1 0) (s.getD 2 0)).filter (fun q => !asg C i q) = [q] := hq
+    rw [hq'] at h1
+    simp only [List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one] at h1
+    have hpa := prod_asg C v hI hW ((rel C (s.getD 1 0) (s.getD 2 0)).filter (asg C i)) 0
+      (fun q hq => (List.mem_filter.mp hq).2) (by simp)
+    rw [cval_zero, one_mul] at hpa
+    rw [hpa] at h1
+    set X := xm C 0 ((rel C (s.getD 1 0) (s.getD 2 0)).filter (asg C i))
+    set e := s.getD 3 0
+    have hX : cval (cls C v) C.n X = cval (cls C v) C.n (mk C e) := by
+      apply cval_fix
+      intro k hk hb
+      have := List.all_eq_true.mp htr k (List.mem_range.mpr hk)
+      rw [hb] at this
+      simp at this
+      exact hI.2.2 k hk this
+    rw [hX] at h1
+    have hsq := cval_sq_of C v hI (bits_of C hbits)
+    have hsv : sv v q = cval (cls C v) C.n (mk C e) := by
+      have := eq_inv_of_mul_eq_one_right h1
+      rw [this, inv_eq_self hsq]
+    unfold sv at hsv
+    rw [he] at hsv
+    split_ifs at hsv
+    · exact hsv
+    · rw [← inv_inv (v e), hsv, inv_eq_self hsq]
+  next => simp at hp
+
+theorem fix_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI : Inv C v i) {s : List ℕ}
+    (hok : fixOK C i s = true) : cls C v (s.getD 1 0) = 1 := by
+  unfold fixOK at hok
+  simp only [Bool.and_eq_true, decide_eq_true_eq, List.isEmpty_iff] at hok
+  obtain ⟨⟨⟨_, hk⟩, hnil⟩, htr⟩ := hok
+  have hall := filter_not_asg_nil C hnil
+  have h1 := rp_rel C v hrel (s.getD 2 0) (s.getD 3 0)
+  have hpa := prod_asg C v hI hW (rel C (s.getD 2 0) (s.getD 3 0)) 0 hall (by simp)
+  rw [cval_zero, one_mul] at hpa
+  unfold rp at h1
+  rw [h1] at hpa
+  have hfx : cval (cls C v) C.n (2 ^ (s.getD 1 0)) = cval (cls C v) C.n (xm C 0 (rel C (s.getD 2 0) (s.getD 3 0))) := by
+    apply cval_fix
+    intro k hk' hb
+    have := List.all_eq_true.mp htr k (List.mem_range.mpr hk')
+    rw [Nat.xor_comm, hb] at this
+    simp at this
+    exact hI.2.2 k hk' this
+  rw [← cval_single (cls C v) C.n _ hk, hfx]
+  exact hpa.symm
 
 end RankNine.T2
