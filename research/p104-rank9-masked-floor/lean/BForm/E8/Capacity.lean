@@ -96,9 +96,14 @@ theorem count_id (z1 z2 : V9) :
       (univ.filter fun t : Fin 104 => labK t ⬝ᵥ z1 ≠ 0).card +
       (univ.filter fun t : Fin 104 => labK t ⬝ᵥ z2 ≠ 0).card +
       (univ.filter fun t : Fin 104 => labK t ⬝ᵥ (z1 + z2) ≠ 0).card = 208 := by
+  have key : ∀ t ∈ (univ : Finset (Fin 104)),
+      2 * (if labK t ⬝ᵥ z1 = 0 ∧ labK t ⬝ᵥ z2 = 0 then 1 else 0) + (if labK t ⬝ᵥ z1 ≠ 0 then 1 else 0) +
+        (if labK t ⬝ᵥ z2 ≠ 0 then 1 else 0) + (if labK t ⬝ᵥ (z1 + z2) ≠ 0 then 1 else 0) = 2 := by
+    intro t _
+    rw [dotProduct_add]
+    exact pt2 _ _
   rw [Finset.card_filter, Finset.card_filter, Finset.card_filter, Finset.card_filter, Finset.mul_sum,
-    ← Finset.sum_add_distrib, ← Finset.sum_add_distrib, ← Finset.sum_add_distrib]
-  rw [Finset.sum_congr rfl fun t _ => by rw [dotProduct_add]; exact pt2 _ _]
+    ← Finset.sum_add_distrib, ← Finset.sum_add_distrib, ← Finset.sum_add_distrib, Finset.sum_congr rfl key]
   simp only [Finset.sum_const, Finset.card_univ, Fintype.card_fin, smul_eq_mul]
 
 theorem fact44 {z : V9} (hz : z ≠ 0) :
