@@ -96,11 +96,15 @@ structure Cert where
   RT : List ℕ
   CO : List ℕ
   FO : List ℕ
+  PD : List ℕ
+  PR : List ℕ
+  SG : List ℕ
   n : ℕ
 
 def od (C : Cert) (e : ℕ) : ℕ := C.OD.getD e 1000000000
 def mk (C : Cert) (e : ℕ) : ℕ := C.MK.getD e 0
-def rel (C : Cert) (a b : ℕ) : List ℕ := C.RS.getD a [] ++ C.RS.getD b []
+/-- the product relation of a list of relation indices -/
+def relL (C : Cert) (l : List ℕ) : List ℕ := l.flatMap fun a => C.RS.getD a []
 
 
 /-- `x` uses only classes fixed before step `i` -/
@@ -114,18 +118,18 @@ def asg (C : Cert) (i q : ℕ) : Bool := decide (od C (q / 2) < i)
 
 def unas (C : Cert) (i : ℕ) (r : List ℕ) : List ℕ := r.filter fun q => !asg C i q
 
-/-- peel `[0, r₁, r₂, e]` -/
+/-- peel `[0, e, r₁, r₂, …]` -/
 def peelOK (C : Cert) (i : ℕ) (s : List ℕ) : Bool :=
-  match unas C i (rel C (s.getD 1 0) (s.getD 2 0)) with
-  | [q] => decide (q / 2 = s.getD 3 0) && decide (od C (s.getD 3 0) = i) &&
-      trivB C i (xm C 0 ((rel C (s.getD 1 0) (s.getD 2 0)).filter (asg C i)) ^^^ mk C (s.getD 3 0))
+  match unas C i (relL C (s.drop 2)) with
+  | [q] => decide (q / 2 = s.getD 1 0) && decide (od C (s.getD 1 0) = i) &&
+      trivB C i (xm C 0 ((relL C (s.drop 2)).filter (asg C i)) ^^^ mk C (s.getD 1 0))
   | _ => false
 
-/-- fix `[2, k, r₁, r₂]` -/
+/-- fix `[2, k, r₁, r₂, …]` -/
 def fixOK (C : Cert) (i : ℕ) (s : List ℕ) : Bool :=
   decide (C.FO.getD (s.getD 1 0) 1000000000 = i) && decide (s.getD 1 0 < C.n) &&
-    (unas C i (rel C (s.getD 2 0) (s.getD 3 0))).isEmpty &&
-    trivB C i (xm C 0 (rel C (s.getD 2 0) (s.getD 3 0)) ^^^ 2 ^ (s.getD 1 0))
+    (unas C i (relL C (s.drop 2))).isEmpty &&
+    trivB C i (xm C 0 (relL C (s.drop 2)) ^^^ 2 ^ (s.getD 1 0))
 
 /-! ## Soundness -/
 
@@ -142,16 +146,19 @@ def Inv (i : ℕ) : Prop :=
 /-- masks only use classes created no later than the edge -/
 def WF : Prop := ∀ e k, (mk C e).testBit k = true → k < C.n ∧ C.CO.getD k 1000000000 ≤ od C e
 
-theorem rp_rel (hrel : ∀ r ∈ C.RS, rp v r = 1) (a b : ℕ) : rp v (rel C a b) = 1 := by
-  have h : ∀ x, rp v (C.RS.getD x []) = 1 := by
-    intro x
-    rw [List.getD_eq_getElem?_getD]
-    cases hx : C.RS[x]? with
-    | none => simp [rp]
-    | some r => exact hrel r (List.mem_of_getElem? hx)
-  unfold rel rp; rw [List.map_append, List.prod_append]
-  exact by rw [show (List.map (sv v) (C.RS.getD a [])).prod = 1 from h a,
-    show (List.map (sv v) (C.RS.getD b [])).prod = 1 from h b, one_mul]
+theorem rp_relL (hrel : ∀ r ∈ C.RS, rp v r = 1) (l : List ℕ) : rp v (relL C l) = 1 := by
+  induction l with
+  | nil => simp [relL, rp]
+  | cons a l ih =>
+    have h : rp v (C.RS.getD a []) = 1 := by
+      rw [List.getD_eq_getElem?_getD]
+      cases hx : C.RS[a]? with
+      | none => simp [rp]
+      | some r => exact hrel r (List.mem_of_getElem? hx)
+    unfold relL at ih ⊢
+    rw [List.flatMap_cons]
+    unfold rp at h ih ⊢
+    rw [List.map_append, List.prod_append, h, ih, one_mul]
 
 theorem triv_cval {i x : ℕ} (hI : Inv C v i) (h : trivB C i x = true) : cval (cls C v) C.n x = 1 := by
   rw [← cval_zero (cls C v) C.n]
@@ -222,7 +229,7 @@ theorem bits_of {i x : ℕ} (h : bitsB C i x = true) :
   exact ⟨hkn, this⟩
 
 /-- peel `[0, r₁, r₂, e]`, with the bit check of the new mask -/
-def peelB (C : Cert) (i : ℕ) (s : List ℕ) : Bool := peelOK C i s && bitsB C i (mk C (s.getD 3 0))
+def peelB (C : Cert) (i : ℕ) (s : List ℕ) : Bool := peelOK C i s && bitsB C i (mk C (s.getD 1 0))
 
 theorem filter_not_asg_nil {i : ℕ} {r : List ℕ} (h : r.filter (fun q => !asg C i q) = []) :
     ∀ q ∈ r, asg C i q = true := by
@@ -233,7 +240,7 @@ theorem filter_not_asg_nil {i : ℕ} {r : List ℕ} (h : r.filter (fun q => !asg
   simp at this
 
 theorem peel_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI : Inv C v i) {s : List ℕ}
-    (hok : peelB C i s = true) : v (s.getD 3 0) = cval (cls C v) C.n (mk C (s.getD 3 0)) := by
+    (hok : peelB C i s = true) : v (s.getD 1 0) = cval (cls C v) C.n (mk C (s.getD 1 0)) := by
   unfold peelB at hok
   rw [Bool.and_eq_true] at hok
   obtain ⟨hp, hbits⟩ := hok
@@ -242,18 +249,18 @@ theorem peel_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI
   next q hq =>
     simp only [Bool.and_eq_true, decide_eq_true_eq] at hp
     obtain ⟨⟨he, _⟩, htr⟩ := hp
-    have h1 := rp_rel C v hrel (s.getD 1 0) (s.getD 2 0)
+    have h1 := rp_relL C v hrel (s.drop 2)
     unfold rp at h1
     rw [prod_split (sv v) (asg C i)] at h1
-    have hq' : (rel C (s.getD 1 0) (s.getD 2 0)).filter (fun q => !asg C i q) = [q] := hq
+    have hq' : (relL C (s.drop 2)).filter (fun q => !asg C i q) = [q] := hq
     rw [hq'] at h1
     simp only [List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one] at h1
-    have hpa := prod_asg C v hI hW ((rel C (s.getD 1 0) (s.getD 2 0)).filter (asg C i)) 0
+    have hpa := prod_asg C v hI hW ((relL C (s.drop 2)).filter (asg C i)) 0
       (fun q hq => (List.mem_filter.mp hq).2) (by simp)
     rw [cval_zero, one_mul] at hpa
     rw [hpa] at h1
-    set X := xm C 0 ((rel C (s.getD 1 0) (s.getD 2 0)).filter (asg C i))
-    set e := s.getD 3 0
+    set X := xm C 0 ((relL C (s.drop 2)).filter (asg C i))
+    set e := s.getD 1 0
     have hX : cval (cls C v) C.n X = cval (cls C v) C.n (mk C e) := by
       apply cval_fix
       intro k hk hb
@@ -279,12 +286,12 @@ theorem fix_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI 
   simp only [Bool.and_eq_true, decide_eq_true_eq, List.isEmpty_iff] at hok
   obtain ⟨⟨⟨_, hk⟩, hnil⟩, htr⟩ := hok
   have hall := filter_not_asg_nil C hnil
-  have h1 := rp_rel C v hrel (s.getD 2 0) (s.getD 3 0)
-  have hpa := prod_asg C v hI hW (rel C (s.getD 2 0) (s.getD 3 0)) 0 hall (by simp)
+  have h1 := rp_relL C v hrel (s.drop 2)
+  have hpa := prod_asg C v hI hW (relL C (s.drop 2)) 0 hall (by simp)
   rw [cval_zero, one_mul] at hpa
   unfold rp at h1
   rw [h1] at hpa
-  have hfx : cval (cls C v) C.n (2 ^ (s.getD 1 0)) = cval (cls C v) C.n (xm C 0 (rel C (s.getD 2 0) (s.getD 3 0))) := by
+  have hfx : cval (cls C v) C.n (2 ^ (s.getD 1 0)) = cval (cls C v) C.n (xm C 0 (relL C (s.drop 2))) := by
     apply cval_fix
     intro k hk' hb
     have := List.all_eq_true.mp htr k (List.mem_range.mpr hk')
@@ -293,5 +300,181 @@ theorem fix_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI 
     exact hI.2.2 k hk' this
   rw [← cval_single (cls C v) C.n _ hk, hfx]
   exact hpa.symm
+
+/-! ## Components: pending edges `v e = pw (v root) σ`, resolved by one equation -/
+
+def pd (C : Cert) (e : ℕ) : ℕ := C.PD.getD e 1000000000
+def pr (C : Cert) (e : ℕ) : ℕ := C.PR.getD e 0
+def sg (C : Cert) (e : ℕ) : ℕ := C.SG.getD e 0
+
+/-- signed power -/
+def pw (r : K) (σ : ℕ) : K := if σ % 2 = 0 then r else r⁻¹
+
+/-- root `[4, root]` -/
+def rootOK (C : Cert) (i : ℕ) (s : List ℕ) : Bool :=
+  decide (pd C (s.getD 1 0) = i) && decide (pr C (s.getD 1 0) = s.getD 1 0) && decide (sg C (s.getD 1 0) % 2 = 0)
+
+/-- link `[3, m, p, r₁, …]`: only `m` and `p` (pending, same root) are unknown; `σ m` from `σ p` -/
+def linkOK (C : Cert) (i : ℕ) (s : List ℕ) : Bool :=
+  let m := s.getD 1 0; let p := s.getD 2 0; let R := relL C (s.drop 3)
+  decide (pd C m = i) && decide (pd C p < i) && decide (pr C m = pr C p) &&
+    trivB C i (xm C 0 (R.filter (asg C i))) &&
+    match unas C i R with
+    | [a, b] => (decide (a / 2 = m) && decide (b / 2 = p) && decide ((sg C m + a + sg C p + b + 1) % 2 = 0)) ||
+                (decide (a / 2 = p) && decide (b / 2 = m) && decide ((sg C m + b + sg C p + a + 1) % 2 = 0))
+    | _ => false
+
+/-- exponent count of a pending part: `(#r, #r⁻¹)` -/
+def cnt (C : Cert) (l : List ℕ) : ℕ × ℕ :=
+  l.foldl (fun c q => if (sg C (q / 2) + q) % 2 = 0 then (c.1 + 1, c.2) else (c.1, c.2 + 1)) (0, 0)
+
+/-- equation `[1, root, mode, k, r₁, …]`: the unknown part lies in the component of `root`; mode 0: exponent
+`±1`, the root gets the mask of the assigned part; mode 1: exponent `±2`, trivial assigned part, new class `k`. -/
+def eqOK (C : Cert) (i : ℕ) (s : List ℕ) : Bool :=
+  let root := s.getD 1 0; let R := relL C (s.drop 4); let U := unas C i R
+  let X := xm C 0 (R.filter (asg C i)); let c := cnt C U
+  decide (pd C root < i) && decide (pr C root = root) && decide (sg C root % 2 = 0) &&
+    U.all (fun q => decide (pd C (q / 2) < i) && decide (pr C (q / 2) = root)) &&
+    (if s.getD 2 0 = 0 then
+      (decide (c.1 = c.2 + 1) || decide (c.2 = c.1 + 1)) && bitsB C i X
+    else
+      (decide (c.1 = c.2 + 2) || decide (c.2 = c.1 + 2)) && trivB C i X && decide (s.getD 3 0 < C.n) &&
+        decide (C.CO.getD (s.getD 3 0) 1000000000 = i) && decide (C.RT.getD (s.getD 3 0) 0 = root))
+
+/-! ## Soundness of links and equations -/
+
+theorem pw_inv (r : K) (x : ℕ) : (pw r x)⁻¹ = pw r (x + 1) := by
+  unfold pw; by_cases h : x % 2 = 0
+  · rw [if_pos h, if_neg (by omega)]
+  · rw [if_neg h, if_pos (by omega), inv_inv]
+
+theorem pw_mod (r : K) (x y : ℕ) (h : x % 2 = y % 2) : pw r x = pw r y := by
+  unfold pw; rw [h]
+
+/-- value of a signed pending edge -/
+theorem sv_pend {r : K} {q : ℕ} (h : v (q / 2) = pw r (sg C (q / 2))) : sv v q = pw r (sg C (q / 2) + q) := by
+  unfold sv
+  by_cases hq : q % 2 = 0
+  · rw [if_pos hq, h]; exact pw_mod r _ _ (by omega)
+  · rw [if_neg hq, h, pw_inv]; exact pw_mod r _ _ (by omega)
+
+def PInv (i : ℕ) : Prop := ∀ e, pd C e < i → v e = pw (v (pr C e)) (sg C e)
+
+/-- the assigned part of a relation is trivial once its mask is -/
+theorem asg_part_one {i : ℕ} (hW : WF C) (hI : Inv C v i) {R : List ℕ} (htr : trivB C i (xm C 0 (R.filter (asg C i))) = true) :
+    ((R.filter (asg C i)).map (sv v)).prod = 1 := by
+  have hpa := prod_asg C v hI hW (R.filter (asg C i)) 0 (fun q hq => (List.mem_filter.mp hq).2) (by simp)
+  rw [cval_zero, one_mul] at hpa
+  rw [hpa]; exact triv_cval C v hI htr
+
+theorem link_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI : Inv C v i) (hP : PInv C v i)
+    {s : List ℕ} (hok : linkOK C i s = true) :
+    v (s.getD 1 0) = pw (v (pr C (s.getD 1 0))) (sg C (s.getD 1 0)) := by
+  unfold linkOK at hok
+  simp only [Bool.and_eq_true, decide_eq_true_eq] at hok
+  obtain ⟨⟨⟨⟨hm, hp⟩, hpr⟩, htr⟩, hmt⟩ := hok
+  set m := s.getD 1 0; set p := s.getD 2 0; set R := relL C (s.drop 3)
+  have h1 := rp_relL C v hrel (s.drop 3)
+  unfold rp at h1
+  rw [prod_split (sv v) (asg C i), asg_part_one C v hW hI htr, one_mul] at h1
+  have hvp := hP p hp
+  rw [← hpr] at hvp
+  set r := v (pr C m)
+  have key : ∀ a b : ℕ, a / 2 = m → b / 2 = p → (sg C m + a + sg C p + b + 1) % 2 = 0 →
+      sv v a * sv v b = 1 → v m = pw r (sg C m) := by
+    intro a b ha hb hpar hab
+    have hsb : sv v b = pw r (sg C p + b) := by rw [← hb] at hvp ⊢; exact sv_pend C v hvp
+    rw [hsb] at hab
+    have hsa : sv v a = pw r (sg C p + b + 1) := by rw [← pw_inv]; exact eq_inv_of_mul_eq_one_left hab
+    unfold sv at hsa; rw [ha] at hsa
+    by_cases hq : a % 2 = 0
+    · rw [if_pos hq] at hsa; rw [hsa]; exact pw_mod r _ _ (by omega)
+    · rw [if_neg hq] at hsa; rw [← inv_inv (v m), hsa, pw_inv]; exact pw_mod r _ _ (by omega)
+  have hU : (R.filter fun q => !asg C i q) = unas C i R := rfl
+  rw [hU] at h1
+  split at hmt
+  next a b hab =>
+    rw [hab] at h1
+    simp only [List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one] at h1
+    simp only [Bool.or_eq_true, Bool.and_eq_true, decide_eq_true_eq] at hmt
+    rcases hmt with ⟨⟨ha, hb⟩, hpar⟩ | ⟨⟨ha, hb⟩, hpar⟩
+    · exact key a b ha hb hpar h1
+    · exact key b a hb ha hpar (by rw [mul_comm]; exact h1)
+  next => simp at hmt
+
+theorem cnt_prod {r : K} (hr : r ≠ 0) : ∀ (l : List ℕ) (c : ℕ × ℕ),
+    (∀ q ∈ l, sv v q = pw r (sg C (q / 2) + q)) →
+    r ^ c.1 * r⁻¹ ^ c.2 * (l.map (sv v)).prod =
+      r ^ (l.foldl (fun c q => if (sg C (q / 2) + q) % 2 = 0 then (c.1 + 1, c.2) else (c.1, c.2 + 1)) c).1 *
+      r⁻¹ ^ (l.foldl (fun c q => if (sg C (q / 2) + q) % 2 = 0 then (c.1 + 1, c.2) else (c.1, c.2 + 1)) c).2 := by
+  intro l
+  induction l with
+  | nil => intro c _; simp
+  | cons q l ih =>
+    intro c hl
+    rw [List.foldl_cons, ← ih _ (fun q' h' => hl q' (by simp [h']))]
+    rw [List.map_cons, List.prod_cons, hl q (by simp)]
+    unfold pw
+    split_ifs with h
+    · simp only; ring
+    · simp only; ring
+
+theorem eq_sound {i : ℕ} (hrel : ∀ r ∈ C.RS, rp v r = 1) (hW : WF C) (hI : Inv C v i) (hP : PInv C v i)
+    (hv : ∀ e, v e ≠ 0) {s : List ℕ} (hok : eqOK C i s = true) :
+    (s.getD 2 0 = 0 → v (s.getD 1 0) * v (s.getD 1 0) = 1 ∧
+      v (s.getD 1 0) = cval (cls C v) C.n (xm C 0 ((relL C (s.drop 4)).filter (asg C i)))) ∧
+    (s.getD 2 0 ≠ 0 → v (s.getD 1 0) * v (s.getD 1 0) = 1) := by
+  unfold eqOK at hok
+  simp only [Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true] at hok
+  obtain ⟨⟨⟨⟨hpd, hpr⟩, hsg⟩, hU⟩, hmode⟩ := hok
+  set root := s.getD 1 0; set R := relL C (s.drop 4)
+  set X := xm C 0 (R.filter (asg C i))
+  set r := v root
+  have hr : r ≠ 0 := hv root
+  have h1 := rp_relL C v hrel (s.drop 4)
+  unfold rp at h1
+  rw [prod_split (sv v) (asg C i)] at h1
+  have hpa := prod_asg C v hI hW (R.filter (asg C i)) 0 (fun q hq => (List.mem_filter.mp hq).2) (by simp)
+  rw [cval_zero, one_mul] at hpa
+  rw [hpa] at h1
+  have hsvU : ∀ q ∈ unas C i R, sv v q = pw r (sg C (q / 2) + q) := by
+    intro q hq
+    obtain ⟨hq1, hq2⟩ := hU q hq
+    have := hP _ hq1
+    rw [hq2] at this
+    exact sv_pend C v this
+  have hc := cnt_prod C v hr (unas C i R) (0, 0) hsvU
+  simp only [pow_zero, one_mul] at hc
+  have hU' : (R.filter fun q => !asg C i q) = unas C i R := rfl
+  rw [hU', hc] at h1
+  set c := cnt C (unas C i R) with hcdef
+  have hcc : c = (unas C i R).foldl (fun c q => if (sg C (q / 2) + q) % 2 = 0 then (c.1 + 1, c.2) else (c.1, c.2 + 1)) (0, 0) := rfl
+  rw [← hcc] at h1
+  -- h1 : cval X * (r ^ c.1 * r⁻¹ ^ c.2) = 1
+  have hrr : ∀ a b : ℕ, r ^ (b + a) * r⁻¹ ^ b = r ^ a := by
+    intro a b; rw [pow_add, inv_pow]; field_simp
+  have hrr' : ∀ a b : ℕ, r ^ b * r⁻¹ ^ (b + a) = r⁻¹ ^ a := by
+    intro a b; rw [pow_add, inv_pow, inv_pow, inv_pow]; field_simp
+  split_ifs at hmode with hm0
+  · simp only [Bool.and_eq_true, Bool.or_eq_true, decide_eq_true_eq] at hmode
+    obtain ⟨hc12, hbits⟩ := hmode
+    have hsq := cval_sq_of C v hI (bits_of C hbits)
+    have hrX : r = cval (cls C v) C.n X := by
+      rcases hc12 with h | h
+      · rw [h, add_comm, hrr 1, pow_one] at h1
+        have := eq_inv_of_mul_eq_one_right h1
+        rw [this, inv_eq_self hsq]
+      · rw [h, add_comm, hrr' 1, pow_one] at h1
+        have := eq_inv_of_mul_eq_one_right h1
+        rw [← inv_inv r, this, inv_inv]
+    refine ⟨fun _ => ⟨by rw [hrX]; exact hsq, hrX⟩, fun h => absurd hm0 h⟩
+  · simp only [Bool.and_eq_true, Bool.or_eq_true, decide_eq_true_eq] at hmode
+    obtain ⟨⟨⟨⟨⟨hc12, htr⟩, _⟩, _⟩, _⟩⟩ := hmode
+    rw [triv_cval C v hI htr, one_mul] at h1
+    refine ⟨fun h => absurd h hm0, fun _ => ?_⟩
+    rcases hc12 with h | h
+    · rw [h, add_comm, hrr 2] at h1; rw [← pow_two]; exact h1
+    · rw [h, add_comm, hrr' 2, inv_pow] at h1
+      rw [← pow_two]; exact inv_eq_one.mp h1
 
 end RankNine.T2
