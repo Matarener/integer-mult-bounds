@@ -144,7 +144,11 @@ theorem gMask_bit : ∀ (n c : ℕ), c < n → (gMask n).testBit (TAG + c) = tru
     · rw [ih c h']; rfl
     · subst h'; rw [(bit_pow _ _).2 rfl, Bool.or_true]
 
-def sf (E : List ℕ) (j r : ℕ) : ℕ := fld E (5 * j + r)
+def sf (E : List ℕ) (j r : ℕ) : ℕ := fld E (7 * j + r)
+
+/-- hints `(clause, unit variable)`, three fields each (clause index split in two 16-bit fields) -/
+def hint3 (Hn : List ℕ) (a m : ℕ) : List (ℕ × ℕ) :=
+  (List.range' a m).map (fun i => (fld Hn (3 * i) + 65536 * fld Hn (3 * i + 1), fld Hn (3 * i + 2)))
 
 def qAtoms (QS : List ℕ) (r : ℕ) : List ℕ :=
   [pcode (qRow QS r 0) (frL (qRow QS r 1) (qRow QS r 2)), pcode (qRow QS r 0) (frL (qRow QS r 1) (qRow QS r 3)),
@@ -162,7 +166,7 @@ def sClAt (nK : ℕ) (T QS RS E Lt : List ℕ) (j : ℕ) : ℕ × ℕ :=
   else if sf E j 0 = 1 then patCl (rSAtoms T RS (sf E j 1)) (sf E j 2)
   else if sf E j 0 = 2 then patCl (rMAtoms RS (sf E j 1)) (sf E j 2)
   else if sf E j 0 = 3 then (gMask nK, 0)
-  else (litMask Lt 1 (sf E j 1) (sf E j 2), litMask Lt 0 (sf E j 1) (sf E j 2))
+  else (litMask Lt 1 (sf E j 1 + 65536 * sf E j 2) (sf E j 3), litMask Lt 0 (sf E j 1 + 65536 * sf E j 2) (sf E j 3))
 
 def sEntryOK (m nQ nK nq nr : ℕ) (T CR QS RS E Lt Hn : List ℕ) (j : ℕ) : Bool :=
   if sf E j 0 = 0 then
@@ -176,8 +180,8 @@ def sEntryOK (m nQ nK nq nr : ℕ) (T CR QS RS E Lt Hn : List ℕ) (j : ℕ) : B
       decide (sf E j 2 % 2 + sf E j 2 / 2 % 2 ≠ sf E j 2 / 4 % 2 + sf E j 2 / 8 % 2)
   else if sf E j 0 = 3 then true
   else
-    (hintList Hn (sf E j 3) (sf E j 4)).all (fun h => decide (h.1 < j)) &&
-      rupRun (sClAt nK T QS RS E Lt) (hintList Hn (sf E j 3) (sf E j 4))
+    (hint3 Hn (sf E j 4 + 65536 * sf E j 5) (sf E j 6)).all (fun h => decide (h.1 < j)) &&
+      rupRun (sClAt nK T QS RS E Lt) (hint3 Hn (sf E j 4 + 65536 * sf E j 5) (sf E j 6))
         (sClAt nK T QS RS E Lt j).2 (sClAt nK T QS RS E Lt j).1
 
 theorem patMatch5 {v0 v1 v2 v3 v4 p : ℕ} (h : patMatch [v0, v1, v2, v3, v4] p = true) :
