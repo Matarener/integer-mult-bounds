@@ -68,7 +68,7 @@ theorem ker_two (R : Finset (Fin 104)) (h : lspan labK R ≤ 7) :
   set f := (labMat labK R).mulVecLin with hf
   have hr : finrank (ZMod 2) (LinearMap.range f) ≤ 7 := h
   have hrn := LinearMap.finrank_range_add_finrank_ker f
-  have h9 : finrank (ZMod 2) V9 = 9 := by simp
+  have h9 : finrank (ZMod 2) (Fin 9 → ZMod 2) = 9 := Module.finrank_fin_fun _
   have hk : 2 ≤ finrank (ZMod 2) (LinearMap.ker f) := by omega
   have hc : 4 ≤ Fintype.card (LinearMap.ker f) := by
     rw [Module.card_eq_pow_finrank (K := ZMod 2) (V := LinearMap.ker f), ZMod.card]
@@ -80,8 +80,10 @@ theorem ker_two (R : Finset (Fin 104)) (h : lspan labK R ≤ 7) :
   simp only [Finset.mem_erase, Finset.mem_univ, and_true] at hx hy
   have mem : ∀ w : LinearMap.ker f, ∀ t ∈ R, labK t ⬝ᵥ (w : V9) = 0 := by
     intro w t ht
-    have := congrFun (LinearMap.mem_ker.mp w.2) ⟨t, ht⟩
-    simpa [hf, labMat, Matrix.mulVec] using this
+    have h0 : (labMat labK R).mulVecLin (w : V9) = 0 := LinearMap.mem_ker.mp w.2
+    have := congrFun h0 ⟨t, ht⟩
+    rw [Matrix.mulVecLin_apply] at this
+    exact this
   refine ⟨x, y, fun e => hx (Subtype.ext e), fun e => hy (Subtype.ext e), fun e => hxy (Subtype.ext e),
     fun t ht => ⟨mem x t ht, mem y t ht⟩⟩
 
@@ -94,9 +96,10 @@ theorem count_id (z1 z2 : V9) :
       (univ.filter fun t : Fin 104 => labK t ⬝ᵥ z1 ≠ 0).card +
       (univ.filter fun t : Fin 104 => labK t ⬝ᵥ z2 ≠ 0).card +
       (univ.filter fun t : Fin 104 => labK t ⬝ᵥ (z1 + z2) ≠ 0).card = 208 := by
-  simp only [Finset.card_filter, Finset.mul_sum, ← Finset.sum_add_distrib]
+  rw [Finset.card_filter, Finset.card_filter, Finset.card_filter, Finset.card_filter, Finset.mul_sum,
+    ← Finset.sum_add_distrib, ← Finset.sum_add_distrib, ← Finset.sum_add_distrib]
   rw [Finset.sum_congr rfl fun t _ => by rw [dotProduct_add]; exact pt2 _ _]
-  simp
+  simp only [Finset.sum_const, Finset.card_univ, Fintype.card_fin, smul_eq_mul]
 
 theorem fact44 {z : V9} (hz : z ≠ 0) :
     44 ≤ nOdd (zl z) ∧ nOdd (zl z) % 4 = 0 ∧ (nOdd (zl z) = 44 → zl z ∈ E44) := by
