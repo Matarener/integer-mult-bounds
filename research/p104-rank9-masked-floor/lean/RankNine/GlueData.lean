@@ -151,4 +151,43 @@ theorem glue_of_data {Zm : ℕ} {O : List ℕ} {bad : List (ℕ × ℕ)} {T : Li
 
 end data
 
+/-- line certificate entry `(v, k0, C)`: rank 7 on `ρ(Z ∩ O_v)` with pivot `k0` -/
+def lcOK (Zm : ℕ) (v k0 : ℕ) (C : RCert) : Bool :=
+  certOK C.X C.N C.No C.D C.pm && decide (v < 104) && decide (k0 < 9) &&
+    (List.range 9).all (fun i => !C.pm.testBit i || i == k0) && ((root v).getD k0 0 != 0) &&
+    (List.range C.X.length).all (fun t => Zm.testBit (C.X.getD t 0) && dot v (C.X.getD t 0) == 0)
+
+def lineOK (Zm : ℕ) (O : List ℕ) (LT : List (ℕ × ℕ × RCert)) : Bool :=
+  O.all fun v => LT.any fun e => e.1 == v && lcOK Zm e.1 e.2.1 e.2.2
+
+theorem lc_sound {K : Type*} [Field K] [CharZero K] {Zm v k0 : ℕ} {C : RCert} (hp : lcOK Zm v k0 C = true)
+    (d : Fin 9 → K) (h1 : d ⬝ᵥ vK K ones9L = 0)
+    (hd : ∀ s, Zm.testBit s = true → dot v s = 0 → d ⬝ᵥ rho K s = 0) : ∃ a : K, d = a • rho K v := by
+  simp only [lcOK, Bool.and_eq_true, decide_eq_true_eq] at hp
+  obtain ⟨⟨⟨⟨⟨hc, hv⟩, hk0⟩, hpm⟩, hρ⟩, hX⟩ := hp
+  have hx : ∀ t < C.X.length, Zm.testBit (C.X.getD t 0) = true ∧ dot v (C.X.getD t 0) = 0 := by
+    intro t ht
+    have := (List.all_eq_true.mp hX) t (List.mem_range.mpr ht)
+    simp only [Bool.and_eq_true, beq_iff_eq] at this
+    exact this
+  have hpiv : ∀ i : Fin 9, C.pm.testBit i = true → (i : ℕ) = k0 := by
+    intro i hi
+    have := (List.all_eq_true.mp hpm) i (List.mem_range.mpr i.2)
+    simp only [Bool.or_eq_true, Bool.not_eq_true', beq_iff_eq] at this
+    rcases this with e | e
+    · rw [hi] at e; exact absurd e (by simp)
+    · exact e
+  have hρ' : (root v).getD k0 0 ≠ 0 := by simpa using hρ
+  exact ⟨_, line_of_cert C hc hv hk0 hpiv hρ' (fun t ht => (hx t ht).2) d
+    (fun t ht => hd _ (hx t ht).1 (hx t ht).2) h1⟩
+
+theorem line_of_data {K : Type*} [Field K] [CharZero K] {Zm : ℕ} {O : List ℕ} {LT : List (ℕ × ℕ × RCert)}
+    (hL : lineOK Zm O LT = true) {v : ℕ} (hv : v ∈ O) (d : Fin 9 → K) (h1 : d ⬝ᵥ vK K ones9L = 0)
+    (hd : ∀ s, Zm.testBit s = true → dot v s = 0 → d ⬝ᵥ rho K s = 0) : ∃ a : K, d = a • rho K v := by
+  obtain ⟨e, -, he⟩ := List.any_eq_true.mp ((List.all_eq_true.mp hL) v hv)
+  simp only [Bool.and_eq_true, beq_iff_eq] at he
+  obtain ⟨e1, he⟩ := he
+  rw [← e1]
+  exact lc_sound he d h1 (by rw [e1]; exact hd)
+
 end RankNine
