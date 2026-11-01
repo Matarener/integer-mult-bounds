@@ -34,16 +34,18 @@ def one(k):
     sl = [l for l in g2.stdout.splitlines() if 'SIGNS OK' in l]
     if g2.returncode != 0 or not sl:
         # F2 elimination does not close: sign step by a SAT certificate (sign_cnf.py + CaDiCaL LRAT)
-        sp = 'lrat/s%d.lrat.xz' % k
+        # (ordered types: with mu parity facts, mu_cnf.py + emit_musat.py)
+        sp, gen_, emit_, tag_ = 'lrat/s%d.lrat.xz' % k, 'sign_cnf.py', 'emit_signsat.py', 'SIGNSAT OK'
+        if not os.path.exists(sp): sp, gen_, emit_, tag_ = 'lrat/m%d.lrat.xz' % k, 'mu_cnf.py', 'emit_musat.py', 'MUSAT OK'
         if not os.path.exists(sp):
-            return k, False, 'signs: ' + ((g2.stdout + g2.stderr).strip().splitlines() or ['?'])[-1] + ' (no ' + sp + ')'
+            return k, False, 'signs: ' + ((g2.stdout + g2.stderr).strip().splitlines() or ['?'])[-1] + ' (no sign LRAT)'
         sc, sj = 'cert/sign-%d.cnf' % k, 'cert/sign-%d.json' % k
-        g5 = subprocess.run([sys.executable, 'sign_cnf.py', str(k), j, sc, sj], env=env, capture_output=True, text=True)
-        e2 = subprocess.run([sys.executable, 'emit_signsat.py', str(k), j, sc, sj, sp, '../lean/RankNine/Cert/Signs%d.lean' % k, js],
+        g5 = subprocess.run([sys.executable, gen_, str(k), j, sc, sj], env=env, capture_output=True, text=True)
+        e2 = subprocess.run([sys.executable, emit_, str(k), j, sc, sj, sp, '../lean/RankNine/Cert/Signs%d.lean' % k, js],
                             capture_output=True, text=True)
         for p_ in (sc, sj):
             if os.path.exists(p_): os.remove(p_)
-        sl = [l for l in e2.stdout.splitlines() if 'SIGNSAT OK' in l]
+        sl = [l for l in e2.stdout.splitlines() if tag_ in l]
         if g5.returncode != 0 or e2.returncode != 0 or not sl:
             return k, False, 'signsat: ' + ((g5.stderr + e2.stdout + e2.stderr).strip().splitlines() or ['?'])[-1]
         sl = ['] ' + sl[-1]]

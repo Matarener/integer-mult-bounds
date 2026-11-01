@@ -224,7 +224,8 @@ theorem sentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
     (hcls : ∀ c < nK, Nc A B (fld CR c) ^ 2 = 1/16 ∨ Nc A B (fld CR c) ^ 2 = 1/4)
     (hgoal : ∃ c < nK, magN (Nc A B (fld CR c)) ≠ 0) (j : ℕ)
     (hok : sEntryOK m nQ nK nq nr T CR QS RS E Lt Hn j = true)
-    (hprev : ∀ i < j, CSat (zS A B CR) (sClAt nK T QS RS E Lt i)) :
+    (hprev : (sf E j 0 ≠ 0 ∧ sf E j 0 ≠ 1 ∧ sf E j 0 ≠ 2 ∧ sf E j 0 ≠ 3) →
+      ∀ i < j, CSat (zS A B CR) (sClAt nK T QS RS E Lt i)) :
     CSat (zS A B CR) (sClAt nK T QS RS E Lt j) := by
   unfold sEntryOK at hok
   unfold sClAt
@@ -345,7 +346,7 @@ theorem sentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
     simp only [Bool.and_eq_true, List.all_eq_true, decide_eq_true_eq] at hok
     obtain ⟨hlt, hrup⟩ := hok
     have h := rup_sound (zS A B CR) (sClAt nK T QS RS E Lt) (sClAt nK T QS RS E Lt j) _
-      (fun h hh => hprev h.1 (hlt h hh)) hrup
+      (fun h hh => hprev ⟨k0, k1, k2, k3⟩ h.1 (hlt h hh)) hrup
     unfold sClAt at h
     rw [if_neg k0, if_neg k1, if_neg k2, if_neg k3] at h
     exact h
@@ -382,7 +383,7 @@ theorem signsat_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 
     | _ j ih =>
       intro hj
       exact sentry_sound A B u hu m hZ hdiag hmask nQ nK nq nr T CR QS RS E Lt Hn hT hcls hgoal j (hall j hj)
-        (fun i hi => ih i hi (by omega))
+        (fun _ i hi => ih i hi (by omega))
   have := key (n - 1) (by omega)
   rw [hlast] at this
   exact csat_empty _ this
