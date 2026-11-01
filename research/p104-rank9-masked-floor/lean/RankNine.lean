@@ -12,3 +12,5 @@ import RankNine.Zero
 import RankNine.SignSat
 import RankNine.MuSign
 import RankNine.Gram
+import RankNine.Rows
+import RankNine.RankCert
