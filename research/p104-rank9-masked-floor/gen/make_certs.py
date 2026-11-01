@@ -33,9 +33,23 @@ def one(k):
     g2 = subprocess.run([sys.executable, 'gen_signs.py', str(k), j, js], env=env, capture_output=True, text=True)
     sl = [l for l in g2.stdout.splitlines() if 'SIGNS OK' in l]
     if g2.returncode != 0 or not sl:
-        return k, False, 'signs: ' + ((g2.stdout + g2.stderr).strip().splitlines() or ['?'])[-1]
-    e2 = subprocess.run([sys.executable, 'emit_signs.py', str(k), js, '../lean/RankNine/Cert/Signs%d.lean' % k], capture_output=True, text=True)
-    if e2.returncode != 0: return k, False, 'emit signs failed'
+        # F2 elimination does not close: sign step by a SAT certificate (sign_cnf.py + CaDiCaL LRAT)
+        sp = 'lrat/s%d.lrat.xz' % k
+        if not os.path.exists(sp):
+            return k, False, 'signs: ' + ((g2.stdout + g2.stderr).strip().splitlines() or ['?'])[-1] + ' (no ' + sp + ')'
+        sc, sj = 'cert/sign-%d.cnf' % k, 'cert/sign-%d.json' % k
+        g5 = subprocess.run([sys.executable, 'sign_cnf.py', str(k), j, sc, sj], env=env, capture_output=True, text=True)
+        e2 = subprocess.run([sys.executable, 'emit_signsat.py', str(k), j, sc, sj, sp, '../lean/RankNine/Cert/Signs%d.lean' % k, js],
+                            capture_output=True, text=True)
+        for p_ in (sc, sj):
+            if os.path.exists(p_): os.remove(p_)
+        sl = [l for l in e2.stdout.splitlines() if 'SIGNSAT OK' in l]
+        if g5.returncode != 0 or e2.returncode != 0 or not sl:
+            return k, False, 'signsat: ' + ((g5.stderr + e2.stdout + e2.stderr).strip().splitlines() or ['?'])[-1]
+        sl = ['] ' + sl[-1]]
+    else:
+        e2 = subprocess.run([sys.executable, 'emit_signs.py', str(k), js, '../lean/RankNine/Cert/Signs%d.lean' % k], capture_output=True, text=True)
+        if e2.returncode != 0: return k, False, 'emit signs failed'
     jf = 'cert/step5-%d.json' % k
     g3 = subprocess.run([sys.executable, 'gen_step5.py', str(k), j, js, jf], env=env, capture_output=True, text=True)
     fl = [l for l in g3.stdout.splitlines() if 'STEP5 OK' in l]
