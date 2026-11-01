@@ -187,7 +187,7 @@ def sEntryOK (m nQ nK nq nr : ℕ) (T CR QS RS E Lt Hn : List ℕ) (j : ℕ) : B
 theorem patMatch5 {v0 v1 v2 v3 v4 p : ℕ} (h : patMatch [v0, v1, v2, v3, v4] p = true) :
     v0 = p % 2 ∧ v1 = p / 2 % 2 ∧ v2 = p / 4 % 2 ∧ v3 = p / 8 % 2 ∧ v4 = p / 16 % 2 := by
   simp only [patMatch, Bool.and_eq_true, beq_iff_eq, Bool.and_true] at h
-  obtain ⟨h0, h1, h2, h3, h4, -⟩ := h
+  obtain ⟨h0, h1, h2, h3, h4⟩ := h
   refine ⟨h0, h1, ?_, ?_, ?_⟩
   · rw [h2, Nat.div_div_eq_div_mul]
   · rw [h3, Nat.div_div_eq_div_mul, Nat.div_div_eq_div_mul]
@@ -196,7 +196,7 @@ theorem patMatch5 {v0 v1 v2 v3 v4 p : ℕ} (h : patMatch [v0, v1, v2, v3, v4] p 
 theorem patMatch4 {v0 v1 v2 v3 p : ℕ} (h : patMatch [v0, v1, v2, v3] p = true) :
     v0 = p % 2 ∧ v1 = p / 2 % 2 ∧ v2 = p / 4 % 2 ∧ v3 = p / 8 % 2 := by
   simp only [patMatch, Bool.and_eq_true, beq_iff_eq, Bool.and_true] at h
-  obtain ⟨h0, h1, h2, h3, -⟩ := h
+  obtain ⟨h0, h1, h2, h3⟩ := h
   refine ⟨h0, h1, ?_, ?_⟩
   · rw [h2, Nat.div_div_eq_div_mul]
   · rw [h3, Nat.div_div_eq_div_mul, Nat.div_div_eq_div_mul]
@@ -261,6 +261,7 @@ theorem sentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
     · by_contra hm
       rw [Bool.not_eq_false] at hm
       obtain ⟨e0, e1, e2, e3, e4⟩ := patMatch5 hm
+      dsimp only at e0 e1 e2 e3 e4
       rw [e0, e1, e2, e3, e4] at hal
       exact absurd hal (by simpa using hna)
   · -- relation sign clause
@@ -300,6 +301,7 @@ theorem sentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
     · by_contra hm
       rw [Bool.not_eq_false] at hm
       obtain ⟨e0, e1, e2, e3⟩ := patMatch4 hm
+      dsimp only at e0 e1 e2 e3
       rw [e0, e1, e2, e3] at hpar
       omega
   · -- relation magnitude clause
@@ -336,6 +338,7 @@ theorem sentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
     · by_contra hm
       rw [Bool.not_eq_false] at hm
       obtain ⟨e0, e1, e2, e3⟩ := patMatch4 hm
+      dsimp only at e0 e1 e2 e3
       rw [e0, e1, e2, e3] at hmag
       exact hne hmag
   · -- goal clause

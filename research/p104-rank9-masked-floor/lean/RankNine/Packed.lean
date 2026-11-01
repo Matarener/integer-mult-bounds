@@ -105,9 +105,20 @@ def latTermsOK (nR : ℕ) (R Lx : List ℕ) (Cv a m : ℕ) : Bool :=
   (List.range' a m).all fun i => decide (fld Lx (2 * i) < nR) &&
     (relMono (relAt R (fld Lx (2 * i)))).all fun t => covB Cv t.1
 
+/-- insert a term into a sorted list of (code, exponent), merging equal codes and dropping zero exponents -/
+def insT (t : ℕ × ℤ) : List (ℕ × ℤ) → List (ℕ × ℤ)
+  | [] => if t.2 = 0 then [] else [t]
+  | d :: r => if t.1 = d.1 then (if t.2 + d.2 = 0 then r else (d.1, t.2 + d.2) :: r)
+      else if t.1 < d.1 then t :: d :: r else d :: insT t r
+
+/-- normal form of a monomial (sorted, merged, no zero exponents) -/
+def normL : List (ℕ × ℤ) → List (ℕ × ℤ)
+  | [] => []
+  | t :: l => insT t (normL l)
+
 def latOK (nR : ℕ) (R Lx : List ℕ) (Cv a m u v : ℕ) : Bool :=
   latTermsOK nR R Lx Cv a m && covB Cv u && covB Cv v &&
-    ((latL R Lx a m).map Prod.fst ++ [u, v]).all fun c => esum (latL R Lx a m) c == esum [(u, 2), (v, -2)] c
+    (normL (latL R Lx a m ++ [(u, -2), (v, 2)])).isEmpty
 
 open Classical in
 noncomputable def wN (N : ℕ → K) (c : ℕ) : K := if N c = 0 then 1 else N c
@@ -124,6 +135,41 @@ theorem mval_append (w : ℕ → K) (l1 l2 : List (ℕ × ℤ)) : mval w (l1 ++ 
   induction l1 with
   | nil => simp [mval]
   | cons t l ih => simp only [List.cons_append, mval, ih]; ring
+
+theorem mval_insT (w : ℕ → K) (hw : ∀ c, w c ≠ 0) (t : ℕ × ℤ) :
+    ∀ l, mval w (insT t l) = w t.1 ^ t.2 * mval w l
+  | [] => by
+    unfold insT
+    by_cases h : t.2 = 0
+    · rw [if_pos h, h, zpow_zero, one_mul]
+    · rw [if_neg h]; simp [mval]
+  | d :: r => by
+    unfold insT
+    by_cases h1 : t.1 = d.1
+    · rw [if_pos h1]
+      by_cases h2 : t.2 + d.2 = 0
+      · rw [if_pos h2]
+        simp only [mval]
+        rw [← mul_assoc, h1, ← zpow_add₀ (hw _), h2, zpow_zero, one_mul]
+      · rw [if_neg h2]
+        simp only [mval]
+        rw [h1, zpow_add₀ (hw _)]; ring
+    · rw [if_neg h1]
+      by_cases h3 : t.1 < d.1
+      · rw [if_pos h3]; simp only [mval]
+      · rw [if_neg h3]
+        simp only [mval]
+        rw [mval_insT w hw t r]; ring
+
+theorem mval_normL (w : ℕ → K) (hw : ∀ c, w c ≠ 0) : ∀ l, mval w (normL l) = mval w l
+  | [] => rfl
+  | t :: l => by
+    rw [normL, mval_insT w hw, mval_normL w hw l]
+    rfl
+
+theorem mval_of_norm (w : ℕ → K) (hw : ∀ c, w c ≠ 0) (l : List (ℕ × ℤ)) (h : (normL l).isEmpty = true) :
+    mval w l = 1 := by
+  rw [← mval_normL w hw l, List.isEmpty_iff.1 h]; rfl
 
 theorem mval_scale (w : ℕ → K) (n : ℤ) (l : List (ℕ × ℤ)) :
     mval w (l.map fun t => (t.1, n * t.2)) = mval w l ^ n := by
@@ -204,28 +250,30 @@ theorem mval_tgt (N : ℕ → K) (u v : ℕ) (hu : N u ≠ 0) (hv : N v ≠ 0)
   rw [c2, c2] at h2
   exact h2
 
+theorem mval_tgt' (N : ℕ → K) (u v : ℕ) (hu : N u ≠ 0) (hv : N v ≠ 0)
+    (h : mval (wN N) [(u, -2), (v, 2)] = 1) : N u ^ 2 = N v ^ 2 := by
+  simp only [mval, wN_eq N hu, wN_eq N hv, mul_one] at h
+  have h2 : N v ^ (2 : ℤ) = N u ^ (2 : ℤ) := by
+    calc N v ^ (2 : ℤ) = N u ^ (2 : ℤ) * (N u ^ (-2 : ℤ) * N v ^ (2 : ℤ)) := by
+          rw [← mul_assoc, ← zpow_add₀ hu]; norm_num
+      _ = N u ^ (2 : ℤ) := by rw [h, mul_one]
+  have c2 : ∀ a : K, a ^ (2 : ℤ) = a ^ (2 : ℕ) := fun a => by
+    first
+    | exact zpow_ofNat a 2
+    | exact zpow_natCast a 2
+    | norm_cast
+  rw [c2, c2] at h2
+  exact h2.symm
+
 theorem latOK_sound (N : ℕ → K) (nR : ℕ) (R Lx : List ℕ) (Cv a m u v : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
     (hcov : ∀ c, covB Cv c = true → N c ≠ 0) (h : latOK nR R Lx Cv a m u v = true) : Fact N (u, v) := by
   unfold latOK at h
   rw [Bool.and_eq_true, Bool.and_eq_true, Bool.and_eq_true] at h
   obtain ⟨⟨⟨h1, hu⟩, hv⟩, h2⟩ := h
-  rw [List.all_eq_true] at h2
   have hval := latL_val N nR R Lx Cv hrel hcov m a h1
-  let S : Finset ℕ := ((latL R Lx a m).map Prod.fst ++ [u, v]).toFinset
-  have g1 := mval_group (wN N) (wN_ne N) (latL R Lx a m) S (fun t ht => by
-    rw [List.mem_toFinset]; exact List.mem_append_left _ (List.mem_map.2 ⟨t, ht, rfl⟩))
-  have g2 := mval_group (wN N) (wN_ne N) [(u, 2), (v, -2)] S (fun t ht => by
-    rw [List.mem_toFinset]
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at ht
-    rcases ht with rfl | rfl <;> simp)
-  have heq : ∀ c ∈ S, esum (latL R Lx a m) c = esum [(u, 2), (v, -2)] c := fun c hc => by
-    have := h2 c (List.mem_toFinset.1 hc)
-    simpa using this
-  have hT : mval (wN N) [(u, 2), (v, -2)] = 1 := by
-    have hp : ∏ c ∈ S, wN N c ^ esum [(u, 2), (v, -2)] c = ∏ c ∈ S, wN N c ^ esum (latL R Lx a m) c :=
-      Finset.prod_congr rfl (fun c hc => by rw [heq c hc])
-    rw [g2, hp, ← g1, hval]
-  exact mval_tgt N u v (hcov u hu) (hcov v hv) hT
+  have hT := mval_of_norm (wN N) (wN_ne N) _ h2
+  rw [mval_append, hval, one_mul] at hT
+  exact mval_tgt' N u v (hcov u hu) (hcov v hv) hT
 
 def stepOK (nR : ℕ) (R S F Lx : List ℕ) (Cv i : ℕ) : Bool :=
   if fld S (5 * i) = 0 then

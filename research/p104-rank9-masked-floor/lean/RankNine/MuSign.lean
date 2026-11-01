@@ -148,8 +148,7 @@ def factOK (m nQ nK Cv nO : ℕ) (T CR OR XO XS XF : List ℕ) (x : ℕ) : Bool 
     decide (xfa XF x 6 ≤ xfa XF x 5) &&
     (List.range' (xSa XF x) (xfa XF x 6)).all (fun i => scoef XS i % 2 == 1) &&
     (List.range' (xSa XF x + xfa XF x 6) (xfa XF x 5 - xfa XF x 6)).all (fun i => scoef XS i % 2 == 0) &&
-    ((xoL OR XO (xOa XF x) (xfa XF x 2) ++ xsL T XS (xSa XF x) (xfa XF x 5)).map Prod.fst).all fun c =>
-      esum (xoL OR XO (xOa XF x) (xfa XF x 2) ++ xsL T XS (xSa XF x) (xfa XF x 5)) c == 0
+    (normL (xoL OR XO (xOa XF x) (xfa XF x 2) ++ xsL T XS (xSa XF x) (xfa XF x 5))).isEmpty
 
 /-- the sign atoms of fact `x` (the pair codes with odd coefficient) -/
 def xAtoms (T XS XF : List ℕ) (x : ℕ) : List ℕ := (List.range' (xSa XF x) (xfa XF x 6)).map (scode T XS)
@@ -400,14 +399,7 @@ theorem fact_parity (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0)
   set L := xfa XF x 6
   set l := xoL OR XO oa on ++ xsL T XS sa sn
   -- the whole monomial is 1
-  have h1 : mval (wN (muA A B)) l = 1 := by
-    rw [mval_group (wN (muA A B)) (wN_ne _) l (l.map Prod.fst).toFinset (fun t ht => by
-      rw [List.mem_toFinset]; exact List.mem_map.2 ⟨t, ht, rfl⟩)]
-    refine Finset.prod_eq_one (fun c hc => ?_)
-    rw [List.all_eq_true] at hz
-    have := hz c (List.mem_toFinset.1 hc)
-    rw [beq_iff_eq] at this
-    rw [this, zpow_zero]
+  have h1 : mval (wN (muA A B)) l = 1 := mval_of_norm _ (wN_ne _) l hz
   rw [mval_append, mval_xoL A B u hu m hZ hdiag hmask Cv nO OR XO hcov on oa ho,
     mval_xsL A B hdiag nQ nK Cv T CR XS hcov sn sa hs] at h1
   -- every symmetric term has square 1/16 or 1/4
@@ -458,7 +450,7 @@ def mClAt (nK : ℕ) (T QS RS E Lt XS XF : List ℕ) (j : ℕ) : ℕ × ℕ :=
 
 def mEntryOK (m nQ nK nq nr Cv nO nX : ℕ) (T CR QS RS E Lt Hn OR XO XS XF : List ℕ) (j : ℕ) : Bool :=
   if sf E j 0 = 5 then
-    decide (sf E j 1 < nX) && factOK m nQ nK Cv nO T CR OR XO XS XF (sf E j 1) &&
+    decide (sf E j 1 < nX) &&
       decide (((bsum (sf E j 2) (xfa XF (sf E j 1) 6) : ℕ) + osum XO (xOa XF (sf E j 1)) (xfa XF (sf E j 1) 2)) % 2 = 1)
   else if sf E j 0 = 0 ∨ sf E j 0 = 1 ∨ sf E j 0 = 2 ∨ sf E j 0 = 3 then
     sEntryOK m nQ nK nq nr T CR QS RS E Lt Hn j
@@ -477,6 +469,7 @@ theorem mentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
     (T CR QS RS E Lt Hn OR XO XS XF : List ℕ) (hcov : ∀ c, covB Cv c = true → Nc A B c ≠ 0)
     (hT : ∀ e < nQ, Nc A B (fld T (3 * e)) ^ 2 = Nc A B (fld T (3 * e + 1)) ^ 2)
     (hcls : ∀ c < nK, Nc A B (fld CR c) ^ 2 = 1/16 ∨ Nc A B (fld CR c) ^ 2 = 1/4)
+    (hfact : ∀ x < nX, factOK m nQ nK Cv nO T CR OR XO XS XF x = true)
     (hgoal : ∃ c < nK, magN (Nc A B (fld CR c)) ≠ 0) (j : ℕ)
     (hok : mEntryOK m nQ nK nq nr Cv nO nX T CR QS RS E Lt Hn OR XO XS XF j = true)
     (hprev : ∀ i < j, CSat (zS A B CR) (mClAt nK T QS RS E Lt XS XF i)) :
@@ -486,7 +479,8 @@ theorem mentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
   · rw [if_pos k5] at hok
     unfold mClAt; rw [if_pos k5]
     simp only [Bool.and_eq_true, decide_eq_true_eq] at hok
-    obtain ⟨⟨_, hf⟩, hpar⟩ := hok
+    obtain ⟨hx, hpar⟩ := hok
+    have hf := hfact _ hx
     have hfp := fact_parity A B u hu m hZ hdiag hmask nQ nK Cv nO T CR OR XO XS XF hcov hT hcls _ hf
     have hlt : ∀ c ∈ xAtoms T XS XF (sf E j 1), c < TAG := by
       intro c hc
@@ -546,6 +540,7 @@ theorem mu_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m
     (T CR QS RS CQ E Lt Hn OR XO XS XF : List ℕ) (n : ℕ) (hcov : ∀ c, covB Cv c = true → Nc A B c ≠ 0)
     (hT : ∀ e < nQ, Nc A B (fld T (3 * e)) ^ 2 = Nc A B (fld T (3 * e + 1)) ^ 2)
     (hcq : ∀ c < nK, cqOK m nQ nK T CR QS CQ nq c = true)
+    (hfact : ∀ x < nX, factOK m nQ nK Cv nO T CR OR XO XS XF x = true)
     (hall : ∀ j < n, mEntryOK m nQ nK nq nr Cv nO nX T CR QS RS E Lt Hn OR XO XS XF j = true)
     (hlast : mClAt nK T QS RS E Lt XS XF (n - 1) = (0, 0)) (hn : 0 < n) :
     ∀ c < nK, magN (Nc A B (fld CR c)) = 0 := by
@@ -568,7 +563,7 @@ theorem mu_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m
     | _ j ih =>
       intro hj
       exact mentry_sound A B u hu m hZ hdiag hmask nQ nK nq nr Cv nO nX T CR QS RS E Lt Hn OR XO XS XF hcov hT hcls
-        hgoal j (hall j hj) (fun i hi => ih i hi (by omega))
+        hfact hgoal j (hall j hj) (fun i hi => ih i hi (by omega))
   have := key (n - 1) (by omega)
   rw [hlast] at this
   exact csat_empty _ this

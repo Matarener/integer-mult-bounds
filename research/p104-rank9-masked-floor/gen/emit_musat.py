@@ -178,6 +178,7 @@ def chunked(name, pred, n, ch, var, last):
             L.append(f"  exact (all_range'_iff _ {a} {mm}).1 {name}{i} {var} (by omega) (by simp only [{last}] at h{var}; omega)")
     L.append('')
 chunked('c', f'cqOK {m} nQ nK T CR QS CQ nq', nK, 50, 'c', 'nK')
+chunked('f', f'factOK {m} nQ nK Cv nO T CR OR XO XS XF', len(ux), 4, 'x', 'nX')
 chunked('e', f'mEntryOK {m} nQ nK nq nr Cv nO nX T CR QS RS E Lt Hn OR XO XS XF', n, CH, 'j', 'nE')
 L.append(f'''theorem last_ok : mClAt nK T QS RS E Lt XS XF (nE - 1) = (0, 0) := by decide +kernel
 
@@ -189,7 +190,8 @@ theorem mags {{K : Type*}} [Field K] [CharZero K] (A B : ℕ → Fin 9 → K) (u
     (hcov : ∀ c, covB Cv c = true → Nc A B c ≠ 0) :
     ∀ c < nK, magN (Nc A B (fld CR c)) = 0 :=
   mu_sound A B u hu _ hZ hdiag hmask nQ nK nq nr Cv nO nX T CR QS RS CQ E Lt Hn OR XO XS XF nE hcov
-    (moduli_geom A B u hu hZ hdiag hmask hcov) (fun c hc => c_ok c hc) (fun j hj => e_ok j hj) last_ok
+    (moduli_geom A B u hu hZ hdiag hmask hcov) (fun c hc => c_ok c hc) (fun x hx => f_ok x hx)
+    (fun j hj => e_ok j hj) last_ok
     (by decide)
 
 end RankNine.Signs{k}
