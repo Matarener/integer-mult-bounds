@@ -1,6 +1,6 @@
 """Regenerate all T1 moduli certificates and their Lean files (run from this directory).
 For each framed type: gen_moduli.py -> cert/moduli-k.json, sim_moduli.py (same semantics as the Lean checker),
-emit_packed.py -> ../lean/RankNine/Cert/Packed<k>.lean; gen_signs.py + emit_signs.py -> Cert/Signs<k>.lean; then ../lean/RankNine/AllModuli.lean imports all passing types.
+emit_packed.py -> ../lean/RankNine/Cert/Packed<k>.lean; gen_signs.py + emit_signs.py -> Cert/Signs<k>.lean; gram_cert.py + emit_gram.py -> Cert/Gram<k>.lean (T3.1); then ../lean/RankNine/AllModuli.lean imports all passing types.
 Types where the hand route does not close (15 of 387) are reported and skipped.  usage: make_certs.py [workers] [comma-separated types]"""
 import subprocess, sys, os, time
 from concurrent.futures import ThreadPoolExecutor
@@ -58,8 +58,17 @@ def one(k):
     if g3.returncode != 0 or not fl:
         return k, False, 'step5: ' + ((g3.stdout + g3.stderr).strip().splitlines() or ['?'])[-1]
     e3 = subprocess.run([sys.executable, 'emit_step5.py', str(k), jf, '../lean/RankNine/Cert/Step5c%d.lean' % k], capture_output=True, text=True)
-    os.remove(j); os.remove(js); os.remove(jf)
     if e3.returncode != 0: return k, False, 'emit step5 failed'
+    # T3.1 Gram identity on Z x Z
+    jg = 'cert/gram-%d.json' % k
+    g6 = subprocess.run([sys.executable, 'gram_cert.py', str(k), jf, jg], env=env, capture_output=True, text=True)
+    e6 = subprocess.run([sys.executable, 'emit_gram.py', str(k), jg, jf, '../lean/RankNine/Cert/Gram%d.lean' % k], capture_output=True, text=True)
+    os.remove(j); os.remove(js); os.remove(jf)
+    if os.path.exists(jg): os.remove(jg)
+    gl = [l for l in e6.stdout.splitlines() if 'GRAM OK' in l]
+    if g6.returncode != 0 or e6.returncode != 0 or not gl:
+        return k, False, 'gram: ' + ((g6.stdout + g6.stderr + e6.stderr).strip().splitlines() or ['?'])[-1]
+    fl = [fl[-1] + ' | ' + gl[-1]]
     zc, zj, zp = 'cert/zero-%d.cnf' % k, 'cert/zero-%d.json' % k, 'lrat/z%d.lrat.xz' % k
     if not os.path.exists(zp): return k, False, 'zero: no LRAT proof ' + zp
     g4 = subprocess.run([sys.executable, 'zero_cnf.py', str(k), zc, zj], env=env, capture_output=True, text=True)
@@ -78,5 +87,5 @@ with ThreadPoolExecutor(W) as ex:
 if os.environ.get('ONLY_MODULI') == '1':
     open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Zero%d' % (k, k) for k in sorted(good)) + '\n')
 else:
-    open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d\nimport RankNine.Cert.Step5c%d\nimport RankNine.Cert.Zero%d' % (k, k, k, k) for k in sorted(good)) + '\n')
+    open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d\nimport RankNine.Cert.Step5c%d\nimport RankNine.Cert.Gram%d\nimport RankNine.Cert.Zero%d' % (k, k, k, k, k) for k in sorted(good)) + '\n')
 print('DONE types with Lean certificates', len(good), flush=True)
