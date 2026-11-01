@@ -81,7 +81,7 @@ theorem ord_core (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) (m
 theorem mval_ord (f : ℕ → K) (p q r s : ℕ) (h : f p * f q + f r * f s = 0)
     (hp : f p ≠ 0) (hq : f q ≠ 0) (hr : f r ≠ 0) (hs : f s ≠ 0) :
     mval (wN f) [(p, 1), (q, 1), (r, -1), (s, -1)] = -1 := by
-  simp only [mval, wN_eq f hp, wN_eq f hq, wN_eq f hr, wN_eq f hs, zpow_one, zpow_neg_one, mul_one]
+  simp only [mval, wN_eq f hp, wN_eq f hq, wN_eq f hr, wN_eq f hs, zpow_one, _root_.zpow_neg_one, mul_one]
   have hrs : f r * f s ≠ 0 := mul_ne_zero hr hs
   have h' : f p * f q = -(f r * f s) := by linear_combination h
   calc f p * (f q * ((f r)⁻¹ * (f s)⁻¹)) = (f p * f q) * (f r * f s)⁻¹ := by rw [mul_inv]; ring
@@ -295,9 +295,7 @@ theorem sgn_split (x : K) (h : x ^ 2 = 1/16 ∨ x ^ 2 = 1/4) :
     rcases mul_eq_zero.1 hf with h1 | h1
     · have hx : x = 1/4 := by linear_combination h1
       refine ⟨1/4, by norm_num, ?_⟩
-      have : sgnN x = 0 := by unfold sgnN; rw [if_neg]; rw [hx]; rintro (e | e)
-        · exact c1 e
-        · exact c2 e
+      have : sgnN x = 0 := by unfold sgnN; rw [if_neg]; rw [hx]; exact fun e => e.elim c1 c2
       rw [this, hx]; norm_num
     · have hx : x = -1/4 := by linear_combination h1
       refine ⟨1/4, by norm_num, ?_⟩
@@ -307,9 +305,7 @@ theorem sgn_split (x : K) (h : x ^ 2 = 1/16 ∨ x ^ 2 = 1/4) :
     rcases mul_eq_zero.1 hf with h1 | h1
     · have hx : x = 1/2 := by linear_combination h1
       refine ⟨1/2, by norm_num, ?_⟩
-      have : sgnN x = 0 := by unfold sgnN; rw [if_neg]; rw [hx]; rintro (e | e)
-        · exact c3 e
-        · exact c4 e
+      have : sgnN x = 0 := by unfold sgnN; rw [if_neg]; rw [hx]; exact fun e => e.elim c3 c4
       rw [this, hx]; norm_num
     · have hx : x = -1/2 := by linear_combination h1
       refine ⟨1/2, by norm_num, ?_⟩
@@ -330,7 +326,7 @@ theorem sign_extract (g : ℕ → K) (kk : ℕ → ℤ) : ∀ L : List ℕ, (∀
     rw [List.map_cons, List.prod_cons, e, List.map_cons, List.sum_cons,
       zpow_add₀ (neg_ne_zero.2 one_ne_zero), Rat.cast_mul, Rat.cast_zpow]
     conv_lhs => rw [ex]
-    rw [mul_zpow, ← zpow_mul, mul_comm ((sgnN (g i) : ℕ) : ℤ) (kk i)]
+    rw [mul_zpow, ← _root_.zpow_mul, mul_comm ((sgnN (g i) : ℕ) : ℤ) (kk i)]
     ring
 
 theorem even_of_prod (S : ℤ) (Q : ℚ) (hQ : 0 < Q) (h : (-1 : K) ^ S * (Q : K) = 1) : S % 2 = 0 := by
@@ -496,7 +492,8 @@ theorem mentry_sound (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0
       simp only [Bool.and_eq_true, decide_eq_true_eq] at this
       exact this.1.2
     let l : List (ℕ × ℕ) := (xAtoms T XS XF (sf E j 1)).map fun c => (c, sgnN (Nc A B c))
-    have hfst : l.map Prod.fst = xAtoms T XS XF (sf E j 1) := by simp [l, List.map_map]
+    have hfst : l.map Prod.fst = xAtoms T XS XF (sf E j 1) := by
+      simp only [l, List.map_map]; exact List.map_id _
     rw [← hfst]
     refine patCl_sound (zS A B CR) l _ ?_ ?_
     · intro t ht
