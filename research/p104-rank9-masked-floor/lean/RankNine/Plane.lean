@@ -28,7 +28,7 @@ theorem a2_vals {a b c : ℤ} (ha : a = 0 ∨ a = 9 ∨ a = -9) (hb : b = 0 ∨ 
     (hc : c = 0 ∨ c = 9 ∨ c = -9) (h : 5832 + 2 * a * b * c - 18 * (a * a + b * b + c * c) = 0) :
     a * a = 81 ∧ b * b = 81 ∧ c * c = 81 ∧ a * b * c = -729 := by
   rcases ha with rfl | rfl | rfl <;> rcases hb with rfl | rfl | rfl <;> rcases hc with rfl | rfl | rfl <;>
-    norm_num at h ⊢
+    omega
 
 theorem plane_arith {a b c b' c' d : ℤ} (ha : a = 9 ∨ a = -9) (hb : b = 9 ∨ b = -9) (hc : c = 9 ∨ c = -9)
     (hb' : b' = 9 ∨ b' = -9) (hc' : c' = 9 ∨ c' = -9) (hd : d = 0 ∨ d = 9 ∨ d = -9) (h1 : a * b * c = -729)
