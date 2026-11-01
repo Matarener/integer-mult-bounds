@@ -79,4 +79,61 @@ theorem floor_noU (hcap : BForm.Capacity BForm.E8.labK) (hbic : BForm.BicliqueFa
     exact BForm.caseII_gen BForm.E8.labK hcap (BForm.E8.rK K) BForm.E8h.rootFact_h BForm.E8h.spanFact_h hcensus
       α cc Y _ α' hY hL hZr hcl hpat Xl Yl hX hYl Q' P' h'
 
+/-- **Floor with a special line `U`** whose column may be bent: if `c U` is along `ρ U`, `floor_noU`; otherwise
+every line of `G` (dead lines `s ⊥ U` with a certificate pinning `c U`) is live, so the rows are glued (`G` has
+at least 5 lines) and `bform_F2` with `Bs = BsL` gives a generalized B-form (`caseII_gen`). -/
+theorem floor_U (hcap : BForm.Capacity BForm.E8.labK) (hbic : BForm.BicliqueFact (BForm.E8.rK K))
+    (hcensus : BForm.CensusFact BForm.E8.labK (BForm.E8.rK K))
+    (N : Matrix (Fin 104) (Fin 104) K) (P c : ℕ → Fin 9 → K) (lam eta : ℕ → K)
+    (hN : ∀ v s : Fin 104, N v s = P v ⬝ᵥ c s + lam v * eta s) (U : ℕ)
+    (hcolU : ∀ s < 104, s ≠ U → ∃ b : K, c s = b • rho K s)
+    (hrowd : ∀ v < 104, lam v = 0 → ∃ a : K, P v = a • rho K v)
+    (hPs : ∀ v s : Fin 104, 9 / 4 * (BForm.E8.rK K s ⬝ᵥ (FK *ᵥ P v)) = rho K s ⬝ᵥ P v)
+    (hcs : ∀ v s : Fin 104, 9 / 4 * (BForm.E8.rK K v ⬝ᵥ (FK *ᵥ c s)) = rho K v ⬝ᵥ c s)
+    (hglue : (∃ Λ : Fin 9 → K, ∀ v < 104, ∃ a : K, P v = a • rho K v + lam v • Λ) ∨
+      (Finset.univ.filter fun v : Fin 104 => lam v ≠ 0).card ≤ 4)
+    (G BsL : List ℕ) (hGl : ∀ s ∈ G, s < 104) (hpin : ∀ s ∈ G, lam s = 0 → ∃ b : K, c U = b • rho K U)
+    (hG5 : 5 ≤ (Finset.univ.filter fun v : Fin 104 => (v : ℕ) ∈ G).card) (hUB : U ∈ BsL)
+    (hBs : (Finset.univ.filter fun v : Fin 104 => (v : ℕ) ∈ BsL).card ≤ 4)
+    (hcovB : (List.range 104).all (fun s => decide (s ∈ BsL) || G.any (fun v => dot v s == 0)) = true)
+    (hdiag : ∀ t, N t t ≠ 0) (hmask : ∀ u s : Fin 104, dot u s = 0 → N u s = 0)
+    (Am Bm : Matrix (Fin 104) (Fin 9) K) (Al Bl : Matrix (Fin 9) (Fin 104) K) (hA : Al * Am = 1) (hB : Bl * Bm = 1)
+    (hNAB : N = Am * Bmᵀ)
+    (P' Q' : Matrix (Fin 104) BForm.C9 K) (h : N = P' * Q'ᵀ) : 56 ≤ BForm.cost BForm.E8.labK P' Q' := by
+  by_cases hcU : ∃ b : K, c U = b • rho K U
+  · have hcol : ∀ s < 104, ∃ b : K, c s = b • rho K s := by
+      intro s hs
+      by_cases e : s = U
+      · subst e; exact hcU
+      · exact hcolU s hs e
+    exact floor_noU hcap hbic hcensus N P c lam eta hN hcol hrowd hPs hglue hdiag hmask Am Bm Al Bl hA hB hNAB P' Q' h
+  have hlive : ∀ s ∈ G, lam s ≠ 0 := fun s hs hl => hcU (hpin s hs hl)
+  rcases hglue with ⟨Λ, hrow⟩ | hL
+  · set Bs : Finset (Fin 104) := Finset.univ.filter fun v : Fin 104 => (v : ℕ) ∈ BsL with hBsd
+    have hcolB : ∀ s : Fin 104, s ∉ Bs → ∃ b : K, c s = b • rho K s := by
+      intro s hs
+      refine hcolU s s.2 fun e => hs ?_
+      simp only [hBsd, Finset.mem_filter, Finset.mem_univ, true_and]
+      rw [e]; exact hUB
+    have hcovF : ∀ s : Fin 104, s ∉ Bs → ∃ v : Fin 104, lam v ≠ 0 ∧ dot v s = 0 := by
+      intro s hs
+      have hs' : (s : ℕ) ∉ BsL := fun e => hs (by simp only [hBsd, Finset.mem_filter, Finset.mem_univ, true_and]; exact e)
+      have := (List.all_eq_true.mp hcovB) s (List.mem_range.mpr s.2)
+      simp only [Bool.or_eq_true, decide_eq_true_eq, hs', false_or, List.any_eq_true, beq_iff_eq] at this
+      obtain ⟨v, hv, hd⟩ := this
+      exact ⟨⟨v, hGl v hv⟩, hlive v hv, hd⟩
+    obtain ⟨α, cc, α', Y, hY, hZr, hcl, hpat, hform⟩ :=
+      bform_F2 (BForm.E8.rK K) hr_P104 FK hF_P104 N P c lam eta Λ hN hrow Bs hBs hcolB hcovF hcs hdiag hmask
+    obtain ⟨Xl, Yl, hX, hYl⟩ := left_inv Al Bl hA hB (hform.symm.trans hNAB)
+    exact BForm.caseII_gen BForm.E8.labK hcap (BForm.E8.rK K) BForm.E8h.rootFact_h BForm.E8h.spanFact_h hcensus
+      α cc Y Bs α' hY hBs hZr hcl hpat Xl Yl hX hYl P' Q' (hform.symm.trans h)
+  · exfalso
+    have hsub : (Finset.univ.filter fun v : Fin 104 => (v : ℕ) ∈ G) ⊆
+        (Finset.univ.filter fun v : Fin 104 => lam v ≠ 0) := by
+      intro v hv
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hv ⊢
+      exact hlive v hv
+    have := Finset.card_le_card hsub
+    omega
+
 end RankNine

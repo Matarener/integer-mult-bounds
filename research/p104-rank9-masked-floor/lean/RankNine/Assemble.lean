@@ -189,6 +189,27 @@ theorem dead_special (R : Rep M P c lam eta zm d g) (hz : zm < 2 ^ 104) {r s t k
     · exact lcx_sound hCt (P r) (R.P1 r) base (pin t ht hrt bt hbt h2)
   · exact lcx_sound hCs (P r) (R.P1 r) base (pin s hs hrs bs hbs h1)
 
+/-- a dead certified row `s ⊥ U` pins the column `c U` -/
+theorem col_pin (R : Rep M P c lam eta zm d g) (hz : zm < 2 ^ 104) {U s k0 : ℕ} {C : RCert} (hU : U < 104)
+    (hs : s < 104) (hl : lam s = 0) (hsU : dot s U = 0) (hrow : ∃ a : K, P s = a • rho K s)
+    (hC : lcxOK zm s U k0 C = true) : ∃ b : K, c U = b • rho K U := by
+  obtain ⟨a, ha⟩ := hrow
+  have ha0 : a ≠ 0 := by
+    rintro rfl
+    have e := R.diag s hs
+    rw [R.rep, ha, hl, zero_smul, zero_dotProduct, zero_mul, add_zero] at e
+    exact e rfl
+  refine lcx_sound hC (c U) (R.c1 U) (fun x hx hdot => ?_) ?_
+  · have hx' := zm_lt hz hx
+    have e := R.mask x hx' U hU (orth_of_dot (by rw [dot_comm]; exact hdot))
+    rw [R.rep, R.PZ x hx' hx, R.lamZ x hx, zero_mul, add_zero, smul_dotProduct, smul_eq_mul] at e
+    rw [dotProduct_comm]
+    exact (mul_eq_zero.mp e).resolve_left (R.dne x hx')
+  · have e := R.mask s hs U hU (orth_of_dot hsU)
+    rw [R.rep, ha, hl, zero_mul, add_zero, smul_dotProduct, smul_eq_mul] at e
+    rw [dotProduct_comm]
+    exact (mul_eq_zero.mp e).resolve_left ha0
+
 /-- **T3 per type.**  `OL`: lines with line certificates, `OG`: lines glued over the mask `Sm`, `u`: the bad line
 (`u = 104` if there is none), whose dead row is handled by `hu`. -/
 theorem assemble (R : Rep M P c lam eta zm d g) (hz : zm < 2 ^ 104) {OL OG : List ℕ} {Sm u : ℕ}

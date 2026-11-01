@@ -52,7 +52,9 @@ theorem t3_type (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) {m 
       (∀ v < 104, lam v = 0 → ∃ a : K, PV A B g f v = a • rho K v) ∧
       ((∃ Λ : Fin 9 → K, ∀ v < 104, ∃ a : K, PV A B g f v = a • rho K v + lam v • Λ) ∨
         ¬ ∃ x1 x2 x3 x4 x5, (x1 ∈ OG ∧ lam x1 ≠ 0) ∧ (x2 ∈ OG ∧ lam x2 ≠ 0) ∧ (x3 ∈ OG ∧ lam x3 ≠ 0) ∧
-          (x4 ∈ OG ∧ lam x4 ≠ 0) ∧ (x5 ∈ OG ∧ lam x5 ≠ 0) ∧ dist5B x1 x2 x3 x4 x5 = true) := by
+          (x4 ∈ OG ∧ lam x4 ≠ 0) ∧ (x5 ∈ OG ∧ lam x5 ≠ 0) ∧ dist5B x1 x2 x3 x4 x5 = true) ∧
+      (U < 104 → ∀ s < 104, lam s = 0 → dot s U = 0 → ∀ (k0 : ℕ) (C : RCert), lcxOK zm s U k0 C = true →
+        ∃ b : K, cS A B g f U = b • rho K U) := by
   have hf : ∀ k < 8, m.testBit (frL f k) = true ∧ zm.testBit (frL f k) = true := by
     intro k hk
     have := (List.all_eq_true.mp hfin) k (List.mem_range.mpr hk)
@@ -112,6 +114,8 @@ theorem t3_type (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) {m 
     cases hz' : zm.testBit v
     · exact hl (hlive v hv hz' hn)
     · exact hl (hlam v (hzm' v hz'))
-  exact ⟨lam, eta, hrep, hlam, hin, assemble R hz hOL' hOG' hcov' hlive hS HL HG hU⟩
+  obtain ⟨hc, hd, hgl⟩ := assemble R hz hOL' hOG' hcov' hlive hS HL HG hU
+  exact ⟨lam, eta, hrep, hlam, hin, hc, hd, hgl,
+    fun hU' s hs hl hsU _ _ hC => col_pin R hz hU' hs hl hsU (hd s hs hl) hC⟩
 
 end RankNine
