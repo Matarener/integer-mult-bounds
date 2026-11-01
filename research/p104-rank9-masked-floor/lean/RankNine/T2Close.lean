@@ -658,7 +658,7 @@ theorem check_all (hc : check C = true) :
   refine ⟨hL, ?_, hK, hN⟩
   intro e
   by_cases he : e < 2 ^ (max C.OD.dp (max C.PD.dp C.MK.dp))
-  · exact hE e he
+  · exact ⟨(hE e he).1.1, (hE e he).1.2, (hE e he).2⟩
   · have hle : ∀ d, d ≤ max C.OD.dp (max C.PD.dp C.MK.dp) → 2 ^ d ≤ e := fun d hd =>
       le_trans (Nat.pow_le_pow_right (by norm_num) hd) (by omega)
     have h1 : od C e = 1000000000 := BT.get_big _ _ _ (hle _ (le_max_left _ _))
