@@ -47,7 +47,7 @@ theorem t3_type (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) {m 
     (hsm : (List.range 104).all (fun s => !sm.testBit s || zm.testBit s || decide (s ∈ OL)) = true)
     (hsmlt : sm < 2 ^ 104) (HL : LineH K zm OL) (HG : GlueH K sm OG) (HS : SpecialH zm U OL) :
     ∃ lam eta : ℕ → K, (∀ v s, Mx A B v s = PV A B g f v ⬝ᵥ cS A B g f s + lam v * eta s) ∧
-      (∀ x, m.testBit x = true → lam x = 0) ∧
+      (∀ x, m.testBit x = true → lam x = 0) ∧ (∀ v < 104, lam v ≠ 0 → v ∈ OG) ∧
       (∀ s < 104, s ≠ U → ∃ b : K, cS A B g f s = b • rho K s) ∧
       (∀ v < 104, lam v = 0 → ∃ a : K, PV A B g f v = a • rho K v) ∧
       ((∃ Λ : Fin 9 → K, ∀ v < 104, ∃ a : K, PV A B g f v = a • rho K v + lam v • Λ) ∨
@@ -106,6 +106,12 @@ theorem t3_type (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0) {m 
     intro hU hl
     obtain ⟨s, t, k0, k1, Cs, Ct, hs, ht, hst, hUs, hUt, hsO, htO, hCs, hCt⟩ := HS hU
     exact dead_special R hz hU hs ht hl hst hUs hUt (col_gramm R hz HL hsO hs) (col_gramm R hz HL htO ht) hCs hCt
-  exact ⟨lam, eta, hrep, hlam, assemble R hz hOL' hOG' hcov' hlive hS HL HG hU⟩
+  have hin : ∀ v < 104, lam v ≠ 0 → v ∈ OG := by
+    intro v hv hl
+    by_contra hn
+    cases hz' : zm.testBit v
+    · exact hl (hlive v hv hz' hn)
+    · exact hl (hlam v (hzm' v hz'))
+  exact ⟨lam, eta, hrep, hlam, hin, assemble R hz hOL' hOG' hcov' hlive hS HL HG hU⟩
 
 end RankNine
