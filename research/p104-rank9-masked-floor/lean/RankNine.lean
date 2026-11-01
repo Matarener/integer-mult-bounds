@@ -19,3 +19,4 @@ import RankNine.Plane
 import RankNine.Glue
 import RankNine.GlueData
 import RankNine.Assemble
+import RankNine.T3
