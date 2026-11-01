@@ -140,7 +140,7 @@ theorem PV_cS (A B : ℕ → Fin 9 → K) (g : ℕ → K) (f v s : ℕ) :
       ∑ k : Fin 8, Mx A B v (frL f k) / g (frL f k) * (Mx A B (frL f k) s / dS A B g (frL f k) / 18) * 18 := by
   unfold PV cS
   simp only [sum_dotProduct, dotProduct_sum, smul_dotProduct, dotProduct_smul, smul_eq_mul, frame_rho_dot,
-    mul_ite, mul_zero, Finset.sum_ite_eq, Finset.mem_univ, ↓reduceIte]
+    mul_ite, mul_zero, Finset.sum_ite_eq, Finset.sum_ite_eq', Finset.mem_univ, ↓reduceIte]
   refine Finset.sum_congr rfl fun k _ => ?_
   ring
 

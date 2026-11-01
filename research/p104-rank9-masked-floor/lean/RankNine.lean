@@ -14,3 +14,5 @@ import RankNine.MuSign
 import RankNine.Gram
 import RankNine.Rows
 import RankNine.RankCert
+import RankNine.Lin
+import RankNine.Plane
