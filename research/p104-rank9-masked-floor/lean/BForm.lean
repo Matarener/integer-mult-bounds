@@ -9,3 +9,4 @@ import BForm.Main
 import BForm.CaseIIGen
 import BForm.E8h.FinalH
 import BForm.E8.Capacity
+import BForm.E8.Biclique
