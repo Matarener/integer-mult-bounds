@@ -17,7 +17,20 @@ namespace RankNine
 
 open Matrix
 
+attribute [local instance] Classical.propDecidable
+
 variable {K : Type*} [Field K] [CharZero K]
+
+/-- second factor from a lift column and root parts -/
+def mkY (l : Fin 104 → K) (R : Fin 104 → Fin 8 → K) : Matrix (Fin 104) BForm.C9 K :=
+  Matrix.of fun v i => Option.elim i (l v) (R v)
+
+theorem mkY_none (l : Fin 104 → K) (R : Fin 104 → Fin 8 → K) (v : Fin 104) : mkY l R v none = l v := rfl
+
+theorem mkY_root (l : Fin 104 → K) (R : Fin 104 → Fin 8 → K) (v : Fin 104) :
+    (fun k => mkY l R v (some k)) = R v := rfl
+
+theorem bX_none (r : Fin 104 → Fin 8 → K) (α c : Fin 104 → K) (t : Fin 104) : BForm.bX r α c t none = c t := rfl
 
 theorem bX_bX_apply (r : Fin 104 → Fin 8 → K) (α c α' β : Fin 104 → K) (t s : Fin 104) :
     (BForm.bX r α c * (BForm.bX r α' β)ᵀ) t s = c t * β s + α t * α' s * (r t ⬝ᵥ r s) := by
@@ -133,12 +146,12 @@ theorem bform_F3 (r : Fin 104 → Fin 8 → K) (hr : ∀ a b : Fin 104, ((dot a 
   set α : Fin 104 → K := fun s => 9 / 4 * b s
   set cc : Fin 104 → K := fun s => eta s
   set α' : Fin 104 → K := fun v => a v
-  set Y : Matrix (Fin 104) BForm.C9 K := fun v i => Option.elim i (lam v) (fun k => (F *ᵥ P v) k)
+  set Y : Matrix (Fin 104) BForm.C9 K := mkY (fun v => lam v) (fun v => F *ᵥ P v) with hYd
   have hform : Nᵀ = BForm.bX r α cc * Yᵀ := by
     ext s v
-    rw [Matrix.transpose_apply, bX_mul_tr_apply, hN, hb s s.2]
+    rw [Matrix.transpose_apply, bX_mul_tr_apply, hYd, mkY_none, mkY_root, hN, hb s s.2]
     have e := hPs v s
-    simp only [Y, Option.elim, α, cc, dotProduct_smul, smul_eq_mul]
+    simp only [α, cc, dotProduct_smul, smul_eq_mul]
     rw [dotProduct_comm (P v) (rho K s)]
     linear_combination (-(b s)) * e
   have hrr : ∀ t : Fin 104, rho K t ⬝ᵥ rho K t = 18 := by
@@ -157,8 +170,10 @@ theorem bform_F3 (r : Fin 104 → Fin 8 → K) (hr : ∀ a b : Fin 104, ((dot a 
       rw [hN, hP, hv, zero_mul, add_zero, hb v v.2, smul_dotProduct, dotProduct_smul, hrr] at e
       exact e (by simp only [α'] at h0; rw [h0]; simp)
     · cases i with
-      | none => simp [Y, BForm.bX, hv]
-      | some k => simp only [Y, BForm.bX, Option.elim, α']; rw [hP, Matrix.mulVec_smul, hF]; rfl
+      | none => rw [hYd, mkY_none, bX_none]; exact hv
+      | some k =>
+        show (F *ᵥ P v) k = a v * r v k
+        rw [hP, Matrix.mulVec_smul, hF]; rfl
   · refine le_trans (Finset.card_le_card fun s hs => ?_) hL
     simp only [Finset.mem_filter, Finset.mem_univ, true_and, α] at hs ⊢
     have : b s = 0 := by
@@ -209,19 +224,19 @@ theorem bform_F2 (r : Fin 104 → Fin 8 → K) (hr : ∀ a b : Fin 104, ((dot a 
   choose! a ha using hrow
   set α : Fin 104 → K := fun v => 9 / 4 * a v
   set cc : Fin 104 → K := fun v => lam v
-  set Y : Matrix (Fin 104) BForm.C9 K := fun s i => Option.elim i (Λ ⬝ᵥ c s + eta s) (fun k => (F *ᵥ c s) k)
+  set Y : Matrix (Fin 104) BForm.C9 K := mkY (fun s => Λ ⬝ᵥ c s + eta s) (fun s => F *ᵥ c s) with hYd
   have hform : N = BForm.bX r α cc * Yᵀ := by
     ext v s
-    rw [bX_mul_tr_apply, hN, ha v v.2]
+    rw [bX_mul_tr_apply, hYd, mkY_none, mkY_root, hN, ha v v.2]
     have e := hcs v s
-    simp only [Y, Option.elim, α, cc, add_dotProduct, smul_dotProduct, smul_eq_mul]
+    simp only [α, cc, add_dotProduct, smul_dotProduct, smul_eq_mul]
     linear_combination (-(a v)) * e
-  have hent : ∀ v s : Fin 104, N v s = lam v * (Λ ⬝ᵥ c s + eta s) + α v * (r v ⬝ᵥ (F *ᵥ c s)) := by
-    intro v s; simp only [hform, bX_mul_tr_apply, Y, Option.elim, cc]
+  have hent : ∀ v s : Fin 104, N v s = cc v * (Λ ⬝ᵥ c s + eta s) + α v * (r v ⬝ᵥ (F *ᵥ c s)) := by
+    intro v s; simp only [hform, bX_mul_tr_apply, hYd, mkY_none, mkY_root]
   -- a row with `a = 0`
   have hrow0 : ∀ v s : Fin 104, a v = 0 → N v s = lam v * (Λ ⬝ᵥ c s + eta s) := by
     intro v s h0
-    rw [hent]; simp only [α, h0, mul_zero, zero_mul, add_zero]
+    rw [hent]; simp only [α, cc, h0, mul_zero, zero_mul, add_zero]
   -- off `Bs`: the lift coordinate of the column vanishes
   have hY0 : ∀ s : Fin 104, s ∉ Bs → Λ ⬝ᵥ c s + eta s = 0 := by
     intro s hs
@@ -247,9 +262,9 @@ theorem bform_F2 (r : Fin 104 → Fin 8 → K) (hr : ∀ a b : Fin 104, ((dot a 
       rw [hb, h0', zero_smul, dotProduct_zero, zero_add] at this
       rw [this, mul_zero]
     · cases i with
-      | none => simp only [Y, BForm.bX, Option.elim]; exact hY0 s hs
+      | none => rw [hYd, mkY_none, bX_none]; exact hY0 s hs
       | some k =>
-        simp only [Y, BForm.bX, Option.elim]
+        show (F *ᵥ c s) k = (c s ⬝ᵥ rho K s) / 18 * r s k
         rw [hbe, hb, Matrix.mulVec_smul, hF]; rfl
   · refine le_trans (Finset.card_le_card fun v hv => ?_) hB
     simp only [Finset.mem_filter, Finset.mem_univ, true_and, α] at hv
