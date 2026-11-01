@@ -78,4 +78,118 @@ theorem bform_F1 (r : Fin 104 → Fin 8 → K) (hr : ∀ a b : Fin 104, ((dot a 
     rw [ho, mul_zero] at h
     exact_mod_cast h
 
+/-- the product of a `bX` with an arbitrary second factor -/
+theorem bX_mul_tr_apply (r : Fin 104 → Fin 8 → K) (α c : Fin 104 → K) (Y : Matrix (Fin 104) BForm.C9 K)
+    (t s : Fin 104) :
+    (BForm.bX r α c * Yᵀ) t s = c t * Y s none + α t * (r t ⬝ᵥ fun k => Y s (some k)) := by
+  simp only [Matrix.mul_apply, Matrix.transpose_apply, BForm.bX, Fintype.sum_option, Option.elim, dotProduct,
+    Finset.mul_sum]
+  congr 1
+  refine Finset.sum_congr rfl fun k _ => ?_
+  ring
+
+/-- a linear map `F` with `F ρ_x = r_x` turns `ρ`-dot products into `(9/4) r`-dot products on the span of roots -/
+theorem F_dot (r : Fin 104 → Fin 8 → K) (hr : ∀ a b : Fin 104, ((dot a b : ℤ) : K) = 9 / 4 * (r a ⬝ᵥ r b))
+    (F : Matrix (Fin 8) (Fin 9) K) (hF : ∀ x : Fin 104, F *ᵥ rho K x = r x) {n : ℕ} (co : Fin n → K)
+    (g : Fin n → Fin 104) (s : Fin 104) :
+    9 / 4 * (r s ⬝ᵥ (F *ᵥ ∑ k, co k • rho K (g k))) = rho K s ⬝ᵥ ∑ k, co k • rho K (g k) := by
+  rw [Matrix.mulVec_sum, dotProduct_sum, dotProduct_sum, Finset.mul_sum]
+  refine Finset.sum_congr rfl fun k _ => ?_
+  rw [Matrix.mulVec_smul, hF, dotProduct_smul, dotProduct_smul, smul_eq_mul, smul_eq_mul, rho_dot, hr]
+  ring
+
+theorem card_ge_five {S : Finset (Fin 104)} (h : 5 ≤ S.card) :
+    ∃ x1 ∈ S, ∃ x2 ∈ S, ∃ x3 ∈ S, ∃ x4 ∈ S, ∃ x5 ∈ S, x1 ≠ x2 ∧ x1 ≠ x3 ∧ x1 ≠ x4 ∧ x1 ≠ x5 ∧ x2 ≠ x3 ∧
+      x2 ≠ x4 ∧ x2 ≠ x5 ∧ x3 ≠ x4 ∧ x3 ≠ x5 ∧ x4 ≠ x5 := by
+  set l := S.toList with hl
+  have hn : l.Nodup := Finset.nodup_toList S
+  have hlen : 5 ≤ l.length := by rw [hl, Finset.length_toList]; exact h
+  have mem : ∀ i (hi : i < l.length), l[i] ∈ S := fun i hi => (Finset.mem_toList).mp (List.getElem_mem hi)
+  have ne : ∀ i j (hi : i < l.length) (hj : j < l.length), i ≠ j → l[i] ≠ l[j] := fun i j hi hj hij e =>
+    hij ((List.Nodup.getElem_inj_iff hn).mp e)
+  exact ⟨_, mem 0 (by omega), _, mem 1 (by omega), _, mem 2 (by omega), _, mem 3 (by omega), _, mem 4 (by omega),
+    ne 0 1 (by omega) (by omega) (by omega), ne 0 2 (by omega) (by omega) (by omega),
+    ne 0 3 (by omega) (by omega) (by omega), ne 0 4 (by omega) (by omega) (by omega),
+    ne 1 2 (by omega) (by omega) (by omega), ne 1 3 (by omega) (by omega) (by omega),
+    ne 1 4 (by omega) (by omega) (by omega), ne 2 3 (by omega) (by omega) (by omega),
+    ne 2 4 (by omega) (by omega) (by omega), ne 3 4 (by omega) (by omega) (by omega)⟩
+
+/-- **(F3)** at most four live rows: the transpose is a generalized B-form with `B` = the live rows -/
+theorem bform_F3 (r : Fin 104 → Fin 8 → K) (hr : ∀ a b : Fin 104, ((dot a b : ℤ) : K) = 9 / 4 * (r a ⬝ᵥ r b))
+    (F : Matrix (Fin 8) (Fin 9) K) (hF : ∀ x : Fin 104, F *ᵥ rho K x = r x)
+    (N : Matrix (Fin 104) (Fin 104) K) (P c : ℕ → Fin 9 → K) (lam eta : ℕ → K)
+    (hN : ∀ v s : Fin 104, N v s = P v ⬝ᵥ c s + lam v * eta s)
+    (hcol : ∀ s < 104, ∃ b : K, c s = b • rho K s)
+    (hrowd : ∀ v < 104, lam v = 0 → ∃ a : K, P v = a • rho K v)
+    (hPs : ∀ v s : Fin 104, 9 / 4 * (r s ⬝ᵥ (F *ᵥ P v)) = rho K s ⬝ᵥ P v)
+    (hdiag : ∀ t, N t t ≠ 0) (hmask : ∀ u s : Fin 104, dot u s = 0 → N u s = 0)
+    (hL : (Finset.univ.filter fun v : Fin 104 => lam v ≠ 0).card ≤ 4) :
+    ∃ (α cc α' : Fin 104 → K) (Y : Matrix (Fin 104) BForm.C9 K),
+      BForm.GenRows r Y (Finset.univ.filter fun v : Fin 104 => lam v ≠ 0) α' ∧
+      (Finset.univ.filter fun t => α t = 0).card ≤ 4 ∧ BForm.IsClique r (Finset.univ.filter fun t => α t = 0) ∧
+      BForm.Pattern r (BForm.bX r α cc * Yᵀ) ∧ Nᵀ = BForm.bX r α cc * Yᵀ := by
+  choose! b hb using hcol
+  choose! a ha using hrowd
+  set α : Fin 104 → K := fun s => 9 / 4 * b s
+  set cc : Fin 104 → K := fun s => eta s
+  set α' : Fin 104 → K := fun v => a v
+  set Y : Matrix (Fin 104) BForm.C9 K := fun v i => Option.elim i (lam v) (fun k => (F *ᵥ P v) k)
+  have hform : Nᵀ = BForm.bX r α cc * Yᵀ := by
+    ext s v
+    rw [Matrix.transpose_apply, bX_mul_tr_apply, hN, hb s s.2]
+    have e := hPs v s
+    simp only [Y, Option.elim, α, cc, dotProduct_smul, smul_eq_mul]
+    rw [dotProduct_comm (P v) (rho K s)]
+    linear_combination (-(b s)) * e
+  have hrr : ∀ t : Fin 104, rho K t ⬝ᵥ rho K t = 18 := by
+    intro t; rw [rho_dot, dot_self t.2]; norm_num
+  have hzero : ∀ s : Fin 104, b s = 0 → lam s ≠ 0 ∧ eta s ≠ 0 := by
+    intro s h0
+    have e := hdiag s
+    rw [hN, hb s s.2, h0, zero_smul, dotProduct_zero, zero_add] at e
+    exact ⟨left_ne_zero_of_mul e, right_ne_zero_of_mul e⟩
+  refine ⟨α, cc, α', Y, fun v hv => ?_, ?_, fun u hu s hs hus ho => ?_, ⟨fun t => ?_, fun u s hus ho => ?_⟩,
+    hform⟩
+  · simp only [Finset.mem_filter, Finset.mem_univ, true_and, not_not] at hv
+    have hP := ha v v.2 hv
+    refine ⟨fun h0 => ?_, fun i => ?_⟩
+    · have e := hdiag v
+      rw [hN, hP, hv, zero_mul, add_zero, hb v v.2, smul_dotProduct, dotProduct_smul, hrr] at e
+      exact e (by simp only [α'] at h0; rw [h0]; simp)
+    · cases i with
+      | none => simp [Y, BForm.bX, hv]
+      | some k => simp only [Y, BForm.bX, Option.elim, α']; rw [hP, Matrix.mulVec_smul, hF]; rfl
+  · refine le_trans (Finset.card_le_card fun s hs => ?_) hL
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, α] at hs ⊢
+    have : b s = 0 := by
+      rcases mul_eq_zero.mp hs with h | h
+      · norm_num at h
+      · exact h
+    exact (hzero s this).1
+  · have hbu : b u = 0 := by
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and, α] at hu
+      rcases mul_eq_zero.mp hu with h | h
+      · norm_num at h
+      · exact h
+    have hbs : b s = 0 := by
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and, α] at hs
+      rcases mul_eq_zero.mp hs with h | h
+      · norm_num at h
+      · exact h
+    have hd : dot s u = 0 := by
+      have h := hr s u
+      unfold BForm.Orth at ho
+      rw [dotProduct_comm, ho, mul_zero] at h
+      exact_mod_cast h
+    have e := hmask s u hd
+    rw [hN, hb u u.2, hbu, zero_smul, dotProduct_zero, zero_add] at e
+    exact mul_ne_zero (hzero s hbs).1 (hzero u hbu).2 e
+  · rw [← hform, Matrix.transpose_apply]; exact hdiag t
+  · rw [← hform, Matrix.transpose_apply]
+    apply hmask
+    have h := hr s u
+    unfold BForm.Orth at ho
+    rw [dotProduct_comm, ho, mul_zero] at h
+    exact_mod_cast h
+
 end RankNine
