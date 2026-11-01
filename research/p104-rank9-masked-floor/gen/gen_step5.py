@@ -10,7 +10,11 @@ T0 = time.time()
 k = int(sys.argv[1]); dm = json.load(open(sys.argv[2])); ds = json.load(open(sys.argv[3])); outp = sys.argv[4]
 FR = [tuple(IDX[q] for q in f) for f in frames()]
 reps = [r for r in json.load(open('orbitsW.json')) if r['frame']]
-m = int(reps[k]['mask']); Z = [i for i in range(N) if m >> i & 1]; Zs = set(Z)
+m = int(reps[k]['mask']); Z = [i for i in range(N) if m >> i & 1]
+import os
+if os.environ.get('DROP'):   # same reduced Z as gen_moduli.py (frame-poor types)
+    _dr = set(map(int, os.environ['DROP'].split(','))); Z = [i for i in Z if i not in _dr]
+Zs = set(Z)
 FZ = [fi for fi, f in enumerate(FR) if all(i in Zs for i in f)]
 def code(a, b): return 104 * min(a, b) + max(a, b)
 def E(a, b): return (min(a, b), max(a, b))

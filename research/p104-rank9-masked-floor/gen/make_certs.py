@@ -20,15 +20,24 @@ def one(k):
     if 'SIM OK' not in s.stdout: return k, False, 'sim failed'
     e = subprocess.run([sys.executable, 'emit_packed.py', str(k), '../lean/RankNine/Cert/Packed%d.lean' % k, '400', j], capture_output=True, text=True)
     if e.returncode != 0: return k, False, 'emit failed'
+    if os.environ.get('ONLY_MODULI') == '1':   # test mode: moduli + zero step only
+        zc, zj, zp = 'cert/zero-%d.cnf' % k, 'cert/zero-%d.json' % k, 'lrat/z%d.lrat.xz' % k
+        g4 = subprocess.run([sys.executable, 'zero_cnf.py', str(k), zc, zj], env=env, capture_output=True, text=True)
+        e4 = subprocess.run([sys.executable, 'emit_zero.py', str(k), zc, zj, zp, '../lean/RankNine/Cert/Zero%d.lean' % k], capture_output=True, text=True)
+        for p_ in (zc, zj, j):
+            if os.path.exists(p_): os.remove(p_)
+        zl = [l for l in e4.stdout.splitlines() if 'ZERO OK' in l]
+        if g4.returncode != 0 or not zl: return k, False, 'zero: ' + ((g4.stderr + e4.stdout + e4.stderr).strip().splitlines() or ['?'])[-1]
+        return k, True, line[-1] + ' | ' + zl[-1]
     js = 'cert/signs-%d.json' % k
-    g2 = subprocess.run([sys.executable, 'gen_signs.py', str(k), j, js], capture_output=True, text=True)
+    g2 = subprocess.run([sys.executable, 'gen_signs.py', str(k), j, js], env=env, capture_output=True, text=True)
     sl = [l for l in g2.stdout.splitlines() if 'SIGNS OK' in l]
     if g2.returncode != 0 or not sl:
         return k, False, 'signs: ' + ((g2.stdout + g2.stderr).strip().splitlines() or ['?'])[-1]
     e2 = subprocess.run([sys.executable, 'emit_signs.py', str(k), js, '../lean/RankNine/Cert/Signs%d.lean' % k], capture_output=True, text=True)
     if e2.returncode != 0: return k, False, 'emit signs failed'
     jf = 'cert/step5-%d.json' % k
-    g3 = subprocess.run([sys.executable, 'gen_step5.py', str(k), j, js, jf], capture_output=True, text=True)
+    g3 = subprocess.run([sys.executable, 'gen_step5.py', str(k), j, js, jf], env=env, capture_output=True, text=True)
     fl = [l for l in g3.stdout.splitlines() if 'STEP5 OK' in l]
     if g3.returncode != 0 or not fl:
         return k, False, 'step5: ' + ((g3.stdout + g3.stderr).strip().splitlines() or ['?'])[-1]
@@ -50,5 +59,8 @@ with ThreadPoolExecutor(W) as ex:
     for k, ok, msg in ex.map(one, TYPES):
         print('[%7.1fs] type %d %s %s' % (time.time() - T0, k, 'OK' if ok else 'SKIP', msg), flush=True)
         if ok: good.append(k)
-open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d\nimport RankNine.Cert.Step5c%d\nimport RankNine.Cert.Zero%d' % (k, k, k, k) for k in sorted(good)) + '\n')
+if os.environ.get('ONLY_MODULI') == '1':
+    open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Zero%d' % (k, k) for k in sorted(good)) + '\n')
+else:
+    open('../lean/RankNine/AllModuli.lean', 'w').write('\n'.join('import RankNine.Cert.Packed%d\nimport RankNine.Cert.Signs%d\nimport RankNine.Cert.Step5c%d\nimport RankNine.Cert.Zero%d' % (k, k, k, k) for k in sorted(good)) + '\n')
 print('DONE types with Lean certificates', len(good), flush=True)

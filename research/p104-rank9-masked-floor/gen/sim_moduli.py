@@ -16,8 +16,18 @@ for s in d['steps']:
         assert (u, v) == (x, y) and x in cov; facts.append((p, q))
     elif t == 2:
         _, kk, l = s; u, v = g(facts, kk, (0, 0)); v2, w = g(facts, l, (0, 0)); assert v2 == v; facts.append((u, w))
-    else:
+    elif t == 3:
         _, kk = s; u, v = g(facts, kk, (0, 0)); facts.append((v, u))
+    else:   # lattice seed: sum of coeff * (e_x + e_p - e_y - e_q) over the terms = 2 e_u - 2 e_v (all codes covered)
+        _, alo, ahi, m = s; a = alo + 65536 * ahi; u, v = d['facts_uv'][len(facts)]
+        ex = {}
+        for i in range(a, a + m):
+            j, e = d['lat'][2 * i], d['lat'][2 * i + 1] - 32768; r = rels[j]
+            assert all(c in cov for c in r)
+            for c, sg in zip(r, (1, 1, -1, -1)): ex[c] = ex.get(c, 0) + e * sg
+        ex[u] = ex.get(u, 0) - 2; ex[v] = ex.get(v, 0) + 2
+        assert all(x == 0 for x in ex.values()) and u in cov and v in cov, 'lattice step'
+        facts.append((u, v))
 for q, qf in zip(d['quads'], d['quadfacts']):
     r = qf[0]
     for c, fi in zip(q, qf[1:]):

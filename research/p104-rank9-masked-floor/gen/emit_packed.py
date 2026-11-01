@@ -24,7 +24,9 @@ for s in d['steps']:
     if t == 0: x, p, y, q = orient(s[3], rels[s[1]]); facts.append((x, y))
     elif t == 1: x, p, y, q = orient(s[2], rels[s[1]]); facts.append((p, q))
     elif t == 2: facts.append((facts[s[1]][0], facts[s[2]][1]))
-    else: facts.append((facts[s[1]][1], facts[s[1]][0]))
+    elif t == 3: facts.append((facts[s[1]][1], facts[s[1]][0]))
+    else: facts.append(tuple(d['facts_uv'][len(facts)]))
+Lx = pack(d.get('lat', [])) if d.get('lat') else '[]'
 R = pack([x for r in rels for x in r]); S = pack([x for s in d['steps'] for x in (list(s) + [0] * (5 - len(s)))])
 OL = []
 for (t, s_, fi, a, b) in d['origin']:
@@ -52,13 +54,15 @@ def R : List ℕ := {R}
 def S : List ℕ := {S}
 def F : List ℕ := {F}
 def Cv : ℕ := {hex(Cv)}
+/-- lattice-seed terms (relation index, coefficient + 32768) -/
+def Lx : List ℕ := {Lx}
 def T : List ℕ := {T}
 /-- geometric origin of every relation: dead rows t, s, frame index, positions of a, b in the frame -/
 def O : List ℕ := {O}
 ''']
 for i, (a, m) in enumerate(chunks):
-    L.append(f'theorem s{i} : (List.range\' {a} {m}).all (stepOK nR R S F Cv) = true := by decide +kernel\n')
-L.append('theorem steps_ok : ∀ i < n, stepOK nR R S F Cv i = true := by\n  intro i hi')
+    L.append(f'theorem s{i} : (List.range\' {a} {m}).all (stepOK nR R S F Lx Cv) = true := by decide +kernel\n')
+L.append('theorem steps_ok : ∀ i < n, stepOK nR R S F Lx Cv i = true := by\n  intro i hi')
 for i, (a, m) in enumerate(chunks):
     if i < len(chunks) - 1:
         L.append(f'  by_cases h{i} : i < {a + m}\n  · exact (all_range\'_iff _ {a} {m}).1 s{i} i (by omega) (by omega)')
@@ -87,7 +91,7 @@ theorem moduli {K : Type*} [Field K] (N : ℕ → K) (hrel : ∀ j < nR, holds N
     (hcov : ∀ c, covB Cv c = true → N c ≠ 0) :
     ∀ q < nQ, N (fld T (3 * q)) ^ 2 = N (fld T (3 * q + 1)) ^ 2 := by
   intro q hq
-  exact tEntryOK_sound N n F T q (steps_sound N nR R S F Cv n hrel hcov steps_ok) (table_ok q hq)
+  exact tEntryOK_sound N n F T q (steps_sound N nR R S F Lx Cv n hrel hcov steps_ok) (table_ok q hq)
 ''')
 L.append(f'''
 /-- the same statement for a rank-9 factorisation `M x y = A x ⬝ᵥ B y` whose term with dual vector `u` has all rows

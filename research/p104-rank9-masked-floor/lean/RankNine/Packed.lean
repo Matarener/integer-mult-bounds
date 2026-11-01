@@ -78,7 +78,154 @@ theorem symmOK_sound (N : ℕ → K) (g f : ℕ × ℕ) (hg : Fact N g) (hc : sy
   simp only [Fact] at hg ⊢
   exact hg.symm
 
-def stepOK (nR : ℕ) (R S F : List ℕ) (Cv i : ℕ) : Bool :=
+
+/-! ### Lattice seeds (step tag `4`)
+
+A lattice seed derives `N u ^ 2 = N v ^ 2` from an integer combination of relations: the exponent vectors
+`e_x + e_p - e_y - e_q` of the relations (all four codes covered, so `N ≠ 0` on them) with coefficients `c_i`
+sum to `2 e_u - 2 e_v`.  The kernel compares the exponent sums code by code (`esum`); the proof multiplies the
+relations (`mval`) and regroups the product by codes (`mval_group`).  Term `i` of `Lx` is two fields: relation
+index and coefficient `+ 32768`. -/
+
+/-- monomial `∏ w c ^ e` of a list of (code, exponent) -/
+def mval (w : ℕ → K) : List (ℕ × ℤ) → K
+  | [] => 1
+  | t :: l => w t.1 ^ t.2 * mval w l
+
+def esum (l : List (ℕ × ℤ)) (c : ℕ) : ℤ := (l.map fun t => if t.1 = c then t.2 else 0).sum
+
+def relMono (r : Rel) : List (ℕ × ℤ) := [(r.1, 1), (r.2.1, 1), (r.2.2.1, -1), (r.2.2.2, -1)]
+
+def tcoef (Lx : List ℕ) (i : ℕ) : ℤ := (fld Lx (2 * i + 1) : ℤ) - 32768
+
+def latL (R Lx : List ℕ) (a m : ℕ) : List (ℕ × ℤ) :=
+  (List.range' a m).flatMap fun i => (relMono (relAt R (fld Lx (2 * i)))).map fun t => (t.1, tcoef Lx i * t.2)
+
+def latTermsOK (nR : ℕ) (R Lx : List ℕ) (Cv a m : ℕ) : Bool :=
+  (List.range' a m).all fun i => decide (fld Lx (2 * i) < nR) &&
+    (relMono (relAt R (fld Lx (2 * i)))).all fun t => covB Cv t.1
+
+def latOK (nR : ℕ) (R Lx : List ℕ) (Cv a m u v : ℕ) : Bool :=
+  latTermsOK nR R Lx Cv a m && covB Cv u && covB Cv v &&
+    ((latL R Lx a m).map Prod.fst ++ [u, v]).all fun c => esum (latL R Lx a m) c == esum [(u, 2), (v, -2)] c
+
+open Classical in
+noncomputable def wN (N : ℕ → K) (c : ℕ) : K := if N c = 0 then 1 else N c
+
+theorem wN_ne (N : ℕ → K) (c : ℕ) : wN N c ≠ 0 := by
+  unfold wN; split_ifs with h
+  · exact one_ne_zero
+  · exact h
+
+theorem wN_eq (N : ℕ → K) {c : ℕ} (h : N c ≠ 0) : wN N c = N c := by
+  unfold wN; rw [if_neg h]
+
+theorem mval_append (w : ℕ → K) (l1 l2 : List (ℕ × ℤ)) : mval w (l1 ++ l2) = mval w l1 * mval w l2 := by
+  induction l1 with
+  | nil => simp [mval]
+  | cons t l ih => simp only [List.cons_append, mval, ih]; ring
+
+theorem mval_scale (w : ℕ → K) (n : ℤ) (l : List (ℕ × ℤ)) :
+    mval w (l.map fun t => (t.1, n * t.2)) = mval w l ^ n := by
+  induction l with
+  | nil => simp [mval]
+  | cons t l ih =>
+    simp only [List.map_cons, mval, ih]
+    rw [mul_zpow, ← zpow_mul, mul_comm t.2 n]
+
+theorem esum_cons (t : ℕ × ℤ) (l : List (ℕ × ℤ)) (c : ℕ) :
+    esum (t :: l) c = (if t.1 = c then t.2 else 0) + esum l c := by
+  simp [esum]
+
+theorem mval_group (w : ℕ → K) (hw : ∀ c, w c ≠ 0) (l : List (ℕ × ℤ)) (S : Finset ℕ) (hS : ∀ t ∈ l, t.1 ∈ S) :
+    mval w l = ∏ c ∈ S, w c ^ esum l c := by
+  induction l with
+  | nil => simp [mval, esum]
+  | cons t l ih =>
+    rw [mval, ih (fun t' ht' => hS t' (List.mem_cons_of_mem _ ht'))]
+    have h1 : ∏ c ∈ S, w c ^ esum (t :: l) c =
+        (∏ c ∈ S, w c ^ (if t.1 = c then t.2 else 0)) * ∏ c ∈ S, w c ^ esum l c := by
+      rw [← Finset.prod_mul_distrib]
+      refine Finset.prod_congr rfl (fun c _ => ?_)
+      rw [esum_cons, zpow_add₀ (hw c)]
+    rw [h1]
+    congr 1
+    rw [Finset.prod_eq_single t.1]
+    · simp
+    · intro b _ hb
+      simp [Ne.symm hb]
+    · intro h
+      exact absurd (hS t List.mem_cons_self) h
+
+theorem mval_rel (N : ℕ → K) (x p y q : ℕ) (h : N x * N p = N y * N q)
+    (hx : N x ≠ 0) (hp : N p ≠ 0) (hy : N y ≠ 0) (hq : N q ≠ 0) :
+    mval (wN N) (relMono (x, p, y, q)) = 1 := by
+  simp only [relMono, mval, wN_eq N hx, wN_eq N hp, wN_eq N hy, wN_eq N hq, zpow_one, zpow_neg_one, mul_one]
+  have hyq : N y * N q ≠ 0 := mul_ne_zero hy hq
+  calc N x * (N p * ((N y)⁻¹ * (N q)⁻¹)) = (N x * N p) * (N y * N q)⁻¹ := by rw [mul_inv]; ring
+    _ = 1 := by rw [h]; exact mul_inv_cancel₀ hyq
+
+theorem latL_val (N : ℕ → K) (nR : ℕ) (R Lx : List ℕ) (Cv : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
+    (hcov : ∀ c, covB Cv c = true → N c ≠ 0) :
+    ∀ (m a : ℕ), latTermsOK nR R Lx Cv a m = true → mval (wN N) (latL R Lx a m) = 1 := by
+  intro m
+  induction m with
+  | zero => intro a _; simp [latL, mval]
+  | succ m ih =>
+    intro a h
+    unfold latTermsOK at h
+    rw [List.range'_succ, List.all_cons, Bool.and_eq_true] at h
+    obtain ⟨ha, h'⟩ := h
+    have e : latL R Lx a (m + 1) = ((relMono (relAt R (fld Lx (2 * a)))).map fun t => (t.1, tcoef Lx a * t.2)) ++
+        latL R Lx (a + 1) m := by
+      simp only [latL, List.range'_succ, List.flatMap_cons]
+    rw [e, mval_append, mval_scale, ih (a + 1) h', mul_one]
+    rw [Bool.and_eq_true, decide_eq_true_eq] at ha
+    obtain ⟨hj, hC⟩ := ha
+    have hR := hrel _ hj
+    generalize relAt R (fld Lx (2 * a)) = r at hR hC ⊢
+    obtain ⟨x, p, y, q⟩ := r
+    simp only [relMono, List.all_cons, List.all_nil, Bool.and_true, Bool.and_eq_true] at hC
+    obtain ⟨cx, cp, cy, cq⟩ := hC
+    rw [mval_rel N x p y q hR (hcov _ cx) (hcov _ cp) (hcov _ cy) (hcov _ cq), one_zpow]
+
+theorem mval_tgt (N : ℕ → K) (u v : ℕ) (hu : N u ≠ 0) (hv : N v ≠ 0)
+    (h : mval (wN N) [(u, 2), (v, -2)] = 1) : N u ^ 2 = N v ^ 2 := by
+  simp only [mval, wN_eq N hu, wN_eq N hv, mul_one] at h
+  have hv2 : N v ^ (2 : ℤ) ≠ 0 := zpow_ne_zero _ hv
+  have h2 : N u ^ (2 : ℤ) = N v ^ (2 : ℤ) := by
+    rw [zpow_neg, ← div_eq_mul_inv, div_eq_one_iff_eq hv2] at h
+    exact h
+  have c2 : ∀ a : K, a ^ (2 : ℤ) = a ^ (2 : ℕ) := fun a => by
+    first
+    | exact zpow_ofNat a 2
+    | exact zpow_natCast a 2
+    | norm_cast
+  rw [c2, c2] at h2
+  exact h2
+
+theorem latOK_sound (N : ℕ → K) (nR : ℕ) (R Lx : List ℕ) (Cv a m u v : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
+    (hcov : ∀ c, covB Cv c = true → N c ≠ 0) (h : latOK nR R Lx Cv a m u v = true) : Fact N (u, v) := by
+  unfold latOK at h
+  rw [Bool.and_eq_true, Bool.and_eq_true, Bool.and_eq_true] at h
+  obtain ⟨⟨⟨h1, hu⟩, hv⟩, h2⟩ := h
+  rw [List.all_eq_true] at h2
+  have hval := latL_val N nR R Lx Cv hrel hcov m a h1
+  let S : Finset ℕ := ((latL R Lx a m).map Prod.fst ++ [u, v]).toFinset
+  have g1 := mval_group (wN N) (wN_ne N) (latL R Lx a m) S (fun t ht => by
+    rw [List.mem_toFinset]; exact List.mem_append_left _ (List.mem_map.2 ⟨t, ht, rfl⟩))
+  have g2 := mval_group (wN N) (wN_ne N) [(u, 2), (v, -2)] S (fun t ht => by
+    rw [List.mem_toFinset]
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at ht
+    rcases ht with rfl | rfl <;> simp)
+  have heq : ∀ c ∈ S, esum (latL R Lx a m) c = esum [(u, 2), (v, -2)] c := fun c hc => by
+    have := h2 c (List.mem_toFinset.1 hc)
+    simpa using this
+  have hT : mval (wN N) [(u, 2), (v, -2)] = 1 := by
+    rw [g2, ← Finset.prod_congr rfl (fun c hc => by rw [heq c hc]), ← g1, hval]
+  exact mval_tgt N u v (hcov u hu) (hcov v hv) hT
+
+def stepOK (nR : ℕ) (R S F Lx : List ℕ) (Cv i : ℕ) : Bool :=
   if fld S (5 * i) = 0 then
     fld S (5 * i + 1) < nR && fld S (5 * i + 2) < nR &&
       seedOK Cv (orient (fld S (5 * i + 3)) (relAt R (fld S (5 * i + 1))))
@@ -89,12 +236,14 @@ def stepOK (nR : ℕ) (R S F : List ℕ) (Cv i : ℕ) : Bool :=
   else if fld S (5 * i) = 2 then
     fld S (5 * i + 1) < i && fld S (5 * i + 2) < i &&
       transOK (factAt F (fld S (5 * i + 1))) (factAt F (fld S (5 * i + 2))) (factAt F i)
-  else
+  else if fld S (5 * i) = 3 then
     fld S (5 * i + 1) < i && symmOK (factAt F (fld S (5 * i + 1))) (factAt F i)
+  else
+    latOK nR R Lx Cv (fld S (5 * i + 1) + 65536 * fld S (5 * i + 2)) (fld S (5 * i + 3)) (factAt F i).1 (factAt F i).2
 
-theorem stepOK_sound (N : ℕ → K) (nR : ℕ) (R S F : List ℕ) (Cv : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
+theorem stepOK_sound (N : ℕ → K) (nR : ℕ) (R S F Lx : List ℕ) (Cv : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
     (hcov : ∀ c, covB Cv c = true → N c ≠ 0) (i : ℕ) (hprev : ∀ k < i, Fact N (factAt F k))
-    (h : stepOK nR R S F Cv i = true) : Fact N (factAt F i) := by
+    (h : stepOK nR R S F Lx Cv i = true) : Fact N (factAt F i) := by
   unfold stepOK at h
   split_ifs at h
   · simp only [Bool.and_eq_true, decide_eq_true_eq] at h
@@ -109,16 +258,17 @@ theorem stepOK_sound (N : ℕ → K) (nR : ℕ) (R S F : List ℕ) (Cv : ℕ) (h
   · simp only [Bool.and_eq_true, decide_eq_true_eq] at h
     obtain ⟨hk, hs⟩ := h
     exact symmOK_sound N _ _ (hprev _ hk) hs
+  · exact latOK_sound N nR R Lx Cv _ _ _ _ hrel hcov h
 
 /-- all steps below `n` pass the local check ⇒ all facts below `n` are true -/
-theorem steps_sound (N : ℕ → K) (nR : ℕ) (R S F : List ℕ) (Cv n : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
-    (hcov : ∀ c, covB Cv c = true → N c ≠ 0) (h : ∀ i < n, stepOK nR R S F Cv i = true) :
+theorem steps_sound (N : ℕ → K) (nR : ℕ) (R S F Lx : List ℕ) (Cv n : ℕ) (hrel : ∀ j < nR, holds N (relAt R j))
+    (hcov : ∀ c, covB Cv c = true → N c ≠ 0) (h : ∀ i < n, stepOK nR R S F Lx Cv i = true) :
     ∀ i < n, Fact N (factAt F i) := by
   intro i
   induction i using Nat.strong_induction_on with
   | _ i ih =>
     intro hi
-    exact stepOK_sound N nR R S F Cv hrel hcov i (fun k hk => ih k hk (lt_trans hk hi)) (h i hi)
+    exact stepOK_sound N nR R S F Lx Cv hrel hcov i (fun k hk => ih k hk (lt_trans hk hi)) (h i hi)
 
 /-- chunked form: `(List.range' a m).all` checks, proved separately by `decide +kernel` -/
 theorem all_range'_iff (P : ℕ → Bool) (a m : ℕ) :
