@@ -1,5 +1,7 @@
 import RankNine.Plane
 
+set_option linter.unusedSectionVars false
+
 /-!
 # T3.4: gluing live rows
 

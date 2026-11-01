@@ -1,5 +1,7 @@
 import RankNine.Gram
 
+set_option linter.unusedSectionVars false
+
 /-!
 # T3.2: every row along a frame of the dead set, dead rows and dead columns
 

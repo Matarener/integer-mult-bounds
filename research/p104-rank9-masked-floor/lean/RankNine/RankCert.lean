@@ -1,5 +1,7 @@
 import RankNine.Rows
 
+set_option linter.unusedSectionVars false
+
 /-!
 # T3.3/T3.4: rank certificates for root sets
 

@@ -1,5 +1,7 @@
 import RankNine.Lin
 
+set_option linter.unusedSectionVars false
+
 /-!
 # A2 planes hold at most three lines
 

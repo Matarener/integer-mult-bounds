@@ -1,5 +1,7 @@
 import RankNine.Glue
 
+set_option linter.unusedSectionVars false
+
 /-!
 # T3.4: per-type gluing data
 

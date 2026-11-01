@@ -1,5 +1,7 @@
 import RankNine.RankCert
 
+set_option linter.unusedSectionVars false
+
 /-!
 # T3.4 linear algebra on roots
 
