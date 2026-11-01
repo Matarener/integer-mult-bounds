@@ -79,7 +79,7 @@ theorem floor {K : Type*} [Field K] [CharZero K] (hcap : BForm.Capacity BForm.E8
   obtain ⟨lam, eta, hrep, -, hin, hcolU, hrowd, hglue, hpinT⟩ := t3_type A B u hu hZ hdiag hmask _ hg hG hfin hfv
     Glue108.hz hzm Glue108.hOL Glue108.hO Glue108.hcov hOG Glue108.hsm Glue108.hsmlt
     (fun v hv d h1 hd => Glue108.line hv d h1 hd) (fun h τ L R five => Glue108.glue R five) Glue108.hSP
-  have hpin : ∀ s ∈ G, lam s = 0 → ∃ b : K, cS A B _ f Glue108.U = b • rho K Glue108.U := by
+  have hpin : ∀ s ∈ G, lam s = 0 → ∃ b : K, cS A B (gOf A B Step5c108.V Step5c108.PL Step5c108.II Step5c108.nV) f Glue108.U = b • rho K Glue108.U := by
     intro s hs hl
     obtain ⟨e, hm, rfl⟩ := List.mem_map.mp hs
     have hc := (List.all_eq_true.mp hGC) e hm

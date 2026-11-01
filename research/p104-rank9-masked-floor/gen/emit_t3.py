@@ -60,7 +60,7 @@ theorem hGl : ∀ s ∈ G, s < 104 := by
 TAIL0 = """  exact floor_noU hcap hbic hcensus _ _ _ lam eta (fun v s => by rw [Matrix.of_apply]; exact hrep v s)
     (fun s hs => hcolU s hs (by simp only [Glue{k}.U]; omega)) hrowd (hPs_P104 A B _ f)
     (hglue.imp_right (live_le_four lam _ hin))"""
-TAIL1 = """  have hpin : ∀ s ∈ G, lam s = 0 → ∃ b : K, cS A B _ f Glue{k}.U = b • rho K Glue{k}.U := by
+TAIL1 = """  have hpin : ∀ s ∈ G, lam s = 0 → ∃ b : K, cS A B (gOf A B Step5c{k}.V Step5c{k}.PL Step5c{k}.II Step5c{k}.nV) f Glue{k}.U = b • rho K Glue{k}.U := by
     intro s hs hl
     obtain ⟨e, hm, rfl⟩ := List.mem_map.mp hs
     have hc := (List.all_eq_true.mp hGC) e hm
