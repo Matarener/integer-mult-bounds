@@ -222,7 +222,9 @@ theorem latOK_sound (N : ℕ → K) (nR : ℕ) (R Lx : List ℕ) (Cv a m u v : �
     have := h2 c (List.mem_toFinset.1 hc)
     simpa using this
   have hT : mval (wN N) [(u, 2), (v, -2)] = 1 := by
-    rw [g2, ← Finset.prod_congr rfl (fun c hc => by rw [heq c hc]), ← g1, hval]
+    have hp : ∏ c ∈ S, wN N c ^ esum [(u, 2), (v, -2)] c = ∏ c ∈ S, wN N c ^ esum (latL R Lx a m) c :=
+      Finset.prod_congr rfl (fun c hc => by rw [heq c hc])
+    rw [g2, hp, ← g1, hval]
   exact mval_tgt N u v (hcov u hu) (hcov v hv) hT
 
 def stepOK (nR : ℕ) (R S F Lx : List ℕ) (Cv i : ℕ) : Bool :=
