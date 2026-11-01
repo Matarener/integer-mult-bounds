@@ -35,7 +35,7 @@ theorem plane_arith {a b c b' c' d : ℤ} (ha : a = 9 ∨ a = -9) (hb : b = 9 �
     (h2 : a * b' * c' = -729) (h : 81 * d = 18 * b * b' + a * (b * c' + c * b') + 18 * c * c') : False := by
   rcases ha with rfl | rfl <;> rcases hb with rfl | rfl <;> rcases hc with rfl | rfl <;>
     rcases hb' with rfl | rfl <;> rcases hc' with rfl | rfl <;> rcases hd with rfl | rfl | rfl <;>
-    norm_num at h1 h2 h
+    omega
 
 theorem pm9 {a : ℤ} (h0 : a = 0 ∨ a = 9 ∨ a = -9) (h : a * a = 81) : a = 9 ∨ a = -9 := by
   rcases h0 with rfl | h0 | h0

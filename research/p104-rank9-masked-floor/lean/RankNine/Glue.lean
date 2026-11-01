@@ -207,6 +207,132 @@ theorem glue_ext {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ →
     have b4 : good v x4 = true := (m x1 x4 l1 l4 e1 e4 d14).resolve_left b1
     exact join3 G lv l2 l3 l4 e2 e3 e4 d23 d24 d34 b2 b3 b4 g2 g3 g4
 
+theorem good_of_bad {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ → ℕ → Bool} (G : GoodRel h Live good)
+    {v w w' : ℕ} (lv : Live v) (lw : Live w) (lw' : Live w') (dvw : v ≠ w) (dvw' : v ≠ w') (dww' : w ≠ w')
+    (b : good v w = false) : good v w' = true :=
+  (G.matching v w w' lv lw lw' dvw dvw' dww').resolve_left (by rw [b]; simp)
+
+theorem good_symm {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ → ℕ → Bool} (G : GoodRel h Live good)
+    {v w : ℕ} (g : good v w = true) : good w v = true := (G.symm w v).trans g
+
+/-- an independent good triangle `x y z` and a line `w` good with `y, z`, `w y z` independent: all glued -/
+theorem tri_join {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ → ℕ → Bool} (G : GoodRel h Live good)
+    {x y z w : ℕ} (lx : Live x) (ly : Live y) (lz : Live z) (lw : Live w) (dxy : x ≠ y) (dxz : x ≠ z)
+    (dyz : y ≠ z) (dwx : w ≠ x) (dwy : w ≠ y) (dwz : w ≠ z) (gxy : good x y = true) (gyz : good y z = true)
+    (gxz : good x z = true) (gwy : good w y = true) (gwz : good w z = true) (h1 : gram3 x y z ≠ 0)
+    (h2 : gram3 w y z ≠ 0) : ∃ Λ, ∀ v, Live v → Gl h Λ v := by
+  have hx := G.lt x lx; have hy := G.lt y ly; have hz := G.lt z lz; have hw := G.lt w lw
+  obtain ⟨Λ, g1, g2, g3⟩ := tri_glue hx hy hz h1 (G.pr x y lx ly dxy gxy) (G.pr y z ly lz dyz gyz)
+    (G.pr x z lx lz dxz gxz)
+  have g4 := glue_join hw hy hz dyz h2 (G.pr w y lw ly dwy gwy) (G.pr w z lw lz dwz gwz) (G.pr y z ly lz dyz gyz)
+    g2 g3
+  exact ⟨Λ, fun v lv => glue_ext G lx ly lz lw dxy dxz (Ne.symm dwx) dyz (Ne.symm dwy) (Ne.symm dwz) g1 g2 g3 g4 lv⟩
+
+/-- four pairwise good lines: all glued -/
+theorem four_good {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ → ℕ → Bool} (G : GoodRel h Live good)
+    {x1 x2 x3 x4 : ℕ} (l1 : Live x1) (l2 : Live x2) (l3 : Live x3) (l4 : Live x4) (d12 : x1 ≠ x2)
+    (d13 : x1 ≠ x3) (d14 : x1 ≠ x4) (d23 : x2 ≠ x3) (d24 : x2 ≠ x4) (d34 : x3 ≠ x4) (g12 : good x1 x2 = true)
+    (g13 : good x1 x3 = true) (g14 : good x1 x4 = true) (g23 : good x2 x3 = true) (g24 : good x2 x4 = true)
+    (g34 : good x3 x4 = true) : ∃ Λ, ∀ v, Live v → Gl h Λ v := by
+  obtain ⟨Λ, g1, g2, g3, g4⟩ := glue_four (G.lt _ l1) (G.lt _ l2) (G.lt _ l3) (G.lt _ l4) d12 d13 d14 d23 d24 d34
+    (G.pr _ _ l1 l2 d12 g12) (G.pr _ _ l1 l3 d13 g13) (G.pr _ _ l1 l4 d14 g14) (G.pr _ _ l2 l3 d23 g23)
+    (G.pr _ _ l2 l4 d24 g24) (G.pr _ _ l3 l4 d34 g34)
+  exact ⟨Λ, fun v lv => glue_ext G l1 l2 l3 l4 d12 d13 d14 d23 d24 d34 g1 g2 g3 g4 lv⟩
+
 end glue
+
+/-- plan for five lines with bad pairs `a a'`, `b b'`: two independent triangles through `e` sharing two lines -/
+def planB (a a' b b' e : ℕ) : Bool :=
+  (gram3 a b e != 0 && gram3 a' b e != 0) || (gram3 a b e != 0 && gram3 a b' e != 0) ||
+    (gram3 a' b' e != 0 && gram3 a' b e != 0) || (gram3 a' b' e != 0 && gram3 a b' e != 0)
+
+theorem planB_swap1 (a a' b b' e : ℕ) : planB a' a b b' e = planB a a' b b' e := by
+  unfold planB
+  generalize (gram3 a b e != 0) = A; generalize (gram3 a' b e != 0) = B
+  generalize (gram3 a b' e != 0) = C; generalize (gram3 a' b' e != 0) = D
+  revert A B C D; decide
+
+theorem planB_swap2 (a a' b b' e : ℕ) : planB a a' b' b e = planB a a' b b' e := by
+  unfold planB
+  generalize (gram3 a b e != 0) = A; generalize (gram3 a' b e != 0) = B
+  generalize (gram3 a b' e != 0) = C; generalize (gram3 a' b' e != 0) = D
+  revert A B C D; decide
+
+section glue5
+
+variable {K : Type*} [Field K] [CharZero K]
+
+/-- the plan hypothesis: every five live lines with two disjoint bad pairs have a plan -/
+def PlanHyp (Live : ℕ → Prop) (good : ℕ → ℕ → Bool) : Prop :=
+  ∀ a a' b b' e, Live a → Live a' → Live b → Live b' → Live e → a ≠ a' → a ≠ b → a ≠ b' → a ≠ e → a' ≠ b →
+    a' ≠ b' → a' ≠ e → b ≠ b' → b ≠ e → b' ≠ e → good a a' = false → good b b' = false → planB a a' b b' e = true
+
+theorem core5 {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ → ℕ → Bool} (G : GoodRel h Live good)
+    (H : PlanHyp Live good) {a a' b b' e : ℕ} (la : Live a) (la' : Live a') (lb : Live b) (lb' : Live b')
+    (le : Live e) (daa' : a ≠ a') (dab : a ≠ b) (dab' : a ≠ b') (dae : a ≠ e) (da'b : a' ≠ b) (da'b' : a' ≠ b')
+    (da'e : a' ≠ e) (dbb' : b ≠ b') (dbe : b ≠ e) (db'e : b' ≠ e) (ba : good a a' = false)
+    (bb : good b b' = false) : ∃ Λ, ∀ v, Live v → Gl h Λ v := by
+  have hp := H a a' b b' e la la' lb lb' le daa' dab dab' dae da'b da'b' da'e dbb' dbe db'e ba bb
+  have ba' : good a' a = false := by rw [G.symm]; exact ba
+  have bb' : good b' b = false := by rw [G.symm]; exact bb
+  have gab := good_of_bad G la la' lb daa' dab da'b ba
+  have gab' := good_of_bad G la la' lb' daa' dab' da'b' ba
+  have gae := good_of_bad G la la' le daa' dae da'e ba
+  have ga'b := good_of_bad G la' la lb (Ne.symm daa') da'b dab ba'
+  have ga'b' := good_of_bad G la' la lb' (Ne.symm daa') da'b' dab' ba'
+  have ga'e := good_of_bad G la' la le (Ne.symm daa') da'e dae ba'
+  have gbe := good_of_bad G lb lb' le dbb' dbe db'e bb
+  have gb'e := good_of_bad G lb' lb le (Ne.symm dbb') db'e dbe bb'
+  simp only [planB, Bool.or_eq_true, Bool.and_eq_true, bne_iff_ne, ne_eq] at hp
+  rcases hp with ((⟨h1, h2⟩ | ⟨h1, h2⟩) | ⟨h1, h2⟩) | ⟨h1, h2⟩
+  · exact tri_join G la lb le la' dab dae dbe (Ne.symm daa') da'b da'e gab gbe gae ga'b ga'e h1 h2
+  · exact tri_join G lb la le lb' (Ne.symm dab) dbe dae (Ne.symm dbb') (Ne.symm dab') db'e (good_symm G gab) gae
+      gbe (good_symm G gab') gb'e (by rw [gram3_swap12]; exact h1) (by rw [gram3_swap12]; exact h2)
+  · exact tri_join G lb' la' le lb (Ne.symm da'b') db'e da'e dbb' (Ne.symm da'b) dbe (good_symm G ga'b') ga'e
+      gb'e (good_symm G ga'b) gbe (by rw [gram3_swap12]; exact h1) (by rw [gram3_swap12]; exact h2)
+  · exact tri_join G la' lb' le la da'b' da'e db'e daa' dab' dae ga'b' gb'e ga'e gab' gae h1 h2
+
+theorem step4 {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ → ℕ → Bool} (G : GoodRel h Live good)
+    (H : PlanHyp Live good) {i j k l m : ℕ} (li : Live i) (lj : Live j) (lk : Live k) (ll : Live l) (lm : Live m)
+    (dij : i ≠ j) (dik : i ≠ k) (dil : i ≠ l) (dim : i ≠ m) (djk : j ≠ k) (djl : j ≠ l) (djm : j ≠ m)
+    (dkl : k ≠ l) (dkm : k ≠ m) (dlm : l ≠ m) (b : good i j = false) : ∃ Λ, ∀ v, Live v → Gl h Λ v := by
+  have bji : good j i = false := by rw [G.symm]; exact b
+  have gjk := good_of_bad G lj li lk (Ne.symm dij) djk dik bji
+  have gjl := good_of_bad G lj li ll (Ne.symm dij) djl dil bji
+  have gjm := good_of_bad G lj li lm (Ne.symm dij) djm dim bji
+  by_cases gkl : good k l = true
+  · by_cases gkm : good k m = true
+    · by_cases glm : good l m = true
+      · exact four_good G lj lk ll lm djk djl djm dkl dkm dlm gjk gjl gjm gkl gkm glm
+      · exact core5 G H li lj ll lm lk dij dil dim dik djl djm djk dlm (Ne.symm dkl) (Ne.symm dkm) b
+          (by simpa using glm)
+    · exact core5 G H li lj lk lm ll dij dik dim dil djk djm djl dkm dkl (Ne.symm dlm) b (by simpa using gkm)
+  · exact core5 G H li lj lk ll lm dij dik dil dim djk djl djm dkl dkm dlm b (by simpa using gkl)
+
+/-- five distinct live lines force a common centre for all live lines -/
+theorem glue_five {h : ℕ → Fin 9 → K} {Live : ℕ → Prop} {good : ℕ → ℕ → Bool} (G : GoodRel h Live good)
+    (H : PlanHyp Live good) {x1 x2 x3 x4 x5 : ℕ} (l1 : Live x1) (l2 : Live x2) (l3 : Live x3) (l4 : Live x4)
+    (l5 : Live x5) (d12 : x1 ≠ x2) (d13 : x1 ≠ x3) (d14 : x1 ≠ x4) (d15 : x1 ≠ x5) (d23 : x2 ≠ x3)
+    (d24 : x2 ≠ x4) (d25 : x2 ≠ x5) (d34 : x3 ≠ x4) (d35 : x3 ≠ x5) (d45 : x4 ≠ x5) :
+    ∃ Λ, ∀ v, Live v → Gl h Λ v := by
+  by_cases g12 : good x1 x2 = true
+  · by_cases g13 : good x1 x3 = true
+    · by_cases g14 : good x1 x4 = true
+      · by_cases g23 : good x2 x3 = true
+        · by_cases g24 : good x2 x4 = true
+          · by_cases g34 : good x3 x4 = true
+            · exact four_good G l1 l2 l3 l4 d12 d13 d14 d23 d24 d34 g12 g13 g14 g23 g24 g34
+            · exact step4 G H l3 l4 l1 l2 l5 d34 (Ne.symm d13) (Ne.symm d23) d35 (Ne.symm d14) (Ne.symm d24) d45
+                d12 d15 d25 (by simpa using g34)
+          · exact step4 G H l2 l4 l1 l3 l5 d24 (Ne.symm d12) d23 d25 (Ne.symm d14) (Ne.symm d34) d45 d13 d15 d35
+              (by simpa using g24)
+        · exact step4 G H l2 l3 l1 l4 l5 d23 (Ne.symm d12) d24 d25 (Ne.symm d13) d34 d35 d14 d15 d45
+            (by simpa using g23)
+      · exact step4 G H l1 l4 l2 l3 l5 d14 d12 d13 d15 (Ne.symm d24) (Ne.symm d34) d45 d23 d25 d35
+          (by simpa using g14)
+    · exact step4 G H l1 l3 l2 l4 l5 d13 d12 d14 d15 (Ne.symm d23) d34 d35 d24 d25 d45 (by simpa using g13)
+  · exact step4 G H l1 l2 l3 l4 l5 d12 d13 d14 d15 d23 d24 d25 d34 d35 d45 (by simpa using g12)
+
+end glue5
 
 end RankNine

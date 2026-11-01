@@ -17,3 +17,4 @@ import RankNine.RankCert
 import RankNine.Lin
 import RankNine.Plane
 import RankNine.Glue
+import RankNine.GlueData
