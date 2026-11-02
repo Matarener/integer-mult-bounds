@@ -28,7 +28,9 @@ theorem cost_perm (π : Equiv.Perm (Fin 104))
   refine Finset.sum_congr rfl fun j _ => ?_
   have hR : ∀ (X : Matrix (Fin 104) C9 K) (a : Fin 104),
       a ∈ rowSupp X j ↔ π.symm a ∈ rowSupp (X.submatrix π id) j := by
-    intro X a; simp [rowSupp]
+    intro X a
+    simp only [rowSupp, Finset.mem_filter, Finset.mem_univ, true_and, Matrix.submatrix_apply, id,
+      Equiv.apply_symm_apply]
   let e1 := Equiv.subtypeEquiv π.symm (hR P)
   let e2 := Equiv.subtypeEquiv π.symm (hR Q)
   have key : block E8.labK (rowSupp (P.submatrix π id) j) (rowSupp (Q.submatrix π id) j) =
