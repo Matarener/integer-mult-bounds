@@ -49,15 +49,15 @@ theorem list4 (w : List ℕ) (hl : w.length = 4) (h1 : w.getD 0 9 = 1) :
   | [a, b, c, d], _ => simp_all
 
 /-- bit mask of a list of variables -/
-def mk : List ℕ → ℕ
+def bmask : List ℕ → ℕ
   | [] => 0
-  | x :: l => 2 ^ x ||| mk l
+  | x :: l => 2 ^ x ||| bmask l
 
-theorem mk_bit (l : List ℕ) (i : ℕ) : (mk l).testBit i = true ↔ i ∈ l := by
+theorem bmask_bit (l : List ℕ) (i : ℕ) : (bmask l).testBit i = true ↔ i ∈ l := by
   induction l with
-  | nil => simp [mk, bit_zero]
+  | nil => simp [bmask, bit_zero]
   | cons x l ih =>
-    simp only [mk, bit_or, Bool.or_eq_true, bit_pow, ih, List.mem_cons]
+    simp only [bmask, bit_or, Bool.or_eq_true, bit_pow, ih, List.mem_cons]
 
 def kz (s0 x y : ℕ) : Bool := orthB x y || y == s0
 
@@ -77,14 +77,14 @@ def hp : List ℕ → List (ℕ × ℕ)
 /-- the clause of an entry -/
 def clOf (G : ℕ) (e : List ℕ) : ℕ × ℕ :=
   if e.getD 0 9 = 0 then
-    (if e.getD 1 0 = 0 then (0, mk [e.getD 2 0, e.getD 3 0])
-     else if e.getD 1 0 = 1 then (0, mk [e.getD 2 0, e.getD 4 0])
-     else (mk [e.getD 2 0, e.getD 3 0, e.getD 4 0], 0))
-  else if e.getD 0 9 = 1 then (mk (zl (e.getD 4 0) ++ e.drop 5), 0)
+    (if e.getD 1 0 = 0 then (0, bmask [e.getD 2 0, e.getD 3 0])
+     else if e.getD 1 0 = 1 then (0, bmask [e.getD 2 0, e.getD 4 0])
+     else (bmask [e.getD 2 0, e.getD 3 0, e.getD 4 0], 0))
+  else if e.getD 0 9 = 1 then (bmask (zl (e.getD 4 0) ++ e.drop 5), 0)
   else if e.getD 0 9 = 2 then
-    (mk ((e.drop 6).eraseIdx (e.getD 5 0)), mk (zl (e.getD 4 0) ++ [(e.drop 6).getD (e.getD 5 0) 0]))
+    (bmask ((e.drop 6).eraseIdx (e.getD 5 0)), bmask (zl (e.getD 4 0) ++ [(e.drop 6).getD (e.getD 5 0) 0]))
   else if e.getD 0 9 = 3 then (G, 0)
-  else (mk (litsP ((e.drop 2).take (e.getD 1 0))), mk (litsN ((e.drop 2).take (e.getD 1 0))))
+  else (bmask (litsP ((e.drop 2).take (e.getD 1 0))), bmask (litsN ((e.drop 2).take (e.getD 1 0))))
 
 /-- frame, rows and term variables of an expansion entry -/
 def tOK (m s0 : ℕ) (VT FT : BT (List ℕ)) (fi t s : ℕ) (ps : List ℕ) : Bool :=
@@ -145,7 +145,7 @@ theorem exp_terms (A B : ℕ → Fin 9 → K) (hmask : ∀ x < 104, ∀ y < 104,
       by_contra hc
       apply hnf
       rw [List.mem_toFinset]; unfold terms
-      exact List.mem_filter.mpr ⟨hf.1, by simpa using hc⟩
+      exact List.mem_filter.mpr ⟨hf.1, by simpa [and_assoc] using hc⟩
     rcases Bool.eq_false_or_eq_true (kz s0 t f) with h1 | h1
     · simp only [kz, Bool.or_eq_true, beq_iff_eq] at h1
       rcases h1 with h | h
@@ -215,25 +215,25 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
     · have hpr := sp.mp hp0
       by_cases k1 : e.getD 1 0 = 0
       · rw [if_pos k1]
-        refine csat_neg (i := e.getD 3 0) ((mk_bit _ _).mpr (by simp)) (fun hz => hpr ?_)
+        refine csat_neg (i := e.getD 3 0) ((bmask_bit _ _).mpr (by simp)) (fun hz => hpr ?_)
         rw [sa.mp hz, zero_mul]
       · by_cases k2 : e.getD 1 0 = 1
         · rw [if_neg k1, if_pos k2]
-          refine csat_neg (i := e.getD 4 0) ((mk_bit _ _).mpr (by simp)) (fun hz => hpr ?_)
+          refine csat_neg (i := e.getD 4 0) ((bmask_bit _ _).mpr (by simp)) (fun hz => hpr ?_)
           rw [sb.mp hz, mul_zero]
         · rw [if_neg k1, if_neg k2]
-          exact csat_pos (i := e.getD 2 0) ((mk_bit _ _).mpr (by simp)) hp0
+          exact csat_pos (i := e.getD 2 0) ((bmask_bit _ _).mpr (by simp)) hp0
     · by_cases k1 : e.getD 1 0 = 0
-      · rw [if_pos k1]; exact csat_neg (i := e.getD 2 0) ((mk_bit _ _).mpr (by simp)) hp0
+      · rw [if_pos k1]; exact csat_neg (i := e.getD 2 0) ((bmask_bit _ _).mpr (by simp)) hp0
       · by_cases k2 : e.getD 1 0 = 1
-        · rw [if_neg k1, if_pos k2]; exact csat_neg (i := e.getD 2 0) ((mk_bit _ _).mpr (by simp)) hp0
+        · rw [if_neg k1, if_pos k2]; exact csat_neg (i := e.getD 2 0) ((bmask_bit _ _).mpr (by simp)) hp0
         · rw [if_neg k1, if_neg k2]
           have hnz : ¬ (Mx A B (w.getD 1 0) (w.getD 2 0) * Mx A B (w.getD 2 0) (w.getD 3 0) ≠ 0) :=
             fun h => hp0 (sp.mpr h)
           push_neg at hnz
           rcases mul_eq_zero.mp hnz with h | h
-          · exact csat_pos (i := e.getD 3 0) ((mk_bit _ _).mpr (by simp)) (sa.mpr h)
-          · exact csat_pos (i := e.getD 4 0) ((mk_bit _ _).mpr (by simp)) (sb.mpr h)
+          · exact csat_pos (i := e.getD 3 0) ((bmask_bit _ _).mpr (by simp)) (sa.mpr h)
+          · exact csat_pos (i := e.getD 4 0) ((bmask_bit _ _).mpr (by simp)) (sb.mpr h)
   rw [if_neg k0] at hok ⊢
   by_cases k1 : e.getD 0 9 = 1
   · -- expansion: a non-zero entry has a non-zero term
@@ -246,7 +246,7 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
     have hF' : ∀ f ∈ FT.get [] (e.getD 1 0), f < 104 := fun f hf => of_decide_eq_true (List.all_eq_true.mp hF f hf)
     by_contra hn
     have hall : ∀ v ∈ zl (e.getD 4 0) ++ e.drop 5, ¬ zSem A B VT v :=
-      fun v hv hzv => hn (csat_pos (i := v) ((mk_bit _ _).mpr hv) hzv)
+      fun v hv hzv => hn (csat_pos (i := v) ((bmask_bit _ _).mpr hv) hzv)
     have hts : Mx A B t s ≠ 0 := by
       by_cases hz0 : e.getD 4 0 = 0
       · rw [if_pos hz0] at hz
@@ -277,9 +277,9 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
     have hexp := exp_terms A B hmask m s0 hs0 _ (hFT _ hne) hF t s ht hs hmt hout
     have hF' : ∀ f ∈ FT.get [] (e.getD 1 0), f < 104 := fun f hf => of_decide_eq_true (List.all_eq_true.mp hF f hf)
     by_contra hn
-    have hP : ∀ v ∈ ps.eraseIdx i, ¬ zSem A B VT v := fun v hv hzv => hn (csat_pos (i := v) ((mk_bit _ _).mpr hv) hzv)
+    have hP : ∀ v ∈ ps.eraseIdx i, ¬ zSem A B VT v := fun v hv hzv => hn (csat_pos (i := v) ((bmask_bit _ _).mpr hv) hzv)
     have hQ : ∀ v ∈ zl (e.getD 4 0) ++ [ps.getD i 0], zSem A B VT v :=
-      fun v hv => by_contra fun hzv => hn (csat_neg (i := v) ((mk_bit _ _).mpr hv) hzv)
+      fun v hv => by_contra fun hzv => hn (csat_neg (i := v) ((bmask_bit _ _).mpr hv) hzv)
     have hts : Mx A B t s = 0 := by
       by_cases hz0 : e.getD 4 0 = 0
       · rw [if_pos hz0] at hz
