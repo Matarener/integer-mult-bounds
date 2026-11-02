@@ -3,8 +3,8 @@ import RankNine.T2Zero
 /-!
 # T2.4: rank argument on rows dead for two terms
 
-Rows dead for two terms with independent dead vectors `u, u'` lie in a 7-dimensional space, so no 8 of them are
-independent (`eight_not_indep`).  On the other hand, an 8 × 8 block of `M` with non-zero determinant makes its 8 rows
+Rows dead for two of the nine decoder terms make `M` factor through `K⁷` on those rows, so every 8 × 8 block there is
+singular (`det_zero_of_factor`).  On the other hand, an 8 × 8 block of `M` with non-zero determinant makes its 8 rows
 independent (`rows_indep_of_det`).  After T2.3 the block is a rescaled Gram block, whose determinant is non-zero by
 an integer adjugate certificate (`det_ne_of_adj`).
 -/
@@ -17,31 +17,28 @@ variable {K : Type*} [Field K]
 
 set_option linter.unusedSectionVars false
 
-/-- 8 vectors orthogonal to two independent vectors in `K⁹` are dependent -/
-theorem eight_not_indep (u u' : Fin 9 → K) (hind : LinearIndependent K ![u, u']) (v : Fin 8 → Fin 9 → K)
-    (hv : ∀ i, v i ⬝ᵥ u = 0) (hv' : ∀ i, v i ⬝ᵥ u' = 0) : ¬ LinearIndependent K v := by
-  intro hli
-  let Q : Matrix (Fin 2) (Fin 9) K := Matrix.of ![u, u']
-  have hrank : Q.rank = 2 := by
-    rw [Matrix.rank_eq_finrank_span_rows]
-    show Module.finrank K (Submodule.span K (Set.range ![u, u'])) = 2
-    rw [finrank_span_eq_card hind, Fintype.card_fin]
-  have hker : ∀ i, v i ∈ LinearMap.ker Q.mulVecLin := by
-    intro i
-    have h0 : u ⬝ᵥ v i = 0 := by rw [dotProduct_comm]; exact hv i
-    have h1 : u' ⬝ᵥ v i = 0 := by rw [dotProduct_comm]; exact hv' i
-    rw [LinearMap.mem_ker, Matrix.mulVecLin_apply]
-    funext r
-    fin_cases r
-    · simpa [Matrix.mulVec, Q] using h0
-    · simpa [Matrix.mulVec, Q] using h1
-  let w : Fin 8 → LinearMap.ker Q.mulVecLin := fun i => ⟨v i, hker i⟩
-  have hw : LinearIndependent K w := LinearIndependent.of_comp (LinearMap.ker Q.mulVecLin).subtype hli
-  have h8 := hw.fintype_card_le_finrank
-  have hrn := LinearMap.finrank_range_add_finrank_ker Q.mulVecLin
-  have hr : Module.finrank K (LinearMap.range Q.mulVecLin) = 2 := hrank
-  simp only [Fintype.card_fin, Module.finrank_fin_fun] at h8 hrn
-  omega
+/-- an 8 × 8 matrix that factors through `K⁷` (rows dead for two of the nine decoder terms) is singular -/
+theorem det_zero_of_factor (M : Matrix (Fin 8) (Fin 8) K) (P : Fin 8 → Fin 7 → K) (Q : Fin 7 → Fin 8 → K)
+    (h : ∀ i k, M i k = ∑ l, P i l * Q l k) : M.det = 0 := by
+  have hP : ¬ LinearIndependent K P := fun hli => by
+    have := hli.fintype_card_le_finrank
+    simp only [Fintype.card_fin, Module.finrank_fin_fun] at this
+    omega
+  obtain ⟨g, hg, i, hi⟩ := Fintype.not_linearIndependent_iff.mp hP
+  rw [← Matrix.exists_vecMul_eq_zero_iff]
+  refine ⟨g, fun h0 => hi (by rw [h0]; rfl), ?_⟩
+  funext k
+  show ∑ i, g i * M i k = 0
+  have hl : ∀ l, ∑ i, g i * P i l = 0 := fun l => by
+    have := congrFun hg l
+    simpa [Finset.sum_apply, Pi.smul_apply, smul_eq_mul] using this
+  simp_rw [h, Finset.mul_sum]
+  rw [Finset.sum_comm]
+  refine Finset.sum_eq_zero fun l _ => ?_
+  have := hl l
+  calc ∑ i, g i * (P i l * Q l k) = (∑ i, g i * P i l) * Q l k := by
+        rw [Finset.sum_mul]; exact Finset.sum_congr rfl fun i _ => by ring
+    _ = 0 := by rw [this, zero_mul]
 
 /-- an 8 × 8 block of `M = A Bᵀ` with non-zero determinant has independent rows `A x` -/
 theorem rows_indep_of_det (A B : ℕ → Fin 9 → K) (X Y : Fin 8 → ℕ)
