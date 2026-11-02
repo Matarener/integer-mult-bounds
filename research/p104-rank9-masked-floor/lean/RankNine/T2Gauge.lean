@@ -121,6 +121,7 @@ theorem bfs_gauge (v : ℕ → K) (hv : ∀ e, v e ≠ 0) (er ec : ℕ → ℕ) 
           have h0 := hv e
           have h1 := hq (ec e)
           field_simp
+        · exact hall eb' h
 
 /-- **Gauge.** Tree edges in BFS order from row `r0` and one diagonal edge `d` can all be made `1`. -/
 theorem gauge_exists (v : ℕ → K) (hv : ∀ e, v e ≠ 0) (er ec : ℕ → ℕ) (dg : ℕ → Bool) (T : List (ℕ × Bool))
