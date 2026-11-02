@@ -242,7 +242,8 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
     obtain ⟨htok, hz⟩ := hok
     obtain ⟨hne, hF, ht, hs, hmt, hout, hlen, -⟩ := tOK_facts htok
     set t := e.getD 2 0; set s := e.getD 3 0; set L := terms m s0 (FT.get [] (e.getD 1 0)) t s
-    have hexp := exp_terms A B hmask m s0 hs0 _ (hFT _ hne) hF t s ht hs hmt hout
+    have hexp : Mx A B t s = ∑ f ∈ L.toFinset, Mx A B t f * Mx A B f s / Mx A B f f :=
+      exp_terms A B hmask m s0 hs0 _ (hFT _ hne) hF t s ht hs hmt hout
     have hF' : ∀ f ∈ FT.get [] (e.getD 1 0), f < 104 := fun f hf => of_decide_eq_true (List.all_eq_true.mp hF f hf)
     by_contra hn
     have hall : ∀ v ∈ zl (e.getD 4 0) ++ e.drop 5, ¬ zSem A B VT v :=
@@ -255,11 +256,12 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
       · rw [if_neg hz0] at hz
         have := zSem_z A B VT (e.getD 4 0) t s (by simpa using hz)
         intro h0
-        exact hall _ (by simp [zl, hz0]) (this.mpr h0)
+        exact hall _ (List.mem_append_left _ (by rw [zl, if_neg hz0]; exact List.mem_singleton_self _)) (this.mpr h0)
     apply hts
     rw [hexp]
     refine Finset.sum_eq_zero fun f hf => ?_
     obtain ⟨jj, hjj, rfl⟩ := mem_getD (List.mem_toFinset.mp hf)
+    have hjj2 : jj < L.length := hjj
     have hj' : jj < (e.drop 5).length := by omega
     have hzj := hall _ (List.mem_append_right _ (getD_mem_of_lt hj'))
     rw [term_sem A B htok jj hj'] at hzj
@@ -274,7 +276,8 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
     obtain ⟨hne, hF, ht, hs, hmt, hout, hlen, -⟩ := tOK_facts htok
     set t := e.getD 2 0; set s := e.getD 3 0; set L := terms m s0 (FT.get [] (e.getD 1 0)) t s
     set ps := e.drop 6; set i := e.getD 5 0
-    have hexp := exp_terms A B hmask m s0 hs0 _ (hFT _ hne) hF t s ht hs hmt hout
+    have hexp : Mx A B t s = ∑ f ∈ L.toFinset, Mx A B t f * Mx A B f s / Mx A B f f :=
+      exp_terms A B hmask m s0 hs0 _ (hFT _ hne) hF t s ht hs hmt hout
     have hF' : ∀ f ∈ FT.get [] (e.getD 1 0), f < 104 := fun f hf => of_decide_eq_true (List.all_eq_true.mp hF f hf)
     by_contra hn
     have hP : ∀ v ∈ ps.eraseIdx i, ¬ zSem A B VT v := fun v hv hzv => hn (csat_pos (i := v) ((bmask_bit _ _).mpr hv) hzv)
@@ -288,8 +291,8 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
         · exact orthB_M A B hmask ht hs h
         · rw [h]; exact hs0 (h ▸ hs) t hmt
       · rw [if_neg hz0] at hz
-        exact (zSem_z A B VT (e.getD 4 0) t s (by simpa using hz)).mp (hQ _ (by simp [zl, hz0]))
-    have hpi := (term_sem A B htok i hi).mp (hQ _ (by simp))
+        exact (zSem_z A B VT (e.getD 4 0) t s (by simpa using hz)).mp (hQ _ (List.mem_append_left _ (by rw [zl, if_neg hz0]; exact List.mem_singleton_self _)))
+    have hpi := (term_sem A B htok i hi).mp (hQ _ (List.mem_append_right _ (List.mem_singleton_self _)))
     have hiL : i < L.length := by omega
     have hfi := getD_mem_of_lt hiL
     have hfi0 : L.getD i 0 < 104 := hF' _ (mem_terms hfi).1
@@ -297,6 +300,7 @@ theorem zentry_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝�
     · exact div_ne_zero hpi (hdiag _ hfi0) hts
     · intro f hf hfne
       obtain ⟨jj, hjj, rfl⟩ := mem_getD (List.mem_toFinset.mp hf)
+      have hjj2 : jj < L.length := hjj
       have hj' : jj < ps.length := by omega
       have hji : jj ≠ i := fun h => hfne (by rw [h])
       have hmem : ps.getD jj 0 ∈ ps.eraseIdx i := by
