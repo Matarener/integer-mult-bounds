@@ -44,14 +44,14 @@ def gi (g x : ℕ) : ℕ := (grpInvData.getD g []).getD x 0
 def grpOK : Bool :=
   (List.range 384).all fun g => (List.range 104).all fun x =>
     decide (gl g x < 104) && decide (gi g x < 104) && gi g (gl g x) == x && gl g (gi g x) == x &&
-    (List.range 104).all fun y => orth (gl g x) (gl g y) == orth x y && par (gl g x) (pbits (gl g y)) == par x (pbits y)
+    (List.range 104).all fun y => orth (gl g x) (gl g y) == orth x y && BForm.E8.par (gl g x) (pbits (gl g y)) == BForm.E8.par x (pbits y)
 
 theorem grp_facts (h : grpOK = true) {g : ℕ} (hg : g < 384) {x : ℕ} (hx : x < 104) :
     gl g x < 104 ∧ gi g x < 104 ∧ gi g (gl g x) = x ∧ gl g (gi g x) = x ∧
-      ∀ y < 104, orth (gl g x) (gl g y) = orth x y ∧ par (gl g x) (pbits (gl g y)) = par x (pbits y) := by
+      ∀ y < 104, orth (gl g x) (gl g y) = orth x y ∧ BForm.E8.par (gl g x) (pbits (gl g y)) = BForm.E8.par x (pbits y) := by
   have h1 := List.all_eq_true.mp (List.all_eq_true.mp h g (List.mem_range.mpr hg)) x (List.mem_range.mpr hx)
   simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq, List.all_eq_true, List.mem_range] at h1
-  obtain ⟨⟨⟨⟨⟨a, b⟩, c⟩, d⟩, e⟩⟩ := h1
+  obtain ⟨⟨⟨⟨a, b⟩, c⟩, d⟩, e⟩ := h1
   exact ⟨a, b, c, d, fun y hy => ⟨(e y hy).1, (e y hy).2⟩⟩
 
 /-- the group element `g` as a permutation of `Fin 104` -/
@@ -68,8 +68,9 @@ theorem zl_labK (s : Fin 104) : zl (labK s) = pbits s := by
   intro k h1 h2
   rw [zl_len] at h1
   simp only [zl, List.getElem_map, List.getElem_finRange, labK, pbits, List.getElem_range,
-    List.getD_eq_getElem?_getD, List.getElem?_map, List.getElem?_range h1, Option.map_some, Option.getD_some]
-  split_ifs <;> rfl
+    List.getD_eq_getElem?_getD, List.getElem?_map, Fin.coe_cast, List.getElem?_range h1, Option.map_some,
+    Option.getD_some]
+  split_ifs <;> first | rfl | simp [List.getElem?_range, h1, *]
 
 theorem zmod2_eq {a b : ZMod 2} (h : a ≠ 0 ↔ b ≠ 0) : a = b := by
   revert a b; decide
@@ -92,7 +93,7 @@ theorem pn_permOf (h : grpOK = true) {g : ℕ} (hg : g < 384) {x : ℕ} (hx : x 
 /-! ## Orbit fact -/
 
 /-- the dead set `C(z₁, z₂)` as a bit mask (labels as 0/1 lists) -/
-def cmask (l1 l2 : List ℕ) : ℕ := lmask ((List.range 104).filter fun t => par t l1 || par t l2)
+def cmask (l1 l2 : List ℕ) : ℕ := lmask ((List.range 104).filter fun t => BForm.E8.par t l1 || BForm.E8.par t l2)
 
 def tmask (k : ℕ) : ℕ := typeMask.getD k 0
 
@@ -121,7 +122,7 @@ def orbOK (FL : List ℕ) : Bool :=
     l1 == zero9 || l2 == zero9 || l1 == l2 || wOK (cmask l1 l2) || FL.contains (cmask l1 l2)
 
 theorem cmask_bit {l1 l2 : List ℕ} {y : ℕ} (h : (cmask l1 l2).testBit y = true) :
-    y < 104 ∧ (par y l1 = true ∨ par y l2 = true) := by
+    y < 104 ∧ (BForm.E8.par y l1 = true ∨ BForm.E8.par y l2 = true) := by
   rw [cmask, lmask_bit, List.mem_filter, List.mem_range, Bool.or_eq_true] at h
   exact h
 
@@ -143,6 +144,7 @@ def FloorType (K : Type) [Field K] [CharZero K] (k : ℕ) : Prop :=
     ∀ (P Q : Matrix (Fin 104) C9 K), Matrix.of (fun v s : Fin 104 => Mx A B v s) = P * Qᵀ →
       56 ≤ cost labK P Q
 
+set_option maxRecDepth 100000 in
 /-- **Frame case.** Rows dead on `C(z₁, z₂)` (distinct non-zero `z₁, z₂`): the floor holds, or `C(z₁, z₂) ∈ FL`. -/
 theorem floor_framed {K : Type} [Field K] [CharZero K] (hFT : ∀ k < 387, FloorType K k)
     (hgrp : grpOK = true) (FL : List ℕ) (horb : orbOK FL = true)
