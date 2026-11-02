@@ -43,7 +43,7 @@ theorem rp_gv (v p q : ℕ → K) (l : K) (er ec : ℕ → ℕ) (dg : ℕ → Bo
       unfold sv gv
       by_cases ha : a % 2 = 0
       · simp only [ha, if_true, hd]; ring
-      · simp only [ha, if_false, hd, mul_inv]; ring
+      · simp only [ha, if_false, hd, mul_inv, if_true, Nat.mod_mod]; ring
     · simp only [hd, Bool.false_eq_true, if_false]
       unfold sv gv
       by_cases ha : a % 2 = 0
@@ -117,10 +117,10 @@ theorem bfs_gauge (v : ℕ → K) (hv : ∀ e, v e ≠ 0) (er ec : ℕ → ℕ) 
         rcases List.mem_cons.mp heb with h | h
         · subst h
           refine ⟨hd, ?_⟩
-          rw [hpR _ (List.mem_cons_self), hqR _ hc, hp1, Function.update_self]
-          rw [mul_comm (v e) _, mul_assoc, mul_comm _ (q (ec e))]
-          rw [show (v e * q (ec e))⁻¹ * (q (ec e) * v e) = 1 by
-            rw [mul_comm (q (ec e))]; exact inv_mul_cancel₀ (mul_ne_zero (hv e) (hq _))]
+          rw [hpR _ List.mem_cons_self, hqR _ hc, hp1, Function.update_self]
+          have h0 := hv e
+          have h1 := hq (ec e)
+          field_simp
 
 /-- **Gauge.** Tree edges in BFS order from row `r0` and one diagonal edge `d` can all be made `1`. -/
 theorem gauge_exists (v : ℕ → K) (hv : ∀ e, v e ≠ 0) (er ec : ℕ → ℕ) (dg : ℕ → Bool) (T : List (ℕ × Bool))
