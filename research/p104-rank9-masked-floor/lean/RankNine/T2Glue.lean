@@ -209,6 +209,29 @@ theorem rsOK_all (C : Cert) (EI ER EC : BT ℕ) (DS : BT (List ℕ)) (nE m : ℕ
       BT.get_big _ _ _ (le_trans (Nat.pow_le_pow_right (by norm_num) (le_max_right _ _)) (Nat.not_lt.mp ha))
     unfold rsOK; rw [h1, h2]; unfold relOf; simp [nrm, rowL, diagL]
 
+theorem rng_all (P : ℕ → Bool) (a m : ℕ) :
+    (List.range' a m).all P = true ↔ ∀ i, a ≤ i → i < a + m → P i = true := by
+  simp only [List.all_eq_true, List.mem_range'_1]
+  constructor
+  · intro h i h1 h2; exact h i ⟨by omega, by omega⟩
+  · rintro h i ⟨h1, h2⟩; exact h i h1 (by omega)
+
+/-- the checks of `glueOK` besides the stored relations (decided on their own) -/
+def glueRest (C : Cert) (EI ER EC : BT ℕ) (nE : ℕ) (T : List (ℕ × Bool)) (r0 d0 : ℕ) : Bool :=
+  (List.range nE).all (fun e => decide (dot (ER.get 0 e) (EC.get 0 e) ≠ 0)) &&
+  bfsOK (erF ER) (erF EC) (dgF ER EC) T [r0] [] && dgF ER EC d0 &&
+  C.GA.all (fun e => decide (e = d0) || (T.map Prod.fst).contains e)
+
+/-- `glueOK` from chunked checks of the stored relations (big single `decide`s run out of memory) -/
+theorem glueOK_of (C : Cert) (EI ER EC : BT ℕ) (DS : BT (List ℕ)) (nE m : ℕ) (T : List (ℕ × Bool)) (r0 d0 : ℕ)
+    (hrs : ∀ a < 2 ^ max C.RS.dp DS.dp, rsOK C EI ER EC DS nE m a = true)
+    (hr : glueRest C EI ER EC nE T r0 d0 = true) : glueOK C EI ER EC DS nE m T r0 d0 = true := by
+  unfold glueOK
+  unfold glueRest at hr
+  simp only [Bool.and_eq_true] at hr ⊢
+  obtain ⟨⟨⟨h1, h2⟩, h3⟩, h4⟩ := hr
+  exact ⟨⟨⟨⟨List.all_eq_true.mpr fun a ha => hrs a (List.mem_range.mp ha), h1⟩, h2⟩, h3⟩, h4⟩
+
 /-- **T2.3 for one case.** A checked closure certificate, glued to the matrix by checked descriptors, gives row and
 column scalings (and one diagonal scale) under which every needed edge has `M x y / γ x y = 1`. -/
 theorem t2_close (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)

@@ -971,6 +971,21 @@ def T_1 : List (ℕ × Bool) := [(2041, true), (2289, true), (2322, true), (358,
 def T : List (ℕ × Bool) := T_0 ++ T_1
 def m : ℕ := 8661440912148035217599569592304
 
-theorem glue_ok : glueOK C EI ER EC DS 2560 m T 4 0 = true := by decide +kernel
+theorem hNR : 2 ^ max C.RS.dp DS.dp = 4096 := by decide +kernel
+theorem g0 : (List.range' 0 1500).all (rsOK C EI ER EC DS 2560 m) = true := by decide +kernel
+theorem g1 : (List.range' 1500 1500).all (rsOK C EI ER EC DS 2560 m) = true := by decide +kernel
+theorem g2 : (List.range' 3000 1096).all (rsOK C EI ER EC DS 2560 m) = true := by decide +kernel
+theorem rs_ok : ∀ a < 2 ^ max C.RS.dp DS.dp, rsOK C EI ER EC DS 2560 m a = true := by
+  intro a ha
+  rw [hNR] at ha
+  by_cases h0 : a < 1500
+  · exact (rng_all _ 0 1500).1 g0 a (by omega) (by omega)
+  by_cases h1 : a < 3000
+  · exact (rng_all _ 1500 1500).1 g1 a (by omega) (by omega)
+  exact (rng_all _ 3000 1096).1 g2 a (by omega) (by omega)
+theorem rest_ok : glueRest C EI ER EC 2560 T 4 0 = true := by decide +kernel
+
+theorem glue_ok : glueOK C EI ER EC DS 2560 m T 4 0 = true :=
+  glueOK_of C EI ER EC DS 2560 m T 4 0 rs_ok rest_ok
 
 end RankNine.T2.G2
