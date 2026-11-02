@@ -30,8 +30,11 @@ theorem two_cheap (P Q : Matrix L ι K) (hι : Fintype.card ι = 9) (h : cost la
     by_contra hc
     have := cost_ge_56 lab P Q (Finset.univ.filter p) (by omega) (fun j hj => (Finset.mem_filter.mp hj).2)
     omega
-  have hsum := Finset.filter_card_add_filter_neg_card_eq_card (s := (Finset.univ : Finset ι)) p
-  rw [Finset.card_univ, hι] at hsum
+  have hsum : (Finset.univ.filter p).card + (Finset.univ.filter fun j => ¬ p j).card = 9 := by
+    rw [Finset.card_filter, Finset.card_filter, ← Finset.sum_add_distrib]
+    rw [Finset.sum_congr rfl (fun j _ => show (if p j then 1 else 0) + (if ¬ p j then 1 else 0) = 1 by
+      split_ifs <;> simp_all)]
+    simp [hι]
   obtain ⟨j, hj, k, hk, hjk⟩ := Finset.one_lt_card.mp (by omega : 1 < (Finset.univ.filter fun j => ¬ p j).card)
   simp only [Finset.mem_filter, Finset.mem_univ, true_and, p, not_le] at hj hk
   exact ⟨j, k, hjk, by omega, by omega⟩
@@ -61,7 +64,7 @@ theorem two_dual (R : Finset L) (h : lspan lab R ≤ 7) :
     have hm := (b i).2
     rw [LinearMap.mem_ker] at hm
     have := congrFun hm ⟨t, ht⟩
-    simpa [f, labMat, Matrix.mulVecLin_apply, Matrix.mulVec] using this
+    exact this
   exact ⟨_, _, hne i0, hne i1, hd, fun t ht => ⟨hz i0 t ht, hz i1 t ht⟩⟩
 
 /-- label span `≤ 6` ⇒ three independent `z₁, z₂, z₃` (distinct, non-zero, `z₃ ≠ z₁ + z₂`) orthogonal to every
@@ -85,7 +88,7 @@ theorem three_dual (R : Finset L) (h : lspan lab R ≤ 6) :
     have hm := (b i).2
     rw [LinearMap.mem_ker] at hm
     have := congrFun hm ⟨t, ht⟩
-    simpa [f, labMat, Matrix.mulVecLin_apply, Matrix.mulVec] using this
+    exact this
   have h3 : ((b i2 : LinearMap.ker f) : V9) ≠ (b i0 : V9) + (b i1 : V9) := by
     intro e
     have e' : b i2 = b i0 + b i1 := Subtype.ext (by rw [Submodule.coe_add]; exact e)
