@@ -326,7 +326,7 @@ theorem t2_zero (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (m s0 G : ℕ)
     (hs0 : s0 < 104 → ∀ x, m.testBit x = true → Mx A B x s0 = 0) (VT FT EN : BT (List ℕ))
     (hFT : ∀ fi, FT.get [] fi ≠ [] → ExpOK A B m (FT.get [] fi)) (n : ℕ)
-    (hall : (List.range n).all (entryOK m s0 G VT FT EN) = true) (hlast : clOf G (EN.get [] (n - 1)) = (0, 0))
+    (hall : ∀ j < n, entryOK m s0 G VT FT EN j = true) (hlast : clOf G (EN.get [] (n - 1)) = (0, 0))
     (hn : 0 < n) (ER EC GV : BT ℕ) (nE : ℕ)
     (hG : (List.range nE).all (fun e => decide (ER.get 0 e < 104) && (decide (ER.get 0 e = EC.get 0 e) ||
       (G.testBit (GV.get 0 e) && VT.get [] (GV.get 0 e) == [0, ER.get 0 e, EC.get 0 e]))) = true) :
@@ -344,7 +344,7 @@ theorem t2_zero (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x
     | _ j ih =>
       intro hj
       exact zentry_sound A B hdiag hmask m s0 G hs0 VT FT EN hFT hgoal j
-        (List.all_eq_true.mp hall j (List.mem_range.mpr hj)) (fun i hi => ih i hi (by omega))
+        (hall j hj) (fun i hi => ih i hi (by omega))
   have := key (n - 1) (by omega)
   rw [hlast] at this
   exact csat_empty _ this
