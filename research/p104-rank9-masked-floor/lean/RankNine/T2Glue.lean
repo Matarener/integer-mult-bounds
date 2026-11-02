@@ -246,7 +246,9 @@ theorem t2_close (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
       · exact absurd h0' h0
       · exact rp_relOf A B hdiag hmask EI ER EC nE m hMnz hGnz _ hok (hExp a h0)
   · intro e he
-    rcases hGA e he with h | h
+    have hge := hGA e he
+    simp only [Bool.or_eq_true, decide_eq_true_eq] at hge
+    rcases hge with h | h
     · rw [h]; exact hd
     · obtain ⟨eb, heb, hee⟩ := List.mem_map.mp (List.contains_iff_mem.mp h)
       rw [← hee]; exact hT eb heb
