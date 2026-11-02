@@ -1,4 +1,5 @@
 import RankNine.T2Glue
+import RankNine.PartialFrame
 
 /-!
 # T2.3: discharging `ExpOK` from frame non-degeneracy
