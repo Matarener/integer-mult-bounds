@@ -29,9 +29,9 @@ theorem cost_perm (π : Equiv.Perm (Fin 104))
   have hR : ∀ (X : Matrix (Fin 104) C9 K) (a : Fin 104),
       a ∈ rowSupp X j ↔ π.symm a ∈ rowSupp (X.submatrix π id) j := by
     intro X a
-    first
-      | simp [rowSupp, Matrix.submatrix_apply]
-      | (simp only [rowSupp, Finset.mem_filter, Finset.mem_univ, true_and, Matrix.submatrix_apply, id]; simp)
+    unfold rowSupp
+    rw [Finset.mem_filter, Finset.mem_filter]
+    simp only [Finset.mem_univ, true_and, Matrix.submatrix_apply, id, Equiv.apply_symm_apply]
   let e1 := Equiv.subtypeEquiv π.symm (hR P)
   let e2 := Equiv.subtypeEquiv π.symm (hR Q)
   have key : block E8.labK (rowSupp (P.submatrix π id) j) (rowSupp (Q.submatrix π id) j) =

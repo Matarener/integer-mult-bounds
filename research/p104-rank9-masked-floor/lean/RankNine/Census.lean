@@ -175,12 +175,12 @@ theorem censusFact_of_facts {K : Type*} [Field K] [CharZero K] (hcap : Capacity 
   have s6 : ∀ j, lspan labK (rowSupp P j) ≤ 6 → (rowSupp P j).card ≤ 20 := by
     intro j h
     by_contra hc
-    have := h6 _ (by omega)
+    have := h6 (rowSupp P j) (by omega)
     omega
   have s4 : ∀ j, lspan labK (rowSupp P j) ≤ 4 → (rowSupp P j).card ≤ 8 := by
     intro j h
     by_contra hc
-    have := h4 _ (by omega)
+    have := h4 (rowSupp P j) (by omega)
     omega
   unfold cost
   by_cases hA : ∃ j0, lspan labK (rowSupp P j0) ≤ 4
@@ -200,7 +200,7 @@ theorem censusFact_of_facts {K : Type*} [Field K] [CharZero K] (hcap : Capacity 
     rw [hc, smul_eq_mul] at hsum
     have hsplit := Finset.add_sum_erase (Finset.univ : Finset C9)
       (fun j => (block labK (rowSupp P j) (rowSupp Q j)).rank) (Finset.mem_univ j0)
-    dsimp only at hsplit
+    try dsimp only at hsplit
     rw [← hsplit]
     omega
   · push_neg at hA
