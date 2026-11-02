@@ -204,10 +204,10 @@ theorem rsOK_all (C : Cert) (EI ER EC : BT ℕ) (DS : BT (List ℕ)) (nE m : ℕ
   by_cases ha : a < 2 ^ max C.RS.dp DS.dp
   · exact List.all_eq_true.mp h a (List.mem_range.mpr ha)
   · have h1 : C.RS.get [] a = [] :=
-      BT.get_big _ _ _ (le_trans (Nat.pow_le_pow_right (by norm_num) (le_max_left _ _)) (by omega))
+      BT.get_big _ _ _ (le_trans (Nat.pow_le_pow_right (by norm_num) (le_max_left _ _)) (Nat.not_lt.mp ha))
     have h2 : DS.get [] a = [] :=
-      BT.get_big _ _ _ (le_trans (Nat.pow_le_pow_right (by norm_num) (le_max_right _ _)) (by omega))
-    unfold rsOK; rw [h1, h2]; decide
+      BT.get_big _ _ _ (le_trans (Nat.pow_le_pow_right (by norm_num) (le_max_right _ _)) (Nat.not_lt.mp ha))
+    unfold rsOK; rw [h1, h2]; unfold relOf; simp [nrm, rowL, diagL]
 
 /-- **T2.3 for one case.** A checked closure certificate, glued to the matrix by checked descriptors, gives row and
 column scalings (and one diagonal scale) under which every needed edge has `M x y / γ x y = 1`. -/
@@ -248,7 +248,7 @@ theorem t2_close (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
   · intro e he
     rcases hGA e he with h | h
     · rw [h]; exact hd
-    · obtain ⟨eb, heb, rfl⟩ := List.mem_map.mp (List.contains_iff_mem.mp h)
-      exact hT eb heb
+    · obtain ⟨eb, heb, hee⟩ := List.mem_map.mp (List.contains_iff_mem.mp h)
+      rw [← hee]; exact hT eb heb
 
 end RankNine.T2
