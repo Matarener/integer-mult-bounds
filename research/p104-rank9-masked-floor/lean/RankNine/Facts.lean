@@ -118,7 +118,7 @@ def wOK (c : ℕ) : Bool :=
 /-- **finite fact ORB** (frameless list `FL`) -/
 def orbOK (FL : List ℕ) : Bool :=
   lists9.all fun l1 => lists9.all fun l2 =>
-    l1 == zero9 || l2 == zero9 || l1 == l2 || FL.contains (cmask l1 l2) || wOK (cmask l1 l2)
+    l1 == zero9 || l2 == zero9 || l1 == l2 || wOK (cmask l1 l2) || FL.contains (cmask l1 l2)
 
 theorem cmask_bit {l1 l2 : List ℕ} {y : ℕ} (h : (cmask l1 l2).testBit y = true) :
     y < 104 ∧ (par y l1 = true ∨ par y l2 = true) := by
@@ -159,6 +159,7 @@ theorem floor_framed {K : Type} [Field K] [CharZero K] (hFT : ∀ k < 387, Floor
   · exact absurd (zl_zero e) h1
   · exact absurd (zl_zero e) h2
   · exact absurd (zl_inj e) h12
+  pick_goal 2
   · exact Or.inr e
   left
   set c := cmask (zl z1) (zl z2)
