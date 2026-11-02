@@ -159,7 +159,6 @@ theorem rp_relOf (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
   have g1 := edge_nz EI ER EC nE t a e1 (P := fun x y => gam (K := K) x y ≠ 0) hGnz; have g2 := edge_nz EI ER EC nE a s e2 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
   have g3 := edge_nz EI ER EC nE b b e3 (P := fun x y => gam (K := K) x y ≠ 0) hGnz; have g4 := edge_nz EI ER EC nE t b e4 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
   have g5 := edge_nz EI ER EC nE b s e5 (P := fun x y => gam (K := K) x y ≠ 0) hGnz; have g6 := edge_nz EI ER EC nE a a e6 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
-  simp only at m1 m2 m3 m4 m5 m6 g1 g2 g3 g4 g5 g6
   by_cases ho : d.getD 4 0 = 1
   · simp only [ho, ↓reduceIte, Nat.add_zero, Nat.sub_zero]
     unfold rp
@@ -179,5 +178,77 @@ theorem rp_relOf (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
     first
     | linear_combination (gam t b * gam b s * gam a a) * hrel - (Mx A B t b * Mx A B b s * Mx A B a a) * hGK
     | linear_combination (Mx A B t b * Mx A B b s * Mx A B a a) * hGK - (gam t b * gam b s * gam a a) * hrel
+
+/-! ## The glued statement -/
+
+def erF (ER : BT ℕ) (e : ℕ) : ℕ := ER.get 0 e
+def dgF (ER EC : BT ℕ) (e : ℕ) : Bool := decide (ER.get 0 e = EC.get 0 e)
+
+/-- stored relation `a`: its descriptor's six-edge list, descriptor checked (or empty), balanced -/
+def rsOK (C : Cert) (EI ER EC : BT ℕ) (DS : BT (List ℕ)) (nE m a : ℕ) : Bool :=
+  decide (C.RS.get [] a = relOf EI (DS.get [] a)) &&
+  (decide (DS.get [] a = []) || descOK EI ER EC nE m (DS.get [] a)) &&
+  decide (nrm (rowL (erF ER) (C.RS.get [] a)) = []) && decide (nrm (rowL (erF EC) (C.RS.get [] a)) = []) &&
+  decide (nrm (diagL (dgF ER EC) (C.RS.get [] a)) = [])
+
+/-- all checks of one T2 case besides `check C` -/
+def glueOK (C : Cert) (EI ER EC : BT ℕ) (DS : BT (List ℕ)) (nE m : ℕ) (T : List (ℕ × Bool)) (r0 d0 : ℕ) : Bool :=
+  (List.range (2 ^ max C.RS.dp DS.dp)).all (rsOK C EI ER EC DS nE m) &&
+  (List.range nE).all (fun e => decide (dot (ER.get 0 e) (EC.get 0 e) ≠ 0)) &&
+  bfsOK (erF ER) (erF EC) (dgF ER EC) T [r0] [] && dgF ER EC d0 &&
+  C.GA.all (fun e => decide (e = d0) || (T.map Prod.fst).contains e)
+
+theorem rsOK_all (C : Cert) (EI ER EC : BT ℕ) (DS : BT (List ℕ)) (nE m : ℕ)
+    (h : (List.range (2 ^ max C.RS.dp DS.dp)).all (rsOK C EI ER EC DS nE m) = true) (a : ℕ) :
+    rsOK C EI ER EC DS nE m a = true := by
+  by_cases ha : a < 2 ^ max C.RS.dp DS.dp
+  · exact List.all_eq_true.mp h a (List.mem_range.mpr ha)
+  · have h1 : C.RS.get [] a = [] :=
+      BT.get_big _ _ _ (le_trans (Nat.pow_le_pow_right (by norm_num) (le_max_left _ _)) (by omega))
+    have h2 : DS.get [] a = [] :=
+      BT.get_big _ _ _ (le_trans (Nat.pow_le_pow_right (by norm_num) (le_max_right _ _)) (by omega))
+    unfold rsOK; rw [h1, h2]; decide
+
+/-- **T2.3 for one case.** A checked closure certificate, glued to the matrix by checked descriptors, gives row and
+column scalings (and one diagonal scale) under which every needed edge has `M x y / γ x y = 1`. -/
+theorem t2_close (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
+    (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (C : Cert) (EI ER EC : BT ℕ)
+    (DS : BT (List ℕ)) (nE m : ℕ) (T : List (ℕ × Bool)) (r0 d0 : ℕ) (hc : check C = true)
+    (hg : glueOK C EI ER EC DS nE m T r0 d0 = true)
+    (hExp : ∀ a, DS.get [] a ≠ [] → ExpOK A B m (dfr (DS.get [] a)))
+    (hMnz : ∀ e < nE, Mx A B (ER.get 0 e) (EC.get 0 e) ≠ 0) :
+    ∃ (p q : ℕ → K) (l : K), (∀ x, p x ≠ 0) ∧ (∀ x, q x ≠ 0) ∧ l ≠ 0 ∧
+      ∀ e ∈ C.NE, gv (vM A B ER EC nE) p q l (erF ER) (erF EC) (dgF ER EC) e = 1 := by
+  unfold glueOK at hg
+  simp only [Bool.and_eq_true, List.all_eq_true, List.mem_range, decide_eq_true_eq] at hg
+  obtain ⟨⟨⟨⟨hrs, hdot⟩, hbfs⟩, hd0⟩, hGA⟩ := hg
+  have hrs' := rsOK_all C EI ER EC DS nE m (List.all_eq_true.mpr fun a ha => hrs a (List.mem_range.mp ha))
+  have hGnz : ∀ e < nE, gam (K := K) (ER.get 0 e) (EC.get 0 e) ≠ 0 := by
+    intro e he; unfold gam
+    exact div_ne_zero (by exact_mod_cast hdot e he) (by norm_num)
+  have hv : ∀ e, vM A B ER EC nE e ≠ 0 := by
+    intro e; unfold vM; split_ifs with he
+    · exact div_ne_zero (hMnz e he) (hGnz e he)
+    · exact one_ne_zero
+  obtain ⟨p, q, l, hp, hq, hl, hgv, hT, hd⟩ :=
+    gauge_exists (vM A B ER EC nE) hv (erF ER) (erF EC) (dgF ER EC) T r0 d0 hbfs hd0
+  refine ⟨p, q, l, hp, hq, hl, ?_⟩
+  refine closure_sound C _ hc ?_ hgv ?_
+  · intro a
+    have ha := hrs' a
+    unfold rsOK at ha
+    simp only [Bool.and_eq_true, Bool.or_eq_true, decide_eq_true_eq] at ha
+    obtain ⟨⟨⟨⟨hra, hdesc⟩, b1⟩, b2⟩, b3⟩ := ha
+    rw [rp_gauge _ p q l _ _ _ hp hq hl _ b1 b2 b3, hra]
+    by_cases h0 : DS.get [] a = []
+    · rw [h0]; unfold relOf; simp [rp]
+    · rcases hdesc with h0' | hok
+      · exact absurd h0' h0
+      · exact rp_relOf A B hdiag hmask EI ER EC nE m hMnz hGnz _ hok (hExp a h0)
+  · intro e he
+    rcases hGA e he with h | h
+    · rw [h]; exact hd
+    · obtain ⟨eb, heb, rfl⟩ := List.mem_map.mp (List.contains_iff_mem.mp h)
+      exact hT eb heb
 
 end RankNine.T2
