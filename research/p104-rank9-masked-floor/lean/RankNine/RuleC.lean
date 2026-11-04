@@ -127,7 +127,7 @@ theorem rp_rel3Of (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B
   rw [vM_edge A B EI ER EC nE _ _ e1, vM_edge A B EI ER EC nE _ _ e2, vM_edge A B EI ER EC nE _ _ e3,
     vM_edge A B EI ER EC nE _ _ e4]
   field_simp
-  linear_combination (gam t s * gam f f) * hrel - (Mx A B t s * Mx A B f f) * hGK
+  linear_combination (gam t f * gam f s) * hrel - (Mx A B t f * Mx A B f s) * hGK
 
 /-! ## Rule (b): two expansions of `M t s` sharing the term `f` (`{f, g}`, `{f, h}`) give `P g = P h` -/
 
