@@ -18,7 +18,7 @@ def jv : V9 := fun _ => 1
 
 theorem pbits_inj : ∀ s t : Fin 104, pbits s = pbits t → s = t := by decide +kernel
 
-theorem par_ones : ∀ t : Fin 104, par t (zl jv) = true := by decide +kernel
+theorem par_ones : ∀ t : Fin 104, BForm.E8.par t (zl jv) = true := by decide +kernel
 
 attribute [local instance] Classical.propDecidable
 
@@ -38,9 +38,10 @@ theorem cap4_hand : ∀ R : Finset (Fin 104), 9 ≤ R.card → 5 ≤ lspan labK 
   by_contra hlt
   set U : Submodule (ZMod 2) V9 := Submodule.span (ZMod 2) (Set.range (labMat labK R)) with hU
   have hfr : finrank (ZMod 2) U ≤ 4 := by
-    have := Matrix.rank_eq_finrank_span_row (labMat labK R)
-    rw [← hU] at this
-    unfold lspan at hlt
+    have h1 : lspan labK R = finrank (ZMod 2) U := by
+      unfold lspan
+      rw [Matrix.rank_eq_finrank_span_row]
+      rfl
     omega
   have hcU : Fintype.card U ≤ 16 := by
     rw [Module.card_eq_pow_finrank (K := ZMod 2) (V := U), ZMod.card]
@@ -56,7 +57,7 @@ theorem cap4_hand : ∀ R : Finset (Fin 104), 9 ≤ R.card → 5 ≤ lspan labK 
     convert hcU
   set O := Uf.filter fun x => x ⬝ᵥ jv ≠ 0 with hO
   set Ev := Uf.filter fun x => ¬ (x ⬝ᵥ jv ≠ 0) with hEv
-  have hsplit : O.card + Ev.card = Uf.card := Finset.filter_card_add_filter_neg_card_eq_card _
+  have hsplit : O.card + Ev.card = Uf.card := Finset.card_filter_add_card_filter_not (s := Uf) (fun x : V9 => x ⬝ᵥ jv ≠ 0)
   have hRO : R.card ≤ O.card := by
     rw [← Finset.card_image_of_injective R labK_inj]
     apply Finset.card_le_card
