@@ -1,4 +1,5 @@
 import RankNine.Cap6Hand
+import RankNine.Cap4Hand
 
 /-! The finite fact `cap6OK` (512 labels × 120 lines of weight 3 or 7), by `decide`, as `capOK_true`. -/
 
