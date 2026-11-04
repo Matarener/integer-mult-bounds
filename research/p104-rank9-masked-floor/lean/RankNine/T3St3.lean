@@ -64,4 +64,20 @@ theorem floor_of_st3 {K : Type*} [Field K] [CharZero K] (hcap : BForm.Capacity B
       hcolU hrowd (hPs_P104 A B _ d3.f) (hcs_P104 A B _ d3.f) (hglue.imp_right (live_le_four lam _ hin))
       _ d3.BsL hGl hpin hG5 hUB hBs hcovB hdg hmk _ _ Al Bl hA hB hAB P' Q' h
 
+/-- **The hard-type hypothesis as existence of data** (as for the ordinary types): if some stage-3 record and some
+T3 record pass their checks for type `k`, with the same Gram set, then `C(P104) ≥ 56` for type `k`. -/
+theorem floor_of_st3_ex {K : Type*} [Field K] [CharZero K] (hcap : BForm.Capacity BForm.E8.labK)
+    (hbic : BForm.BicliqueFact (BForm.E8.rK K)) (hcensus : BForm.CensusFact BForm.E8.labK (BForm.E8.rK K)) (k : ℕ)
+    (hex : ∃ st : T2.St3, ∃ d3 : T3D, st.ok = true ∧ d3.ok (typeMask.getD k 0) = true ∧
+      st.m0 = typeMask.getD k 0 ∧ d3.zm = st.zm)
+    (A B : ℕ → Fin 9 → K) (u : Fin 9 → K) (hu : u ≠ 0)
+    (hZ : ∀ x, (typeMask.getD k 0).testBit x = true → A x ⬝ᵥ u = 0)
+    (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0) (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0)
+    (Al Bl : Matrix (Fin 9) (Fin 104) K) (hA : Al * Matrix.of (fun (v : Fin 104) (i : Fin 9) => A v i) = 1)
+    (hB : Bl * Matrix.of (fun (v : Fin 104) (i : Fin 9) => B v i) = 1)
+    (P' Q' : Matrix (Fin 104) BForm.C9 K) (h : Matrix.of (fun v s : Fin 104 => Mx A B v s) = P' * Q'ᵀ) :
+    56 ≤ BForm.cost BForm.E8.labK P' Q' := by
+  obtain ⟨st, d3, h1, h3, hm, hz⟩ := hex
+  exact floor_of_st3 hcap hbic hcensus k st d3 h1 h3 hm hz A B u hu hZ hdiag hmask Al Bl hA hB P' Q' h
+
 end RankNine
