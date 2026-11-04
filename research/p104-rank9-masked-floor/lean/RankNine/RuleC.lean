@@ -129,4 +129,89 @@ theorem rp_rel3Of (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B
   field_simp
   linear_combination (gam t s * gam f f) * hrel - (Mx A B t s * Mx A B f f) * hGK
 
+/-! ## Rule (b): two expansions of `M t s` sharing the term `f` (`{f, g}`, `{f, h}`) give `P g = P h` -/
+
+def desc2OK (EI ER EC : BT ℕ) (nE m : ℕ) (d : List ℕ) : Bool :=
+  let t := d.getD 0 0; let s := d.getD 1 0; let f := d.getD 2 0; let g := d.getD 3 0; let h := d.getD 4 0
+  decide (d.length = 21) && decide (t < 104) && decide (s < 104) && decide (g < 104) && decide (h < 104) &&
+  pairOK3 m t s f g (fr3 d 0) && pairOK3 m t s f h (fr3 d 1) &&
+  decide (dot t g * dot g s * dot h h = dot t h * dot h s * dot g g) &&
+  edgeOK EI ER EC nE t g && edgeOK EI ER EC nE g s && edgeOK EI ER EC nE h h &&
+  edgeOK EI ER EC nE t h && edgeOK EI ER EC nE h s && edgeOK EI ER EC nE g g
+
+/-- `v t g * v g s * v h h * (v t h)⁻¹ * (v h s)⁻¹ * (v g g)⁻¹` -/
+def rel2Of (EI : BT ℕ) (d : List ℕ) : List ℕ :=
+  let t := d.getD 0 0; let s := d.getD 1 0; let g := d.getD 3 0; let h := d.getD 4 0
+  [2 * eid EI t g, 2 * eid EI g s, 2 * eid EI h h, 2 * eid EI t h + 1, 2 * eid EI h s + 1, 2 * eid EI g g + 1]
+
+theorem desc2_relation (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
+    (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (EI ER EC : BT ℕ) (nE m : ℕ)
+    (d : List ℕ) (hd : desc2OK EI ER EC nE m d = true) (hE : ∀ i < 2, ExpOK A B m (fr3 d i)) :
+    Mx A B (d.getD 0 0) (d.getD 3 0) * Mx A B (d.getD 3 0) (d.getD 1 0) * Mx A B (d.getD 4 0) (d.getD 4 0) =
+      Mx A B (d.getD 0 0) (d.getD 4 0) * Mx A B (d.getD 4 0) (d.getD 1 0) * Mx A B (d.getD 3 0) (d.getD 3 0) := by
+  unfold desc2OK at hd
+  simp only [Bool.and_eq_true, decide_eq_true_eq] at hd
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, ht⟩, hs⟩, hg⟩, hh⟩, p1⟩, p2⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩ := hd
+  set t := d.getD 0 0; set s := d.getD 1 0; set f := d.getD 2 0; set g := d.getD 3 0; set h := d.getD 4 0
+  have e1 := pair_exp A B hmask ht hs p1 (hE 0 (by norm_num))
+  have e2 := pair_exp A B hmask ht hs p2 (hE 1 (by norm_num))
+  have hgg : Mx A B g g ≠ 0 := hdiag g hg
+  have hhh : Mx A B h h ≠ 0 := hdiag h hh
+  have key : Mx A B t g * Mx A B g s / Mx A B g g = Mx A B t h * Mx A B h s / Mx A B h h := by
+    linear_combination e2 - e1
+  field_simp at key
+  linear_combination key
+
+theorem rp_rel2Of (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
+    (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (EI ER EC : BT ℕ) (nE m : ℕ)
+    (hMnz : ∀ e < nE, Mx A B (ER.get 0 e) (EC.get 0 e) ≠ 0)
+    (hGnz : ∀ e < nE, gam (K := K) (ER.get 0 e) (EC.get 0 e) ≠ 0)
+    (d : List ℕ) (hd : desc2OK EI ER EC nE m d = true) (hE : ∀ i < 2, ExpOK A B m (fr3 d i)) :
+    rp (vM A B ER EC nE) (rel2Of EI d) = 1 := by
+  have hrel := desc2_relation A B hdiag hmask EI ER EC nE m d hd hE
+  unfold desc2OK at hd
+  simp only [Bool.and_eq_true, decide_eq_true_eq] at hd
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, hG⟩, e1⟩, e2⟩, e3⟩, e4⟩, e5⟩, e6⟩ := hd
+  set t := d.getD 0 0; set s := d.getD 1 0; set g := d.getD 3 0; set h := d.getD 4 0
+  have hGK : gam (K := K) t g * gam g s * gam h h = gam t h * gam h s * gam g g := by
+    have q1 : gam (K := K) t g * gam g s * gam h h = ((dot t g * dot g s * dot h h : ℤ) : K) / 5832 := by
+      unfold gam; push_cast; ring
+    have q2 : gam (K := K) t h * gam h s * gam g g = ((dot t h * dot h s * dot g g : ℤ) : K) / 5832 := by
+      unfold gam; push_cast; ring
+    rw [q1, q2, hG]
+  have m1 := edge_nz EI ER EC nE t g e1 (P := fun x y => Mx A B x y ≠ 0) hMnz
+  have m2 := edge_nz EI ER EC nE g s e2 (P := fun x y => Mx A B x y ≠ 0) hMnz
+  have m3 := edge_nz EI ER EC nE h h e3 (P := fun x y => Mx A B x y ≠ 0) hMnz
+  have m4 := edge_nz EI ER EC nE t h e4 (P := fun x y => Mx A B x y ≠ 0) hMnz
+  have m5 := edge_nz EI ER EC nE h s e5 (P := fun x y => Mx A B x y ≠ 0) hMnz
+  have m6 := edge_nz EI ER EC nE g g e6 (P := fun x y => Mx A B x y ≠ 0) hMnz
+  have g1 := edge_nz EI ER EC nE t g e1 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
+  have g2 := edge_nz EI ER EC nE g s e2 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
+  have g3 := edge_nz EI ER EC nE h h e3 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
+  have g4 := edge_nz EI ER EC nE t h e4 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
+  have g5 := edge_nz EI ER EC nE h s e5 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
+  have g6 := edge_nz EI ER EC nE g g e6 (P := fun x y => gam (K := K) x y ≠ 0) hGnz
+  unfold rel2Of rp
+  simp only [List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one, sv_two, sv_two_one]
+  rw [vM_edge A B EI ER EC nE _ _ e1, vM_edge A B EI ER EC nE _ _ e2, vM_edge A B EI ER EC nE _ _ e3,
+    vM_edge A B EI ER EC nE _ _ e4, vM_edge A B EI ER EC nE _ _ e5, vM_edge A B EI ER EC nE _ _ e6]
+  field_simp
+  linear_combination (gam t h * gam h s * gam g g) * hrel - (Mx A B t h * Mx A B h s * Mx A B g g) * hGK
+
+/-! ## Inverted relations -/
+
+theorem rp_opp (v : ℕ → K) (hv : ∀ e, v e ≠ 0) (l : List ℕ) : rp v (l.map opp) * rp v l = 1 := by
+  induction l with
+  | nil => simp [rp]
+  | cons a l ih =>
+    have h1 := sv_opp v hv a
+    unfold rp at ih ⊢
+    simp only [List.map_cons, List.prod_cons] at ih ⊢
+    calc sv v (opp a) * (List.map (sv v) (List.map opp l)).prod * (sv v a * (List.map (sv v) l).prod)
+        = (sv v (opp a) * sv v a) * ((List.map (sv v) (List.map opp l)).prod * (List.map (sv v) l).prod) := by ring
+      _ = 1 := by rw [h1, ih, one_mul]
+
+theorem rp_opp_one (v : ℕ → K) (hv : ∀ e, v e ≠ 0) {l : List ℕ} (h : rp v l = 1) : rp v (l.map opp) = 1 := by
+  have := rp_opp v hv l; rwa [h, mul_one] at this
+
 end RankNine.T2

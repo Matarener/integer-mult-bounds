@@ -23,7 +23,11 @@ def noDg : ℕ → Bool := fun _ => false
 /-- stored relation `a`: rule (a) or rule (c) descriptor (or empty), balanced in rows and columns -/
 def rs1OK (C : Cert) (EI ER EC : BT ℕ) (DS : BT (List ℕ)) (nE m a : ℕ) : Bool :=
   (if (DS.get [] a).length = 29 then
-      decide (C.RS.get [] a = rel3Of EI (DS.get [] a)) && desc3OK EI ER EC nE m (DS.get [] a)
+      (decide (C.RS.get [] a = rel3Of EI (DS.get [] a)) || decide (C.RS.get [] a = (rel3Of EI (DS.get [] a)).map opp)) &&
+        desc3OK EI ER EC nE m (DS.get [] a)
+    else if (DS.get [] a).length = 21 then
+      (decide (C.RS.get [] a = rel2Of EI (DS.get [] a)) || decide (C.RS.get [] a = (rel2Of EI (DS.get [] a)).map opp)) &&
+        desc2OK EI ER EC nE m (DS.get [] a)
     else
       decide (C.RS.get [] a = relOf EI (DS.get [] a)) &&
         (decide (DS.get [] a = []) || descOK EI ER EC nE m (DS.get [] a))) &&
@@ -52,8 +56,10 @@ theorem t1_close (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (C : Cert) (EI ER EC : BT ℕ)
     (DS : BT (List ℕ)) (nE m : ℕ) (T : List (ℕ × Bool)) (r0 : ℕ) (hc : check C = true)
     (hg : glue1OK C EI ER EC DS nE m T r0 = true)
-    (hExp : ∀ a, (DS.get [] a).length ≠ 29 → DS.get [] a ≠ [] → ExpOK A B m (dfr (DS.get [] a)))
+    (hExp : ∀ a, (DS.get [] a).length ≠ 29 → (DS.get [] a).length ≠ 21 → DS.get [] a ≠ [] →
+      ExpOK A B m (dfr (DS.get [] a)))
     (hExp3 : ∀ a, (DS.get [] a).length = 29 → ∀ i < 3, ExpOK A B m (fr3 (DS.get [] a) i))
+    (hExp2 : ∀ a, (DS.get [] a).length = 21 → ∀ i < 2, ExpOK A B m (fr3 (DS.get [] a) i))
     (hMnz : ∀ e < nE, Mx A B (ER.get 0 e) (EC.get 0 e) ≠ 0) :
     ∃ (p q : ℕ → K), (∀ x, p x ≠ 0) ∧ (∀ x, q x ≠ 0) ∧
       ∀ e ∈ C.NE, vM A B ER EC nE e * p (erF ER e) * q (erF EC e) = 1 := by
@@ -82,10 +88,17 @@ theorem t1_close (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
     simp only [Bool.and_eq_true, decide_eq_true_eq] at ha
     obtain ⟨⟨hsel, b1⟩, b2⟩ := ha
     rw [rp_gauge _ p q 1 _ _ _ hp hq one_ne_zero _ b1 b2 (by simp [diagL, noDg, nrm])]
-    split_ifs at hsel with hl
-    · simp only [Bool.and_eq_true, decide_eq_true_eq] at hsel
-      rw [hsel.1]
-      exact rp_rel3Of A B hdiag hmask EI ER EC nE m hMnz hGnz _ hsel.2 (hExp3 a hl)
+    split_ifs at hsel with hl hl2
+    · simp only [Bool.and_eq_true, Bool.or_eq_true, decide_eq_true_eq] at hsel
+      have h1 := rp_rel3Of A B hdiag hmask EI ER EC nE m hMnz hGnz _ hsel.2 (hExp3 a hl)
+      rcases hsel.1 with e | e <;> rw [e]
+      · exact h1
+      · exact rp_opp_one _ hv h1
+    · simp only [Bool.and_eq_true, Bool.or_eq_true, decide_eq_true_eq] at hsel
+      have h1 := rp_rel2Of A B hdiag hmask EI ER EC nE m hMnz hGnz _ hsel.2 (hExp2 a hl2)
+      rcases hsel.1 with e | e <;> rw [e]
+      · exact h1
+      · exact rp_opp_one _ hv h1
     · simp only [Bool.and_eq_true, Bool.or_eq_true, decide_eq_true_eq] at hsel
       obtain ⟨hra, hdesc⟩ := hsel
       rw [hra]
@@ -93,7 +106,7 @@ theorem t1_close (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
       · rw [h0]; unfold relOf; simp [rp]
       · by_cases h0 : DS.get [] a = []
         · rw [h0]; unfold relOf; simp [rp]
-        · exact rp_relOf A B hdiag hmask EI ER EC nE m hMnz hGnz _ hok (hExp a hl h0)
+        · exact rp_relOf A B hdiag hmask EI ER EC nE m hMnz hGnz _ hok (hExp a hl hl2 h0)
   · intro e
     unfold gv; simp only [noDg]
     exact mul_ne_zero (mul_ne_zero (mul_ne_zero (hv e) (hp _)) (hq _)) (by simp)
@@ -115,12 +128,14 @@ theorem t1_gram (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (C : Cert) (EI ER EC : BT ℕ)
     (DS : BT (List ℕ)) (nE m zm : ℕ) (T : List (ℕ × Bool)) (r0 : ℕ) (hc : check C = true)
     (hg : glue1OK C EI ER EC DS nE m T r0 = true) (hcov : cov1OK EI ER EC nE zm C.NE = true)
-    (hExp : ∀ a, (DS.get [] a).length ≠ 29 → DS.get [] a ≠ [] → ExpOK A B m (dfr (DS.get [] a)))
+    (hExp : ∀ a, (DS.get [] a).length ≠ 29 → (DS.get [] a).length ≠ 21 → DS.get [] a ≠ [] →
+      ExpOK A B m (dfr (DS.get [] a)))
     (hExp3 : ∀ a, (DS.get [] a).length = 29 → ∀ i < 3, ExpOK A B m (fr3 (DS.get [] a) i))
+    (hExp2 : ∀ a, (DS.get [] a).length = 21 → ∀ i < 2, ExpOK A B m (fr3 (DS.get [] a) i))
     (hMnz : ∀ e < nE, Mx A B (ER.get 0 e) (EC.get 0 e) ≠ 0) :
     ∃ g : ℕ → K, (∀ x, g x ≠ 0) ∧
       ∀ x < 104, ∀ y < 104, zm.testBit x = true → zm.testBit y = true → GramP A B g x y := by
-  obtain ⟨p, q, hp, hq, hNE⟩ := t1_close A B hdiag hmask C EI ER EC DS nE m T r0 hc hg hExp hExp3 hMnz
+  obtain ⟨p, q, hp, hq, hNE⟩ := t1_close A B hdiag hmask C EI ER EC DS nE m T r0 hc hg hExp hExp3 hExp2 hMnz
   have hGnz : ∀ e < nE, gam (K := K) (ER.get 0 e) (EC.get 0 e) ≠ 0 := by
     unfold glue1OK at hg
     simp only [Bool.and_eq_true, List.all_eq_true, List.mem_range, decide_eq_true_eq] at hg
