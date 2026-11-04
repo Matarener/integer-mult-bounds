@@ -63,7 +63,7 @@ theorem pair_exp (A B : ℕ → Fin 9 → K) (hmask : ∀ x < 104, ∀ y < 104, 
 
 /-- rule (c), pure algebra -/
 theorem rule_c_alg {μ a b c : K} (h1 : μ = a + b) (h2 : μ = a + c) (h3 : μ = b + c) : 2 * a = μ := by
-  linear_combination h1 + h2 - h3
+  linear_combination -h1 - h2 + h3
 
 def desc3OK (EI ER EC : BT ℕ) (nE m : ℕ) (d : List ℕ) : Bool :=
   let t := d.getD 0 0; let s := d.getD 1 0; let f := d.getD 2 0; let g := d.getD 3 0; let h := d.getD 4 0
@@ -85,7 +85,7 @@ theorem desc3_relation (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝
       Mx A B (d.getD 0 0) (d.getD 1 0) * Mx A B (d.getD 2 0) (d.getD 2 0) := by
   unfold desc3OK at hd
   simp only [Bool.and_eq_true, decide_eq_true_eq] at hd
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, ht⟩, hs⟩, hf⟩, p1⟩, p2⟩, p3⟩, -⟩, -⟩, -⟩, -⟩, -⟩ := hd
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, ht⟩, hs⟩, hf⟩, p1⟩, p2⟩, p3⟩, -⟩, -⟩, -⟩, -⟩, -⟩ := hd
   set t := d.getD 0 0; set s := d.getD 1 0; set f := d.getD 2 0
   have e1 := pair_exp A B hmask ht hs p1 (hE 0 (by norm_num))
   have e2 := pair_exp A B hmask ht hs p2 (hE 1 (by norm_num))
@@ -106,7 +106,7 @@ theorem rp_rel3Of (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B
   have hrel := desc3_relation A B hdiag hmask EI ER EC nE m d hd hE
   unfold desc3OK at hd
   simp only [Bool.and_eq_true, decide_eq_true_eq] at hd
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, hG⟩, e1⟩, e2⟩, e3⟩, e4⟩ := hd
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, hG⟩, e1⟩, e2⟩, e3⟩, e4⟩ := hd
   set t := d.getD 0 0; set s := d.getD 1 0; set f := d.getD 2 0
   have hGK : 2 * (gam (K := K) t f * gam f s) = gam t s * gam f f := by
     have q1 : 2 * (gam (K := K) t f * gam f s) = ((2 * (dot t f * dot f s) : ℤ) : K) / 324 := by
@@ -151,7 +151,7 @@ theorem desc2_relation (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝
       Mx A B (d.getD 0 0) (d.getD 4 0) * Mx A B (d.getD 4 0) (d.getD 1 0) * Mx A B (d.getD 3 0) (d.getD 3 0) := by
   unfold desc2OK at hd
   simp only [Bool.and_eq_true, decide_eq_true_eq] at hd
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, ht⟩, hs⟩, hg⟩, hh⟩, p1⟩, p2⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩ := hd
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, ht⟩, hs⟩, hg⟩, hh⟩, p1⟩, p2⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩ := hd
   set t := d.getD 0 0; set s := d.getD 1 0; set f := d.getD 2 0; set g := d.getD 3 0; set h := d.getD 4 0
   have e1 := pair_exp A B hmask ht hs p1 (hE 0 (by norm_num))
   have e2 := pair_exp A B hmask ht hs p2 (hE 1 (by norm_num))
@@ -171,7 +171,7 @@ theorem rp_rel2Of (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B
   have hrel := desc2_relation A B hdiag hmask EI ER EC nE m d hd hE
   unfold desc2OK at hd
   simp only [Bool.and_eq_true, decide_eq_true_eq] at hd
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, hG⟩, e1⟩, e2⟩, e3⟩, e4⟩, e5⟩, e6⟩ := hd
+  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨-, -⟩, -⟩, -⟩, -⟩, -⟩, -⟩, hG⟩, e1⟩, e2⟩, e3⟩, e4⟩, e5⟩, e6⟩ := hd
   set t := d.getD 0 0; set s := d.getD 1 0; set g := d.getD 3 0; set h := d.getD 4 0
   have hGK : gam (K := K) t g * gam g s * gam h h = gam t h * gam h s * gam g g := by
     have q1 : gam (K := K) t g * gam g s * gam h h = ((dot t g * dot g s * dot h h : ℤ) : K) / 5832 := by
