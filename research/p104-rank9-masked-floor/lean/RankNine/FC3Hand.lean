@@ -82,12 +82,25 @@ theorem plane_odd {o p q r s t u v : ℕ} (ho : o % 2 = 1) (hs : p ^^^ q = s) (h
 /-- labels of weight `2` or `o` mod 4 -/
 def PhO (o n : ℕ) : Prop := wt n % 4 = 2 ∨ wt n % 4 = o
 
+set_option maxHeartbeats 800000 in
 /-- **No 3-space of labels of weight `2, o (mod 4)`**, `o = 1` or `3` (NOTE §13.27, CENSUS-PLAN §6). -/
 theorem no_plane3o (o : ℕ) (ho : o = 1 ∨ o = 3) (a b c : ℕ) (ha : PhO o a) (hb : PhO o b) (hc : PhO o c)
     (hab : PhO o (a ^^^ b)) (hac : PhO o (a ^^^ c)) (hbc : PhO o (b ^^^ c)) (habc : PhO o ((a ^^^ b) ^^^ c)) :
     False := by
-  unfold PhO at ha hb hc hab hac hbc habc
-  have ho2 : o % 2 = 1 := by omega
+  -- write `o = 3 - 2 e`; then `PhO o w` is the single linear fact `(w + e) % 4 ≥ 2` (no case splits for `omega`)
+  obtain ⟨e, he, rfl⟩ : ∃ e, e ≤ 1 ∧ o = 3 - 2 * e := by
+    rcases ho with rfl | rfl
+    exacts [⟨1, le_rfl, rfl⟩, ⟨0, Nat.zero_le _, rfl⟩]
+  have L : ∀ w, PhO (3 - 2 * e) w → (w + e) % 4 ≥ 2 := by intro w h; unfold PhO at h; omega
+  replace ha := L _ ha
+  replace hb := L _ hb
+  replace hc := L _ hc
+  replace hab := L _ hab
+  replace hac := L _ hac
+  replace hbc := L _ hbc
+  replace habc := L _ habc
+  clear L ho
+  have ho2 : (3 - 2 * e) % 2 = 1 := by omega
   have pab := wt_xor a b
   have pac := wt_xor a c
   have pbc := wt_xor b c
@@ -204,7 +217,7 @@ theorem framed_of_three_h {FW : List ℕ} (hfw : fwOK FW = true) (z1 z2 z3 : V9)
   have xab : lz (a ^^^ b) = zl (z1 + z2) := by rw [lz_xor, ea, eb, zl_add]
   have xac : lz (a ^^^ c) = zl (z1 + z3) := by rw [lz_xor, ea, ec, zl_add]
   have xbc : lz (b ^^^ c) = zl (z2 + z3) := by rw [lz_xor, eb, ec, zl_add]
-  have xabc : lz ((a ^^^ b) ^^^ c) = zl (z1 + z2 + z3) := by rw [lz_xor, xab, ec, zl_add]
+  have xabc : lz ((a ^^^ b) ^^^ c) = zl (z1 + z2 + z3) := by rw [lz_xor, xab, ec, ← zl_add]
   -- the seven points are non-zero, and each differs from the partner chosen below
   have s0 : ∀ {p q : V9}, p ≠ q → p + q ≠ 0 := fun hpq e => hpq (v9_eq_of_add e)
   have s1 : ∀ {p q : V9}, q ≠ 0 → p + q ≠ p := fun hq e => hq (add_left_cancel (e.trans (add_zero _).symm))

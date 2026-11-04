@@ -159,7 +159,7 @@ theorem cap6_hand (hc : cap6OK = true) : ∀ R : Finset (Fin 104), 21 ≤ R.card
   have xab : lz (a ^^^ b) = zl (z1 + z2) := by rw [lz_xor, ea, eb, zl_add]
   have xac : lz (a ^^^ c) = zl (z1 + z3) := by rw [lz_xor, ea, ec, zl_add]
   have xbc : lz (b ^^^ c) = zl (z2 + z3) := by rw [lz_xor, eb, ec, zl_add]
-  have xabc : lz ((a ^^^ b) ^^^ c) = zl (z1 + z2 + z3) := by rw [lz_xor, xab, ec, zl_add]
+  have xabc : lz ((a ^^^ b) ^^^ c) = zl (z1 + z2 + z3) := by rw [lz_xor, xab, ec, ← zl_add]
   have s0 : ∀ {p q : V9}, p ≠ q → p + q ≠ 0 := fun hpq e => hpq (v9_eq_of_add e)
   have n123 : z1 + z2 + z3 ≠ 0 := fun e => h312 (v9_eq_of_add e).symm
   have hsub : R ⊆ univ.filter fun t : Fin 104 => labK t ⬝ᵥ z1 = 0 ∧ labK t ⬝ᵥ z2 = 0 ∧ labK t ⬝ᵥ z3 = 0 := by

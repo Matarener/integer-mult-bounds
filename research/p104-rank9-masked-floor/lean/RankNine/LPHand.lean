@@ -69,7 +69,7 @@ theorem card_three (z1 z2 z3 : V9) (h1 : z1 ≠ 0) (h2 : z2 ≠ 0) (h3 : z3 ≠ 
   have xab : lz (a ^^^ b) = zl (z1 + z2) := by rw [lz_xor, ea, eb, zl_add]
   have xac : lz (a ^^^ c) = zl (z1 + z3) := by rw [lz_xor, ea, ec, zl_add]
   have xbc : lz (b ^^^ c) = zl (z2 + z3) := by rw [lz_xor, eb, ec, zl_add]
-  have xabc : lz ((a ^^^ b) ^^^ c) = zl (z1 + z2 + z3) := by rw [lz_xor, xab, ec, zl_add]
+  have xabc : lz ((a ^^^ b) ^^^ c) = zl (z1 + z2 + z3) := by rw [lz_xor, xab, ec, ← zl_add]
   have s0 : ∀ {p q : V9}, p ≠ q → p + q ≠ 0 := fun hpq e => hpq (v9_eq_of_add e)
   have n123 : z1 + z2 + z3 ≠ 0 := fun e => h312 (v9_eq_of_add e).symm
   have hP := count7 labK z1 z2 z3
