@@ -232,7 +232,8 @@ theorem zkill {u : Fin 9 → K} (hu0 : u ≠ 0) (g : ℕ → K) (hg : ∀ x, g x
   by_cases hind : LinearIndependent K ![u, B s]
   · exfalso
     refine pair_minor A B u (B s) hind X Y hXu (fun i => hmask _ (hX i) s hs (hXs i))
-      (fun x => if dS A B g x = 0 then 1 else 18 / dS A B g x) g ?_ hg D hD ?_
+      (fun x => if dS A B g x = 0 then 1 else 18 / dS A B g x) (fun y => (g y)⁻¹) ?_
+      (fun y => inv_ne_zero (hg y)) D hD ?_
     · intro x
       split_ifs with h
       · exact one_ne_zero
