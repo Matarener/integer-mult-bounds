@@ -19,14 +19,14 @@ set_option linter.unusedSectionVars false
 
 theorem rank_rows_indep {m : Type*} [Fintype m] (A8 : Matrix m (Fin 9) K) (h : LinearIndependent K fun i => A8 i) :
     A8.rank = Fintype.card m := by
-  rw [Matrix.rank_eq_finrank_span_row, finrank_span_eq_card h]
+  rw [Matrix.rank_eq_finrank_span_row]
+  exact finrank_span_eq_card h
 
 theorem rank_two_cols (u v : Fin 9 → K) (h : LinearIndependent K ![u, v]) :
     (Matrix.of fun (r : Fin 9) (c : Fin 2) => ![u, v] c r).rank = 2 := by
   rw [Matrix.rank_eq_finrank_span_cols]
-  have : (Matrix.of fun (r : Fin 9) (c : Fin 2) => ![u, v] c r)ᵀ = ![u, v] := by
-    ext c r; rfl
-  rw [this, finrank_span_eq_card h, Fintype.card_fin]
+  exact (finrank_span_eq_card (show LinearIndependent K (Matrix.of fun (r : Fin 9) (c : Fin 2) => ![u, v] c r).col
+    from h)).trans (Fintype.card_fin 2)
 
 /-- **Pair step.** -/
 theorem pair_minor (A B : ℕ → Fin 9 → K) (u v : Fin 9 → K) (huv : LinearIndependent K ![u, v])
