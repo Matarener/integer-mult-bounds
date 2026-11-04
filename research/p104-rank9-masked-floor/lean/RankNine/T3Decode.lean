@@ -57,7 +57,23 @@ def rT3 : Rd T3D := do
     let k0 ← rnat
     let C ← rrc
     LT := LT.push (v, k0, C)
-  pure { f, zm, sm, OL, O, bad := bad.toList, T := T.toList, LT := LT.toList }
+  let U ← rnat
+  let s1 ← rnat
+  let s2 ← rnat
+  let ks ← rnat
+  let kt ← rnat
+  let Cs ← rrc
+  let Ct ← rrc
+  let nG ← rnat
+  let mut GC : Array (ℕ × ℕ × RCert) := #[]
+  for _ in [0:nG] do
+    let s ← rnat
+    let k0 ← rnat
+    let C ← rrc
+    GC := GC.push (s, k0, C)
+  let BsL ← rlist
+  pure { f, zm, sm, OL, O, bad := bad.toList, T := T.toList, LT := LT.toList, U, s1, s2, ks, kt, Cs, Ct,
+         GC := GC.toList, BsL }
 
 def parseT3 (s : String) : T3D := (rT3.run (parseNats s)).1
 
