@@ -22,7 +22,7 @@ set_option linter.unusedSectionVars false
 
 def lz (n : ℕ) : List ℕ := (List.range 9).map fun k => if n.testBit k then 1 else 0
 
-def smask (l : List ℕ) : ℕ := lmask ((List.range 104).filter fun t => par t l)
+def smask (l : List ℕ) : ℕ := lmask ((List.range 104).filter fun t => BForm.E8.par t l)
 
 def smT : Array ℕ := ((List.range 512).map fun n => smask (lz n)).toArray
 
