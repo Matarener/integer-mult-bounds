@@ -56,6 +56,7 @@ theorem mT_img (hgrp : grpOK = true) {g : ℕ} (hg : g < 384) {B : ℕ → Fin 9
   refine ⟨fun s => c (gl g s), fun s hs => hc0 _ ((mem_msk_img hgrp hg).mpr ⟨s, hs, rfl⟩), ?_⟩
   rw [hc, himg, Finset.sum_image hinj]
   refine Finset.sum_congr rfl fun s hs => ?_
+  show c (gl g s) • B (gl g s) = c (gl g s) • B (Tr.pn (permOf hgrp hg) s)
   rw [pn_permOf hgrp hg (mem_msk.mp hs).1]
 
 /-! ## The invariant statement -/
@@ -223,7 +224,7 @@ theorem it_sound (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B 
     exfalso
     unfold zkOKS at hend
     simp only [Bool.and_eq_true, decide_eq_true_eq, bne_iff_ne] at hend
-    obtain ⟨⟨⟨⟨⟨⟨⟨⟨hs104, hXl⟩, hYl⟩, hXc⟩, hYc⟩, hdd⟩, hDJ⟩, hlast⟩ := hend
+    obtain ⟨⟨⟨⟨⟨⟨⟨hs104, hXl⟩, hYl⟩, hXc⟩, hYc⟩, hdd⟩, hDJ⟩, hlast⟩ := hend
     have hXi : ∀ i : Fin 8, it.b.X.getD i 0 < 104 ∧ it.b.d.m.testBit (it.b.X.getD i 0) = true ∧
         (pinZ it.b.d.zm it.b.PL).testBit (it.b.X.getD i 0) = true ∧ orthB (it.b.X.getD i 0) it.b.s = true := by
       intro i
@@ -330,8 +331,9 @@ theorem T2SR.sound (hgrp : grpOK = true) (r : T2SR) (c : ℕ) (FL : List ℕ) (h
   unfold T2SR.ok at h
   simp only [Bool.and_eq_true, beq_iff_eq] at h
   obtain ⟨⟨⟨⟨⟨⟨⟨⟨hm, hst⟩, hcl⟩, hd0⟩, hpins⟩, hzm⟩, hbig⟩, hits⟩, hp⟩ := h
-  have hall := its_sound hgrp hst hcl hp (HPof r.its) r.its 0 hits (by simp) (fun i hi => absurd hi (by omega))
-  obtain ⟨hdiag, hmask, hu, -⟩ := hbad
+  have hall := its_sound (K := K) hgrp hst hcl hp (HPof r.its) r.its 0 hits (by simp) (fun i hi => absurd hi (by omega))
+  have hb := hbad
+  obtain ⟨hdiag, hmask, hu, -⟩ := hb
   have hu0 := u_ne hbad
   have hu' : ∀ x, r.d0.m.testBit x = true → A x ⬝ᵥ u = 0 := by rw [hm]; exact hu
   have hX : ∀ F ∈ r.BIG, frameOK F = true → ExpOK A B r.d0.m F := by
