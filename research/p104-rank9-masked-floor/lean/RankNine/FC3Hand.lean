@@ -82,84 +82,45 @@ theorem plane_odd {o p q r s t u v : ℕ} (ho : o % 2 = 1) (hs : p ^^^ q = s) (h
 /-- labels of weight `2` or `o` mod 4 -/
 def PhO (o n : ℕ) : Prop := wt n % 4 = 2 ∨ wt n % 4 = o
 
-set_option maxHeartbeats 800000 in
+/-- The two hand cases `plane_even`, `plane_odd` as one statement about residues: weights mod 4 of `a, b, c`, the
+parities of `wt (a ∧ b)`, `wt (a ∧ c)`, `wt (b ∧ c)` (then `wt (x + y) ≡ wt x + wt y + 2 wt (x ∧ y) (mod 4)`), and the
+shift `e` (`o = 3 - 2 e`).  1024 cases of small arithmetic. -/
+theorem core4 : ∀ wa wb wc : Fin 4, ∀ nab nac nbc e : Fin 2,
+    (wa.val + e.val) % 4 ≥ 2 → (wb.val + e.val) % 4 ≥ 2 → (wc.val + e.val) % 4 ≥ 2 →
+    (wa.val + wb.val + 2 * nab.val + e.val) % 4 ≥ 2 → (wa.val + wc.val + 2 * nac.val + e.val) % 4 ≥ 2 →
+    (wb.val + wc.val + 2 * nbc.val + e.val) % 4 ≥ 2 →
+    (wa.val + wb.val + wc.val + 2 * (nab.val + nac.val + nbc.val) + e.val) % 4 ≥ 2 → False := by
+  decide +kernel
+
+theorem br1 {x e : ℕ} (h : (x + e) % 4 ≥ 2) : (x % 4 + e) % 4 ≥ 2 := by omega
+
+theorem br2 {x y z n e : ℕ} (h : (z + e) % 4 ≥ 2) (p : z + 2 * n = x + y) :
+    (x % 4 + y % 4 + 2 * (n % 2) + e) % 4 ≥ 2 := by omega
+
+theorem br3 {x y z wab wabc n1 nab nac nbc m1 e : ℕ} (h : (wabc + e) % 4 ≥ 2) (p1 : wab + 2 * nab = x + y)
+    (p2 : wabc + 2 * n1 = wab + z) (p3 : n1 + 2 * m1 = nac + nbc) :
+    (x % 4 + y % 4 + z % 4 + 2 * (nab % 2 + nac % 2 + nbc % 2) + e) % 4 ≥ 2 := by omega
+
 /-- **No 3-space of labels of weight `2, o (mod 4)`**, `o = 1` or `3` (NOTE §13.27, CENSUS-PLAN §6). -/
 theorem no_plane3o (o : ℕ) (ho : o = 1 ∨ o = 3) (a b c : ℕ) (ha : PhO o a) (hb : PhO o b) (hc : PhO o c)
     (hab : PhO o (a ^^^ b)) (hac : PhO o (a ^^^ c)) (hbc : PhO o (b ^^^ c)) (habc : PhO o ((a ^^^ b) ^^^ c)) :
     False := by
-  -- write `o = 3 - 2 e`; then `PhO o w` is the single linear fact `(wt w + e) % 4 ≥ 2` (no case splits for `omega`)
+  -- write `o = 3 - 2 e`; then `PhO o w` is the linear fact `(wt w + e) % 4 ≥ 2`
   obtain ⟨e, he, rfl⟩ : ∃ e, e ≤ 1 ∧ o = 3 - 2 * e := by
     rcases ho with rfl | rfl
     exacts [⟨1, le_rfl, rfl⟩, ⟨0, Nat.zero_le _, rfl⟩]
   have L : ∀ w, PhO (3 - 2 * e) w → (wt w + e) % 4 ≥ 2 := by intro w h; unfold PhO at h; omega
-  replace ha := L _ ha
-  replace hb := L _ hb
-  replace hc := L _ hc
-  replace hab := L _ hab
-  replace hac := L _ hac
-  replace hbc := L _ hbc
-  replace habc := L _ habc
-  clear L ho
-  have ho2 : (3 - 2 * e) % 2 = 1 := by omega
   have pab := wt_xor a b
   have pac := wt_xor a c
   have pbc := wt_xor b c
   have pabc := wt_xor (a ^^^ b) c
-  have i1 : a ^^^ (a ^^^ b) = b := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> rfl
-  have i2 : a ^^^ (a ^^^ c) = c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases c.testBit i <;> rfl
-  have i3 : b ^^^ (b ^^^ c) = c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases b.testBit i <;> cases c.testBit i <;> rfl
-  have j1 : b ^^^ (a ^^^ b) = a := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> rfl
-  have j2 : c ^^^ (a ^^^ c) = a := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases c.testBit i <;> rfl
-  have j3 : c ^^^ (b ^^^ c) = b := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases b.testBit i <;> cases c.testBit i <;> rfl
-  have k1 : (a ^^^ b) ^^^ (a ^^^ c) = b ^^^ c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  have k2 : (a ^^^ b) ^^^ (b ^^^ c) = a ^^^ c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  have k3 : (a ^^^ c) ^^^ (b ^^^ c) = a ^^^ b := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  have l1 : b ^^^ (a ^^^ c) = (a ^^^ b) ^^^ c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  have l2 : a ^^^ (b ^^^ c) = (a ^^^ b) ^^^ c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  have l3 : c ^^^ (a ^^^ b) = (a ^^^ b) ^^^ c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  have m1 : (a ^^^ c) ^^^ (a ^^^ b) = b ^^^ c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  have m2 : (b ^^^ c) ^^^ (a ^^^ b) = a ^^^ c := Nat.eq_of_testBit_eq fun i => by
-    simp only [Nat.testBit_xor]; cases a.testBit i <;> cases b.testBit i <;> cases c.testBit i <;> rfl
-  rcases Nat.mod_two_eq_zero_or_one (wt a) with ea | ea <;>
-  rcases Nat.mod_two_eq_zero_or_one (wt b) with eb | eb <;>
-  rcases Nat.mod_two_eq_zero_or_one (wt c) with ec | ec
-  · -- even, even, even
-    exact plane_even (x := a) (y := b) (z := c) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
-      (by omega)
-  · -- odd points c, a + c, b + c, a + b + c
-    exact plane_odd ho2 (p := c) (q := a ^^^ c) (r := b ^^^ c) j2 j3 k3 l2 (by omega) (by omega) (by omega)
-      (by omega) (by omega) (by omega) (by omega)
-  · -- odd points b, a + b, b + c, a + b + c
-    exact plane_odd ho2 (p := b) (q := a ^^^ b) (r := b ^^^ c) j1 i3 k2 l2 (by omega) (by omega) (by omega)
-      (by omega) (by omega) (by omega) (by omega)
-  · -- odd points b, c, a + b, a + c
-    exact plane_odd ho2 (p := b) (q := c) (r := a ^^^ b) rfl j1 l3 m2 (by omega) (by omega) (by omega)
-      (by omega) (by omega) (by omega) (by omega)
-  · -- odd points a, a + b, a + c, a + b + c
-    exact plane_odd ho2 (p := a) (q := a ^^^ b) (r := a ^^^ c) i1 i2 k1 l1 (by omega) (by omega) (by omega)
-      (by omega) (by omega) (by omega) (by omega)
-  · -- odd points a, c, a + b, b + c
-    exact plane_odd ho2 (p := a) (q := c) (r := a ^^^ b) rfl i1 l3 m1 (by omega) (by omega) (by omega)
-      (by omega) (by omega) (by omega) (by omega)
-  · -- odd points a, b, a + c, b + c
-    exact plane_odd ho2 (p := a) (q := b) (r := a ^^^ c) rfl i2 l1 k1 (by omega) (by omega) (by omega)
-      (by omega) (by omega) (by omega) (by omega)
-  · -- odd, odd, odd
-    exact plane_odd ho2 (p := a) (q := b) (r := c) rfl rfl rfl rfl (by omega) (by omega) (by omega)
-      (by omega) (by omega) (by omega) (by omega)
+  have e4 := wt_xor (a &&& c) (b &&& c)
+  rw [← land_xor a b c] at e4
+  exact core4 ⟨wt a % 4, Nat.mod_lt _ (by norm_num)⟩ ⟨wt b % 4, Nat.mod_lt _ (by norm_num)⟩
+    ⟨wt c % 4, Nat.mod_lt _ (by norm_num)⟩ ⟨wt (a &&& b) % 2, Nat.mod_lt _ (by norm_num)⟩
+    ⟨wt (a &&& c) % 2, Nat.mod_lt _ (by norm_num)⟩ ⟨wt (b &&& c) % 2, Nat.mod_lt _ (by norm_num)⟩
+    ⟨e, by omega⟩ (br1 (L _ ha)) (br1 (L _ hb)) (br1 (L _ hc)) (br2 (L _ hab) pab) (br2 (L _ hac) pac)
+    (br2 (L _ hbc) pbc) (br3 (L _ habc) pab pabc e4)
 
 /-- **No 3-space of labels of weight `2, 3 (mod 4)`** (NOTE §13.27). -/
 theorem no_plane3 (a b c : ℕ) (ha : Ph a) (hb : Ph b) (hc : Ph c) (hab : Ph (a ^^^ b)) (hac : Ph (a ^^^ c))
