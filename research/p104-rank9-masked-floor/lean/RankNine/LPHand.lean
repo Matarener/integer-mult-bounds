@@ -52,7 +52,7 @@ theorem card_two (z1 z2 : V9) (h1 : z1 ≠ 0) (h2 : z2 ≠ 0) (h12 : z1 ≠ z2) 
     have h' := (List.all_eq_true.mp h) _ m2
     simp only [Bool.or_eq_true, beq_iff_eq, Bool.not_eq_true', decide_eq_false_iff_not] at h'
     rcases h' with h' | h'
-    · exact h12 (zl_inj h')
+    · exact h12 (Facts.zl_inj h')
     · rw [zl_add] at m3; exact h' m3
   omega
 
@@ -105,7 +105,9 @@ theorem rZ_eq_aux : ∀ t : Fin 104, ∀ k : Fin 8, rZ t k = cZ t 0 * Bm 0 k + c
 theorem rZ_eq (t : Fin 104) (k : Fin 8) : rZ t k = ∑ i, cZ t i * Bm i k := by
   rw [Fin.sum_univ_eight]; exact rZ_eq_aux t k
 
-theorem Bm_low : ∀ i j : Fin 8, j < i → Bm i j = 0 := by decide +kernel
+theorem Bm_low : ∀ i j : Fin 8, j < i → Bm i j = 0 := by
+  intro i j h
+  fin_cases i <;> fin_cases j <;> first | rfl | (simp [Fin.lt_def] at h) | omega
 
 theorem Bm_tri : Bm.BlockTriangular id := by
   intro i j h
@@ -166,7 +168,9 @@ theorem perp_of_minors {K : Type*} [Field K] (w : Fin 104 → Fin 8 → K) (S : 
     have h1 := finrank_span_set_eq_card hbli
     rw [hbtop, finrank_top, Module.finrank_fin_fun] at h1
     rw [Set.toFinset_card] at h1
-    rw [Set.Finite.card_toFinset]; convert h1.symm
+    first
+    | exact h1.symm
+    | (rw [Set.Finite.card_toFinset, Set.ncard_eq_toFinset_card']; convert h1.symm)
   let e : Fin 8 ≃ hbfin.toFinset := (Fintype.equivFinOfCardEq (by simp [hbcard])).symm
   have hrow : ∀ i : Fin 8, ∃ t : S, w t = (e i).1 := by
     intro i
@@ -265,6 +269,8 @@ theorem mc_of_compat {E : Finset (Fin 104)} {a b c d : V9} (h : CompatE E a b c 
 theorem z2 (x : ZMod 2) : x ≠ 0 ↔ x = 1 := by revert x; decide
 
 theorem z2c (x : ZMod 2) : x = 0 ∨ x = 1 := by revert x; decide
+
+theorem zz (p q : ZMod 2) : p = p + (q + q) := by revert p q; decide
 
 theorem jv_jv : jv ⬝ᵥ jv = 1 := by
   first | decide +kernel | (simp [jv, dotProduct]; decide) | rfl
@@ -522,7 +528,7 @@ theorem not_type1 (ht : t1xOK = true) {E : Finset (Fin 104)} (hE : E.card ≤ 4)
   obtain ⟨nc, hnc, ec⟩ := exists_lz c
   obtain ⟨nd, hnd, ed⟩ := exists_lz d
   have neq : ∀ {n m : ℕ} {x y : V9}, lz n = zl x → lz m = zl y → x ≠ y → n ≠ m := by
-    intro n m x y hx hy hxy e; subst e; exact hxy (zl_inj (hx.symm.trans hy))
+    intro n m x y hx hy hxy e; subst e; exact hxy (Facts.zl_inj (hx.symm.trans hy))
   have n0 : ∀ {n : ℕ} {x : V9}, lz n = zl x → x ≠ 0 → n ≠ 0 := by
     intro n x hx h0 e; subst e; rw [lz_zero] at hx; exact h0 (zl_zero hx.symm)
   have hYbit : ∀ t : Fin 104, (ppm na ^^^ (ppm na &&& ppm nu)).testBit t = true ↔
@@ -549,7 +555,7 @@ theorem not_type1 (ht : t1xOK = true) {E : Finset (Fin 104)} (hE : E.card ≤ 4)
       (univ.filter fun t : Fin 104 => (labK t ⬝ᵥ a' ≠ 0 ∧ labK t ⬝ᵥ u = 0) ∧ q t = true).card := by
     intro q
     rw [hYL, bitsY_count]
-    congr 1
+    refine congrArg Finset.card ?_
     ext t
     simp only [mem_filter, mem_univ, true_and, hYbit]
   -- `|Y| ≤ 24`
@@ -599,7 +605,7 @@ theorem not_type1 (ht : t1xOK = true) {E : Finset (Fin 104)} (hE : E.card ≤ 4)
   · exact hcz nc c ec hcC hc1
   have hd1 := (List.all_eq_true.mp hc1) (nd, ppm nd) (mem_pmP hnd)
   simp only [Bool.or_eq_true, beq_iff_eq, decide_eq_true_eq, Bool.not_eq_true'] at hd1
-  have hxor : lz (nc ^^^ nu) = zl (c + u) := by rw [lz_xor, ec, eu, zl_add]
+  have hxor : lz (nc ^^^ nu) = zl (c + u) := by rw [lz_xor, ec, eu, ← zl_add]
   have hdcu : d ≠ c + u := by
     intro e
     apply h2.2.2
@@ -877,7 +883,7 @@ theorem no_six_mod2 (ht : t1xOK = true) (E : Finset (Fin 104)) (hE : E.card ≤ 
       intro e; apply hne; rw [← e, add_assoc]
       funext m
       simp only [Pi.add_apply]
-      generalize sf k l m = p; generalize jv m = q; revert p q; decide
+      exact zz _ _
     exact hd k l hkl (eq_of_two (hc k) (hc l) hne' hu.1 (hu0 k) hu.2 (hu0 l))
   obtain ⟨hs0, he0, -⟩ := hsf 0 1 (by decide)
   rw [hsame 0 1 (by decide)] at hs0 he0
@@ -886,6 +892,7 @@ theorem no_six_mod2 (ht : t1xOK = true) (E : Finset (Fin 104)) (hE : E.card ≤ 
   have hX44 : 44 ≤ X.card := by
     have := slab48 hs0 he0
     have := card_sd (Sl s0) E
+    rw [← hX] at this
     omega
   set Y : Fin 6 → Finset (Fin 104) := fun k => X \ Lv (a k) (b k) with hY
   have hYk : ∀ k ∈ (univ : Finset (Fin 6)), X.card - 36 ≤ (Y k).card := by
