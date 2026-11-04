@@ -1,5 +1,5 @@
 import RankNine.T2Hand
-import RankNine.Main
+import RankNine.Facts
 
 set_option linter.unusedSectionVars false
 
@@ -18,6 +18,16 @@ Table hypotheses (checked by `#eval`, Python cross-check): existence of 9 record
 namespace RankNine.T2M
 
 open Matrix RankNine RankNine.Facts
+
+/-- **T2** (the statement used by the main theorem, as `Main.T2Pair`): two independent decoder terms with dead rows on
+frameless sets `c, c' ∈ FL` cannot exist. -/
+def T2Pair (K : Type) [Field K] [CharZero K] (FL : List ℕ) : Prop :=
+  ∀ (A B : ℕ → Fin 9 → K), (∀ x < 104, A x ⬝ᵥ B x ≠ 0) →
+    (∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) →
+    ∀ (Al Bl : Matrix (Fin 9) (Fin 104) K), Al * Matrix.of (fun (v : Fin 104) (i : Fin 9) => A v i) = 1 →
+    Bl * Matrix.of (fun (v : Fin 104) (i : Fin 9) => B v i) = 1 →
+    ∀ u v : Fin 9 → K, LinearIndependent K ![u, v] → ∀ c c' : ℕ, FL.contains c = true → FL.contains c' = true →
+      (∀ x, c.testBit x = true → A x ⬝ᵥ u = 0) → (∀ x, c'.testBit x = true → A x ⬝ᵥ v = 0) → False
 
 /-- preimage of the mask `c` under the group element `g` -/
 def pre (g c : ℕ) : ℕ := T2.lmask ((List.range 104).filter fun x => c.testBit (gl g x))
@@ -52,7 +62,7 @@ def t2wOK (R : List ℕ) (FL : List ℕ) (W : List (ℕ × ℕ × ℕ)) : Bool :
 theorem t2Pair_of_records (K : Type) [Field K] [CharZero K] (hgrp : grpOK = true) (FL R : List ℕ)
     (W : List (ℕ × ℕ × ℕ)) (hw : t2wOK R FL W = true) (hcl : flClosed FL = true)
     (hT : ∀ k < R.length, ∃ r : T2.T2R, r.ok (R.getD k 0) FL = true) :
-    Main.T2Pair K FL := by
+    T2Pair K FL := by
   intro A B hdiag hmask Al Bl _ _ u v huv c c' hc hc' hu hv
   have hc : c ∈ FL := by simpa using hc
   have hc' : c' ∈ FL := by simpa using hc'
@@ -90,7 +100,7 @@ theorem t2Pair_of_records (K : Type) [Field K] [CharZero K] (hgrp : grpOK = true
 theorem t2Pair_of_ex (K : Type) [Field K] [CharZero K] (hgrp : grpOK = true)
     (hex : ∃ R : List ℕ, ∃ W : List (ℕ × ℕ × ℕ), t2wOK R flData W = true ∧ flClosed flData = true ∧
       ∀ k < R.length, ∃ r : T2.T2R, r.ok (R.getD k 0) flData = true) :
-    Main.T2Pair K flData := by
+    T2Pair K flData := by
   obtain ⟨R, W, hw, hcl, hT⟩ := hex
   exact t2Pair_of_records K hgrp flData R W hw hcl hT
 

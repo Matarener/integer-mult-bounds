@@ -133,9 +133,9 @@ theorem excl_sound (hgrp : grpOK = true) {c : ℕ} {FL G : List ℕ} (hst : stab
   · exact mT_D2 A B hdiag hmask ha hτ (Ne.symm h1) h2
   · exact mT_D2 A B hdiag hmask (hb.resolve_left h0) hτ (Ne.symm h1) h2
   · unfold wOK at hw
-    simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, List.contains_iff_mem] at hw
+    simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at hw
     obtain ⟨⟨⟨hw1, hwi⟩, hwG⟩, hw⟩ := hw
-    obtain ⟨hg, hbad'⟩ := bad_perm hgrp hst hcl (List.mem_of_elem_eq_true hwG) hbad
+    obtain ⟨hg, hbad'⟩ := bad_perm hgrp hst hcl (by simpa using hwG) hbad
     refine hP _ hwi _ _ u hbad' ?_
     set p := HP.getD w.2.1 (0, 0)
     set g := w.2.2.1
@@ -345,11 +345,11 @@ theorem T2SR.sound (hgrp : grpOK = true) (r : T2SR) (c : ℕ) (FL : List ℕ) (h
     rcases h2 with h2 | ⟨w, -, hk, hw⟩
     · subst h2; exact hu0 (mT_zero hmT)
     · unfold wOK at hw
-      simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, List.contains_iff_mem] at hw
+      simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at hw
       obtain ⟨⟨⟨hw1, hwi⟩, hwG⟩, hw⟩ := hw
       rw [if_pos hk] at hw
       simp only [Bool.and_eq_true, beq_iff_eq] at hw
-      obtain ⟨hg, hbad'⟩ := bad_perm hgrp hst hcl (List.mem_of_elem_eq_true hwG) hbad
+      obtain ⟨hg, hbad'⟩ := bad_perm hgrp hst hcl (by simpa using hwG) hbad
       exact hall _ (by simpa using hwi) _ _ u hbad' ⟨mT_img hgrp hg (hw.2 ▸ hmT), Or.inl hw.1⟩
   obtain ⟨g0, hg0, hG0⟩ := r.d0.soundX r.BIG hd0 A B hdiag hmask u hu0 hu' hX
   obtain ⟨g, hg, hG⟩ := pins_sound r.d0 r.f0 r.PL0 hpins A B hdiag hmask u hu0 hu' g0 hg0 hG0
@@ -361,7 +361,7 @@ theorem T2SR.sound (hgrp : grpOK = true) (r : T2SR) (c : ℕ) (FL : List ℕ) (h
 theorem t2Pair_of_exS (hgrp : grpOK = true)
     (hex : ∃ R : List ℕ, ∃ W : List (ℕ × ℕ × ℕ), T2M.t2wOK R flData W = true ∧ T2M.flClosed flData = true ∧
       ∀ k < R.length, ∃ r : T2SR, r.ok (R.getD k 0) flData = true) :
-    Main.T2Pair K flData := by
+    T2M.T2Pair K flData := by
   obtain ⟨R, W, hw, hcl, hT⟩ := hex
   intro A B hdiag hmask Al Bl _ _ u v huv c c' hc hc' hu hv
   have hc : c ∈ flData := by simpa using hc

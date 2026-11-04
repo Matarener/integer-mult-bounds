@@ -35,17 +35,18 @@ theorem pair_false (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ 
     (hG : ∀ x < 104, ∀ y < 104, zm.testBit x = true → zm.testBit y = true → GramP A B g x y)
     (hu : ∀ x, c.testBit x = true → A x ⬝ᵥ u = 0) (hv : ∀ x, c'.testBit x = true → A x ⬝ᵥ v = 0)
     (Y X : List ℕ) (J : List (List ℤ)) (dd : ℤ) (h : pcOK2 zm c c' Y X J dd = true) : False := by
+  classical
   unfold pcOK2 at h
   simp only [Bool.and_eq_true, decide_eq_true_eq, bne_iff_ne, ne_eq, List.all_eq_true] at h
   obtain ⟨⟨⟨⟨⟨hXl, hYl⟩, hX⟩, hY⟩, hdd⟩, hDJ⟩ := h
   have hXi : ∀ i : Fin 8, X.getD i 0 < 104 ∧ zm.testBit (X.getD i 0) = true ∧ c.testBit (X.getD i 0) = true ∧
       c'.testBit (X.getD i 0) = true := fun i => by
     have := hX _ (getD_mem8 hXl i)
-    simp only [Bool.and_eq_true, decide_eq_true_eq] at this
+    try simp only [Bool.and_eq_true, decide_eq_true_eq] at this
     exact ⟨this.1.1.1, this.1.1.2, this.1.2, this.2⟩
   have hYi : ∀ k : Fin 8, Y.getD k 0 < 104 ∧ zm.testBit (Y.getD k 0) = true := fun k => by
     have := hY _ (getD_mem8 hYl k)
-    simp only [Bool.and_eq_true, decide_eq_true_eq] at this
+    try simp only [Bool.and_eq_true, decide_eq_true_eq] at this
     exact this
   refine pair_minor A B u v huv (fun i => X.getD i 0) (fun k => Y.getD k 0)
     (fun i => hu _ (hXi i).2.2.1) (fun i => hv _ (hXi i).2.2.2)
