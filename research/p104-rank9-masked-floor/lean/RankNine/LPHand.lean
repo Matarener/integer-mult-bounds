@@ -137,9 +137,9 @@ theorem minor_cb (F : Finset (Fin 104)) (hF : IntRk7 F) (g : Fin 8 → Fin 104) 
 
 /-- the dot product with `v` as a linear functional on `K⁸` -/
 def dotR {K : Type*} [Field K] (v : Fin 8 → K) : (Fin 8 → K) →ₗ[K] K where
-  toFun x := x ⬝ᵥ v
-  map_add' x y := add_dotProduct x y v
-  map_smul' c x := by simp [smul_dotProduct]
+  toFun x := v ⬝ᵥ x
+  map_add' x y := dotProduct_add v x y
+  map_smul' c x := by simp [dotProduct_smul]
 
 /-- all `8 × 8` minors of the rows `w t` (`t ∈ S`) vanish ⇒ a non-zero vector is orthogonal to all of them -/
 theorem perp_of_minors {K : Type*} [Field K] (w : Fin 104 → Fin 8 → K) (S : Finset (Fin 104))
@@ -186,13 +186,17 @@ theorem perp_of_minors {K : Type*} [Field K] (w : Fin 104 → Fin 8 → K) (S : 
     have hx' : x ∈ hbfin.toFinset := (Set.Finite.mem_toFinset hbfin).mpr hx
     have := hrv (e.symm ⟨x, hx'⟩)
     simpa using this
-  have hker : Submodule.span K b ≤ LinearMap.ker (dotR v) :=
-    Submodule.span_le.mpr fun x hx => by simpa [dotR] using hbv x hx
+  have hker : Submodule.span K b ≤ LinearMap.ker (dotR v) := by
+    rw [Submodule.span_le]
+    intro x hx
+    show v ⬝ᵥ x = 0
+    rw [dotProduct_comm]
+    exact hbv x hx
   rw [hbtop] at hker
   apply hv0
   funext m
   have := hker (Submodule.mem_top (x := Pi.single m 1))
-  simpa [dotR, single_dotProduct] using this
+  simpa [dotR, dotProduct_single] using this
 
 def Am : Matrix (Fin 9) (Fin 8) (ZMod 2) := Matrix.of fun k j => (((aMd.getD k []).getD j 0 : ℕ) : ZMod 2)
 
@@ -524,7 +528,7 @@ theorem not_type1 (ht : t1xOK = true) {E : Finset (Fin 104)} (hE : E.card ≤ 4)
   have hYbit : ∀ t : Fin 104, (ppm na ^^^ (ppm na &&& ppm nu)).testBit t = true ↔
       labK t ⬝ᵥ a' ≠ 0 ∧ labK t ⬝ᵥ u = 0 := by
     intro t
-    rw [ybit, andnot, ppm_bit na t ea, ppm_bit nu t eu, not_not]
+    simp only [ybit, andnot, ppm_bit na t ea, ppm_bit nu t eu, ne_eq, not_not]
   -- unpack the table
   have hu1 := (List.all_eq_true.mp ht) (nu, ppm nu) (mem_pmP hnu)
   simp only [Bool.or_eq_true, Bool.not_eq_true', beq_iff_eq] at hu1
@@ -556,7 +560,7 @@ theorem not_type1 (ht : t1xOK = true) {E : Finset (Fin 104)} (hE : E.card ≤ 4)
     have hsub : (univ.filter fun t : Fin 104 => (labK t ⬝ᵥ a' ≠ 0 ∧ labK t ⬝ᵥ u = 0) ∧ true = true) ⊆
         (univ.filter fun t : Fin 104 => labK t ⬝ᵥ c = 0 ∧ labK t ⬝ᵥ d = 0 ∧ labK t ⬝ᵥ u = 0) ∪ E := by
       intro t ht
-      simp only [mem_filter, mem_univ, true_and, and_true] at ht
+      simp only [mem_filter, mem_univ, true_and, eq_self_iff_true, and_true] at ht
       rcases hY t ht.2 ht.1 with h | h
       · simp only [Lv, mem_filter, mem_univ, true_and] at h
         exact mem_union_left _ (by simp [h.1, h.2, ht.2])
@@ -902,6 +906,7 @@ theorem no_six_mod2 (ht : t1xOK = true) (E : Finset (Fin 104)) (hE : E.card ≤ 
   have hU : (univ.biUnion Y).card = ∑ k, (Y k).card := by
     first
       | exact Finset.card_biUnion hdisj
+      | exact Finset.card_biUnion (fun ⦃k⦄ hk ⦃l⦄ hl hkl => hdisj k hk l hl hkl)
       | exact Finset.card_biUnion (by intro k hk l hl hkl; exact hdisj k hk l hl hkl)
   have hUX : univ.biUnion Y ⊆ X := by
     intro t ht
