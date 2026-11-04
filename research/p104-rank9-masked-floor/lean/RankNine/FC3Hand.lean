@@ -68,9 +68,9 @@ theorem plane_even {x y z : ℕ} (hx : wt x % 4 = 2) (hy : wt y % 4 = 2) (hz : w
   rw [← land_xor x y z] at e4
   omega
 
-theorem plane_odd {p q r s t u v : ℕ} (hs : p ^^^ q = s) (ht : p ^^^ r = t) (hu : q ^^^ r = u) (hv : s ^^^ r = v)
-    (hp : wt p % 4 = 3) (hq : wt q % 4 = 3) (hr : wt r % 4 = 3) (hs2 : wt s % 4 = 2) (ht2 : wt t % 4 = 2)
-    (hu2 : wt u % 4 = 2) (hv3 : wt v % 4 = 3) : False := by
+theorem plane_odd {o p q r s t u v : ℕ} (ho : o % 2 = 1) (hs : p ^^^ q = s) (ht : p ^^^ r = t) (hu : q ^^^ r = u)
+    (hv : s ^^^ r = v) (hp : wt p % 4 = o) (hq : wt q % 4 = o) (hr : wt r % 4 = o) (hs2 : wt s % 4 = 2)
+    (ht2 : wt t % 4 = 2) (hu2 : wt u % 4 = 2) (hv3 : wt v % 4 = o) : False := by
   subst hs ht hu hv
   have e2 := wt_xor p r
   have e3 := wt_xor q r
@@ -79,10 +79,15 @@ theorem plane_odd {p q r s t u v : ℕ} (hs : p ^^^ q = s) (ht : p ^^^ r = t) (h
   rw [← land_xor p q r] at e5
   omega
 
-/-- **No 3-space of labels of weight `2, 3 (mod 4)`** (NOTE §13.27). -/
-theorem no_plane3 (a b c : ℕ) (ha : Ph a) (hb : Ph b) (hc : Ph c) (hab : Ph (a ^^^ b)) (hac : Ph (a ^^^ c))
-    (hbc : Ph (b ^^^ c)) (habc : Ph ((a ^^^ b) ^^^ c)) : False := by
-  unfold Ph at ha hb hc hab hac hbc habc
+/-- labels of weight `2` or `o` mod 4 -/
+def PhO (o n : ℕ) : Prop := wt n % 4 = 2 ∨ wt n % 4 = o
+
+/-- **No 3-space of labels of weight `2, o (mod 4)`**, `o = 1` or `3` (NOTE §13.27, CENSUS-PLAN §6). -/
+theorem no_plane3o (o : ℕ) (ho : o = 1 ∨ o = 3) (a b c : ℕ) (ha : PhO o a) (hb : PhO o b) (hc : PhO o c)
+    (hab : PhO o (a ^^^ b)) (hac : PhO o (a ^^^ c)) (hbc : PhO o (b ^^^ c)) (habc : PhO o ((a ^^^ b) ^^^ c)) :
+    False := by
+  unfold PhO at ha hb hc hab hac hbc habc
+  have ho2 : o % 2 = 1 := by omega
   have pab := wt_xor a b
   have pac := wt_xor a c
   have pbc := wt_xor b c
@@ -122,26 +127,31 @@ theorem no_plane3 (a b c : ℕ) (ha : Ph a) (hb : Ph b) (hc : Ph c) (hab : Ph (a
     exact plane_even (x := a) (y := b) (z := c) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
       (by omega)
   · -- odd points c, a + c, b + c, a + b + c
-    exact plane_odd (p := c) (q := a ^^^ c) (r := b ^^^ c) j2 j3 k3 l2 (by omega) (by omega) (by omega)
+    exact plane_odd ho2 (p := c) (q := a ^^^ c) (r := b ^^^ c) j2 j3 k3 l2 (by omega) (by omega) (by omega)
       (by omega) (by omega) (by omega) (by omega)
   · -- odd points b, a + b, b + c, a + b + c
-    exact plane_odd (p := b) (q := a ^^^ b) (r := b ^^^ c) j1 i3 k2 l2 (by omega) (by omega) (by omega)
+    exact plane_odd ho2 (p := b) (q := a ^^^ b) (r := b ^^^ c) j1 i3 k2 l2 (by omega) (by omega) (by omega)
       (by omega) (by omega) (by omega) (by omega)
   · -- odd points b, c, a + b, a + c
-    exact plane_odd (p := b) (q := c) (r := a ^^^ b) rfl j1 l3 m2 (by omega) (by omega) (by omega)
+    exact plane_odd ho2 (p := b) (q := c) (r := a ^^^ b) rfl j1 l3 m2 (by omega) (by omega) (by omega)
       (by omega) (by omega) (by omega) (by omega)
   · -- odd points a, a + b, a + c, a + b + c
-    exact plane_odd (p := a) (q := a ^^^ b) (r := a ^^^ c) i1 i2 k1 l1 (by omega) (by omega) (by omega)
+    exact plane_odd ho2 (p := a) (q := a ^^^ b) (r := a ^^^ c) i1 i2 k1 l1 (by omega) (by omega) (by omega)
       (by omega) (by omega) (by omega) (by omega)
   · -- odd points a, c, a + b, b + c
-    exact plane_odd (p := a) (q := c) (r := a ^^^ b) rfl i1 l3 m1 (by omega) (by omega) (by omega)
+    exact plane_odd ho2 (p := a) (q := c) (r := a ^^^ b) rfl i1 l3 m1 (by omega) (by omega) (by omega)
       (by omega) (by omega) (by omega) (by omega)
   · -- odd points a, b, a + c, b + c
-    exact plane_odd (p := a) (q := b) (r := a ^^^ c) rfl i2 l1 k1 (by omega) (by omega) (by omega)
+    exact plane_odd ho2 (p := a) (q := b) (r := a ^^^ c) rfl i2 l1 k1 (by omega) (by omega) (by omega)
       (by omega) (by omega) (by omega) (by omega)
   · -- odd, odd, odd
-    exact plane_odd (p := a) (q := b) (r := c) rfl rfl rfl rfl (by omega) (by omega) (by omega)
+    exact plane_odd ho2 (p := a) (q := b) (r := c) rfl rfl rfl rfl (by omega) (by omega) (by omega)
       (by omega) (by omega) (by omega) (by omega)
+
+/-- **No 3-space of labels of weight `2, 3 (mod 4)`** (NOTE §13.27). -/
+theorem no_plane3 (a b c : ℕ) (ha : Ph a) (hb : Ph b) (hc : Ph c) (hab : Ph (a ^^^ b)) (hac : Ph (a ^^^ c))
+    (hbc : Ph (b ^^^ c)) (habc : Ph ((a ^^^ b) ^^^ c)) : False :=
+  no_plane3o 3 (Or.inr rfl) a b c ha hb hc hab hac hbc habc
 
 /-! ## The witness table -/
 
