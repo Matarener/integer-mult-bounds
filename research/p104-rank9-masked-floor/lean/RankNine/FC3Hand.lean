@@ -87,11 +87,11 @@ set_option maxHeartbeats 800000 in
 theorem no_plane3o (o : ℕ) (ho : o = 1 ∨ o = 3) (a b c : ℕ) (ha : PhO o a) (hb : PhO o b) (hc : PhO o c)
     (hab : PhO o (a ^^^ b)) (hac : PhO o (a ^^^ c)) (hbc : PhO o (b ^^^ c)) (habc : PhO o ((a ^^^ b) ^^^ c)) :
     False := by
-  -- write `o = 3 - 2 e`; then `PhO o w` is the single linear fact `(w + e) % 4 ≥ 2` (no case splits for `omega`)
+  -- write `o = 3 - 2 e`; then `PhO o w` is the single linear fact `(wt w + e) % 4 ≥ 2` (no case splits for `omega`)
   obtain ⟨e, he, rfl⟩ : ∃ e, e ≤ 1 ∧ o = 3 - 2 * e := by
     rcases ho with rfl | rfl
     exacts [⟨1, le_rfl, rfl⟩, ⟨0, Nat.zero_le _, rfl⟩]
-  have L : ∀ w, PhO (3 - 2 * e) w → (w + e) % 4 ≥ 2 := by intro w h; unfold PhO at h; omega
+  have L : ∀ w, PhO (3 - 2 * e) w → (wt w + e) % 4 ≥ 2 := by intro w h; unfold PhO at h; omega
   replace ha := L _ ha
   replace hb := L _ hb
   replace hc := L _ hc
