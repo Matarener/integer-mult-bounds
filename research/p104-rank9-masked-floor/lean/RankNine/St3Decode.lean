@@ -59,4 +59,15 @@ def rSt3 : Rd St3 := do
 
 def parseSt3 (s : String) : St3 := (rSt3.run (parseNats s)).1
 
+def parseBr (s : String) : Br := (rBr.run (parseNats s)).1
+
+/-- the head part of `St3.ok`, with the list `σs` of all branch supports -/
+def St3.okHead (st : St3) (σs : List ℕ) : Bool :=
+  st.d0.okX st.BIG && st.d0.m == st.m0 && pinsOK st.d0 st.f0 st.PL0 && subset104 st.zm (pinZ st.d0.zm st.PL0) &&
+  st.BIG.all (fun E => frameOK E && (subM E st.m0).all fun τ => τ == 0 || decide (τ ∈ σs))
+
+/-- `St3.ok` is the head check and the branch checks in order (`brsOK` unfolds one branch at a time), so the
+`#eval` can read the branches one file at a time. -/
+theorem St3.ok_eq (st : St3) : st.ok = (st.okHead (st.B.map Br.σ) && brsOK st.m0 st.zm [] st.B) := rfl
+
 end RankNine
