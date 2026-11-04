@@ -18,6 +18,16 @@ def rframes : Rd (List (List ℕ)) := do
     acc := acc.push F.toList
   pure acc.toList
 
+def rpins : Rd (List (ℕ × ℕ × RCert)) := do
+  let n ← rnat
+  let mut acc : Array (ℕ × ℕ × RCert) := #[]
+  for _ in [0:n] do
+    let v ← rnat
+    let k0 ← rnat
+    let C ← rrc
+    acc := acc.push (v, k0, C)
+  pure acc.toList
+
 def rBr : Rd Br := do
   let σ ← rnat
   let d ← rT1
@@ -30,18 +40,22 @@ def rBr : Rd Br := do
   for _ in [0:nJ] do
     J := J.push (← rints)
   let dd ← rint
-  pure { σ, d, XF, s, X, Y, J := J.toList, dd }
+  let f ← rnat
+  let PL ← rpins
+  pure { σ, d, XF, s, X, Y, J := J.toList, dd, f, PL }
 
 def rSt3 : Rd St3 := do
   let m0 ← rnat
   let zm ← rnat
   let BIG ← rframes
   let d0 ← rT1
+  let f0 ← rnat
+  let PL0 ← rpins
   let nB ← rnat
   let mut B : Array Br := #[]
   for _ in [0:nB] do
     B := B.push (← rBr)
-  pure { m0, zm, BIG, d0, B := B.toList }
+  pure { m0, zm, BIG, d0, f0, PL0, B := B.toList }
 
 def parseSt3 (s : String) : St3 := (rSt3.run (parseNats s)).1
 

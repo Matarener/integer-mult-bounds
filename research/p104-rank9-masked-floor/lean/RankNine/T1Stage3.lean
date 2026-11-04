@@ -1,5 +1,6 @@
 import RankNine.T1Tab
 import RankNine.T2PairStep
+import RankNine.T1Pin
 
 set_option linter.unusedSectionVars false
 
@@ -187,6 +188,7 @@ theorem deg_support (u : Fin 9 → K) (m : ℕ) (hu : ∀ x, m.testBit x = true 
   have hmemL : ∀ s, s ∈ L ↔ (s ∈ F ∧ m.testBit s = false) ∧ c' s ≠ 0 := by
     intro s
     simp [L, List.mem_filter]
+    tauto
   refine ⟨lmask L, List.mem_map.mpr ⟨L, List.mem_sublists.mpr (List.filter_sublist ..), rfl⟩, c', ?_, ?_⟩
   · intro s hs
     exact ((hmemL s).mp ((lmask_bit L s).mp (mem_msk.mp hs).2)).2
@@ -232,7 +234,6 @@ theorem zkill {u : Fin 9 → K} (hu0 : u ≠ 0) (g : ℕ → K) (hg : ∀ x, g x
     refine pair_minor A B u (B s) hind X Y hXu (fun i => hmask _ (hX i) s hs (hXs i))
       (fun x => if dS A B g x = 0 then 1 else 18 / dS A B g x) g ?_ hg D hD ?_
     · intro x
-      dsimp only
       split_ifs with h
       · exact one_ne_zero
       · exact div_ne_zero (by norm_num) h
@@ -240,7 +241,6 @@ theorem zkill {u : Fin 9 → K} (hu0 : u ≠ 0) (g : ℕ → K) (hg : ∀ x, g x
       have hdx : dS A B g (X i) ≠ 0 := div_ne_zero (hdiag _ (hX i)) (hg _)
       have hGik := hG i k
       unfold GramP gam at hGik
-      dsimp only
       rw [if_neg hdx, hGik, hDd i k]
       have hgk := hg (Y k)
       first | (field_simp; done) | (field_simp; ring)
@@ -373,6 +373,36 @@ theorem T1D.soundX (d : T1D) (XF : List (List ℕ)) (h : d.okX XF = true) (A B :
     (t1X_hExp A B hdiag hmask u hu0 d.m hu XF hX hfr) (t1X_hExp3 A B hdiag hmask u hu0 d.m hu XF hX hfr)
     (t1X_hExp2 A B hdiag hmask u hu0 d.m hu XF hX hfr) hMnz
 
+/-! ## Pins after a record -/
+
+/-- rank-7 pins after a record (frame `f` inside its Gram set, needed by `rows_rep` when there are pins) -/
+def pinsOK (d : T1D) (f : ℕ) (PL : List (ℕ × ℕ × RCert)) : Bool :=
+  pinOK d.m d.zm PL &&
+    (PL.isEmpty || (frInOK d.m d.zm f && fvecOK f && subset104 d.zm d.m && decide (d.zm < 2 ^ 104)))
+
+theorem pins_sound (d : T1D) (f : ℕ) (PL : List (ℕ × ℕ × RCert)) (h : pinsOK d f PL = true)
+    (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
+    (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0) (u : Fin 9 → K) (hu0 : u ≠ 0)
+    (hu : ∀ x, d.m.testBit x = true → A x ⬝ᵥ u = 0) (g : ℕ → K) (hg : ∀ x, g x ≠ 0)
+    (hG : ∀ x < 104, ∀ y < 104, d.zm.testBit x = true → d.zm.testBit y = true → GramP A B g x y) :
+    ∃ g' : ℕ → K, (∀ x, g' x ≠ 0) ∧
+      ∀ x < 104, ∀ y < 104, (pinZ d.zm PL).testBit x = true → (pinZ d.zm PL).testBit y = true → GramP A B g' x y := by
+  unfold pinsOK at h
+  simp only [Bool.and_eq_true, Bool.or_eq_true, decide_eq_true_eq] at h
+  obtain ⟨hp, he | ⟨⟨⟨hfin, hfv⟩, hsub⟩, hz⟩⟩ := h
+  · rw [List.isEmpty_iff.mp he]
+    exact ⟨g, hg, hG⟩
+  · have hf : ∀ k < 8, d.m.testBit (frL f k) = true ∧ d.zm.testBit (frL f k) = true := by
+      intro k hk
+      have := (List.all_eq_true.mp hfin) k (List.mem_range.mpr hk)
+      simpa only [Bool.and_eq_true] using this
+    have hzm : ∀ x, d.zm.testBit x = true → d.m.testBit x = true := by
+      intro x hx
+      by_cases hx104 : x < 104
+      · exact subset104_sound hsub hx104 hx
+      · rw [testBit_big hz hx104] at hx; exact absurd hx (by simp)
+    exact pin_all A B u hu0 d.m hu hdiag hmask f hfv PL d.zm g hg hz hzm hf hp hG
+
 /-! ## Support branches -/
 
 /-- one support branch: support `σ`, a record on the dead mask `d.m ⊆ Z ∪ σ^⊥` with extra frames `XF`; it ends
@@ -386,6 +416,8 @@ structure Br where
   Y : List ℕ
   J : List (List ℤ)
   dd : ℤ
+  f : ℕ
+  PL : List (ℕ × ℕ × RCert)
 
 /-- the integer block `dot X Y` -/
 def dotM (X Y : List ℕ) : Matrix (Fin 8) (Fin 8) ℤ := Matrix.of fun i k => dot (X.getD i 0) (Y.getD k 0)
@@ -397,11 +429,11 @@ def xfOK (XF : List (List ℕ)) (m σ : ℕ) (prev : List ℕ) : Bool :=
   XF.all fun E => frameOK E && (subM E m).all fun τ =>
     τ == 0 || decide (τ ∈ prev) || (bitsL τ != bitsL σ && orthM (σ ||| τ))
 
-/-- the ZKILL part of a branch -/
-def zkOK (b : Br) (prev : List ℕ) : Bool :=
+/-- the ZKILL part of a branch (`zP` the Gram set after the pins) -/
+def zkOK (b : Br) (prev : List ℕ) (zP : ℕ) : Bool :=
   decide (b.s < 104) && b.σ.testBit b.s && decide (b.X.length = 8) && decide (b.Y.length = 8) &&
-  b.X.all (fun x => decide (x < 104) && b.d.m.testBit x && b.d.zm.testBit x && orthB x b.s) &&
-  b.Y.all (fun y => decide (y < 104) && b.d.zm.testBit y) &&
+  b.X.all (fun x => decide (x < 104) && b.d.m.testBit x && zP.testBit x && orthB x b.s) &&
+  b.Y.all (fun y => decide (y < 104) && zP.testBit y) &&
   b.dd != 0 && decide (dotM b.X b.Y * jM b.J = b.dd • (1 : Matrix (Fin 8) (Fin 8) ℤ)) &&
   (decide (2 ^ b.s ∈ prev) || (bitsL (2 ^ b.s) != bitsL b.σ && orthM (b.σ ||| 2 ^ b.s)))
 
@@ -409,8 +441,8 @@ def zkOK (b : Br) (prev : List ℕ) : Bool :=
 def Br.ok (b : Br) (m0 zm : ℕ) (prev : List ℕ) : Bool :=
   b.d.okX b.XF && decide (b.d.m < 2 ^ 104) &&
   (List.range 104).all (fun x => !b.d.m.testBit x || m0.testBit x || (bitsL b.σ).all (fun s => orthB x s)) &&
-  xfOK b.XF b.d.m b.σ prev &&
-  (if b.s = 104 then subset104 zm b.d.zm else zkOK b prev)
+  xfOK b.XF b.d.m b.σ prev && pinsOK b.d b.f b.PL &&
+  (if b.s = 104 then subset104 zm (pinZ b.d.zm b.PL) else zkOK b prev (pinZ b.d.zm b.PL))
 
 /-- the branches in order: each with the supports before it -/
 def brsOK (m0 zm : ℕ) : List ℕ → List Br → Bool
@@ -442,7 +474,7 @@ theorem br_sound (b : Br) (prev : List ℕ) (h : b.ok m0 zm prev = true) (hσ : 
       ∀ x < 104, ∀ y < 104, zm.testBit x = true → zm.testBit y = true → GramP A B g x y := by
   unfold Br.ok at h
   simp only [Bool.and_eq_true] at h
-  obtain ⟨⟨⟨⟨hd, hmlt⟩, hdead⟩, hxf⟩, hend⟩ := h
+  obtain ⟨⟨⟨⟨⟨hd, hmlt⟩, hdead⟩, hxf⟩, hpins⟩, hend⟩ := h
   have hmlt' := of_decide_eq_true hmlt
   -- the dead rows of the branch
   have hu' : ∀ x, b.d.m.testBit x = true → A x ⬝ᵥ u = 0 := by
@@ -469,7 +501,8 @@ theorem br_sound (b : Br) (prev : List ℕ) (h : b.ok m0 zm prev = true) (hσ : 
     · subst h2; exact hu0 (mT_zero hmT)
     · exact hprev τ h2 hmT
     · exact mT_D2 A B hdiag hmask hσ hmT (Ne.symm h2) h3
-  obtain ⟨g, hg, hG⟩ := b.d.soundX b.XF hd A B hdiag hmask u hu0 hu' hX
+  obtain ⟨g0, hg0, hG0⟩ := b.d.soundX b.XF hd A B hdiag hmask u hu0 hu' hX
+  obtain ⟨g, hg, hG⟩ := pins_sound b.d b.f b.PL hpins A B hdiag hmask u hu0 hu' g0 hg0 hG0
   by_cases hs : b.s = 104
   · rw [if_pos hs] at hend
     exact ⟨g, hg, fun x hx y hy hzx hzy =>
@@ -480,12 +513,12 @@ theorem br_sound (b : Br) (prev : List ℕ) (h : b.ok m0 zm prev = true) (hσ : 
     simp only [Bool.and_eq_true, decide_eq_true_eq, bne_iff_ne, Bool.or_eq_true] at hend
     obtain ⟨⟨⟨⟨⟨⟨⟨⟨hs104, hsσ⟩, hXl⟩, hYl⟩, hXc⟩, hYc⟩, hdd⟩, hDJ⟩, hlast⟩ := hend
     have hXi : ∀ i : Fin 8, b.X.getD i 0 < 104 ∧ b.d.m.testBit (b.X.getD i 0) = true ∧
-        b.d.zm.testBit (b.X.getD i 0) = true ∧ orthB (b.X.getD i 0) b.s = true := by
+        (pinZ b.d.zm b.PL).testBit (b.X.getD i 0) = true ∧ orthB (b.X.getD i 0) b.s = true := by
       intro i
       have h1 := List.all_eq_true.mp hXc _ (getD_mem8 hXl i)
       simp only [Bool.and_eq_true, decide_eq_true_eq] at h1
       exact ⟨h1.1.1.1, h1.1.1.2, h1.1.2, h1.2⟩
-    have hYi : ∀ k : Fin 8, b.Y.getD k 0 < 104 ∧ b.d.zm.testBit (b.Y.getD k 0) = true := by
+    have hYi : ∀ k : Fin 8, b.Y.getD k 0 < 104 ∧ (pinZ b.d.zm b.PL).testBit (b.Y.getD k 0) = true := by
       intro k
       have h1 := List.all_eq_true.mp hYc _ (getD_mem8 hYl k)
       simp only [Bool.and_eq_true, decide_eq_true_eq] at h1
@@ -530,11 +563,13 @@ structure St3 where
   zm : ℕ
   BIG : List (List ℕ)
   d0 : T1D
+  f0 : ℕ
+  PL0 : List (ℕ × ℕ × RCert)
   B : List Br
 
 /-- **the check of one stage-3 type** -/
 def St3.ok (st : St3) : Bool :=
-  st.d0.okX st.BIG && st.d0.m == st.m0 && subset104 st.zm st.d0.zm &&
+  st.d0.okX st.BIG && st.d0.m == st.m0 && pinsOK st.d0 st.f0 st.PL0 && subset104 st.zm (pinZ st.d0.zm st.PL0) &&
   st.BIG.all (fun E => frameOK E && (subM E st.m0).all fun τ => τ == 0 || decide (τ ∈ st.B.map Br.σ)) &&
   brsOK st.m0 st.zm [] st.B
 
@@ -546,7 +581,7 @@ theorem St3.sound (st : St3) (h : st.ok = true) (A B : ℕ → Fin 9 → K) (hdi
       ∀ x < 104, ∀ y < 104, st.zm.testBit x = true → st.zm.testBit y = true → GramP A B g x y := by
   unfold St3.ok at h
   simp only [Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨⟨⟨hd0, hm0⟩, hzm⟩, hbig⟩, hbrs⟩ := h
+  obtain ⟨⟨⟨⟨⟨hd0, hm0⟩, hpins⟩, hzm⟩, hbig⟩, hbrs⟩ := h
   by_cases hex : ∃ b ∈ st.B, mT B u b.σ
   · exact brs_sound A B hdiag hmask u hu0 st.m0 st.zm hu st.B [] hbrs (fun τ h => by simp at h) hex
   · push_neg at hex
@@ -563,7 +598,8 @@ theorem St3.sound (st : St3) (h : st.ok = true) (A B : ℕ → Fin 9 → K) (hdi
       · subst h2; exact hu0 (mT_zero hmT)
       · obtain ⟨b, hb, rfl⟩ := List.mem_map.mp h2
         exact hex b hb hmT
-    obtain ⟨g, hg, hG⟩ := st.d0.soundX st.BIG hd0 A B hdiag hmask u hu0 hu' hX
+    obtain ⟨g0, hg0, hG0⟩ := st.d0.soundX st.BIG hd0 A B hdiag hmask u hu0 hu' hX
+    obtain ⟨g, hg, hG⟩ := pins_sound st.d0 st.f0 st.PL0 hpins A B hdiag hmask u hu0 hu' g0 hg0 hG0
     exact ⟨g, hg, fun x hx y hy hzx hzy => hG x hx y hy (subset104_sound hzm hx hzx) (subset104_sound hzm hy hzy)⟩
 
 end RankNine.T2
