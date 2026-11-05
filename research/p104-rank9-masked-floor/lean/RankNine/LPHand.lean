@@ -172,7 +172,9 @@ theorem perp_of_minors {K : Type*} [Field K] (w : Fin 104 → Fin 8 → K) (S : 
     | exact h1.symm
     | convert h1.symm
     | (rw [Set.toFinset_card] at h1 ⊢; convert h1.symm)
-  let e : Fin 8 ≃ hbfin.toFinset := (Fintype.equivFinOfCardEq (by simp [hbcard])).symm
+  have hn : b.ncard = 8 := by rw [Set.ncard_eq_toFinset_card b hbfin]; exact hbcard
+  let e : Fin 8 ≃ hbfin.toFinset := (Fintype.equivFinOfCardEq
+    (by first | (rw [Fintype.card_coe]; exact hbcard) | simpa using hn | simp [hbcard, hn])).symm
   have hrow : ∀ i : Fin 8, ∃ t : S, w t = (e i).1 := by
     intro i
     have h1 : (e i).1 ∈ b := (Set.Finite.mem_toFinset hbfin).mp (e i).2
