@@ -36,6 +36,14 @@ def T2Pair (K : Type) [Field K] [CharZero K] (FL : List ℕ) : Prop :=
     ∀ u v : Fin 9 → K, LinearIndependent K ![u, v] → ∀ c c' : ℕ, FL.contains c = true → FL.contains c' = true →
       (∀ x, c.testBit x = true → A x ⬝ᵥ u = 0) → (∀ x, c'.testBit x = true → A x ⬝ᵥ v = 0) → False
 
+/-- **FC3** as a statement: three independent vectors have a framed pair in their span.  From the `512³` table
+(`framed_of_three`, `fc3OK`) or by hand (`FC3Hand.framed_of_three_h`, witness table `fwOK`). -/
+def FC3Prop : Prop :=
+  ∀ z1 z2 z3 : V9, z1 ≠ 0 → z2 ≠ 0 → z3 ≠ 0 → z1 ≠ z2 → z1 ≠ z3 → z2 ≠ z3 → z3 ≠ z1 + z2 →
+    ∃ y1 y2 : V9, Good z1 z2 z3 y1 y2
+
+theorem fc3Prop_of_table (h : fc3OK = true) : FC3Prop := framed_of_three h
+
 /-- normal form: the decoder columns are `A U` with `U` invertible (left inverse of `A`, factorisation) -/
 theorem col_rep (A B : ℕ → Fin 9 → K) (Al Bl : Matrix (Fin 9) (Fin 104) K)
     (hA : Al * Matrix.of (fun (v : Fin 104) (i : Fin 9) => A v i) = 1)
@@ -101,7 +109,7 @@ theorem dead_of_span {X : Matrix (Fin 104) C9 K} {j : C9} (z1 z2 : V9)
 
 /-- **One side.** A side of span `≤ 7` gives the floor or a frameless dead set `C ∈ FL`; span `≤ 6` gives the floor. -/
 theorem side (hFT : ∀ k < 387, FloorType K k) (hgrp : grpOK = true) (horb : orbOK flData = true)
-    (hflf : flNoFrame flData = true) (hfc3 : fc3OK = true)
+    (hflf : flNoFrame flData = true) (hfc3 : FC3Prop)
     (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0)
     (Al Bl : Matrix (Fin 9) (Fin 104) K) (hA : Al * Matrix.of (fun (v : Fin 104) (i : Fin 9) => A v i) = 1)
@@ -120,7 +128,7 @@ theorem side (hFT : ∀ k < 387, FloorType K k) (hgrp : grpOK = true) (horb : or
   constructor
   · intro h6
     obtain ⟨z1, z2, z3, n1, n2, n3, d12, d13, d23, d3, hz⟩ := Red.three_dual labK _ h6
-    obtain ⟨y1, y2, g1, g2, g12, hspan, hf⟩ := framed_of_three hfc3 z1 z2 z3 n1 n2 n3 d12 d13 d23 d3
+    obtain ⟨y1, y2, g1, g2, g12, hspan, hf⟩ := hfc3 z1 z2 z3 n1 n2 n3 d12 d13 d23 d3
     have hz' : ∀ t ∈ rowSupp P j, labK t ⬝ᵥ y1 = 0 ∧ labK t ⬝ᵥ y2 = 0 := fun t ht =>
       hspan _ (hz t ht).1 (hz t ht).2.1 (hz t ht).2.2
     rcases floor_framed hFT hgrp flData horb A B _ hu y1 y2 g1 g2 g12 (dead y1 y2 hz') hdiag hmask Al Bl hA hB
@@ -141,7 +149,7 @@ theorem side (hFT : ∀ k < 387, FloorType K k) (hgrp : grpOK = true) (horb : or
 
 /-- **Main theorem (rank 9).** Every nine-term decoder of a masked rank-9 matrix on P104 costs at least 56. -/
 theorem floor56 (hFT : ∀ k < 387, FloorType K k) (hgrp : grpOK = true) (horb : orbOK flData = true)
-    (hflf : flNoFrame flData = true) (hfc3 : fc3OK = true) (hT2 : T2Pair K flData)
+    (hflf : flNoFrame flData = true) (hfc3 : FC3Prop) (hT2 : T2Pair K flData)
     (A B : ℕ → Fin 9 → K) (hdiag : ∀ x < 104, A x ⬝ᵥ B x ≠ 0)
     (hmask : ∀ x < 104, ∀ y < 104, orth x y = true → A x ⬝ᵥ B y = 0)
     (Al Bl : Matrix (Fin 9) (Fin 104) K) (hA : Al * Matrix.of (fun (v : Fin 104) (i : Fin 9) => A v i) = 1)
