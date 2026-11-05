@@ -167,10 +167,11 @@ theorem perp_of_minors {K : Type*} [Field K] (w : Fin 104 → Fin 8 → K) (S : 
   have hbcard : hbfin.toFinset.card = 8 := by
     have h1 := finrank_span_set_eq_card hbli
     rw [hbtop, finrank_top, Module.finrank_fin_fun] at h1
-    rw [Set.toFinset_card] at h1
+    rw [← Set.ncard_eq_toFinset_card b hbfin, Set.ncard_eq_toFinset_card' b]
     first
     | exact h1.symm
-    | (rw [Set.Finite.card_toFinset, Set.ncard_eq_toFinset_card']; convert h1.symm)
+    | convert h1.symm
+    | (rw [Set.toFinset_card] at h1 ⊢; convert h1.symm)
   let e : Fin 8 ≃ hbfin.toFinset := (Fintype.equivFinOfCardEq (by simp [hbcard])).symm
   have hrow : ∀ i : Fin 8, ∃ t : S, w t = (e i).1 := by
     intro i
