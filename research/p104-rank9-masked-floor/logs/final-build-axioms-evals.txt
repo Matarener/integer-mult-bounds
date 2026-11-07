@@ -1,0 +1,1051 @@
+[     0.0s] START lean_hand RankNine.Final
+[     0.0s] $ nproc; free -g | head -2
+[     0.0s]   4
+[     0.0s]                  total        used        free      shared  buff/cache   available
+[     0.0s]   Mem:              31           0          26           0           4          30
+[     0.1s] exit 0 after 0.1s
+[     0.1s] $ git clone -q --depth 1 -b claude/project-thread-q3efpx https://github.com/Matarener/integer-mult-bounds.git /tmp/imb
+[   123.0s] exit 0 after 123.0s
+[   123.0s] $ git log --oneline -1
+[   123.1s]   7caa6ea3 Final.lean: floor56_hand assembles records, hand Capacity/Biclique/Census(Lemma P)/FC3, T2 orbit records; Main takes FC3Prop
+[   123.1s] exit 0 after 0.0s
+[   123.1s] $ curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh && sh /tmp/elan-init.sh -y --default-toolchain none
+[   123.4s]   info: downloading installer
+[   124.0s] exit 0 after 0.9s
+[   124.0s] $ lake exe cache get
+[   124.5s]   info: downloading https://releases.lean-lang.org/lean4/v4.34.1/lean-4.34.1-linux.tar.zst
+[   131.6s]   info: installing /root/.elan/toolchains/leanprover--lean4---v4.34.1
+[   159.4s]   info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+[   219.5s]   info: mathlib: checking out revision 'd13f23b723b8a846827a245b89c10fc7d3f11612'
+[   219.5s]   ... heartbeat
+[   223.1s]   info: plausible: cloning https://github.com/leanprover-community/plausible
+[   223.6s]   info: plausible: checking out revision '118aa17ee84656b8bd727fef7c458ee8c833385c'
+[   223.6s]   info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+[   224.0s]   info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e6074707'
+[   224.0s]   info: importGraph: cloning https://github.com/leanprover-community/import-graph
+[   224.6s]   info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
+[   224.6s]   info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+[   225.5s]   info: proofwidgets: checking out revision '106ff4fafc74ef4ac99d81dbf3ab399118f497a5'
+[   226.6s]   info: aesop: cloning https://github.com/leanprover-community/aesop
+[   227.5s]   info: aesop: checking out revision '355695d523e41d0554926416cba2a2b3544fbbc9'
+[   227.6s]   info: Qq: cloning https://github.com/leanprover-community/quote4
+[   228.1s]   info: Qq: checking out revision '6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259'
+[   228.2s]   info: batteries: cloning https://github.com/leanprover-community/batteries
+[   232.6s]   info: batteries: checking out revision 'f2effa3d803fda822b1f97b806c47cf2adfbcbc2'
+[   232.7s]   info: Cli: cloning https://github.com/leanprover/lean4-cli
+[   233.1s]   info: Cli: checking out revision 'e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204'
+[   234.0s]   ✔ [4/42] Built Cache.Cli (802ms)
+[   234.2s]   ✔ [5/42] Built Cache.Lean (1.1s)
+[   234.3s]   ✔ [6/42] Built Cache.Env (860ms)
+[   234.3s]   ✔ [7/42] Built Cache.Cli:c.o (333ms)
+[   234.6s]   ✔ [8/42] Built Cache.Lean:c.o (351ms)
+[   234.7s]   ✔ [9/42] Built Cache.Env:c.o (369ms)
+[   235.2s]   ✔ [10/42] Built Cache.Infra (848ms)
+[   235.4s]   ✔ [11/42] Built Batteries.Tactic.OpenPrivate (1.0s)
+[   235.5s]   ✔ [12/42] Built Cache.Infra:c.o (367ms)
+[   237.7s]   ✔ [13/42] Built Batteries.Tactic.OpenPrivate:c.o (2.3s)
+[   237.9s]   ✔ [14/42] Built Cache.IO (2.5s)
+[   239.3s]   ✔ [15/42] Built Cache.Hashing (1.4s)
+[   240.2s]   ✔ [16/42] Built Cache.Hashing:c.o (875ms)
+[   241.2s]   ✔ [17/42] Built Cache.IO:c.o (3.2s)
+[   242.7s]   ✔ [18/42] Built Cache.Requests (3.4s)
+[   243.7s]   ✔ [19/42] Built Cache.Marker (956ms)
+[   243.9s]   ✔ [20/42] Built Cache.Marker:c.o (269ms)
+[   244.9s]   ✔ [21/42] Built Cache.Upload.Dest (1.2s)
+[   245.3s]   ✔ [22/42] Built Cache.Upload.Dest:c.o (341ms)
+[   245.6s]   ✔ [23/42] Built Cache.Query (1.9s)
+[   246.3s]   ✔ [24/42] Built Cache.Query:c.o (728ms)
+[   246.6s]   ✔ [25/42] Built Cache.Upload.Rclone (1.6s)
+[   246.9s]   ✔ [26/42] Built Cache.Upload.Curl (1.6s)
+[   247.0s]   ✔ [27/42] Built Cache.Upload.Rclone:c.o (481ms)
+[   247.3s]   ✔ [28/42] Built Cache.Upload.Curl:c.o (442ms)
+[   248.1s]   ✔ [29/42] Built Cache.Warning (1.8s)
+[   248.5s]   ✔ [30/42] Built Cache.Upload.Azure (1.5s)
+[   248.8s]   ✔ [31/42] Built Cache.Upload.Azure:c.o (317ms)
+[   248.9s]   ✔ [32/42] Built Cache.Warning:c.o (721ms)
+[   249.1s]   ✔ [33/42] Built Cache.Upload.S3 (1.8s)
+[   249.4s]   ✔ [34/42] Built Cache.Requests:c.o (6.6s)
+[   249.7s]   ✔ [35/42] Built Cache.Upload.S3:c.o (623ms)
+[   250.2s]   ✔ [36/42] Built Cache.Upload.Defs (1.1s)
+[   250.4s]   ✔ [37/42] Built Cache.Upload.Defs:c.o (219ms)
+[   251.1s]   ✔ [38/42] Built Cache.Upload (924ms)
+[   251.3s]   ✔ [39/42] Built Cache.Upload:c.o (173ms)
+[   253.1s]   ✔ [40/42] Built Cache.Main (2.0s)
+[   254.8s]   ✔ [41/42] Built Cache.Main:c.o (1.6s)
+[   256.0s]   ✔ [42/42] Built cache:exe (1.2s)
+[   261.3s]   Current branch: HEAD
+[   261.3s]   Using cache from origin: (some leanprover-community/mathlib4)
+[   261.3s]   Attempting to download 8908 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+[   261.4s]   
+[   261.5s]   Downloaded: 1 file(s) [attempted 1/8908 = 0%, 164 KB/s], Decompressed: 0
+[   261.6s]   Downloaded: 90 file(s) [attempted 90/8908 = 1%, 1306 KB/s], Decompressed: 7
+[   261.7s]   Downloaded: 195 file(s) [attempted 195/8908 = 2%, 886 KB/s], Decompressed: 7
+[   261.8s]   Downloaded: 302 file(s) [attempted 302/8908 = 3%, 612 KB/s], Decompressed: 41
+[   261.9s]   Downloaded: 408 file(s) [attempted 408/8908 = 4%, 129 KB/s], Decompressed: 41
+[   262.0s]   Downloaded: 522 file(s) [attempted 522/8908 = 5%, 856 KB/s], Decompressed: 41
+[   262.2s]   Downloaded: 623 file(s) [attempted 623/8908 = 6%, 183 KB/s], Decompressed: 41
+[   262.3s]   Downloaded: 694 file(s) [attempted 694/8908 = 7%, 283 KB/s], Decompressed: 41
+[   262.4s]   Downloaded: 793 file(s) [attempted 793/8908 = 8%, 917 KB/s], Decompressed: 41
+[   262.5s]   Downloaded: 894 file(s) [attempted 894/8908 = 10%, 423 KB/s], Decompressed: 41
+[   262.7s]   Downloaded: 980 file(s) [attempted 980/8908 = 11%, 1028 KB/s], Decompressed: 41
+[   262.8s]   Downloaded: 1046 file(s) [attempted 1046/8908 = 11%, 375 KB/s], Decompressed: 41
+[   262.9s]   Downloaded: 1157 file(s) [attempted 1157/8908 = 12%, 504 KB/s], Decompressed: 41
+[   263.0s]   Downloaded: 1259 file(s) [attempted 1259/8908 = 14%, 4420 KB/s], Decompressed: 41
+[   263.1s]   Downloaded: 1345 file(s) [attempted 1345/8908 = 15%, 1412 KB/s], Decompressed: 41
+[   263.2s]   Downloaded: 1413 file(s) [attempted 1413/8908 = 15%, 798 KB/s], Decompressed: 254
+[   263.4s]   Downloaded: 1519 file(s) [attempted 1519/8908 = 17%, 553 KB/s], Decompressed: 254
+[   263.5s]   Downloaded: 1572 file(s) [attempted 1572/8908 = 17%, 933 KB/s], Decompressed: 254
+[   263.6s]   Downloaded: 1671 file(s) [attempted 1671/8908 = 18%, 336 KB/s], Decompressed: 254
+[   263.7s]   Downloaded: 1773 file(s) [attempted 1773/8908 = 19%, 698 KB/s], Decompressed: 254
+[   263.8s]   Downloaded: 1879 file(s) [attempted 1879/8908 = 21%, 297 KB/s], Decompressed: 254
+[   264.0s]   Downloaded: 1948 file(s) [attempted 1948/8908 = 21%, 447 KB/s], Decompressed: 254
+[   264.1s]   Downloaded: 2045 file(s) [attempted 2045/8908 = 22%, 613 KB/s], Decompressed: 254
+[   264.2s]   Downloaded: 2144 file(s) [attempted 2144/8908 = 24%, 812 KB/s], Decompressed: 254
+[   264.3s]   Downloaded: 2220 file(s) [attempted 2220/8908 = 24%, 286 KB/s], Decompressed: 254
+[   264.4s]   Downloaded: 2294 file(s) [attempted 2294/8908 = 25%, 226 KB/s], Decompressed: 254
+[   264.5s]   Downloaded: 2411 file(s) [attempted 2411/8908 = 27%, 1909 KB/s], Decompressed: 254
+[   264.7s]   Downloaded: 2505 file(s) [attempted 2505/8908 = 28%, 3525 KB/s], Decompressed: 254
+[   264.8s]   Downloaded: 2610 file(s) [attempted 2610/8908 = 29%, 2412 KB/s], Decompressed: 254
+[   264.9s]   Downloaded: 2709 file(s) [attempted 2709/8908 = 30%, 2622 KB/s], Decompressed: 254
+[   265.0s]   Downloaded: 2800 file(s) [attempted 2800/8908 = 31%, 173 KB/s], Decompressed: 254
+[   265.1s]   Downloaded: 2885 file(s) [attempted 2885/8908 = 32%, 704 KB/s], Decompressed: 254
+[   265.2s]   Downloaded: 2982 file(s) [attempted 2982/8908 = 33%, 109 KB/s], Decompressed: 254
+[   265.3s]   Downloaded: 3074 file(s) [attempted 3074/8908 = 34%, 2362 KB/s], Decompressed: 254
+[   265.4s]   Downloaded: 3148 file(s) [attempted 3148/8908 = 35%, 3755 KB/s], Decompressed: 254
+[   265.5s]   Downloaded: 3225 file(s) [attempted 3225/8908 = 36%, 550 KB/s], Decompressed: 254
+[   265.6s]   Downloaded: 3300 file(s) [attempted 3300/8908 = 37%, 545 KB/s], Decompressed: 254
+[   265.7s]   Downloaded: 3404 file(s) [attempted 3404/8908 = 38%, 4403 KB/s], Decompressed: 254
+[   265.8s]   Downloaded: 3462 file(s) [attempted 3462/8908 = 38%, 639 KB/s], Decompressed: 254
+[   265.9s]   Downloaded: 3529 file(s) [attempted 3529/8908 = 39%, 2461 KB/s], Decompressed: 254
+[   266.1s]   Downloaded: 3628 file(s) [attempted 3628/8908 = 40%, 1299 KB/s], Decompressed: 254
+[   266.2s]   Downloaded: 3730 file(s) [attempted 3730/8908 = 41%, 566 KB/s], Decompressed: 254
+[   266.3s]   Downloaded: 3792 file(s) [attempted 3792/8908 = 42%, 78 KB/s], Decompressed: 254
+[   266.4s]   Downloaded: 3891 file(s) [attempted 3891/8908 = 43%, 2437 KB/s], Decompressed: 254
+[   266.5s]   Downloaded: 3993 file(s) [attempted 3993/8908 = 44%, 350 KB/s], Decompressed: 254
+[   266.6s]   Downloaded: 4109 file(s) [attempted 4109/8908 = 46%, 1318 KB/s], Decompressed: 254
+[   266.7s]   Downloaded: 4207 file(s) [attempted 4207/8908 = 47%, 966 KB/s], Decompressed: 254
+[   266.8s]   Downloaded: 4270 file(s) [attempted 4270/8908 = 47%, 889 KB/s], Decompressed: 254
+[   266.9s]   Downloaded: 4386 file(s) [attempted 4386/8908 = 49%, 1044 KB/s], Decompressed: 254
+[   267.1s]   Downloaded: 4521 file(s) [attempted 4521/8908 = 50%, 1680 KB/s], Decompressed: 254
+[   267.2s]   Downloaded: 4606 file(s) [attempted 4606/8908 = 51%, 567 KB/s], Decompressed: 254
+[   267.3s]   Downloaded: 4700 file(s) [attempted 4700/8908 = 52%, 311 KB/s], Decompressed: 254
+[   267.4s]   Downloaded: 4799 file(s) [attempted 4799/8908 = 53%, 6172 KB/s], Decompressed: 254
+[   267.5s]   Downloaded: 4883 file(s) [attempted 4883/8908 = 54%, 336 KB/s], Decompressed: 254
+[   267.7s]   Downloaded: 4989 file(s) [attempted 4989/8908 = 56%, 1917 KB/s], Decompressed: 254
+[   267.8s]   Downloaded: 5054 file(s) [attempted 5054/8908 = 56%, 733 KB/s], Decompressed: 254
+[   267.9s]   Downloaded: 5146 file(s) [attempted 5146/8908 = 57%, 1137 KB/s], Decompressed: 254
+[   268.0s]   Downloaded: 5232 file(s) [attempted 5232/8908 = 58%, 6559 KB/s], Decompressed: 254
+[   268.1s]   Downloaded: 5322 file(s) [attempted 5322/8908 = 59%, 1210 KB/s], Decompressed: 254
+[   268.2s]   Downloaded: 5409 file(s) [attempted 5409/8908 = 60%, 1969 KB/s], Decompressed: 254
+[   268.3s]   Downloaded: 5515 file(s) [attempted 5515/8908 = 61%, 294 KB/s], Decompressed: 254
+[   268.4s]   Downloaded: 5619 file(s) [attempted 5619/8908 = 63%, 801 KB/s], Decompressed: 254
+[   268.5s]   Downloaded: 5738 file(s) [attempted 5738/8908 = 64%, 753 KB/s], Decompressed: 254
+[   268.6s]   Downloaded: 5853 file(s) [attempted 5853/8908 = 65%, 1240 KB/s], Decompressed: 254
+[   268.7s]   Downloaded: 5959 file(s) [attempted 5959/8908 = 66%, 523 KB/s], Decompressed: 254
+[   268.8s]   Downloaded: 6049 file(s) [attempted 6049/8908 = 67%, 722 KB/s], Decompressed: 254
+[   268.9s]   Downloaded: 6128 file(s) [attempted 6128/8908 = 68%, 201 KB/s], Decompressed: 254
+[   269.1s]   Downloaded: 6222 file(s) [attempted 6222/8908 = 69%, 6768 KB/s], Decompressed: 254
+[   269.2s]   Downloaded: 6304 file(s) [attempted 6304/8908 = 70%, 646 KB/s], Decompressed: 254
+[   269.3s]   Downloaded: 6382 file(s) [attempted 6382/8908 = 71%, 1641 KB/s], Decompressed: 254
+[   269.4s]   Downloaded: 6498 file(s) [attempted 6498/8908 = 72%, 246 KB/s], Decompressed: 254
+[   269.5s]   Downloaded: 6570 file(s) [attempted 6570/8908 = 73%, 926 KB/s], Decompressed: 254
+[   269.6s]   Downloaded: 6705 file(s) [attempted 6705/8908 = 75%, 106 KB/s], Decompressed: 254
+[   269.7s]   Downloaded: 6814 file(s) [attempted 6814/8908 = 76%, 3714 KB/s], Decompressed: 254
+[   269.8s]   Downloaded: 6910 file(s) [attempted 6910/8908 = 77%, 1293 KB/s], Decompressed: 254
+[   269.9s]   Downloaded: 6999 file(s) [attempted 6999/8908 = 78%, 325 KB/s], Decompressed: 254
+[   270.0s]   Downloaded: 7072 file(s) [attempted 7072/8908 = 79%, 172 KB/s], Decompressed: 254
+[   270.1s]   Downloaded: 7164 file(s) [attempted 7164/8908 = 80%, 214 KB/s], Decompressed: 254
+[   270.2s]   Downloaded: 7238 file(s) [attempted 7238/8908 = 81%, 381 KB/s], Decompressed: 254
+[   270.3s]   Downloaded: 7354 file(s) [attempted 7354/8908 = 82%, 327 KB/s], Decompressed: 254
+[   270.4s]   Downloaded: 7412 file(s) [attempted 7412/8908 = 83%, 3985 KB/s], Decompressed: 254
+[   270.5s]   Downloaded: 7499 file(s) [attempted 7499/8908 = 84%, 482 KB/s], Decompressed: 254
+[   270.6s]   Downloaded: 7568 file(s) [attempted 7568/8908 = 84%, 443 KB/s], Decompressed: 254
+[   270.7s]   Downloaded: 7668 file(s) [attempted 7668/8908 = 86%, 467 KB/s], Decompressed: 254
+[   270.8s]   Downloaded: 7740 file(s) [attempted 7740/8908 = 86%, 48 KB/s], Decompressed: 254
+[   270.9s]   Downloaded: 7846 file(s) [attempted 7846/8908 = 88%, 1989 KB/s], Decompressed: 254
+[   271.1s]   Downloaded: 7962 file(s) [attempted 7962/8908 = 89%, 2649 KB/s], Decompressed: 1411
+[   271.2s]   Downloaded: 8036 file(s) [attempted 8036/8908 = 90%, 636 KB/s], Decompressed: 1411
+[   271.3s]   Downloaded: 8136 file(s) [attempted 8136/8908 = 91%, 4013 KB/s], Decompressed: 1411
+[   271.4s]   Downloaded: 8211 file(s) [attempted 8211/8908 = 92%, 2784 KB/s], Decompressed: 1411
+[   271.5s]   Downloaded: 8317 file(s) [attempted 8317/8908 = 93%, 7548 KB/s], Decompressed: 1411
+[   271.6s]   Downloaded: 8377 file(s) [attempted 8377/8908 = 94%, 3200 KB/s], Decompressed: 1411
+[   271.8s]   Downloaded: 8476 file(s) [attempted 8476/8908 = 95%, 509 KB/s], Decompressed: 1411
+[   271.9s]   Downloaded: 8575 file(s) [attempted 8575/8908 = 96%, 199 KB/s], Decompressed: 1411
+[   272.0s]   Downloaded: 8652 file(s) [attempted 8652/8908 = 97%, 428 KB/s], Decompressed: 1411
+[   272.1s]   Downloaded: 8747 file(s) [attempted 8747/8908 = 98%, 163 KB/s], Decompressed: 1411
+[   272.2s]   Downloaded: 8807 file(s) [attempted 8807/8908 = 98%, 777 KB/s], Decompressed: 1411
+[   272.2s]   Downloaded: 8908 file(s) [attempted 8908/8908 = 100%, 777 KB/s], Decompressed: 1411
+[   343.8s]   Decompressed 8908 file(s)
+[   343.8s]   ... heartbeat
+[   343.8s]   Already decompressed 8908 file(s)
+[   343.9s] exit 0 after 219.9s
+[   344.7s] cache ['/kaggle/input/notebooks/matare/p104-rank9-lean-st3/lake-build.tgz']
+[   344.7s] $ tar xzf /kaggle/input/notebooks/matare/p104-rank9-lean-st3/lake-build.tgz -C /tmp/imb/research/p104-rank9-masked-floor/lean
+[   353.1s] exit 0 after 8.4s
+[   353.1s] $ lake build RankNine.Final
+[   364.5s]   ⚠ [8938/9024] Replayed RankNine.Packed
+[   364.5s]   warning: RankNine/Packed.lean:132:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Packed.lean:144:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/Packed.lean:145:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Packed.lean:149:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/Packed.lean:151:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/Packed.lean:154:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Packed.lean:157:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Packed.lean:159:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/Packed.lean:160:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Packed.lean:248:6: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Packed.lean:249:6: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Packed.lean:248:6: Unused tactic linter: `exact zpow_natCast a 2` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Packed.lean:249:6: Unused tactic linter: `norm_cast` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Packed.lean:263:6: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Packed.lean:264:6: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Packed.lean:263:6: Unused tactic linter: `exact zpow_natCast a 2` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Packed.lean:264:6: Unused tactic linter: `norm_cast` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   ⚠ [8941/9024] Replayed RankNine.Signs
+[   364.5s]   warning: RankNine/Signs.lean:73:55: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Signs.lean:73:55: Unused tactic linter: `rfl` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Signs.lean:88:0: automatically included section variable(s) unused in theorem `RankNine.magN_le`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/Signs.lean:90:0: automatically included section variable(s) unused in theorem `RankNine.magN_of_sq`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/Signs.lean:151:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[   364.5s]   warning: RankNine/Signs.lean:248:55: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/Signs.lean:252:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Signs.lean:381:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   ⚠ [8942/9024] Replayed RankNine.Step5
+[   364.5s]   warning: RankNine/Step5.lean:182:24: Unused tactic linter: `(try simp_wf)` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Step5.lean:205:24: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+[   364.5s]   warning: RankNine/Step5.lean:294:0: automatically included section variable(s) unused in theorem `RankNine.nt_N`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   ⚠ [8943/9024] Replayed RankNine.Gram
+[   364.5s]   warning: RankNine/Gram.lean:143:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   ⚠ [8944/9024] Replayed RankNine.Rows
+[   364.5s]   warning: RankNine/Rows.lean:145:23: This simp argument is unused:
+[   364.5s]     Finset.sum_ite_eq
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp only [sum_dotProduct, dotProduct_sum, smul_dotProduct, dotProduct_smul, smul_eq_mul, frame_rho_dot,
+[   364.5s]       mul_ite, mul_zero, Finset.sum_ite_eq', Finset.mem_univ, ↓reduceIte]
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   ⚠ [8945/9024] Replayed RankNine.RankCert
+[   364.5s]   warning: RankNine/RankCert.lean:71:46: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/RankCert.lean:76:22: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   ⚠ [8948/9024] Replayed BForm.MJ
+[   364.5s]   warning: BForm/MJ.lean:30:4: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   ⚠ [8950/9024] Replayed BForm.YZero
+[   364.5s]   warning: BForm/YZero.lean:57:91: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   ⚠ [8953/9024] Replayed BForm.CaseIIGen
+[   364.5s]   warning: BForm/CaseIIGen.lean:67:91: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   ⚠ [8957/9024] Replayed BForm.E8h.Cert
+[   364.5s]   warning: BForm/E8h/Cert.lean:65:23: this constant has no effect on the linear combination; it can be dropped from the term
+[   364.5s]   ⚠ [8958/9024] Replayed BForm.E8.Normal
+[   364.5s]   warning: BForm/E8/Normal.lean:47:2: Try this:
+[   364.5s]     haveI̵
+[   364.5s]   
+[   364.5s]   The goal is a proposition, so `have` is preferred over `haveI`.
+[   364.5s]   The difference between `have` and `haveI` is that `haveI` inlines the value.
+[   364.5s]   But this is not relevant for proofs because of proof irrelevance.
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[   364.5s]   ⚠ [8959/9024] Replayed BForm.E8.Bridge
+[   364.5s]   warning: BForm/E8/Bridge.lean:64:0: automatically included section variable(s) unused in theorem `BForm.E8.frame_id`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:239:37: This simp argument is unused:
+[   364.5s]     all_range
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp only [ptOK, Bool.and_eq_true, beq_iff_eq, List.all_eq_true, List.any_eq_true, List.mem_range] at h
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:243:0: automatically included section variable(s) unused in theorem `BForm.E8.dotK_cast`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:247:0: automatically included section variable(s) unused in theorem `BForm.E8.pt_span`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:268:0: automatically included section variable(s) unused in theorem `BForm.E8.nOK_spec`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:268:8: Overlapping instance parameters in `nOK_spec`:
+[   364.5s]   
+[   364.5s]   ⚠️ There are 2 `[CharZero K]` instances; one is sufficient.
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:303:0: automatically included section variable(s) unused in theorem `BForm.E8.cls_dot`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:303:30: Variable name `hp` is not explicitly referenced.
+[   364.5s]   
+[   364.5s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[   364.5s]     [apply] _hp
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[   364.5s]   warning: BForm/E8/Bridge.lean:303:8: Overlapping instance parameters in `cls_dot`:
+[   364.5s]   
+[   364.5s]   ⚠️ There are 2 `[CharZero K]` instances; one is sufficient.
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+[   364.5s]   ⚠ [8962/9024] Replayed BForm.E8h.Dom
+[   364.5s]   warning: BForm/E8h/Dom.lean:68:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: BForm/E8h/Dom.lean:74:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   ⚠ [8963/9024] Replayed BForm.E8h.RootH
+[   364.5s]   warning: BForm/E8h/RootH.lean:66:60: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[   364.5s]   ⚠ [8976/9024] Replayed BForm.E8h.SpanH
+[   364.5s]   warning: BForm/E8h/SpanH.lean:181:60: This simp argument is unused:
+[   364.5s]     bne_iff_ne
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp only [Bool.and_eq_true, beq_iff_eq, Bool.or_eq_true, ne_eq] at h2
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: BForm/E8h/SpanH.lean:181:72: This simp argument is unused:
+[   364.5s]     ne_eq
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp only [Bool.and_eq_true, beq_iff_eq, Bool.or_eq_true, bne_iff_ne] at h2
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: BForm/E8h/SpanH.lean:203:29: Variable name `ha` is not explicitly referenced.
+[   364.5s]   
+[   364.5s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[   364.5s]     [apply] _ha
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[   364.5s]   warning: BForm/E8h/SpanH.lean:203:44: Variable name `hb` is not explicitly referenced.
+[   364.5s]   
+[   364.5s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[   364.5s]     [apply] _hb
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[   364.5s]   warning: BForm/E8h/SpanH.lean:223:35: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: BForm/E8h/SpanH.lean:223:45: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   warning: BForm/E8h/SpanH.lean:223:35: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: BForm/E8h/SpanH.lean:223:45: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   ⚠ [8987/9024] Replayed RankNine.Zero
+[   364.5s]   warning: RankNine/Zero.lean:45:4: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:45:4: Unused tactic linter: `(simp only [Nat.testBit_xor, Nat.testBit_land];
+[   364.5s]     cases P.testBit i <;> cases F.testBit i <;> rfl)` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:50:4: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:51:4: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:50:4: Unused tactic linter: `exact Nat.testBit_lor x y i` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:51:4: Unused tactic linter: `simp` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:162:40: This simp argument is unused:
+[   364.5s]     bit_zero
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp at h
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: RankNine/Zero.lean:219:77: Variable name `hw` is not explicitly referenced.
+[   364.5s]   
+[   364.5s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[   364.5s]     [apply] _hw
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[   364.5s]   warning: RankNine/Zero.lean:230:12: This simp argument is unused:
+[   364.5s]     bit_zero
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp at hi
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: RankNine/Zero.lean:276:66: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:277:73: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:279:4: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:276:5: Unused tactic linter: `rw [Nat.testBit_to_div_mod, ← Nat.shiftRight_eq_div_pow, h]` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:276:66: Unused tactic linter: `rfl` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:277:5: Unused tactic linter: `simp only [Nat.testBit_to_div_mod, ← Nat.shiftRight_eq_div_pow, h]` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:277:73: Unused tactic linter: `rfl` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:279:4: Unused tactic linter: `(simp [Nat.testBit_to_div_mod, Nat.shiftRight_eq_div_pow] at h ⊢; omega)` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Zero.lean:322:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Zero.lean:322:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/Zero.lean:322:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   ⚠ [8988/9024] Replayed RankNine.T2Close
+[   364.5s]   warning: RankNine/T2Close.lean:39:12: This simp argument is unused:
+[   364.5s]     List.filter_cons
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp [h, ih, mul_assoc]
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: RankNine/T2Close.lean:40:12: This simp argument is unused:
+[   364.5s]     List.filter_cons
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp [h, ih]
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: RankNine/T2Close.lean:138:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:138:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:138:33: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:142:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:142:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:142:33: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:431:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:431:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:432:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:432:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:441:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:442:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:474:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:475:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:488:26: Variable name `hr` is not explicitly referenced.
+[   364.5s]   
+[   364.5s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[   364.5s]     [apply] _hr
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[   364.5s]   warning: RankNine/T2Close.lean:578:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:669:28: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:669:50: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:670:28: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:670:50: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:680:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:686:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:691:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:696:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:709:11: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:709:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:732:11: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:732:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:745:11: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:745:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:756:11: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Close.lean:756:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Close.lean:764:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   ⚠ [8989/9024] Replayed RankNine.T2Gauge
+[   364.5s]   warning: RankNine/T2Gauge.lean:29:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:29:27: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:30:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:30:27: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:42:21: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:45:23: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:46:23: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:46:46: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:47:41: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:50:23: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:50:56: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:51:23: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: RankNine/T2Gauge.lean:144:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   ⚠ [8990/9024] Replayed RankNine.T2Glue
+[   364.5s]   warning: RankNine/T2Glue.lean:54:0: automatically included section variable(s) unused in theorem `RankNine.T2.orthB_M`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T2Glue.lean:105:19: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/T2Glue.lean:105:19: Unused tactic linter: `ring` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/T2Glue.lean:114:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Glue.lean:113:0: automatically included section variable(s) unused in theorem `RankNine.T2.sv_two`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T2Glue.lean:117:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Glue.lean:116:0: automatically included section variable(s) unused in theorem `RankNine.T2.sv_two_one`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T2Glue.lean:124:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Glue.lean:119:0: automatically included section variable(s) unused in theorem `RankNine.T2.vM_edge`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T2Glue.lean:148:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Glue.lean:171:6: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/T2Glue.lean:171:6: Unused tactic linter: `linear_combination
+[   364.5s]     (Mx A B t b * Mx A B b s * Mx A B a a) * hGK - (gam t b * gam b s * gam a a) * hrel` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/T2Glue.lean:220:25: Variable name `EI` is not explicitly referenced.
+[   364.5s]   
+[   364.5s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[   364.5s]     [apply] _EI
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[   364.5s]   ⚠ [8991/9024] Replayed RankNine.RuleC
+[   364.5s]   warning: RankNine/RuleC.lean:65:0: automatically included section variable(s) unused in theorem `RankNine.T2.rule_c_alg`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/RuleC.lean:203:0: automatically included section variable(s) unused in theorem `RankNine.T2.rp_opp`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   ⚠ [8993/9024] Replayed RankNine.PartialFrame
+[   364.5s]   warning: RankNine/PartialFrame.lean:90:16: `linearIndependent_fin_cons` has been deprecated: Use `linearIndependent_finCons` instead
+[   364.5s]   ⚠ [8994/9024] Replayed RankNine.T2Exp
+[   364.5s]   warning: RankNine/T2Exp.lean:44:0: automatically included section variable(s) unused in theorem `RankNine.T2.frame_facts`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T2Exp.lean:103:0: automatically included section variable(s) unused in theorem `RankNine.T2.B_ne_zero`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   ⚠ [8995/9024] Replayed RankNine.T2Zero
+[   364.5s]   warning: RankNine/T2Zero.lean:38:0: automatically included section variable(s) unused in theorem `RankNine.T2.zSem_z`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T2Zero.lean:42:0: automatically included section variable(s) unused in theorem `RankNine.T2.zSem_p`:
+[   364.5s]     [CharZero K]
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T2Zero.lean:58:24: This simp argument is unused:
+[   364.5s]     bit_zero
+[   364.5s]   
+[   364.5s]   Hint: Omit it from the simp argument list.
+[   364.5s]     [apply] simp [bmask]
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.5s]   warning: RankNine/T2Zero.lean:206:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:206:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:217:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:221:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:221:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:224:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:224:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:227:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:229:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:229:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:230:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:230:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:233:10: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.5s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.5s]   ```
+[   364.5s]   open Lean.Parser.Tactic in
+[   364.5s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.5s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.5s]   ```
+[   364.5s]   warning: RankNine/T2Zero.lean:237:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:237:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:240:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:240:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:253:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:256:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:259:57: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:268:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.5s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.5s]   ```
+[   364.5s]   open Lean.Parser.Tactic in
+[   364.5s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.5s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.5s]   ```
+[   364.5s]   warning: RankNine/T2Zero.lean:270:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:270:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:273:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:273:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:288:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:293:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:294:112: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:311:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.5s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.5s]   ```
+[   364.5s]   open Lean.Parser.Tactic in
+[   364.5s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.5s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.5s]   ```
+[   364.5s]   warning: RankNine/T2Zero.lean:313:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:313:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:315:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:318:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:318:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:324:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:324:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:324:28: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T2Zero.lean:324:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   ⚠ [8996/9024] Replayed RankNine.T1Tab
+[   364.5s]   warning: RankNine/T1Tab.lean:51:0: automatically included section variable(s) unused in theorem `RankNine.T2.t1Frames_get`:
+[   364.5s]     [CharZero K]
+[   364.5s]     hdiag
+[   364.5s]     hmask
+[   364.5s]     hu0
+[   364.5s]     hu
+[   364.5s]   consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+[   364.5s]     omit [CharZero K] hdiag hmask hu0 hu in theorem ...
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[   364.5s]   warning: RankNine/T1Tab.lean:64:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T1Tab.lean:64:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T1Tab.lean:75:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   warning: RankNine/T1Tab.lean:84:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.5s]   warning: RankNine/T1Tab.lean:84:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.5s]   ⚠ [8998/9024] Replayed RankNine.T2PairStep
+[   364.5s]   warning: RankNine/T2PairStep.lean:44:21: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/T2PairStep.lean:44:42: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/T2PairStep.lean:44:21: Unused tactic linter: `(field_simp; done)` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/T2PairStep.lean:44:42: Unused tactic linter: `(field_simp; ring)` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   ⚠ [8999/9024] Replayed RankNine.Census
+[   364.5s]   warning: RankNine/Census.lean:69:6: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Census.lean:69:6: Unused tactic linter: `simpa [Matrix.mulVec, dotProduct] using this` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Census.lean:158:6: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Census.lean:158:6: Unused tactic linter: `simp [Finset.sum_boole]` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Census.lean:206:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.5s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.5s]   ```
+[   364.5s]   open Lean.Parser.Tactic in
+[   364.5s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.5s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.5s]   ```
+[   364.5s]   warning: RankNine/Census.lean:220:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.5s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.5s]   ```
+[   364.5s]   open Lean.Parser.Tactic in
+[   364.5s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.5s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.5s]   ```
+[   364.5s]   warning: RankNine/Census.lean:252:29: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   warning: RankNine/Census.lean:255:29: `if_true` has been deprecated: Use `ite_true` instead
+[   364.5s]   warning: RankNine/Census.lean:255:38: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: RankNine/Census.lean:261:27: `if_false` has been deprecated: Use `ite_false` instead
+[   364.5s]   warning: RankNine/Census.lean:269:54: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Census.lean:269:61: this tactic is never executed
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.5s]   warning: RankNine/Census.lean:269:54: Unused tactic linter: `simp` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.5s]   warning: RankNine/Census.lean:269:61: Unused tactic linter: `decide` does nothing
+[   364.5s]   
+[   364.5s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   ⚠ [9001/9024] Replayed RankNine.Glue
+[   364.6s]   warning: RankNine/Glue.lean:85:29: This simp argument is unused:
+[   364.6s]     Pi.sub_apply
+[   364.6s]   
+[   364.6s]   Hint: Omit it from the simp argument list.
+[   364.6s]     [apply] simp only [Pi.add_apply, Pi.smul_apply, smul_eq_mul, Pi.zero_apply] at q1 q2 q3 q4 ⊢
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.6s]   ⚠ [9008/9024] Replayed RankNine.Transport
+[   364.6s]   warning: RankNine/Transport.lean:56:6: Variable name `x` is not explicitly referenced.
+[   364.6s]   
+[   364.6s]   Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+[   364.6s]     [apply] _x
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[   364.6s]   ⚠ [9009/9024] Replayed RankNine.Facts
+[   364.6s]   warning: RankNine/Facts.lean:36:24: This simp argument is unused:
+[   364.6s]     bit_zero
+[   364.6s]   
+[   364.6s]   Hint: Omit it from the simp argument list.
+[   364.6s]     [apply] simp [lmask]
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.6s]   warning: RankNine/Facts.lean:71:51: `Fin.coe_cast` has been deprecated: Use `Fin.val_cast` instead
+[   364.6s]   warning: RankNine/Facts.lean:73:30: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/Facts.lean:73:30: Unused tactic linter: `simp [List.getElem?_range, h1, *]` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   ⚠ [9010/9024] Replayed RankNine.FactsC3
+[   364.6s]   warning: RankNine/FactsC3.lean:35:4: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:35:4: Unused tactic linter: `simp [hn]` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:127:73: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:127:82: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:128:73: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:128:82: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:127:73: Unused tactic linter: `decide` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:127:82: Unused tactic linter: `simp [zl, zero9]` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:128:73: Unused tactic linter: `decide` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/FactsC3.lean:128:82: Unused tactic linter: `simp [zl, zero9]` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   ⚠ [9011/9024] Replayed RankNine.Main
+[   364.6s]   warning: RankNine/Main.lean:160:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   ⚠ [9012/9024] Replayed RankNine.T1Pin
+[   364.6s]   warning: RankNine/T1Pin.lean:68:33: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/T1Pin.lean:68:25: Unused tactic linter: `done` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/T1Pin.lean:68:33: Unused tactic linter: `(field_simp; ring)` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   ⚠ [9013/9024] Replayed RankNine.T1Stage3
+[   364.6s]   warning: RankNine/T1Stage3.lean:156:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:157:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:161:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:162:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:185:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:245:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:249:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   warning: RankNine/T1Stage3.lean:247:35: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/T1Stage3.lean:247:27: Unused tactic linter: `done` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/T1Stage3.lean:247:35: Unused tactic linter: `(field_simp; ring)` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/T1Stage3.lean:323:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:323:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:334:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:343:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:343:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:508:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:511:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T1Stage3.lean:588:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   ⚠ [9014/9024] Replayed RankNine.T2Hand
+[   364.6s]   warning: RankNine/T2Hand.lean:63:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T2Hand.lean:66:33: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/T2Hand.lean:66:25: Unused tactic linter: `done` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/T2Hand.lean:66:33: Unused tactic linter: `(field_simp; ring)` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   ⚠ [9016/9024] Replayed RankNine.T2Sym
+[   364.6s]   warning: RankNine/T2Sym.lean:220:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.6s]   warning: RankNine/T2Sym.lean:223:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+[   364.6s]   warning: RankNine/T2Sym.lean:352:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+[   364.6s]   ⚠ [9020/9024] Replayed RankNine.Cap6Hand
+[   364.6s]   warning: RankNine/Cap6Hand.lean:106:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   ⚠ [9023/9024] Replayed RankNine.LPHand
+[   364.6s]   warning: RankNine/LPHand.lean:110:75: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:110:75: Unused tactic linter: `omega` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:117:6: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
+[   364.6s]   warning: RankNine/LPHand.lean:166:2: Try this:
+[   364.6s]     haveI̵
+[   364.6s]   
+[   364.6s]   The goal is a proposition, so `have` is preferred over `haveI`.
+[   364.6s]   The difference between `have` and `haveI` is that `haveI` inlines the value.
+[   364.6s]   But this is not relevant for proofs because of proof irrelevance.
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+[   364.6s]   warning: RankNine/LPHand.lean:173:6: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:174:6: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:177:56: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:177:73: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:173:6: Unused tactic linter: `convert h1.symm` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:174:6: Unused tactic linter: `(rw [Set.toFinset_card] at h1 ⊢; convert h1.symm)` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:177:56: Unused tactic linter: `simpa using hn` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:177:73: Unused tactic linter: `simp [hbcard, hn]` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:279:27: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:279:61: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:279:27: Unused tactic linter: `(simp [jv, dotProduct]; decide)` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:279:61: Unused tactic linter: `rfl` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:380:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   warning: RankNine/LPHand.lean:512:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   warning: RankNine/LPHand.lean:555:30: This simp argument is unused:
+[   364.6s]     beq_iff_eq
+[   364.6s]   
+[   364.6s]   Hint: Omit it from the simp argument list.
+[   364.6s]     [apply] simp only [Bool.or_eq_true, decide_eq_true_eq] at ha1
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.6s]   warning: RankNine/LPHand.lean:572:49: This simp argument is unused:
+[   364.6s]     eq_self_iff_true
+[   364.6s]   
+[   364.6s]   Hint: Omit it from the simp argument list.
+[   364.6s]     [apply] simp only [mem_filter, mem_univ, true_and, and_true] at ht
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[   364.6s]   warning: RankNine/LPHand.lean:568:4: Unused tactic linter: `beta_reduce  at e1` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:628:4: Unused tactic linter: `beta_reduce  at e2` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:764:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   warning: RankNine/LPHand.lean:919:8: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:920:8: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:919:8: Unused tactic linter: `exact Finset.card_biUnion (fun ⦃k⦄ hk ⦃l⦄ hl hkl => hdisj k hk l hl hkl)` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:920:8: Unused tactic linter: `exact Finset.card_biUnion (by intro k hk l hl hkl; exact hdisj k hk l hl hkl)` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:941:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   warning: RankNine/LPHand.lean:1005:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   warning: RankNine/LPHand.lean:1019:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+[   364.6s]   If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+[   364.6s]   ```
+[   364.6s]   open Lean.Parser.Tactic in
+[   364.6s]   macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+[   364.6s]     `(tactic| push $cfg:optConfig Not $[$loc]?)
+[   364.6s]   ```
+[   364.6s]   warning: RankNine/LPHand.lean:1051:29: `if_true` has been deprecated: Use `ite_true` instead
+[   364.6s]   warning: RankNine/LPHand.lean:1054:29: `if_true` has been deprecated: Use `ite_true` instead
+[   364.6s]   warning: RankNine/LPHand.lean:1054:38: `if_false` has been deprecated: Use `ite_false` instead
+[   364.6s]   warning: RankNine/LPHand.lean:1060:27: `if_false` has been deprecated: Use `ite_false` instead
+[   364.6s]   warning: RankNine/LPHand.lean:1068:54: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:1068:61: this tactic is never executed
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:1068:54: Unused tactic linter: `simp` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.6s]   warning: RankNine/LPHand.lean:1068:61: Unused tactic linter: `decide` does nothing
+[   364.6s]   
+[   364.6s]   Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[   364.8s]   Build completed successfully (9024 jobs).
+[   364.9s] exit 0 after 11.8s
+[   364.9s] MOD RankNine.Final OK
+[   364.9s] $ lake env lean AxiomsH.lean
+[   374.2s]   'RankNine.Final.floor56_hand' depends on axioms: [propext, Classical.choice, Quot.sound]
+[   374.2s]   'RankNine.LP.censusFact_P104' depends on axioms: [propext, Classical.choice, Quot.sound]
+[   374.2s]   'RankNine.Facts.framed_of_three_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+[   374.6s] exit 0 after 9.7s
+[   374.6s] $ lake env lean FactsEval.lean
+[  6142.0s]   1152
+[  6142.0s]   ... heartbeat
+[  6142.0s]   true
+[  6142.0s]   true
+[  6142.0s]   true
+[  6142.0s]   true
+[  6143.8s] exit 0 after 5769.3s
+[  6143.8s] EVAL FactsEval.lean OK
+[  6143.8s] $ lake env lean FC3Check.lean
+[  6215.9s]   "FC3FW 512 true"
+[  6215.9s]   ... heartbeat
+[  6216.4s] exit 0 after 72.6s
+[  6216.4s] EVAL FC3Check.lean OK
+[  6216.4s] $ lake env lean LPCheck.lean
+[  7246.9s]   "T1XOK true"
+[  7246.9s]   ... heartbeat
+[  7247.4s] exit 0 after 1031.0s
+[  7247.4s] EVAL LPCheck.lean OK
+[  7247.4s] $ lake env lean Cap6Check.lean
+[  7294.4s]   "CAP6OK true"
+[  7294.8s] exit 0 after 47.4s
+[  7294.8s] EVAL Cap6Check.lean OK
+[  7294.8s] $ tar czf /kaggle/working/lake-build.tgz -C /tmp/imb/research/p104-rank9-masked-floor/lean .lake/build
+[  7311.4s] exit 0 after 16.6s
+[  7311.4s] ALL OK

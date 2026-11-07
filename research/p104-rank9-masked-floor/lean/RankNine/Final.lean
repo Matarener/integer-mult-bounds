@@ -11,8 +11,8 @@ set_option linter.unusedSectionVars false
 
 All BForm facts are Lean theorems here: `Capacity` (`capacity_P104`), `BicliqueFact` (`biclique_P104`),
 `CensusFact` (`LP.censusFact_P104`, Lemma P "no six" by hand from the type-1 table `t1xOK`), FC3
-(`framed_of_three_h`, witness table `fwOK`).  The remaining hypotheses are **finite tables**, each checked by `#eval`
-and by an independent Python checker with a log (Internal `rank9-p104-2026-10-29`):
+(`framed_of_three_h`, witness table `fwOK`).  The remaining hypotheses are **finite tables**.  Each is evaluated by
+`#eval` (logs in `../logs/`, see `../README.md`); the records are produced by the scripts in `../gen/records/`:
 * `hrec`: for each of the 387 framed types, a T1 record + T3 record (ordinary types) or a stage-3 record + T3 record
   (hard types);
 * `grpOK`, `orbOK flData`, `flNoFrame flData` (the group of order 384, the frameless orbit list);
